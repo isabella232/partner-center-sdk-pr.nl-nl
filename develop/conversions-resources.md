@@ -1,0 +1,55 @@
+---
+title: Conversie resources
+description: Meer informatie over het gebruik van de API-conversie bronnen van partner Center om een proef abonnement te converteren naar een betaald abonnement.
+ms.date: 05/23/2019
+ms.service: partner-dashboard
+ms.subservice: partnercenter-sdk
+ms.openlocfilehash: d3ade5a5af76e7c637962b6bfe076ac806f337bf
+ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "97767617"
+---
+# <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a><span data-ttu-id="e8872-103">Conversie resources om proef abonnementen te converteren naar betaald</span><span class="sxs-lookup"><span data-stu-id="e8872-103">Conversion resources to convert trial subscriptions to paid</span></span>
+
+<span data-ttu-id="e8872-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="e8872-104">**Applies to:**</span></span>
+
+- <span data-ttu-id="e8872-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="e8872-105">Partner Center</span></span>
+- <span data-ttu-id="e8872-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="e8872-106">Partner Center operated by 21Vianet</span></span>
+- <span data-ttu-id="e8872-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="e8872-107">Partner Center for Microsoft Cloud Germany</span></span>
+- <span data-ttu-id="e8872-108">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="e8872-108">Partner Center for Microsoft Cloud for US Government</span></span>
+
+<span data-ttu-id="e8872-109">Conversie resources ondersteunen de conversie van een proef abonnement op een betaald abonnement.</span><span class="sxs-lookup"><span data-stu-id="e8872-109">Conversion resources support the conversion of a trial subscription to a paid subscription.</span></span>
+
+## <a name="conversion"></a><span data-ttu-id="e8872-110">Conversie</span><span class="sxs-lookup"><span data-stu-id="e8872-110">Conversion</span></span>
+
+<span data-ttu-id="e8872-111">Bevat informatie die wordt gebruikt om een proef abonnement te converteren naar een betaald abonnement.</span><span class="sxs-lookup"><span data-stu-id="e8872-111">Contains information used to convert a trial subscription to a paid subscription.</span></span>
+
+| <span data-ttu-id="e8872-112">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="e8872-112">Property</span></span> | <span data-ttu-id="e8872-113">Type</span><span class="sxs-lookup"><span data-stu-id="e8872-113">Type</span></span> | <span data-ttu-id="e8872-114">Description</span><span class="sxs-lookup"><span data-stu-id="e8872-114">Description</span></span> |
+| -------- | ---- | ----------- |
+| <span data-ttu-id="e8872-115">offerId</span><span class="sxs-lookup"><span data-stu-id="e8872-115">offerId</span></span> | <span data-ttu-id="e8872-116">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-116">string</span></span> | <span data-ttu-id="e8872-117">De aanbiedings-id van de oorspronkelijke, proef versie van de aanbieding.</span><span class="sxs-lookup"><span data-stu-id="e8872-117">The offer identifier of the original, trial offer.</span></span> |
+| <span data-ttu-id="e8872-118">targetOfferId</span><span class="sxs-lookup"><span data-stu-id="e8872-118">targetOfferId</span></span> | <span data-ttu-id="e8872-119">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-119">string</span></span> | <span data-ttu-id="e8872-120">De aanbiedings-id voor de doel aanbieding.</span><span class="sxs-lookup"><span data-stu-id="e8872-120">The offer identifier for the target offer.</span></span> |
+| <span data-ttu-id="e8872-121">Velden</span><span class="sxs-lookup"><span data-stu-id="e8872-121">orderId</span></span> | <span data-ttu-id="e8872-122">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-122">string</span></span> | <span data-ttu-id="e8872-123">De order-id.</span><span class="sxs-lookup"><span data-stu-id="e8872-123">The order identifier.</span></span> |
+| <span data-ttu-id="e8872-124">quantity</span><span class="sxs-lookup"><span data-stu-id="e8872-124">quantity</span></span> | <span data-ttu-id="e8872-125">int</span><span class="sxs-lookup"><span data-stu-id="e8872-125">int</span></span> | <span data-ttu-id="e8872-126">Het aantal licenties.</span><span class="sxs-lookup"><span data-stu-id="e8872-126">The number of licenses.</span></span> <span data-ttu-id="e8872-127">De standaard waarde is het aantal licenties in het proef abonnement.</span><span class="sxs-lookup"><span data-stu-id="e8872-127">The default is the number of licenses in the trial subscription.</span></span> |
+| <span data-ttu-id="e8872-128">billingCycle</span><span class="sxs-lookup"><span data-stu-id="e8872-128">billingCycle</span></span> | <span data-ttu-id="e8872-129">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-129">string</span></span> | <span data-ttu-id="e8872-130">Hiermee wordt aangegeven hoe vaak de partner in rekening wordt gebracht voor het abonnement.</span><span class="sxs-lookup"><span data-stu-id="e8872-130">Indicates how often the partner is charged for the subscription.</span></span> <span data-ttu-id="e8872-131">Mogelijke waarden: **maandelijks** (de partner wordt maandelijks gefactureerd), **jaarlijks** (partner wordt per jaar gefactureerd) of **geen** (partner wordt niet in rekening gebracht.</span><span class="sxs-lookup"><span data-stu-id="e8872-131">Possible values: **Monthly** (partner is billed monthly), **Annual** (partner is billed annually), or **None** (Partner isn't billed.</span></span> <span data-ttu-id="e8872-132">Gebruikt voor proef abonnementen).</span><span class="sxs-lookup"><span data-stu-id="e8872-132">Used for trial subscriptions).</span></span> |
+
+## <a name="conversionerror"></a><span data-ttu-id="e8872-133">ConversionError</span><span class="sxs-lookup"><span data-stu-id="e8872-133">ConversionError</span></span>
+
+<span data-ttu-id="e8872-134">Duidt op een fout die is opgetreden tijdens de conversie.</span><span class="sxs-lookup"><span data-stu-id="e8872-134">Represents an error that occurred during conversion.</span></span>
+
+| <span data-ttu-id="e8872-135">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="e8872-135">Property</span></span> | <span data-ttu-id="e8872-136">Type</span><span class="sxs-lookup"><span data-stu-id="e8872-136">Type</span></span> | <span data-ttu-id="e8872-137">Description</span><span class="sxs-lookup"><span data-stu-id="e8872-137">Description</span></span> |
+| -------- | ---- | ----------- |
+| <span data-ttu-id="e8872-138">code</span><span class="sxs-lookup"><span data-stu-id="e8872-138">code</span></span> | <span data-ttu-id="e8872-139">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-139">string</span></span> | <span data-ttu-id="e8872-140">De fout code die is gekoppeld aan het probleem.</span><span class="sxs-lookup"><span data-stu-id="e8872-140">The error code associated with the issue.</span></span> <span data-ttu-id="e8872-141">Mogelijke waarden: **other** (algemene fout), **ConversionsNotFound** (kan geen conversies vinden voor het proef abonnement om te converteren naar).</span><span class="sxs-lookup"><span data-stu-id="e8872-141">Possible values: **Other** (general error), **ConversionsNotFound** (can't find any conversions for the trial subscription to convert to).</span></span>
+| <span data-ttu-id="e8872-142">beschrijving</span><span class="sxs-lookup"><span data-stu-id="e8872-142">description</span></span> | <span data-ttu-id="e8872-143">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-143">string</span></span> | <span data-ttu-id="e8872-144">De beschrijvende tekst die het probleem beschrijft.</span><span class="sxs-lookup"><span data-stu-id="e8872-144">The friendly text describing the issue.</span></span> |
+
+## <a name="conversionresult"></a><span data-ttu-id="e8872-145">ConversionResult</span><span class="sxs-lookup"><span data-stu-id="e8872-145">ConversionResult</span></span>
+
+<span data-ttu-id="e8872-146">Hiermee wordt het resultaat van het uitvoeren van een abonnements conversie aangegeven.</span><span class="sxs-lookup"><span data-stu-id="e8872-146">Represents the result of performing a subscription conversion.</span></span>
+
+| <span data-ttu-id="e8872-147">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="e8872-147">Property</span></span>       | <span data-ttu-id="e8872-148">Type</span><span class="sxs-lookup"><span data-stu-id="e8872-148">Type</span></span>                                | <span data-ttu-id="e8872-149">Description</span><span class="sxs-lookup"><span data-stu-id="e8872-149">Description</span></span>                                                            |
+|----------------|-------------------------------------|------------------------------------------------------------------------|
+| <span data-ttu-id="e8872-150">subscriptionId</span><span class="sxs-lookup"><span data-stu-id="e8872-150">subscriptionId</span></span> | <span data-ttu-id="e8872-151">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-151">string</span></span>                              | <span data-ttu-id="e8872-152">De abonnements-id.</span><span class="sxs-lookup"><span data-stu-id="e8872-152">The subscription identifier.</span></span>                                           |
+| <span data-ttu-id="e8872-153">offerId</span><span class="sxs-lookup"><span data-stu-id="e8872-153">offerId</span></span>        | <span data-ttu-id="e8872-154">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-154">string</span></span>                              | <span data-ttu-id="e8872-155">De oorspronkelijke aanbiedings-id.</span><span class="sxs-lookup"><span data-stu-id="e8872-155">The original offer identifier.</span></span>                                         |
+| <span data-ttu-id="e8872-156">targetOfferId</span><span class="sxs-lookup"><span data-stu-id="e8872-156">targetOfferId</span></span>  | <span data-ttu-id="e8872-157">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="e8872-157">string</span></span>                              | <span data-ttu-id="e8872-158">De aanbiedings-id voor de doel aanbieding.</span><span class="sxs-lookup"><span data-stu-id="e8872-158">The offer identifier for the target offer.</span></span>                             |
+| <span data-ttu-id="e8872-159">fout</span><span class="sxs-lookup"><span data-stu-id="e8872-159">error</span></span>          | [<span data-ttu-id="e8872-160">ConversionError</span><span class="sxs-lookup"><span data-stu-id="e8872-160">ConversionError</span></span>](#conversionerror) | <span data-ttu-id="e8872-161">Er is een fout opgetreden bij het uitvoeren van de conversie, indien van toepassing.</span><span class="sxs-lookup"><span data-stu-id="e8872-161">The error encountered while attempting the conversion, if applicable..</span></span> |

@@ -1,0 +1,43 @@
+---
+title: Relaties resources
+description: Hierin worden de resources met betrekking tot relaties beschreven.
+ms.date: 12/15/2017
+ms.service: partner-dashboard
+ms.subservice: partnercenter-sdk
+ms.openlocfilehash: c5701414bd704b375dc23859b920609d5a975d9f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "97767220"
+---
+# <a name="relationships-resources"></a><span data-ttu-id="7f799-103">Relaties resources</span><span class="sxs-lookup"><span data-stu-id="7f799-103">Relationships resources</span></span>
+
+<span data-ttu-id="7f799-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="7f799-104">**Applies To**</span></span>
+
+- <span data-ttu-id="7f799-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="7f799-105">Partner Center</span></span>
+
+<span data-ttu-id="7f799-106">Hierin worden de resources met betrekking tot relaties beschreven.</span><span class="sxs-lookup"><span data-stu-id="7f799-106">Describes resources related to relationships.</span></span>
+
+## <a name="partnerrelationship"></a><span data-ttu-id="7f799-107">PartnerRelationship</span><span class="sxs-lookup"><span data-stu-id="7f799-107">PartnerRelationship</span></span>
+
+<span data-ttu-id="7f799-108">Vertegenwoordigt een relatie tussen twee partners.</span><span class="sxs-lookup"><span data-stu-id="7f799-108">Represents a relationship between two partners.</span></span>
+
+| <span data-ttu-id="7f799-109">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="7f799-109">Property</span></span>         | <span data-ttu-id="7f799-110">Type</span><span class="sxs-lookup"><span data-stu-id="7f799-110">Type</span></span>                                                           | <span data-ttu-id="7f799-111">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="7f799-111">Description</span></span>                                                                                                                                    |
+|------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span data-ttu-id="7f799-112">id</span><span class="sxs-lookup"><span data-stu-id="7f799-112">id</span></span>               | <span data-ttu-id="7f799-113">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="7f799-113">string</span></span>                                                         | <span data-ttu-id="7f799-114">De partner-id.</span><span class="sxs-lookup"><span data-stu-id="7f799-114">The partner identifier.</span></span> <span data-ttu-id="7f799-115">De partner-id geeft de Tenant-id van de partner op die zich in de ontvanger (aan) zijde van de relatie bevindt.</span><span class="sxs-lookup"><span data-stu-id="7f799-115">The partner identifier specifies the tenant id of the partner who is in the recipient (from) side of the relationship.</span></span> |
+| <span data-ttu-id="7f799-116">location</span><span class="sxs-lookup"><span data-stu-id="7f799-116">location</span></span>         | <span data-ttu-id="7f799-117">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="7f799-117">string</span></span>                                                         | <span data-ttu-id="7f799-118">De locatie van de partner.</span><span class="sxs-lookup"><span data-stu-id="7f799-118">The location of the partner.</span></span>                                                                                                                   |
+| <span data-ttu-id="7f799-119">mpnId</span><span class="sxs-lookup"><span data-stu-id="7f799-119">mpnId</span></span>            | <span data-ttu-id="7f799-120">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="7f799-120">string</span></span>                                                         | <span data-ttu-id="7f799-121">De Microsoft Partner Network-ID (MPN) van de partner.</span><span class="sxs-lookup"><span data-stu-id="7f799-121">The Microsoft Partner Network (MPN) identifier of the partner.</span></span>                                                                                 |
+| <span data-ttu-id="7f799-122">naam</span><span class="sxs-lookup"><span data-stu-id="7f799-122">name</span></span>             | <span data-ttu-id="7f799-123">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="7f799-123">string</span></span>                                                         | <span data-ttu-id="7f799-124">De naam van de partner.</span><span class="sxs-lookup"><span data-stu-id="7f799-124">The name of the partner.</span></span>                                                                                                                       |
+| <span data-ttu-id="7f799-125">relationshipType</span><span class="sxs-lookup"><span data-stu-id="7f799-125">relationshipType</span></span> | <span data-ttu-id="7f799-126">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="7f799-126">string</span></span>                                                         | <span data-ttu-id="7f799-127">Het type relatie.</span><span class="sxs-lookup"><span data-stu-id="7f799-127">The type of relationship.</span></span>                                                                                                                      |
+| <span data-ttu-id="7f799-128">staat</span><span class="sxs-lookup"><span data-stu-id="7f799-128">state</span></span>            | <span data-ttu-id="7f799-129">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="7f799-129">string</span></span>                                                         | <span data-ttu-id="7f799-130">De status van de relatie (bijvoorbeeld `active` ).</span><span class="sxs-lookup"><span data-stu-id="7f799-130">The state of the relationship (for example `active`).</span></span>                                                                                                 |
+| <span data-ttu-id="7f799-131">kenmerken</span><span class="sxs-lookup"><span data-stu-id="7f799-131">attributes</span></span>       | [<span data-ttu-id="7f799-132">ResourceAttributes</span><span class="sxs-lookup"><span data-stu-id="7f799-132">ResourceAttributes</span></span>](utility-resources.md#resourceattributes) | <span data-ttu-id="7f799-133">De meta gegevens kenmerken.</span><span class="sxs-lookup"><span data-stu-id="7f799-133">The metadata attributes.</span></span>                                                                                                                       |
+
+## <a name="relationshiprequest"></a><span data-ttu-id="7f799-134">RelationshipRequest</span><span class="sxs-lookup"><span data-stu-id="7f799-134">RelationshipRequest</span></span>
+
+<span data-ttu-id="7f799-135">Biedt de URL waarmee een klant een relatie met een partner kan maken.</span><span class="sxs-lookup"><span data-stu-id="7f799-135">Provides the URL by which a customer can establish a relationship with a partner.</span></span>
+
+| <span data-ttu-id="7f799-136">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="7f799-136">Property</span></span>   | <span data-ttu-id="7f799-137">Type</span><span class="sxs-lookup"><span data-stu-id="7f799-137">Type</span></span>                                                           | <span data-ttu-id="7f799-138">Description</span><span class="sxs-lookup"><span data-stu-id="7f799-138">Description</span></span>                   |
+|------------|----------------------------------------------------------------|-------------------------------|
+| <span data-ttu-id="7f799-139">url</span><span class="sxs-lookup"><span data-stu-id="7f799-139">url</span></span>        | <span data-ttu-id="7f799-140">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="7f799-140">string</span></span>                                                         | <span data-ttu-id="7f799-141">De relatie aanvraag-URL.</span><span class="sxs-lookup"><span data-stu-id="7f799-141">The relationship request URL.</span></span> |
+| <span data-ttu-id="7f799-142">kenmerken</span><span class="sxs-lookup"><span data-stu-id="7f799-142">attributes</span></span> | [<span data-ttu-id="7f799-143">ResourceAttributes</span><span class="sxs-lookup"><span data-stu-id="7f799-143">ResourceAttributes</span></span>](utility-resources.md#resourceattributes) | <span data-ttu-id="7f799-144">De meta gegevens kenmerken.</span><span class="sxs-lookup"><span data-stu-id="7f799-144">The metadata attributes.</span></span>      |

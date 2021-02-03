@@ -1,0 +1,88 @@
+### YamlMime:Landing
+title: Ontwikkelaarsdocumentatie voor Partnercentrum
+summary: Samen werken met Microsoft bij de ontwikkeling van de functies en mogelijkheden van de partner.
+metadata:
+  title: Ontwikkelaarsdocumentatie voor Partnercentrum
+  description: Samen werken met Microsoft bij de ontwikkeling van de functies en mogelijkheden van de partner.
+  ms.service: partner-dashboard
+  ms.subservice: partnercenter-sdk
+  ms.topic: landing-page
+  ms.collection: collection
+  author: jasonwhowell
+  ms.author: jasonh
+  ms.date: 01/08/2020
+  ms.openlocfilehash: 12c6cba5f489b9ab7c3394629c319a43d2d9163b
+  ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
+  ms.translationtype: MT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "97766613"
+landingContent:
+- title: Ontwikkelen met Partnercentrum
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uw ontwikkelaarsaccount en -verificatie configureren
+      url: partner-center-authentication.md
+    - text: Uw omgeving instellen
+      url: get-started.md
+  - linkListType: whats-new
+    links:
+    - text: Een Azure-plan maken met de API's
+      url: create-azure-plan.md
+  - linkListType: concept
+    links:
+    - text: Codevoorbeelden
+      url: partner-center-samples.md
+    - text: Voorbeeldscenario's
+      url: scenarios.md
+- title: De .NET SDK (v1.16.1-preview-versie) gebruiken
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Partnercentrum .NET SDK
+      url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
+    - text: Voorbeelden van Partnercentrum .NET
+      url: https://github.com/microsoft/Partner-Center-DotNet-Samples
+  - linkListType: reference
+    links:
+    - text: Beheerde .NET API-referentie
+      url: /dotnet/api/
+    - text: Opmerkingen bij de release voor .NET SDK-versies
+      url: dotnet-release-notes.md
+- title: De REST API’s gebruiken
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST API-verwijzing voor Partnercentrum
+      url: partner-center-rest-api-reference.md
+- title: De Java-SDK gebruiken (open source)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: De Java-SDK van het Partnercentrum downloaden
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter
+    - text: Java SDK GitHub-opslagplaats (voor vragen, bijdragen en problemen)
+      url: https://github.com/microsoft/Partner-Center-Java
+  - linkListType: reference
+    links:
+    - text: Naslaginformatie over de Java-API
+      url: /java/partnercenter/overview
+- title: De PowerShell-module (open source) gebruiken
+  linkLists:
+  - linkListType: download
+    links:
+    - text: De PowerShell-module installeren
+      url: https://www.powershellgallery.com/packages/PartnerCenter
+    - text: GitHub-opslagplaats voor de PowerShell-module (voor vragen, bijdragen en problemen)
+      url: https://github.com/microsoft/Partner-Center-PowerShell
+  - linkListType: reference
+    links:
+    - text: PowerShell-opdrachten
+      url: /powershell/partnercenter
+- title: De Swagger-API voor CSP-partners gebruiken
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Swagger API-naslag voor services van Partnercentrum (voor CSP-partners)
+      url: https://apidocs.microsoft.com/services/partnercenter
