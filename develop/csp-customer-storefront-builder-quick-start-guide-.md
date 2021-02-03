@@ -4,12 +4,12 @@ description: Maak een online Marketplace voor het verkopen van CSP-aanbiedingen 
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d64deff9b002b861c9f48d076feb5841af727e3d
-ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
+ms.openlocfilehash: 83ae0c789f95485ec3eb272434e57421a8f93fb6
+ms.sourcegitcommit: 970031473b2e8cd3d08c6c097949c057a51df3ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "97767330"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99505319"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>Quick Start-handleiding voor CSP-klant webwinkelbouwer
 
@@ -25,10 +25,10 @@ De CSP Customer Marketplace Builder helpt partners bij het eenvoudig maken van e
 
 Deze website is volledig eigendom van, wordt ondersteund en wordt beheerd door partners, en micro soft verzamelt geen gegevens of telemetrie van de website. De provider voor het maken van de CSP-klant en maakt een website voor de partner die volledig compatibel is met de [Payment Card Industry Data Security Standard](https://www.pcisecuritystandards.org/) (PCI DSS).
 
-De provider van de CSP-klanten-winkel bouwer is onderhevig aan de licentie die beschikbaar is in de [gebruiksrecht overeenkomst voor de SDK van partner Center](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+De provider van de CSP-klanten-winkel bouwer is onderhevig aan de licentie die beschikbaar is in de [gebruiksrecht overeenkomst voor de SDK van partner Center](/legal/partner-center/eula-partner-center-sdk).
 
 >[!NOTE]
->U bent verantwoordelijk voor het beheer, onderhoud en eventuele problemen van de winkel website die kunnen ontstaan door het maken van een website. Lees de voor waarden in de [gebruiksrecht overeenkomst van de Partner Center-SDK](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+>U bent verantwoordelijk voor het beheer, onderhoud en eventuele problemen van de winkel website die kunnen ontstaan door het maken van een website. Lees de voor waarden in de [gebruiksrecht overeenkomst van de Partner Center-SDK](/legal/partner-center/eula-partner-center-sdk).
 
 Raadpleeg de volgende artikelen voor meer informatie: CSP- [klant webwinkel](csp-customer-web-storefront.md) en [console test-app](console-test-app.md).
 
@@ -52,7 +52,7 @@ De provider van de CSP-klant en-ondersteuning is bedoeld als snelle manier om ee
 
 - PayU-betalings configuratie werkt momenteel alleen in India. De beschik baarheid en ondersteuning van PayU worden uitsluitend bepaald door PayU en kunnen op elk moment worden stopgezet door PayU.
 
-- Lees de voor waarden in de [gebruiksrecht overeenkomst van de Partner Center-SDK](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+- Lees de voor waarden in de [gebruiksrecht overeenkomst van de Partner Center-SDK](/legal/partner-center/eula-partner-center-sdk).
 
 ## <a name="using-the-csp-customer-storefront-builder"></a>De CSP Customer Support Builder gebruiken
 

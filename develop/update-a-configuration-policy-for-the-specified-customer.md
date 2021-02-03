@@ -4,12 +4,12 @@ description: Het opgegeven configuratie beleid voor de opgegeven klant bijwerken
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6bf3b6f4db7516779c157b647725368ff0e4a570
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 42c57a92020723415b4621e9f9d7c5c3278bfb77
+ms.sourcegitcommit: 970031473b2e8cd3d08c6c097949c057a51df3ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767525"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99505336"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>Een configuratiebeleid bijwerken voor de opgegeven klant
 
@@ -66,8 +66,8 @@ Gebruik de volgende Path-para meters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| klant-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.         |
-| beleid-id   | tekenreeks | Yes      | Een teken reeks met een GUID-indeling die het beleid identificeert dat moet worden bijgewerkt. |
+| klant-id | tekenreeks | Ja      | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.         |
+| beleid-id   | tekenreeks | Ja      | Een teken reeks met een GUID-indeling die het beleid identificeert dat moet worden bijgewerkt. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -82,7 +82,7 @@ De aanvraag tekst moet een object bevatten dat de beleids gegevens levert.
 | id              | tekenreeks           | Ja      | Nee        | De teken reeks met de GUID-indeling waarmee het beleid wordt geïdentificeerd.                                                                                                    |
 | naam            | tekenreeks           | Ja      | Ja       | De beschrijvende naam van het beleid.                                                                                                                         |
 | category        | tekenreeks           | Ja      | Nee        | De beleids categorie.                                                                                                                                     |
-| beschrijving     | tekenreeks           | No       | Ja       | De beschrijving van het beleid.                                                                                                                                  |
+| beschrijving     | tekenreeks           | Nee       | Ja       | De beschrijving van het beleid.                                                                                                                                  |
 | devicesAssigned | getal           | Nee       | Nee        | Het aantal apparaten.                                                                                                                                   |
 | policySettings  | tekenreeksmatrix | Ja      | Ja       | De beleids instellingen: ' geen ', ' \_ OEM- \_ voor installatie verwijderen ', ' OOBE- \_ gebruiker \_ niet \_ lokale \_ beheerder ', ' Skip \_ Express Settings ', ' overs laan van \_ \_ OEM \_ -registratie, ' EULA overs Laan \_ '. |
 
