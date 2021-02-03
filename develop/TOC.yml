@@ -1,0 +1,559 @@
+- name: Ontwikkelaarsbronnen voor Partnercentrum
+  href: index.yml
+- name: Aan de slag
+  href: get-started.md
+  items:
+    - name: Ontwikkelen voor Partnercentrum voor Microsoft National Cloud
+      href: developing-for-partner-center-for-microsoft-national-cloud.md
+      items:
+        - name: App-details registreren voor het Partnercentrum
+          href: create-apps-for-partner-center-for-microsoft-national-clouds.md
+    - name: Voorbeelden van Partnercentrum
+      href: partner-center-samples.md
+      items:
+        - name: Webwinkel van CSP-klant
+          href: csp-customer-web-storefront.md
+        - name: Quick Start-handleiding voor CSP-klant webwinkelbouwer
+          href: csp-customer-storefront-builder-quick-start-guide-.md
+        - name: Console-testapp
+          href: console-test-app.md
+    - name: API-toegang instellen in Partnercentrum
+      href: set-up-api-access-in-partner-center.md
+    - name: Richtlijnen voor API-beperking
+      href: api-throttling-guidance.md
+    - name: Verificatie in Partnercentrum
+      href: partner-center-authentication.md
+    - name: Beveiligd toepassingsmodel inschakelen
+      href: enable-secure-app-model.md
+    - name: Early Adopter-programma
+      href: early-adopter-program.md
+- name: Scenario's
+  href: scenarios.md
+  items:
+    - name: Analyse
+      href: usage-analytics.md
+      items:
+        - name: Partnercentrum Analytics - Bronnen
+          href: partner-center-analytics-resources.md
+    - name: Alle gebruiksanalysegegevens van Azure ophalen
+      href: get-all-azure-usage-analytics.md
+      items:
+        - name: Alle analysegegevens van indirecte resellers ophalen
+          href: get-all-indirect-resellers-analytics.md
+        - name: Alle analysegegevens van verwijzingen ophalen
+          href: get-all-referrals-analytics.md
+        - name: Alle analysegegevens van zoeken ophalen
+          href: get-all-search-analytics.md
+        - name: Alle analysegegevens van abonnementen ophalen
+          href: get-all-subscription-analytics.md
+        - name: Analysegegevens van abonnementen die is gefilterd met een zoekquery ophalen
+          href: get-subscription-analytics-by-search-query.md
+        - name: Analysegegevens van abonnementen die is gegroepeerd op datum of zoekwoord
+          href: get-subscription-analytics-grouped-by-dates-or-terms.md
+        - name: Implementatiegegevens van licenties ophalen
+          href: get-licenses-deployment-information.md
+        - name: Gebruiksgegevens van licenties ophalen
+          href: get-licenses-usage-information.md
+        - name: Implementatiegegevens van klantlicenties ophalen
+          href: get-customer-licenses-deployment-information.md
+        - name: Gebruiksgegevens van klantlicenties ophalen
+          href: get-customer-licenses-usage-information.md
+        - name: Implementatiegegevens van partnerlicenties ophalen
+          href: get-partner-licenses-deployment-information.md
+        - name: Gebruiksgegevens van partnerlicenties ophalen
+          href: get-partner-licenses-usage-information.md
+    - name: Auditbewerkingen
+      href: audit.md
+      items:
+        - name: Een record van Partnercentrum-activiteiten ophalen
+          href: get-a-record-of-partner-center-activity-by-user.md
+    - name: Implementatie van apparaat
+      href: device-deployment.md
+      items:
+        - name: Een nieuw configuratiebeleid maken voor de opgegeven klant
+          href: create-a-new-configuration-policy-for-the-specified-customer.md
+        - name: Een configuratiebeleid verwijderen voor de opgegeven klant
+          href: delete-a-configuration-policy-for-the-specified-customer.md
+        - name: Een lijst met beleidsregels van een klant ophalen
+          href: get-a-list-of-a-customer-s-policies.md
+        - name: Het configuratiebeleid van een klant ophalen
+          href: retrieve-a-customer-s-configuration-policy.md
+        - name: Een configuratiebeleid bijwerken voor de opgegeven klant
+          href: update-a-configuration-policy-for-the-specified-customer.md
+        - name: De status ophalen van het uploaden van een apparaat-batch
+          href: get-the-status-of-a-device-batch-upload.md
+        - name: Een lijst met de batches van een apparaat voor de opgegeven klant ophalen
+          href: get-the-list-of-device-batches-for-the-specified-customer.md
+        - name: Een lijst met de apparaten voor de opgegeven batch en klant ophalen
+          href: get-a-list-of-devices-for-the-specified-batch-and-customer.md
+        - name: Een lijst met apparaten uploaden om een nieuwe batch te maken voor de opgegeven klant
+          href: upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer.md
+        - name: Een lijst met apparaten uploaden naar een bestaande batch voor de opgegeven klant
+          href: upload-a-list-of-devices-for-the-specified-customer.md
+        - name: Een lijst met apparaten met een beleid bijwerken
+          href: update-a-list-of-devices-with-a-policy.md
+        - name: Een apparaat voor de opgegeven klant verwijderen
+          href: delete-a-device-for-the-specified-customer.md
+    - name: Accounts en profielen beheren
+      href: manage-profiles-and-information.md
+      items:
+        - name: De abonnementen van een klant ophalen op basis van de MPN-id van de partner
+          href: get-all-subscriptions-by-partner.md
+        - name: Een organisatieprofiel ophalen
+          href: get-an-organization-profile.md
+        - name: Klanten van een indirecte reseller ophalen
+          href: get-customers-of-an-indirect-reseller.md
+        - name: Indirecte resellers van een klant ophalen
+          href: get-indirect-resellers-of-a-customer.md
+        - name: Microsoft Partner Network-profiel ophalen
+          href: get-partner-network-profile.md
+        - name: Factureringsprofiel van een partner ophalen
+          href: get-partner-billing-profile.md
+        - name: Een MPN-id van een partner verifiëren
+          href: get-partner-by-mpn-id.md
+        - name: De ondertekeningsstatus van de Microsoft Partner-overeenkomst van een indirecte reseller verifiëren
+          href: verify-indirect-reseller-mpa-status.md
+        - name: Ondersteuningsprofiel ophalen
+          href: get-support-profile.md
+        - name: Het wettelijke bedrijfsprofiel van een partner ophalen
+          href: get-legal-business-profile.md
+        - name: Een lijst met indirecte resellers ophalen
+          href: retrieve-a-list-of-indirect-resellers.md
+        - name: Een organisatieprofiel bijwerken
+          href: update-an-organization-profile.md
+        - name: Het factureringsprofiel van een partner bijwerken
+          href: update-partner-billing-profile.md
+        - name: Ondersteuningsprofiel bijwerken
+          href: update-support-profile.md
+        - name: Het wettelijke bedrijfsprofiel van een partner bijwerken
+          href: update-legal-business-profile.md
+    - name: De facturering beheren
+      href: manage-billing.md
+      items:
+        - name: De factureringscyclus wijzigen
+          href: change-the-billing-cycle.md
+        - name: Een samenvatting van de servicekosten van een klant ophalen
+          href: get-a-customer-s-service-costs-summary.md
+        - name: De regelitems van de servicekosten van een klant ophalen
+          href: get-a-customer-s-service-costs-line-items.md
+        - name: Een verzameling facturen ophalen
+          href: get-a-collection-of-invoices.md
+        - name: Gebruiksrecords van een klant ophalen voor Azure
+          href: get-a-customer-s-utilization-record-for-azure.md
+        - name: Een factuur op basis van de id ophalen
+          href: get-invoice-by-id.md
+        - name: Regelitems gefactureerd verbruik ophalen
+          href: get-invoice-billed-consumption-lineitems.md
+        - name: Koppelingen voor factuurramingen ophalen
+          href: get-invoice-estimate-links.md
+        - name: Regelitems van facturen ophalen
+          href: get-invoiceline-items.md
+        - name: Ontvangstoverzicht van facturen ophalen
+          href: get-invoice-receipt-statement.md
+        - name: Factuur ophalen
+          href: get-invoice-statement.md
+        - name: Factuuroverzichten ophalen
+          href: get-invoice-summaries.md
+        - name: Regelitems ongefactureerd verbruik ophalen
+          href: get-invoice-unbilled-consumption-lineitems.md
+        - name: Regelitems ongefactureerde reconciliatie ophalen
+          href: get-invoice-unbilled-recon-lineitems.md
+        - name: Prijzen voor Microsoft Azure ophalen
+          href: get-prices-for-microsoft-azure.md
+        - name: Prijzen voor Microsoft Azure Partner Shared Services ophalen
+          href: get-prices-for-microsoft-azure-partner-shared-services.md
+        - name: Het huidige accountsaldo van de partner ophalen
+          href: get-the-reseller-s-current-account-balance.md
+    - name: Uitgaven voor Azure
+      href: azure-spending.md
+      items:
+        - name: Gebruiksoverzicht van partner ophalen
+          href: get-a-partner-usage-summary.md
+        - name: Alle klantgebruiksrecords voor een partner ophalen
+          href: get-a-customer-s-usage-records.md
+        - name: Gebruiksoverzicht van klant ophalen
+          href: get-a-customer-usage-summary.md
+        - name: Alle gebruiksrecords voor abonnementen voor een klant ophalen
+          href: get-a-customer-subscription-s-usage-records.md
+        - name: Samenvatting van gebruik van abonnement ophalen
+          href: get-a-customer-subscription-usage-summary.md
+        - name: Alle maandelijkse gebruiksrecords voor een abonnement ophalen
+          href: get-all-monthly-usage-records-for-a-subscription.md
+        - name: Gebruiksgegevens voor het abonnement per bron ophalen
+          href: get-a-customer-subscription-resource-usage-records.md
+        - name: Gebruiksgegevens voor het abonnement per meter ophalen
+          href: get-a-customer-subscription-meter-usage-records.md
+        - name: Bronnen voor metergebruiksrecords ophalen
+          href: meter-usage-resources.md
+        - name: Bronnen voor brongebruiksrecords ophalen
+          href: resource-usage-resources.md
+        - name: Klantgebruiksbudget ophalen
+          href: get-a-customer-s-usage-spending-budget.md
+        - name: Klantgebruiksbudget bijwerken
+          href: update-a-customer-s-usage-spending-budget.md
+        - name: Bronnen voor product-upgrades
+          href: product-upgrade-resources.md
+          items:
+            - name: Upgradestatus van product ophalen
+              href: get-product-upgrade-status.md
+            - name: Geschiktheid voor product-upgrade ophalen
+              href: get-eligibility-for-product-upgrade.md
+            - name: Een product-upgrade-entiteit maken voor een klant
+              href: create-product-upgrade-entity.md
+        - name: Een lijst met Azure-rechten voor een abonnement ophalen
+          href: get-a-list-of-azure-entitlements-for-subscription.md
+    - name: Klantaccounts beheren
+      href: manage-customers.md
+      items:
+        - name: Een geverifieerd domein voor een klant toevoegen
+          href: add-a-verified-domain-for-a-customer.md
+        - name: Licenties toewijzen aan een gebruiker
+          href: assign-licenses-to-a-user.md
+        - name: Metagegevens van de overeenkomst voor Microsoft Cloud-overeenkomst ophalen
+          href: get-agreement-metadata.md
+        - name: Metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst ophalen
+          href: get-customer-agreement-metadata.md
+        - name: Bevestiging van acceptatie door de klant van Microsoft Cloud-overeenkomst ophalen
+          href: get-confirmation-of-customer-consent.md
+        - name: Sjabloon voor Microsoft-klantovereenkomst downloaden
+          href: download-customer-agreement-template.md
+        - name: Bevestiging van acceptatie door de klant van Microsoft-klantovereenkomst ophalen
+          href: get-confirmation-of-customer-agreement.md
+        - name: Status voor direct ondertekenen (direct accepteren) van de Microsoft-klantovereenkomst ophalen
+          href: get-direct-sign-status-of-customer-agreement.md
+        - name: Acceptatie door de klant van Microsoft-klantovereenkomst bevestigen
+          href: confirm-customer-consent-customer-agreement.md
+        - name: Licenties ophalen die aan een gebruiker zijn toegewezen
+          href: check-which-licenses-are-assigned-to-a-user.md
+        - name: Licenties ophalen die aan een gebruiker zijn toegewezen per licentiegroep
+          href: get-licenses-assigned-to-a-user-by-license-group.md
+        - name: Een klant maken
+          href: create-a-customer.md
+        - name: Een klant voor een indirecte reseller maken
+          href: create-a-customer-for-an-indirect-reseller.md
+        - name: Gebruikersaccounts maken voor een klant
+          href: create-user-accounts-for-a-customer.md
+        - name: Een gebruikersaccount voor een klant verwijderen
+          href: delete-user-accounts-for-a-customer.md
+        - name: Een verzameling rechten ophalen
+          href: get-a-collection-of-entitlements.md
+        - name: Een klant op basis van id ophalen
+          href: get-a-customer-by-id.md
+        - name: Een factureringsprofiel van een klant ophalen
+          href: get-all-of-a-customer-s-billing-profiles.md
+        - name: Een bedrijfsprofiel van een klant ophalen
+          href: get-a-customer-s-company-profile.md
+        - name: De kwalificatie van een klant ophalen
+          items:
+            - name: Asynchrone API's gebruiken
+              href: get-customer-qualification-asynchronous.md
+            - name: Synchrone API's gebruiken
+              href: get-customer-qualification-synchronous.md
+        - name: Alle bestellingen van een klant ophalen
+          href: get-all-of-a-customer-s-orders.md
+        - name: De abonnementen van een klant ophalen
+          href: get-all-of-a-customer-s-subscriptions.md
+        - name: De geschiktheid voor abonnementsoverdracht van een klant ophalen
+          href: get-customer-s-subscriptions-transfer-eligibility.md
+        - name: De overdrachten van een klant ophalen
+          href: get-all-of-a-customer-s-transfers.md
+        - name: De overdrachtsgegevens van een klant ophalen
+          href: get-transfer-by-id.md
+        - name: Een lijst met alle gebruikersaccounts voor een klant ophalen
+          href: get-a-list-of-all-user-accounts-for-a-customer.md
+        - name: Een lijst met beschikbare licenties ophalen
+          href: get-a-list-of-available-licenses.md
+        - name: Een lijst met beschikbare licenties per licentiegroep ophalen
+          href: get-a-list-of-available-licenses-by-license-group.md
+        - name: Een lijst met klanten ophalen
+          href: get-a-list-of-customers.md
+        - name: Een lijst met klanten ophalen die zijn gefilterd op basis van een zoekveld
+          href: get-a-customer-by-name.md
+        - name: Een lijst met bestellingen op basis van het type klant en factureringscyclus ophalen
+          href: get-a-list-of-orders-by-customer-and-billing-cycle-type.md
+        - name: De validatiecodes van een partner ophalen
+          href: get-a-partner-s-validation-codes.md
+        - name: Een gebruikersaccount ophalen op basis van id
+          href: get-a-user-account-by-id.md
+        - name: Gebruikersrollen voor een klant ophalen
+          href: get-user-roles-for-a-customer.md
+        - name: Een klantgebruiker uit een rol verwijderen
+          href: remove-customer-user-from-a-role.md
+        - name: Een relatie als reseller met een klant verwijderen
+          href: remove-a-reseller-relationship-with-a-customer.md
+        - name: Een URL voor relatie aanvragen ophalen
+          href: request-reseller-relationship.md
+        - name: Gebruikerswachtwoord voor een klant opnieuw instellen
+          href: reset-user-password-for-a-customer.md
+        - name: Een verwijderde gebruiker voor een klant herstellen
+          href: restore-a-user-for-a-customer.md
+        - name: Gebruikersrollen voor een klant instellen
+          href: set-user-roles-for-a-customer.md
+        - name: Een factureringsprofiel van een klant bijwerken
+          href: update-a-customer-s-billing-profile.md
+        - name: De kwalificatie van een klant bijwerken
+          items:
+            - name: Asynchrone API's gebruiken
+              href: update-customer-qualification-asynchronous.md
+            - name: Synchrone API's gebruiken
+              href: update-customer-qualification-synchronous.md
+        - name: De bijnaam voor een abonnement bijwerken
+          href: update-the-nickname-for-a-subscription.md
+        - name: De overdracht van een klant intrekken
+          href: withdraw-a-transfer.md
+        - name: De overdracht van een klant maken
+          href: create-a-transfer.md
+        - name: De overdracht van een klant accepteren
+          href: accept-a-transfer.md
+        - name: De overdracht van een klant afwijzen
+          href: reject-a-transfer.md
+        - name: Gebruikersaccounts voor een klant bijwerken
+          href: update-user-accounts-for-a-customer.md
+        - name: Verwijderde gebruikers voor een klant weergeven
+          href: view-a-deleted-user.md
+        - name: Een beleid voor eigen beheer maken
+          href: create-a-self-serve-policy.md
+        - name: Een beleid voor eigen beheer verwijderen
+          href: delete-a-self-serve-policy.md
+        - name: Een lijst met beleid voor eigen beheer ophalen
+          href: get-a-list-of-self-serve-policies.md
+        - name: Een beleid voor eigen beheer op basis van id ophalen
+          href: get-a-self-serve-policy-by-id.md
+        - name: Een beleid voor eigen beheer bijwerken
+          href: update-a-self-serve-policy.md
+    - name: Bestellingen beheren
+      href: manage-orders.md
+      items:
+        - name: Een Azure-plan kopen
+          href: create-azure-plan.md
+        - name: Azure-reserveringen kopen
+          href: purchase-azure-reservations.md
+        - name: Een abonnement voor commerciële marketplace-producten kopen
+          href: create-subscription-azure-marketplace-products.md
+        - name: Een abonnement op de commerciële marketplace annuleren
+          href: cancel-an-azure-marketplace-subscription.md
+        - name: Softwareaankopen annuleren
+          href: cancel-software-purchases.md
+        - name: De hoeveelheid van een abonnement wijzigen
+          href: change-the-quantity-of-a-subscription.md
+        - name: Een proefabonnement converteren naar betaald
+          href: convert-a-trial-subscription-to-paid.md
+        - name: Voorraad controleren
+          href: check-inventory.md
+        - name: Een winkelwagen afhandelen
+          href: checkout-a-cart.md
+        - name: Een winkelwagen maken
+          href: create-a-cart.md
+        - name: Een winkelwagen maken met invoegtoepassingen
+          href: create-a-cart-with-add-ons.md
+        - name: Een order maken
+          href: create-an-order.md
+        - name: Een bestelling maken voor een klant van een indirecte reseller
+          href: create-an-order-for-a-customer-of-an-indirect-reseller.md
+        - name: Een lijst met invoegtoepassingen voor een abonnement ophalen
+          href: get-a-list-of-add-ons-for-a-subscription.md
+        - name: Een lijst met beschikbaarheid voor een SKU ophalen (per land)
+          href: get-a-list-of-availabilities-for-a-sku.md
+        - name: Een lijst met beschikbaarheid voor een SKU ophalen (per klant)
+          href: get-a-list-of-availabilities-for-a-sku-by-customer.md
+        - name: Een lijst met categorieën van aanbiedingen per markt ophalen
+          href: get-a-list-of-offer-categories-by-country-and-locale.md
+        - name: Een lijst met aanbiedingen voor een markt ophalen
+          href: get-a-list-of-offers-for-a-market.md
+        - name: Een lijst met producten ophalen (per land)
+          href: get-a-list-of-products.md
+        - name: Een lijst met producten ophalen (per klant)
+          href: get-a-list-of-products-by-customer.md
+        - name: Een lijst met SKU’s voor een product ophalen (per land)
+          href: get-a-list-of-skus-for-a-product.md
+        - name: Een lijst met SKU’s voor een product ophalen (per klant)
+          href: get-a-list-of-skus-for-a-product-by-customer.md
+        - name: Een lijst met abonnementen op basis van bestelling ophalen
+          href: get-a-list-of-subscriptions-by-order.md
+        - name: Een lijst met aanbiedingen voor omzetten van de proefversie ophalen
+          href: get-a-list-of-trial-conversion-offers.md
+        - name: Een product ophalen op basis van id
+          href: get-a-product-by-id.md
+        - name: Een SKU ophalen op basis van id
+          href: get-a-sku-by-id.md
+        - name: Een abonnement ophalen op basis van id
+          href: get-a-subscription-by-id.md
+        - name: Activeringskoppeling ophalen op basis van bestellingsregelitem
+          href: get-activation-link-by-order-line-item.md
+        - name: Invoegtoepassingen voor een aanbiedings-id ophalen
+          href: get-addon-offers-by-offer-id.md
+        - name: Een beschikbaarheid ophalen op basis van id
+          href: get-an-availability-by-id.md
+        - name: Een aanbieding ophalen op basis van id
+          href: get-an-offer-by-id.md
+        - name: Een bestelling ophalen op basis van id
+          href: get-an-order-by-id.md
+        - name: De inrichtingsstatus van het abonnement ophalen
+          href: get-subscription-provisioning-status.md
+        - name: De registratiestatus van het abonnement ophalen
+          href: get-subscription-registration-status.md
+        - name: Een eenmalige aankoop doen
+          href: make-a-one-time-purchase.md
+        - name: Een invoegtoepassing voor een abonnement kopen
+          href: purchase-an-add-on-to-a-subscription.md
+        - name: Catalogusitems kopen
+          href: purchase-catalog-items.md
+        - name: Een opgeschort abonnement opnieuw activeren
+          href: reactivate-a-suspended-a-subscription.md
+        - name: Een abonnement registreren
+          href: register-a-subscription.md
+        - name: Een abonnement opschorten
+          href: suspend-a-subscription.md
+        - name: Een abonnement overdragen
+          href: transition-a-subscription.md
+        - name: Een winkelwagen bijwerken
+          href: update-a-cart.md
+        - name: Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
+          href: update-autorenew-for-an-azure-marketplace-subscription.md
+    - name: Ondersteuning bieden
+      href: provide-support.md
+      items:
+        - name: De ondersteuningscontactpersoon van een abonnement ophalen
+          href: get-a-subscription-s-support-contact.md
+        - name: Alle serviceaanvragen voor een klant ophalen
+          href: get-all-service-requests-for-a-customer.md
+        - name: Details van serviceaanvraag ophalen op basis van id
+          href: get-service-request-details-by-id.md
+        - name: De beheerde services voor een klant ophalen op basis van id
+          href: get-the-managed-services-for-a-customer-by-id.md
+        - name: Een serviceaanvraag bijwerken
+          href: update-a-service-request.md
+        - name: De ondersteuningscontactpersoon van een abonnement bijwerken
+          href: update-a-subscription-s-support-contact.md
+- name: Integratie-sandbox
+  items:
+    - name: Sandbox-mogelijkheden voor partners die reseller-relatie ondersteunen
+      href: sandbox-scenario.md
+    - name: Sandbox testen en fouten opsporen
+      href: test-and-debug.md
+    - name: Een bestelling annuleren vanuit de integratie-sandbox
+      href: cancel-an-order-from-the-integration-sandbox.md
+    - name: Sandbox-abonnement activeren
+      href: activate-sandbox-subscription-azure-marketplace-products.md
+    - name: Een klantaccount verwijderen uit de integratie-sandbox
+      href: delete-a-customer-account-from-the-integration-sandbox.md
+- name: Verwijzingen
+  href: /partner/develop/referrals
+  items:
+    - name: Een verwijzing maken
+      href: /partner/develop/create-a-referral
+    - name: Een lijst met verwijzingen ophalen
+      href: /partner/develop/get-a-list-of-referrals
+    - name: Een verwijzing ophalen op basis van id
+      href: /partner/develop/get-a-referral-by-id
+    - name: Een verwijzing bijwerken
+      href: /partner/develop/update-a-referral
+- name: Hulpprogramma's
+  href: utilities.md
+  items:
+    - name: Een adres valideren
+      href: validate-an-address.md
+    - name: De regels voor adresopmaak per markt ophalen
+      href: get-market-specific-validation-data.md
+    - name: Beschikbaarheid van domein verifiëren
+      href: verify-domain-availability.md
+- name: Beveiliging
+  href: partner-security-requirements.md
+  items:
+    - name: Portal-aanvragen zonder MFA ophalen
+      href: get-portal-requests-without-mfa.md
+    - name: Samenvatting van API-aanvragen ophalen
+      href: get-api-request-summary.md
+    - name: Details van API-aanvragen ophalen
+      href: get-api-request-details.md
+- name: REST API-verwijzing voor Partnercentrum
+  href: partner-center-rest-api-reference.md
+  items:
+    - name: REST API-wijzigingenlogboek voor Partnercentrum
+      href: api-change-log.md
+    - name: REST-URL’s voor Partnercentrum
+      href: partner-center-rest-urls.md
+    - name: REST-headers voor Partnercentrum
+      href: headers.md
+    - name: REST-bronnen voor Partnercentrum
+      href: partner-center-rest-resources.md
+      items:
+        - name: Overeenkomst
+          href: agreement-resources.md
+        - name: Metagegevens van overeenkomst
+          href: agreement-metadata-resources.md
+        - name: Documentbronnen van overeenkomst (preview-versie)
+          href: agreement-document-resources.md
+        - name: Status van direct ondertekenen (direct accepteren) van de klantovereenkomst
+          href: customer-agreement-direct-sign-status-resource.md
+        - name: Analyse
+          href: analytics-resources.md
+        - name: Controles
+          href: auditing-resources.md
+        - name: Azure-tarievenkaart
+          href: azure-rate-card-resources.md
+        - name: Azure-gebruiksrecord
+          href: azure-utilization-record-resources.md
+        - name: Winkelwagen
+          href: cart-resources.md
+        - name: Conversies
+          href: conversions-resources.md
+        - name: Landgegevens
+          href: country-information-resources.md
+        - name: Klant
+          href: customer-resources.md
+        - name: Klantgebruik
+          href: customer-usage-resources.md
+        - name: Implementatie van apparaat
+          href: device-deployment-resources.md
+        - name: Recht
+          href: entitlement-resources.md
+        - name: Factuur
+          href: invoice-resources.md
+        - name: Licentie
+          href: license-resources.md
+        - name: Beheerde service
+          href: managed-service-resources.md
+        - name: Aanbieding
+          href: offer-resources.md
+        - name: Volgorde
+          href: order-resources.md
+        - name: Profiel
+          href: profile-resources.md
+        - name: Producten
+          href: product-resources.md
+        - name: Relaties
+          href: relationships-resources.md
+        - name: Beleid voor eigen beheer
+          href: self-serve-policy-resources.md
+        - name: Servicekosten
+          href: service-costs-resources.md
+        - name: Serviceaanvraag
+          href: service-request-resources.md
+        - name: Abonnement
+          href: subscription-resources.md
+        - name: Abonnementsgebruik
+          href: subscription-usage-resources.md
+        - name: Upgraden
+          href: upgrade-resources.md
+        - name: Gebruiker
+          href: user-resources.md
+        - name: Hulpprogramma-bronnen
+          href: utility-resources.md
+    - name: REST-foutcodes voor Partnercentrum
+      href: error-codes.md
+    - name: REST-gebeurtenissen voor Partnercentrum
+      href: partner-center-webhook-events.md
+    - name: Ondersteunde talen en landinstellingen voor Partnercentrum
+      href: partner-center-supported-languages-and-locales.md
+    - name: Partnercentrum-webhooks
+      href: partner-center-webhooks.md
+- name: Beheerde .NET API-verwijzing voor Partnercentrum
+  href: /dotnet/api/
+  items:
+    - name: Opmerkingen bij de release van de .NET API-versie voor Partnercentrum
+      href: dotnet-release-notes.md
+- name: Java API-verwijzing voor Partnercentrum
+  href: /java/partnercenter
+- name: PowerShell-opdrachten voor Partnercentrum
+  href: /powershell/partnercenter
