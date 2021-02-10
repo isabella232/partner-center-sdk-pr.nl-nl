@@ -1,15 +1,15 @@
 ---
 title: Acceptatie door de klant van Microsoft-klantovereenkomst bevestigen
 description: Meer informatie over het bevestigen van de acceptatie van klanten van de micro soft-klant overeenkomst met behulp van partner Center-Api's.
-ms.date: 02/04/2020
+ms.date: 02/08/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 239ca43c70fb8aa7f0d06e564e6c0726b235ffbe
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 62a6cebd5d6d093377dd5940dcff6204b7095c70
+ms.sourcegitcommit: ebb36208d6e2dea705f62b7d60d471f10c55132e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767619"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006075"
 ---
 # <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Acceptatie van klant bevestigen voor de micro soft-klant overeenkomst met behulp van partner Center-Api's
 
@@ -40,6 +40,20 @@ In dit artikel wordt beschreven hoe u de acceptatie van klanten van micro soft-k
   - Achternaam
   - E-mailadres
   - Telefoon nummer (optioneel)
+- Als de volgende waarden voor een klant worden gewijzigd, kan het partner centrum een andere overeenkomst voor die klant maken: voor naam achternaam e-mail adres telefoon nummer, anders ontvangen partners de volgende fout code, vanwege een dubbele klant die wordt gemaakt
+
+
+```
+{
+"code": 600061,
+"message": "A partner confirmed agreement already exists for the customer.",
+"description": "A partner confirmed agreement already exists for the customer.",
+"errorName": "PartnerConfirmedAgreementAlreadyExists",
+"isRetryable": false,
+"parameters": {},
+"errorMessageExtended": "InternalErrorCode=600061"
+}
+ ```
 
 ## <a name="net"></a>.NET
 
@@ -102,7 +116,7 @@ Gebruik de volgende query parameter om de klant op te geven die u wilt bevestige
 
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| klant-Tenant-id | GUID | Yes | De waarde is een **klant-Tenant-id** van de GUID-indeling, een id waarmee u een klant kunt opgeven. |
+| klant-Tenant-id | GUID | Ja | De waarde is een **klant-Tenant-id** van de GUID-indeling, een id waarmee u een klant kunt opgeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
