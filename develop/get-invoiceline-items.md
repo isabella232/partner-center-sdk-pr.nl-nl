@@ -4,12 +4,12 @@ description: U kunt een verzameling van factuur regel items (gesloten facturerin
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 085397f3dc36468e411cec71e0dc9ae2cc364673
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 50dac1bbc96776d395014dc7ee5a5990f0710484
+ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767485"
+ms.lasthandoff: 02/13/2021
+ms.locfileid: "100335809"
 ---
 # <a name="get-invoice-line-items"></a>Regelitems van facturen ophalen
 
@@ -158,7 +158,7 @@ Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | factuur-ID             | tekenreeks | Yes      | Een teken reeks waarmee de factuur wordt geïdentificeerd.                             |
-| facturering-provider       | tekenreeks | Yes      | De facturerings provider: ' Office ', ' Azure ', ' eenmalige '.               |
+| facturering-provider       | tekenreeks | Yes      | De facturerings provider: ' Office ', ' Azure ', ' eenmalige '. In de verouderde hebben we afzonderlijke gegevens modellen voor Office & Azure-trans acties. In het moderne abonnement hebben we echter één gegevens model voor alle producten die worden gefilterd via de waarde ' eenmalige '.            |
 | factuur-regel-item-type | tekenreeks | Yes      | Het type factuur Details: "BillingLineItems", "UsageLineItems". |
 | grootte                   | getal | No       | Het maximum aantal items dat moet worden geretourneerd. Standaard maximale grootte = 2000    |
 | offset                 | getal | No       | De op nul gebaseerde index van het eerste regel item dat moet worden geretourneerd.            |

@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik van uw sandbox-account voor integr
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 95e80000a199ae00a31bddc5ecae8c19ab77c64e
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: e5b8f6cc2eb239b7a8b8a8722b231f290e768004
+ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97767581"
+ms.lasthandoff: 02/13/2021
+ms.locfileid: "100335792"
 ---
 # <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Testen en fouten opsporen met de sandbox integratie van partner centrum om te voor komen dat er onverwachte kosten worden betaald
 
@@ -27,10 +27,6 @@ Als u uw code wilt testen, moet u uw account voor integratie sandbox gebruiken i
 Als u geautomatiseerde compilatie tests uitvoert, testen in productie of hand matige tests uitvoert in de sandbox voor integratie, kunt u de maximum limieten voor de sandbox voor integratie maken. Deze limieten zijn 75 klanten, 5 abonnementen per klant en 25 licenties per abonnement.
 
 - De limiet van 25 licenties betekent dat u geen aanbieding in de sandbox kunt verkrijgen met een minimale licentie vereiste die meer dan 25 licenties overschrijdt. Deze beperking omvat experimenten.
-
-- Er kan geen samen vatting van gebruik worden verkregen voor Sandbox-accounts, omdat deze accounts voor test doeleinden zijn.
-
-- Api's met betrekking tot facturering en factuur werken niet in de sandbox, omdat er geen facturen voor het test account worden gegenereerd.
 
 
 ### <a name="azure-plan"></a>Azure-abonnement
