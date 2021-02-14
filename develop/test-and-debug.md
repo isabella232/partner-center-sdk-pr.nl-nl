@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik van uw sandbox-account voor integr
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e5b8f6cc2eb239b7a8b8a8722b231f290e768004
-ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
+ms.openlocfilehash: 3ff4a7ec3ad984b09c60d3d820423c614fb8020d
+ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2021
-ms.locfileid: "100335792"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100499878"
 ---
 # <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Testen en fouten opsporen met de sandbox integratie van partner centrum om te voor komen dat er onverwachte kosten worden betaald
 
@@ -26,7 +26,17 @@ Als u uw code wilt testen, moet u uw account voor integratie sandbox gebruiken i
 
 Als u geautomatiseerde compilatie tests uitvoert, testen in productie of hand matige tests uitvoert in de sandbox voor integratie, kunt u de maximum limieten voor de sandbox voor integratie maken. Deze limieten zijn 75 klanten, 5 abonnementen per klant en 25 licenties per abonnement.
 
-- De limiet van 25 licenties betekent dat u geen aanbieding in de sandbox kunt verkrijgen met een minimale licentie vereiste die meer dan 25 licenties overschrijdt. Deze beperking omvat experimenten.
+De limiet van 25 licenties betekent dat u geen aanbieding in de sandbox kunt verkrijgen met een minimale licentie vereiste die meer dan 25 licenties overschrijdt. Deze beperking omvat experimenten.
+
+Er zijn verschillende factuur-en reconciliatie bestanden beschikbaar in de sandbox-omgevingen, maar deze zijn niet allemaal beschikbaar op verouderde of moderne platforms. Controleer de onderstaande tabel voor meer informatie.
+
+| **Bestanden**                    | **Beschikbaar in verouderde** | **Beschikbaar in modern** |
+| ---------------------------- | ------------------------ | ------------------------ |
+| Factuur (PDF)                  | Nee                       | Ja                      |
+| Factuur afstemmings bestand | Nee                       | Ja                      |
+| Factuur Ramings bestand       | Nee                       | Ja                      |
+| Dagelijks gefactureerd gebruiks bestand     | Nee                       | Ja                      |
+| Dagelijks niet-gefactureerd gebruiks bestand   | Nee                       | Ja                      |
 
 
 ### <a name="azure-plan"></a>Azure-abonnement

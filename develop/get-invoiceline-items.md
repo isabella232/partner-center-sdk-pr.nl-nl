@@ -4,12 +4,12 @@ description: U kunt een verzameling van factuur regel items (gesloten facturerin
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 50dac1bbc96776d395014dc7ee5a5990f0710484
-ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
+ms.openlocfilehash: e797f549e1344268c8167259a231122e7c669a2e
+ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2021
-ms.locfileid: "100335809"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100499895"
 ---
 # <a name="get-invoice-line-items"></a>Regelitems van facturen ophalen
 
@@ -158,7 +158,7 @@ Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | factuur-ID             | tekenreeks | Yes      | Een teken reeks waarmee de factuur wordt geïdentificeerd.                             |
-| facturering-provider       | tekenreeks | Yes      | De facturerings provider: ' Office ', ' Azure ', ' eenmalige '. In de verouderde hebben we afzonderlijke gegevens modellen voor Office & Azure-trans acties. In het moderne abonnement hebben we echter één gegevens model voor alle producten die worden gefilterd via de waarde ' eenmalige '.            |
+| facturering-provider       | tekenreeks | Yes      | De facturerings provider: ' Office ', ' Azure ', ' eenmalige '. In de verouderde hebben we afzonderlijke gegevens modellen voor Office & Azure-trans acties. Het moderne heeft echter één gegevens model voor alle trans acties die worden gefilterd op basis van de waarde ' eenmalige '.            |
 | factuur-regel-item-type | tekenreeks | Yes      | Het type factuur Details: "BillingLineItems", "UsageLineItems". |
 | grootte                   | getal | No       | Het maximum aantal items dat moet worden geretourneerd. Standaard maximale grootte = 2000    |
 | offset                 | getal | No       | De op nul gebaseerde index van het eerste regel item dat moet worden geretourneerd.            |
