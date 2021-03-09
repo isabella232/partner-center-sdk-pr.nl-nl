@@ -4,12 +4,12 @@ description: U kunt een verzameling van niet-gefactureerde commerciële verbruik
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 594946db712c28983dd390207fb06c8d9f62f18b
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 8d3bbe7921029dc6c40c65fb8d82baaa944089b6
+ms.sourcegitcommit: 160296667833366fb3f4021d042094606e1032ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767487"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102472679"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Niet-gefactureerde, commerciële verbruikte regel items ophalen
 
@@ -129,11 +129,11 @@ Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| providers               | tekenreeks | Yes      | De provider: '**eenmalige**'.                                                |
-| factuur-regel-item-type | tekenreeks | Yes      | Het type factuur Details: "**UsageLineItems**", "**UsageLineItems**".               |
-| currencyCode           | tekenreeks | Yes      | De valuta code voor de niet-gefactureerde regel items.                                  |
-| period                 | tekenreeks | Yes      | De periode voor niet-gefactureerde afstemming (bijvoorbeeld: **huidige**, **vorige**).<br/><br/>**Vorige** : als de facturerings cyclus 01/01/2020 – 01/31/2020 dan is, is de kans groot dat uw factuur wordt gegenereerd tussen 02/06/2020 en 02/08/2020 UTC-tijd. Als u de niet-gefactureerde gebruiks gegevens van de facturerings cyclus (01/01/2020 – 01/31/2020) wilt opvragen op elke tijd tussen 02/01/2020 en de door de factuur gegenereerde datum (tussen 02/06/2020 en 02/08/2020 UTC-tijd), moet u de periode als ' eerder ' kiezen.<br/><br/>**Huidige** – als de facturerings cyclus 01/01/2020 – 01/31/2020 is, is de kans groot dat uw factuur wordt gegenereerd tussen 02/06/2020 en 02/08/2020 UTC-tijd. Als u uw niet-gefactureerde gebruiks gegevens van de facturerings cyclus (01/01/2020 – 01/31/2020) wilt doorzoeken op elke tijd tussen 01/01/2020 en 01/31/2020 die binnen uw facturerings cyclus valt, moet u periode kiezen als ' Huidig '. |
-| grootte                   | getal | No       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000.                    |
+| providers               | tekenreeks | Ja      | De provider: '**eenmalige**'.                                                |
+| factuur-regel-item-type | tekenreeks | Ja      | Het type factuur Details: "**UsageLineItems**", "**UsageLineItems**".               |
+| currencyCode           | tekenreeks | Ja      | De valuta code voor de niet-gefactureerde regel items.                                  |
+| period                 | tekenreeks | Ja      | De periode voor niet-gefactureerde afstemming (bijvoorbeeld: **huidige**, **vorige**). Stel dat u in januari een query wilt uitvoeren op uw niet-gefactureerde gebruiks gegevens van de facturerings cyclus (01/01/2020 – 01/31/2020), kies periode als **' Huidig ',** else **' eerder. '** |
+| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000.                    |
 | seekOperation          | tekenreeks | No       | Stel `seekOperation=Next` deze waarde in om de volgende pagina met lijn items voor afstemming weer te geven.                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
