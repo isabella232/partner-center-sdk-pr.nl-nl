@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 5f428bf9104fec3e4855706e8786ad3941875f3d
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: d486eed96586eb2577577eac44fa9e866479e825
+ms.sourcegitcommit: 9bc35836b389fdf083b278128a2e9ec994919f1c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767346"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532835"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>Ondersteunde talen en landinstellingen voor Partnercentrum
 
@@ -181,7 +181,7 @@ De volgende tabel geeft een lijst van de cultuur en ISO-land codes (Internationa
 | Montenegro                               | ME                       | MNE                      | sr-Latn-ME/en-US                    |
 | Montserrat                               | MS                       | MSR                      | en-US                                 |
 | Marokko                                  | MA                       | MRT                      | AR-MA/en-US                         |
-| Mozambique                               | MZ                       | MOZ                      | pt-PT/en-US                         |
+| Mozambique                               | MZ                       | MOZ                      | pt-PT                                 |
 | Myanmar                                  | MM                       | MMR                      | en-US                                 |
 | Namibië                                  | NA                       | Vietnam                      | en-GB/en-US                         |
 | Nauru                                    | NR                       | NRU                      | en-US                                 |
