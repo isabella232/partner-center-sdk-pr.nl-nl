@@ -4,19 +4,19 @@ description: In deze sectie worden de manieren beschreven waarop partners van Cl
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b76829bf8bfae51c135ea815e3360376a5ff294d
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: fa1a032735037b1b3a543d21bf4c868b52c13017
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767428"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711947"
 ---
 # <a name="manage-customers"></a>Klanten beheren
 
 **Van toepassing op**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -53,8 +53,8 @@ In deze sectie worden de manieren beschreven waarop partners van Cloud Solution 
 - [Status voor direct ondertekenen (direct accepteren) van de Microsoft-klantovereenkomst ophalen](get-direct-sign-status-of-customer-agreement.md)
 - [Acceptatie door de klant van Microsoft-klantovereenkomst bevestigen](confirm-customer-consent-customer-agreement.md)
 - [De validatiecodes van een partner ophalen](get-a-partner-s-validation-codes.md)
-- [De kwalificatie van een klant ophalen](get-a-customer-s-qualification.md)
-- [De kwalificatie van een klant bijwerken](update-a-customer-s-qualification.md)
+- [De kwalificatie van een klant ophalen](./get-customer-qualification-synchronous.md)
+- [De kwalificatie van een klant bijwerken](./update-customer-qualification-synchronous.md)
 
 ## <a name="manage-user-accounts-and-assign-licenses"></a>Gebruikers accounts beheren en licenties toewijzen
 

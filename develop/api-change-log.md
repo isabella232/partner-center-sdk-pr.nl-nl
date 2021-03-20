@@ -5,12 +5,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.topic: reference
 ms.date: 12/15/2020
-ms.openlocfilehash: 79359414276a1259117a8f506bbfae4441cdcbed
-ms.sourcegitcommit: f8ca3a14a763013fefafd3262d0a740881d1d7b1
+ms.openlocfilehash: b2c2cac36a8bd1bec7aa5bf6e5d1aa73b4779535
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97768685"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711845"
 ---
 # <a name="december-2020-changes-to-partner-center-rest-apis"></a>Wijzigingen van 2020 december voor het Partner Center REST-Api's
 
@@ -24,8 +24,8 @@ Schakel dit selectie vakje in als u de REST-Api's van het partner centrum wilt w
 
 Op dit moment heeft de partner centrum-API de mogelijkheid om de geschiktheid van het onderwijs klanten te verifiëren. Er worden geen wijzigingen aangebracht in de kwalificatie-API ophalen. We hebben echter een retour Case toegevoegd aan de PUT-kwalificatie-API.
 
-- GET-wordt niet gewijzigd. [Huidige API-artikel](get-a-customer-s-qualification.md)
-- Er wordt een case met de waarde PUT toegevoegd. [Huidige API-artikel](update-a-customer-s-qualification.md)
+- GET-wordt niet gewijzigd. [Huidige API-artikel](./get-customer-qualification-synchronous.md)
+- Er wordt een case met de waarde PUT toegevoegd. [Huidige API-artikel](./update-customer-qualification-synchronous.md)
 
 Deze Api's worden aan het einde van februari 2021 verwijderd en vervangen door nieuwe Api's, zoals hieronder wordt beschreven.
 

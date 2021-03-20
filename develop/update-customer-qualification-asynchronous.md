@@ -1,17 +1,17 @@
 ---
-title: De kwalificaties van een klant bijwerken
+title: Kwalificaties van een klant bijwerken
 description: Meer informatie over het bijwerken van de kwalificaties van een klant via asynchrone screening of hebben, met inbegrip van het adres dat aan het profiel is gekoppeld.
 ms.date: 12/07/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: JoeyBytes
 ms.author: jobiesel
-ms.openlocfilehash: e0390e8a9c2a277dcb9e18b026f12625400ae176
-ms.sourcegitcommit: 0c98496e972aebe10eba23822aa229125bfc035d
+ms.openlocfilehash: 703585eeaba93b6d7a510a3174a78a28f22e1510
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711930"
 ---
 # <a name="update-a-customers-qualifications-asynchronously"></a>De kwalificaties van een klant asynchroon bijwerken
 
@@ -43,8 +43,8 @@ Gebruik de volgende query parameter om de kwalificatie bij te werken.
 
 | Naam                   | Type | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | GUID | Yes      | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **validationCode**     | int  | No       | Alleen nodig voor de cloud van de community.                                                                                                            |
+| **klant-Tenant-id** | GUID | Ja      | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
+| **validationCode**     | int  | Nee       | Alleen nodig voor de cloud van de community.                                                                                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -90,5 +90,5 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="related-articles"></a>Verwante artikelen:
 
-- [De kwalificaties van een klant ophalen](get-a-customer-s-qualifications.md)
+- [De kwalificaties van een klant ophalen](./get-customer-qualification-asynchronous.md)
 - [De validatiecodes van een partner ophalen](get-a-partner-s-validation-codes.md)

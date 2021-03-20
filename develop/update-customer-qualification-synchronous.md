@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 7faab68d20c698f5b040a76f4776dbdf14180640
-ms.sourcegitcommit: 0c98496e972aebe10eba23822aa229125bfc035d
+ms.openlocfilehash: c202d95beab771241a9665243be5f08ab6f82fd5
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767657"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711964"
 ---
 # <a name="update-a-customers-qualification-via-synchronous-validation"></a>De kwalificatie van een klant bijwerken via synchrone validatie
 
@@ -39,7 +39,7 @@ Als u de kwalificatie van een klant wilt bijwerken naar ' Education ', roept u *
 var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.Update(CustomerQualification.Education);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSamples- **klasse**: CustomerQualificationOperations.cs
+Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSamples- **klasse**: CustomerQualificationOperations. cs
 
 Het bijwerken van de kwalificatie van een klant naar **GovernmentCommunityCloud** op een bestaande klant zonder een kwalificatie.  De partner is ook vereist voor het toevoegen van de [**ValidationCode**](utility-resources.md#validationcode)van de klant.
 
@@ -64,8 +64,8 @@ Gebruik de volgende query parameter om de kwalificatie bij te werken.
 
 | Naam                   | Type | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | GUID | Yes      | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **validationCode**     | int  | No       | Alleen nodig voor de cloud van de community.                                                                                                            |
+| **klant-Tenant-id** | GUID | Ja      | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
+| **validationCode**     | int  | Nee       | Alleen nodig voor de cloud van de community.                                                                                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -107,5 +107,5 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="related-articles"></a>Verwante artikelen:
 
-- [De kwalificatie van een klant ophalen](get-a-customer-s-qualification.md)
+- [De kwalificatie van een klant ophalen](./get-customer-qualification-synchronous.md)
 - [De validatiecodes van een partner ophalen](get-a-partner-s-validation-codes.md)

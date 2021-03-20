@@ -4,12 +4,12 @@ description: U kunt de AgreementStatus-API gebruiken om te controleren of een in
 ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9501f245a6c98fa90e77de7bc0caed8ca51fa4f2
-ms.sourcegitcommit: 40baf4d825ce0ca6a254b5f368c308f025be7034
+ms.openlocfilehash: fa9480424eccc933bc9c28c3879a195fbd5f2bb1
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100537573"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711889"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>De ondertekening status van de micro soft partner overeenkomst van een indirecte wederverkoper verifiëren
 
@@ -44,7 +44,7 @@ var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementS
 
 - Voor beeld: **[console test-app](console-test-app.md)**
 - Project: **PartnerCenterSDK. FeaturesSamples**
-- Klasse: **GetAgreementSignatureStatus.cs**
+- Klasse: **GetAgreementSignatureStatus. cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -60,8 +60,8 @@ U moet een van de volgende twee query parameters opgeven om de partner te identi
 
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | int | No | Een Microsoft Partner Network-ID (PGA/PLA) waarmee de indirecte wederverkoper wordt geïdentificeerd. |
-| **Tenant-ID** | GUID | No | Een micro soft-ID waarmee het CSP-account van de indirecte wederverkoper wordt geïdentificeerd. |
+| **MpnId** | int | Nee | Een Microsoft Partner Network-ID (PGA/PLA) waarmee de indirecte wederverkoper wordt geïdentificeerd. |
+| **Tenant-ID** | GUID | Nee | Een micro soft-ID waarmee het CSP-account van de indirecte wederverkoper wordt geïdentificeerd. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -240,7 +240,7 @@ Connection: close
 
 #### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>De SSP-regio en de CSP indirecte wederverkoper-regio komen niet overeen
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer de regio van de indirecte reseller MPN-ID (PGA/PLA) niet overeenkomt met de regio van de indirecte provider. Meer [informatie](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq) over CSP-regio's.
+Het volgende voor beeld van een antwoord wordt geretourneerd wanneer de regio van de indirecte reseller MPN-ID (PGA/PLA) niet overeenkomt met de regio van de indirecte provider. Meer [informatie](/partner-center/mpa-indirect-provider-faq) over CSP-regio's.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -264,7 +264,7 @@ Connection: close
 
 #### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>Het account voor de indirecte dealer van CSP bestaat in het partner centrum, maar heeft de MPA niet ondertekend
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer het CSP indirecte reseller-account in het partner centrum de MPA niet heeft ondertekend. [Meer informatie](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq)
+Het volgende voor beeld van een antwoord wordt geretourneerd wanneer het CSP indirecte reseller-account in het partner centrum de MPA niet heeft ondertekend. [Meer informatie](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -288,7 +288,7 @@ Connection: close
 
 #### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Er is geen indirect-dealer account voor CSP gekoppeld aan de opgegeven MPN-ID
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer het partner centrum de MPN-ID (PGA/PLA) kan herkennen die in de aanvraag is gegeven, maar er geen CSP-registratie is gekoppeld aan de opgegeven MPN-ID (PGA/PLA). [Meer informatie](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq)
+Het volgende voor beeld van een antwoord wordt geretourneerd wanneer het partner centrum de MPN-ID (PGA/PLA) kan herkennen die in de aanvraag is gegeven, maar er geen CSP-registratie is gekoppeld aan de opgegeven MPN-ID (PGA/PLA). [Meer informatie](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -334,7 +334,7 @@ Connection: close
 
 #### <a name="no-mpa-found-with-the-given-tenant-id"></a>Er is geen MPA gevonden met de opgegeven Tenant-ID
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer in het partner centrum geen MPA-hand tekening met de opgegeven Tenant-ID is gevonden. [Meer informatie](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq)
+Het volgende voor beeld van een antwoord wordt geretourneerd wanneer in het partner centrum geen MPA-hand tekening met de opgegeven Tenant-ID is gevonden. [Meer informatie](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request

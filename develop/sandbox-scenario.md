@@ -4,19 +4,19 @@ description: Partner sandbox biedt de mogelijkheid om relaties tussen de partner
 ms.date: 11/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e01dd1a83ca459cbdf12b8e564b43a2d18f5595b
-ms.sourcegitcommit: f69ceae441bbb2ddba96e878a1ec8c1a499a4879
+ms.openlocfilehash: af46811b3615e1f904a9619de85b0aca7622490b
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180728"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711862"
 ---
 # <a name="partner-sandbox-capabilities-that-support-reseller-relationship"></a>Sandbox-mogelijkheden voor partners die reseller-relatie ondersteunen
 
 **Van toepassing op:**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -95,7 +95,7 @@ Hoofd tekst van aanvraag geen
 
 ### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](https://docs.microsoft.com/partner-center/develop/error-codes)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](./error-codes.md)voor de volledige lijst.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -103,4 +103,4 @@ Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is 
 
 - [Een order annuleren vanuit sandbox](cancel-an-order-from-the-integration-sandbox.md)
 
-- [Testen en fouten opsporen](test-and-debug.md) 
+- [Testen en fouten opsporen](test-and-debug.md)
