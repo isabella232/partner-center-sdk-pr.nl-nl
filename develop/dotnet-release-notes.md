@@ -4,16 +4,45 @@ description: Release opmerkingen voor de nieuwste versie van de .NET SDK van par
 ms.date: 09/18/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6be8f62e0c202a00b194f5af1dc8904006f8d637
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: 2fe309500cc80e962c101ad97f0712bef7e11eb3
+ms.sourcegitcommit: f7fce0b35ab1579e59136abc357b71cf768b81b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97768662"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104895530"
 ---
 # <a name="net-sdk-release-notes"></a>Opmerkingen bij de release van .NET SDK
 
 De volgende release opmerkingen zijn beschikbaar voor nieuwe versies van [micro soft Partner Center .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter). U kunt [.NET SDK](https://github.com/Microsoft/Partner-Center-DotNet-Samples) -voor beelden vinden op github. U vindt de [Naslag informatie voor het partner centrum .net API](/dotnet/api/?view=partnercenter-dotnet-latest&preserve-view=true) in de .net API-browser.
+
+## <a name="version-1170"></a>Versie 1.17.0
+
+[Micro soft Partner Center .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.17.0) v 1.17.0 is nu algemene Beschik baarheid. Er zijn ook bijgewerkte github-voor [beelden](https://github.com/Microsoft/Partner-Center-DotNet-Samples) beschikbaar. De volgende wijzigingen zijn opgenomen in deze versie:
+
+* Controle bijgewerkt: nieuwe bewerkings typen toegevoegd om te weten wanneer de door de klant goedgekeurde en beëindigde DAP is
+  * [DapAdminRelationshipApproved](auditing-resources.md)
+  * [DapAdminRelationshipTerminated](auditing-resources.md)
+
+* Controle bijgewerkt: nieuwe resource en bewerkings typen toegevoegd voor het ondersteunen van het scenario voor de Directory functie van de klant
+  * Resource type "[CustomerDirectoryRole](auditing-resources.md)"
+  * Bewerkings typen '[AddUserMember](auditing-resources.md)' en '[RemoveUserMember](auditing-resources.md)'
+
+* SDK-updates voor klanten account-ondersteuning voor de volgende API'S
+  * /Customers/{customer-tenant-id}/directSignedMicrosoftCustomerAgreementStatus ophalen
+  * /Customers/{Customer-Tenant-id}/Qualifications ophalen 
+  * POST/Customers/{customer_id}/Qualifications? code = {validationCode}
+
+* **De volgende wijzigingen zijn geïntroduceerd als onderdeel van de nieuwe Commerce, die momenteel alleen beschikbaar zijn op basis van de uitnodiging voor partners die deel uitmaken van de M365/D365 nieuwe technische preview van Commerce-ervaring.** Partners die geen deel uitmaken van de nieuwe preview-versie van Commerce private, mogen geen gevolgen ondervinden en moeten neerwaarts compatibel zijn.
+  * Wijzigingen in catalogus:
+    * /Products/{product-id}/SKUs/{SKU-id} ophalen
+  * Kopen en beheren:
+    * /Customers/{customerId}/subscriptions ophalen
+    * /Customers/{customerId}/subscriptions/{subscriptionId} ophalen
+    * PATCH/customers/{customerId}/subscriptions/{subscriptionId}
+    * /Customers/{customerId}/subscriptions/{subscriptionId}/transitioneligibilities ophalen
+    * /Customers/{customerId}/subscriptions/{subscriptionId}/transitions ophalen
+    * /Customers/{customerId}/subscriptions/{subscriptionId}/transitions plaatsen
+
 
 ## <a name="version-1163"></a>Versie 1.16.3
 
