@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 3f1deb20a18bc6e7133cac91db528f2d1ad694e2
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 267e3aa63a94c5045977ad566eb5061df3b59882
+ms.sourcegitcommit: bbdb5f7c9ddd42c2fc4eaadbb67d61aeeae805ca
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767174"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105030552"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>De status van de directe ondertekening van een klant (direct accepteren) van de micro soft-klant overeenkomst ophalen
 
@@ -23,11 +23,29 @@ De **DirectSignedCustomerAgreementStatus** -resource wordt momenteel alleen onde
 
 Deze resource is *niet van toepassing* op:
 
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
 In dit artikel wordt uitgelegd hoe u de status van de directe acceptatie van een klant kunt ophalen van de klant overeenkomst van micro soft.
+
+## <a name="prerequisites"></a>Vereisten
+
+- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+
+- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+
+## <a name="c"></a>C\#
+
+Als u de status van de directe acceptatie van een klant wilt ophalen van de micro soft-klant overeenkomst, roept u de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id. Gebruik vervolgens de eigenschap [**overeenkomsten**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.agreements) om een [**ICustomerAgreementCollection**](/dotnet/api/microsoft.store.partnercenter.agreements.icustomeragreementcollection) -interface op te halen. Roep tot slot `GetDirectSignedCustomerAgreementStatus()` `GetDirectSignedCustomerAgreementStatusAsync()` de status aan of op te halen.
+
+``` csharp
+// IAggregatePartner partnerOperations;
+// string customerId;
+var customerDirectSigningStatus = partnerOperations.Customers.ById(selectedCustomerId).Agreements.GetDirectSignedCustomerAgreementStatus();
+```
+
+Voor **beeld**: console-voor [beeld-app](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Project**: SdkSamples- **klasse**: GetDirectSignedCustomerAgreementStatus. cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -47,7 +65,7 @@ U kunt de volgende URI-para meters met uw aanvraag gebruiken:
 
 | Naam             | Type | Vereist | Beschrijving                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| klant-Tenant-id | GUID | Yes | De waarde is een **CustomerTenantId** met de GUID-indeling waarmee u de Tenant-id van een klant kunt opgeven. |
+| klant-Tenant-id | GUID | Ja | De waarde is een **CustomerTenantId** met de GUID-indeling waarmee u de Tenant-id van een klant kunt opgeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
