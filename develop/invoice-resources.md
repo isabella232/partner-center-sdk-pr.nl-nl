@@ -4,19 +4,19 @@ description: Er zijn meerdere factuur resources beschikbaar via de partner centr
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bd2caefe4ae18c81a31083d084f1e87da1288dd9
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8977b3b649cd930bb517965572d0efe51d6985a0
+ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767229"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730209"
 ---
 # <a name="invoice-resources"></a>Factuur resources
 
 **Van toepassing op:**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -47,7 +47,7 @@ De volgende factuur-gerelateerde resources zijn beschikbaar via de partner centr
 
 Een factuur bevat een verzameling gefactureerde items en elk item wordt vertegenwoordigd door een InvoiceDetail-resource.
 
-| Eigenschap            | Type                                                           | Description                                                                       |
+| Eigenschap            | Type                                                           | Beschrijving                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | invoiceLineItemType | tekenreeks                                                         | Het type factuur Details: ' geen ', ' Gebruik \_ regel \_ items ', ' facturerings \_ regel \_ items '. |
 | billingProvider     | tekenreeks                                                         | De facturerings provider: ' none ', ' Office ', ' Azure ' of ' Azure \_ Data \_ Market '.         |
@@ -58,7 +58,7 @@ Een factuur bevat een verzameling gefactureerde items en elk item wordt vertegen
 
 Elke afzonderlijke kosten binnen een factuur worden weer gegeven als een InvoiceLineItem.
 
-| Eigenschap            | Type                                                           | Description                                                                          |
+| Eigenschap            | Type                                                           | Beschrijving                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | invoiceLineItemType | tekenreeks                                                         | Het type factuur regel item: ' geen ', ' Gebruik \_ regel \_ items ', ' facturerings \_ regel \_ items '. |
 | billingProvider     | tekenreeks                                                         | De facturerings provider: ' none ', ' Office ', ' Azure ' of ' Azure \_ Data \_ Market '.            |
@@ -68,7 +68,7 @@ Elke afzonderlijke kosten binnen een factuur worden weer gegeven als een Invoice
 
 Hierin wordt een overzicht van het saldo en de totale kosten van een factuur beschreven.
 
-| Eigenschap                 | Type                                                           | Description                                                           |
+| Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | balanceAmount            | getal                                                         | Het saldo van de factuur. Dit is de totale hoeveelheid niet-betaalde rekeningen. |
 | currencyCode             | tekenreeks                                                         | Een code die de gebruikte valuta voor het saldo bedrag aangeeft.       |
@@ -86,7 +86,7 @@ Hierin wordt een overzicht van het saldo en de totale kosten van een factuur bes
 
 Vertegenwoordigen een samen vatting van de afzonderlijke gegevens voor een factuur type (bijvoorbeeld terugkerende, eenmalige \_ tijd).
 
-| Eigenschap            | Type                                                           | Description                                                                          |
+| Eigenschap            | Type                                                           | Beschrijving                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | invoiceType         | tekenreeks                                                         | Het type factuur: ' terugkerend ', ' eenmalig ' \_ .                                       |
 | samenvatting             | [InvoiceSummary](#invoicesummary) -object                       | De samen vatting van de factuur per factuur type.                                         |
@@ -95,7 +95,7 @@ Vertegenwoordigen een samen vatting van de afzonderlijke gegevens voor een factu
 
 Vertegenwoordigen een verzameling van het type [InvoiceSummary](#invoicesummary) die de afzonderlijke Details voor een factuur type per valuta bevatten.
 
-| Eigenschap            | Type                                                           | Description                                                                          |
+| Eigenschap            | Type                                                           | Beschrijving                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | collectionOfSummary | matrix van [InvoiceSummary](#invoicesummary) -objecten             | De samen vatting van de factuur per factuur type per valuta.                            |
 
@@ -103,7 +103,7 @@ Vertegenwoordigen een verzameling van het type [InvoiceSummary](#invoicesummary)
 
 Vertegenwoordigt een factuur facturerings regel item voor op licenties gebaseerde abonnementen.
 
-| Eigenschap                 | Type                                                           | Description                                                           |
+| Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | bedrag                   | tekenreeks                                                         | Hiermee wordt het totaal bedrag opgehaald of ingesteld. Totaal bedrag = eenheids prijs * aantal.  |
 | kenmerken               | tekenreeks                                                         | Hiermee worden de kenmerken opgehaald.                                                  |
@@ -141,7 +141,7 @@ Vertegenwoordigt een factuur facturerings regel item voor op licenties gebaseerd
 
 Vertegenwoordigt een facturerings regel item voor het factureren van op gebruik gebaseerde abonnementen.
 
-| Eigenschap                 | Type                                                           | Description                                                           |
+| Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | kenmerken               | tekenreeks                                                         | Hiermee worden de kenmerken opgehaald.                                                  |
 | billingCycleType         | tekenreeks                                                         | Hiermee wordt het type facturerings cyclus opgehaald of ingesteld.                                  |
@@ -188,7 +188,7 @@ Vertegenwoordigt een facturerings regel item voor het factureren van op gebruik 
 
 Hiermee wordt de beschik bare bewerkingen in een factuur overzicht in Application/PDF aangegeven.
 
-| Eigenschap                 | Type                                                           | Description                                                           |
+| Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | httpResponseMessage      | object                                                         | ByteArrayContent met content type = Application/PDF.                  |
 
@@ -196,7 +196,7 @@ Hiermee wordt de beschik bare bewerkingen in een factuur overzicht in Applicatio
 
 Vertegenwoordigt een factuur facturerings regel item voor abonnementen op basis van licenties.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
 | Partner | tekenreeks | Hiermee wordt de Tenant-ID van de partner opgehaald of ingesteld. |
 | CustomerId | tekenreeks | Hiermee wordt de Tenant-ID van de klant opgehaald of ingesteld. |
@@ -230,6 +230,7 @@ Vertegenwoordigt een factuur facturerings regel item voor abonnementen op basis 
 | TermAndBillingCycle | tekenreeks | Hiermee wordt de periode en facturerings cyclus opgehaald of ingesteld die aan deze aankoop is gekoppeld. |
 | AlternateId | tekenreeks | Hiermee wordt de alternatieve ID (Quote-ID) opgehaald of ingesteld. |
 | PriceAdjustmentDescription | tekenreeks | Hiermee wordt de beschrijving van de prijs correctie opgehaald of ingesteld. |
+| CreditReasonCode | tekenreeks | Hiermee wordt de code van de krediet reden opgehaald of ingesteld. |
 | DiscountDetails | tekenreeks |  **Afgeschaft**. Hiermee worden de kortings gegevens opgehaald of ingesteld die zijn gekoppeld aan deze aankoop. |
 | PricingCurrency | tekenreeks | Hiermee wordt de valuta code voor prijzen opgehaald of ingesteld. |
 | PCToBCExchangeRate | decimal | Hiermee wordt de prijs valuta opgehaald of ingesteld op basis van de valuta wisselkoers. |
@@ -245,7 +246,7 @@ Vertegenwoordigt een factuur facturerings regel item voor abonnementen op basis 
 
 Vertegenwoordigt niet-gefactureerde, gefactureerde afstemmings regel items voor dagelijks geclassificeerd gebruik.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
 | Partner | tekenreeks | Hiermee wordt de Tenant-ID van de partner opgehaald of ingesteld. |
 | PartnerName | tekenreeks | Hiermee wordt de naam van de partner opgehaald of ingesteld. |
@@ -297,6 +298,8 @@ Vertegenwoordigt niet-gefactureerde, gefactureerde afstemmings regel items voor 
 | PCToBCExchangeRateDate | DateTime | Hiermee wordt de prijs valuta opgehaald of ingesteld op basis van de valuta wisselkoers datum. |
 | EffectiveUnitPrice | decimal | Hiermee wordt de werkelijke eenheids prijs opgehaald of ingesteld. |
 | RateOfPartnerEarnedCredit | decimal | Hiermee wordt de frequentie van het tegoed van de partner opgehaald of ingesteld. |
-| hasPartnerEarnedCredit | booleaans | Hiermee wordt opgehaald of ingesteld dat het tegoed van de partner is toegepast. |
+| HasPartnerEarnedCredit | booleaans | Hiermee wordt opgehaald of ingesteld dat het tegoed van de partner is toegepast. |
+| RateOfCredit | decimal | Hiermee wordt het tegoed voor het opgegeven krediet type opgehaald of ingesteld. |
+| CreditType | tekenreeks | Hiermee wordt het type krediet opgehaald of ingesteld. |
 | InvoiceLineItemType | InvoiceLineItemType | Hiermee wordt het type van het factuur regel item geretourneerd. |
 | BillingProvider | BillingProvider | Hiermee wordt de facturerings provider geretourneerd. |

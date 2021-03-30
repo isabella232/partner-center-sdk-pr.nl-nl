@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: a13b62903e44165ef9811ea7798fcea666d483dc
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1e19792da6a7510bf02dd11b3e77f40a8365be2b
+ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767492"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730192"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Factuur gefactureerde commerciële verbruiks regel items ophalen
 
@@ -109,7 +109,7 @@ Voor een vergelijkbaar voor beeld raadpleegt u het volgende:
 
 - Voor beeld: [console test-app](console-test-app.md)
 - Project: **Partner Center SDK** -voor beelden
-- Klasse: **GetBilledConsumptionReconLineItemsPaging.cs**
+- Klasse: **GetBilledConsumptionReconLineItemsPaging. cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -129,12 +129,12 @@ Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| factuur-ID             | tekenreeks | Yes      | Een teken reeks waarmee de factuur wordt geïdentificeerd.                             |
-| providers               | tekenreeks | Yes      | De provider: ' eenmalige '.                                  |
-| factuur-regel-item-type | tekenreeks | Yes      | Het type factuur Details: "UsageLineItems". |
-| currencyCode           | tekenreeks | Yes      | De valuta code voor de gefactureerde regel items.                    |
-| period                 | tekenreeks | Yes      | De periode voor gefactureerde afstemming. voor beeld: huidige, vorige.        |
-| grootte                   | getal | No       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000       |
+| factuur-ID             | tekenreeks | Ja      | Een teken reeks waarmee de factuur wordt geïdentificeerd.                             |
+| providers               | tekenreeks | Ja      | De provider: ' eenmalige '.                                  |
+| factuur-regel-item-type | tekenreeks | Ja      | Het type factuur Details: "UsageLineItems". |
+| currencyCode           | tekenreeks | Ja      | De valuta code voor de gefactureerde regel items.                    |
+| period                 | tekenreeks | Ja      | De periode voor gefactureerde afstemming. voor beeld: huidige, vorige.        |
+| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000       |
 | seekOperation          | tekenreeks | No       | Stel seekOperation = volgende in om de volgende pagina van de afstemmings regel items op te halen. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
@@ -238,6 +238,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "billingCurrency": "USD",
             "pricingPreTaxTotal": 0.486031696515249,
             "pricingCurrency": "USD",
+            "creditType": "Credit Not Applied",
             "invoiceLineItemType": "usage_line_items",
             "billingProvider": "marketplace",
             "attributes": {
@@ -295,6 +296,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "effectiveUnitPrice": 0.1999968000511991808131,
             "rateOfPartnerEarnedCredit": 0,
+            "rateOfCredit": 1,
+            "creditType": "Azure Credit Applied",
             "invoiceLineItemType": "usage_line_items",
             "billingProvider": "marketplace",
             "attributes": {
@@ -414,7 +417,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "effectiveUnitPrice": 0.1835431430074643112595,
             "rateOfPartnerEarnedCredit": 0.15,
-
+            "rateOfCredit": 0.15,
+            "creditType": "Partner Earned Credit Applied",
             "attributes": {
                 "objectType": "DailyRatedUsageLineItem"
             }

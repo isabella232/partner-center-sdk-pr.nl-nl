@@ -4,19 +4,19 @@ description: U kunt een verzameling van factuur regel items (gesloten facturerin
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e797f549e1344268c8167259a231122e7c669a2e
-ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
+ms.openlocfilehash: ddc49e4d83518b809402a65f990f3e9c2658e64b
+ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100499895"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730225"
 ---
 # <a name="get-invoice-line-items"></a>Regelitems van facturen ophalen
 
 **Van toepassing op:**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -103,7 +103,7 @@ Voor een vergelijkbaar voor beeld raadpleegt u het volgende:
 
 - Voor beeld: [console test-app](console-test-app.md)
 - Project: **Partner Center SDK** -voor beelden
-- Klasse: **GetInvoiceLineItems.cs**
+- Klasse: **GetInvoiceLineItems. cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -157,13 +157,13 @@ Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| factuur-ID             | tekenreeks | Yes      | Een teken reeks waarmee de factuur wordt geïdentificeerd.                             |
-| facturering-provider       | tekenreeks | Yes      | De facturerings provider: ' Office ', ' Azure ', ' eenmalige '. In de verouderde hebben we afzonderlijke gegevens modellen voor Office & Azure-trans acties. Het moderne heeft echter één gegevens model voor alle trans acties die worden gefilterd op basis van de waarde ' eenmalige '.            |
-| factuur-regel-item-type | tekenreeks | Yes      | Het type factuur Details: "BillingLineItems", "UsageLineItems". |
-| grootte                   | getal | No       | Het maximum aantal items dat moet worden geretourneerd. Standaard maximale grootte = 2000    |
-| offset                 | getal | No       | De op nul gebaseerde index van het eerste regel item dat moet worden geretourneerd.            |
+| factuur-ID             | tekenreeks | Ja      | Een teken reeks waarmee de factuur wordt geïdentificeerd.                             |
+| facturering-provider       | tekenreeks | Ja      | De facturerings provider: ' Office ', ' Azure ', ' eenmalige '. In de verouderde hebben we afzonderlijke gegevens modellen voor Office & Azure-trans acties. Het moderne heeft echter één gegevens model voor alle trans acties die worden gefilterd op basis van de waarde ' eenmalige '.            |
+| factuur-regel-item-type | tekenreeks | Ja      | Het type factuur Details: "BillingLineItems", "UsageLineItems". |
+| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden geretourneerd. Standaard maximale grootte = 2000    |
+| offset                 | getal | Nee       | De op nul gebaseerde index van het eerste regel item dat moet worden geretourneerd.            |
 | seekOperation          | tekenreeks | No       | Als **facturering-provider** gelijk is aan **eenmalige**, stelt u **seekOperation** gelijk aan **volgende** in om de volgende pagina van factuur regel items weer te geven. |
-| hasPartnerEarnedCredit | booleaans | No | De waarde die aangeeft of de regel items moeten worden geretourneerd waarvoor het tegoed van de partner is toegepast. Opmerking: deze para meter wordt alleen toegepast wanneer het facturerings provider type eenmalige is en InvoiceLineItemType is ingesteld op UsageLineItems. |
+| hasPartnerEarnedCredit | booleaans | Nee | De waarde die aangeeft of de regel items moeten worden geretourneerd waarvoor het tegoed van de partner is toegepast. Opmerking: deze para meter wordt alleen toegepast wanneer het facturerings provider type eenmalige is en InvoiceLineItemType is ingesteld op UsageLineItems. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -633,6 +633,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "termAndBillingCycle": "1 Month Subscription",
             "alternateId": "1234278124b8",
             "priceAdjustmentDescription": "[\"100.0% Tier 1 Discount\"]",
+            "creditReasonCode": "Azure Consumption Credit",
             "pricingCurrency": "USD",
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-09-30T23:59:59Z",
