@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 73286e6068663187b973827df1b5b49d44b95532
-ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
+ms.openlocfilehash: bc8e9d38353511e747ba4da99b11be40d08781e3
+ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106103994"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106274594"
 ---
 # <a name="create-a-customer-using-partner-center-apis"></a>Een klant maken met partner Center-Api's
 
@@ -170,7 +170,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
 
-| Naam                              | Type   | Description                                 |
+| Naam                              | Type   | Beschrijving                                 |
 |-----------------------------------|--------|---------------------------------------------|
 | [BillingProfile](#billing-profile) | object | De facturerings profiel gegevens van de klant. |
 | [CompanyProfile](#company-profile) | object | De gegevens van het bedrijfs profiel van de klant. |
@@ -179,7 +179,7 @@ In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag
 
 In deze tabel worden de minimale vereiste velden van de [CustomerBillingProfile](customer-resources.md#customerbillingprofile) -resource beschreven die nodig zijn om een nieuwe klant te maken.
 
-| Naam             | Type                                     | Description                                                                                                                                                                                                     |
+| Naam             | Type                                     | Beschrijving                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | e-mail            | tekenreeks                                   | Het e-mail adres van de klant.                                                                                                                                                                                   |
 | culturele          | tekenreeks                                   | De voorkeurs cultuur voor communicatie en valuta, zoals ' en-US '. Zie [ondersteunde talen en land instellingen voor het partner centrum](partner-center-supported-languages-and-locales.md) voor de ondersteunde cult uren. |
@@ -191,11 +191,10 @@ In deze tabel worden de minimale vereiste velden van de [CustomerBillingProfile]
 
 In deze tabel worden de minimale vereiste velden van de [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) -resource beschreven die nodig zijn om een nieuwe klant te maken.
 
-| Naam   | Type   | Description                                                  |
+| Naam   | Type   | Beschrijving                                                  |
 |--------|--------|--------------------------------------------------------------|
 | domein | tekenreeks | De domein naam van de klant, zoals contoso.onmicrosoft.com. |
-|organizationRegistrationNumber|Tekenreeks|Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
-
+|organizationRegistrationNumber|Tekenreeks|Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (BY), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), Brazilië (BR), India, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 

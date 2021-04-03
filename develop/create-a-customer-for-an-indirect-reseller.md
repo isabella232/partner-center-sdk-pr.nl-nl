@@ -1,17 +1,17 @@
 ---
 title: Een klant voor een indirecte reseller maken
 description: Meer informatie over hoe een indirecte provider Partner Center-Api's kan gebruiken voor het maken van een klant voor een indirecte wederverkoper.
-ms.date: 03/30/2021
+ms.date: 04/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 13cd1b051abb536d397dcd4000228f67fe3206b8
-ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
+ms.openlocfilehash: 0de40d08e9fc2b9cf87b7c3c41214fdd34ad26f3
+ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106103943"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106274577"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Een klant voor een indirecte wederverkoper maken met behulp van partner Center-Api's
 
@@ -97,11 +97,11 @@ In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag
 
 | Naam                                          | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | object | Yes      | De facturerings profiel gegevens van de klant.                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | object | Yes      | De gegevens van het bedrijfs profiel van de klant.                                                               
-| [AssociatedPartnerId](customer-resources.md#customer) | tekenreeks | Yes      | De ID van de indirecte wederverkoper. De indirecte wederverkoper zoals aangegeven door de ID die u hier opgeeft, moet een partnerschap met de indirecte provider hebben, anders mislukt de aanvraag. Houd er ook rekening mee dat als de waarde AssociatedPartnerId niet wordt opgegeven, de klant wordt gemaakt als een rechtstreekse klant van de indirecte provider in plaats van de indirecte wederverkoper. |
+| [BillingProfile](#billing-profile)             | object | Ja      | De facturerings profiel gegevens van de klant.                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | object | Ja      | De gegevens van het bedrijfs profiel van de klant.                                                               
+| [AssociatedPartnerId](customer-resources.md#customer) | tekenreeks | Ja      | De ID van de indirecte wederverkoper. De indirecte wederverkoper zoals aangegeven door de ID die u hier opgeeft, moet een partnerschap met de indirecte provider hebben, anders mislukt de aanvraag. Houd er ook rekening mee dat als de waarde AssociatedPartnerId niet wordt opgegeven, de klant wordt gemaakt als een rechtstreekse klant van de indirecte provider in plaats van de indirecte wederverkoper. |
 |Domain| Tekenreeks| Ja|De domein naam van de klant, zoals contoso.onmicrosoft.com.|
-|organizationRegistrationNumber|    tekenreeks|Yes|     Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
+|organizationRegistrationNumber|    tekenreeks|Ja|     Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
 
 
 
@@ -111,11 +111,11 @@ In deze tabel worden de minimale vereiste velden van de [CustomerBillingProfile]
 
 | Naam             | Type                                     | Vereist | Beschrijving                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| e-mail            | tekenreeks                                   | Yes      | Het e-mail adres van de klant.                                                                                                                                                                                   |
-| culturele          | tekenreeks                                   | Yes      | De voorkeurs cultuur voor communicatie en valuta, zoals ' en-US '. Zie [ondersteunde talen en land instellingen voor het partner centrum](partner-center-supported-languages-and-locales.md) voor de ondersteunde cult uren. |
-| language         | tekenreeks                                   | Yes      | De standaard taal. Taal codes voor twee tekens (bijvoorbeeld `en` of `fr` ) worden ondersteund.                                                                                                                                |
-| bedrijfs \_ naam    | tekenreeks                                   | Yes      | De naam van het geregistreerde bedrijf/de organisatie.                                                                                                                                                                       |
-| standaard \_ adres | [Adres](utility-resources.md#address) | Yes      | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [adres](utility-resources.md#address) bron voor informatie over de beperkingen van elke lengte.                                             |
+| e-mail            | tekenreeks                                   | Ja      | Het e-mail adres van de klant.                                                                                                                                                                                   |
+| culturele          | tekenreeks                                   | Ja      | De voorkeurs cultuur voor communicatie en valuta, zoals ' en-US '. Zie [ondersteunde talen en land instellingen voor het partner centrum](partner-center-supported-languages-and-locales.md) voor de ondersteunde cult uren. |
+| language         | tekenreeks                                   | Ja      | De standaard taal. Taal codes voor twee tekens (bijvoorbeeld `en` of `fr` ) worden ondersteund.                                                                                                                                |
+| bedrijfs \_ naam    | tekenreeks                                   | Ja      | De naam van het geregistreerde bedrijf/de organisatie.                                                                                                                                                                       |
+| standaard \_ adres | [Adres](utility-resources.md#address) | Ja      | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [adres](utility-resources.md#address) bron voor informatie over de beperkingen van elke lengte.                                             |
 
 #### <a name="company-profile"></a>Bedrijfs profiel
 
@@ -123,8 +123,8 @@ In deze tabel worden de minimale vereiste velden van de [CustomerCompanyProfile]
 
 | Naam   | Type   | Vereist | Beschrijving                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domein | tekenreeks | Yes     | De domein naam van de klant, zoals contoso.onmicrosoft.com. |
-| organizationRegistrationNumber | tekenreeks | Is afhankelijk van de voor waarde | Het registratie nummer van de klant (ook wel het INN-nummer in bepaalde landen genoemd). <br/><br/>Volt ooien van dit veld is alleen vereist als het bedrijf/de organisatie van een klant zich in de volgende landen bevindt: <br/><br/>-Armenië (AM) <br/>-Azerbeidzjan (AZ)<br/>-Belarus (per)<br/>-Hongarije (HU)<br/>-Kazachstan (KZ)<br/>-Kirgizië (KG)<br/>-Moldavië (MD)<br/>-Rusland (RU)<br/>-Tadzjikistan (TJ)<br/>-Oezbekistan (UZ)<br/>-Oekraïne (UA)<br/><br/>Dit veld is niet vereist als het bedrijf/de organisatie van de klant zich in andere landen bevindt dan de hier weer gegeven.  |
+| domein | tekenreeks | Ja     | De domein naam van de klant, zoals contoso.onmicrosoft.com. |
+| organizationRegistrationNumber | tekenreeks | Is afhankelijk van de voor waarde | Het registratie nummer van de klant (ook wel het INN-nummer in bepaalde landen genoemd). <br/><br/>Volt ooien van dit veld is alleen vereist als het bedrijf/de organisatie van een klant zich in de volgende landen bevindt: <br/><br/>-Armenië (AM) <br/>-Azerbeidzjan (AZ)<br/>-Belarus (per)<br/>-Hongarije (HU)<br/>-Kazachstan (KZ)<br/>-Kirgizië (KG)<br/>-Moldavië (MD)<br/>-Rusland (RU)<br/>-Tadzjikistan (TJ)<br/>-Oezbekistan (UZ)<br/>-Oekraïne (UA)<br/>-India <br/>-Brazilië <br/>-Zuid-Afrika <br/>-Polen <br/>-Verenigde Arabische Emiraten <br/>-Saudi-Arabië <br/>-Turkije <br/>-Thai land <br/>-Vietnam <br/>-Myanmar <br/>-Irak <br/>-Zuid-Soedan <br/>-Venezuela<br/> <br/>Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.  |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
