@@ -1,24 +1,24 @@
 ---
 title: Een klant maken
 description: Meer informatie over hoe een Cloud Solution Provider (CSP)-partner Partner Center-Api's kan gebruiken om een nieuwe klant te maken. In dit artikel worden vereisten beschreven en wat er nog meer gebeurt.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 3bc8081c682bdf522bcb0ca218f16cafab7b3a99
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: 73286e6068663187b973827df1b5b49d44b95532
+ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97768658"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106103994"
 ---
 # <a name="create-a-customer-using-partner-center-apis"></a>Een klant maken met partner Center-Api's
 
 **Van toepassing op:**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud for US Government
 
 In dit artikel wordt uitgelegd hoe u een nieuwe klant maakt.
@@ -92,7 +92,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: CreateCustomer.cs
+Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK samples **klasse**: CreateCustomer. cs
 
 ## <a name="java"></a>Java
 
@@ -194,7 +194,7 @@ In deze tabel worden de minimale vereiste velden van de [CustomerCompanyProfile]
 | Naam   | Type   | Description                                                  |
 |--------|--------|--------------------------------------------------------------|
 | domein | tekenreeks | De domein naam van de klant, zoals contoso.onmicrosoft.com. |
-|organizationRegistrationNumber|Tekenreeks|Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen. Armenië (AM), Azerbeidzjan (AZ), Belarus (BY), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA). Voor het bedrijf/de organisatie van de klant die zich in andere landen bevindt, moet dit niet worden opgegeven.|
+|organizationRegistrationNumber|Tekenreeks|Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
 
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag

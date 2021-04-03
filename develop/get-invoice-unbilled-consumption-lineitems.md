@@ -4,12 +4,12 @@ description: U kunt een verzameling van niet-gefactureerde commerciële verbruik
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0b0ce9d4c8d310243d8b799445e5a64975f2d05d
-ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
+ms.openlocfilehash: 8b6ca8d6ff7af53dd2a258ea20e6eaeb26421440
+ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730243"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106274662"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Niet-gefactureerde, commerciële verbruikte regel items ophalen
 
@@ -117,24 +117,24 @@ Zie voor een vergelijkbaar voor beeld:
 
 U kunt de volgende syntaxis voor uw REST-aanvraag gebruiken, afhankelijk van uw use-case. Zie de beschrijvingen voor elke syntaxis voor meer informatie.
 
- | Methode  | Aanvraag-URI         | Beschrijving van de syntaxis use case |                                                                                                                                            |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} http/1.1                              | Gebruik deze syntaxis om een volledige lijst van elk regel item voor de opgegeven factuur te retour neren. |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} &grootte = {size} http/1.1  | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en een offset op basis van 0 om een pagina lijst met regel items te retour neren. |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} &grootte = {size} &SeekOperation = Next                               | Gebruik deze syntaxis om de volgende pagina van regel items voor reconciliatie te verkrijgen met `seekOperation = "Next"` . |
+| Methode  | Aanvraag-URI                                                                                                                                                                                              | Beschrijving van de syntaxis use case                                                                                                     |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} http/1.1                       | Gebruik deze syntaxis om een volledige lijst van elk regel item voor de opgegeven factuur te retour neren.                                                    |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} &grootte = {size} http/1.1           | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en een offset op basis van 0 om een pagina lijst met regel items te retour neren. |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} &grootte = {size} &SeekOperation = Next | Gebruik deze syntaxis om de volgende pagina van regel items voor reconciliatie te verkrijgen met `seekOperation = "Next"` .                                  |
 
 #### <a name="uri-parameters"></a>URI-para meters
 
 Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
 
-| Naam                   | Type   | Vereist | Beschrijving                                                                     |
-|------------------------|--------|----------|---------------------------------------------------------------------------------|
-| providers               | tekenreeks | Ja      | De provider: '**eenmalige**'.                                                |
-| factuur-regel-item-type | tekenreeks | Ja      | Het type factuur Details: "**UsageLineItems**", "**UsageLineItems**".               |
-| currencyCode           | tekenreeks | Ja      | De valuta code voor de niet-gefactureerde regel items.                                  |
+| Naam                   | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                |
+|------------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| providers               | tekenreeks | Ja      | De provider: '**eenmalige**'.                                                                                                                                                                                                               |
+| factuur-regel-item-type | tekenreeks | Ja      | Het type factuur Details: "**UsageLineItems**", "**UsageLineItems**".                                                                                                                                                                    |
+| currencyCode           | tekenreeks | Ja      | De valuta code voor de niet-gefactureerde regel items.                                                                                                                                                                                             |
 | period                 | tekenreeks | Ja      | De periode voor niet-gefactureerde afstemming (bijvoorbeeld: **huidige**, **vorige**). Stel dat u in januari een query wilt uitvoeren op uw niet-gefactureerde gebruiks gegevens van de facturerings cyclus (01/01/2020 – 01/31/2020), kies periode als **' Huidig ',** else **' eerder. '** |
-| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000.                    |
-| seekOperation          | tekenreeks | No       | Stel `seekOperation=Next` deze waarde in om de volgende pagina met lijn items voor afstemming weer te geven.                |
+| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000.                                                                                                                                                                           |
+| seekOperation          | tekenreeks | No       | Stel `seekOperation=Next` deze waarde in om de volgende pagina met lijn items voor afstemming weer te geven.                                                                                                                                                                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

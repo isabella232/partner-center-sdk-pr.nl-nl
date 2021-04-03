@@ -1,22 +1,22 @@
 ---
 title: Hulpprogramma-bronnen
 description: Het partner centrum REST API bevat veel resources die algemene gegevens modellen beschrijven die in de SDK worden gebruikt.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 53d39e4f76684128d48eacdce75706d853c7ce74
-ms.sourcegitcommit: f5178dca1d9a51059738972810235d8858e6a67a
+ms.openlocfilehash: 115b0508f956c4b60e4db53193ef2585fa0c9a34
+ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "97767614"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106103977"
 ---
 # <a name="utility-resources"></a>Hulpprogramma-bronnen
 
 **Van toepassing op**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -34,12 +34,12 @@ Het adres dat moet worden gebruikt voor de klant-of partner profielen. Zie voor 
 | Staat        | tekenreeks | (0, 2)            | De status.                                                                                       |
 | PostalCode   | tekenreeks | n.v.t.               | De post code.                                                                     |
 | Land/regio      | tekenreeks | (2, 2)            | Het land/de regio in de ISO-land nummer indeling.                                                   |
-| Regio       | tekenreeks | n.v.t.               | De regio.                                                                                      |
+| Region       | tekenreeks | n.v.t.               | De regio.                                                                                      |
 | FirstName    | tekenreeks | (1, 50)           | De voor naam van een contact persoon bij het bedrijf/de organisatie van de klant.                              |
 | Middelste naam   | tekenreeks | (1, 50)           | De tweede naam van een contact persoon bij het bedrijf/de organisatie van de klant. Deze eigenschap is optioneel.  |
 | LastName     | tekenreeks | (1, 50)           | De achternaam van een contact persoon bij het bedrijf/de organisatie van de klant.                               |
 | PhoneNumber  | tekenreeks | n.v.t.               | Het telefoon nummer van een contact persoon bij het bedrijf/de organisatie van de klant. Deze eigenschap is optioneel.|
-|PhoneNumber|tekenreeks|n.v.t.|Het telefoon nummer van een contact persoon bij het bedrijf/de organisatie van de klant. In klant profiel is deze eigenschap verplicht voor het bedrijf/de organisatie van de klant in de volgende landen. Armenië (AM), Azerbeidzjan (AZ), Belarus (BY), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA). Anders is dit optioneel.|
+|PhoneNumber|tekenreeks|n.v.t.|Het telefoon nummer van een contact persoon bij het bedrijf/de organisatie van de klant. In klant profiel is deze eigenschap verplicht voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA)), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Zuid-Sudan en Venezuela. Anders is dit optioneel.|
 
 
 ## <a name="contact"></a>Contactpersoon

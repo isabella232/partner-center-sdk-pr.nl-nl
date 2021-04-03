@@ -1,17 +1,17 @@
 ---
 title: Een klant voor een indirecte reseller maken
 description: Meer informatie over hoe een indirecte provider Partner Center-Api's kan gebruiken voor het maken van een klant voor een indirecte wederverkoper.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e2386f1963a5bb3ea4269bcbf4327c75987f3b91
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: 13cd1b051abb536d397dcd4000228f67fe3206b8
+ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767650"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106103943"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Een klant voor een indirecte wederverkoper maken met behulp van partner Center-Api's
 
@@ -77,7 +77,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: CreateCustomerforIndirectReseller.cs
+Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK samples **klasse**: CreateCustomerforIndirectReseller. cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -101,7 +101,7 @@ In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag
 | [CompanyProfile](#company-profile)             | object | Yes      | De gegevens van het bedrijfs profiel van de klant.                                                               
 | [AssociatedPartnerId](customer-resources.md#customer) | tekenreeks | Yes      | De ID van de indirecte wederverkoper. De indirecte wederverkoper zoals aangegeven door de ID die u hier opgeeft, moet een partnerschap met de indirecte provider hebben, anders mislukt de aanvraag. Houd er ook rekening mee dat als de waarde AssociatedPartnerId niet wordt opgegeven, de klant wordt gemaakt als een rechtstreekse klant van de indirecte provider in plaats van de indirecte wederverkoper. |
 |Domain| Tekenreeks| Ja|De domein naam van de klant, zoals contoso.onmicrosoft.com.|
-|organizationRegistrationNumber|    tekenreeks|Yes|     Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen. Armenië (AM), Azerbeidzjan (AZ), Belarus (BY), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA). Voor het bedrijf/de organisatie van de klant die zich in andere landen bevindt, moet dit niet worden opgegeven.|
+|organizationRegistrationNumber|    tekenreeks|Yes|     Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
 
 
 

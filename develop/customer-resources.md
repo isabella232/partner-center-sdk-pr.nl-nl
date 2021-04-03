@@ -1,24 +1,24 @@
 ---
 title: Klant resources
 description: Klant bronnen die een klant of wederverkoper vertegenwoordigen.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: fbd72ab5710876ba303fd1e30e6e552ecf89c5cd
-ms.sourcegitcommit: 741cfa8585901de207c2e5da5eeebe26db0b0ad1
+ms.openlocfilehash: 78622258880ab77ca99eae98082cc66acb3b66a7
+ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "97767610"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106103960"
 ---
 # <a name="customer-resources"></a>Klant resources
 
 **Van toepassing op:**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -54,8 +54,7 @@ De **CustomerCompanyProfile** -resource is aanvullende informatie over het bedri
 | companyName | tekenreeks                                                         | De naam van het bedrijf of de organisatie.                                          |
 | koppelen       | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen in het profiel.                                  |
 | kenmerken  | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel.                             |
-
-| organizationRegistrationNumber | Teken reeks | Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen. Armenië (AM), Azerbeidzjan (AZ), Belarus (BY), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA). Voor het bedrijf/de organisatie van de klant die zich in andere landen bevindt, moet dit niet worden opgegeven. |
+|organizationRegistrationNumber|Tekenreeks|Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant die zich in andere landen bevindt, moet dit niet worden opgegeven.|
 
 
 ## <a name="customerbillingprofile"></a>CustomerBillingProfile
