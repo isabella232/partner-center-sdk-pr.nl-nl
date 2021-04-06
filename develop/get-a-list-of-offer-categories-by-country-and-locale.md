@@ -1,24 +1,24 @@
 ---
 title: Een lijst met categorieën van aanbiedingen per markt ophalen
-description: Een verzameling ophalen die alle categorieën van de aanbieding bevat in een bepaald land/regio en land instelling.
+description: Meer informatie over het ophalen van een verzameling die alle categorieën van de aanbieding bevat in een bepaald land/regio en land instelling voor alle micro soft-Clouds.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 22c46ed03a8579c53ee18c14cbca9a1e19ddb82a
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 05aad095c6cb8eaee4cbf7ce976ca1b4b7a408c4
+ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767442"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106500053"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>Een lijst met categorieën van aanbiedingen per markt ophalen
 
 **Van toepassing op:**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -62,7 +62,7 @@ Deze tabel bevat de vereiste query parameters om de aanbiedings Categorieën op 
 
 | Naam           | Type       | Vereist | Beschrijving            |
 |----------------|------------|----------|------------------------|
-| **land-id** | **tekenreeksexpressie** | J        | De ID van het land/de regio. |
+| **land-id** | **tekenreeks** | J        | De ID van het land/de regio. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

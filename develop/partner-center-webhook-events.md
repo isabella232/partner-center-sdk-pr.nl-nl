@@ -1,24 +1,24 @@
 ---
 title: Partner centrum-gebeurtenissen voor webhooks
-description: Documentatie voor alle webhook-gebeurtenissen die worden ondersteund door het partner centrum.
+description: Meer informatie over het testen en gebruiken van webhook-gebeurtenissen om te noteren wanneer abonnementen en andere gebeurtenissen worden gewijzigd in het partner centrum.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 5358aab8efdd68ad52c583936304f99ffae12708
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 03ee1d4e74408b8cf69e2971054bf9060650cb77
+ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767344"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106500036"
 ---
 # <a name="partner-center-webhook-events"></a>Partner centrum-gebeurtenissen voor webhooks
 
 **Van toepassing op**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -39,7 +39,7 @@ Met deze gebeurtenis kunt u zelf onboards en uw registratie testen door een test
 
 #### <a name="properties"></a>Eigenschappen
 
-| Eigenschap                  | Type                               | Description                                                                                                  |
+| Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' test-created '.                                          |
 | ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/Registration/validationEvents/{{CorrelationId}}" |
@@ -68,7 +68,7 @@ Deze gebeurtenis treedt op wanneer het opgegeven abonnement wordt gewijzigd. Er 
 
 #### <a name="properties"></a>Eigenschappen
 
-| Eigenschap                  | Type                               | Description                                                                                                  |
+| Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' abonnement-bijgewerkt '.                                  |
 | ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/Customers/{{CustomerId}}/Subscriptions/{{SubscriptionId}}" |
@@ -94,7 +94,7 @@ Deze gebeurtenis treedt op wanneer de hoeveelheid Microsoft Azure gebruik voor e
 
 #### <a name="properties"></a>Eigenschappen
 
-| Eigenschap                  | Type                               | Description                                                                                                  |
+| Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde "usagerecords-thresholdExceeded".                                  |
 | ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/Customers/usagerecords" |
@@ -120,7 +120,7 @@ Deze gebeurtenis treedt op wanneer de verwijzing wordt gemaakt.
 
 #### <a name="properties"></a>Eigenschappen
 
-| Eigenschap                  | Type                               | Description                                                                                                  |
+| Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' Referral-created '.                                  |
 | ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/Engagements/v1/referrals/{{ReferralID}}" |
@@ -146,7 +146,7 @@ Deze gebeurtenis treedt op wanneer de verwijzing wordt bijgewerkt.
 
 #### <a name="properties"></a>Eigenschappen
 
-| Eigenschap                  | Type                               | Description                                                                                                  |
+| Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' referentie-bijgewerkt '.                                  |
 | ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/Engagements/v1/referrals/{{ReferralID}}" |
@@ -170,7 +170,7 @@ Deze gebeurtenis treedt op wanneer de verwijzing wordt bijgewerkt.
 
 Deze gebeurtenis treedt op wanneer de nieuwe factuur gereed is.
 
-| Eigenschap                  | Type                               | Description                                                                                                  |
+| Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Gebeurtenisnaam | tekenreeks | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' factuur-gereed '. |
 | ResourceUri | URI | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |

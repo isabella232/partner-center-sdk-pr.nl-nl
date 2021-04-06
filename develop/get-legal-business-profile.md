@@ -1,22 +1,22 @@
 ---
 title: Het wettelijke bedrijfsprofiel van een partner ophalen
-description: Het juridische zakelijke profiel van een partner ophalen.
+description: Meer informatie over het gebruik van Api's om uw juridisch zakelijk profiel op te halen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5d7055dd0a6586e16b078109db4252250561eb29
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1d488c8deb9f01110e92327035ce0c3c023fcb46
+ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767543"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106500019"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>Het wettelijke bedrijfsprofiel van een partner ophalen
 
 **Van toepassing op**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
@@ -36,7 +36,7 @@ Als u het partner juridisch Business-profiel wilt ophalen, moet u eerst een inte
 var billingProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: GetLegalBusinessProfile.cs
+Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK samples **klasse**: GetLegalBusinessProfile. cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
