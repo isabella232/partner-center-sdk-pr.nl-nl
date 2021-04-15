@@ -1,87 +1,99 @@
 ---
 title: Richtlijnen voor API-beperking
-description: Voor partners die partner Center-Api's aanroepen, leert u welke Api's van invloed zijn op de micro soft-API-beperking en best practices om de beperking te voor komen of te verbeteren.
-ms.date: 09/09/2020
+description: Voor partners die Partner Center API's aanroepen, moet u weten welke API's worden beïnvloed door microsoft API-beperking en best practices om beperking te voorkomen of beter af te handelen.
+ms.date: 04/14/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a52751a97e699050075c1aac910cc51e94514f26
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: ab1138e19e06111299ab43ea13a6f033274aaa5d
+ms.sourcegitcommit: 3c3a21e73aaadf3023cf4c13b09809ceae5f027a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97768661"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496141"
 ---
-# <a name="api-throttling-guidance-for-partners-calling-partner-center-apis"></a>Richt lijnen voor API-beperking voor partners die partner Center-Api's aanroepen 
+# <a name="api-throttling-guidance-for-partners-calling-partner-center-apis"></a>Richtlijnen voor API-beperking voor partners die api'Partner Center aanroepen 
 
 **Van toepassing op**
 
 - Partnercentrum
 
-Micro soft implementeert de API-beperking om consistente prestaties binnen een tijds spanne te bieden voor partners die de Api's van het partner centrum aanroepen. Met beperking wordt het aantal aanvragen van een service in een bepaalde periode beperkt om te voor komen dat bronnen worden gevermijdd. Hoewel het partner centrum is ontworpen voor het afhandelen van een groot aantal aanvragen, kunt u met bandbreedte beperking optimale prestaties en betrouw baarheid behouden voor alle partners.  
+Microsoft implementeert API-beperking om binnen een tijdspanne consistentere prestaties mogelijk te maken voor partners die de api'Partner Center aanroepen. Beperking beperkt het aantal aanvragen voor een service in een tijdsspanne om te voorkomen dat resources te veel worden gebruikt. Hoewel Partner Center is ontworpen voor het verwerken van een groot aantal aanvragen, helpt beperking bij een groot aantal aanvragen van enkele partners om optimale prestaties en betrouwbaarheid voor alle partners te behouden.  
 
-Beperkings limieten variëren op basis van het scenario. Als u bijvoorbeeld een groot aantal schrijf bewerkingen uitvoert, is de kans op beperking hoger dan wanneer u alleen lees bewerkingen uitvoert.
+Beperkingslimieten variëren afhankelijk van het scenario. Als u bijvoorbeeld een groot aantal schrijfvolumes gebruikt, is de kans op bandbreedtebeperking groter dan wanneer u alleen lees- en schrijf- of schrijfvolumes gebruikt.
 
-## <a name="what-happens-when-throttling-occurs"></a>Wat gebeurt er wanneer het beperken wordt uitgevoerd? 
+## <a name="what-happens-when-throttling-occurs"></a>Wat gebeurt er wanneer beperking optreedt? 
 
-Wanneer een drempel waarde voor bandbreedte beperking wordt overschreden, beperkt het partner centrum voor een bepaalde periode verdere aanvragen van die client. Beperkings gedrag is afhankelijk van het type en het aantal aanvragen.   
+Wanneer een drempelwaarde voor bandbreedtebeperking wordt overschreden, Partner Center verdere aanvragen van die client voor een bepaalde periode beperkt. Beperkingsgedrag is afhankelijk van het type en het aantal aanvragen.   
 
-### <a name="common-throttling-scenarios"></a>Algemene beperkings scenario's 
+### <a name="common-throttling-scenarios"></a>Veelvoorkomende beperkingsscenario's 
 
-De meest voorkomende oorzaken van het beperken van clients zijn onder andere: 
+De meest voorkomende oorzaken van beperking van clients zijn: 
 
-- **Een groot aantal aanvragen voor een API per partner-Tenant-id**: voor sommige Partner Center-api's wordt beperking bepaald door de Tenant-id van de partner. als er te veel aanroepen naar deze api's worden uitgevoerd op dezelfde partner-Tenant-id, wordt de drempel waarde voor bandbreedte overschrijding overschreden.  
+- Een groot aantal aanvragen voor een **API per partner-tenant-id:** voor sommige Partner Center-API's wordt beperking bepaald door de tenant-id van de partner. Te veel aanroepen naar deze API's op dezelfde tenant-id van de partner leiden ertoe dat de drempelwaarde voor beperking wordt overschreden.  
 
-- **Een groot aantal aanvragen voor een API per partner-Tenant-id per Tenant-id** van de klant: voor andere api's wordt beperking bepaald door de Tenant-id van de partner en de Tenant-id van de klant. in dergelijke gevallen is het mogelijk dat er te veel aanroepen worden uitgevoerd voor dezelfde Tenant-ID van de klant.
+- Een groot aantal aanvragen voor een **API per partner-tenant-id per** tenant-id van de klant: voor andere API's wordt de beperking bepaald door de combinatie partner-tenant-id/tenant-id van de klant; In dergelijke gevallen leidt het maken van te veel aanroepen op dezelfde tenant-id van de klant tot beperking, terwijl aanroepen tegen andere klanten kunnen slagen.
 
-## <a name="best-practices-to-avoid-throttling"></a>Aanbevolen procedures om beperking te voor komen 
+## <a name="best-practices-to-avoid-throttling"></a>Best practices om beperking te voorkomen 
  
-Programmeer procedures, zoals voortdurend pollen van een resource om te controleren op updates en regel matig scan van resource verzamelingen om te controleren of er nieuwe of verwijderde resources zijn, zullen de algehele prestaties waarschijnlijk beperken. Gelijktijdige API-aanroepen kunnen leiden tot een groot aantal aanvragen per eenheids tijd, waardoor er ook aanvragen worden vertraagd. U moet in plaats daarvan wijzigingen bijhouden en wijzigings meldingen Toep assen. Daarnaast kunt u activiteiten Logboeken gebruiken voor het detecteren van wijzigingen. Zie [activiteiten logboeken van de partner centrum](get-a-record-of-partner-center-activity-by-user.md) voor meer informatie.  Het wordt ten zeerste aangeraden partners te overwegen om de API voor activiteiten logboek te gebruiken voor meer efficiëntie en om te voor komen dat deze wordt beperkt. Zie ook het voor beeld van het gebruik van activiteiten Logboeken.
+Programmeerprocedures zoals het continu peilen van een resource om te controleren op updates en het regelmatig scannen van resourceverzamelingen om te controleren of er nieuwe of verwijderde resources zijn, leiden waarschijnlijk tot beperking en zullen de algehele prestaties verslechteren. Gelijktijdige API-aanroepen kunnen leiden tot een groot aantal aanvragen per eenheidstijd, waardoor aanvragen ook worden beperkt. U moet in plaats daarvan gebruikmaken van meldingen over het bijhouden en wijzigen van wijzigen. Daarnaast moet u activiteitenlogboeken kunnen gebruiken voor het detecteren van wijzigingen. Zie Partner Center [activiteitenlogboeken](get-a-record-of-partner-center-activity-by-user.md) voor meer informatie.  We raden partners ten zeerste aan de API voor activiteitenlogboek te gebruiken voor meer efficiëntie en om bandbreedtebeperking te voorkomen. Zie ook het voorbeeld van het gebruik van activiteitenlogboeken hieronder.
 
 ## <a name="best-practices-to-handle-throttling"></a>Best practices voor het afhandelen van beperking
 
-Hieronder volgen enkele aanbevolen procedures voor het beperken van de verwerking: 
+Hier volgen de best practices voor het afhandelen van bandbreedtebeperking: 
 
-- Verminder de mate van parallelle uitvoering. 
+- Verminder de mate van parallellelisme. 
 - Verminder de frequentie van aanroepen. 
-- Vermijd onmiddellijke pogingen omdat alle aanvragen toenemen ten opzichte van uw gebruiks limieten. 
+- Vermijd onmiddellijke nieuwe nieuwe aanvragen omdat alle aanvragen worden opgeteld bij uw gebruikslimieten. 
 
-Gebruik de HTTP-foutcode 429 om beperking te detecteren wanneer u foutafhandeling implementeert. Het mislukte antwoord bevat de Retry-After-antwoord header. Het maken van een back-up van aanvragen met de vertraging opnieuw proberen is de snelste manier om te herstellen. 
+Gebruik de HTTP-foutcode 429 om beperking te detecteren wanneer u foutafhandeling implementeert. Het mislukte antwoord bevat de Retry-After antwoordheader. Het uitschakelen van aanvragen met behulp van de vertraging na opnieuw proberen is de snelste manier om te herstellen van beperking. 
 
-Ga als volgt te werk om de vertraging opnieuw proberen te gebruiken: 
+Ga als volgt te werk als u de vertraging Opnieuw proberen na wilt gebruiken: 
 
-1. Wacht het aantal seconden dat is opgegeven in de Retry-After-header. 
+1. Wacht het aantal seconden dat is opgegeven in de Retry-After koptekst. 
 
-2. Voer de aanvraag opnieuw uit.  
+2. De aanvraag opnieuw proberen.  
 
-3. Als de aanvraag opnieuw mislukt met een 429-fout code, wordt u nog steeds beperkt. Probeer het opnieuw met exponentiële uitstel, gebruik de aanbevolen Retry-After vertraging en voer de aanvraag opnieuw uit totdat deze slaagt.
+3. Als de aanvraag opnieuw mislukt met een 429-foutcode, wordt u nog steeds beperkt. Opnieuw proberen met exponentieel uitstel, gebruik de aanbevolen Retry-After vertraging en de aanvraag opnieuw totdat deze is geslaagd.
 
-4. Als u SDK gebruikt, ontvangt u een uitzonde ring met de status code 429 wanneer uw aanvraag wordt beperkt. Gebruik de eigenschap RetryAfter in de uitzonde ring en voer de aanvraag opnieuw uit nadat de tijd is verstreken.
-
-
-## <a name="apis-currently-impacted-by-throttling"></a>Api's die momenteel worden beïnvloed door beperking
-
-In de lange uitvoering wordt elke single Partner Center-API die het eind punt ' api.partnercenter.microsoft.com/' aanroept, beperkt. De beperkings limieten worden op dit moment alleen afgedwongen voor de enkele Api's die hieronder worden weer gegeven. In het partner centrum wordt de telemetrie op elk van de Api's verzameld en worden de beperkings limieten dynamisch aangepast. De volgende tabel geeft een lijst van de Api's waar bandbreedte beperking op dit moment wordt afgedwongen.  
+4. Als u de SDK gebruikt, ontvangt u een uitzondering met statuscode 429 wanneer uw aanvraag wordt beperkt. Gebruik de eigenschap RetryAfter in de uitzondering en de aanvraag opnieuw nadat de tijd is verstreken.
 
 
-|**Bewerking**| **Documentatie voor Partnercentrum**|       
+## <a name="apis-currently-impacted-by-throttling"></a>API's die momenteel worden beïnvloed door beperking
+
+Op de lange termijn wordt elke Partner Center API die het eindpunt 'api.partnercenter.microsoft.com/' aanroept, beperkt. Op dit moment worden de beperkingslimieten alleen afgedwongen voor de HIERONDER vermelde API's. Partner Center verzamelt de telemetrie op elk van de API's en past de beperkingslimieten dynamisch aan. De volgende tabel bevat de API's waar beperking momenteel wordt afgedwongen.  
+
+
+|**Bewerking**| **Documentatie voor Partnercentrum**|
 |------------------------|----------------------------|
-|{baseURL}/v1/Customers/{customer_id}/orders|[een order maken](create-an-order.md)|
-|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|[een abonnement overdragen](transition-a-subscription.md)|
-|{baseURL}/v1/customers/{customer-tenant-id}/orders/{order-id}|[een invoeg toepassing aanschaffen bij een abonnement](purchase-an-add-on-to-a-subscription.md)|
-|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[een winkel wagen maken](create-a-cart.md)|
-|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}/checkout|[een winkel wagen afhandelen](checkout-a-cart.md)|
-|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[een winkel wagen bijwerken](update-a-cart.md)|
+|{baseURL}/v1/customers/{customer_id}/orders|[een order maken](create-an-order.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|[een abonnement overstappen](transition-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/orders/{order-id}|[een invoegaanvoeging aanschaffen voor een abonnement](purchase-an-add-on-to-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[een winkelwagen maken](create-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}/checkout|[een winkelwagen uitchecken](checkout-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[een winkelwagen bijwerken](update-a-cart.md)|
 |{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|[een abonnement registreren](register-a-subscription.md)|
-|{baseURL}/v1/productupgrades|[product upgrade-entiteit maken](create-product-upgrade-entity.md)|
-|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions |[een proef abonnement converteren naar betaald](convert-a-trial-subscription-to-paid.md)|
-|{baseURL}/v1/customers/{customer-tenant-id}|[een klant op basis van de id ophalen](get-a-customer-by-id.md)|
-|{baseURL}/v1/productUpgrades/eligibility|[geschiktheid voor product upgrade verkrijgen](get-eligibility-for-product-upgrade.md)|
+|{baseURL}/v1/productupgrades|[entiteit productupgrade maken](create-product-upgrade-entity.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions |[Een proefabonnement converteren naar betaald](convert-a-trial-subscription-to-paid.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}|[een klant op id krijgen](get-a-customer-by-id.md)|
+|{baseURL}/v1/productUpgrades/geschiktheid|[geschiktheid voor productupgrade krijgen](get-eligibility-for-product-upgrade.md)|
 |{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} |[abonnement beheren](manage-orders.md#manage-a-subscription)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions |[get-all-of-a-customer-s-subscriptions](get-all-of-a-customer-s-subscriptions.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}|[Een abonnement ophalen op basis van id](get-a-subscription-by-id.md)|
+|{baseURL}/v1/customers/{customer_id}/orders|[Alle klantorders ontvangen](get-all-of-a-customer-s-orders.md)|
+|{baseURL}/v1/customers/{customer_id}/orders/{order_id}|[Een bestelling ophalen op basis van id](get-an-order-by-id.md)|
+|{baseURL}/v1/customers/{customer_id}/orders/{order_id}/provisioningstatus|[De inrichtingsstatus van het abonnement ophalen](get-subscription-provisioning-status.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}|[Orders beheren en een abonnement beheren](manage-orders.md#manage-a-subscription)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}/addons|[Een lijst met invoegtoepassingen voor een abonnement ophalen](get-a-list-of-add-ons-for-a-subscription.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|[Een lijst met Azure-rechten voor een abonnement op halen](get-a-list-of-azure-entitlements-for-subscription.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|[De registratiestatus van het abonnement ophalen](get-subscription-registration-status.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/transfers|[Alle overdrachten van een klant krijgen](get-all-of-a-customer-s-transfers.md)|
+|{baseURL}/v1/productUpgrades/{upgrade-id}/status|[Upgradestatus van product ophalen](get-product-upgrade-status.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|[Een lijst met aanbiedingen voor omzetten van de proefversie ophalen](get-a-list-of-trial-conversion-offers.md)|
 
 
-### <a name="error-code-response"></a>Reactie op fout code:
+### <a name="error-code-response"></a>Antwoord van foutcode:
 ```http
 HTTP/1.1 429 Too Many Requests 
 
@@ -96,17 +108,17 @@ Date: Tue, 21 Jul 2020 04:10:58 GMT
 { "statusCode": 429, "message": "Rate limit is exceeded. Try again in 57 seconds." } 
 ```
 
-## <a name="example-of-activity-log"></a>Voor beeld van activiteiten logboek
+## <a name="example-of-activity-log"></a>Voorbeeld van activiteitenlogboek
 
-Voor best practice bij het analyseren van dagelijkse wijzigingen, raden we u aan om een controle record te zoeken voor een specifieke dag. 
+Voor best practice het analyseren van dagelijkse wijzigingen, raden we u aan om een query uit te voeren op auditrecords voor een specifieke dag. 
 
-In het antwoord verschijnt een resultaat met wijzigingen in een specifiek bewerkings type.U kunt filteren op basis van de bewaarde bewerking. Bijvoorbeeld, als u geïnteresseerd bent in een nieuw gemaakte klant, kunt u operationType = "add_customer" bekijken.  
+In het antwoord krijgt u een resultaat met wijzigingen in het specifieke bewerkingstype.U kunt filteren op basis van de bewerking die u belangrijk vindt. Als u bijvoorbeeld geïnteresseerd bent in een nieuwe klant, kunt u operationType = "add_customer" bekijken.  
 
-De lijst met operationtype/resources vindt u in onderstaande API-documenten.  
+De lijst met operationtype/resources vindt u in de onderstaande API-documenten.  
 
-- [Controle bronnen](auditing-resources.md)  
+- [Resources controleren](auditing-resources.md)  
 
-- [Een record van een partner Center-activiteit door de gebruiker ophalen](get-a-record-of-partner-center-activity-by-user.md)  
+- [Een record van een Partner Center per gebruiker](get-a-record-of-partner-center-activity-by-user.md)  
 
 
 
@@ -131,7 +143,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive 
 ```
 
-**Antwoord**:    
+**Antwoord:**    
 ```http
 { 
 
