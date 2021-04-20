@@ -1,15 +1,15 @@
 ---
 title: Gebruiksrecords van een klant ophalen voor Azure
-description: U kunt de Azure-gebruiks API gebruiken om de gebruiks gegevens van het Azure-abonnement van een klant te verkrijgen voor een opgegeven periode.
-ms.date: 11/01/2019
+description: U kunt de API voor Azure-gebruik gebruiken om de gebruiksrecords van het Azure-abonnement van een klant op te halen voor een opgegeven periode.
+ms.date: 04/19/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bcdeb51b04039fd05b923150c85119385c0537e0
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 23c8d18462081c6d6c95c1d969f269cbb3f8754b
+ms.sourcegitcommit: abefe11421edc421491f14b257b2408b4f29b669
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767375"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107745589"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Gebruiksrecords van een klant ophalen voor Azure
 
@@ -19,38 +19,44 @@ ms.locfileid: "97767375"
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
-U kunt de gebruiks gegevens van het Azure-abonnement van een klant voor een opgegeven periode ophalen met behulp van de Azure-gebruiks-API.
+U kunt de gebruiksrecords van het Azure-abonnement van een klant voor een opgegeven periode op halen met behulp van de API voor Azure-gebruik.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
-Deze API retourneert dagelijks en niet-geclassificeerd verbruik voor een wille keurige tijds Panne. *Deze API wordt echter niet ondersteund voor Azure-abonnementen*. Als u een Azure-abonnement hebt, raadpleegt u de artikelen niet- [gefactureerde verbruiks regel items factureren](get-invoice-unbilled-consumption-lineitems.md) en [factuur verbruik regel items factureren ophalen](get-invoice-billed-consumption-lineitems.md) . In deze artikelen wordt beschreven hoe u het geclassificeerde verbruik op dagelijks niveau per resource kunt ophalen. Dit aantal is gelijk aan de gegevens van de dagelijks korrel die worden geleverd door de Azure-gebruiks-API. U moet de factuur-ID gebruiken om gefactureerde gebruiks gegevens op te halen. U kunt ook huidige en vorige Peri Oden gebruiken om niet-gefactureerde gebruik te schatten. *Gevarieerde gegevens en filters voor een wille keurig datum bereik worden momenteel niet ondersteund voor Azure plan-abonnements resources*.
+Deze API retourneert dagelijks en elk uur een onaangewaardeerd verbruik voor een willekeurige periode. Deze *API wordt echter niet ondersteund voor Azure-plannen.* Als u een Azure-abonnement hebt, bekijkt u de artikelen [Niet-gefactureerde](get-invoice-unbilled-consumption-lineitems.md) verbruiksregelitems ontvangen en In plaats daarvan factuur gefactureerde [verbruiksregelitems](get-invoice-billed-consumption-lineitems.md) ontvangen. In deze artikelen wordt beschreven hoe u een gemiddeld verbruik op dagelijks niveau per meter per resource kunt krijgen. Dit tariefverbruik is gelijk aan de dagelijkse grain-gegevens die worden geleverd door de Azure-gebruiks-API. U moet de factuur-id gebruiken om gefactureerde gebruiksgegevens op te halen. U kunt ook huidige en vorige perioden gebruiken om niet-gefactureerde gebruiksschattingen op te halen. Gegevens die per uur worden verzameld en willekeurige *datumbereikfilters worden momenteel niet ondersteund voor abonnementsresources van het Azure-plan*.
 
 ## <a name="azure-utilization-api"></a>Azure-gebruiks-API
 
-Deze Azure-gebruiks-API biedt toegang tot gebruiks records voor een tijds periode die aangeeft wanneer het gebruik is gerapporteerd in het facturerings systeem. Het biedt toegang tot dezelfde gebruiks gegevens die worden gebruikt voor het maken en berekenen van het afstemmings bestand. Het heeft echter geen kennis van de logica voor het afstemmen van het facturerings systeem. U mag geen samen vatting van de resultaten van een afstemmings bestand verwachten dat overeenkomt met het resultaat dat is opgehaald uit deze API precies voor dezelfde periode.
+Deze Azure-gebruiks-API biedt toegang tot gebruiksrecords voor een periode die vertegenwoordigt wanneer het gebruik is gerapporteerd in het factureringssysteem. Het biedt toegang tot dezelfde gebruiksgegevens die worden gebruikt om het afstemmingsbestand te maken en te berekenen. Het heeft echter geen kennis van de logica van het afstemmingsbestand van het factureringssysteem. U mag niet verwachten dat samenvattingsresultaten van afstemmingsbestand exact overeenkomen met het resultaat dat voor dezelfde periode is opgehaald uit deze API.
 
-Het facturerings systeem neemt bijvoorbeeld dezelfde gebruiks gegevens op en past de regels voor de achterstand toe om te bepalen wat er in een afstemmings bestand is verwerkt. Wanneer een facturerings periode wordt gesloten, wordt alle gebruik tot het eind van de dag waarop de facturerings periode eindigt, opgenomen in het afstemmings bestand. Een vertraagd gebruik binnen de facturerings periode die binnen 24 uur na het einde van de facturerings periode wordt gerapporteerd, wordt in het volgende afstemmings bestand verwerkt. Zie [verbruiks gegevens ophalen voor een Azure-abonnement](/previous-versions/azure/reference/mt219001(v=azure.100))voor de regels voor de achterstand van hoe de partner wordt gefactureerd.
+Het factureringssysteem neemt bijvoorbeeld dezelfde gebruiksgegevens en past regels voor vertraging toe om te bepalen waarvoor rekening wordt gehouden in een afstemmingsbestand. Wanneer een factureringsperiode wordt gesloten, wordt al het gebruik tot het einde van de dag dat de factureringsperiode eindigt, opgenomen in het afstemmingsbestand. Te laat gebruik binnen de factureringsperiode die binnen 24 uur na het einde van de factureringsperiode wordt gerapporteerd, wordt in het volgende afstemmingsbestand meegenomen. Zie Verbruiksgegevens voor een Azure-abonnement op halen voor de regels voor lateheid van de manier waarop de partner [wordt gefactureerd.](/previous-versions/azure/reference/mt219001(v=azure.100))
 
-Deze REST API is gewisseld. Als de reactie lading groter is dan één pagina, moet u de volgende koppeling volgen om de volgende pagina met gebruiks gegevens op te halen.
+Deze REST API wordt weergegeven. Als de nettolading van het antwoord groter is dan één pagina, moet u de volgende koppeling volgen om de volgende pagina met gebruiksrecords op te halen.
+
+### <a name="scenario--partner-a-has-transferred-billing-ownership-of-azure-legacy-subscription-145p-to-partner-b"></a>Scenario: Partner A heeft het eigendom van de facturering van het Azure Legacy-abonnement (145P) overgedragen naar partner B
+
+Als een partner het eigendom van facturering van een verouderd Azure-abonnement overboekt naar een andere partner, moeten ze, wanneer de nieuwe partner de Gebruiks-API aanroept voor het overgedragen abonnement, de commerce-abonnements-id (die wordt weer in het Partner Center-account) gebruiken in plaats van de Azure-rechten-id. De Azure-rechten-id wordt alleen voor partner B weergegeven wanneer deze namens (AOBO) beheerder zijn van de Azure Portal. 
+
+Als u de Utilization-API voor het overgedragen abonnement wilt aanroepen, moet de nieuwe partner de commerce-abonnements-id gebruiken.
 
 ## <a name="c"></a>C\#
 
-Voor het verkrijgen van de Azure-gebruiks records:
+De Azure-gebruiksrecords verkrijgen:
 
-1. Haal de klant-ID en de abonnements-ID op.
+1. Haal de klant-id en abonnements-id op.
 
-2. Roep de methode [**IAzureUtilizationCollection. query**](/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) aan om een [**ResourceCollection**](/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) te retour neren die de gebruiks records bevat.
+2. Roep de [**methode IAzureUtilizationCollection.Query**](/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) aan om een [**ResourceCollection**](/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) te retourneren die de gebruiksrecords bevat.
 
-3. Verkrijg een inventaris van het Azure-gebruik record om de gebruiks pagina's te passeren. Deze stap is vereist omdat de resource verzameling is gewisseld.
+3. Een Azure-gebruiksrecord-enumerator verkrijgen om de gebruikspagina's te doorlopen. Deze stap is vereist, omdat de resourceverzameling wordt gepaginad.
 
-- Voor **beeld**: [console test-app](console-test-app.md)
-- **Project**: Partner Center SDK-voor beelden
+- **Voorbeeld:** [Consoletest-app](console-test-app.md)
+- **Project**: Partnercentrum-SDK samples
 - **Klasse**: GetAzureSubscriptionUtilization.cs
 
 ```csharp
@@ -84,7 +90,7 @@ while (utilizationRecordEnumerator.HasValue)
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u Azure-gebruiks records wilt verkrijgen, hebt u eerst een klant-id en een abonnements-id nodig. Vervolgens roept u de functie **IAzureUtilizationCollection. query** aan om een **ResourceCollection** te retour neren die de gebruiks records bevat. Omdat de resource verzameling is gewisseld, moet u een inventaris van het Azure-gebruik record verkrijgen om de gebruiks pagina's te passeren.
+Als u de Azure-gebruiksrecords wilt verkrijgen, hebt u eerst een klant-id en een abonnements-id nodig. Vervolgens roept u de **functie IAzureUtilizationCollection.query** aan om een **ResourceCollection** te retourneren die de gebruiksrecords bevat. Omdat de resourceverzameling wordt gepaginad, moet u vervolgens een Azure-gebruiksrecord-enumerator verkrijgen om de gebruikspagina's te doorlopen.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -119,7 +125,7 @@ while (utilizationRecordEnumerator.hasValue())
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u Azure-gebruiks records wilt verkrijgen, hebt u eerst een klant-id en een abonnements-id nodig. Vervolgens roept u de [**Get-PartnerCustomerSubscriptionUtilization aan**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md). Met deze opdracht worden alle records geretourneerd die beschikbaar zijn voor de opgegeven periode.
+Als u de Azure-gebruiksrecords wilt verkrijgen, hebt u eerst een klant-id en een abonnements-id nodig. Vervolgens roept u [**get-PartnerCustomerSubscriptionUtilization aan.**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md) Deze opdracht retourneert alle records die beschikbaar zijn voor de opgegeven periode.
 
 ```powershell
 # $customerId
@@ -130,29 +136,29 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode | Aanvraag-URI |
 |------- | ----------- |
-| **Toevoegen** | *{baseURL}*/v1/Customers/{Customer-Tenant-id}/Subscriptions/{Subscription-id}/utilizations/Azure? begin \_ tijd = {start-time} &eind \_ tijd = {end-time} &granulatie = {granulatie} &details weer geven \_ = {True} |
+| **Toevoegen** | *{baseURL}*/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure?start \_ time={start-time}&end \_ time={end-time}&granularity={granularity}&show \_ details={True} |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende pad-en query parameters om de gebruiks gegevens op te halen.
+Gebruik het volgende pad en de queryparameters om de gebruiksrecords op te halen.
 
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
-| klant-Tenant-id | tekenreeks | Yes | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd. |
-| abonnement-id | tekenreeks | Yes | Een teken reeks met een GUID-indeling waarmee het abonnement wordt geïdentificeerd. |
-| start_tijd | teken reeks in UTC-notatie voor datum/tijd-offset | Yes | Het begin van het tijds bereik dat aangeeft wanneer het gebruik is gerapporteerd in het facturerings systeem. |
-| end_time | teken reeks in UTC-notatie voor datum/tijd-offset | Yes | Het einde van het tijds bereik dat aangeeft wanneer het gebruik is gerapporteerd in het facturerings systeem. |
-| granulatie | tekenreeks | No | Hiermee definieert u de granulatie van gebruiks aggregaties. Beschik bare opties zijn: `daily` (standaard) en `hourly` .
-| show_details | booleaans | No | Hiermee wordt aangegeven of de details van het gebruik op exemplaar niveau moeten worden opgehaald. De standaardwaarde is `true`. |
-| grootte | getal | No | Hiermee geeft u het aantal aggregaties op dat door één API-aanroep wordt geretourneerd. De standaardwaarde is 1000. De maximum waarde is 1000. |
+| customer-tenant-id | tekenreeks | Yes | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| subscription-id | tekenreeks | Yes | Een tekenreeks in GUID-indeling die het abonnement identificeert. |
+| start_tijd | tekenreeks in UTC-datum/tijd-offsetnotatie | Yes | Het begin van het tijdsbereik dat vertegenwoordigt wanneer het gebruik is gerapporteerd in het factureringssysteem. |
+| end_time | tekenreeks in UTC-datum/tijd-offsetnotatie | Yes | Het einde van het tijdsbereik dat vertegenwoordigt wanneer het gebruik is gerapporteerd in het factureringssysteem. |
+| Granulariteit | tekenreeks | No | Definieert de granulariteit van gebruiksaggregaties. Beschikbare opties zijn: `daily` (standaard) en `hourly` .
+| show_details | booleaans | No | Hiermee geeft u op of u de gebruiksgegevens op instantieniveau wilt op halen. De standaardwaarde is `true`. |
+| grootte | getal | No | Hiermee geeft u het aantal aggregaties op dat wordt geretourneerd door één API-aanroep. De standaardwaarde is 1000. Het maximum is 1000. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -160,9 +166,9 @@ Geen
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
-De volgende voorbeeld aanvraag produceert resultaten die vergelijkbaar zijn met wat het afstemmings bestand zal weer geven voor de periode van 7/2-8/1. Deze resultaten komen mogelijk niet exact overeen (Zie de sectie [Azure-gebruiks-API](#azure-utilization-api) voor meer informatie).
+De volgende voorbeeldaanvraag produceert resultaten die vergelijkbaar zijn met wat het afstemmingsbestand laat zien voor de periode 7/2 - 8/1. Deze resultaten komen mogelijk niet exact overeen (zie de sectie [Api voor Azure-gebruik](#azure-utilization-api) voor meer informatie).
 
-In dit voor beeld wordt een aanvraag voor het retour neren van gebruiks gegevens gerapporteerd in het facturerings systeem tussen 7/2 bij 12 uur (UTC) en 8/2 om 12 uur (UTC).
+Deze voorbeeldaanvraag retourneert gebruiksgegevens die zijn gerapporteerd in het factureringssysteem tussen 7/2 om 12:00 uur (UTC) en 8/2 om 12:00 uur (UTC).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/E499C962-9218-4DBA-8B83-8ADC94F47B9F/subscriptions/FC8F8908-F918-4406-AF13-D5BC0FE41865/utilizations/azure?start_time=2017-07-02T00:00:00-08:00&end_time=2017-08-02T00:00:00-08:00 HTTP/1.1
@@ -176,11 +182,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling van [Azure-gebruik record](azure-utilization-record-resources.md) bronnen in de hoofd tekst van het antwoord. Als de Azure-gebruiks gegevens nog niet gereed zijn in een afhankelijk systeem, retourneert deze methode een HTTP-status code 204 met een Retry-After-header.
+Als dit lukt, retourneert deze methode een verzameling [Azure Utilization Record-resources](azure-utilization-record-resources.md) in de antwoord-body. Als de Azure-gebruiksgegevens nog niet gereed zijn in een afhankelijk systeem, retourneert deze methode een HTTP-statuscode 204 met een Retry-After header.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om de HTTP-status code, het [fout code type](error-codes.md)en aanvullende para meters te lezen.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om de HTTP-statuscode, [het foutcodetype](error-codes.md)en aanvullende parameters te lezen.
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
