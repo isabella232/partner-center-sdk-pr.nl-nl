@@ -1,46 +1,46 @@
 ---
-title: Een order annuleren vanuit een integratie sandbox
-description: Meer informatie over het gebruik van partner Center-Api's voor het annuleren van verschillende soorten abonnements orders uit integratie Sandbox-accounts.
-ms.date: 08/16/2019
+title: Een bestelling van de integratie-sandbox annuleren
+description: Meer informatie over het gebruik Partner Center API's om verschillende typen abonnementsorders van sandbox-accounts voor integratie te annuleren.
+ms.date: 04/28/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 363bf209e27d5223259c8c533710a3b35bbef1e6
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: c3bf862c62804a56e6f73dd3ec36d2e9eb65f997
+ms.sourcegitcommit: f59a9311c8a37d45695caf74794ec1697426acc9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767622"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108210016"
 ---
-# <a name="cancel-an-order-from-the-integration-sandbox-using-partner-center-apis"></a>Een order annuleren vanuit de integratie sandbox met partner Center-Api's
+# <a name="cancel-an-order-from-the-integration-sandbox-using-partner-center-apis"></a>Een bestelling van de integratie-sandbox annuleren met behulp van Partner Center API's
 
 **Van toepassing op:**
 
 - Partnercentrum
-- Partner centrum beheerd door 21Vianet
+- Partnercentrum beheerd door 21Vianet
 - Partnercentrum voor Microsoft Cloud Duitsland
 - Partnercentrum voor Microsoft Cloud for US Government
 
-In dit artikel wordt beschreven hoe u partner Center-Api's kunt gebruiken om verschillende soorten abonnements orders te annuleren op basis van integratie Sandbox-accounts. Deze orders kunnen gereserveerde instanties, software en software als een service (SaaS)-abonnement op de markt zijn.
+In dit artikel wordt beschreven hoe u Partner Center api's kunt gebruiken om verschillende typen abonnementsorders van sandbox-accounts voor integratie te annuleren. Dergelijke orders kunnen gereserveerde instanties, software en commerciële marketplace-SaaS-abonnementsorders (Software as a Service) bevatten.
 
->[!NOTE]
->Houd er rekening mee dat de annuleringen van gereserveerde instanties of het gebruik van SaaS-abonnements orders voor commerciële Marketplace alleen mogelijk zijn via integratie Sandbox-accounts.  
+>[!NOTE] 
+>Houd er rekening mee dat het annuleren van gereserveerde instanties of saaS-abonnementsorders op de commerciële marketplace alleen mogelijk is via sandbox-accounts voor integratie. Sandbox-orders die ouder zijn dan 60 dagen, kunnen niet worden geannuleerd voor Partner Center. Als u hulp nodig hebt, kunt u contact op Partner Center ondersteuning. 
 
-Gebruik [annulering-software-purchases](cancel-software-purchases.md)om productie orders van software via API te annuleren.
-U kunt ook productie orders van software annuleren via een dash board met behulp van [een aankoop annuleren](/partner-center/csp-software-subscriptions).
+Als u productieorders van software via de API wilt annuleren, gebruikt [u cancel-software-purchases.](cancel-software-purchases.md)
+U kunt productieorders van software ook annuleren via een dashboard met [behulp van een aankoop annuleren.](/partner-center/csp-software-subscriptions)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een integratie sandbox-partner account met een klant die actief gereserveerde instanties/software/SaaS-abonnements orders van derden heeft.
+- Een sandbox-partneraccount voor integratie met een klant met actieve gereserveerde instanties/software/SaaS-abonnementsorders van derden.
 
 ## <a name="c"></a>C\#
 
-Als u een order wilt annuleren vanuit de integratie sandbox, geeft u uw account referenties door aan de- [**`CreatePartnerOperations`**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) methode om een [**`IPartner`**](/dotnet/api/microsoft.store.partnercenter.ipartner) interface te verkrijgen voor het ophalen van partner bewerkingen.
+Als u een bestelling uit de integratie-sandbox wilt annuleren, moet u uw accountreferenties doorgeven aan de methode om een interface op te halen voor [**`CreatePartnerOperations`**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) [**`IPartner`**](/dotnet/api/microsoft.store.partnercenter.ipartner) het uitvoeren van partnerbewerkingen.
 
-Als u een bepaalde [volg orde](order-resources.md#order)wilt selecteren, gebruikt u de partner bewerkingen en roept [**`Customers.ById()`**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) u de methode van de klant-id op om de klant op te geven, gevolgd door de **`Orders.ById()`** order-id om de volg orde en ten slotte **`Get`** of de methode op te geven die u wilt **`GetAsync`** ophalen.
+Als u een bepaalde Order wilt [selecteren,](order-resources.md#order)gebruikt u de partnerbewerkingen en roept u de methode aan met de klant-id om de klant op te geven, gevolgd door met order-id om de order op te geven en ten slotte of de methode om deze op te [**`Customers.ById()`**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) **`Orders.ById()`** **`Get`** **`GetAsync`** halen.
 
-Stel de [**`Order.Status`**](order-resources.md#order) eigenschap in op `cancelled` en gebruik de **`Patch()`** methode om de volg orde bij te werken.
+Stel de [**`Order.Status`**](order-resources.md#order) eigenschap in op en gebruik de methode om de volgorde bij te `cancelled` **`Patch()`** werken.
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -58,24 +58,24 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode     | Aanvraag-URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/orders/{order-id} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om een klant te verwijderen.
+Gebruik de volgende queryparameter om een klant te verwijderen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **order-id** | **tekenreeksexpressie** | J        | De waarde is een teken reeks voor het identificeren van de order-Id's die moeten worden geannuleerd. |
+| **customer-tenant-id** | **guid** | J        | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
+| **order-id** | **tekenreeks** | J        | De waarde is een tekenreeks die de order-ID's aantekent die moeten worden geannuleerd. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -102,11 +102,11 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze methode is geslaagd, wordt de geannuleerde volg orde geretourneerd.
+Als dit lukt, retourneert deze methode de geannuleerde bestelling.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
