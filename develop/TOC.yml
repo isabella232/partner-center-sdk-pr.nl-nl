@@ -427,10 +427,12 @@
           href: update-a-subscription-s-support-contact.md
 - name: Integratie-sandbox
   items:
-    - name: Sandbox-mogelijkheden voor partners die reseller-relatie ondersteunen
+    - name: Sandbox-mogelijkheden voor reseller-relatie
       href: sandbox-scenario.md
     - name: Sandbox testen en fouten opsporen
       href: test-and-debug.md
+    - name: Mogelijkheden van indirecte CSP-provider in Sandbox
+      href: indirect-provider-sandbox-capabilities.md
     - name: Een bestelling annuleren vanuit de integratie-sandbox
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Sandbox-abonnement activeren
