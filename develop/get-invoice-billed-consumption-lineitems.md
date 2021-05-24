@@ -1,52 +1,51 @@
 ---
-title: Factuur gefactureerde commerciële verbruiks regel items ophalen
-description: U kunt een verzameling met de Api's van het partner centrum voor een opgegeven factuur ophalen met behulp van de partners van het factuur regel item voor de prijs van een commerciële verbruik (afgesloten dagelijks beoordeeld artikel).
+title: Gefactureerde commerciële verbruiksregelitems ontvangen
+description: U kunt een verzameling factuurregelitem voor commercieel verbruik (gesloten dagelijks beoordeeld gebruiksregelitem) voor een opgegeven factuur ophalen met behulp van de Partner Center API's.
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1e19792da6a7510bf02dd11b3e77f40a8365be2b
-ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
+ms.openlocfilehash: 1406938b16e5a363a73c36ef0338eb5fc4305279
+ms.sourcegitcommit: 89aefbff6dbe740b6f27a888492ffc2e5f98b1e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730192"
+ms.lasthandoff: 05/24/2021
+ms.locfileid: "110325442"
 ---
-# <a name="get-invoice-billed-commercial-consumption-line-items"></a>Factuur gefactureerde commerciële verbruiks regel items ophalen
+# <a name="get-invoice-billed-commercial-consumption-line-items"></a>Gefactureerde commerciële verbruiksregelitems ontvangen
 
 **Van toepassing op:**
 
 - Partnercentrum
 
-U kunt de volgende methoden gebruiken om een verzameling details te verkrijgen voor de factuur regel items voor commerciële consumptie (ook wel gesloten dagelijkse gebruiks regel items genoemd) voor een opgegeven factuur.
+U kunt de volgende methoden gebruiken om een verzameling gegevens op te halen voor factuurregelitems voor commercieel verbruik (ook wel gesloten, dagelijks beoordeelde gebruikslijnitems genoemd) voor een opgegeven factuur.
 
-Deze API biedt ook ondersteuning voor **Azure** -provider typen voor Microsoft Azure (MS-AZR-0145P)-abonnementen. Dit betekent dat deze API een neerwaarts compatibele functie is.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een factuur-ID. Hiermee wordt de factuur aangegeven waarvoor de regel items moeten worden opgehaald.
+- Een factuur-id. Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.
 
 ## <a name="c"></a>C\#
 
-Als u de commerciële regel items voor de opgegeven factuur wilt ophalen, moet u het object invoice ophalen:
+Als u de commerciële regelitems voor de opgegeven factuur wilt ophalen, moet u het factuurobject ophalen:
 
-1. Roep de methode [**ById**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface te verkrijgen voor het factureren van bewerkingen voor de opgegeven factuur.
+1. Roep de [**ById-methode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface voor factuurbewerkingen voor de opgegeven factuur op te halen.
 
-2. Roep de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) aan om het object invoice op te halen. Het object invoice bevat alle informatie voor de opgegeven factuur.
+2. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) om het factuurobject op te halen. Het factuurobject bevat alle informatie voor de opgegeven factuur.
 
-De **provider** identificeert de bron van de gefactureerde detail informatie (bijvoorbeeld **eenmalige**). De **InvoiceLineItemType** geeft het type aan (bijvoorbeeld **UsageLineItem**).
+De **provider** identificeert de bron van de gefactureerde details (bijvoorbeeld **een keer**). Met **InvoiceLineItemType** wordt het type opgegeven (bijvoorbeeld **UsageLineItem).**
 
-De volgende voorbeeld code gebruikt een **foreach** -lus om de verzameling van regel items te verwerken. Voor elke **InvoiceLineItemType** wordt een afzonderlijke verzameling regel items opgehaald.
+In de volgende voorbeeldcode wordt een **foreach-lus** gebruikt om de verzameling regelitems te verwerken. Voor elk **InvoiceLineItemType** wordt een afzonderlijke verzameling regelitems opgehaald.
 
-Ophalen van een verzameling regel items die overeenkomen met een **InvoiceDetail** -exemplaar:
+Een verzameling regelitems ophalen die overeenkomen met een **InvoiceDetail-exemplaar:**
 
-1. Geef de **BillingProvider** en **InvoiceLineItemType** van het exemplaar door aan de methode [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) .
+1. Geef de **BillingProvider** en **InvoiceLineItemType** van het exemplaar door aan de [**methode By.**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)
 
-2. Roep de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) aan om de gekoppelde regel items op te halen.
-3. Maak een enumerator om door de verzameling te bladeren, zoals wordt weer gegeven in het volgende voor beeld.
+2. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) om de bijbehorende regelitems op te halen.
+3. Maak een enumerator om de verzameling te doorlopen, zoals wordt weergegeven in het volgende voorbeeld.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -105,41 +104,41 @@ while (fetchNext)
 }
 ```
 
-Voor een vergelijkbaar voor beeld raadpleegt u het volgende:
+Zie het volgende voor een vergelijkbaar voorbeeld:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **Partner Center SDK** -voor beelden
-- Klasse: **GetBilledConsumptionReconLineItemsPaging. cs**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **Partnercentrum-SDK Samples**
+- Klasse: **GetBilledConsumptionReconLineItemsPaging.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
-Gebruik de eerste syntaxis om een volledige lijst van elk regel item voor de opgegeven factuur te retour neren. Gebruik voor grote facturen de tweede syntaxis met een opgegeven grootte en een offset op basis van 0 om een pagina lijst met regel items te retour neren. Gebruik de derde syntaxis om de volgende pagina van afstemmings regel items te verkrijgen met `seekOperation = "Next"` .
+Gebruik de eerste syntaxis om een volledige lijst van elk regelitem voor de opgegeven factuur te retourneren. Gebruik voor grote facturen de tweede syntaxis met een opgegeven grootte en offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. Gebruik de derde syntaxis om de volgende pagina met recon line-items op te halen met behulp van `seekOperation = "Next"` .
 
 | Methode  | Aanvraag-URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{Invoice-ID}/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {CURRENCYCODE} http/1.1                              |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{Invoice-ID}/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &grootte = {size} http/1.1  |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{Invoice-ID}/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &grootte = {size} &SeekOperation = volgende                               |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode} HTTP/1.1                              |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size} HTTP/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size}&seekOperation=Next                               |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
+Gebruik de volgende URI en queryparameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| factuur-ID             | tekenreeks | Ja      | Een teken reeks waarmee de factuur wordt geïdentificeerd.                             |
-| providers               | tekenreeks | Ja      | De provider: ' eenmalige '.                                  |
-| factuur-regel-item-type | tekenreeks | Ja      | Het type factuur Details: "UsageLineItems". |
-| currencyCode           | tekenreeks | Ja      | De valuta code voor de gefactureerde regel items.                    |
-| period                 | tekenreeks | Ja      | De periode voor gefactureerde afstemming. voor beeld: huidige, vorige.        |
-| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000       |
-| seekOperation          | tekenreeks | No       | Stel seekOperation = volgende in om de volgende pagina van de afstemmings regel items op te halen. |
+| factuur-id             | tekenreeks | Yes      | Een tekenreeks die de factuur identificeert.                             |
+| Provider               | tekenreeks | Yes      | De provider: 'OneTime'.                                  |
+| invoice-line-item-type | tekenreeks | Yes      | Het type factuurdetails: UsageLineItems. |
+| currencyCode           | tekenreeks | Yes      | De valutacode voor de gefactureerde regelitems.                    |
+| period                 | tekenreeks | Yes      | De periode voor gefactureerde recon. voorbeeld: current, previous.        |
+| grootte                   | getal | No       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000       |
+| zoekoperation          | tekenreeks | No       | Stel seekOperation = Volgende in om de volgende pagina met recon line-items op te halen. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -147,25 +146,25 @@ Geen.
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord het verzamelen van regel items.
+Als dit lukt, bevat het antwoord de verzameling regelitemdetails.
 
-Voor de **ChargeType** van het regel item wordt de **gekochte** waarde toegewezen aan **Nieuw**. De **terugbetaling** van de waarde is toegewezen aan **Annuleren**.
+Voor het regelitem **ChargeType** wordt de waarde **Aankoop** aan **Nieuw.** De waarde **Restitutie** wordt aan **Annuleren toebetaald.**
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
-## <a name="rest-examples"></a>REST-voor beelden
+## <a name="rest-examples"></a>REST-voorbeelden
 
-### <a name="request-response-example-1"></a>Aanvraag-antwoord-voor beeld 1
+### <a name="request-response-example-1"></a>Voorbeeld van aanvraag-antwoord 1
 
-De Details voor dit voor beeld van de REST-aanvraag en het-antwoord zijn:
+De details voor dit voorbeeld van een REST-aanvraag en -antwoord zijn als volgt:
 
-- **Provider**: **eenmalige**
-- **InvoiceLineItemType**: **UsageLineItems**
-- **Periode**: **vorige**
+- **Provider:** **OneTime**
+- **InvoiceLineItemType:** **UsageLineItems**
+- **Periode:** **vorige**
 
-#### <a name="request-example-1"></a>Voor beeld 1 aanvragen
+#### <a name="request-example-1"></a>Aanvraagvoorbeeld 1
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/T000001234/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -178,7 +177,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-1"></a>Antwoord voorbeeld 1
+#### <a name="response-example-1"></a>Antwoordvoorbeeld 1
 
 ```http
 HTTP/1.1 200 OK
@@ -328,16 +327,16 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a>Aanvraag-antwoord-voor beeld 2
+### <a name="request-response-example-2"></a>Voorbeeld 2 van aanvraag-antwoord
 
-De Details voor dit voor beeld van de REST-aanvraag en het-antwoord zijn:
+De details voor dit voorbeeld van een REST-aanvraag en -antwoord zijn als volgt:
 
-- **Provider**: **eenmalige**
-- **InvoiceLineItemType**: **UsageLineItems**
-- **Periode**: **vorige**
-- **SeekOperation**: **volgende**
+- **Provider:** **OneTime**
+- **InvoiceLineItemType:** **UsageLineItems**
+- **Periode:** **vorige**
+- **Zoekoperation:** **volgende**
 
-#### <a name="request-example-2"></a>Voor beeld 2 aanvragen
+#### <a name="request-example-2"></a>Aanvraagvoorbeeld 2
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/T000001234/lineitems?provider=onetime&invoiceLineItemType=usagelineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -351,7 +350,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="response-example-2"></a>Antwoord voorbeeld 2
+## <a name="response-example-2"></a>Antwoordvoorbeeld 2
 
 ```http
 HTTP/1.1 200 OK
