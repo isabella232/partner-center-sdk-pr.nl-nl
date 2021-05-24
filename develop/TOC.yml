@@ -364,7 +364,7 @@
           href: get-a-list-of-products.md
         - name: Een lijst met producten ophalen (per klant)
           href: get-a-list-of-products-by-customer.md
-        - name: Een lijst met SKU’s voor een product ophalen (per land)
+        - name: Een lijst met SKU’s voor een product ophalen (per land/regio)
           href: get-a-list-of-skus-for-a-product.md
         - name: Een lijst met SKU’s voor een product ophalen (per klant)
           href: get-a-list-of-skus-for-a-product-by-customer.md
@@ -427,12 +427,10 @@
           href: update-a-subscription-s-support-contact.md
 - name: Integratie-sandbox
   items:
-    - name: Sandbox-mogelijkheden voor reseller-relatie
+    - name: Sandbox-mogelijkheden voor partners die reseller-relatie ondersteunen
       href: sandbox-scenario.md
     - name: Sandbox testen en fouten opsporen
       href: test-and-debug.md
-    - name: Mogelijkheden van indirecte CSP-provider in Sandbox
-      href: indirect-provider-sandbox-capabilities.md
     - name: Een bestelling annuleren vanuit de integratie-sandbox
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Sandbox-abonnement activeren
