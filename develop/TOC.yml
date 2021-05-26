@@ -427,16 +427,20 @@
           href: update-a-subscription-s-support-contact.md
 - name: Integratie-sandbox
   items:
-    - name: Sandbox-mogelijkheden voor partners die reseller-relatie ondersteunen
+    - name: Sandbox-mogelijkheden voor reseller-relatie
       href: sandbox-scenario.md
     - name: Sandbox testen en fouten opsporen
       href: test-and-debug.md
+    - name: Mogelijkheden van indirecte CSP-provider in Sandbox
+      href: indirect-provider-sandbox-capabilities.md
     - name: Een bestelling annuleren vanuit de integratie-sandbox
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Sandbox-abonnement activeren
       href: activate-sandbox-subscription-azure-marketplace-products.md
-    - name: Een klantaccount verwijderen uit de integratie-sandbox
-      href: delete-a-customer-account-from-the-integration-sandbox.md
+    - name: Indirecte reseller maken in Sandbox
+      href: create-indirect-reseller-in-sandbox.md
+    - name: Indirecte reseller verwijderen in Sandbox
+      href: delete-indirect-reseller-in-sandbox.md
 - name: Verwijzingen
   href: /partner/develop/referrals
   items:
