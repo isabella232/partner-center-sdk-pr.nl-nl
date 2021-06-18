@@ -427,20 +427,16 @@
           href: update-a-subscription-s-support-contact.md
 - name: Integratie-sandbox
   items:
-    - name: Sandbox-mogelijkheden voor reseller-relatie
+    - name: Sandbox-mogelijkheden voor partners die reseller-relatie ondersteunen
       href: sandbox-scenario.md
     - name: Sandbox testen en fouten opsporen
       href: test-and-debug.md
-    - name: Mogelijkheden van indirecte CSP-provider in Sandbox
-      href: indirect-provider-sandbox-capabilities.md
     - name: Een bestelling annuleren vanuit de integratie-sandbox
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Sandbox-abonnement activeren
       href: activate-sandbox-subscription-azure-marketplace-products.md
-    - name: Indirecte reseller maken in Sandbox
-      href: create-indirect-reseller-in-sandbox.md
-    - name: Indirecte reseller verwijderen in Sandbox
-      href: delete-indirect-reseller-in-sandbox.md
+    - name: Een klantaccount verwijderen uit de integratie-sandbox
+      href: delete-a-customer-account-from-the-integration-sandbox.md
 - name: Verwijzingen
   href: /partner/develop/referrals
   items:
@@ -471,17 +467,14 @@
     - name: Details van API-aanvragen ophalen
       href: get-api-request-details.md
 - name: REST API-verwijzing voor Partnercentrum
+  href: partner-center-rest-api-reference.md
   items:
-    - name: Partner Center REST API inleiding
-      href: partner-center-rest-api-reference.md
     - name: REST API-wijzigingenlogboek voor Partnercentrum
       href: api-change-log.md
     - name: REST-URL’s voor Partnercentrum
       href: partner-center-rest-urls.md
     - name: REST-headers voor Partnercentrum
       href: headers.md
-    - name: REST API-verwijzing voor Partnercentrum
-      href: /rest/api/partner-center-rest/
     - name: REST-bronnen voor Partnercentrum
       href: partner-center-rest-resources.md
       items:
@@ -556,7 +549,7 @@
     - name: Partnercentrum-webhooks
       href: partner-center-webhooks.md
 - name: Beheerde .NET API-verwijzing voor Partnercentrum
-  href: /dotnet/api/microsoft.store.partnercenter
+  href: /dotnet/api/
   items:
     - name: Opmerkingen bij de release van de .NET API-versie voor Partnercentrum
       href: dotnet-release-notes.md
