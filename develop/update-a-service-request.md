@@ -1,37 +1,33 @@
 ---
 title: Een serviceaanvraag bijwerken
-description: Het bijwerken van een bestaande klanten service-aanvraag die een Cloud solution provider heeft ingediend bij micro soft namens de klant.
+description: Een bestaande klantenserviceaanvraag bijwerken die een Cloud Solution Provider namens de klant heeft ingediend bij Microsoft.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a1df0d1f5fa4630b346d1c8b9cffabb86ce34cfb
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: efa7b2a98b6f95a763ca6e3811c43cc655c18e2b
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767508"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530086"
 ---
 # <a name="update-a-service-request"></a>Een serviceaanvraag bijwerken
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Een bestaande klantenserviceaanvraag bijwerken die een Cloud Solution Provider namens de klant heeft ingediend bij Microsoft.
 
-Het bijwerken van een bestaande klanten service-aanvraag die een Cloud solution provider heeft ingediend bij micro soft namens de klant.
-
-In het dash board van de partner centrum kan deze bewerking worden uitgevoerd door eerst [een klant te selecteren](get-a-customer-by-name.md). Selecteer vervolgens **Service beheer** op de zijbalk links. Selecteer in de kop **ondersteunings aanvragen** de service aanvraag in kwestie. Als u wilt volt ooien, brengt u de gewenste wijzigingen aan in de service aanvraag en selecteert u vervolgens **verzenden.**
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens **Servicebeheer op** de linkerzijbalk. Selecteer onder de header **Ondersteuningsaanvragen** de serviceaanvraag in kwestie. Als u wilt voltooien, moet u de gewenste wijzigingen aanbrengen in de serviceaanvraag en vervolgens **Verzenden selecteren.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een service aanvraag-ID.
+- Een serviceaanvraag-id.
 
 ## <a name="c"></a>C\#
 
-Als u de service aanvraag van een klant wilt bijwerken, roept u de methode [**IServiceRequestCollection. ById**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) aan met de service aanvraag-id om de service aanvraag interface te identificeren en te retour neren. Roep vervolgens de [**IServiceRequest. patch**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) -of [**PatchAsync**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) -methode aan om de service aanvraag bij te werken. Als u de bijgewerkte waarden wilt opgeven, maakt u een nieuw, leeg [**ServiceRequest**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) -object en stelt u alleen de eigenschaps waarden in die u wilt wijzigen. Geef dat object vervolgens door in de aanroep van de methode patch of PatchAsync.
+Als u de serviceaanvraag van een klant wilt bijwerken, roept u de methode [**IServiceRequestCollection.ById**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) aan met de serviceaanvraag-id om de interface voor serviceaanvraag te identificeren en te retourneren. Roep vervolgens de [**methode IServiceRequest.Patch**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) of [**PatchAsync aan**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) om de serviceaanvraag bij te werken. Als u de bijgewerkte waarden wilt verstrekken, maakt u een nieuw, leeg [**ServiceRequest-object**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) en stelt u alleen de eigenschapswaarden in die u wilt wijzigen. Geef dat object vervolgens door in de aanroep van de methode Patch of PatchAsync.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,31 +39,31 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 });
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: UpdatePartnerServiceRequest.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: UpdatePartnerServiceRequest.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende URI-para meter om de service aanvraag bij te werken.
+Gebruik de volgende URI-parameter om de serviceaanvraag bij te werken.
 
 | Naam                  | Type     | Vereist | Beschrijving                                 |
 |-----------------------|----------|----------|---------------------------------------------|
-| **servicerequest-id** | **guid** | J        | Een GUID waarmee de service aanvraag wordt geïdentificeerd. |
+| **servicerequest-id** | **guid** | J        | Een GUID die de serviceaanvraag identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag tekst moet een [ServiceRequest](service-request-resources.md) -resource bevatten. De enige vereiste waarden zijn die die moeten worden bijgewerkt.
+De aanvraag body moet een [ServiceRequest-resource](service-request-resources.md) bevatten. De enige vereiste waarden zijn de waarden die moeten worden bijgewerkt.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -115,11 +111,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een resource van een **service aanvraag** met bijgewerkte eigenschappen in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **serviceaanvraagresource** met bijgewerkte eigenschappen in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

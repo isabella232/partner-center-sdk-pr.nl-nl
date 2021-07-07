@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: ab1138e19e06111299ab43ea13a6f033274aaa5d
-ms.sourcegitcommit: 3c3a21e73aaadf3023cf4c13b09809ceae5f027a
+ms.openlocfilehash: f18518e88b9bb08d4fd248922f4ce2fefdde004f
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107496141"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025646"
 ---
 # <a name="api-throttling-guidance-for-partners-calling-partner-center-apis"></a>Richtlijnen voor API-beperking voor partners die api'Partner Center aanroepen 
-
-**Van toepassing op**
-
-- Partnercentrum
 
 Microsoft implementeert API-beperking om binnen een tijdspanne consistentere prestaties mogelijk te maken voor partners die de api'Partner Center aanroepen. Beperking beperkt het aantal aanvragen voor een service in een tijdsspanne om te voorkomen dat resources te veel worden gebruikt. Hoewel Partner Center is ontworpen voor het verwerken van een groot aantal aanvragen, helpt beperking bij een groot aantal aanvragen van enkele partners om optimale prestaties en betrouwbaarheid voor alle partners te behouden.  
 
@@ -33,21 +29,21 @@ De meest voorkomende oorzaken van beperking van clients zijn:
 
 - Een groot aantal aanvragen voor een **API per partner-tenant-id:** voor sommige Partner Center-API's wordt beperking bepaald door de tenant-id van de partner. Te veel aanroepen naar deze API's op dezelfde tenant-id van de partner leiden ertoe dat de drempelwaarde voor beperking wordt overschreden.  
 
-- Een groot aantal aanvragen voor een **API per partner-tenant-id per** tenant-id van de klant: voor andere API's wordt de beperking bepaald door de combinatie partner-tenant-id/tenant-id van de klant; In dergelijke gevallen leidt het maken van te veel aanroepen op dezelfde tenant-id van de klant tot beperking, terwijl aanroepen tegen andere klanten kunnen slagen.
+- Een groot aantal aanvragen voor een **API per partner-tenant-id per** tenant-id van de klant: voor andere API's wordt de beperking bepaald door de combinatie partner-tenant-id/tenant-id van de klant; In dergelijke gevallen leidt te veel aanroepen naar dezelfde tenant-id van de klant tot beperking, terwijl aanroepen tegen andere klanten kunnen slagen.
 
 ## <a name="best-practices-to-avoid-throttling"></a>Best practices om beperking te voorkomen 
  
-Programmeerprocedures zoals het continu peilen van een resource om te controleren op updates en het regelmatig scannen van resourceverzamelingen om te controleren of er nieuwe of verwijderde resources zijn, leiden waarschijnlijk tot beperking en zullen de algehele prestaties verslechteren. Gelijktijdige API-aanroepen kunnen leiden tot een groot aantal aanvragen per eenheidstijd, waardoor aanvragen ook worden beperkt. U moet in plaats daarvan gebruikmaken van meldingen over het bijhouden en wijzigen van wijzigen. Daarnaast moet u activiteitenlogboeken kunnen gebruiken voor het detecteren van wijzigingen. Zie Partner Center [activiteitenlogboeken](get-a-record-of-partner-center-activity-by-user.md) voor meer informatie.  We raden partners ten zeerste aan de API voor activiteitenlogboek te gebruiken voor meer efficiëntie en om bandbreedtebeperking te voorkomen. Zie ook het voorbeeld van het gebruik van activiteitenlogboeken hieronder.
+Programmeerprocedures zoals het continu pollen van een resource om te controleren op updates en het regelmatig scannen van resourceverzamelingen om te controleren op nieuwe of verwijderde resources, leiden waarschijnlijk tot beperking en zullen de algehele prestaties verslechteren. Gelijktijdige API-aanroepen kunnen leiden tot een groot aantal aanvragen per eenheidstijd, waardoor aanvragen ook worden beperkt. In plaats daarvan moet u de meldingen voor bijhouden en wijzigen gebruiken. Daarnaast moet u activiteitenlogboeken kunnen gebruiken voor het detecteren van wijzigingen. Zie activiteitenlogboeken voor [Partner Center meer informatie.](get-a-record-of-partner-center-activity-by-user.md)  We raden partners ten zeerste aan om de API voor activiteitenlogboek te gebruiken voor meer efficiëntie en om beperking te voorkomen. Zie hieronder ook het voorbeeld van het gebruik van activiteitenlogboeken.
 
-## <a name="best-practices-to-handle-throttling"></a>Best practices voor het afhandelen van beperking
+## <a name="best-practices-to-handle-throttling"></a>Best practices voor het afhandelen van beperkingen
 
-Hier volgen de best practices voor het afhandelen van bandbreedtebeperking: 
+Hier volgen best practices voor het afhandelen van bandbreedtebeperking: 
 
 - Verminder de mate van parallellelisme. 
 - Verminder de frequentie van aanroepen. 
-- Vermijd onmiddellijke nieuwe nieuwe aanvragen omdat alle aanvragen worden opgeteld bij uw gebruikslimieten. 
+- Vermijd onmiddellijke nieuwe aanvragen omdat alle aanvragen worden opgeteld bij uw gebruikslimieten. 
 
-Gebruik de HTTP-foutcode 429 om beperking te detecteren wanneer u foutafhandeling implementeert. Het mislukte antwoord bevat de Retry-After antwoordheader. Het uitschakelen van aanvragen met behulp van de vertraging na opnieuw proberen is de snelste manier om te herstellen van beperking. 
+Gebruik de HTTP-foutcode 429 om beperking te detecteren wanneer u foutafhandeling implementeert. Het mislukte antwoord bevat de Retry-After-antwoordheader. Het uitschakelen van aanvragen met behulp van de vertraging na opnieuw proberen is de snelste manier om te herstellen van bandbreedtebeperking. 
 
 Ga als volgt te werk als u de vertraging Opnieuw proberen na wilt gebruiken: 
 
@@ -55,14 +51,14 @@ Ga als volgt te werk als u de vertraging Opnieuw proberen na wilt gebruiken:
 
 2. De aanvraag opnieuw proberen.  
 
-3. Als de aanvraag opnieuw mislukt met een 429-foutcode, wordt u nog steeds beperkt. Opnieuw proberen met exponentieel uitstel, gebruik de aanbevolen Retry-After vertraging en de aanvraag opnieuw totdat deze is geslaagd.
+3. Als de aanvraag opnieuw mislukt met een 429-foutcode, wordt u nog steeds beperkt. Opnieuw proberen met exponentieel uitstel, gebruik de aanbevolen Retry-After uit te stellen en de aanvraag opnieuw uit te proberen totdat deze is geslaagd.
 
 4. Als u de SDK gebruikt, ontvangt u een uitzondering met statuscode 429 wanneer uw aanvraag wordt beperkt. Gebruik de eigenschap RetryAfter in de uitzondering en de aanvraag opnieuw nadat de tijd is verstreken.
 
 
 ## <a name="apis-currently-impacted-by-throttling"></a>API's die momenteel worden beïnvloed door beperking
 
-Op de lange termijn wordt elke Partner Center API die het eindpunt 'api.partnercenter.microsoft.com/' aanroept, beperkt. Op dit moment worden de beperkingslimieten alleen afgedwongen voor de HIERONDER vermelde API's. Partner Center verzamelt de telemetrie op elk van de API's en past de beperkingslimieten dynamisch aan. De volgende tabel bevat de API's waar beperking momenteel wordt afgedwongen.  
+Uiteindelijk wordt elke api Partner Center die het eindpunt 'api.partnercenter.microsoft.com/' aanroept, beperkt. Op dit moment worden de beperkingslimieten alleen afgedwongen voor de hieronder vermelde API's. Partner Center verzamelt de telemetrie op elk van de API's en past de beperkingslimieten dynamisch aan. De volgende tabel bevat de API's waar beperking momenteel wordt afgedwongen.  
 
 
 |**Bewerking**| **Documentatie voor Partnercentrum**|

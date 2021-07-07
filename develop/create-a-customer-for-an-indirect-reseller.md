@@ -1,45 +1,41 @@
 ---
 title: Een klant voor een indirecte reseller maken
-description: Meer informatie over hoe een indirecte provider Partner Center-Api's kan gebruiken voor het maken van een klant voor een indirecte wederverkoper.
+description: Meer informatie over hoe een indirecte provider Partner Center API's kan gebruiken om een klant te maken voor een indirecte reseller.
 ms.date: 04/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 0de40d08e9fc2b9cf87b7c3c41214fdd34ad26f3
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: 9a6218aeb61f3775c89d34b4d57a17741e3a1e93
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274577"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973737"
 ---
-# <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Een klant voor een indirecte wederverkoper maken met behulp van partner Center-Api's
+# <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Een klant maken voor een indirecte reseller met behulp van Partner Center API's
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-Een indirecte provider kan een klant maken voor een indirecte wederverkoper.
+Een indirecte provider kan een klant maken voor een indirecte reseller.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- De Tenant-id van de indirecte wederverkoper.
+- De tenant-id van de indirecte reseller.
 
-- De indirecte wederverkoper moet een partnerschap met de indirecte provider hebben.
+- De indirecte reseller moet een partnerschap hebben met de indirecte provider.
 
 ## <a name="c"></a>C\#
 
-Een nieuwe klant toevoegen voor een indirecte wederverkoper:
+Een nieuwe klant toevoegen voor een indirecte reseller:
 
-1. Exemplaar een nieuw [**klant**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object en pas vervolgens de [**BillingProfile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) en [**CompanyProfile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)aan. Zorg ervoor dat u de ID van de indirecte wederverkoper toewijst aan de eigenschap [**AssociatedPartnerID**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) .
+1. Instantieer een nieuw [**Customer-object**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) en instantieer en vul het [**BillingProfile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) en [**CompanyProfile in.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile) Zorg ervoor dat u de indirecte reseller-id toewijst aan de [**eigenschap AssociatedPartnerID.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid)
 
-2. Gebruik de eigenschap [**IAggregatePartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een interface voor het verzamelen van klanten op te halen.
+2. Gebruik de [**eigenschap IAggregatePartner.Customers om**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) een interface op te halen voor bewerkingen voor het verzamelen van klanten.
 
-3. Roep de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) aan om de klant te maken.
+3. Roep de [**methode Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) of [**CreateAsync aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) om de klant te maken.
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -77,54 +73,54 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK samples **klasse**: CreateCustomerforIndirectReseller. cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateCustomerforIndirectReseller.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 | Naam                                          | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | object | Ja      | De facturerings profiel gegevens van de klant.                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | object | Ja      | De gegevens van het bedrijfs profiel van de klant.                                                               
-| [AssociatedPartnerId](customer-resources.md#customer) | tekenreeks | Ja      | De ID van de indirecte wederverkoper. De indirecte wederverkoper zoals aangegeven door de ID die u hier opgeeft, moet een partnerschap met de indirecte provider hebben, anders mislukt de aanvraag. Houd er ook rekening mee dat als de waarde AssociatedPartnerId niet wordt opgegeven, de klant wordt gemaakt als een rechtstreekse klant van de indirecte provider in plaats van de indirecte wederverkoper. |
-|Domain| Tekenreeks| Ja|De domein naam van de klant, zoals contoso.onmicrosoft.com.|
-|organizationRegistrationNumber|    tekenreeks|Ja|     Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
+| [BillingProfile](#billing-profile)             | object | Ja      | De factureringsprofielgegevens van de klant.                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | object | Ja      | De bedrijfsprofielgegevens van de klant.                                                               
+| [AssociatedPartnerId](customer-resources.md#customer) | tekenreeks | Ja      | De indirecte reseller-id. De indirecte reseller, zoals aangegeven door de id die hier is opgegeven, moet een partnerschap hebben met de indirecte provider, anders mislukt de aanvraag. Houd er ook rekening mee dat als de associatedPartnerId-waarde niet wordt opgegeven, de klant wordt gemaakt als een directe klant van de indirecte provider in plaats van de indirecte reseller. |
+|Domain| Tekenreeks| Ja|De domeinnaam van de klant, zoals contoso.onmicrosoft.com.|
+|organizationRegistrationNumber|    tekenreeks|Ja|     Het registratienummer van de organisatie van de klant (in bepaalde landen ook wel HETN-nummer genoemd). Alleen vereist voor het bedrijf/de organisatie van de klant die zich in de volgende landen bevindt: 100000000000000000005555555(MD), China(AM), Tzard (TJ), Uzbekje (UZ), UZ ( UA), India, Brazilië, Zuid-Afrika, United United Afs, United South, South South South, SouthEse, Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
 
 
 
 #### <a name="billing-profile"></a>Factureringsprofiel
 
-In deze tabel worden de minimale vereiste velden van de [CustomerBillingProfile](customer-resources.md#customerbillingprofile) -resource beschreven die nodig zijn om een nieuwe klant te maken.
+In deze tabel worden de minimaal vereiste velden van de [Resource CustomerBillingProfile](customer-resources.md#customerbillingprofile) beschreven die nodig zijn om een nieuwe klant te maken.
 
 | Naam             | Type                                     | Vereist | Beschrijving                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| e-mail            | tekenreeks                                   | Ja      | Het e-mail adres van de klant.                                                                                                                                                                                   |
-| culturele          | tekenreeks                                   | Ja      | De voorkeurs cultuur voor communicatie en valuta, zoals ' en-US '. Zie [ondersteunde talen en land instellingen voor het partner centrum](partner-center-supported-languages-and-locales.md) voor de ondersteunde cult uren. |
-| language         | tekenreeks                                   | Ja      | De standaard taal. Taal codes voor twee tekens (bijvoorbeeld `en` of `fr` ) worden ondersteund.                                                                                                                                |
-| bedrijfs \_ naam    | tekenreeks                                   | Ja      | De naam van het geregistreerde bedrijf/de organisatie.                                                                                                                                                                       |
-| standaard \_ adres | [Adres](utility-resources.md#address) | Ja      | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [adres](utility-resources.md#address) bron voor informatie over de beperkingen van elke lengte.                                             |
+| e-mail            | tekenreeks                                   | Ja      | Het e-mailadres van de klant.                                                                                                                                                                                   |
+| Cultuur          | tekenreeks                                   | Ja      | Hun voorkeurscultuur voor communicatie en valuta, zoals 'en-US'. Zie [Partner Center ondersteunde talen en landen voor](partner-center-supported-languages-and-locales.md) de ondersteunde culturen. |
+| language         | tekenreeks                                   | Ja      | De standaardtaal. Er worden twee tekentaalcodes `en` (bijvoorbeeld of `fr` ) ondersteund.                                                                                                                                |
+| \_bedrijfsnaam    | tekenreeks                                   | Ja      | De geregistreerde bedrijfsnaam/organisatienaam.                                                                                                                                                                       |
+| \_standaardadres | [Adres](utility-resources.md#address) | Ja      | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [adresresource](utility-resources.md#address) voor informatie over lengtebeperkingen.                                             |
 
-#### <a name="company-profile"></a>Bedrijfs profiel
+#### <a name="company-profile"></a>Bedrijfsprofiel
 
-In deze tabel worden de minimale vereiste velden van de [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) -resource beschreven die nodig zijn om een nieuwe klant te maken.
+In deze tabel worden de minimaal vereiste velden van de resource [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) beschreven die nodig zijn om een nieuwe klant te maken.
 
 | Naam   | Type   | Vereist | Beschrijving                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domein | tekenreeks | Ja     | De domein naam van de klant, zoals contoso.onmicrosoft.com. |
-| organizationRegistrationNumber | tekenreeks | Is afhankelijk van de voor waarde | Het registratie nummer van de klant (ook wel het INN-nummer in bepaalde landen genoemd). <br/><br/>Volt ooien van dit veld is alleen vereist als het bedrijf/de organisatie van een klant zich in de volgende landen bevindt: <br/><br/>-Armenië (AM) <br/>-Azerbeidzjan (AZ)<br/>-Belarus (per)<br/>-Hongarije (HU)<br/>-Kazachstan (KZ)<br/>-Kirgizië (KG)<br/>-Moldavië (MD)<br/>-Rusland (RU)<br/>-Tadzjikistan (TJ)<br/>-Oezbekistan (UZ)<br/>-Oekraïne (UA)<br/>-India <br/>-Brazilië <br/>-Zuid-Afrika <br/>-Polen <br/>-Verenigde Arabische Emiraten <br/>-Saudi-Arabië <br/>-Turkije <br/>-Thai land <br/>-Vietnam <br/>-Myanmar <br/>-Irak <br/>-Zuid-Soedan <br/>-Venezuela<br/> <br/>Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.  |
+| domein | tekenreeks | Ja     | De domeinnaam van de klant, zoals contoso.onmicrosoft.com. |
+| organizationRegistrationNumber | tekenreeks | Afhankelijk van de voorwaarde | Het registratienummer van de organisatie van de klant (in bepaalde landen ook wel het INN-nummer genoemd). <br/><br/>Het voltooien van dit veld is alleen vereist als het bedrijf/de organisatie van een klant zich in de volgende landen bevindt: <br/><br/>- Uiting (AM) <br/>- Tussenseen (AZ)<br/>- None (BY)<br/>- Doornige (HU)<br/>- Tussenseen (KZ)<br/>- Kyrgyzstan (KG)<br/>- Ligt (MD)<br/>- Rusland (RU)<br/>- Tjikjikjik (TJ)<br/>- Uzbekjik (UZ)<br/>- Uiting (UA)<br/>- India <br/>- Brazilië <br/>- Zuid-Afrika <br/>- Niet-gedys <br/>- Verenigde Arabische Republieken <br/>- Hongkong <br/>- Uitsporing <br/>- <br/>- Vietnam <br/>- <br/>- Uithalen <br/>- Zuid-Korea <br/>-<br/> <br/>Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.  |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -189,11 +185,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord een [klant](customer-resources.md#customer) resource voor de nieuwe klant.
+Als dit lukt, bevat het antwoord een [klantresource](customer-resources.md#customer) voor de nieuwe klant.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Antwoorden worden geleverd met een HTTP-status code die aangeeft of de fout is geslaagd of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Antwoorden worden verstrekt met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

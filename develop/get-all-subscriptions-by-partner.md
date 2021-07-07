@@ -1,40 +1,35 @@
 ---
 title: De abonnementen van een klant ophalen op basis van de MPN-id van de partner
-description: Een lijst met abonnementen die door een bepaalde partner worden verstrekt aan een opgegeven klant weer geven.
+description: Een lijst met abonnementen die door een bepaalde partner aan een opgegeven klant worden geleverd, op te halen.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: c95488b62449e1ab6bd2eeefea58d6686c291f4c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 857caa667245503f111b27379a5c8f93aa1fb0b0
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767498"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760654"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>De abonnementen van een klant ophalen op basis van de MPN-id van de partner
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Een lijst met abonnementen die door een bepaalde partner worden verstrekt aan een opgegeven klant weer geven.
+Een lijst met abonnementen die door een bepaalde mpn-partner (MICROSOFT PARTNER NETWORK) aan een opgegeven klant worden geleverd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een partner Microsoft Partner Network-ID (MPN).
+- Een MPN-partner-id.
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met abonnementen van een bepaalde partner aan een opgegeven klant wilt krijgen, gebruikt u eerst de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Vervolgens krijgt u een interface voor het verzamelen van klant abonnements bewerkingen via de eigenschap [**abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) en roept u de [**ByPartner**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) -methode aan met de MPN-id om de partner te identificeren en een interface op te halen voor het abonnement op de partner. Roep ten slotte de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) aan om de verzameling op te halen.
+Gebruik eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om een lijst op te halen met abonnementen die door een bepaalde partner aan een opgegeven klant worden geleverd. Haal vervolgens een interface op voor [](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) verzamelingen van klantabonnementen van de eigenschap Abonnementen en roep de methode [**ByPartner**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) aan met de MPN-id om de partner te identificeren en een interface voor partnerabonnementbewerkingen op te halen. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) om de verzameling op te halen.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -44,13 +39,13 @@ Als u een lijst met abonnementen van een bepaalde partner aan een opgegeven klan
 var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).Subscriptions.ByPartner(partnerMpnId).Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: GetSubscriptionsByMpnid.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetSubscriptionsByMpnid.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u een lijst met abonnementen van een bepaalde partner aan een opgegeven klant wilt krijgen, gebruikt u eerst de functie **IAggregatePartner. getCustomers. byId** met de klant-id om de klant te identificeren. Vervolgens krijgt u een interface voor het verzamelen van klant abonnementen via de functie **getSubscriptions** en roept u de functie **byPartner** aan met de MPN-id om de partner te identificeren en een interface op te halen voor abonnements bewerkingen op partner. Roep ten slotte de **Get** -functie aan om de verzameling op te halen.
+Gebruik eerst de functie **IAggregatePartner.getCustomers.byId** met de klant-id om een lijst met abonnementen op te halen die door een bepaalde partner aan een opgegeven klant worden geleverd. Haal vervolgens een interface op voor verzamelingen van klantabonnementen via de functie **getSubscriptions** en roep de functie **byPartner** aan met de MPN-id om de partner te identificeren en een interface voor partnerabonnementbewerkingen op te halen. Roep ten slotte de **functie get aan** om de verzameling op te halen.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -64,7 +59,7 @@ ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperation
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Voer de opdracht [**Get-PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) uit om een lijst met abonnementen van een bepaalde partner aan een opgegeven klant op te halen. Geef de klant-ID op om de klant aan te duiden met de para meter **KlantId** en vul de **MpnId** -para meter in met de MPN-id om de partner te identificeren.
+Voer de opdracht [**Get-PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) uit om een lijst met abonnementen op te halen die door een bepaalde partner aan een opgegeven klant worden geleverd. Geef de klant-id op om de klant te identificeren met behulp van de parameter **CustomerId** en vul de parameter **MpnId** met de MPN-id om de partner te identificeren.
 
 ```powershell
 # $customerId
@@ -75,24 +70,24 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Subscriptions? MPN \_ -id = {MPN-id} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions?mpn \_ id={mpn-id} HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende pad-en query parameters om de klant en de partner te identificeren.
+Gebruik het volgende pad en de queryparameters om de klant en partner te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| klant-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling die de klant identificeert.       |
-| MPN-id      | int    | Ja      | Een Microsoft Partner Network-ID waarmee de partner wordt geïdentificeerd. |
+| customer-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.       |
+| mpn-id      | int    | Ja      | Een Microsoft Partner Network-id die de partner identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -113,11 +108,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de verzameling [abonnements](subscription-resources.md) resources.
+Als dit lukt, bevat de antwoord-body de verzameling [abonnementsresources.](subscription-resources.md)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

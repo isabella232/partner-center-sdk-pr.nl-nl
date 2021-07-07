@@ -1,35 +1,31 @@
 ---
-title: Inventarisatie controleren
-description: Meer informatie over het gebruik van partner Center-Api's voor het controleren van de inventaris voor een specifieke set catalogus items. U kunt dit doen om de producten of Sku's van een klant te identificeren.
+title: Inventaris controleren
+description: Meer informatie over het gebruik Partner Center API's om de inventaris voor een specifieke set catalogusitems te controleren. U kunt dit doen om de producten of SKU's van een klant te identificeren.
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6921760abc0b95aff820467e84b3e8e9435731cd
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: b982dbd7e5e10d454ef87a1e750546ea50eb8438
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767623"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974077"
 ---
-# <a name="check-the-inventory-of-catalog-items-using-partner-center-apis"></a>De inventaris van catalogus items controleren met behulp van partner Center-Api's
+# <a name="check-the-inventory-of-catalog-items-using-partner-center-apis"></a>De inventaris van catalogusitems controleren met behulp Partner Center API's
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-De inventarisatie controleren voor een specifieke set met catalogus items.
+De inventaris controleren op een specifieke set catalogusitems.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een of meer product-Id's. Optioneel kunnen SKU-Id's ook worden opgegeven.
+- Een of meer product-ID's. Optioneel kunnen ook SKU-ID's worden opgegeven.
 
-- Eventuele aanvullende context voor het controleren van de inventaris van de SKU ('s) waarnaar wordt verwezen door de gegeven product-of SKU-ID ('s). Deze vereisten kunnen variëren per type product/SKU en kunnen worden bepaald op basis van de **InventoryVariables** -eigenschap van de [SKU](product-resources.md#sku) .
+- Eventuele aanvullende context die nodig is voor het controleren van de inventaris van de SKU('s) waarnaar wordt verwezen door de opgegeven product-/SKU-id('s). Deze vereisten kunnen per product/SKU verschillen en kunnen worden bepaald op basis van de eigenschap **InventoryVariables van de** [SKU.](product-resources.md#sku)
 
 ## <a name="c"></a>C\#
 
-Als u de inventarisatie wilt controleren, bouwt u een [InventoryCheckRequest](product-resources.md#inventorycheckrequest) -object op met behulp van een [InventoryItem](product-resources.md#inventoryitem) -object voor elk item dat moet worden gecontroleerd. Gebruik vervolgens een **IAggregatePartner. Extensions** -accessor, bereik deze aan **product** en selecteer vervolgens het land met de methode **ByCountry ()** . Roep ten slotte de methode **CheckInventory ()** aan bij uw **InventoryCheckRequest** -object.
+Als u de inventaris wilt controleren, maakt u [een InventoryCheckRequest-object](product-resources.md#inventorycheckrequest) met behulp van een [InventoryItem-object](product-resources.md#inventoryitem) voor elk item dat moet worden gecontroleerd. Gebruik vervolgens een **iAggregatePartner.Extensions-accessoires,** pas het bereik aan op **Product** en selecteer vervolgens het land met behulp van de **methode ByCountry().** Roep ten slotte de **methode CheckInventory()** aan met uw **InventoryCheckRequest-object.**
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -56,27 +52,27 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Extensions/product/checkInventory? land = {land nummer} http/1.1                        |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/extensions/product/checkInventory?country={country-code} HTTP/1.1                        |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de inventaris te controleren.
+Gebruik de volgende queryparameter om de inventaris te controleren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| land code           | tekenreeks   | Yes      | Een land/regio-ID.                                            |
+| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De details van de inventarisatie aanvraag, bestaande uit een [InventoryCheckRequest](product-resources.md#inventorycheckrequest) -resource met een of meer [InventoryItem](product-resources.md#inventoryitem) -resources.
+De details van de inventarisaanvraag, bestaande uit een [InventoryCheckRequest-resource](product-resources.md#inventorycheckrequest) die een of meer [InventoryItem-resources](product-resources.md#inventoryitem) bevat.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -95,14 +91,14 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [InventoryItem](product-resources.md#inventoryitem) -objecten die zijn gevuld met de beperkings Details, indien van toepassing.
+Als dit lukt, bevat de antwoord-body een verzameling [InventoryItem-objecten](product-resources.md#inventoryitem) die zijn gevuld met de beperkingsdetails, indien van toepassing.
 
 >[!NOTE]
->Als een invoer InventoryItem een item vertegenwoordigt dat niet in de catalogus kan worden gevonden, wordt het niet opgenomen in de uitvoer verzameling.
+>Als een input InventoryItem een item vertegenwoordigt dat niet in de catalogus kan worden gevonden, wordt het niet opgenomen in de uitvoerverzameling.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

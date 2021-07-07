@@ -1,38 +1,33 @@
 ---
 title: Een abonnement overdragen
-description: Hiermee wordt het abonnement van een klant bijgewerkt naar een opgegeven doel abonnement.
+description: Hiermee wordt het abonnement van een klant geupgraded naar een opgegeven doelabonnement.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9b757eee8bc65c16b5c65221a4c14b6c0fd6369e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 01455315825cad026830268b6bbd55509e964bb5
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767240"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530227"
 ---
 # <a name="transition-a-subscription"></a>Een abonnement overdragen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt het abonnement van een klant bijgewerkt naar een opgegeven doel abonnement.
+Hiermee wordt het abonnement van een klant geupgraded naar een opgegeven doelabonnement.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Twee abonnement-Id's, één voor het eerste abonnement en één voor het doel abonnement.
+- Twee abonnements-ID's, één voor het eerste abonnement en één voor het doelabonnement.
 
 ## <a name="c"></a>C\#
 
-Als u het abonnement van een klant wilt bijwerken, moet u eerst [dat customer's-abonnement ophalen](get-a-subscription-by-id.md). Vervolgens moet u een lijst met upgrades voor dat abonnement verkrijgen door de eigenschap **upgrades** aan te roepen, gevolgd door de methoden **Get ()** of **GetAsync ()** . Kies een doel upgrade van die lijst met upgrades en roep vervolgens de eigenschap **upgrades** aan van het eerste abonnement, gevolgd door de methode **Create ()** .
+Als u het abonnement van een klant wilt upgraden, moet u eerst [het abonnement van de klant krijgen.](get-a-subscription-by-id.md) Haal vervolgens een lijst met upgrades voor dat abonnement op door de eigenschap **Upgrades** aan te roepen, gevolgd door de methoden **Get()** of **GetAsync().** Kies een doelupgrade uit die lijst met upgrades en roep vervolgens de **eigenschap Upgrades** van het eerste abonnement aan, gevolgd door de **methode Create().**
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,30 +38,30 @@ Als u het abonnement van een klant wilt bijwerken, moet u eerst [dat customer's-
 UpgradeResult upgradeResult = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionIdForUpgrade).Upgrades.Create(targetOffer);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSamples- **klasse**: UpgradeSubscription.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: UpgradeSubscription.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                                         |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{id-for-Subscription}/upgrades http/1.1 |
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{id-for-target}/upgrades http/1.1       |
+| **Toevoegen**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1.1       |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om het abonnement te overzetten.
+Gebruik de volgende queryparameter om het abonnement over te stappen.
 
 | Naam                    | Type     | Vereist | Beschrijving                                       |
 |-------------------------|----------|----------|---------------------------------------------------|
-| **klant-Tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.             |
-| **id voor abonnement** | **guid** | J        | Een GUID die overeenkomt met het eerste abonnement. |
-| **id voor doel**       | **guid** | J        | Een GUID die overeenkomt met het doel abonnement.  |
+| **customer-tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.             |
+| **id-for-subscription** | **guid** | J        | Een GUID die overeenkomt met het eerste abonnement. |
+| **id-for-target**       | **guid** | J        | Een GUID die overeenkomt met het doelabonnement.  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -147,11 +142,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een bron van een **upgrade** resultaat in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **resource voor het upgraderesultaat** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

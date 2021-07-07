@@ -1,36 +1,33 @@
 ---
 title: Een configuratiebeleid bijwerken voor de opgegeven klant
-description: Het opgegeven configuratie beleid voor de opgegeven klant bijwerken.
+description: Het opgegeven configuratiebeleid voor de opgegeven klant bijwerken.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 42c57a92020723415b4621e9f9d7c5c3278bfb77
-ms.sourcegitcommit: 970031473b2e8cd3d08c6c097949c057a51df3ef
+ms.openlocfilehash: 5e008f41a44f2b7cf3ddfd705505175c69bbad38
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99505336"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530226"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>Een configuratiebeleid bijwerken voor de opgegeven klant
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-Het opgegeven configuratie beleid voor de opgegeven klant bijwerken.
+Het opgegeven configuratiebeleid voor de opgegeven klant bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De beleids-id.
 
 ## <a name="c"></a>C\#
 
-Als u een bestaand configuratie beleid voor de opgegeven klant wilt bijwerken, moet u een nieuw [**ConfigurationPolicy**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) -object instantiëren, zoals wordt weer gegeven in het volgende code fragment. De waarden in dit nieuwe object vervangen de overeenkomende waarden in het bestaande object. Vervolgens roept u de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Vervolgens roept u de methode [**ConfigurationPolicies. ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) aan met de beleids-id om een interface op te halen voor configuratie beleids bewerkingen voor het opgegeven beleid. Roep ten slotte de [**patch**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) -of [**PatchAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) -methode aan om het configuratie beleid bij te werken.
+Als u een bestaand configuratiebeleid voor de opgegeven klant wilt bijwerken, maakt u een nieuw [**ConfigurationPolicy-object,**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) zoals wordt weergegeven in het volgende codefragment. De waarden in dit nieuwe object vervangen de bijbehorende waarden in het bestaande object. Roep vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Roep vervolgens de [**methode ConfigurationPolicies.ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) aan met de beleids-id om een interface op te halen voor configuratiebeleidsbewerkingen voor het opgegeven beleid. Roep ten slotte de [**methode Patch**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) of [**PatchAsync aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) om het configuratiebeleid bij te werken.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -50,41 +47,41 @@ ConfigurationPolicy updatedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Patch(configPolicyToBeUpdated);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: UpdateConfigurationPolicy.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: UpdateConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/policies/{Policy-id} http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende Path-para meters bij het maken van de aanvraag.
+Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| klant-id | tekenreeks | Ja      | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.         |
-| beleid-id   | tekenreeks | Ja      | Een teken reeks met een GUID-indeling die het beleid identificeert dat moet worden bijgewerkt. |
+| customer-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert.         |
+| policy-id   | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het bij te werken beleid identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag tekst moet een object bevatten dat de beleids gegevens levert.
+De aanvraag body moet een object bevatten dat de beleidsgegevens verstrekt.
 
-| Naam            | Type             | Vereist | Worden bijgewerkt | Beschrijving                                                                                                                                              |
+| Naam            | Type             | Vereist | Bijgewerkt | Beschrijving                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id              | tekenreeks           | Ja      | Nee        | De teken reeks met de GUID-indeling waarmee het beleid wordt geïdentificeerd.                                                                                                    |
-| naam            | tekenreeks           | Ja      | Ja       | De beschrijvende naam van het beleid.                                                                                                                         |
-| category        | tekenreeks           | Ja      | Nee        | De beleids categorie.                                                                                                                                     |
+| id              | tekenreeks           | Ja      | Nee        | De tekenreeks in GUID-indeling die het beleid identificeert.                                                                                                    |
+| naam            | tekenreeks           | Ja      | Ja       | De gebruiksvriendelijke naam van het beleid.                                                                                                                         |
+| category        | tekenreeks           | Ja      | Nee        | De beleidscategorie.                                                                                                                                     |
 | beschrijving     | tekenreeks           | Nee       | Ja       | De beschrijving van het beleid.                                                                                                                                  |
-| devicesAssigned | getal           | Nee       | Nee        | Het aantal apparaten.                                                                                                                                   |
-| policySettings  | tekenreeksmatrix | Ja      | Ja       | De beleids instellingen: ' geen ', ' \_ OEM- \_ voor installatie verwijderen ', ' OOBE- \_ gebruiker \_ niet \_ lokale \_ beheerder ', ' Skip \_ Express Settings ', ' overs laan van \_ \_ OEM \_ -registratie, ' EULA overs Laan \_ '. |
+| toegewezen apparaten | getal           | Nee       | Nee        | Het aantal apparaten.                                                                                                                                   |
+| policySettings  | tekenreeksmatrix | Ja      | Ja       | De beleidsinstellingen: "none","remove \_ oem \_ preinstalls","oobe \_ user not local \_ \_ \_ admin","skip \_ express \_ settings","skip \_ oem \_ registration,"skip \_ eula". |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -111,11 +108,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) -resource voor het nieuwe beleid.
+Als dit lukt, bevat de antwoord-body de [ConfigurationPolicy-resource](device-deployment-resources.md#configurationpolicy) voor het nieuwe beleid.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

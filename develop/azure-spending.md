@@ -1,47 +1,42 @@
 ---
-title: Azure bestedings-API-resources
-description: Ontdek hoe CSP-partners Partner Center-Api's kunnen gebruiken om de uitgaven en het gebruik van Azure-partners en klanten te bekijken en te beheren op basis van hun budget.
+title: Azure-uitgaven-API-resources
+description: Meer informatie over hoe CSP-partners Partner Center API's kunnen gebruiken om Azure-uitgaven en -gebruik van partners en klanten te bekijken en beheren op basis van hun budget.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 02a2995a06473cc6990d1234acd522a3b38a03d3
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 472554de1c354559d5bc4b21959c109467891806
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97767593"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974315"
 ---
-# <a name="azure-spending-api-resources-to-manage-partner-or-customer-spending-and-usage-against-a-budget"></a>Azure bestedings-API-resources voor het beheren van de partner-of klant uitgaven en het gebruik van een budget 
+# <a name="azure-spending-api-resources-to-manage-partner-or-customer-spending-and-usage-against-a-budget"></a>Azure-uitgaven-API-resources voor het beheren van partner- of klantuitgaven en -gebruik ten opzichte van een budget 
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Cloud Solution Provider (CSP)-partners kunnen hun Azure-uitgaven bekijken en beheren via Partner Center API's. Ze kunnen ook programmatisch de uitgaven van hun klanten bekijken ten opzichte van een Azure-uitgavenbudget.
 
-Cloud Solution Provider (CSP)-partners kunnen hun Azure-uitgaven bekijken en beheren via partner Center-Api's. Ze kunnen ook programmatisch de uitgaven van hun klanten bekijken op basis van een Azure-uitgaven budget.
+Zie scenario's waarin CSP-partners de api's van Partner Center gebruiken voor het beheren van klant- en [partneraccounts en -orders voor meer informatie.](scenarios.md)
 
-Zie [scenario's waarin CSP-partners de partner centrum-api's kunnen gebruiken voor het beheren van klant-en partner accounts en-orders](scenarios.md)voor meer informatie.
+## <a name="partner-usage-management"></a>Partnergebruiksbeheer
 
-## <a name="partner-usage-management"></a>Beheer van partner gebruik
+- [Een samenvatting van het gebruik van partners krijgen](get-a-partner-usage-summary.md) met behulp van de resource **PartnerUsageSummary**
+- [Gebruiksrecords voor alle klanten op halen](get-a-customer-s-usage-records.md) met behulp van de resource **CustomerMonthlyUsageRecord**
 
-- [Een samen vatting van de partner gebruik ophalen](get-a-partner-usage-summary.md) met behulp van de **PartnerUsageSummary** -resource
-- [Gebruiks records voor alle klanten ophalen](get-a-customer-s-usage-records.md) met behulp van de **CustomerMonthlyUsageRecord** -resource
+## <a name="customer-usage-management"></a>Beheer van klantgebruik
 
-## <a name="customer-usage-management"></a>Beheer van klant gebruik
+- [Het gebruiksoverzicht van een klant op halen](get-a-customer-usage-summary.md) met behulp van de resource **CustomerUsageSummary**
+- [Alle abonnementsgebruiksrecords voor een klant op te](get-a-customer-subscription-s-usage-records.md) halen met behulp van de resource **SubscriptionMonthlyUsageRecord**
 
-- Het [gebruiks overzicht van een klant ophalen](get-a-customer-usage-summary.md) met behulp van de **CustomerUsageSummary** -resource
-- [Alle gebruiks records voor een klant ophalen](get-a-customer-subscription-s-usage-records.md) met behulp van de **SubscriptionMonthlyUsageRecord** -resource
+## <a name="subscription-usage-management"></a>Abonnementsgebruiksbeheer
 
-## <a name="subscription-usage-management"></a>Beheer van abonnements gebruik
+- [Een overzicht van het gebruik van een abonnement](get-a-customer-subscription-usage-summary.md) krijgen met behulp van de resource **SubscriptionUsageSummary**
+- [Alle maandelijkse gebruiksrecords voor een abonnement op halen met](get-all-monthly-usage-records-for-a-subscription.md) behulp van de resource **AzureResourceMonthlyUsageRecord**
+- [Gebruiksgegevens voor een abonnement per resource op halen met](get-a-customer-subscription-resource-usage-records.md) behulp van de resource **ResourceUsageRecord**
+- [Gebruiksgegevens voor een abonnement per meter op halen met](get-a-customer-subscription-meter-usage-records.md) behulp van de **MeterUsageRecord-resource**
 
-- [Een overzicht van het gebruik van een abonnement ophalen](get-a-customer-subscription-usage-summary.md) met behulp van de **SubscriptionUsageSummary** -resource
-- [Alle maandelijkse gebruiks records voor een abonnement ophalen](get-all-monthly-usage-records-for-a-subscription.md) met behulp van de **AzureResourceMonthlyUsageRecord** -resource
-- [Gebruiks gegevens ophalen voor een abonnement per resource](get-a-customer-subscription-resource-usage-records.md) met behulp van de **ResourceUsageRecord** -resource
-- [Gebruiks gegevens ophalen voor een abonnement per meter](get-a-customer-subscription-meter-usage-records.md) met behulp van de **MeterUsageRecord** -resource
+## <a name="azure-spending-budget-management"></a>Azure-uitgavenbudgetbeheer
 
-## <a name="azure-spending-budget-management"></a>Beheer van uitgaven budget van Azure
-
-- Het [gebruiks budget van een klant ophalen](get-a-customer-s-usage-spending-budget.md) met behulp van de **CustomerUsageSummary** -resource
-- Het [gebruiks budget van een klant bijwerken](update-a-customer-s-usage-spending-budget.md) met behulp van de **CustomerUsageSummary** -resource
+- [Het gebruiksbudget van een klant op halen](get-a-customer-s-usage-spending-budget.md) met behulp van de resource **CustomerUsageSummary**
+- [Het gebruiksbudget van een klant bijwerken](update-a-customer-s-usage-spending-budget.md) met behulp van de resource **CustomerUsageSummary**

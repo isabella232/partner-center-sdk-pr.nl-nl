@@ -1,46 +1,42 @@
 ---
 title: Acceptatie door de klant van Microsoft-klantovereenkomst bevestigen
-description: Meer informatie over het bevestigen van de acceptatie van klanten van de micro soft-klant overeenkomst met behulp van partner Center-Api's.
+description: Meer informatie over hoe u de klantacceptatie van de Microsoft-klantovereenkomst met behulp Partner Center API's.
 ms.date: 02/08/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 62a6cebd5d6d093377dd5940dcff6204b7095c70
-ms.sourcegitcommit: ebb36208d6e2dea705f62b7d60d471f10c55132e
+ms.openlocfilehash: 002508109191ede53cd06f25efc38286647fd67c
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006075"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974009"
 ---
-# <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Acceptatie van klant bevestigen voor de micro soft-klant overeenkomst met behulp van partner Center-Api's
+# <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Bevestig dat de klant de Microsoft-klantovereenkomst met Partner Center API's
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center
 
-- Partnercentrum
+**Is niet van toepassing op**: Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-Het partner Centrum ondersteunt momenteel alleen bevestiging van klant acceptatie van de micro soft-klant overeenkomst in de *open bare cloud van micro soft*. Deze functionaliteit is momenteel niet van toepassing op:
+Partner Center ondersteunt momenteel bevestiging van de klantacceptatie van de Microsoft-klantovereenkomst alleen in de openbare Cloud van Microsoft.
 
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-In dit artikel wordt beschreven hoe u de acceptatie van klanten van micro soft-klanten overeenkomst bevestigt of opnieuw bevestigt.
+In dit artikel wordt beschreven hoe u de acceptatie van de klant van de Microsoft-klantovereenkomst.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u gebruikmaakt van de .NET SDK van partner Center, is versie 1,14 of nieuwer vereist.
+- Als u de .NET SDK Partner Center, is versie 1.14 of nieuwer vereist.
 
-- Referenties zoals beschreven in [Partner Center-verificatie](./partner-center-authentication.md). *Dit scenario ondersteunt alleen app + gebruikers verificatie.*
+- Referenties zoals beschreven in [Partner Center verificatie](./partner-center-authentication.md). *Dit scenario biedt alleen ondersteuning voor app- en gebruikersverificatie.*
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- De datum (**dateAgreed**) waarop de klant de micro soft-klant overeenkomst heeft geaccepteerd.
+- De datum (**dateAgreed**) wanneer de klant de Microsoft-klantovereenkomst.
 
-- Informatie over de gebruiker van de organisatie van de klant die de micro soft-klant overeenkomst heeft geaccepteerd. Dit omvat:
+- Informatie over de gebruiker van de klantorganisatie die de Microsoft-klantovereenkomst. Dit omvat:
   - Voornaam
   - Achternaam
   - E-mailadres
-  - Telefoon nummer (optioneel)
-- Als de volgende waarden voor een klant worden gewijzigd, kan het partner centrum een andere overeenkomst voor die klant maken: voor naam achternaam e-mail adres telefoon nummer, anders ontvangen partners de volgende fout code, vanwege een dubbele klant die wordt gemaakt
+  - Telefoon getal (optioneel)
+- Als de volgende waarden voor een klant worden gewijzigd, kan Partner Center een andere overeenkomst maken voor die klant: Voornaam achternaam e-mailadres Telefoon nummer Anders ontvangen partners de volgende foutcode omdat er een dubbele klant wordt gemaakt
 
 
 ```
@@ -57,9 +53,9 @@ In dit artikel wordt beschreven hoe u de acceptatie van klanten van micro soft-k
 
 ## <a name="net"></a>.NET
 
-Bevestigen of herbevestigen van de acceptatie van de klant door de klant overeenkomst van micro soft:
+Bevestig of bevestig de klantacceptatie van de Microsoft-klantovereenkomst:
 
-1. Haal de meta gegevens van de overeenkomst voor de micro soft-klant overeenkomst op. U moet de **ontbrekende templateid** van de micro soft-klant overeenkomst verkrijgen. Zie voor meer informatie de [meta gegevens van de overeenkomst ophalen voor de micro soft-klant overeenkomst](get-customer-agreement-metadata.md).
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -69,11 +65,11 @@ Bevestigen of herbevestigen van de acceptatie van de klant door de klant overeen
    var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
    ```
 
-2. Maak een nieuw object **overeenkomst** met details van de bevestiging.
+2. Maak een nieuw **Agreement-object** met details van de bevestiging.
 
-3. Gebruik de verzameling **IAgreggatePartner. Customers** en roep de methode **ById** aan met de opgegeven **klant-Tenant-id**.
+3. Gebruik de **verzameling IAgreggatePartner.Customers** en roep de **ById-methode** aan met de opgegeven **customer-tenant-id**.
 
-4. Gebruik de eigenschap **overeenkomsten** , gevolgd door het aanroepen van **Create** of **CreateAsync**.
+4. Gebruik de **eigenschap Agreements,** gevolgd door het aanroepen **van Create** of **CreateAsync.**
 
    ```csharp
    // string selectedCustomerId;
@@ -94,52 +90,52 @@ Bevestigen of herbevestigen van de acceptatie van de klant door de klant overeen
    Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
    ```
 
-Een volledig voor beeld vindt u in de [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) -klasse in het [console test-app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) -project.
+Een volledig voorbeeld vindt u in de klasse [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) van het [consoletest-app-project.](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-Bevestigen of herbevestigen van de acceptatie van de klant door de klant overeenkomst van micro soft:
+Bevestig of bevestig de klantacceptatie van de Microsoft-klantovereenkomst:
 
-1. Haal de meta gegevens van de overeenkomst voor de micro soft-klant overeenkomst op. U moet de **ontbrekende templateid** van de micro soft-klant overeenkomst verkrijgen. Zie voor meer informatie de [meta gegevens van de overeenkomst ophalen voor de micro soft-klant overeenkomst](get-customer-agreement-metadata.md).
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
-2. Maak een nieuwe [ **overeenkomst** resource](agreement-resources.md) om te bevestigen dat een klant de micro soft-klant overeenkomst heeft geaccepteerd. Gebruik de volgende [syntaxis voor rest-aanvragen](#request-syntax).
+2. Maak een nieuwe [ **overeenkomstresource**](agreement-resources.md) om te bevestigen dat een klant de Microsoft-klantovereenkomst. Gebruik de volgende [REST-aanvraagsyntaxis](#request-syntax).
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode | Aanvraag-URI                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [*\{ BASEURL \}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/agreements http/1.1 |
+| POST   | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de klant op te geven die u wilt bevestigen.
+Gebruik de volgende queryparameter om de klant op te geven die u wilt bevestigen.
 
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| klant-Tenant-id | GUID | Ja | De waarde is een **klant-Tenant-id** van de GUID-indeling, een id waarmee u een klant kunt opgeven. |
+| customer-tenant-id | GUID | Ja | De waarde is een **klant-tenant-id** in GUID-indeling. Dit is een id waarmee u een klant kunt opgeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de REST-aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de rest-aanvraag body beschreven.
 
-| Naam      | Type   | Description                                                                                  |
+| Naam      | Type   | Beschrijving                                                                                  |
 |-----------|--------|----------------------------------------------------------------------------------------------|
-| Overeenkomst | object | Details van de partner voor het bevestigen van de acceptatie van de klant door de klant overeenkomst van micro soft. |
+| Overeenkomst | object | Details die door de partner worden verstrekt om te bevestigen dat de klant de Microsoft-klantovereenkomst. |
 
 #### <a name="agreement"></a>Overeenkomst
 
-In deze tabel worden de minimale vereiste velden voor het maken van een [ **overeenkomst** resource](agreement-resources.md)beschreven.
+In deze tabel worden de minimaal vereiste velden beschreven voor het maken van een [ **Agreement-resource.**](agreement-resources.md)
 
-| Eigenschap       | Type   | Description                              |
+| Eigenschap       | Type   | Beschrijving                              |
 |----------------|--------|------------------------------------------|
-| primaryContact | [Contact](./utility-resources.md#contact) | Informatie over de gebruiker van de organisatie van de klant die de klant overeenkomst van micro soft heeft geaccepteerd, waaronder:  **FirstName**, **LastName**, **email** en **phonenumber** (optioneel) |
-| dateAgreed     | teken reeks in UTC-datum tijd notatie |De datum waarop de klant de overeenkomst heeft geaccepteerd. |
-| Ontbrekende templateid     | tekenreeks | De unieke id van het overeenkomst type dat door de klant is geaccepteerd. U kunt de **ontbrekende templateid** voor de micro soft-klant overeenkomst verkrijgen door de meta gegevens van de overeenkomst voor de micro soft-klant overeenkomst op te halen. Zie de [meta gegevens van de overeenkomst voor micro soft Customer Agreement ophalen](./get-customer-agreement-metadata.md) voor meer informatie. |
-| type           | tekenreeks | Type overeenkomst geaccepteerd door de klant. Gebruik ' MicrosoftCustomerAgreement ' als de klant de micro soft-klant overeenkomst heeft geaccepteerd. |
+| primaryContact | [Contact](./utility-resources.md#contact) | Informatie over de gebruiker van de klantorganisatie die de Microsoft-klantovereenkomst heeft geaccepteerd, waaronder:  **firstName,** **lastName,** **email** en **phoneNumber** (optioneel) |
+| dateAgreed     | tekenreeks in UTC-datum/tijd-indeling |De datum waarop de klant de overeenkomst heeft geaccepteerd. |
+| templateId     | tekenreeks | De unieke id van het overeenkomsttype dat door de klant is geaccepteerd. U kunt de **templateId voor Microsoft-klantovereenkomst verkrijgen** door de metagegevens van de overeenkomst op te halen voor Microsoft-klantovereenkomst. Zie [Metagegevens van overeenkomst Microsoft-klantovereenkomst](./get-customer-agreement-metadata.md) voor meer informatie. |
+| type           | tekenreeks | Overeenkomsttype dat door de klant is geaccepteerd. Gebruik MicrosoftCustomerAgreement als de klant de Microsoft-klantovereenkomst. |
 
 #### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -164,13 +160,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze methode is geslaagd, wordt een [ **overeenkomst** resource](./agreement-resources.md)geretourneerd.
+Als dit lukt, retourneert deze methode een [ **Agreement-resource**](./agreement-resources.md).
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.
 
-Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 #### <a name="response-example"></a>Voorbeeld van antwoord
 

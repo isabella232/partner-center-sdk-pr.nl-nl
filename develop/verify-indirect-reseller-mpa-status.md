@@ -1,38 +1,35 @@
 ---
-title: De ondertekening status van de micro soft partner overeenkomst van een indirecte wederverkoper verifiëren
-description: U kunt de AgreementStatus-API gebruiken om te controleren of een indirecte wederverkoper de micro soft-partner overeenkomst heeft ondertekend.
+title: De handtekeningstatus van een indirecte reseller Microsoft Partner-overeenkomst controleren
+description: U kunt de AgreementStatus-API gebruiken om te controleren of een indirecte reseller de Microsoft Partner-overeenkomst.
 ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fa9480424eccc933bc9c28c3879a195fbd5f2bb1
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: f83acc61624a72354c390905b1250bc021dd39aa
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711889"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529831"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>De ondertekening status van de micro soft partner overeenkomst van een indirecte wederverkoper verifiëren
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>De handtekeningstatus van een indirecte reseller Microsoft Partner-overeenkomst controleren
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt controleren of een indirecte wederverkoper de micro soft-partner overeenkomst heeft ondertekend met behulp van hun Microsoft Partner Network (MPN)-ID (PGA/PLA) of de Tenant-ID van de Cloud Solution Provider (CSP) (micro soft-ID). U kunt een van deze id's gebruiken om de status van de micro soft Partner Agreement Sign te controleren met behulp van de **AgreementStatus** -API.
+U kunt controleren of een indirecte reseller de Microsoft Partner-overeenkomst heeft ondertekend met behulp van de Microsoft Partner Network-id (PGA/PLA) of de tenant-id van Cloud Solution Provider (CSP) (Microsoft ID). U kunt een van deze id's gebruiken om de status van Microsoft Partner-overeenkomst te controleren met behulp van de **AgreementStatus-API.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- De MPN-ID (PGA/PLA) of de CSP-Tenant-ID (micro soft-ID) van de indirecte wederverkoper. *U moet een van deze twee id's gebruiken.*
+- De MPN-id (PGA/PLA) of de CSP-tenant-id (Microsoft-id) van de indirecte reseller. *U moet een van deze twee id's gebruiken.*
 
 ## <a name="c"></a>C\#
 
-De handtekening status van de micro soft-partner overeenkomst van een indirecte wederverkoper ophalen:
+De handtekeningstatus van Microsoft Partner-overeenkomst indirecte reseller op te halen:
 
-1. Gebruik uw verzameling **IAggregatePartner. compliance** om de eigenschap **AgreementSignatureStatus** aan te roepen.
+1. Gebruik de **verzameling IAggregatePartner.Compliance** om de eigenschap **AgreementSignatureStatus aan te** roepen.
 
-2. Roep de methode [**Get ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) aan.
+2. Roep de [**methode Get()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,36 +39,36 @@ var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSign
 var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
 ```
 
-- Voor beeld: **[console test-app](console-test-app.md)**
-- Project: **PartnerCenterSDK. FeaturesSamples**
-- Klasse: **GetAgreementSignatureStatus. cs**
+- Voorbeeld: **[Consoletest-app](console-test-app.md)**
+- Project: **PartnerCenterSDK.FeaturesSamples**
+- Klasse: **GetAgreementSignatureStatus.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode | Aanvraag-URI |
 | ------ | ----------- |
-| **Toevoegen** | *[{baseURL}](partner-center-rest-urls.md)*/v1/compliance/{ProgramName}/agreementstatus? mpnId = {mpnId} &tenantId = {tenantId} |
+| **Toevoegen** | *[{baseURL}](partner-center-rest-urls.md)*/v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId} |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-U moet een van de volgende twee query parameters opgeven om de partner te identificeren. Als u niet een van deze twee query parameters opgeeft, ontvangt u een fout melding van **400 (ongeldige aanvraag)** .
+U moet een van de volgende twee queryparameters opgeven om de partner te identificeren. Als u geen van deze twee queryparameters opvraagt, ontvangt u de **foutmelding 400 (Foute** aanvraag).
 
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | int | Nee | Een Microsoft Partner Network-ID (PGA/PLA) waarmee de indirecte wederverkoper wordt geïdentificeerd. |
-| **Tenant-ID** | GUID | Nee | Een micro soft-ID waarmee het CSP-account van de indirecte wederverkoper wordt geïdentificeerd. |
+| **MpnId** | int | Nee | Een Microsoft Partner Network-id (PGA/PLA) die de indirecte reseller identificeert. |
+| **Tenant-ID** | GUID | Nee | Een Microsoft-id die het CSP-account van de indirecte reseller identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie de REST van het [Partner Center](headers.md)voor meer informatie.
+Zie voor meer informatie [Partner Center REST.](headers.md)
 
-### <a name="request-examples"></a>Aanvraag voorbeelden
+### <a name="request-examples"></a>Voorbeelden van aanvragen
 
-#### <a name="request-using-mpn-id-pgapla"></a>Aanvraag met behulp van MPN-ID (PGA/PLA)
+#### <a name="request-using-mpn-id-pgapla"></a>Aanvraag met MPN-id (PGA/PLA)
 
-In het volgende voor beeld wordt de ID van de micro soft-partner overeenkomst voor de indirecte wederverkoper opgehaald met behulp van de beMicrosoft Partner Networkcode van de indirecte wederverkoper.
+Met de volgende voorbeeldaanvraag wordt de handtekeningstatus van de indirecte reseller Microsoft Partner-overeenkomst met behulp van de id van Microsoft Partner Network indirecte reseller.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -83,9 +80,9 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="request-using-csp-tenant-id"></a>Aanvraag met de Tenant-ID van CSP
+#### <a name="request-using-csp-tenant-id"></a>Aanvragen met behulp van CSP-tenant-id
 
-In het volgende voor beeld wordt de ID van de micro soft Partner Agreement Sign van de indirecte wederverkoper opgehaald met behulp van de CSP-Tenant van de indirecte wederverkoper (micro soft-ID).
+Met de volgende voorbeeldaanvraag wordt de ondertekeningsstatus van de indirecte reseller Microsoft Partner-overeenkomst met behulp van de CSP-tenant-id (Microsoft-id) van de indirecte reseller.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -99,13 +96,13 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [REST-fout](error-codes.md).
 
-### <a name="response-example-success"></a>Voor beeld van antwoord (geslaagd)
+### <a name="response-example-success"></a>Voorbeeld van antwoord (geslaagd)
 
-Het volgende voor beeld van een antwoord geeft aan of de indirecte wederverkoper de micro soft-partner overeenkomst heeft ondertekend.
+In het volgende voorbeeld wordt met succes een antwoord gegeven of de indirecte reseller de Microsoft Partner-overeenkomst.
 
 ```http
 HTTP/1.1 200 OK
@@ -122,13 +119,13 @@ Connection: close
 }
 ```
 
-### <a name="response-examples-failure"></a>Voor beelden van antwoorden (fout)
+### <a name="response-examples-failure"></a>Antwoordvoorbeelden (fout)
 
-U ontvangt mogelijk antwoorden die vergelijkbaar zijn met de volgende voor beelden wanneer de handtekening status van de micro soft-partner overeenkomst van de indirecte wederverkoper niet kan worden geretourneerd.
+Mogelijk ontvangt u antwoorden die vergelijkbaar zijn met de volgende voorbeelden wanneer de ondertekeningsstatus van de indirecte reseller-Microsoft Partner-overeenkomst niet kan worden geretourneerd.
 
-#### <a name="non-guid-formatted-csp-tenant-id"></a>Niet-GUID geformatteerde CSP-Tenant-ID
+#### <a name="non-guid-formatted-csp-tenant-id"></a>Tenant-id zonder GUID-indeling
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer de CSP-Tenant-ID die u aan de API hebt door gegeven, geen GUID is.
+Het volgende voorbeeld van een antwoord wordt geretourneerd wanneer de CSP-tenant-id die u aan de API hebt doorgegeven, geen GUID is.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -148,9 +145,9 @@ Connection: close
 }
 ```
 
-#### <a name="non-numeric-mpn-id"></a>Niet-numerieke MPN-ID
+#### <a name="non-numeric-mpn-id"></a>Niet-numerieke MPN-id
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer de MPN-ID (PGA/PLA) die u aan de API hebt door gegeven, niet numeriek is.
+Het volgende voorbeeld van een antwoord wordt geretourneerd wanneer de MPN-id (PGA/PLA) die u aan de API hebt doorgegeven, niet-numeriek is.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -170,9 +167,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-mpn-id-or-csp-tenant-id"></a>Geen MPN-ID of CSP-Tenant-ID
+#### <a name="no-mpn-id-or-csp-tenant-id"></a>Geen MPN-id of CSP-tenant-id
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer u een MPN-ID (PGA/PLA) of CSP-Tenant-ID niet hebt door gegeven aan de API. U moet een van de twee ID-typen door geven aan de API.
+Het volgende voorbeeld van een antwoord wordt geretourneerd wanneer u geen MPN-id (PGA/PLA) of CSP-tenant-id aan de API hebt doorgegeven. U moet een van de twee id-typen doorgeven aan de API.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -192,9 +189,9 @@ Connection: close
 }
 ```
 
-#### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>Zowel de MPN-ID als de CSP-Tenant-ID zijn door gegeven
+#### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>Zowel MPN-id als CSP-tenant-id doorgegeven
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer u zowel de MPN-ID (PGA/PLA) als de CSP-Tenant-ID door geven aan de API. U moet *slechts één* van de twee id-typen door geven aan de API.
+Het volgende voorbeeld van een antwoord wordt geretourneerd wanneer u zowel de MPN-id (PGA/PLA) als de CSP-tenant-id door geeft aan de API. U hoeft slechts *één van de* twee id-typen door te geven aan de API.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -214,9 +211,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>De MPN-id (PGA/PLA) van de CSP indirecte dealer is ongeldig of niet gemigreerd van het partner lidmaatschaps centrum naar het partner centrum
+#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>CSP Indirect Reseller MPN-id (PGA/PLA) is ongeldig of niet gemigreerd van Partner Membership Center naar Partner Center
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer een door gegeven indirecte wederverkoper MPN-ID (PGA/PLA) ongeldig is of niet is gemigreerd van het Partner Membership Center naar het partner centrum. [Meer informatie](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
+Het volgende voorbeeld antwoord wordt geretourneerd wanneer indirecte reseller MPN ID (PGA/PLA) doorgegeven ongeldig is of niet wordt gemigreerd van Partner Membership Center naar Partner Center. [Meer informatie](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -238,9 +235,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>De SSP-regio en de CSP indirecte wederverkoper-regio komen niet overeen
+#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>CSP Indirect Provider regio en CSP Indirect Reseller komen niet overeen
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer de regio van de indirecte reseller MPN-ID (PGA/PLA) niet overeenkomt met de regio van de indirecte provider. Meer [informatie](/partner-center/mpa-indirect-provider-faq) over CSP-regio's.
+Het volgende voorbeeld antwoord wordt geretourneerd wanneer de regio van de indirecte reseller MPN ID (PGA/PLA) komt niet overeen met de regio van de indirecte provider. [Meer informatie over](/partner-center/mpa-indirect-provider-faq) CSP-regio's.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -262,9 +259,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>Het account voor de indirecte dealer van CSP bestaat in het partner centrum, maar heeft de MPA niet ondertekend
+#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>CSP Indirect Reseller account bestaat in Partner Center maar heeft de MPA niet ondertekend
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer het CSP indirecte reseller-account in het partner centrum de MPA niet heeft ondertekend. [Meer informatie](/partner-center/mpa-indirect-provider-faq)
+Het volgende voorbeeld wordt geretourneerd wanneer CSP Indirect Reseller account in Partner Center MPA niet heeft ondertekend. [Meer informatie](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -286,9 +283,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Er is geen indirect-dealer account voor CSP gekoppeld aan de opgegeven MPN-ID
+#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Er CSP Indirect Reseller account gekoppeld aan de opgegeven MPN-id
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer het partner centrum de MPN-ID (PGA/PLA) kan herkennen die in de aanvraag is gegeven, maar er geen CSP-registratie is gekoppeld aan de opgegeven MPN-ID (PGA/PLA). [Meer informatie](/partner-center/mpa-indirect-provider-faq)
+Het volgende voorbeeld wordt geretourneerd wanneer Partner Center de MPN-id (PGA/PLA) kan herkennen die is doorgegeven in de aanvraag, maar er geen CSP-inschrijving is gekoppeld aan de opgegeven MPN-id (PGA/PLA). [Meer informatie](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -310,9 +307,9 @@ Connection: close
 }
 ```
 
-#### <a name="invalid-tenant-id"></a>Ongeldige Tenant-ID
+#### <a name="invalid-tenant-id"></a>Ongeldige tenant-id
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer het partner centrum geen account vindt dat is gekoppeld aan de Tenant-ID die in de aanvraag is door gegeven.
+Het volgende voorbeeld wordt geretourneerd wanneer Partner Center geen account vindt dat is gekoppeld aan de tenant-id die in de aanvraag is doorgegeven.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -332,9 +329,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-mpa-found-with-the-given-tenant-id"></a>Er is geen MPA gevonden met de opgegeven Tenant-ID
+#### <a name="no-mpa-found-with-the-given-tenant-id"></a>Er is geen MPA gevonden met de opgegeven tenant-id
 
-Het volgende voor beeld van een antwoord wordt geretourneerd wanneer in het partner centrum geen MPA-hand tekening met de opgegeven Tenant-ID is gevonden. [Meer informatie](/partner-center/mpa-indirect-provider-faq)
+Het volgende voorbeeld wordt geretourneerd wanneer Partner Center MPA-handtekening met de opgegeven tenant-id niet kan vinden. [Meer informatie](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request

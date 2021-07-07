@@ -1,53 +1,49 @@
 ---
 title: Alle analysegegevens van verwijzingen ophalen
-description: Instructies voor het ophalen van de analyse-informatie over verwijzingen.
+description: Informatie over verwijzingsanalyses verkrijgen.
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: Kim-Davis
 ms.author: kimnich
-ms.openlocfilehash: b470c59cecf8b214e6d90a244e928e5d15ebd3e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7deda4098ceb9eb4e1ee75056c53c754618bf3e2
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767288"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760603"
 ---
 # <a name="get-all-referrals-analytics-information"></a>Alle analysegegevens van verwijzingen ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Meer informatie over het ophalen van de verwijzingen voor uw klanten.
+Informatie over verwijzingsanalyses voor uw klanten verkrijgen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario biedt alleen ondersteuning voor verificatie met gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI |
 |---------|-------------|
-| **Toevoegen** | [*\{ BASEURL \}*](partner-center-rest-urls.md)/partner/v1/Analytics/referrals http/1.1 |
+| **Toevoegen** | [*\{ baseURL \}*](partner-center-rest-urls.md)/partner/v1/analytics/referrals HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-| Parameter | Type | Description |
+| Parameter | Type | Beschrijving |
 |-----------|------|-------------|
-| filter | tekenreeks | Hiermee worden gegevens geretourneerd die overeenkomen met de filter voorwaarde.</br> **Voorbeeld:**</br>  `.../referrals?filter=field eq 'value'` |
-| GroupBy | tekenreeks | Ondersteunt zowel termen als datums. Korte circuit logica om het aantal buckets te beperken.</br> **Voorbeeld:**</br>  `.../referrals?groupby=termField1,dateField1,termField2` |
-| aggregationLevel | tekenreeks | Voor de para meter *aggregationLevel* is een *GroupBy* vereist. De para meter *aggregationLevel* is van toepassing op alle datum velden die in de *GroupBy* worden weer gegeven.</br> **Voorbeeld:**</br> `.../referrals?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
-| top | tekenreeks | De pagina limiet is 10000. Neemt een waarde op die kleiner is dan 10000.</br> **Voorbeeld:**</br> `.../referrals?top=100`</br> |
-| skip | tekenreeks | Het aantal rijen dat moet worden overgeslagen.</br> **Voorbeeld:**</br>  `.../referrals?top=100&skip=100` |
+| filter | tekenreeks | Retourneert gegevens die overeenkomen met de filtervoorwaarde.</br> **Voorbeeld:**</br>  `.../referrals?filter=field eq 'value'` |
+| groupby | tekenreeks | Ondersteunt zowel voorwaarden als datums. Kortcircuitlogica om het aantal buckets te beperken.</br> **Voorbeeld:**</br>  `.../referrals?groupby=termField1,dateField1,termField2` |
+| aggregationLevel | tekenreeks | De *parameter aggregationLevel* vereist een *groupby*. De *parameter aggregationLevel* is van toepassing op alle datumvelden die aanwezig zijn in *de groupby*.</br> **Voorbeeld:**</br> `.../referrals?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
+| top | tekenreeks | De paginalimiet is 10000. Neemt een waarde die kleiner is dan 10000.</br> **Voorbeeld:**</br> `.../referrals?top=100`</br> |
+| skip | tekenreeks | Aantal rijen dat moet worden overgeslagen.</br> **Voorbeeld:**</br>  `.../referrals?top=100&skip=100` |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -65,11 +61,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [verwijzingen](partner-center-analytics-resources.md#referrals-resource) -resources.
+Als dit lukt, bevat de antwoord-body een verzameling [verwijzingenresources.](partner-center-analytics-resources.md#referrals-resource)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

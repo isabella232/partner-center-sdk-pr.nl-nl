@@ -1,39 +1,35 @@
 ---
-title: Document bronnen van de overeenkomst
-description: De AgreementDocument-resource is een micro soft-overeenkomst document voor preview en down load. Het wordt ondersteund door het partner centrum in de open bare cloud van micro soft.
+title: Resources voor overeenkomstdocument
+description: De AgreementDocument-resource is een Microsoft-overeenkomstdocument voor preview en download. Dit wordt ondersteund door Partner Center in de openbare cloud van Microsoft.
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 4805d25b0838bf922b81bebd998810c3f6a809c3
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 1a81da4f75594f241669db831125bd437872561c
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97767604"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025663"
 ---
-# <a name="agreement-document-resources-supported-by-partner-center-in-the-microsoft-public-cloud"></a>Document bronnen van de overeenkomst die worden ondersteund door het partner centrum in de open bare cloud van micro soft
+# <a name="agreement-document-resources-supported-by-partner-center-in-the-microsoft-public-cloud"></a>Documentbronnen voor overeenkomst die worden ondersteund door Partner Center in de openbare Cloud van Microsoft
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center
 
-- Partnercentrum
+**Is niet van toepassing op**: Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-De **AgreementDocument** -resource wordt momenteel alleen ondersteund door het partner centrum in de *open bare cloud van micro soft*. Deze resource is niet van toepassing op:
+De **AgreementDocument-resource** wordt momenteel alleen Partner Center in de openbare Cloud van Microsoft.
 
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De resource **AgreementDocument** vertegenwoordigt een micro soft-overeenkomst document dat beschikbaar is voor preview en down load.
+De **AgreementDocument-resource** vertegenwoordigt een Microsoft-overeenkomstdocument dat beschikbaar is als preview en download.
 
 ## <a name="agreementdocument"></a>AgreementDocument
 
-Een **AgreementDocument** -resource bevat de volgende eigenschappen:
+Een **AgreementDocument-resource** bevat de volgende eigenschappen:
 
-| Eigenschap       | Type   | Description                                                                                               |
+| Eigenschap       | Type   | Beschrijving                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | country | tekenreeks | Het land of de markt waarop dit document van toepassing is. |
 | language | tekenreeks | De taal waarin dit document is gelokaliseerd. |
-| displayUri | tekenreeks | Een koppeling om een voor beeld van het overeenkomst document in een browser te bekijken.  |
-| downloadUri |tekenreeks | Een koppeling voor het downloaden van het overeenkomst document (in micro soft Word-indeling). |
+| displayUri | tekenreeks | Een koppeling naar een voorbeeld van het overeenkomstdocument in een browser.  |
+| downloadUri |tekenreeks | Een koppeling om het overeenkomstdocument te downloaden (in Microsoft Word indeling). |

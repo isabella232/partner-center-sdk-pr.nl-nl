@@ -1,35 +1,31 @@
 ---
-title: Een lijst met selfservice beleid ophalen
-description: Informatie over het ophalen van een verzameling resources die het zelf-onderhanden beleid van een klant vertegenwoordigen.
+title: Een lijst met self-serve-beleidsregels op halen
+description: Een verzameling resources ophalen die het self-servicebeleid van een klant vertegenwoordigen.
 ms.date: 07/06/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: ff3116b8757e28e03615930ebd19bc75f34e2efe
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: b18fde8a11d3ed3dd31e50fdba746dd6b0bf3f97
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97768665"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025727"
 ---
-# <a name="get-a-list-of-self-serve-policies"></a>Een lijst met selfservice beleid ophalen
+# <a name="get-a-list-of-self-serve-policies"></a>Een lijst met self-serve-beleidsregels op halen
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-In dit artikel wordt beschreven hoe u een verzameling resources kunt ophalen die het beleid voor de selfservice voor een entiteit vertegenwoordigt.
+Haalt een verzameling resources op die self-serve-beleidsregels voor een entiteit vertegenwoordigt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met toepassings-en gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met referenties voor toepassing en gebruiker.
 
 ## <a name="c"></a>C\#
 
-Een lijst met alle selfservice beleid ophalen:
+Een lijst met alle self-serve-beleidsregels op te halen:
 
-1. Roep de methode [**IAggregatePartner. SelfServePolicies**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection) aan met de entiteit-id om een interface op te halen voor bewerkingen in het beleid.
+1. Roep de [**methode IAggregatePartner.SelfServePolicies**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection) aan met de entiteits-id om een interface op te halen voor bewerkingen op het beleid.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,31 +37,31 @@ IPartner scopedPartnerOperations = partnerOperations.With(RequestContextFactory.
 var SelfServePolicies = scopedPartnerOperations.SelfServePolicies.Get(customerIdAsEntity);
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **GetSelfServePolicies.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy? entity_id = {ENTITY_ID} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy?entity_id={entity_id} HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om een lijst met klanten op te halen.
+Gebruik de volgende queryparameter om een lijst met klanten op te halen.
 
 | Naam          | Type       | Vereist | Beschrijving                                        |
 |---------------|------------|----------|----------------------------------------------------|
-| **entity_id** | **tekenreeksexpressie** | J        | De entiteits-id die toegang vraagt voor. Dit is de Tenant-ID van de klant. |
+| **entity_id** | **tekenreeks** | J        | De entiteits-id die toegang aanvraagt. Dit is de tenant-id van de klant. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie [kopteksten](headers.md)voor meer informatie.
+Zie [Headers voor meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -83,11 +79,11 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) -resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling [SelfServePolicy-resources](self-serve-policy-resources.md#selfservepolicy) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

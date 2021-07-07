@@ -1,38 +1,33 @@
 ---
 title: Een winkelwagen afhandelen
-description: Meer informatie over het controleren van een bestelling voor een klant in een mandje met behulp van partner Center-Api's. U kunt dit doen om een klant order te volt ooien.
+description: Meer informatie over het controleren van een bestelling voor een klant in een winkelwagen met behulp Partner Center API's. U kunt dit doen om een klantorder te voltooien.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 094817a34cd29bc96788fcfb6a16610a8192d784
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 9ee06797602b22a1f8257c94880a2d81e2280f2e
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767621"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974043"
 ---
-# <a name="checkout-an-order-for-a-customer-in-a-cart"></a>Een bestelling voor een klant in een mandje afhandelen
+# <a name="checkout-an-order-for-a-customer-in-a-cart"></a>Een bestelling voor een klant in een winkelwagen afrekenen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Het afhandelen van een bestelling voor een klant in een winkel wagen.
+Een order voor een klant in een winkelwagen afrekenen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een winkel wagen-ID voor een bestaande winkel wagen.
+- Een winkelwagen-id voor een bestaande winkelwagen.
 
 ## <a name="c"></a>C\#
 
-Als u een bestelling wilt afhandelen voor een klant, kunt u een verwijzing naar de winkel wagen ophalen met behulp van het wagentje en de klant-id. Roep tot slot de functies **Create** of **CreateAsync** aan om de volg orde te volt ooien.
+Als u een order voor een klant wilt afrekenen, krijgt u een verwijzing naar de winkelwagen met behulp van de winkelwagen en de klant-id. Roep ten slotte de **functies Create** of **CreateAsync aan** om de bestelling te voltooien.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -46,7 +41,7 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 
 [!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-Als u een bestelling wilt afhandelen voor een klant, kunt u een verwijzing naar de winkel wagen ophalen met behulp van het wagentje en de klant-id. Roep ten slotte de functie **maken** aan om de volg orde te volt ooien.
+Als u een order voor een klant wilt afrekenen, krijgt u een verwijzing naar de winkelwagen met behulp van de winkelwagen en de klant-id. Roep ten slotte de **functie create aan** om de bestelling te voltooien.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -60,7 +55,7 @@ Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(car
 
 [!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-Als u een bestelling voor een klant wilt afhandelen, voert u de opdracht [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) uit om de order te volt ooien.
+Als u een order voor een klant wilt afrekenen, voert u [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) uit om de order te voltooien.
 
 ```powershell
 # $customerId
@@ -71,24 +66,24 @@ Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Carts/{Cart-id}/checkout http/1.1     |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende para meters om de klant te identificeren en de winkel wagen op te geven die moet worden uitgecheckt.
+Gebruik de volgende padparameters om de klant te identificeren en geef de winkelwagen op die moet worden uitgecheckt.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **klant-id** | tekenreeks   | Yes      | Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd.             |
-| **Winkel wagen-id**     | tekenreeks   | Yes      | Een door de GUID ingedeelde winkel wagen-id waarmee de winkel wagen wordt aangeduid.                     |
+| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
+| **cart-id**     | tekenreeks   | Ja      | Een cart-id met GUID-indeling die de winkelwagen identificeert.                     |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -114,11 +109,11 @@ No-Content-Body
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de gevulde [CartCheckoutResult](cart-resources.md#cartcheckoutresult) -resource.
+Als dit lukt, bevat de antwoord-body de ingevulde [CartCheckoutResult-resource.](cart-resources.md#cartcheckoutresult)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

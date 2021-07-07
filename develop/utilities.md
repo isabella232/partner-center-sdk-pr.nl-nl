@@ -1,30 +1,25 @@
 ---
 title: Hulpprogramma's
-description: In deze sectie worden de manieren beschreven waarop partners het partner centrum kunnen gebruiken om programma-functies programmatisch te beheren.
+description: In deze sectie worden de manieren beschreven waarop partners de Partner Center kunnen gebruiken om programmatisch hulpprogrammafuncties te beheren.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f1cbb2a1cc1f221c6a920695eb3455c5ed3b6dc1
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 3dfe08a727663902da11a662d7fca2601d65712e
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767433"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529847"
 ---
 # <a name="utilities"></a>Hulpprogramma's
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-In deze sectie worden de manieren beschreven waarop partners Partner Center kunnen gebruiken om programma-functies programmatisch te beheren.
+In deze sectie worden de manieren beschreven waarop partners hulpprogramma Partner Center kunnen gebruiken om hulpprogrammafuncties programmatisch te beheren.
 
 - [Een adres valideren](validate-an-address.md)
 - [De regels voor adresopmaak per markt ophalen](get-market-specific-validation-data.md)
 - [Beschikbaarheid van domein verifiëren](verify-domain-availability.md)
 - [Een klantaccount verwijderen uit de integratie-sandbox](delete-a-customer-account-from-the-integration-sandbox.md)
 
-Zie [scenario's](scenarios.md)voor meer informatie.
+Zie Scenario's voor meer [informatie.](scenarios.md)

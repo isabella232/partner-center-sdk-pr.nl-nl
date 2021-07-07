@@ -1,41 +1,37 @@
 ---
-title: Overeenkomst bronnen
-description: De overeenkomst resource vertegenwoordigt een micro soft Cloud-klant overeenkomst met details van certificering van de partner.
+title: Overeenkomstbronnen
+description: De overeenkomstresource vertegenwoordigt een Microsoft Cloud-klantovereenkomst met details van de certificering die door de partner wordt geleverd.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: d964b1c7c6d70814ef68e48f05611ecbb113c8fe
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 5fa196e711d9ff899b61ba20e75edd92749165e5
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97767601"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025613"
 ---
-# <a name="agreement-resources-representing-a-microsoft-cloud-customer-agreement"></a>Overeenkomst bronnen die een micro soft-Cloud klant overeenkomst vertegenwoordigen
+# <a name="agreement-resources-representing-a-microsoft-cloud-customer-agreement"></a>Overeenkomstbronnen die een Microsoft Cloud-klantovereenkomst vertegenwoordigen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center
 
-- Partnercentrum
+**Is niet van toepassing op**: Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-De bron van de **overeenkomst** wordt momenteel alleen ondersteund door het partner centrum in de open bare cloud van micro soft. Het is niet van toepassing op:
+De **overeenkomstresource** wordt momenteel alleen ondersteund door Partner Center in de openbare Cloud van Microsoft.
 
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De **overeenkomst** resource vertegenwoordigt een micro soft-Cloud-klant overeenkomst.
+De **overeenkomstresource** vertegenwoordigt een Microsoft Cloud-klantovereenkomst.
 
 ## <a name="agreement"></a>Overeenkomst
 
-De **overeenkomst** resource bevat de details van de certificering die is verschaft door de partner.
+De **overeenkomstresource** vertegenwoordigt de details van de certificering die door de partner wordt geleverd.
 
-| Eigenschap       | Type   | Description                                                                                               |
+| Eigenschap       | Type   | Beschrijving                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| userId         | tekenreeks                         | De object-id van de aangemelde gebruiker in de partner-Tenant die een bevestiging verstrekt namens de partner organisatie. Wanneer u app + gebruikers authenticatie gebruikt voor het maken van een overeenkomst resource, wordt in het partner centrum automatisch de kenmerk- **id** van het gebruikers token van de app + gebruiker afgeleid.                                                                             |
-| primaryContact | [Contact](./utility-resources.md#contact) | Informatie over de gebruiker van de organisatie van de klant die de overeenkomst heeft geaccepteerd, waaronder:  **FirstName**, **LastName**, **email** en **phonenumber** (optioneel). |
-| dateAgreed     | teken reeks in UTC-datum tijd notatie | De datum waarop de klant de overeenkomst heeft geaccepteerd.                                 |
-| Ontbrekende templateid     |tekenreeks                          | De unieke id van de overeenkomst die de klant heeft geaccepteerd. |
-| type           |tekenreeks                          | Type overeenkomst. Op dit moment worden de volgende waarden ondersteund: **MicrosoftCloudAgreement** en **MicrosoftCustomerAgreement**.|
-| agreementLink  | tekenreeks                         | URL voor de overeenkomst sjabloon.                                                    |
+| userId         | tekenreeks                         | Object-id van de aangemelde gebruiker in de partner-tenant die namens de partnerorganisatie een bevestiging geeft. Wanneer u app+gebruikersverificatie gebruikt om een overeenkomstresource te maken, wordt Partner Center kenmerkwaarde **userId** automatisch afgeleid van het token App+Gebruiker.                                                                             |
+| primaryContact | [Contact](./utility-resources.md#contact) | Informatie over de gebruiker van de klantorganisatie die de overeenkomst heeft geaccepteerd, waaronder:  **firstName,** **lastName,** **email** en **phoneNumber** (optioneel). |
+| dateAgreed     | tekenreeks in UTC-datum/tijd-indeling | De datum waarop de klant de overeenkomst heeft geaccepteerd.                                 |
+| templateId     |tekenreeks                          | De unieke id van de overeenkomst die de klant heeft geaccepteerd. |
+| type           |tekenreeks                          | Overeenkomsttype. Momenteel zijn de ondersteunde **waarden MicrosoftCloudAgreement** **en MicrosoftCustomerAgreement**.|
+| agreementLink  | tekenreeks                         | URL voor de overeenkomstsjabloon.                                                    |

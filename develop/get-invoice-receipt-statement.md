@@ -1,36 +1,32 @@
 ---
 title: Ontvangstoverzicht van facturen ophalen
-description: Hiermee wordt een factuur ontvangst verklaring opgehaald met behulp van de factuur-ID en de ontvangst-ID.
+description: Haalt een factuurbevestigingsoverzicht op met behulp van de factuur-id en de ontvangstbewijs-id.
 ms.date: 02/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 96cef11d6778de2d9bf28e466d88a39f9415727d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dcac4c8f0b881409dcad3560eefb82d4bb5e877a
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767165"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446126"
 ---
 # <a name="get-invoice-receipt-statement"></a>Ontvangstoverzicht van facturen ophalen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hiermee wordt een factuur ontvangst verklaring opgehaald met behulp van de factuur-ID en de ontvangst-ID.
+Haalt een factuurbevestigingsoverzicht op met behulp van de factuur-id en de ontvangstbewijs-id.
 
 > [!IMPORTANT]
-> Deze functie is alleen van toepassing op de fiscale betalings bewijzen van Taiwan.
+> Deze functie is alleen van toepassing op btw-ontvangsten in Taiwan.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een geldige factuur-ID en een bijbehorende ontvangst-ID.
+- Een geldige factuur-id en een bijbehorend ontvangstbewijs-id.
 
 ## <a name="c"></a>C\#
 
-Als u een factuur ontvangstbewijs verklaring per ID wilt ontvangen, begint u met de Partner Center SDK v 1.12.0, gebruikt u uw **IPartner. facturen** -verzameling en roept u de methode **ById ()** aan  met behulp van de factuur-ID. Vervolgens roept u de verzameling ontvangsten **aan en roept** u **ById (** **) aan** om toegang te krijgen tot het factuur ontvangstbewijs overzicht. Roep ten slotte de methoden **Get ()** of **GetAsync ()** aan.
+Als u een factuurbevestigingsoverzicht per id wilt ophalen, vanaf Partnercentrum-SDK v1.12.0, gebruikt u de verzameling **IPartner.Invoices** en roept u de **methode ById()** aan met behulp van de factuur-id, roept u vervolgens de ontvangstenverzameling aan, roept u **ById()** aan en roept u vervolgens de methoden **Documents()** en **Statement()** aan om toegang te krijgen tot de factuurbevestigingsinrekening.  Roep ten slotte de **methoden Get()** of **GetAsync()** aan.
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -39,28 +35,28 @@ Als u een factuur ontvangstbewijs verklaring per ID wilt ontvangen, begint u met
 var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Receipts.ById(selectedReceipt).Documents.Statement.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: GetInvoiceReceiptStatement.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: GetInvoiceReceiptStatement.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{Invoice-ID}/Receipts/{Receipt-id}/Documents/statement http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/receipts/{receipt-id}/documents/statement HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om het factuur ontvangst overzicht op te halen.
+Gebruik de volgende queryparameter om de factuurbevestigingsverklaring op te halen.
 
 | Naam       | Type   | Vereist | Beschrijving                                                                                    |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|
-| factuur-ID | tekenreeks | Yes      | De waarde is een factuur-ID waarmee de wederverkoper de resultaten voor een bepaalde factuur kan filteren. |
-| ontvangst-id | tekenreeks | Yes      | De waarde is een ontvangst-id waarmee de wederverkoper de ontvangsten voor een bepaalde factuur kan filteren. |
+| factuur-id | tekenreeks | Ja      | De waarde is een factuur-id waarmee de reseller de resultaten voor een bepaalde factuur kan filteren. |
+| receipt-id | tekenreeks | Ja      | De waarde is een ontvangstbewijs-id waarmee de reseller de ontvangstbewijzen voor een bepaalde factuur kan filteren. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -78,11 +74,11 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een PDF-stroom in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een PDF-stroom in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,46 +1,42 @@
 ---
-title: Een sandbox-abonnement voor commerciële Marketplace-producten activeren
-description: Meer informatie over het gebruik van C/# en de REST Api's van het Partner Center om een sandbox-abonnement voor commerciële Marketplace-producten te activeren.
+title: Een sandbox-abonnement activeren voor commerciële marketplace-producten
+description: Meer informatie over het gebruik van C/# en Partner Center REST API's om een sandbox-abonnement te activeren voor commerciële marketplace-producten.
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a78b2c84368b29f1378f46971c4814929094e299
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: b32c3e87462f58218771fc5da7da56ed177489cb
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97767578"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025697"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-saas-products-to-enable-billing"></a>Een sandbox-abonnement voor SaaS-producten voor commerciële Marketplace activeren om facturering mogelijk te maken
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-saas-products-to-enable-billing"></a>Een sandbox-abonnement activeren voor SaaS-producten op de commerciële marketplace om facturering mogelijk te maken
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-Het activeren van een abonnement voor software als een service (SaaS) voor commerciële Marketplace vanuit integratie Sandbox-accounts om facturering mogelijk te maken.
+Een abonnement activeren voor SaaS-producten (Software as a Service) op de commerciële marketplace vanuit sandbox-accounts voor integratie om facturering mogelijk te maken.
 
 > [!NOTE]
-> Het is alleen mogelijk om een abonnement te activeren voor commerciële Marketplace SaaS-producten vanuit integratie Sandbox-accounts. Als u een productie abonnement hebt, moet u de site van de uitgever bezoeken om het installatie proces te volt ooien. De facturering van het abonnement wordt pas gestart nadat de installatie is voltooid.
+> Het is alleen mogelijk om een abonnement voor SaaS-producten op de commerciële marketplace te activeren vanuit sandbox-accounts voor integratie. Als u een productieabonnement hebt, moet u naar de site van de uitgever gaan om het installatieproces te voltooien. Abonnementsfacturering begint pas nadat de installatie is voltooid.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een integratie sandbox-partner account met een klant die beschikt over een actief abonnement voor producten van de commerciële Marketplace SaaS.
+- Een sandbox-partneraccount voor integratie met een klant met een actief abonnement voor SaaS-producten op de commerciële marketplace.
 
-- Voor partners die gebruikmaken van partner Center .NET SDK, moet u SDK-versie 1.14.0 of hoger gebruiken om toegang te krijgen tot deze mogelijkheid.
+- Voor partners die Partner Center .NET SDK gebruiken, moet u SDK versie 1.14.0 of hoger gebruiken om toegang te krijgen tot deze mogelijkheid.
 
 ## <a name="c"></a>C\#
 
-Gebruik de volgende stappen om een abonnement te activeren voor producten voor commerciële Marketplace SaaS:
+Gebruik de volgende stappen om een abonnement te activeren voor SaaS-producten op de commerciële marketplace:
 
-1. Maak een interface voor de beschik bare abonnements bewerkingen. U moet de klant identificeren en de abonnements-id van het proef abonnement opgeven.
+1. Maak een interface voor de abonnementsbewerkingen beschikbaar. U moet de klant identificeren en de abonnements-id van het proefabonnement opgeven.
 
    ```csharp
    var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
    ```
 
-2. Activeer het abonnement met de bewerking **Activate** .
+2. Activeer het abonnement met behulp van **de bewerking Activate.**
 
    ```csharp
    var subscriptionActivationResult = subscriptionOperations.Activate();
@@ -48,22 +44,22 @@ Gebruik de volgende stappen om een abonnement te activeren voor producten voor c
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode     | Aanvraag-URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{Subscription-id}/Activate http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/activate HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J | De waarde is een Tenant-id voor de GUID-indeling (**klant-Tenant-id**), waarmee u een klant kunt opgeven. |
-| **abonnement-id** | **guid** | J | De waarde is een abonnements-id met een GUID-indeling (**abonnements-id**) waarmee u een abonnement kunt opgeven. |
+| **customer-tenant-id** | **guid** | J | De waarde is een tenant-id in GUID-indeling **(customer-tenant-id),** waarmee u een klant kunt opgeven. |
+| **subscription-id** | **guid** | J | De waarde is een abonnements-id met **GUID-indeling (abonnements-id),** waarmee u een abonnement kunt opgeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -82,11 +78,11 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Met deze methode worden de eigenschappen van de **abonnements-id** en de **status** geretourneerd.
+Deze methode retourneert de **eigenschappen subscription-id** **en status.**
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

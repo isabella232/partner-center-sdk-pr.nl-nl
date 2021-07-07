@@ -1,40 +1,35 @@
 ---
 title: Activeringskoppeling ophalen op basis van bestellingsregelitem
-description: Hiermee wordt een koppeling voor het activeren van een abonnement opgehaald per order regel item.
+description: Haalt een abonnementsactiveringskoppeling op op orderregelitem.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: c0e84888870571cf6bd21306f527863f2aa7ee85
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: aa02a5a5b4a281b96e32ee6d239cc440cf8af4ec
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767350"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760773"
 ---
 # <a name="get-activation-link-by-order-line-item"></a>Activeringskoppeling ophalen op basis van bestellingsregelitem
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Haalt een commerciële marketplace-abonnementsactiveringskoppeling op op basis van het orderregelitemnummer.
 
-Hiermee wordt een activerings koppeling voor een commercieel Marketplace-abonnement opgehaald door het artikel nummer van de order regel.
-
-In het dash board van de Partner Center kunt u deze bewerking uitvoeren door een **specifiek abonnement** te selecteren onder **abonnement** op de hoofd pagina of door de **site koppeling go to Publisher** naast het abonnement te selecteren om te activeren op de pagina **abonnementen** .
+In het Partner Center-dashboard kunt u deze bewerking uitvoeren  door een Specifiek abonnement te selecteren onder Abonnement op de hoofdpagina of door de  koppeling Naar de site van **Publisher** te gaan naast het abonnement dat u wilt activeren op de pagina Abonnementen. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Voltooide bestelling met een product dat moet worden geactiveerd.
+- Voltooide bestelling met product dat moet worden geactiveerd.
 
 ## <a name="c"></a>C\#
 
-Als u de activerings koppeling van een regel item wilt ophalen, gebruikt u de verzameling [**IAggregatePartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roept u de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de geselecteerde klant-id. Roep vervolgens de eigenschap [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) en de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) aan met de opgegeven  [**OrderID**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.id). Roep vervolgens de [**regel items**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) aan met de methode **ById ()** met de id van het regel item nummer.  Roep ten slotte de methode **ActivationLinks ()** aan.
+Als u de activeringskoppeling van een regelitem wilt ophalen, gebruikt u de verzameling [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de geselecteerde klant-id. Roep vervolgens de [**eigenschap Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) en de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) aan met de opgegeven  [**OrderId**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.id). Roep vervolgens de methode [**LineItems met**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) **ById()** aan met de id van het regelitemnummer.  Roep ten slotte de **methode ActivationLinks()** aan.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -48,15 +43,15 @@ var partnerOperations.Customers.ById(customerId).Orders.ById(orderId).OrderLineI
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                               |
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -74,11 +69,11 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling [klant](customer-resources.md#customer) resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling [Klantresources](customer-resources.md#customer) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

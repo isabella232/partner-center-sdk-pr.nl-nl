@@ -1,70 +1,65 @@
 ---
 title: Alle analysegegevens van indirecte resellers ophalen
-description: Hoe u alle gegevens van de indirecte reseller-analyse kunt ophalen.
+description: Informatie over het verkrijgen van alle analysegegevens van indirecte resellers.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 9f9c030278ba8fef9090f7be89064ac6054129ef
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 4252f5fcbbcb038f382408074c8fd6ede3fd1f58
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767409"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760739"
 ---
 # <a name="get-all-indirect-resellers-analytics-information"></a>Alle analysegegevens van indirecte resellers ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hoe u alle informatie over indirecte wederverkopers voor uw klanten kunt ophalen.
+Informatie over het verkrijgen van alle analysegegevens van indirecte resellers voor uw klanten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario biedt alleen ondersteuning voor verificatie met gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI |
 |---------|-------------|
-| **Toevoegen** | [*\{ BASEURL \}*](partner-center-rest-urls.md)/partner/v1/Analytics/indirectresellers http/1.1 |
+| **Toevoegen** | [*\{ baseURL \}*](partner-center-rest-urls.md)/partner/v1/analytics/indirectresellers HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-| Parameter                             | Type     | Description                              |
+| Parameter                             | Type     | Beschrijving                              |
 |:--------------------------------------|:---------|:-----------------------------------------|
-| partnerTenantId                       | tekenreeks   | De Tenant-ID van de partner waarvoor u gegevens van indirecte wederverkopers wilt ophalen. |
-| id                                    | tekenreeks   | ID van de indirecte wederverkoper                                                                 |
-| naam                                  | tekenreeks   | De naam van de partner waarvoor u gegevens van indirecte wederverkopers wilt ophalen.      |
-| markt                                | tekenreeks   | De markt van de partner waarvoor u gegevens van indirecte wederverkopers wilt ophalen.    |
-| firstSubscriptionCreationDate         | teken reeks in UTC-datum tijd notatie  | De aanmaak datum van het eerste abonnement op basis waarvan u de gegevens van indirecte wederverkopers wilt ophalen.  |
-| latestSubscriptionCreationDate        | teken reeks in UTC-datum tijd notatie  | De aanmaak datum van het laatste abonnement.                 |
-| firstSubscriptionEndDate              | teken reeks in UTC-datum tijd notatie  | De eerste keer dat een abonnement is beëindigd.                        |
-| latestSubscriptionEndDate             | teken reeks in UTC-datum tijd notatie  | De laatste datum waarop een abonnement is beëindigd.                  |
-| firstSubscriptionSuspendedDate        | teken reeks in UTC-datum tijd         | De eerste keer dat een abonnement is onderbroken.                    |
-| latestSubscriptionSuspendedDate       | teken reeks in UTC-datum tijd notatie  | De laatste datum waarop een abonnement is onderbroken.              |
-| firstSubscriptionDeprovisionedDate    | teken reeks in UTC-datum tijd notatie  | De inrichting van het abonnement is voor het eerst ongedaan gemaakt.                |
-| latestSubscriptionDeprovisionedDate   | teken reeks in UTC-datum tijd notatie  | De laatste datum waarop een abonnement is ongedaan gemaakt.          |
-| subscriptionCount                     | double   | Aantal abonnementen voor alle resellers met toegevoegde waarde                                     |
-| licenseCount                          | double   | Aantal licenties voor alle resellers met toegevoegde waarde.                                         |
-| indirectResellerCount                 | double   | Aantal indirecte wederverkopers                                                             |
-|  top                                  | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden geretourneerd. De maximum waarde en de standaard waarde als niet wordt opgegeven, zijn 10000. Als er meer rijen in de query staan, bevat de antwoord tekst een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen.  |
-| skip                                  | int      | Het aantal rijen dat in de query moet worden overgeslagen. Gebruik deze para meter om door grote gegevens sets te bladeren. Zo **`top=10000 and skip=0`** haalt de eerste 10000 rijen met gegevens op, **`top=10000 and skip=10000`** haalt de volgende 10000 rijen met gegevens op, enzovoort.              |
-| filter                                | tekenreeks   | De *filter* parameter van de aanvraag bevat een of meer instructies waarmee de rijen in het antwoord worden gefilterd. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de **`eq`** or **`ne`** -Opera tors en instructies kunnen worden gecombineerd met **`and`** of **`or`** . U kunt de volgende velden opgeven:<br/><br/>     *partnerTenantId*<br/> *id*<br/> *Naam*<br/>                *markt*<br/> *firstSubscriptionCreationDate*<br/> *latestSubscriptionCreationDate*<br/>                *firstSubscriptionEndDate*<br/>                *latestSubscriptionEndDate*<br/>                *firstSubscriptionSuspendedDate*<br/>                *latestSubscriptionSuspendedDate*<br/>                *firstSubscriptionDeprovisionedDate*<br/>                *latestSubscriptionDeprovisionedDate*<br/><br/>         **Voorbeeld:**<br/>              `.../indirectresellers?filter=market eq 'US'`<br/><br/>            **Voorbeeld:**<br/>                `.../indirectresellers?filter=market eq 'US' or (firstSubscriptionCreationDate le cast('2018-01-01',Edm.DateTimeOffset) and firstSubscriptionCreationDate le cast('2018-04-01',Edm.DateTimeOffset))` |              
-| aggregationLevel                     | tekenreeks    | Hiermee geeft u het tijds bereik op waarvoor u de samengevoegde gegevens wilt ophalen. Dit kan een van de volgende teken reeksen zijn: &quot; dag &quot; , &quot; week &quot; of &quot; maand &quot; . Als u geen waarde opgeeft, is de standaard &quot; dag &quot; .<br/><br/>                                 `aggregationLevel` wordt niet ondersteund zonder een `aggregationLevel` . `aggregationLevel` is van toepassing op alle **datefields** die aanwezig zijn in de `aggregationLevel`                         |
-| OrderBy                              | tekenreeks    | Een instructie waarmee de resultaat gegevens voor elke installatie worden gesorteerd. De syntaxis is `...&orderby=field[order],field [order],...`. De para meter Field kan een van de volgende teken reeksen zijn:<br/><br/>                &quot;partnerTenantId&quot;<br/>                &quot;id&quot;<br/>                &quot;naam&quot;<br/>                &quot;markt&quot;<br/>                &quot;firstSubscriptionCreationDate&quot;<br/>               &quot;latestSubscriptionCreationDate&quot;<br/>                &quot;firstSubscriptionEndDate&quot;<br/>               &quot;latestSubscriptionEndDate&quot;<br/>                &quot;firstSubscriptionSuspendedDate&quot;<br/>                &quot;latestSubscriptionSuspendedDate&quot;<br/>               &quot;firstSubscriptionDeprovisionedDate&quot;<br/>                &quot;latestSubscriptionDeprovisionedDate&quot;<br/>                &quot;subscriptionCount&quot;<br/>                &quot;licenseCount&quot;<br/><br/>   De *volg orde* van de para meters is optioneel en kan `asc` of `desc` ; om een oplopende of aflopende volg orde voor elk veld op te geven. De standaardwaarde is `asc`.<br/><br/>    **Voorbeeld:**<br/>                `...&orderby=market,subscriptionCount`                                       |                   
-| GroupBy                              | tekenreeks    | Een instructie die alleen gegevens aggregatie toepast op de opgegeven velden. U kunt de volgende velden opgeven:<br/><br/>         *partnerTenantId*<br/>    *id*<br/>               *Naam*<br/>                *markt*<br/>                *firstSubscriptionCreationDate*<br/>                *latestSubscriptionCreationDate*<br/>                *firstSubscriptionEndDate*<br/>                *latestSubscriptionEndDate*<br/>                *firstSubscriptionSuspendedDate*<br/>                *latestSubscriptionSuspendedDate*<br/>                *firstSubscriptionDeprovisionedDate*<br/>                *latestSubscriptionDeprovisionedDate*<br/><br/>                 De geretourneerde gegevens rijen bevatten de velden die zijn opgegeven in de `groupby` component en de volgende velden:<br/><br/>            *indirectResellerCount*<br/>                *licenseCount*<br/>                *subscriptionCount*<br/><br/>            De `groupby` para meter kan worden gebruikt met de `aggregationLevel` para meter.<br/><br/>            **Voorbeeld:**</br>               `...&groupby=ageGroup,market&aggregationLevel=week`                         |
+| partnerTenantId                       | tekenreeks   | De tenant-id van de partner waarvoor u gegevens van indirecte resellers wilt ophalen. |
+| id                                    | tekenreeks   | Indirecte reseller-id                                                                 |
+| naam                                  | tekenreeks   | De naam van de partner waarvoor u gegevens van indirecte resellers wilt ophalen.      |
+| markt                                | tekenreeks   | De markt van de partner waarvoor u gegevens van indirecte resellers wilt ophalen.    |
+| firstSubscriptionCreationDate         | tekenreeks in UTC-datum/tijd-indeling  | De aanmaakdatum van het eerste abonnement op basis waarvan u gegevens van indirecte resellers wilt ophalen.  |
+| latestSubscriptionCreationDate        | tekenreeks in UTC-datum/tijd-indeling  | De aanmaakdatum van het meest recente abonnement.                 |
+| firstSubscriptionEndDate              | tekenreeks in UTC-datum/tijd-indeling  | De eerste keer dat een abonnement is beëindigd.                        |
+| latestSubscriptionEndDate             | tekenreeks in UTC-datum/tijd-indeling  | De laatste datum waarop een abonnement is beëindigd.                  |
+| firstSubscriptionSuspendedDate        | tekenreeks in UTC-datum/tijd         | De eerste keer dat een abonnement is opgeschort.                    |
+| latestSubscriptionSuspendedDate       | tekenreeks in UTC-datum/tijd-indeling  | De laatste datum waarop een abonnement is opgeschort.              |
+| firstSubscriptionDeprovisionedDate    | tekenreeks in UTC-datum/tijd-indeling  | De eerste keer dat deprovisioning van een abonnement is verwijderd.                |
+| latestSubscriptionDeprovisionedDate   | tekenreeks in UTC-datum/tijd-indeling  | De laatste datum waarop deprovisioning van een abonnement is verwijderd.          |
+| subscriptionCount                     | double   | Aantal abonnementen voor alle toegevoegde waarde resellers                                     |
+| licenseCount                          | double   | Aantal licenties voor alle toegevoegde waarde resellers.                                         |
+| indirectResellerCount                 | double   | Aantal indirecte resellers                                                             |
+|  top                                  | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10.000. Als er meer rijen in de query staan, bevat de hoofdpagina van het antwoord een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen.  |
+| skip                                  | int      | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om grote gegevenssets te bekijken. Haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, haalt de volgende **`top=10000 and skip=0`** **`top=10000 and skip=10000`** 10.000 rijen met gegevens op, en meer.              |
+| filter                                | tekenreeks   | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies **`eq`** kunnen worden gecombineerd met of **`ne`** **`and`** **`or`** . U kunt de volgende velden opgeven:<br/><br/>     *partnerTenantId*<br/> *id*<br/> *Naam*<br/>                *markt*<br/> *firstSubscriptionCreationDate*<br/> *latestSubscriptionCreationDate*<br/>                *firstSubscriptionEndDate*<br/>                *latestSubscriptionEndDate*<br/>                *firstSubscriptionSuspendedDate*<br/>                *latestSubscriptionSuspendedDate*<br/>                *firstSubscriptionDeprovisionedDate*<br/>                *latestSubscriptionDeprovisionedDate*<br/><br/>         **Voorbeeld:**<br/>              `.../indirectresellers?filter=market eq 'US'`<br/><br/>            **Voorbeeld:**<br/>                `.../indirectresellers?filter=market eq 'US' or (firstSubscriptionCreationDate le cast('2018-01-01',Edm.DateTimeOffset) and firstSubscriptionCreationDate le cast('2018-04-01',Edm.DateTimeOffset))` |              
+| aggregationLevel                     | tekenreeks    | Hiermee geeft u het tijdsbereik op waarvoor geaggregeerde gegevens moeten worden opgehaald. Kan een van de volgende tekenreeksen zijn: &quot; &quot; dag, &quot; week of &quot; &quot; &quot; maand. Indien niet gespecificeerd, is de &quot; standaardwaarde dag &quot; .<br/><br/>                                 `aggregationLevel` wordt niet ondersteund zonder `aggregationLevel` een . `aggregationLevel` is van toepassing **op alle datumvelden die** aanwezig zijn in de `aggregationLevel`                         |
+| Orderby                              | tekenreeks    | Een instructie die de resultaatgegevenswaarden voor elke installatie bestelt. De syntaxis is `...&orderby=field[order],field [order],...`. De veldparameter kan een van de volgende tekenreeksen zijn:<br/><br/>                &quot;partnerTenantId&quot;<br/>                &quot;id&quot;<br/>                &quot;Naam&quot;<br/>                &quot;markt&quot;<br/>                &quot;firstSubscriptionCreationDate&quot;<br/>               &quot;latestSubscriptionCreationDate&quot;<br/>                &quot;firstSubscriptionEndDate&quot;<br/>               &quot;latestSubscriptionEndDate&quot;<br/>                &quot;firstSubscriptionSuspendedDate&quot;<br/>                &quot;latestSubscriptionSuspendedDate&quot;<br/>               &quot;firstSubscriptionDeprovisionedDate&quot;<br/>                &quot;latestSubscriptionDeprovisionedDate&quot;<br/>                &quot;subscriptionCount&quot;<br/>                &quot;licenseCount&quot;<br/><br/>   De *orderparameter* is optioneel en kan of zijn om de oplopende of aflopende `asc` volgorde voor elk veld op te `desc` geven. De standaardwaarde is `asc`.<br/><br/>    **Voorbeeld:**<br/>                `...&orderby=market,subscriptionCount`                                       |                   
+| groupby                              | tekenreeks    | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>         *partnerTenantId*<br/>    *id*<br/>               *Naam*<br/>                *markt*<br/>                *firstSubscriptionCreationDate*<br/>                *latestSubscriptionCreationDate*<br/>                *firstSubscriptionEndDate*<br/>                *latestSubscriptionEndDate*<br/>                *firstSubscriptionSuspendedDate*<br/>                *latestSubscriptionSuspendedDate*<br/>                *firstSubscriptionDeprovisionedDate*<br/>                *latestSubscriptionDeprovisionedDate*<br/><br/>                 De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de `groupby` -component en de volgende velden:<br/><br/>            *indirectResellerCount*<br/>                *licenseCount*<br/>                *subscriptionCount*<br/><br/>            De `groupby` parameter kan worden gebruikt met de parameter `aggregationLevel` .<br/><br/>            **Voorbeeld:**</br>               `...&groupby=ageGroup,market&aggregationLevel=week`                         |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -82,11 +77,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [indirecte leveranciers](partner-center-analytics-resources.md#csp-program-indirect-resellers-analytics) resources.
+Als dit lukt, bevat de antwoord-body een verzameling [indirecte resellersresources.](partner-center-analytics-resources.md#csp-program-indirect-resellers-analytics)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

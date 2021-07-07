@@ -1,33 +1,29 @@
 ---
-title: Een beleid voor zelf behoud maken
-description: Een nieuw beleid voor zelf behoud maken.
+title: Een self-serve-beleid maken
+description: Een nieuw self-serve-beleid maken.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fd1579b2775ead57a440db0d6afb3bf22164c319
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: 14f46e22fbd294c765b745204cf62474250cbfbd
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97768653"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973685"
 ---
 # <a name="create-a-selfservepolicy"></a>Een SelfServePolicy maken
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-In dit onderwerp wordt uitgelegd hoe u een nieuw beleid voor zelf behoud maakt.
+In dit artikel wordt uitgelegd hoe u een nieuw beleid voor self-serve maakt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met toepassings-en gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met referenties voor toepassing en gebruiker.
 
 ## <a name="c"></a>C\#
 
-Een beleid voor zelf behoud maken:
+Een self-serve-beleid maken:
 
-1. Roep de [**IAggregatePartner. SelfServePolicies. Create**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.create) -of [**IAggregatePartner. SelfServePolicies. CreateAsync**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.createasync) -methode aan met de selfservice-beleids gegevens.
+1. Roep de [**methode IAggregatePartner.SelfServePolicies.Create**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.create) of [**IAggregatePartner.SelfServePolicies.CreateAsync**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.createasync) aan met de selfservicebeleidsgegevens.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -62,43 +58,43 @@ IPartner scopedPartnerOperations = partnerOperations.With(RequestContextFactory.
 SelfServePolicy createdSelfServePolicy = scopedPartnerOperations.selfServePolicies.Create(selfServePolicy);
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **CreateSelfServePolicies.cs**
 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Een aanvraag-ID en correlatie-ID zijn vereist.
-- Zie de [rest headers van het Partner Center](headers.md) voor meer informatie.
+- Een aanvraag-id en correlatie-id zijn vereist.
+- Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
-| Naam                              | Type   | Description                                 |
+| Naam                              | Type   | Beschrijving                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
-| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | De informatie over zelf-beleids regels. |
+| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | De informatie over het self-serve-beleid. |
 
 #### <a name="selfservepolicy"></a>SelfServePolicy
 
-In deze tabel worden de minimale vereiste velden uit de [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) -resource beschreven die nodig zijn voor het maken van een nieuw beleid voor zelf behoud.
+In deze tabel worden de minimaal vereiste velden van de [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) beschreven die nodig zijn om een nieuw selfservicebeleid te maken.
 
-| Eigenschap              | Type             | Description                                                                                            |
+| Eigenschap              | Type             | Beschrijving                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| SelfServeEntity       | SelfServeEntity  | De selfservice-entiteit waarvoor toegang wordt verleend.                                                     |
-| Verlener               | Verlener          | De subsidie die toegang verleent.                                                                    |
-| Machtigingen           | Matrix van machtigingen| Een matrix met [machtigings](self-serve-policy-resources.md#permission) bronnen.                                                                     |
+| SelfServeEntity       | SelfServeEntity  | De zelfhulpentiteit die toegang wordt verleend.                                                     |
+| Grantor               | Grantor          | De grantor die toegang verleent.                                                                    |
+| Machtigingen           | Matrix van machtigingen| Een matrix met [machtigingsbronnen.](self-serve-policy-resources.md#permission)                                                                     |
 
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
@@ -134,17 +130,17 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze is geslaagd, retourneert deze API een [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) -resource voor het nieuwe beleid voor zelf behoud.
+Als dit lukt, retourneert deze API een [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) voor het nieuwe selfservicebeleid.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 409                  | 600041       | Het beleid voor selfservice beheer bestaat al.                                                     |
+| 409                  | 600041       | Self-serve beleid bestaat al.                                                     |
 
 
 ### <a name="response-example"></a>Voorbeeld van antwoord

@@ -1,77 +1,72 @@
 ---
 title: Console-testapp
-description: Deze console test-app bevat voorbeeld code voor alle scenario's die worden ondersteund door de partner centrum-Api's. U kunt dit ook gebruiken voor het testen.
+description: Deze consoletest-app biedt voorbeeldcode voor alle scenario's die worden ondersteund door Partner Center API's. U kunt deze ook gebruiken voor het testen.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e82bac3ccc22d0e7cf898e5b2d2e002c622584ae
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b35167104deeede50107d59fca6112c10dc7b4bf
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767321"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974026"
 ---
 # <a name="console-test-app"></a>Console-testapp
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De console test-app is beschikbaar in C# en Java. Deze bevat voorbeeld codes voor alle scenario's die worden ondersteund door de partner centrum-Api's. U kunt dit ook gebruiken voor het testen.
+De consoletest-app is beschikbaar in C# en Java en bevat voorbeeldcodes voor alle scenario's die worden ondersteund door de Partner Center API's. U kunt deze ook gebruiken voor het testen.
 
 ## <a name="get-the-code"></a>Code ophalen
 
-Down load de voorbeeld code voor de console test-app.
+Download de voorbeeldcode voor de consoletest-app.
 
 ## <a name="net"></a>.NET
 
-[Down load de voorbeeld code](https://go.microsoft.com/fwlink/p/?LinkId=746682) en wijzig deze indien nodig.
+[Download de voorbeeldcode en](https://go.microsoft.com/fwlink/p/?LinkId=746682) wijzig deze indien nodig.
 
 > [!IMPORTANT]
-> Voordat u de toepassing bouwt, werkt u de waarden in het *App.config* -bestand bij om de Azure AD-verificatie gegevens weer te geven die u hebt gemaakt in [Partner Center-verificatie](partner-center-authentication.md). U moet in het bijzonder uw account instellingen voor de integratie sandbox gebruiken tijdens vroegtijdige ontwikkeling of voor het testen van de productie.
+> Voordat u de toepassing bouwt,  moet u de waarden in hetApp.config-bestand bijwerken om de Azure AD-verificatiegegevens weer te geven die u hebt gemaakt in [Partner Center verificatie.](partner-center-authentication.md) Gebruik met name de instellingen van uw sandbox-account voor integratie tijdens vroege ontwikkeling of voor testen in productie.
 
-Onder **ScenarioSettings** in het *App.config* -bestand kunt u para meters instellen die automatisch worden door gegeven aan de scenario's die u uitvoert.
+Onder **ScenarioSettings** in *hetApp.config* kunt u parameters instellen die automatisch worden doorgegeven aan de scenario's die u wilt uitvoeren.
 
-Als u de lijst met scenario's wilt wijzigen die worden uitgevoerd, kunt u regels voor commentaar in **IPartnerScenario \[ \] mainScenarios** of in een afzonderlijke **Get scenarios** -methode vinden in het bestand *Program.cs* .
+Als u de lijst met scenario's wilt wijzigen die worden uitgevoerd, maakt u commentaar van regels in **IPartnerScenario \[ \] mainScenarios** of in een afzonderlijke methode **Get Scenarios** in het *bestand Program.cs.*
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-[Down load de voorbeeld code](https://go.microsoft.com/fwlink/p/?LinkId=2026887) en wijzig deze indien nodig.
+[Download de voorbeeldcode en](https://go.microsoft.com/fwlink/p/?LinkId=2026887) wijzig deze indien nodig.
 
 > [!IMPORTANT]
-> Voordat u de toepassing bouwt, werkt u de waarden in het *SamplesConfigurations.js* bestand bij om de Azure AD-verificatie gegevens weer te geven die u in [Partner Center-verificatie](partner-center-authentication.md)hebt gemaakt. U moet in het bijzonder uw account instellingen voor de integratie sandbox gebruiken tijdens vroegtijdige ontwikkeling of voor het testen van de productie.
+> Voordat u de toepassing bouwt, moet u de waarden in het bestand *SamplesConfigurations.js* bijwerken om de Azure AD-verificatiegegevens weer te geven die u hebt gemaakt in [Partner Center verificatie.](partner-center-authentication.md) Gebruik met name de instellingen van uw sandbox-account voor integratie tijdens vroege ontwikkeling of voor testen in productie.
 
-Onder **ScenarioSettings** in het *SamplesConfiguration.js* bestand kunt u para meters instellen die automatisch worden door gegeven aan de scenario's die u uitvoert.
+Onder **ScenarioSettings** in *SamplesConfiguration.json* file kunt u parameters instellen die automatisch worden doorgegeven aan de scenario's die u gebruikt.
 
-Als u de lijst met scenario's wilt wijzigen die worden uitgevoerd, kunt u regels voor opmerkingen maken in **IPartnerScenario \[ \] mainScenarios** of in een afzonderlijke **Get scenarios** -methode in het bestand *Program. java* .
+Als u de lijst met scenario's wilt wijzigen die worden uitgevoerd, maakt u commentaar van regels in **IPartnerScenario \[ \] mainScenarios** of in een afzonderlijke methode **Get Scenarios** in het *bestand Program.java.*
 
-## <a name="what-to-change"></a>Wat u kunt wijzigen
+## <a name="what-to-change"></a>Wat u moet wijzigen
 
-Gebruik de volgende lijsten om te bepalen wat u wilt wijzigen of niet wijzigen in de voorbeeld code.
+Gebruik de volgende lijsten om te bepalen wat er wel of niet moet worden gewijzigd in de voorbeeldcode.
 
 ### <a name="partnerservicesettings"></a>PartnerServiceSettings
 
-Wijzig voor **PartnerServiceSettings** niet:
+Voor **PartnerServiceSettings** wijzigt u niet:
 
 - **PartnerServiceApiEndpoint**
 - **AuthenticationAuthorityEndpoint**
 - **GraphEndpoint**
 - **CommonDomain**
 
-Al deze instellingen zijn nodig om de voor beeld-API-aanroepen goed te laten functioneren.
+Al deze instellingen zijn nodig om de voorbeeld-API-aanroepen goed te laten functioneren.
 
 ### <a name="userauthentication"></a>UserAuthentication
 
-Voor **UserAuthentication** moet u de volgende wijzigingen aanbrengen:
+Voor **UserAuthentication** moet u het volgende wijzigen:
 
-- **ApplicationId** (uw Azure Active Directory toepassings-id die wordt gebruikt voor aanmelding)
-- **Gebruikers naam** (uw Active Directory-gebruikers naam)
-- **Wacht woord** (uw Active Directory-wacht woord).
+- **ApplicationId** (uw Azure Active Directory-toepassings-id die wordt gebruikt voor aanmelding)
+- **Gebruikersnaam** (gebruikersnaam active directory)
+- **Wachtwoord** (uw Active Directory-wachtwoord).
 
 Niet wijzigen:
 
@@ -80,31 +75,31 @@ Niet wijzigen:
 
 ### <a name="appauthentication"></a>AppAuthentication
 
-Voor **AppAuthentication** moet u de volgende wijzigingen aanbrengen:
+Voor **AppAuthentication** moet u het volgende wijzigen:
 
-- **ApplicationId** (uw Active Directory-toepassings-id die wordt gebruikt voor het aanmelden van de toepassing)
-- **ApplicationSecret** (uw Active Directory-toepassings geheim gebruikt voor het aanmelden van de toepassing)
+- **ApplicationId** (de toepassings-id van uw Active Directory die wordt gebruikt voor aanmelding bij de toepassing)
+- **ApplicationSecret (uw** active directory-toepassingsgeheim dat wordt gebruikt voor aanmelding bij de toepassing)
 - **Domein** (uw Active Directory-domein waarop de toepassing wordt gehost)
 
 ### <a name="scenariosettings"></a>ScenarioSettings
 
-Wijzig voor **ScenarioSettings** niet:
+Voor **ScenarioSettings** wijzigt u niet:
 
-- **CustomerDomainSuffix** (het domein achtervoegsel dat wordt gebruikt bij het maken van een nieuwe klant)
+- **CustomerDomainSuffix** (het domeinachtervoegsel dat wordt gebruikt bij het maken van een nieuwe klant)
 
-Optionele instellingen. Als dit veld leeg blijft, moet deze informatie worden gegenereerd wanneer een scenario wordt uitgevoerd, waar nodig):
+Optionele instellingen. Als u dit leeg laat, moet deze informatie worden ingevoerd bij het uitvoeren van een scenario, indien nodig):
 
-- **CustomerIdToDelete** (de id van de klant die wordt gebruikt voor verwijdering)
-- **DefaultCustomerId** (de klant-id die moet worden gebruikt in aan klanten gerelateerde scenario's)
-- **DefaultInvoiceID** (de factuur-ID die moet worden gebruikt in factuur scenario's)
-- **PartnerMpnId** (de MPN-id van de partner die moet worden gebruikt in scenario's met indirecte partners)
-- **DefaultServiceRequestId** (de service aanvraag-id die in service-aanvraag scenario's moet worden gebruikt)
-- **DefaultSupportTopicID** (de ondersteunings onderwerp-id die moet worden gebruikt in service-aanvraag scenario's)
-- **DefaultOfferID** (de AANBIEDINGS-id die moet worden gebruikt in aanbod scenario's)
-- **DefaultOrderID** (de order-id die in order scenario's moet worden gebruikt)
-- **DefaultSubscriptionID** (de abonnements-id die moet worden gebruikt in scenario's voor abonnementen)
+- **CustomerIdToDelete** (de id van de klant die is gebruikt voor verwijdering)
+- **DefaultCustomerId** (de klant-id die moet worden gebruikt in klantgerelateerde scenario's)
+- **DefaultInvoiceID** (de factuur-id die moet worden gebruikt in factuurscenario's)
+- **PartnerMpnId** (de MPN-id van de partner die moet worden gebruikt in indirecte partnerscenario's)
+- **DefaultServiceRequestId** (de serviceaanvraag-id voor gebruik in serviceaanvraagscenario's)
+- **DefaultSupportTopicID** (de id van het ondersteuningsonderwerp voor gebruik in serviceaanvraagscenario's)
+- **DefaultOfferID** (de aanbiedings-id die moet worden gebruikt in aanbiedingsscenario's)
+- **DefaultOrderID** (de order-id die moet worden gebruikt in orderscenario's)
+- **DefaultSubscriptionID** (de abonnements-id die moet worden gebruikt in abonnementsscenario's)
 
-Optioneel om te wijzigen. Met al deze instellingen geeft u de hoeveelheid items per pagina op tijdens het ophalen van de pagina-inhoud:
+Optioneel om te wijzigen. Al deze instellingen geven de hoeveelheid vermeldingen per pagina op bij het ophalen van pagina-inhoud:
 
 - **CustomerPageSize**
 - **InvoicePageSize**

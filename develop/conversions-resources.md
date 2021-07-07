@@ -1,55 +1,50 @@
 ---
-title: Conversie resources
-description: Meer informatie over het gebruik van de API-conversie bronnen van partner Center om een proef abonnement te converteren naar een betaald abonnement.
+title: Conversiebronnen
+description: Meer informatie over het gebruik Partner Center API Conversion-resources om u te helpen een proefabonnement te converteren naar een betaald abonnement.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d3ade5a5af76e7c637962b6bfe076ac806f337bf
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 1863c365627807d8de2534a2d3116807a5de70e1
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767617"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973890"
 ---
-# <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a>Conversie resources om proef abonnementen te converteren naar betaald
+# <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a>Conversie van resources om proefabonnementen om te zetten in betaald
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Conversie resources ondersteunen de conversie van een proef abonnement op een betaald abonnement.
+Conversiebronnen ondersteunen de conversie van een proefabonnement naar een betaald abonnement.
 
 ## <a name="conversion"></a>Conversie
 
-Bevat informatie die wordt gebruikt om een proef abonnement te converteren naar een betaald abonnement.
+Bevat informatie die wordt gebruikt om een proefabonnement te converteren naar een betaald abonnement.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| offerId | tekenreeks | De aanbiedings-id van de oorspronkelijke, proef versie van de aanbieding. |
-| targetOfferId | tekenreeks | De aanbiedings-id voor de doel aanbieding. |
-| Velden | tekenreeks | De order-id. |
-| quantity | int | Het aantal licenties. De standaard waarde is het aantal licenties in het proef abonnement. |
-| billingCycle | tekenreeks | Hiermee wordt aangegeven hoe vaak de partner in rekening wordt gebracht voor het abonnement. Mogelijke waarden: **maandelijks** (de partner wordt maandelijks gefactureerd), **jaarlijks** (partner wordt per jaar gefactureerd) of **geen** (partner wordt niet in rekening gebracht. Gebruikt voor proef abonnementen). |
+| offerId | tekenreeks | De aanbiedings-id van de oorspronkelijke proefversie. |
+| targetOfferId | tekenreeks | De aanbiedings-id voor de doelaanbieding. |
+| Orderid | tekenreeks | De order-id. |
+| quantity | int | Het aantal licenties. De standaardwaarde is het aantal licenties in het proefabonnement. |
+| billingCycle | tekenreeks | Geeft aan hoe vaak de partner in rekening wordt gebracht voor het abonnement. Mogelijke waarden: **Maandelijks** (partner wordt maandelijks gefactureerd), **Jaarlijks** (partner wordt jaarlijks gefactureerd) of Geen **(partner** wordt niet gefactureerd. Wordt gebruikt voor proefabonnementen). |
 
 ## <a name="conversionerror"></a>ConversionError
 
-Duidt op een fout die is opgetreden tijdens de conversie.
+Vertegenwoordigt een fout die is opgetreden tijdens de conversie.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| code | tekenreeks | De fout code die is gekoppeld aan het probleem. Mogelijke waarden: **other** (algemene fout), **ConversionsNotFound** (kan geen conversies vinden voor het proef abonnement om te converteren naar).
-| beschrijving | tekenreeks | De beschrijvende tekst die het probleem beschrijft. |
+| code | tekenreeks | De foutcode die aan het probleem is gekoppeld. Mogelijke waarden: **Overige** (algemene fout), **ConversionsNotFound** (kan geen conversies vinden voor het proefabonnement om naar te converteren).
+| beschrijving | tekenreeks | De beschrijvende tekst waarin het probleem wordt beschreven. |
 
 ## <a name="conversionresult"></a>ConversionResult
 
-Hiermee wordt het resultaat van het uitvoeren van een abonnements conversie aangegeven.
+Vertegenwoordigt het resultaat van het uitvoeren van een abonnementsconversie.
 
-| Eigenschap       | Type                                | Description                                                            |
+| Eigenschap       | Type                                | Beschrijving                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
 | subscriptionId | tekenreeks                              | De abonnements-id.                                           |
 | offerId        | tekenreeks                              | De oorspronkelijke aanbiedings-id.                                         |
-| targetOfferId  | tekenreeks                              | De aanbiedings-id voor de doel aanbieding.                             |
-| fout          | [ConversionError](#conversionerror) | Er is een fout opgetreden bij het uitvoeren van de conversie, indien van toepassing. |
+| targetOfferId  | tekenreeks                              | De aanbiedings-id voor de doelaanbieding.                             |
+| fout          | [ConversionError](#conversionerror) | De fout die is opgetreden bij het proberen van de conversie, indien van toepassing. |

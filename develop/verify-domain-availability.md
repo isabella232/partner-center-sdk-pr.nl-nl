@@ -4,33 +4,28 @@ description: Bepalen of een domein beschikbaar is voor gebruik.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 84edb5b7510642ec44dad3d4f92349e40eb10b24
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: e2b8f0438516cc0aff9c4d8159c22de43ec582e4
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767463"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530273"
 ---
 # <a name="verify-domain-availability"></a>Beschikbaarheid van domein verifiëren
 
-**Van toepassing op**
-
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
 Bepalen of een domein beschikbaar is voor gebruik.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een domein (bijvoorbeeld `contoso.onmicrosoft.com` ).
 
 ## <a name="c"></a>C\#
 
-Als u wilt controleren of er een domein beschikbaar is, roept u [**IAggregatePartner. domains**](/dotnet/api/microsoft.store.partnercenter.ipartner.domains) aan om een interface voor domein bewerkingen te verkrijgen. Roep vervolgens de methode [**ByDomain**](/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) aan met het te controleren domein. Met deze methode wordt een interface opgehaald voor de bewerkingen die beschikbaar zijn voor een specifiek domein. Roep tot slot de methode [**Exists**](/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) aan om te zien of het domein al bestaat.
+Als u wilt controleren of een domein beschikbaar is, roept u [**eerst IAggregatePartner.Domains**](/dotnet/api/microsoft.store.partnercenter.ipartner.domains) aan om een interface voor domeinbewerkingen te verkrijgen. Roep vervolgens de [**methode ByDomain**](/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) aan met het domein om dit te controleren. Met deze methode wordt een interface opgehaald voor de bewerkingen die beschikbaar zijn voor een specifiek domein. Roep ten slotte de [**methode Exists**](/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) aan om te zien of het domein al bestaat.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -39,27 +34,27 @@ Als u wilt controleren of er een domein beschikbaar is, roept u [**IAggregatePar
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: CheckDomainAvailability.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CheckDomainAvailability.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                              |
 |----------|--------------------------------------------------------------------------|
-| **HOREN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{Domain} http/1.1 |
+| **Hoofd** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de beschik baarheid van het domein te verifiëren.
+Gebruik de volgende queryparameter om de beschikbaarheid van domeinen te controleren.
 
 | Naam       | Type       | Vereist | Beschrijving                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **domeinen** | **tekenreeksexpressie** | J        | Een teken reeks waarmee het te controleren domein wordt geïdentificeerd. |
+| **Domein** | **tekenreeks** | J        | Een tekenreeks die het te controleren domein identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -80,13 +75,13 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als het domein bestaat, kan het niet worden gebruikt en wordt de antwoord status code 200 OK geretourneerd. Als het domein niet wordt gevonden, is het beschikbaar voor gebruik en wordt de antwoord status code 404 niet gevonden geretourneerd.
+Als het domein bestaat, is het niet beschikbaar voor gebruik en wordt de antwoordstatuscode 200 OK geretourneerd. Als het domein niet wordt gevonden, is het beschikbaar voor gebruik en wordt de antwoordstatuscode 404 Niet gevonden geretourneerd.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
-### <a name="response-example-for-when-the-domain-is-already-in-use"></a>Antwoord voorbeeld voor wanneer het domein al in gebruik is
+### <a name="response-example-for-when-the-domain-is-already-in-use"></a>Voorbeeld van een reactie wanneer het domein al in gebruik is
 
 ```http
 HTTP/1.1 200 OK
@@ -98,7 +93,7 @@ MS-ServerId: 201022015
 Date: Tue, 31 Jan 2017 22:22:35 GMT
 ```
 
-### <a name="response-example-for-when-the-domain-is-available"></a>Antwoord voorbeeld voor wanneer het domein beschikbaar is
+### <a name="response-example-for-when-the-domain-is-available"></a>Voorbeeld van een reactie wanneer het domein beschikbaar is
 
 ```http
 HTTP/1.1 404 Not Found

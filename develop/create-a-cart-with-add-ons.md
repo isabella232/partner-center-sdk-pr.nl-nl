@@ -1,47 +1,43 @@
 ---
 title: Een winkelwagen maken met invoegtoepassingen
-description: Meer informatie over het gebruik van partner Center-Api's voor het toevoegen van een klant order met invoeg toepassingen via een winkel wagen. Artikel deelt vereisten en stappen voor het maken van een winkel wagen met invoeg toepassingen.
+description: Meer informatie over het gebruik Partner Center API's om een klantorder met invoegtoepassingen toe te voegen via een winkelwagen. In het artikel worden de vereisten en stappen voor het maken van een winkelwagen met invoegtoepassingen gedeeld.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 81c41405a2f56eb4d1d3447d14b93e05d550cc70
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: 513a9607b9194c36253630c91de9622325317c3a
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767638"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973754"
 ---
-# <a name="create-a-cart-with-add-ons-to-a-customer-order"></a>Een winkel wagen maken met invoeg toepassingen voor een klant order
+# <a name="create-a-cart-with-add-ons-to-a-customer-order"></a>Een winkelwagen maken met invoegtoepassingen voor een klantorder
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-U kunt invoeg toepassingen kopen via een winkel wagen. Zie [partner aanbiedingen in het Cloud Solution Provider-programma](/partner-center/csp-offers)voor meer informatie over wat momenteel beschikbaar is om te verkopen.
+U kunt invoegtoepassingen aanschaffen via een winkelwagen. Zie Partneraanbiedingen in het Cloud Solution Provider programma voor meer informatie over [wat momenteel beschikbaar is om Cloud Solution Provider verkopen.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Een winkel wagen maakt het mogelijk om een basis aanbod en de bijbehorende invoeg toepassingen aan te schaffen. Volg deze stappen om een winkel wagen te maken:
+Met een winkelwagen kunnen een basisaanbieding en de bijbehorende invoegtoepassingen worden gekocht. Volg deze stappen om een winkelwagen te maken:
 
-1. Een object voor een [**winkel wagen**](/dotnet/api/microsoft.store.partnercenter.models.carts.cart) instantiëren.
+1. Een [**winkelwagenobject instanteren.**](/dotnet/api/microsoft.store.partnercenter.models.carts.cart)
 
-2. Maak een lijst met [**CartLineItem**](/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem) -objecten die de basis aanbod (en) vertegenwoordigen, en wijs de lijst toe aan de eigenschap [**regel items**](/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems) van de winkel wagen.
+2. Maak een lijst met [**CartLineItem-objecten**](/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem) die de basisaanbieding(en) vertegenwoordigen en wijs de lijst toe aan de eigenschap [**LineItems**](/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems) van de winkelwagen.
 
-3. Vul onder elke basis lijn van de winkel wagen de lijst met **AddOnItems** in met andere **CartLineItem** -objecten die elk een invoeg toepassing vertegenwoordigen die wordt aangeschaft voor die basis aanbieding.
+3. Vul onder het regelitem van elke basisaanbieding de lijst met **AddOnItems** in met andere **CartLineItem-objecten** die elk een invoeg-on vertegenwoordigen die wordt gekocht op basis van die basisaanbieding.
 
-4. Verkrijg een interface voor winkelwagen bewerkingen door gebruik te maken van [**IAggregatePartner**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) om de [**ICustomerCollection. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) -methode aan te roepen met de klant-id om de klant te identificeren en vervolgens de interface op te halen uit de eigenschap **winkel wagen** .
+4. Verkrijg een interface voor winkelwagenbewerkingen door [**IAggregatePartner**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) te gebruiken om de methode [**ICustomerCollection.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren en vervolgens de interface op te halen uit de eigenschap **Winkelwagen.**
 
-5. Roep tot slot de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) aan om de winkel wagen te maken.
+5. Roep ten slotte de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) of [**CreateAsync aan**](/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) om de winkelwagen te maken.
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -82,11 +78,11 @@ var cart = new Cart()
 var createdCart = partnerOperations.Customers.ById(customerId).Carts.Create(cart);
 ```
 
-Volg deze stappen voor het maken van een winkel wagen waarmee de aankoop van invoeg toepassingen voor bestaande basis abonnementen wordt ingeschakeld:
+Volg deze stappen om een winkelwagen te maken waarmee de aankoop van invoeg-on(s) voor bestaande basisabonnementen mogelijk wordt:
 
-1. Maak een **mandje** met een nieuwe **CartLineItem** met de abonnements-id in de eigenschap **ProvisioningContext** met de sleutel ParentSubscriptionId.
+1. Maak een **winkelwagen** met een nieuwe **CartLineItem** met de abonnements-id in de **eigenschap ProvisioningContext** met de sleutel ParentSubscriptionId.
 
-2. Roep de methode **Create** of **CreateAsync** aan.
+2. Roep de **methode Create** of **CreateAsync aan.**
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -117,56 +113,56 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Carts http/1.1                        |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende para meter voor het identificeren van de klant.
+Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **klant-id** | tekenreeks   | Yes      | Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd.             |
+| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de eigenschappen van de [winkel wagen](cart-resources.md) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de eigenschappen [van de winkelwagen](cart-resources.md) in de aanvraag body beschreven.
 
 | Eigenschap              | Type             | Vereist        | Beschrijving |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | tekenreeks           | No              | Een winkel wagen-id die is opgegeven bij het maken van de winkel wagen.                                  |
-| creationTimeStamp     | DateTime         | No              | De datum waarop de winkel wagen is gemaakt, in datum-tijd notatie. Wordt toegepast bij het maken van de winkel wagen.         |
-| lastModifiedTimeStamp | DateTime         | No              | De datum waarop de winkel wagen voor het laatst is bijgewerkt, in datum-tijd notatie. Wordt toegepast bij het maken van de winkel wagen.    |
-| expirationTimeStamp   | DateTime         | No              | De datum waarop de winkel wagen verloopt, in datum-tijd notatie.  Wordt toegepast bij het maken van de winkel wagen.            |
-| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkel wagen het laatst heeft bijgewerkt. Wordt toegepast bij het maken van de winkel wagen.                             |
-| Regel items             | Matrix van objecten | Yes             | Een matrix met [CartLineItem](cart-resources.md#cartlineitem) -resources.                                             |
+| id                    | tekenreeks           | No              | Een winkelwagen-id die wordt opgegeven wanneer de winkelwagen is gemaakt.                                  |
+| creationTimeStamp     | DateTime         | Nee              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.         |
+| lastModifiedTimeStamp | DateTime         | Nee              | De datum waarop de winkelwagen voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
+| expirationTimeStamp   | DateTime         | Nee              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast bij het maken van de winkelwagen.            |
+| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast bij het maken van de winkelwagen.                             |
+| lineItems             | Matrix met objecten | Ja             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                             |
 
-In deze tabel worden de eigenschappen van [CartLineItem](cart-resources.md#cartlineitem) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartlineitem) in de aanvraag body beschreven.
 
 | Eigenschap             | Type                             | Beschrijving                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | tekenreeks                           | Een unieke id voor een winkelwagen regel item. Wordt toegepast bij het maken van de winkel wagen.                                                                   |
-| catalogId            | tekenreeks                           | De id van het catalogus item.                                                                                                                          |
-| friendlyName         | tekenreeks                           | Optioneel. De beschrijvende naam voor het item dat is gedefinieerd door de partner om dubbel zinnigheid te helpen.                                                                 |
-| quantity             | int                              | Het aantal licenties of exemplaren.                                                                                                                  |
-| currencyCode         | tekenreeks                           | De valuta code.                                                                                                                                    |
-| billingCycle         | Object                           | Het type facturerings cyclus dat voor de huidige periode is ingesteld.                                                                                                 |
-| deelnemers         | Lijst met object teken reeks paren      | Een verzameling partner on record (MPNID) voor de aankoop.                                                                                          |
-| provisioningContext  | Dictionary<teken reeks, teken reeks>       | Een context die wordt gebruikt voor het inrichten van de aanbieding.                                                                                                             |
+| id                   | tekenreeks                           | Een unieke id voor een winkelwagenregelitem. Toegepast bij het maken van de winkelwagen.                                                                   |
+| catalogId            | tekenreeks                           | De id van het catalogusitem.                                                                                                                          |
+| Friendlyname         | tekenreeks                           | Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het opsysen van ambiguïteit.                                                                 |
+| quantity             | int                              | Het aantal licenties of instanties.                                                                                                                  |
+| currencyCode         | tekenreeks                           | De valutacode.                                                                                                                                    |
+| billingCycle         | Object                           | Het type factureringscyclus dat is ingesteld voor de huidige periode.                                                                                                 |
+| deelnemers         | Lijst met objectreeksparen      | Een verzameling PartnerId on Record (MPN-id) voor de aankoop.                                                                                          |
+| provisioningContext  | Woordenlijst<tekenreeks, tekenreeks>       | Een context die wordt gebruikt voor het inrichten van de aanbieding.                                                                                                             |
 | orderGroup           | tekenreeks                           | Een groep om aan te geven welke items bij elkaar kunnen worden geplaatst.                                                                                               |
-| addonItems           | Lijst met **CartLineItem** -objecten | Een verzameling winkelwagen regel items voor invoeg toepassingen die worden aangeschaft bij het basis abonnement dat resulteert van de aankoop van het bovenliggende winkelwagen regel item. |
-| fout                | Object                           | Wordt toegepast nadat de winkel wagen is gemaakt in het geval van een fout.                                                                                                    |
+| addonItems           | Lijst met **CartLineItem-objecten** | Een verzameling winkelwagenregelitems voor invoegtoepassingen die worden aangeschaft voor het basisabonnement dat het resultaat is van de aankoop van het bovenliggende winkelwagenlijnitem. |
+| fout                | Object                           | Toegepast nadat de winkelwagen is gemaakt als er een fout is.                                                                                                    |
 
-### <a name="request-example-new-base-subscription"></a>Voor beeld van aanvraag (nieuw basis abonnement)
+### <a name="request-example-new-base-subscription"></a>Voorbeeld van aanvraag (nieuw basisabonnement)
 
-In het volgende REST-voor beeld ziet u hoe u een mandje maakt met invoeg toepassings items voor een nieuw basis abonnement.
+In het volgende REST-voorbeeld ziet u hoe u een winkelwagen maakt met invoeg-items voor een nieuw basisabonnement.
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/carts HTTP/1.1
@@ -202,9 +198,9 @@ MS-CorrelationId: f73baf70-bbc3-43d0-8b29-dffa08ff9511
 }
 ```
 
-#### <a name="request-example-existing-base-subscription"></a>Voor beeld van aanvraag (bestaand basis abonnement)
+#### <a name="request-example-existing-base-subscription"></a>Voorbeeld van aanvraag (bestaand basisabonnement)
 
-In het volgende REST-voor beeld ziet u hoe u invoeg toepassingen toevoegt aan een bestaand basis abonnement.
+In het volgende REST-voorbeeld ziet u hoe u invoegtoepassingen toevoegt aan een bestaand basisabonnement.
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/carts HTTP/1.1
@@ -228,13 +224,13 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de gevulde [Winkelwagen](cart-resources.md) resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode de ingevulde [winkelwagenresource](cart-resources.md) in de antwoord-body.
 
-#### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+#### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
-#### <a name="response-example-new-base-subscription"></a>Antwoord voorbeeld (nieuw basis abonnement)
+#### <a name="response-example-new-base-subscription"></a>Voorbeeld van antwoord (nieuw basisabonnement)
 
 ```http
 HTTP/1.1 201 Created
@@ -295,7 +291,7 @@ Date: Thu, 01 Nov 2018 22:29:05 GMT
 }
 ```
 
-#### <a name="response-example-existing-base-subscription"></a>Antwoord voorbeeld (bestaand basis abonnement)
+#### <a name="response-example-existing-base-subscription"></a>Voorbeeld van antwoord (bestaand basisabonnement)
 
 ```http
 HTTP/1.1 201 Created

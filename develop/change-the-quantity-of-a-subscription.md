@@ -1,40 +1,35 @@
 ---
 title: De hoeveelheid van een abonnement wijzigen
-description: Meer informatie over het gebruik van partner Center-Api's om het aantal licenties voor een klant abonnement te wijzigen. U kunt dit ook doen in het dash board van partner Center.
+description: Meer informatie over het gebruik Partner Center API's om het aantal licenties voor een klantabonnement te wijzigen. U kunt dit ook doen in het Partner Center dashboard.
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b9b781c50895aa3a14819bec43fcca1e931e3b30
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: d57ece4dd19ef2852f39130916222c54a9ccc85a
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767618"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974094"
 ---
-# <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Het aantal licenties in een klant abonnement wijzigen
+# <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Het aantal licenties in een klantabonnement wijzigen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Werkt een [abonnement bij](subscription-resources.md) om het aantal licenties te verhogen of te verlagen.
 
-Hiermee wordt een [abonnement](subscription-resources.md) bijgewerkt om het aantal licenties te verhogen of te verlagen.
-
-In het dash board van de partner centrum kan deze bewerking worden uitgevoerd door eerst [een klant te selecteren](get-a-customer-by-name.md). Selecteer vervolgens het abonnement waarvan u de naam wilt wijzigen. Als u wilt volt ooien, wijzigt u de waarde in het veld **aantal** en selecteert u vervolgens **verzenden.**
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement in kwestie dat u de naam wilt geven. Als u wilt voltooien, wijzigt u de waarde in **het veld Hoeveelheid** en selecteert u vervolgens **Verzenden.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een abonnements-ID.
+- Een abonnements-id.
 
 ## <a name="c"></a>C\#
 
-Als u het aantal van het abonnement van een klant wilt wijzigen, moet u eerst [het abonnement ophalen](get-a-subscription-by-id.md)en vervolgens de eigenschap [**hoeveelheid**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) van het abonnement wijzigen. Nadat de wijziging is aangebracht, gebruikt u de verzameling **IAggregatePartner. Customers** en roept u de methode **ById ()** aan. Roep vervolgens de eigenschap [**abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Voltooi vervolgens de methode **patch ()** .
+Als u de hoeveelheid van het abonnement van een klant wilt wijzigen, moet u eerst [het](get-a-subscription-by-id.md)abonnement op halen en vervolgens de eigenschap Hoeveelheid van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) wijzigen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen aan,**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,32 +46,32 @@ selectedSubscription.Quantity++;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: UpdateSubscription.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{id-for-Subscription} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameter voor het wijzigen van de hoeveelheid van het abonnement.
+Deze tabel bevat de vereiste queryparameter om de hoeveelheid van het abonnement te wijzigen.
 
 | Naam                    | Type     | Vereist | Beschrijving                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **klant-Tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
-| **id voor abonnement** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
+| **customer-tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
+| **id-for-subscription** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Een volledige **abonnements** resource is vereist in de aanvraag tekst. Zorg ervoor dat de eigenschap **hoeveelheid** is bijgewerkt.
+Een volledige **abonnementsresource** is vereist in de aanvraag. Zorg ervoor dat **de eigenschap Quantity** is bijgewerkt.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -115,19 +110,19 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de status code van de **HTTP-status 200** en de bijgewerkte eigenschappen van de [abonnements resource](subscription-resources.md)  in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **HTTP-status 200-statuscode** en bijgewerkte eigenschappen van abonnementsresources in de antwoord-body. [](subscription-resources.md)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elke reactie retourneert een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om de status code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord retourneert een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om de statuscode, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
-Wanneer de patch bewerking langer duurt dan de verwachte tijd, verzendt het partner centrum een **HTTP-status** code van 202 en een locatie-header die verwijst naar waar het abonnement moet worden opgehaald. U kunt periodiek een query uitvoeren op het abonnement om de status-en hoeveelheid wijzigingen te bewaken.
+Wanneer de patchbewerking langer duurt dan de verwachte tijd, verzendt de Partner Center een **HTTP-statuscode 202** en een locatieheader die wijst naar waar het abonnement moet worden opgehaald. U kunt periodiek een query uitvoeren op het abonnement om de status- en hoeveelheidswijzigingen te controleren.
 
-### <a name="response-examples"></a>Antwoord voorbeelden
+### <a name="response-examples"></a>Antwoordvoorbeelden
 
-#### <a name="response-example-1"></a>Antwoord voorbeeld 1
+#### <a name="response-example-1"></a>Antwoordvoorbeeld 1
 
-Geslaagde aanvraag met een **HTTP-status 200-** status code:
+Geslaagde aanvraag met **een HTTP-statuscode 200:**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
@@ -180,9 +175,9 @@ Connection: Keep-Alive
 }
 ```
 
-#### <a name="response-example-2"></a>Antwoord voorbeeld 2
+#### <a name="response-example-2"></a>Antwoordvoorbeeld 2
 
-Geslaagde aanvraag met een **HTTP-status 202-** status code:
+Geslaagde aanvraag met een **HTTP-statuscode 202:**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1

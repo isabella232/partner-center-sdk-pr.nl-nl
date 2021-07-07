@@ -1,55 +1,51 @@
 ---
 title: Een abonnement op de commerciële marketplace annuleren
-description: Meer informatie over het gebruik van partner Center-Api's voor het annuleren van een commerciële Marketplace-abonnements resource die overeenkomt met een klant en abonnements-ID.
+description: Meer informatie over het gebruik Partner Center API's voor het annuleren van een commerciële marketplace-abonnementsresource die overeenkomt met een klant en abonnements-id.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 38708c17b31e39a5e7c436e0d76b4ebabbc3a801
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 95fa265a3c103d1ec55066f12a3ede7fdb2d0170
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767620"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974281"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription-using-partner-center-apis"></a>Een abonnement op commerciële Marketplace annuleren met partner Center-Api's
+# <a name="cancel-a-commercial-marketplace-subscription-using-partner-center-apis"></a>Een abonnement op de commerciële marketplace annuleren met behulp Partner Center API's
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-In dit artikel wordt beschreven hoe u partner Center API kunt gebruiken om een resource voor commerciële Marketplace- [abonnementen](subscription-resources.md) te annuleren die overeenkomt met de klant en de abonnements-id.
+In dit artikel wordt beschreven hoe u Partner Center API [](subscription-resources.md) kunt gebruiken om een commerciële marketplace-abonnementsresource te annuleren die overeenkomt met de klant- en abonnements-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een abonnements-ID.
+- Een abonnements-id.
 
-## <a name="partner-center-dashboard-method"></a>Dash board-methode partner centrum
+## <a name="partner-center-dashboard-method"></a>Partner Center-dashboardmethode
 
-Een abonnement op een commerciële Marketplace annuleren in het dash board van de partner centrum:
+Een abonnement op de commerciële marketplace opzeggen in het Partner Center dashboard:
 
 1. [Selecteer een klant](get-a-customer-by-name.md).
 
 2. Selecteer het abonnement dat u wilt annuleren.
 
-3. Kies de optie **abonnement annuleren** en selecteer vervolgens **verzenden**.
+3. Kies de **optie Abonnement annuleren** en selecteer vervolgens **Verzenden.**
 
 ## <a name="c"></a>C\#
 
 Het abonnement van een klant annuleren:
 
-1. [Het abonnement ophalen op basis van de id](get-a-subscription-by-id.md).
+1. [Haal het abonnement op id op.](get-a-subscription-by-id.md)
 
-2. Wijzig de eigenschap [**status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) van het abonnement. Zie [SubscriptionStatus Enumeration (Engelstalig)](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)voor meer informatie over **status** codes.
+2. Wijzig de eigenschap Status van [**het**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) abonnement. Zie [SubscriptionStatus enumeration voor meer informatie over statuscodes.](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus) 
 
-3. Nadat de wijziging is aangebracht, gebruikt u uw **`IAggregatePartner.Customers`** verzameling en roept u de methode **ById ()** aan.
+3. Nadat de wijziging is aangebracht, gebruikt u uw **`IAggregatePartner.Customers`** verzameling en roept u de methode **ById()** aan.
 
-4. Roep de eigenschap [**abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) .
+4. Roep de [**eigenschap Abonnementen aan,**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)
 
-5. Roep de methode **patch ()** aan.
+5. Roep de **methode Patch()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -60,34 +56,34 @@ selectedSubscription.Status = SubscriptionStatus.Deleted;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-### <a name="sample-console-test-app"></a>Voor beeld-console test-app
+### <a name="sample-console-test-app"></a>Voorbeeldconsoletest-app
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: UpdateSubscription.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{id-for-Subscription} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameter om het abonnement te onderbreken.
+Deze tabel bevat de vereiste queryparameter om het abonnement op te schorten.
 
 | Naam                    | Type     | Vereist | Beschrijving                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **klant-Tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
-| **id voor abonnement** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
+| **customer-tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
+| **id-for-subscription** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Een volledige **abonnements** resource is vereist in de aanvraag tekst. Zorg ervoor dat de eigenschap **status** is bijgewerkt.
+Een volledige **abonnementsresource** is vereist in de aanvraag. Zorg ervoor dat **de eigenschap Status** is bijgewerkt.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -135,11 +131,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode verwijderde eigenschappen van de [abonnements](subscription-resources.md) resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode verwijderde eigenschappen van abonnementsresources in de antwoord-body. [](subscription-resources.md)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

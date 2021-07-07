@@ -1,57 +1,53 @@
 ---
 title: Een klant maken
-description: Meer informatie over hoe een Cloud Solution Provider (CSP)-partner Partner Center-Api's kan gebruiken om een nieuwe klant te maken. In dit artikel worden vereisten beschreven en wat er nog meer gebeurt.
+description: Ontdek hoe een Cloud Solution Provider (CSP)-partner Partner Center API's kan gebruiken om een nieuwe klant te maken. In dit artikel worden de vereisten beschreven en wat er nog meer gebeurt.
 ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: bc8e9d38353511e747ba4da99b11be40d08781e3
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: 6232ca77d057f2f5168b73d81ec551669d540246
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274594"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973720"
 ---
-# <a name="create-a-customer-using-partner-center-apis"></a>Een klant maken met partner Center-Api's
+# <a name="create-a-customer-using-partner-center-apis"></a>Een klant maken met behulp Partner Center API's
 
-**Van toepassing op:**
-
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud for US Government
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud for US Government
 
 In dit artikel wordt uitgelegd hoe u een nieuwe klant maakt.
 
 > [!IMPORTANT]
-> Als u een indirecte provider bent en u een klant voor een indirecte wederverkoper wilt maken, raadpleegt u [een klant maken voor een indirecte wederverkoper](create-a-customer-for-an-indirect-reseller.md).
+> Als u een indirecte provider bent en u een klant wilt maken voor een indirecte reseller, raadpleegt u Een klant [maken voor een indirecte reseller.](create-a-customer-for-an-indirect-reseller.md)
 
-Als Cloud Solution Provider (CSP)-partner, kunt u bij het maken van een klant orders namens de klant plaatsen. Wanneer u een klant maakt, maakt u ook het volgende:
+Wanneer u als CSP-partner (Cloud Solution Provider) een klant maakt, kunt u namens de klant orders plaatsen. Wanneer u een klant maakt, maakt u ook het volgende:
 
-- Een Azure Active Directory (AD)-Tenant object voor de klant.
+- Een Azure Active Directory (AD)-tenantobject voor de klant.
 
-- Een relatie tussen de wederverkoper en de klant, die wordt gebruikt voor gedelegeerde beheerders bevoegdheden.
+- Een relatie tussen de reseller en de klant, die wordt gebruikt voor gedelegeerde beheerdersbevoegdheden.
 
-- Een gebruikers naam en wacht woord om u aan te melden als beheerder voor de klant.
+- Een gebruikersnaam en wachtwoord om u aan te melden als beheerder voor de klant.
 
-Nadat de klant is gemaakt, moet u ervoor zorgen dat u de klant-ID en Azure AD-gegevens opslaat voor toekomstig gebruik met de SDK van de partner centrum (bijvoorbeeld account beheer).
+Nadat de klant is gemaakt, moet u de klant-id en Azure AD-gegevens opslaan voor toekomstig gebruik met de Partnercentrum-SDK (bijvoorbeeld accountbeheer).
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 > [!IMPORTANT]
-> Als u een Tenant van de klant wilt maken, moet u een geldig fysiek adres opgeven tijdens het aanmaak proces. U kunt een adres valideren door de stappen te volgen die worden beschreven in het scenario [een adres valideren](validate-an-address.md) . Als u een klant maakt met behulp van een ongeldig adres in de sandbox-omgeving, kunt u die Tenant van de klant niet verwijderen.
+> Als u een klant-tenant wilt maken, moet u tijdens het maken een geldig fysiek adres verstrekken. Een adres kan worden gevalideerd door de stappen te volgen die worden beschreven in het [scenario Een adres valideren.](validate-an-address.md) Als u een klant maakt met een ongeldig adres in de sandbox-omgeving, kunt u die tenant van de klant niet verwijderen.
 
 ## <a name="c"></a>C\#
 
 Een klant toevoegen:
 
-1. Een nieuw [**klant**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object instantiëren. Zorg ervoor dat u de [**BillingProfile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) en de [**CompanyProfile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)invult.
+1. Instantieer een nieuw [**klantobject.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) Vul het [**BillingProfile en**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) [**CompanyProfile in.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)
 
-2. Voeg de nieuwe klant toe aan uw verzameling [**IAggregatePartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) door [**Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)aan te roepen.
+2. Voeg de nieuwe klant toe aan uw [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) door [**Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) of [**CreateAsync aan te roepen.**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -92,7 +88,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK samples **klasse**: CreateCustomer. cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Klasse **Samples:** CreateCustomer.cs
 
 ## <a name="java"></a>Java
 
@@ -100,11 +96,11 @@ Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Ce
 
 Een nieuwe klant maken:
 
-1. Maak een nieuw exemplaar van de **CustomerBillingProfile** -en **CustomerCompanyProfile** -objecten. Zorg ervoor dat u de vereiste velden vult.
+1. Maak een nieuw exemplaar van **het CustomerBillingProfile-** en **de CustomerCompanyProfile-objecten.** Vul de vereiste velden in.
 
-2. Maak de klant door de functie **IAggregatePartner. getCustomers (). Create** aan te roepen.
+2. Maak de klant door de functie **IAggregatePartner.getCustomers().create aan te** roepen.
 
-### <a name="java-example"></a>Java-voor beeld
+### <a name="java-example"></a>Java-voorbeeld
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -144,7 +140,7 @@ Customer newCustomer = partnerOperations.getCustomers().create( customerToCreate
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u een klant wilt maken, voert u de opdracht [**New-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) uit.
+Als u een klant wilt maken, voert u [**de opdracht New-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) uit.
 
 ```powershell
 New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity 'Redmond' -BillingAddressCountry 'US' -BillingAddressPostalCode '98052' -BillingAddressState 'WA' -ContactEmail 'jdoe@customer.com' -ContactFirstName 'Jane' -ContactLastName 'Doe' -Culture 'en-US' -Domain 'newcustomer.onmicrosoft.com' -Language 'en' -Name 'New Customer'
@@ -152,49 +148,49 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Deze API is idempotent (het levert geen ander resultaat op als u het meerdere keren aanroept).
+- Deze API is idempotent (deze levert geen ander resultaat op als u deze meerdere keren aanroept).
 
-- Een aanvraag-ID en correlatie-ID zijn vereist.
+- Een aanvraag-id en correlatie-id zijn vereist.
 
-- Zie voor meer informatie [Partner Center rest headers](headers.md).
+- Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 | Naam                              | Type   | Beschrijving                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | object | De facturerings profiel gegevens van de klant. |
-| [CompanyProfile](#company-profile) | object | De gegevens van het bedrijfs profiel van de klant. |
+| [BillingProfile](#billing-profile) | object | De gegevens van het factureringsprofiel van de klant. |
+| [CompanyProfile](#company-profile) | object | De bedrijfsprofielgegevens van de klant. |
 
 #### <a name="billing-profile"></a>Factureringsprofiel
 
-In deze tabel worden de minimale vereiste velden van de [CustomerBillingProfile](customer-resources.md#customerbillingprofile) -resource beschreven die nodig zijn om een nieuwe klant te maken.
+In deze tabel worden de minimaal vereiste velden van de [CustomerBillingProfile-resource](customer-resources.md#customerbillingprofile) beschreven die nodig zijn om een nieuwe klant te maken.
 
 | Naam             | Type                                     | Beschrijving                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| e-mail            | tekenreeks                                   | Het e-mail adres van de klant.                                                                                                                                                                                   |
-| culturele          | tekenreeks                                   | De voorkeurs cultuur voor communicatie en valuta, zoals ' en-US '. Zie [ondersteunde talen en land instellingen voor het partner centrum](partner-center-supported-languages-and-locales.md) voor de ondersteunde cult uren. |
-| language         | tekenreeks                                   | De standaard taal. Taal codes voor twee tekens (bijvoorbeeld `en` of `fr` ) worden ondersteund.                                                                                                                                |
-| bedrijfs \_ naam    | tekenreeks                                   | De naam van het geregistreerde bedrijf/de organisatie.                                                                                                                                                                       |
-| standaard \_ adres | [Adres](utility-resources.md#address) | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [adres](utility-resources.md#address) bron voor informatie over de beperkingen van elke lengte.                                             |
+| e-mail            | tekenreeks                                   | Het e-mailadres van de klant.                                                                                                                                                                                   |
+| Cultuur          | tekenreeks                                   | Hun voorkeurscultuur voor communicatie en valuta, zoals 'en-US'. Zie [Partner Center ondersteunde talen en talen voor](partner-center-supported-languages-and-locales.md) de ondersteunde culturen. |
+| language         | tekenreeks                                   | De standaardtaal. Er worden twee tekentaalcodes `en` (bijvoorbeeld of `fr` ) ondersteund.                                                                                                                                |
+| \_bedrijfsnaam    | tekenreeks                                   | De geregistreerde bedrijfsnaam/organisatienaam.                                                                                                                                                                       |
+| \_standaardadres | [Adres](utility-resources.md#address) | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [adresresource](utility-resources.md#address) voor informatie over lengtebeperkingen.                                             |
 
-#### <a name="company-profile"></a>Bedrijfs profiel
+#### <a name="company-profile"></a>Bedrijfsprofiel
 
-In deze tabel worden de minimale vereiste velden van de [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) -resource beschreven die nodig zijn om een nieuwe klant te maken.
+In deze tabel worden de minimaal vereiste velden van de resource [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) beschreven die nodig zijn om een nieuwe klant te maken.
 
 | Naam   | Type   | Beschrijving                                                  |
 |--------|--------|--------------------------------------------------------------|
-| domein | tekenreeks | De domein naam van de klant, zoals contoso.onmicrosoft.com. |
-|organizationRegistrationNumber|Tekenreeks|Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (BY), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), Brazilië (BR), India, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
+| domein | tekenreeks | De domeinnaam van de klant, zoals contoso.onmicrosoft.com. |
+|organizationRegistrationNumber|Tekenreeks|Het registratienummer van de organisatie van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant die zich in de volgende landen bevindt: 1000(AM), Zowel(AM), Elkaar(AZ), Gaata(NU), Als(KZ), Kyrgyzstan(KG), Espa(MD), Rusland(RU), Tstanikrov(TJ), Uzbekjik(UZ), UA (UA), Brazil(BR), India, Zuid-Afrika, Spanje, Verenigde Arabische Republieken, Hongkong, Republiek, Vietnam, Vietnam, Vietnam, Zuid-Afrika en Eu na. Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -235,11 +231,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze is geslaagd, retourneert deze API een [klant](customer-resources.md#customer) resource voor de nieuwe klant. Sla de klant-ID en Azure AD-Details op voor toekomstig gebruik met de Partner Center-SDK. U hebt deze nodig voor gebruik met account beheer, bijvoorbeeld.
+Als dit lukt, retourneert deze API een [klantresource](customer-resources.md#customer) voor de nieuwe klant. Sla de klant-id en Azure AD-gegevens op voor toekomstig gebruik met de Partnercentrum-SDK. U hebt deze bijvoorbeeld nodig voor gebruik met accountbeheer.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Antwoorden worden geleverd met een HTTP-status code die aangeeft of de fout is geslaagd of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Antwoorden worden verstrekt met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,38 +1,34 @@
 ---
-title: Resources van de overeenkomst met meta gegevens
-description: De resource verzameling AgreementMetadata beschrijft overeenkomst typen die partners kunnen gebruiken om de acceptatie van klanten te bevestigen.
+title: Resources voor overeenkomstmetagegevens
+description: In de resourceverzameling AgreementMetadata worden overeenkomsttypen beschreven die partners kunnen gebruiken om de acceptatie van klanten te bevestigen.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 36ba2aa2f78552dc9a835168b5bbd5b6a3ce47f3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b930e3691b9d269ddb8d76ae18b6b26a217123c0
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767207"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025622"
 ---
-# <a name="agreement-metadata-resources"></a>Resources van de overeenkomst met meta gegevens
+# <a name="agreement-metadata-resources"></a>Resources voor overeenkomstmetagegevens
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center
 
-- Partnercentrum
+**Is niet van toepassing op**: Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-De **AgreementMetaData** -resource wordt momenteel alleen ondersteund door het partner centrum in de *open bare cloud van micro soft*. Deze resource is niet van toepassing op:
+De **AgreementMetaData-resource** wordt momenteel alleen Partner Center in de openbare Cloud van Microsoft. 
 
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De **AgreementMetaData** -verzameling bevat meta gegevens over alle typen overeenkomsten. Partners kunnen deze verzameling gebruiken om een bevestiging van de acceptatie van de klant op te geven. De **AgreementMetaData** -verzameling retourneert meta gegevens voor beide overeenkomst typen (**Microsoft Cloud overeenkomst** en **micro soft Customer Agreement**).
+De **verzameling AgreementMetaData** bevat metagegevens over alle typen overeenkomst. Partners kunnen deze verzameling gebruiken om de acceptatie van overeenkomsten door de klant te bevestigen. De **verzameling AgreementMetaData** retourneert metagegevens voor beide typen overeenkomst (**Microsoft Cloud-overeenkomst** en **Microsoft-klantovereenkomst**).
 
 ## <a name="agreementmetadata"></a>AgreementMetaData
 
-De geretourneerde meta gegevens van de overeenkomst bevatten de volgende eigenschappen:
+Geretourneerde overeenkomstmetagegevens bevatten de volgende eigenschappen:
 
-| Eigenschap      | Type               | Description                                                                       |
+| Eigenschap      | Type               | Beschrijving                                                                       |
 |---------------|--------------------|-----------------------------------------------------------------------------------|
-| Ontbrekende templateid    | tekenreeks             | De unieke id van een overeenkomst sjabloon.                                       |
-| type          | tekenreeks             | Type overeenkomst. Op dit moment worden de volgende waarden ondersteund: **MicrosoftCloudAgreement** en **MicrosoftCustomerAgreement** (preview). |
-| agreementLink | tekenreeks             | URL voor de overeenkomst sjabloon.                                                    |
+| templateId    | tekenreeks             | Unieke id van een overeenkomstsjabloon.                                       |
+| type          | tekenreeks             | Overeenkomsttype. Momenteel zijn de ondersteunde **waarden MicrosoftCloudAgreement** **en MicrosoftCustomerAgreement** (preview). |
+| agreementLink | tekenreeks             | URL voor de overeenkomstsjabloon.                                                    |

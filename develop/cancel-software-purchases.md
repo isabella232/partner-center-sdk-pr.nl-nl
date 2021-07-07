@@ -1,43 +1,39 @@
 ---
 title: Softwareaankopen annuleren
-description: U kunt kiezen voor het annuleren van software-abonnementen en aankopen met een permanente software met behulp van partner Center-Api's.
+description: Self-serve optie voor het annuleren van softwareabonnementen en permanente software-aankopen met behulp Partner Center API's.
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 25fd10a171fa6ca01f3442d49145443f2382cc18
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 877702ac930919ff72c6cc45a3c0e8ecc7e1b5f4
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767370"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974230"
 ---
 # <a name="cancel-software-purchases"></a>Softwareaankopen annuleren
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-U kunt de Api's van het partner centrum gebruiken om software-abonnementen en aankopen met een permanente software te annuleren (zolang de aankopen zijn gedaan in het annulerings venster vanaf de aankoop datum). U hoeft geen ondersteunings ticket te maken om dergelijke annuleringen te maken en u kunt in plaats daarvan de volgende self-service methoden gebruiken.
+U kunt de Partner Center-API's gebruiken om softwareabonnementen en permanente software-aankopen te annuleren (zolang deze aankopen zijn gedaan binnen het annuleringsvenster vanaf de aankoopdatum). U hoeft geen ondersteuningsticket te maken om dergelijke annuleringen te maken en u kunt in plaats daarvan de volgende selfservicemethoden gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u een software order wilt annuleren,
+Een softwareorder annuleren:
 
-1. Geef uw account referenties door aan de [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) -methode om een [**IPartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) -interface te verkrijgen om partner bewerkingen te verkrijgen.
+1. Geef uw accountreferenties door aan de [**methode CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) om een [**IPartner-interface**](/dotnet/api/microsoft.store.partnercenter.ipartner) op te halen om partnerbewerkingen op te halen.
 
-2. Selecteer een bepaalde [order](order-resources.md#order) die u wilt annuleren. Roep de methode [**klanten. ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id, gevolgd door **Orders. ById ()** met Order-id.
+2. Selecteer een bepaalde [order](order-resources.md#order) die u wilt annuleren. Roep de [**methode Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id, gevolgd door **Orders.ById() met** order-id.
 
-3. Roep de methode **Get** of **GetAsync** aan om de volg orde op te halen.
+3. Roep de **methode Get** of **GetAsync aan** om de bestelling op te halen.
 
-4. Stel de eigenschap [**order. status**](order-resources.md#order) in op `cancelled` .
+4. Stel de [**eigenschap Order.Status**](order-resources.md#order) in op `cancelled` .
 
-5. Beschrijving Als u bepaalde regel items voor annulering wilt opgeven, stelt u de [**order. regel items**](order-resources.md#order) in op een lijst met regel items die u wilt annuleren.
+5. (Optioneel) Als u bepaalde regelitems voor annulering wilt opgeven, stelt u [**Order.LineItems**](order-resources.md#order) in op een lijst met regelitems die u wilt annuleren.
 
-6. Gebruik de methode **patch ()** om de volg orde bij te werken.
+6. Gebruik de **methode Patch()** om de volgorde bij te werken.
 
 ``` csharp
 // IPartnerCredentials accountCredentials;
@@ -58,24 +54,24 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode     | Aanvraag-URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/orders/{order-id} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende query parameters om een klant te verwijderen.
+Gebruik de volgende queryparameters om een klant te verwijderen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | De waarde is een id voor de identiteit van een klant die de wederverkoper toestaat de resultaten te filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **order-id** | **tekenreeksexpressie** | J        | De waarde is een teken reeks waarmee de id wordt aangegeven van de order die u wilt annuleren. |
+| **customer-tenant-id** | **guid** | J        | De waarde is een tenant-id met GUID-indeling waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
+| **order-id** | **tekenreeks** | J        | De waarde is een tekenreeks die de id aanneert van de volgorde die u wilt annuleren. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -114,17 +110,17 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze methode is geslaagd, wordt de volg orde met Geannuleerde regel items geretourneerd.
+Als dit lukt, retourneert deze methode de bestelling met geannuleerde regelitems.
 
-De status van de bestelling wordt gemarkeerd als **geannuleerd** als alle regel items in de order worden geannuleerd of worden **voltooid** als niet alle regel items in de order worden geannuleerd.
+De orderstatus wordt gemarkeerd  als geannuleerd als alle regelitems in  de order zijn geannuleerd of worden voltooid als niet alle regelitems in de order zijn geannuleerd.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
-In het volgende voor beeld kunt u zien dat de hoeveelheid van het regel item met de aanbiedings-id **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** nul (0) is geworden. Deze wijziging betekent dat het regel item dat is gemarkeerd voor annulering, is geannuleerd. De voorbeeld volgorde bevat andere regel items die niet zijn geannuleerd. Dit betekent dat de status van de algemene order wordt gemarkeerd als **voltooid**, en niet wordt **geannuleerd**.
+In het volgende voorbeeld van een antwoord ziet u dat het aantal regelitem met de aanbiedings-id **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** nul (0) is geworden. Deze wijziging betekent dat het regelitem dat is gemarkeerd voor annulering, is geannuleerd. De voorbeeldorder bevat andere regelitems die niet zijn geannuleerd, wat betekent dat de status van de algehele bestelling wordt gemarkeerd als **voltooid,** niet **geannuleerd.**
 
 ```http
 HTTP/1.1 200 OK

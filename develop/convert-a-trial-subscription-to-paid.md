@@ -1,70 +1,66 @@
 ---
 title: Een proefabonnement converteren naar betaald
-description: Meer informatie over het gebruik van partner Center-Api's voor het converteren van een proef abonnement op een betaalde versie.
+description: Meer informatie over het gebruik Partner Center API's om een proefabonnement te converteren naar een betaald abonnement.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 59dcf6caf21d407b2fba4cc8438bc435fda9dc77
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: c1876cfc796b683bfff00b7d137bcfe0b7162c78
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767616"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973856"
 ---
-# <a name="convert-a-trial-subscription-to-paid-using-partner-center-apis"></a>Een proef abonnement converteren naar betaald met partner Center-Api's
+# <a name="convert-a-trial-subscription-to-paid-using-partner-center-apis"></a>Een proefabonnement converteren naar betaald met behulp Partner Center API's
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-U kunt een proef abonnement converteren naar betaald.
+U kunt een proefabonnement converteren naar betaald.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een abonnements-ID voor een actief proef abonnement.
+- Een abonnements-id voor een actief proefabonnement.
 
-- Een beschik bare conversie aanbieding.
+- Een beschikbare conversieaanbieding.
 
-## <a name="convert-a-trial-subscription-to-paid-through-code"></a>Een proef abonnement converteren naar betaald via code
+## <a name="convert-a-trial-subscription-to-a-paid-subscription-through-code"></a>Een proefabonnement converteren naar een betaald abonnement via code
 
-Als u een proef abonnement wilt omzetten in een betaalde versie, moet u eerst een verzameling van de beschik bare proef versies ophalen. Vervolgens moet u het conversie aanbod kiezen dat u wilt kopen.
+Als u een proefabonnement wilt converteren naar een betaald abonnement, moet u eerst een verzameling van de beschikbare proefversies verkrijgen. Vervolgens moet u de conversieaanbieding kiezen die u wilt kopen.
 
-In de conversie aanbiedingen wordt een hoeveelheid opgegeven die standaard hetzelfde aantal licenties heeft als het proef abonnement. U kunt dit aantal wijzigen door de eigenschap [**hoeveelheid**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) in te stellen op het aantal licenties dat u wilt kopen.
+Met de conversieaanbiedingen wordt een hoeveelheid opgegeven die standaard hetzelfde aantal licenties heeft als het proefabonnement. U kunt deze hoeveelheid wijzigen door de eigenschap [**Quantity**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) in te stellen op het aantal licenties dat u wilt kopen.
 
 > [!NOTE]
-> Ongeacht het aantal aangeschafte licenties, wordt de abonnements-ID van de proef versie opnieuw gebruikt voor de aangeschafte licenties. Als gevolg hiervan verdwijnt de proef versie en wordt deze vervangen door de aankoop.
+> Ongeacht het aantal aangeschafte licenties, wordt de abonnements-id van de proefversie opnieuw gebruikt voor de aangeschafte licenties. Als gevolg hiervan verdwijnt de proefversie van kracht en wordt deze vervangen door de aankoop.
 
-Voer de volgende stappen uit om een proef abonnement te converteren met behulp van code:
+Gebruik de volgende stappen om een proefabonnement te converteren via code:
 
-1. Een interface voor de beschik bare abonnements bewerkingen ophalen. U moet de klant identificeren en de abonnements-id van het proef abonnement opgeven.
+1. Haal een interface op voor de beschikbare abonnementsbewerkingen. U moet de klant identificeren en de abonnements-id van het proefabonnement opgeven.
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2. Een verzameling van de beschik bare conversie aanbiedingen ophalen. Zie voor meer informatie en Details over de aanvraag/reactie voor deze methode [een lijst met aanbiedingen voor proef conversie ophalen](get-a-list-of-trial-conversion-offers.md).
+2. Een verzameling van de beschikbare conversieaanbiedingen ophalen. Zie Get a list of trial conversion offers (Een lijst met aanbiedingen voor proefconversie verkrijgen) voor meer informatie en details over de aanvraag/reactie [voor deze methode.](get-a-list-of-trial-conversion-offers.md)
 
     ``` csharp
     var conversions = subscriptionOperations.Conversions.Get();
     ```
 
-3. Kies een conversie aanbieding. Met de volgende code wordt de eerste conversie aanbieding in de verzameling gekozen.
+3. Kies een conversieaanbieding. Met de volgende code wordt de eerste conversieaanbieding in de verzameling gekozen.
 
     ``` csharp
     var selectedConversion = conversions.Items.ToList()[0];
     ```
 
-4. Geef desgewenst het aantal licenties op dat u wilt aanschaffen. De standaard waarde is het aantal licenties in het proef abonnement.
+4. Geef desgewenst het aantal licenties op dat moet worden gekocht. De standaardwaarde is het aantal licenties in het proefabonnement.
 
     ``` csharp
     selectedConversion.Quantity = 10;
     ```
 
-5. Roep de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) aan om het proef abonnement te converteren naar betaald.
+5. Roep de [**methode Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) of [**CreateAsync aan**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) om het proefabonnement te converteren naar betaald.
 
     ``` csharp
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
@@ -72,19 +68,19 @@ Voer de volgende stappen uit om een proef abonnement te converteren met behulp v
 
 ## <a name="c"></a>C\#
 
-U kunt als volgt een proef abonnement omzetten naar een betaalde versie:
+Een proefabonnement converteren naar een betaald abonnement:
 
-1. Gebruik de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren.
+1. Gebruik de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren.
 
-2. Een interface voor het uitvoeren van abonnementen ophalen door de methode [**abonnementen. ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) aan te roepen met de id van het proef abonnement. Sla een verwijzing op naar de operations-interface van het abonnement in een lokale variabele.
+2. Haal een interface op voor abonnementsbewerkingen door de methode [**Subscriptions.ById aan te**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) roepen met de abonnements-id van het proefabonnement. Sla een verwijzing naar de interface voor abonnementsbewerkingen op in een lokale variabele.
 
-3. Gebruik de eigenschap [**conversies**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) om een interface te verkrijgen voor de beschik bare bewerkingen op conversies en roep vervolgens de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) aan om een verzameling beschik bare [**conversie**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) aanbiedingen op te halen. U moet er een kiezen. In het volgende voor beeld wordt standaard de eerste conversie beschikbaar.
+3. Gebruik de [**eigenschap Conversies**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) om een interface te verkrijgen voor de beschikbare bewerkingen op conversies en roep vervolgens de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) aan om een verzameling beschikbare conversieaanbiedingen [**op te**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) halen. U moet er een kiezen. In het volgende voorbeeld wordt standaard de eerste beschikbare conversie gebruikt.
 
-4. Gebruik de verwijzing naar de operations-interface voor abonnementen die u hebt opgeslagen in een lokale variabele en de eigenschap [**conversies**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) om een interface te verkrijgen voor de beschik bare bewerkingen op conversies.
+4. Gebruik de verwijzing naar de interface voor [**abonnementsbewerkingen**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) die u hebt opgeslagen in een lokale variabele en de eigenschap Conversies om een interface te verkrijgen voor de beschikbare bewerkingen op conversies.
 
-5. Geef het geselecteerde object voor de conversie aanbieding door aan de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) om de proef versie te converteren.
+5. Geef het geselecteerde conversieaanbiedingsobject door aan [**de methode Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) om de conversie van het proefabonnement te proberen.
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -115,28 +111,28 @@ else
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Subscriptions/{Subscription-id}/conversions http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende Path-para meters om het klant-en proef abonnement te identificeren.
+Gebruik de volgende padparameters om de klant en het proefabonnement te identificeren.
 
 | Naam            | Type   | Vereist | Beschrijving                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| klant-id     | tekenreeks | Yes      | Een teken reeks met een GUID-indeling die de klant identificeert.           |
-| abonnement-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee het proef abonnement wordt geïdentificeerd. |
+| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.           |
+| subscription-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het proefabonnement identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Een gevulde [conversie](conversions-resources.md#conversion) resource moet worden opgenomen in de hoofd tekst van de aanvraag.
+Een ingevulde [conversieresource](conversions-resources.md#conversion) moet worden opgenomen in de aanvraag body.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -166,11 +162,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een [ConversionResult](conversions-resources.md#conversionresult) -resource.
+Als dit lukt, bevat de antwoord-body een [ConversionResult-resource.](conversions-resources.md#conversionresult)
 
-#### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+#### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 #### <a name="response-example"></a>Voorbeeld van antwoord
 

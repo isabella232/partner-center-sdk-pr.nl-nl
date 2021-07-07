@@ -1,49 +1,44 @@
 ---
 title: De factureringscyclus wijzigen
-description: Meer informatie over hoe u een klant abonnement bijwerkt naar een maandelijks of jaarlijks factuurt met behulp van partner Center-Api's. U kunt dit ook doen via het dash board van de partner centrum.
+description: Meer informatie over het bijwerken van een klantabonnement naar maandelijkse of jaarlijkse facturering met behulp Partner Center API's. U kunt dit ook doen vanuit het Partner Center dashboard.
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 8a2879db061ced799e29d84e71be5b1259b07689
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 435309229e2cb038c936028943f4c2cf27b032a7
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767624"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974111"
 ---
-# <a name="change-a-customer-subscription-billing-cycle"></a>Een facturerings cyclus voor een klant abonnement wijzigen
+# <a name="change-a-customer-subscription-billing-cycle"></a>Factureringscyclus van een klantabonnement wijzigen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Werkt een [order bij](order-resources.md) van maandelijkse naar jaarlijkse facturering of van jaarlijkse naar maandelijkse facturering.
 
-Hiermee wordt een [bestelling](order-resources.md) bijgewerkt van maandelijks naar jaar facturering of van jaarlijkse naar maandelijkse facturering.
-
-In het dash board van de partner centrum kan deze bewerking worden uitgevoerd door te navigeren naar de pagina met abonnements gegevens van een klant. Zodra dit het geval is, ziet u een optie voor het definiëren van de huidige facturerings cyclus voor het abonnement, met de mogelijkheid om deze te wijzigen en in te dienen.
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door te navigeren naar de pagina met abonnementsgegevens van een klant. Daar ziet u een optie voor het definiëren van de huidige factureringscyclus voor het abonnement met de mogelijkheid om deze te wijzigen en te verzenden.
 
 **Buiten het bereik** van dit artikel:
 
-- De facturerings cyclus voor experimenten wijzigen
-- Het wijzigen van de facturerings cycli voor aanbiedingen die geen jaar zijn (maandelijks, 6 jaar) & Azure-abonnementen
-- De facturerings cycli voor inactieve abonnementen wijzigen
-- Facturerings cycli voor micro soft onlineservices op licenties gebaseerde abonnementen wijzigen
+- De factureringscyclus voor proefversies wijzigen
+- De factureringscycli wijzigen voor niet-jaarlijkse termijnaanbiedingen (maandelijks, zes jaar) & Azure-abonnementen
+- De factureringscycli voor inactieve abonnementen wijzigen
+- Factureringscycli wijzigen voor Microsoft onlineservices op licenties gebaseerde abonnementen
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een order-ID.
+- Een order-id.
 
 ## <a name="c"></a>C\#
 
-Als u de frequentie van de facturerings cyclus wilt wijzigen, werkt u de eigenschap [**order. BillingCycle**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) bij.
+Als u de frequentie van de factureringscyclus wilt wijzigen, werkt u de [**eigenschap Order.BillingCycle**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) bij.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -72,51 +67,51 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/orders/{order-id} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameter voor het wijzigen van de hoeveelheid van het abonnement.
+Deze tabel bevat de vereiste queryparameter om de hoeveelheid van het abonnement te wijzigen.
 
 | Naam                   | Type | Vereist | Beschrijving                                                          |
 |------------------------|------|----------|----------------------------------------------------------------------|
-| **klant-Tenant-id** | GUID |    J     | Een in de GUID ingedeelde **klant-Tenant-id** waarmee de klant wordt geïdentificeerd |
+| **customer-tenant-id** | GUID |    J     | Een met GUID **opgemaakte klant-tenant-id** die de klant identificeert |
 | **order-id**           | GUID |    J     | De order-id                                                 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In de volgende tabellen worden de eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In de volgende tabellen worden de eigenschappen in de aanvraag body beschreven.
 
 ### <a name="order"></a>Volgorde
 
 | Eigenschap           | Type             | Vereist | Beschrijving                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| Id                 | tekenreeks           |    N     | Een order-id die is opgegeven bij het maken van de order |
+| Id                 | tekenreeks           |    N     | Een order-id die wordt opgegeven wanneer de order is gemaakt |
 |ReferenceCustomerId | tekenreeks           |    J     | De klant-id                                                    |
-| BillingCycle       | tekenreeks           |    J     | Hiermee wordt de frequentie aangegeven waarmee de partner voor deze order wordt gefactureerd. Ondersteunde waarden zijn de lidnamen in [BillingCycleType](product-resources.md#billingcycletype). |
-| Regel items          | matrix van objecten |    J     | Een matrix met [OrderLineItem](#orderlineitem) -resources                      |
-| CreationDate       | datum/tijd         |    N     | De datum waarop de order is gemaakt, in datum-tijd notatie                        |
-| Kenmerken         | Object           |    N     | Bevat "object type": "OrderLineItem"                                     |
+| BillingCycle       | tekenreeks           |    J     | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de ledennamen in [BillingCycleType.](product-resources.md#billingcycletype) |
+| Regelitems          | matrix met objecten |    J     | Een matrix met [OrderLineItem-resources](#orderlineitem)                      |
+| CreationDate       | datum/tijd         |    N     | De datum waarop de order is gemaakt, in datum/tijd-indeling                        |
+| Kenmerken         | Object           |    N     | Bevat "ObjectType": "OrderLineItem"                                     |
 
 ### <a name="orderlineitem"></a>OrderLineItem
 
 | Eigenschap             | Type   | Vereist | Beschrijving                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| LineItemNumber       | getal |    J     | Het nummer van het regel item, te beginnen met 0                                              |
-| OfferId              | tekenreeks |    J     | De ID van de aanbieding                                                                |
-| SubscriptionId       | tekenreeks |    J     | De ID van het abonnement                                                         |
-| FriendlyName         | tekenreeks |    N     | De beschrijvende naam voor het abonnement dat is gedefinieerd door de partner om dubbel zinnigheid te helpen |
+| LineItemNumber       | getal |    J     | Het regelitemnummer, beginnend met 0                                              |
+| OfferId              | tekenreeks |    J     | De id van de aanbieding                                                                |
+| SubscriptionId       | tekenreeks |    J     | De id van het abonnement                                                         |
+| FriendlyName         | tekenreeks |    N     | De gebruiksvriendelijke naam voor het abonnement dat is gedefinieerd door de partner om dubbelzinnigheid te helpen |
 | Aantal             | getal |    J     | Het aantal licenties of exemplaren                                                |
-| PartnerIdOnRecord    | tekenreeks |    N     | De MPN-ID van de partner van de record                                                |
-| Kenmerken           | Object |    N     | Bevat "object type": "OrderLineItem"                                             |
+| PartnerIdOnRecord    | tekenreeks |    N     | De MPN-id van de recordpartner                                                |
+| Kenmerken           | Object |    N     | Bevat "ObjectType": "OrderLineItem"                                             |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -159,11 +154,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de bijgewerkte abonnements volgorde in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode de bijgewerkte abonnementsorder in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

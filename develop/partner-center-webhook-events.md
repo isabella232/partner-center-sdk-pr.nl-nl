@@ -1,51 +1,46 @@
 ---
-title: Partner centrum-gebeurtenissen voor webhooks
-description: Meer informatie over het testen en gebruiken van webhook-gebeurtenissen om te noteren wanneer abonnementen en andere gebeurtenissen worden gewijzigd in het partner centrum.
+title: Partner Center webhookgebeurtenissen
+description: Informatie over het testen en gebruiken van webhookgebeurtenissen om te noteren wanneer abonnementen en andere gebeurtenissen in de Partner Center.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 03ee1d4e74408b8cf69e2971054bf9060650cb77
-ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
+ms.openlocfilehash: e5e363a2f928dd38304887547bdc0e5d652728d6
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106500036"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547737"
 ---
-# <a name="partner-center-webhook-events"></a>Partner centrum-gebeurtenissen voor webhooks
+# <a name="partner-center-webhook-events"></a>Partner Center webhookgebeurtenissen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Partner Center webhookgebeurtenissen zijn gebeurtenissen voor resourcewijziging die worden geleverd in de vorm van HTTP POST's naar een geregistreerde URL. Als u een gebeurtenis wilt ontvangen van Partner Center, host u een callback waar Partner Center de gebeurtenis kan plaatsen. De gebeurtenis is digitaal ondertekend, zodat u kunt controleren of deze is verzonden vanuit Partner Center.
 
-Partner Center-gebeurtenissen voor webhooks zijn bron wijzigings gebeurtenissen die worden geleverd in de vorm van HTTP-berichten naar een geregistreerde URL. Als u een gebeurtenis van het partner centrum wilt ontvangen, moet u een call back hosten waarin het partner centrum de gebeurtenis kan plaatsen. De gebeurtenis is digitaal ondertekend, zodat u kunt valideren dat deze is verzonden vanuit het partner centrum.
-
-Voor informatie over het ontvangen van gebeurtenissen, het verifiëren van een call back en het gebruik van de Api's van de webhook van partner Center voor het maken, weer geven en bijwerken van een gebeurtenis registratie raadpleegt u [Partner Center-webhooks](partner-center-webhooks.md).
+Zie [webhooks](partner-center-webhooks.md)voor meer informatie over het ontvangen van gebeurtenissen, het verifiëren van een callback en het gebruik van de Partner Center-webhook-API's om een gebeurtenisregistratie te maken Partner Center, weer te geven en bij te werken.
 
 ## <a name="supported-events"></a>Ondersteunde gebeurtenissen
 
-De volgende webhook-gebeurtenissen worden ondersteund door het partner centrum.
+De volgende webhookgebeurtenissen worden ondersteund door Partner Center.
 
-### <a name="test-event"></a>Test gebeurtenis
+### <a name="test-event"></a>Testgebeurtenis
 
-Met deze gebeurtenis kunt u zelf onboards en uw registratie testen door een test gebeurtenis aan te vragen en de voortgang op te sporen. U kunt de fout berichten zien die van micro soft worden ontvangen tijdens het leveren van de gebeurtenis. Dit is alleen van toepassing op gebeurtenissen waarbij de test is gemaakt en gegevens die ouder zijn dan 7 dagen worden verwijderd.
+Met deze gebeurtenis kunt u uw registratie zelf onboarden en testen door een testgebeurtenis aan te vragen en vervolgens de voortgang ervan bij te houden. U kunt de foutberichten zien die van Microsoft worden ontvangen tijdens het leveren van de gebeurtenis. Dit geldt alleen voor 'door een test gemaakte' gebeurtenissen en gegevens die ouder zijn dan zeven dagen worden verwijderd.
 
 >[!NOTE]
->Er geldt een beperkings limiet van 2 aanvragen per minuut bij het boeken van een test-gemaakte gebeurtenis.
+>Er geldt een vertragingslimiet van 2 aanvragen per minuut bij het plaatsen van een door een test gemaakte gebeurtenis.
 
 #### <a name="properties"></a>Eigenschappen
 
 | Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' test-created '.                                          |
-| ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/Registration/validationEvents/{{CorrelationId}}" |
-| ResourceName              | tekenreeks                             | De naam van de resource waarmee de gebeurtenis wordt geactiveerd. Voor deze gebeurtenis is de waarde ' test '.                                  |
-| AuditUri                  | URI                                | Beschrijving De URI voor het ophalen van de controle record, als deze bestaat. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | teken reeks in de UTC-datum-tijd notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
+| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {resource}-{action}. Voor deze gebeurtenis is de waarde 'test-created'.                                          |
+| ResourceUri               | URI                                | De URI om de resource op te halen. Maakt gebruik van de syntaxis:[*"{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
+| ResourceName              | tekenreeks                             | De naam van de resource die de gebeurtenis activeert. Voor deze gebeurtenis is de waarde 'test'.                                  |
+| AuditUri                  | URI                                | (Optioneel) De URI om de controlerecord op te halen, als deze bestaat. Maakt gebruik van de syntaxis:[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | tekenreeks in de UTC-datum/tijd-notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
 
 #### <a name="example"></a>Voorbeeld
 
@@ -59,22 +54,22 @@ Met deze gebeurtenis kunt u zelf onboards en uw registratie testen door een test
 }
 ```
 
-### <a name="subscription-updated-event"></a>Gebeurtenis bijgewerkt abonnement
+### <a name="subscription-updated-event"></a>Gebeurtenis abonnement bijgewerkt
 
-Deze gebeurtenis treedt op wanneer het opgegeven abonnement wordt gewijzigd. Er wordt een bijgewerkte gebeurtenis gegenereerd wanneer er sprake is van een interne wijziging naast wanneer wijzigingen worden aangebracht via de partner centrum-API.  Deze gebeurtenis wordt alleen gegenereerd als er wijzigingen op Commerce niveau zijn, bijvoorbeeld wanneer het aantal licenties wordt gewijzigd en wanneer de status van het abonnement wordt gewijzigd. Het wordt niet gegenereerd wanneer er resources worden gemaakt binnen het abonnement.
+Deze gebeurtenis teert wanneer het opgegeven abonnement wordt gewijzigd. Er wordt een gebeurtenis Abonnement bijgewerkt gegenereerd wanneer er een interne wijziging is naast wanneer er wijzigingen worden aangebracht via de Partner Center API.  Deze gebeurtenis wordt alleen gegenereerd wanneer er wijzigingen in het commerceniveau zijn, bijvoorbeeld wanneer het aantal licenties wordt gewijzigd en wanneer de status van het abonnement verandert. Deze wordt niet gegenereerd wanneer resources binnen het abonnement worden gemaakt.
 
 >[!NOTE]
->Er is een vertraging van Maxi maal 48 uur tussen het tijdstip waarop een abonnement wijzigt en wanneer de gebeurtenis bijgewerkt abonnement wordt geactiveerd.
+>Er is een vertraging van maximaal 48 uur tussen het moment waarop een abonnement wordt gewijzigd en het moment waarop de gebeurtenis Abonnement bijgewerkt wordt geactiveerd.
 
 #### <a name="properties"></a>Eigenschappen
 
 | Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' abonnement-bijgewerkt '.                                  |
-| ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/Customers/{{CustomerId}}/Subscriptions/{{SubscriptionId}}" |
-| ResourceName              | tekenreeks                             | De naam van de resource waarmee de gebeurtenis wordt geactiveerd. Voor deze gebeurtenis is de waarde ' abonnement '.                          |
-| AuditUri                  | URI                                | Beschrijving De URI voor het ophalen van de controle record, als deze bestaat. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | teken reeks in de UTC-datum-tijd notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
+| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {resource}-{action}. Voor deze gebeurtenis is de waarde 'abonnement bijgewerkt'.                                  |
+| ResourceUri               | URI                                | De URI om de resource op te halen. Maakt gebruik van de syntaxis :[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
+| ResourceName              | tekenreeks                             | De naam van de resource die de gebeurtenis activeert. Voor deze gebeurtenis is de waarde 'abonnement'.                          |
+| AuditUri                  | URI                                | (Optioneel) De URI om de controlerecord op te halen, als deze bestaat. Maakt gebruik van de syntaxis:[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | tekenreeks in de UTC-datum/tijd-notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
 
 #### <a name="example"></a>Voorbeeld
 
@@ -90,17 +85,17 @@ Deze gebeurtenis treedt op wanneer het opgegeven abonnement wordt gewijzigd. Er 
 
 ### <a name="threshold-exceeded-event"></a>Gebeurtenis drempelwaarde overschreden
 
-Deze gebeurtenis treedt op wanneer de hoeveelheid Microsoft Azure gebruik voor een klant groter is dan het bestedings budget van het gebruik (de drempel waarde). Zie voor meer informatie [een Azure-uitgaven budget instellen voor uw klanten/Partner-Center/set-a-Azure-besteding-budget-voor-uw klanten).
+Deze gebeurtenis teert wanneer de hoeveelheid Microsoft Azure voor elke klant het gebruiksuitgavenbudget (hun drempelwaarde) overschrijdt. Zie [Een Azure-uitgavenbudget instellen voor uw klanten/partnercentrum/set-an-azure-spending-budget-for-your-customers) voor meer informatie.
 
 #### <a name="properties"></a>Eigenschappen
 
 | Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde "usagerecords-thresholdExceeded".                                  |
-| ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/Customers/usagerecords" |
-| ResourceName              | tekenreeks                             | De naam van de resource waarmee de gebeurtenis wordt geactiveerd. Voor deze gebeurtenis is de waarde "usagerecords".                          |
-| AuditUri                  | URI                                | Beschrijving De URI voor het ophalen van de controle record, als deze bestaat. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | teken reeks in de UTC-datum-tijd notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
+| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {resource}-{action}. Voor deze gebeurtenis is de waarde 'usagerecords-thresholdExceeded'.                                  |
+| ResourceUri               | URI                                | De URI om de resource op te halen. Maakt gebruik van de [*syntaxis: {baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords |
+| ResourceName              | tekenreeks                             | De naam van de resource die de gebeurtenis activeert. Voor deze gebeurtenis is de waarde 'usagerecords'.                          |
+| AuditUri                  | URI                                | (Optioneel) De URI om de controlerecord op te halen, als deze bestaat. Maakt gebruik van de syntaxis:[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | tekenreeks in de UTC-datum/tijd-notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
 
 #### <a name="example"></a>Voorbeeld
 
@@ -114,19 +109,19 @@ Deze gebeurtenis treedt op wanneer de hoeveelheid Microsoft Azure gebruik voor e
 }
 ```
 
-### <a name="referral-created-event"></a>Gebeurtenis verwijzing gemaakt
+### <a name="referral-created-event"></a>Door verwijzing gemaakte gebeurtenis
 
-Deze gebeurtenis treedt op wanneer de verwijzing wordt gemaakt.
+Deze gebeurtenis wordt aangemaakt wanneer de verwijzing wordt gemaakt.
 
 #### <a name="properties"></a>Eigenschappen
 
 | Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' Referral-created '.                                  |
-| ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/Engagements/v1/referrals/{{ReferralID}}" |
-| ResourceName              | tekenreeks                             | De naam van de resource waarmee de gebeurtenis wordt geactiveerd. Voor deze gebeurtenis is de waarde ' Referral '.                          |
-| AuditUri                  | URI                                | Beschrijving De URI voor het ophalen van de controle record, als deze bestaat. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | teken reeks in de UTC-datum-tijd notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
+| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {resource}-{action}. Voor deze gebeurtenis is de waarde 'verwijzing gemaakt'.                                  |
+| ResourceUri               | URI                                | De URI om de resource op te halen. Maakt gebruik van de syntaxis:[*"{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
+| ResourceName              | tekenreeks                             | De naam van de resource die de gebeurtenis activeert. Voor deze gebeurtenis is de waarde verwijzing.                          |
+| AuditUri                  | URI                                | (Optioneel) De URI om de controlerecord op te halen, als deze bestaat. Maakt gebruik van de [*syntaxis: {baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | tekenreeks in de UTC-datum/tijd-indeling | De datum en tijd waarop de resource is gewijzigd.                                                         |
 
 #### <a name="example"></a>Voorbeeld
 
@@ -140,19 +135,19 @@ Deze gebeurtenis treedt op wanneer de verwijzing wordt gemaakt.
 }
 ```
 
-### <a name="referral-updated-event"></a>Gebeurtenis verwijzing bijgewerkt
+### <a name="referral-updated-event"></a>Gebeurtenis bijgewerkt door verwijzing
 
-Deze gebeurtenis treedt op wanneer de verwijzing wordt bijgewerkt.
+Deze gebeurtenis t doet zich voor wanneer de verwijzing wordt bijgewerkt.
 
 #### <a name="properties"></a>Eigenschappen
 
 | Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' referentie-bijgewerkt '.                                  |
-| ResourceUri               | URI                                | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/Engagements/v1/referrals/{{ReferralID}}" |
-| ResourceName              | tekenreeks                             | De naam van de resource waarmee de gebeurtenis wordt geactiveerd. Voor deze gebeurtenis is de waarde ' Referral '.                          |
-| AuditUri                  | URI                                | Beschrijving De URI voor het ophalen van de controle record, als deze bestaat. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | teken reeks in de UTC-datum-tijd notatie | De datum en tijd waarop de resource is gewijzigd.                                                         |
+| Gebeurtenisnaam                 | tekenreeks                             | De naam van de gebeurtenis. In de vorm {resource}-{action}. Voor deze gebeurtenis is de waarde 'verwijzing bijgewerkt'.                                  |
+| ResourceUri               | URI                                | De URI om de resource op te halen. Maakt gebruik van de syntaxis:[*"{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
+| ResourceName              | tekenreeks                             | De naam van de resource die de gebeurtenis activeert. Voor deze gebeurtenis is de waarde verwijzing.                          |
+| AuditUri                  | URI                                | (Optioneel) De URI om de controlerecord op te halen, als deze bestaat. Maakt gebruik van de [*syntaxis: {baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | tekenreeks in de UTC-datum/tijd-indeling | De datum en tijd waarop de resource is gewijzigd.                                                         |
 
 #### <a name="example"></a>Voorbeeld
 
@@ -166,17 +161,17 @@ Deze gebeurtenis treedt op wanneer de verwijzing wordt bijgewerkt.
 }
 ```
 
-### <a name="invoice-ready-event"></a>Gebeurtenis factuur gereed
+### <a name="invoice-ready-event"></a>Gebeurtenis gereed voor factuur
 
-Deze gebeurtenis treedt op wanneer de nieuwe factuur gereed is.
+Deze gebeurtenis wordt verhoogd wanneer de nieuwe factuur gereed is.
 
 | Eigenschap                  | Type                               | Beschrijving                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Gebeurtenisnaam | tekenreeks | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Voor deze gebeurtenis is de waarde ' factuur-gereed '. |
-| ResourceUri | URI | De URI voor het ophalen van de resource. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |
-| ResourceName | tekenreeks | De naam van de resource waarmee de gebeurtenis wordt geactiveerd. Voor deze gebeurtenis is de waarde "invoice". |
-| AuditUri |  URI | Beschrijving De URI voor het ophalen van de controle record, als deze bestaat. Gebruikt de syntaxis: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}") |
-| ResourceChangeUtcDate | teken reeks in de UTC-datum-tijd notatie | De datum en tijd waarop de resource is gewijzigd. |
+| Gebeurtenisnaam | tekenreeks | De naam van de gebeurtenis. In de vorm {resource}-{action}. Voor deze gebeurtenis is de waarde 'gereed voor factuur'. |
+| ResourceUri | URI | De URI om de resource op te halen. Maakt gebruik van de syntaxis :[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |
+| ResourceName | tekenreeks | De naam van de resource die de gebeurtenis activeert. Voor deze gebeurtenis is de waarde 'factuur'. |
+| AuditUri |  URI | (Optioneel) De URI om de controlerecord op te halen, als deze bestaat. Maakt gebruik van de syntaxis:[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}") |
+| ResourceChangeUtcDate | tekenreeks in de UTC-datum/tijd-indeling | De datum en tijd waarop de resource is gewijzigd. |
 
 #### <a name="example"></a>Voorbeeld
 

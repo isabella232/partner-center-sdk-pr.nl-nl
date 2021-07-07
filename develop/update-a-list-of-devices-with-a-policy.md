@@ -1,30 +1,27 @@
 ---
 title: Een lijst met apparaten met een beleid bijwerken
-description: Een lijst met apparaten bijwerken met een configuratie beleid voor de opgegeven klant.
+description: Een lijst met apparaten bijwerken met een configuratiebeleid voor de opgegeven klant.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 04c2ef33116335db40bd2934dc7e33d57f015097
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 35b35873eb253b0929bfc01662b0beb9b31d0c6b
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767512"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530069"
 ---
 # <a name="update-a-list-of-devices-with-a-policy"></a>Een lijst met apparaten met een beleid bijwerken
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-Een lijst met apparaten bijwerken met een configuratie beleid voor de opgegeven klant.
+Een lijst met apparaten bijwerken met een configuratiebeleid voor de opgegeven klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De beleids-id.
 
@@ -32,11 +29,11 @@ Een lijst met apparaten bijwerken met een configuratie beleid voor de opgegeven 
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met apparaten met het opgegeven configuratie beleid wilt bijwerken, maakt u eerst een [list/DotNet/API/System. Collections. generic. List -1) van het type [KeyValuePair/DotNet/API/System. Collections. generic. KeyValuePair -2)[**(PolicyCategory,**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)String) en voegt u het toe te passen beleid, zoals wordt weer gegeven in het volgende code voorbeeld. U hebt de beleids-id van het beleid nodig.
+Als u een lijst met apparaten met het opgegeven configuratiebeleid wilt bijwerken, instantieert u eerst een [List/dotnet/api/system.collections.generic.list-1) van het type [KeyValuePair/dotnet/api/system.collections.generic.keyvaluepair-2)[**(PolicyCategory,**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)string) en voegt u het toe te passen beleid toe, zoals wordt weergegeven in het volgende codevoorbeeld. U hebt de beleids-id van het beleid nodig.
 
-Maak vervolgens een lijst met [**device**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) -objecten die moeten worden bijgewerkt met het beleid, waarbij de apparaat-id en de lijst die het toe te passen beleid bevat, voor elk apparaat worden opgegeven. Maak vervolgens een exemplaar van een [**DevicePolicyUpdateRequest**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest) -object en stel de eigenschap [**devices**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) in op de lijst met apparaatgroepen.
+Maak vervolgens een [](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) lijst met Apparaatobjecten die moeten worden bijgewerkt met het beleid, met de apparaat-id en de lijst met het toe te passen beleid voor elk apparaat. Vervolgens maakt u een [**DevicePolicyUpdateRequest-object**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest) en stelt u de eigenschap [**Devices**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) in op de lijst met apparaatobjecten.
 
-Als u de aanvraag voor het bijwerken van het apparaatbeleid wilt verwerken, roept u de [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) -methode aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Vervolgens haalt u de eigenschap [**DevicePolicy**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy) op om een interface op te halen voor het verzamelen van klant apparaten. Roep tot slot de methode [**Update**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update) aan met het object DevicePolicyUpdateRequest om de apparaten bij te werken met het beleid.
+Als u de aanvraag voor het bijwerken van het apparaatbeleid wilt verwerken, roept u de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Haal vervolgens de eigenschap [**DevicePolicy op**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy) om een interface op te halen voor bewerkingen voor het verzamelen van apparaten van klanten. Roep ten slotte de [**updatemethode**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update) aan met het object DevicePolicyUpdateRequest om de apparaten bij te werken met het beleid.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -74,31 +71,31 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DevicePolicy.Update(devicePolicyUpdateRequest);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: UpdateDevicesPolicy.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: UpdateDevicesPolicy.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                         |
 |-----------|-----------------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/DevicePolicyUpdates http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/DevicePolicyUpdates HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende Path-para meters bij het maken van de aanvraag.
+Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| klant-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd. |
+| customer-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag tekst moet een [DevicePolicyUpdateRequest](device-deployment-resources.md#devicepolicyupdaterequest) -resource bevatten.
+De aanvraag moet een [DevicePolicyUpdateRequest-resource](device-deployment-resources.md#devicepolicyupdaterequest) bevatten.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -143,11 +140,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord een **locatie** header met een URI die kan worden gebruikt om de status van dit batch proces op te halen. Sla deze URI op voor gebruik met andere verwante REST Api's.
+Als dit lukt, bevat het antwoord een **Location-header** met een URI die kan worden gebruikt om de status van dit batchproces op te halen. Sla deze URI op voor gebruik met andere gerelateerde REST API's.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

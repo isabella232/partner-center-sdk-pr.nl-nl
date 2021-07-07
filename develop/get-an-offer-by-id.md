@@ -1,38 +1,33 @@
 ---
 title: Een aanbieding ophalen op basis van id
-description: Hiermee wordt een aanbiedings bron opgehaald die overeenkomt met de ID van de aanbieding.
+description: Haalt een aanbiedingsresource op die overeenkomt met de aanbiedings-id.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: brentserbus
 ms.author: brserbus
-ms.openlocfilehash: 9448276e817affb823eddabbcab8757c79615fbd
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f759cbdeefb4f550c41b41de40e9979e72e4ddeb
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767564"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760637"
 ---
 # <a name="get-an-offer-by-id"></a>Een aanbieding ophalen op basis van id
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een **aanbiedings** bron opgehaald die overeenkomt met de id van de aanbieding.
+Haalt een **aanbiedingsresource** op die overeenkomt met de aanbiedings-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een aanbiedings-ID.
+- Een aanbiedings-id.
 
 ## <a name="c"></a>C\#
 
-Als u een specifieke aanbieding op ID wilt zoeken, gebruikt u uw **IAggregatePartner. offers** -verzameling, stelt u het land in met een aanroep van **ByCountry ()** en roept u vervolgens de methode [**ByID ()**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) aan. Roep vervolgens de methode [**Get ()**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) of [**Get async () aan**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) .
+Als u een specifieke aanbieding wilt zoeken op id, gebruikt u de verzameling **IAggregatePartner.Offers,** brengt u het land tot stand met een aanroep naar **ByCountry()** en roept u vervolgens de [**methode ByID()**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) aan. Roep vervolgens de [**methode Get()**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) of [**Get Async()**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) aan.
 
 ```csharp
 // IAggretagePartner partnerOperations;
@@ -43,13 +38,13 @@ Als u een specifieke aanbieding op ID wilt zoeken, gebruikt u uw **IAggregatePar
 var offer = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: GetOffer.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: GetOffer.cs 
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u een specifieke aanbieding op ID wilt zoeken, gebruikt u de functie **IAggregatePartner. getOffers** , stelt u het land in met een aanroep van de functie **byCountry ()** en roept u vervolgens de functie **byID ()** aan. Roep vervolgens de functie **Get () aan** .
+Als u een specifieke aanbieding wilt zoeken op id, gebruikt u de functie **IAggregatePartner.getOffers,** stelt u het land in met een aanroep naar de functie **byCountry()** en roept u vervolgens de **functie byID()** aan. Roep vervolgens de **functie get()** aan.
 
 ```java
 // IAggretagePartner partnerOperations;
@@ -64,7 +59,7 @@ Offer offer = partnerOperations.getOffers().byCountry(countryCode).byId(offerId)
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u een specifieke aanbieding op ID wilt zoeken, voert u de opdracht [**Get-PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md) uit en geeft u de para meters **CountryCode** en **OfferId** op.
+Als u een specifieke aanbieding op id wilt vinden, voert u [**de opdracht Get-PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md) uit en geeft u de parameters **CountryCode** **en OfferId** op.
 
 ```powershell
 # $countryCode
@@ -75,23 +70,23 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}? land = {land-id} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}?country={country-id} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
 | Naam           | Type       | Vereist | Beschrijving                           |
 |----------------|------------|----------|---------------------------------------|
-| **aanbieding-ID**   | **guid**   | J        | Een GUID die overeenkomt met de aanbieding. |
-| **land-id** | **tekenreeksexpressie** | J        | De ID van het land/de regio.                |
+| **offer-id**   | **guid**   | J        | Een GUID die overeenkomt met de aanbieding. |
+| **country-id** | **tekenreeks** | J        | De land-/regio-id.                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Een **land instellingen-id** die is opgemaakt als een teken reeks is vereist.
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+- Er **is een locale-id** vereist die is opgemaakt als een tekenreeks.
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -111,11 +106,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een resource voor de **aanbieding** in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **aanbiedingsresource** in de antwoordbody.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

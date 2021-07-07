@@ -1,118 +1,113 @@
 ---
-title: Testen en fouten opsporen met integratie sandbox
-description: Meer informatie over het gebruik van uw sandbox-account voor integratie met partner centrum (en gerelateerde tokens) om uw code te testen en fouten op te lossen, zodat u niet per ongeluk nieuwe kosten kunt maken.
+title: Testen en fouten opsporen met integratie-sandbox
+description: Meer informatie over het gebruik van Partner Center sandbox-account voor integratie (en gerelateerde tokens) om uw code te testen en fouten op te sporen, zodat er niet per ongeluk nieuwe kosten in rekening worden gebracht.
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3ff4a7ec3ad984b09c60d3d820423c614fb8020d
-ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
+ms.openlocfilehash: 7a9d7755cd9f493f44f9a7bbf613e0f80cf7b4ac
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100499878"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530103"
 ---
-# <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Testen en fouten opsporen met de sandbox integratie van partner centrum om te voor komen dat er onverwachte kosten worden betaald
+# <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Test en foutopsporing met uw Partner Center-integratie-sandbox om te voorkomen dat u onverwachte kosten betaalt
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Als u uw code wilt testen, moet u uw sandbox-account voor integratie gebruiken in Partner Center (en de bijbehorende tokens), zodat er niet per ongeluk nieuwe kosten in rekening worden gebracht die uw bedrijf moet betalen. Zie API-toegang instellen in Partner Center voor meer informatie over deze [Test-In-Production-omgeving (TiP).](set-up-api-access-in-partner-center.md)
 
-Als u uw code wilt testen, moet u uw account voor integratie sandbox gebruiken in het partner centrum (en de bijbehorende tokens), zodat u niet per ongeluk nieuwe kosten maakt die uw bedrijf verantwoordelijk is voor de betaling. Zie [API-toegang instellen in Partner Center](set-up-api-access-in-partner-center.md)voor meer informatie over deze omgeving van test-in-productie (TiP).
+## <a name="integration-sandbox-constraints"></a>Beperkingen voor de integratie-sandbox
 
-## <a name="integration-sandbox-constraints"></a>Beperkingen voor integratie sandbox
+Als u geautomatiseerde buildverificatietests hebt uitgevoerd, tests in productie wilt uitvoeren of handmatige tests in de integratie-sandbox wilt uitvoeren, kunt u de maximumlimieten voor de integratie-sandbox bereiken. Deze limieten zijn 75 klanten, 5 abonnementen per klant en 25 licenties per abonnement.
 
-Als u geautomatiseerde compilatie tests uitvoert, testen in productie of hand matige tests uitvoert in de sandbox voor integratie, kunt u de maximum limieten voor de sandbox voor integratie maken. Deze limieten zijn 75 klanten, 5 abonnementen per klant en 25 licenties per abonnement.
+De limiet van 25 licenties betekent dat u geen aanbieding kunt verkrijgen in de sandbox met een minimale licentievereiste die groter is dan 25 licenties. Deze beperking geldt ook voor proefversies.
 
-De limiet van 25 licenties betekent dat u geen aanbieding in de sandbox kunt verkrijgen met een minimale licentie vereiste die meer dan 25 licenties overschrijdt. Deze beperking omvat experimenten.
+Er zijn verschillende factuur- en afstemmingsbestanden beschikbaar in de Sandbox-omgevingen, maar deze zijn niet allemaal beschikbaar op verouderde of moderne platforms. Controleer de onderstaande tabel voor meer informatie.
 
-Er zijn verschillende factuur-en reconciliatie bestanden beschikbaar in de sandbox-omgevingen, maar deze zijn niet allemaal beschikbaar op verouderde of moderne platforms. Controleer de onderstaande tabel voor meer informatie.
-
-| **Bestanden**                    | **Beschikbaar in verouderde** | **Beschikbaar in modern** |
+| **Bestanden**                    | **Beschikbaar in verouderd** | **Beschikbaar in Modern** |
 | ---------------------------- | ------------------------ | ------------------------ |
 | Factuur (PDF)                  | Nee                       | Ja                      |
-| Factuur afstemmings bestand | Nee                       | Ja                      |
-| Factuur Ramings bestand       | Nee                       | Ja                      |
-| Dagelijks gefactureerd gebruiks bestand     | Nee                       | Ja                      |
-| Dagelijks niet-gefactureerd gebruiks bestand   | Nee                       | Ja                      |
+| Factuurafstemmingsbestand | Nee                       | Ja                      |
+| Factuurschattingsbestand       | Nee                       | Ja                      |
+| Dagelijks gefactureerd gebruiksbestand     | Nee                       | Ja                      |
+| Dagelijks bestand met niet-gebild gebruik   | Nee                       | Ja                      |
 
 
 ### <a name="azure-plan"></a>Azure-abonnement
 
-Standaard kunnen partners geen Azure-abonnementen inrichten met hun Sandbox-accounts. Partners die dit moeten doen met hun sandbox-account moeten worden toegepast voor toegang. Om toegang te krijgen tot uw Microsoft-account manager of zakelijke contact persoon. Partners die eerder hebben toegepast voor toegang tot het inrichten van Microsoft Azure-abonnementen (MS-AZR-0145P) in hun Sandbox-accounts, hoeven niet opnieuw te worden toegepast voor toegang. Ze krijgen toegang om Azure-abonnementen automatisch in te richten.
+Standaard kunnen partners geen Azure-abonnementen inrichten met behulp van hun sandbox-accounts. Partners die dit willen doen met hun sandbox-account, moeten toegang aanvragen. Als u toegang wilt aanvragen, neem dan contact op met Microsoft-account manager of zakelijke contactpersoon. Partners die eerder toegang hebben aangevraagd voor het inrichten van Microsoft Azure-abonnementen (MS-AZR-0145P) in hun sandbox-accounts, hoeven geen toegang opnieuw aan te melden. Ze krijgen toegang tot het automatisch inrichten van Azure-abonnementen.
 
 Voor partners waarvan de sandbox-accounts zijn goedgekeurd voor het inrichten van Azure-plannen, gelden de volgende limieten:
 
-- Elk sandbox-partner account kan Maxi maal 10 Azure-abonnementen hebben op alle tenants van de klant (ongeacht hoe de plannen worden gedistribueerd tussen de klanten).
+- Elk sandbox-partneraccount kan maximaal 10 Azure-abonnementen hebben voor alle tenants van klanten (ongeacht hoe de plannen worden verdeeld over de klanten).
 
-- Een directe factuur partner kan Maxi maal één Azure-plan maken per klant Tenant.
+- Een directe factuurpartner kan maximaal één Azure-plan per klant-tenant maken.
 
-- Een indirecte provider kan Maxi maal drie Azure-abonnementen maken per klant Tenant (voor verschillende indirecte wederverkopers die zijn opgegeven als partner-of-record).
+- Een indirecte provider kan maximaal drie Azure-abonnementen per klantten tenant maken (voor verschillende indirecte resellers die zijn opgegeven als de Partner-of-Record).
 
-- Elk Azure-abonnement kan Maxi maal drie Azure-abonnementen hebben.
+- Elk Azure-plan kan maximaal drie Azure-abonnementen hebben.
 
-- Elk CSP Azure-abonnement onder uw sandbox-account is beperkt tot vier virtuele machine (VM) kernen per Data Center. Daarom kunt u geen VM-Sku's inrichten waarvoor meer dan vier VM-kernen zijn vereist. Bepaalde gespecialiseerde VM-Sku's, zoals GPU-kernen, worden ook uitgesloten.
+- Elk CSP Azure-abonnement onder uw sandbox-account is beperkt tot vier kernen van virtuele machines (VM's) per datacenter. Daarom kunt u geen VM-SKU's inrichten waarvoor meer dan vier VM-kernen zijn vereist. Bepaalde gespecialiseerde VM-SKU's, zoals GPU-kernen, worden ook uitgesloten.
 
-- Elk sandbox-partner account heeft een bestedings limiet van $2000 (USD) per facturerings cyclus voor alle Azure-abonnementen. Zodra een partner de bestedings limiet bereikt, worden alle Azure-abonnementen tijdelijk uitgeschakeld tot de volgende facturerings cyclus.
+- Elk sandbox-partneraccount heeft een bestedingslimiet van $ 2000 (USD) per factureringscyclus voor alle Azure-abonnementen. Zodra een partner de uitgavenlimiet heeft bereikt, worden alle Azure-abonnementen tijdelijk uitgeschakeld tot de volgende factureringscyclus.
 
-### <a name="cloud-solution-provider-csp-azure-subscription-offers"></a>Aanbiedingen van het Azure-abonnement voor de Cloud Solution Provider (CSP)
+### <a name="cloud-solution-provider-csp-azure-subscription-offers"></a>azure Cloud Solution Provider abonnementaanbiedingen (CSP)
 
-De aanbiedingen voor de CSP Azure-abonnement zijn niet meer standaard beschikbaar in Sandbox-accounts. Dit zijn onder andere MS-AZR-0146P, MS-AZR-DE-0146P en MS-AZR-USGOV-0146P voor CSP Azure-abonnementen in respectievelijk micro soft Public Cloud, Duitse Cloud en Government Cloud. Partners die toegang nodig hebben tot deze aanbiedingen met hun sandbox-account, moeten een aanvraag indienen voor toegang. Bespreek met uw Microsoft-account manager of zakelijke contact persoon om de toegang toe te passen.
+Aanbiedingen voor CSP Azure-abonnementen zijn niet meer standaard beschikbaar voor sandbox-accounts. Dit zijn respectievelijk MS-AZR-0146P, MS-AZR-DE-0146P en MS-AZR-USGOV-0146P voor CSP Azure-abonnementen in microsoft public cloud, Duitse cloud en government cloud. Partners die toegang tot deze aanbiedingen nodig hebben met hun sandbox-account, moeten toegang aanvragen. Als u toegang wilt aanvragen, kunt u contact opnemen met Microsoft-account manager of zakelijke contactpersoon.
 
-Voor partners waarvan de sandbox-accounts zijn goedgekeurd voor CSP Azure-abonnements aanbiedingen, gelden de volgende limieten:
+Voor partners waarvan de sandbox-accounts zijn goedgekeurd voor aanbiedingen van CSP Azure-abonnementen, gelden de volgende limieten:
 
-- U kunt Maxi maal 375 actieve abonnementen hebben (75 klanten x 5 abonnementen per klant). Maar 10 van kan CSP Azure-abonnementen zijn.
+- U kunt maximaal 375 actieve abonnementen hebben (75 klanten x 5 abonnementen per klant). Slechts 10 van deze abonnementen kunnen echter CSP Azure-abonnementen zijn.
 
-- Wanneer een CSP Azure-abonnement $200 van het Azure-gebruik bereikt, worden de bijbehorende resources tijdelijk uitgeschakeld tot de volgende facturerings cyclus. Het wordt nog steeds beschouwd als een actief abonnement en wordt meegeteld bij de limiet van 10 actieve Azure-abonnementen.
+- Wanneer een CSP Azure-abonnement $ 200 aan Azure-gebruik bereikt, worden de resources tijdelijk uitgeschakeld tot de volgende factureringscyclus. Het wordt nog steeds beschouwd als een actief abonnement en wordt meegetelde voor de limiet van 10 actieve Azure-abonnementen.
 
-- Elk CSP Azure-abonnement onder uw sandbox-account is beperkt tot vier virtuele machine (VM) kernen per Data Center. Daarom kunt u geen VM-Sku's inrichten waarvoor meer dan vier VM-kernen zijn vereist. Bepaalde gespecialiseerde VM-Sku's, zoals GPU-kernen, worden ook uitgesloten.
+- Elk CSP Azure-abonnement onder uw sandbox-account is beperkt tot vier kernen van virtuele machines (VM's) per datacenter. Daarom kunt u geen VM-SKU's inrichten waarvoor meer dan vier VM-kernen zijn vereist. Bepaalde gespecialiseerde VM-SKU's, zoals GPU-kernen, worden ook uitgesloten.
 
 > [!Important]
-> Alle bestaande CSP Azure-abonnementen die zijn ingericht met Sandbox-accounts vóór 1 augustus 2018, worden niet meer ondersteund en worden door micro soft ongedaan gemaakt tussen 16 oktober tot en met 31 oktober 2018. Wanneer de inrichting van de abonnementen ongedaan is gemaakt, kan deze niet opnieuw worden ingeschakeld en zijn de bijbehorende gegevens niet meer toegankelijk. Partners die waardevolle gegevens hebben opgeslagen onder deze abonnementen, moeten een back-up van de gegevens maken vóór 16 oktober 2018.
+> Alle bestaande CSP Azure-abonnementen die zijn ingericht met sandbox-accounts vóór 1 augustus 2018 worden niet meer ondersteund en worden van 16 oktober tot 31 oktober 2018 door Microsoft in de inrichting verwijderd. Nadat de abonnementen zijn verwijderd, kunnen ze niet opnieuw worden ingeschakeld en zijn gekoppelde gegevens niet meer toegankelijk. Partners die waardevolle gegevens hebben opgeslagen onder deze abonnementen, moeten vóór 16 oktober 2018 een back-up van de gegevens maken.
 
-### <a name="azure-reserved-vm-instance"></a>Voor Azure gereserveerde VM-instantie
+### <a name="azure-reserved-vm-instance"></a>Gereserveerde VM-instantie van Azure
 
-Als u [een gereserveerde VM-instantie van Azure aanschaft](purchase-azure-reservations.md) met uw sandbox-account, bent u beperkt tot twee VM-exemplaren per klant. U bent ook beperkt tot het selecteren van alleen de volgende Azure reserved VM-exemplaar product-Sku's:
+Als u een [gereserveerde VM-instantie](purchase-azure-reservations.md) van Azure koopt met uw sandbox-account, bent u beperkt tot twee VM-exemplaren per klant. U kunt ook alleen selecteren uit de volgende product-SKU's voor gereserveerde Azure-VM-instanties:
 
-| Product titel  | Ingangs datum  | SKU-titel                                               | Regio [ArmRegionName] | Instantie sleutel [ArmSkuName] | Duur | Verbruiks meter-id       |
+| Producttitel  | Ingangsdatum  | SKU-titel                                               | Regio [ArmRegionName] | Exemplaarsleutel [ArmSkuName] | Duur | Verbruiksmeter-id       |
 |----------------|-----------------|---------------------------------------------------------|------------------------|--------------|----------|----------------------------|
-| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, KR-zuid, 1 jaar    | KoreaSouth             | `Standard_B1s` | `1Year`    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
-| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, VS Oost, 1 jaar     | eastus                 | `Standard_B1s` | `1Year`    | f4d7a5a5-1b67-45ea-b1a0-282fbdd34b05 |
-| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, VS West 2, 1 jaar   | westus2                | `Standard_B1s` | `1Year`    | 222e39f5-e99f-4fa3-a323-f46402977888 |
-| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, VS Noord-Centraal, 1 jaar    | northcentralus | `Standard_B1s` | `1Year`    | 4e1716fc-4842-43f1-aa96-7c1b1b1395a7 |
-| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, CA-oost, 1 jaar     | CanadaEast             | `Standard_B1s` | `1Year`    | ab8a5993-5db7-47c8-b3b1-2e1365b353fb |
+| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, KR - zuid, 1 jaar    | KoreaSouth             | `Standard_B1s` | `1Year`    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
+| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, US - oost, 1 jaar     | eastus                 | `Standard_B1s` | `1Year`    | f4d7a5a5-1b67-45ea-b1a0-282fbdd34b05 |
+| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, US - west 2, 1 jaar   | westus2                | `Standard_B1s` | `1Year`    | 222e39f5-e99f-4fa3-a323-f464029778888 |
+| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, US - noord-centraal, 1 jaar    | northcentralus | `Standard_B1s` | `1Year`    | 4e1716fc-4842-43f1-aa96-7c1b1b1395a7 |
+| B-serie       | 12/1/2017 0:00  | Gereserveerde VM-instantie, Standard_B1s, CA - oost, 1 jaar     | Canada -ast             | `Standard_B1s` | `1Year`    | ab8a5993-5db7-47c8-b3b1-2e1365b353fb |
 
-### <a name="subscriptions-for-commercial-marketplace-products"></a>Abonnementen voor commerciële Marketplace-Producten
+### <a name="subscriptions-for-commercial-marketplace-products"></a>Abonnementen voor commerciële marketplace-producten
 
-Nadat u in productie [een abonnement hebt gemaakt op een commerciële Marketplace SaaS-producten](create-subscription-azure-marketplace-products.md), moet u een persoonlijke activerings koppeling ophalen van het partner centrum en de site van de uitgever bezoeken om het installatie proces te volt ooien. De facturering van het abonnement wordt pas gestart nadat de installatie is voltooid.
+Nadat u in productie een abonnement op [Commerciële Marketplace SaaS-producten](create-subscription-azure-marketplace-products.md)hebt gemaakt, moet u een gepersonaliseerde activeringskoppeling ophalen van Partner Center en naar de site van de uitgever gaan om het installatieproces te voltooien. Abonnementsfacturering begint pas nadat de installatie is voltooid.
 
-In de CSP-sandbox-omgeving is er geen integratie met Isv's. Als u probeert een activerings koppeling op te halen van het partner centrum, wordt een dummy-koppeling geretourneerd. U kunt deze dummy koppeling niet gebruiken om het installatie proces te volt ooien op de site van de uitgever. Zie [een sandbox-abonnement voor commerciële Marketplace-producten activeren](activate-sandbox-subscription-azure-marketplace-products.md) als u het account voor integratie sandbox wilt gebruiken om de facturering te testen voor abonnementen op de SaaS-producten van de commerciële markt plaats. De facturering van het abonnement wordt gestart nadat de activering is voltooid.
+In de CSP-sandboxomgeving is er geen integratie met ISV's. Als u een activeringskoppeling probeert op te halen Partner Center, wordt er een dummykoppeling geretourneerd. U kunt deze dummykoppeling niet gebruiken om het installatieproces op de site van de uitgever te voltooien. Zie Activate [a sandbox subscription for commercial marketplace products](activate-sandbox-subscription-azure-marketplace-products.md) (Een sandbox-abonnement activeren voor commerciële marketplace-producten) als u het sandboxaccount voor integratie wilt gebruiken om de facturering voor abonnementen op SaaS-producten op de commerciële marketplace te testen. Abonnementsfacturering begint na een geslaagde activering.
 
-Als u aan het einde van de test uitvoering wilt opschonen, moet u de volgende artikelen gebruiken om ruimte te maken voor de volgende ronde van tests:
+Zie de volgende artikelen om op te schonen aan het einde van de test, zodat er ruimte is voor de volgende testronde:
 
 - [Een klantaccount verwijderen uit de integratie-sandbox](delete-a-customer-account-from-the-integration-sandbox.md)
 
-- [Het aantal van een abonnement verlagen](change-the-quantity-of-a-subscription.md)
+- [De hoeveelheid van een abonnement verlagen](change-the-quantity-of-a-subscription.md)
 
 - [Een abonnement opschorten](suspend-a-subscription.md) zodat u het kunt verwijderen.
 
-## <a name="best-practices-for-rest-development"></a>Aanbevolen procedures voor REST-ontwikkeling
+## <a name="best-practices-for-rest-development"></a>Best practices voor REST-ontwikkeling
 
-- Gebruik een hulp programma voor netwerk tracering zodat u uw aanvraag kunt zien, het antwoord en als er fouten zijn opgetreden in de HTTP-status code in het antwoord. Zie voor meer informatie over het afhandelen van de fout [Partner Center rest-fout codes](error-codes.md).
+- Gebruik een hulpprogramma voor netwerk traceer, zodat u uw aanvraag en het antwoord kunt zien en of er fouten zijn in de HTTP-statuscode in het antwoord. Zie REST-foutcodes voor [meer Partner Center over foutafhandeling.](error-codes.md)
 
-- Gebruik een nieuwe correlatie-ID voor elke aanroep die u hebt gemaakt in het partner centrum REST API. Deze procedure zorgt voor betere logboek registratie en helpt tijdens het opsporen van fouten. Zie voor meer informatie [Partner Center rest headers](headers.md).
+- Gebruik een nieuwe correlatie-id voor elke aanroep naar de Partner Center REST API. Deze praktijk zorgt voor betere logboekregistratie en helpt bij het debuggen. Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ## <a name="troubleshooting-tips-for-common-rest-problems"></a>Tips voor probleemoplossing voor algemene problemen met REST
 
-- Alle eigenschappen van de header controleren, met inbegrip van de URL en API-versie.
+- Controleer alle headereigenschappen, inclusief de URL en API-versie.
 
-- Zorg ervoor dat de eigenschappen worden opgenomen als dat nodig is en correct is opgemaakt.
+- Zorg ervoor dat de eigenschappen indien nodig zijn opgenomen en correct zijn opgemaakt.
 
-- Onjuiste matrix opmaak is een veelvoorkomende fout.
+- Onjuiste matrixopmaak is een veelvoorkomende fout.
 
-- **ETags** zijn tijdelijk en als resultaat, mag niet worden opgeslagen. Wanneer een functie aanroep een **ETags** vereist, gebruikt u de meest recente **ETags** -waarde door de bron opnieuw op te halen. **ETags** -waarden moeten worden opgenomen tussen dubbele aanhalings tekens, zoals een teken reeks:
+- **ETags** zijn tijdelijk en mogen dus niet worden opgeslagen. Wanneer een functie-aanroep een **ETags vereist,** gebruikt u de meest recente **ETags-waarde** door de resource opnieuw op te vragen. **ETags-waarden** moeten worden opgenomen tussen dubbele aanhalingstekens, zoals een tekenreeks:
 
    ```rest
    If-Match : "eyJpZCI6IjUwMWE4NjBjLTE2OTgtNDQyYi04MDhjLTRiNjEyY2NmMzVmMiIsInZlcnNpb24iOjF9"

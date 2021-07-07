@@ -1,30 +1,26 @@
 ---
 title: TransferEligibility-resources
-description: Een partner maakt een overdracht wanneer een klant hun abonnement met de partner wil overzetten naar een andere partner.
+description: Een partner kan een overdracht maken wanneer een klant een abonnement bij de partner aanvraagt om te worden overgedragen naar een andere partner.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dcac5724a1f708bc540a3aac7ce74b2eda60a296
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8f121d499abffb4c4dda688c2a91c25f83d2e863
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767248"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530205"
 ---
 # <a name="transfereligibility-resources"></a>TransferEligibility-resources
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-Een partner maakt een overdracht wanneer een klant hun abonnement met de partner wil overzetten naar een andere partner.
+Een partner kan een overdracht maken wanneer een klant een abonnement bij de partner aanvraagt om te worden overgedragen naar een andere partner. Gebruik TransferEligibility om te controleren of een abonnement in aanmerking komt voor overdracht.
 
 ## <a name="transfereligibility"></a>TransferEligibility
 
-Hierin wordt een transferEligibility beschreven.
+Beschrijft een transferEligibility.
 
 | Eigenschap              | Type             | Beschrijving                                                                              |
 |-----------------------|------------------|------------------------------------------------------------------------------------------|
 | id                    | tekenreeks           | De abonnements-id van de klant.                                                  |
-| isEligible            | booleaans             | Hiermee wordt aangegeven of het abonnement in aanmerking komt voor de overdracht.                         |
-| Reden                | tekenreeks           | De eigenschap reason legt uit waarom het abonnement niet in aanmerking komt voor overdracht. |
+| isEligible            | booleaans             | Geeft aan of het abonnement in aanmerking komt voor de overdracht.                         |
+| Reden                | tekenreeks           | De eigenschap reason verklaart waarom het abonnement niet in aanmerking komt voor overdracht. |

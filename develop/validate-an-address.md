@@ -1,36 +1,31 @@
 ---
 title: Een adres valideren
-description: Een adres valideren met de adres verificatie-API.
+description: Een adres valideren met behulp van de adresvalidatie-API.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 22d5faec2fdab4907067bb01cb74e110032dea9a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 14d45977f3af6e8bba1b7cb7f969aa7c5bb671da
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767238"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529882"
 ---
 # <a name="validate-an-address"></a>Een adres valideren
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Een adres valideren met behulp van de adresvalidatie-API.
 
-Een adres valideren met de adres verificatie-API.
-
-De adres validatie-API mag alleen worden gebruikt voor het vooraf valideren van updates van het klant profiel. Gebruik het met de uitleg dat als het land de Verenigde Staten, Canada, China of Mexico is, het veld Status wordt gevalideerd op basis van een lijst met geldige statussen voor het desbetreffende land. In alle andere landen treedt deze test niet op en controleert de API alleen of de status een geldige teken reeks is.
+De adresvalidatie-API mag alleen worden gebruikt voor de prevalidatie van updates van klantprofiel. Gebruik het met het begrip dat als het land de Verenigde Staten, Canada, China of Mexico is, het staatveld wordt gevalideerd met een lijst met geldige staten voor het desbetreffende land. In alle andere landen wordt deze test niet uitgevoerd en controleert de API alleen of de status een geldige tekenreeks is.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u een adres wilt valideren, moet u eerst een nieuw **adres** object instantiëren en dit invullen met het te valideren adres. Vervolgens haalt u een interface op met **validatie** bewerkingen van de eigenschap **IAggregatePartner. validions** en roept u de methode **IsAddressValid** aan met het object address.
+Als u een adres wilt valideren, instantieer dan eerst een nieuw **adresobject** en vul dit met het adres dat u wilt valideren. Haal vervolgens een interface op voor **validatiebewerkingen** van de eigenschap **IAggregatePartner.Validations** en roep de **methode IsAddressValid** aan met het adresobject.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -79,7 +74,7 @@ catch (PartnerException exception)
 
 ## <a name="java"></a>Java
 
-Als u een adres wilt valideren, moet u eerst een nieuw **adres** object instantiëren en dit invullen met het te valideren adres. Vervolgens haalt u een interface op met **validatie** bewerkingen van de functie **IAggregatePartner. getValidations** en roept u de **isAddressValid** -methode aan met het object address.
+Als u een adres wilt valideren, instantieer dan eerst een nieuw **adresobject** en vul dit met het adres dat u wilt valideren. Haal vervolgens een interface voor **validatiebewerkingen** op uit de **functie IAggregatePartner.getValidations** en roep de **methode isAddressValid** aan met het adresobject.
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
@@ -117,7 +112,7 @@ catch (Exception exception)
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u een adres wilt valideren, voert u de [**test-PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) uit met de adres parameters die zijn ingevuld.
+Als u een adres wilt valideren, voert [**u het Test-PartnerAddress uit**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) met de adresparameters ingevuld.
 
 ```powershell
 Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Country 'US' -PostalCode '98004' -State 'WA'
@@ -125,19 +120,19 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 | Naam         | Type   | Vereist | Beschrijving                                                |
 |--------------|--------|----------|------------------------------------------------------------|
@@ -145,8 +140,8 @@ In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag
 | addressline2 | tekenreeks | N        | De tweede regel van het adres. Deze eigenschap is optioneel. |
 | city         | tekenreeks | J        | De plaats.                                                  |
 | staat        | tekenreeks | J        | De status.                                                 |
-| postalcode   | tekenreeks | J        | De post code.                                           |
-| country      | tekenreeks | J        | De ISO alpha-2-land code van twee tekens.                |
+| postalcode   | tekenreeks | J        | De postcode.                                           |
+| country      | tekenreeks | J        | De iso-alfa-2-landcode van twee tekens.                |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -172,15 +167,15 @@ Content-Length: 129
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als de methode is geslaagd, wordt een status code 200 geretourneerd, zoals wordt weer gegeven in het voor beeld van een validatie van de reactie: hieronder.
+Als dit lukt, retourneert de methode een statuscode 200, zoals wordt gedemonstreerd in het voorbeeld Antwoord - validatie geslaagd, zoals hieronder wordt weergegeven.
 
-Als de aanvraag mislukt, retourneert de methode de status code 400, zoals wordt gedemonstreerd in het voor beeld van een mislukte validatie van antwoorden. De antwoord tekst bevat een JSON-nettolading met aanvullende informatie over de fout.
+Als de aanvraag mislukt, retourneert de methode een statuscode 400, zoals wordt gedemonstreerd in het voorbeeld Antwoord - validatie mislukt, zoals hieronder wordt weergegeven. De antwoord-body bevat een JSON-nettolading met aanvullende informatie over de fout.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
-### <a name="response---validation-succeeded-example"></a>Antwoord: voor beeld van validatie geslaagd
+### <a name="response---validation-succeeded-example"></a>Antwoord : voorbeeld van validatie geslaagd
 
 ```http
 HTTP/1.1 200 OK
@@ -192,7 +187,7 @@ MS-ServerId: 030011719
 Date: Mon, 13 Mar 2017 23:56:12 GMT
 ```
 
-### <a name="response---validation-failed-example"></a>Antwoord: voor beeld van mislukte validatie
+### <a name="response---validation-failed-example"></a>Antwoord: voorbeeld validatie mislukt
 
 ```http
 HTTP/1.1 400 Bad Request

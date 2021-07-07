@@ -1,75 +1,70 @@
 ---
-title: Informatie bronnen over het land
-description: Meer informatie over het gebruik van partner centrum-Api's met informatie bronnen van het land en beschrijvende meta gegevens die betrekking hebben op een bepaald land of bepaalde regio.
+title: Informatiebronnen voor landen
+description: Meer informatie over het Partner Center API's met landgegevensbronnen en beschrijvende metagegevens met betrekking tot een specifiek land of specifieke regio.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ba0974cf736ff86038f8abf9c77d6a648984d1df
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: caf56282d21df35ae9e179a98a37317f864117a3
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767641"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973822"
 ---
-# <a name="country-information-resources-available-from-partner-center-apis"></a>Land informatie bronnen die beschikbaar zijn via partner Center-Api's
+# <a name="country-information-resources-available-from-partner-center-apis"></a>Informatiebronnen voor landen die beschikbaar zijn Partner Center API's
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De volgende resources zijn beschrijvende meta gegevens voor een land/regio.
+De volgende resources zijn beschrijvende metagegevens voor een land/regio.
 
 ## <a name="countryinformation"></a>CountryInformation
 
-| Eigenschap                      | Type               | Description                                                                                        |
+| Eigenschap                      | Type               | Beschrijving                                                                                        |
 |-------------------------------|--------------------|----------------------------------------------------------------------------------------------------|
-| ExtensionData                 | tekenreeks             | De gegevens van de extensie.                                                                                |
+| ExtensionData                 | tekenreeks             | De extensiegegevens.                                                                                |
 | Iso2Code                      | tekenreeks             | Een ISO-2-code.                                                                                     |
 | Iso3Code                      | tekenreeks             | Een ISO-3-code.                                                                                     |
-| DefaultCulture                | tekenreeks             | De standaard cultuur.                                                                               |
-| IsStateRequired               | booleaans            | Hiermee wordt aangegeven of een staat/provincie vereist is of niet.                                             |
-| SupportedStatesList           | tekenreeksmatrix   | Als een staat/provincie vereist is, retourneert de volledige lijst voor dat land of deze regio.                    |
+| DefaultWaarden                | tekenreeks             | De standaardcultuur.                                                                               |
+| IsStateRequired               | booleaans            | Geeft aan of een staat/provincie vereist is.                                             |
+| SupportedStatesList           | tekenreeksmatrix   | Als een staat/provincie vereist is, retourneert de volledige lijst voor dat land/de regio.                    |
 | SupportedLanguagesList        | tekenreeksmatrix   | Een lijst met ondersteunde talen.                                                                     |
-| SupportedCulturesList         | tekenreeksmatrix   | Een lijst met ondersteunde cult uren.                                                                      |
-| IsPostalCodeRequired          | booleaans            | Hiermee geeft u op of een post code of post code vereist is of niet.                                    |
-| PostalCodeRegex               | tekenreeks             | De reguliere expressie die de post code definieert.                                          |
-| IsCityRequired                | booleaans            | Hiermee wordt aangegeven of een stad vereist is of niet.                                                       |
-| IsVatIdSupported              | booleaans            | Hiermee wordt aangegeven of een BTW-ID vereist is of niet.                                                     |
-| TaxIdFormat                   | tekenreeks             | De indeling van de BTW-ID.                                                                                 |
-| TaxIdSample                   | tekenreeks             | Het BTW-ID-voor beeld.                                                                                 |
-| VatIdRegex                    | tekenreeks             | De reguliere expressie voor BTW-identificatie.                                                                     |
-| PhoneNumberRegex              | tekenreeks             | De reguliere expressie voor het telefoon nummer.                                                               |
-| IsRegistrationNumberSupported | booleaans            | Hiermee wordt aangegeven of een registratie nummer wordt ondersteund.                                       |
-| IsTaxIdSupported              | booleaans            | Hiermee wordt aangegeven of een BTW-ID wordt ondersteund. Dit wijkt af van IsVatIdSupported. |
-| ResellerAgreementRegion       | tekenreeks             | De wederverkoper-overeenkomst regio.                                                                     |
+| SupportedCulturesList         | tekenreeksmatrix   | Een lijst met ondersteunde culturen.                                                                      |
+| IsPostalCodeRequired          | booleaans            | Geeft aan of een postcode of postcode vereist is.                                    |
+| PostalCodeRegex               | tekenreeks             | De reguliere expressie die de POSTCODE definieert.                                          |
+| IsCityRequired                | booleaans            | Geeft aan of een stad vereist is of niet.                                                       |
+| IsVatIdSupported              | booleaans            | Geeft aan of een btw-nummer vereist is.                                                     |
+| TaxIdFormat                   | tekenreeks             | De btw-id-indeling.                                                                                 |
+| TaxIdSample                   | tekenreeks             | Het belasting-id-voorbeeld.                                                                                 |
+| VatIdRegex                    | tekenreeks             | De reguliere expressie van het belasting-id.                                                                     |
+| PhoneNumberRegex              | tekenreeks             | De reguliere expressie van het telefoonnummer.                                                               |
+| IsRegistrationNumberSupported | booleaans            | Geeft aan of een registratienummer wordt ondersteund of niet.                                       |
+| IsTaxIdSupported              | booleaans            | Geeft aan of een belasting-id al dan niet wordt ondersteund. Dit is anders dan IsVatIdSupported. |
+| ResellerAgreementRegion       | tekenreeks             | De regio van de resellerovereenkomst.                                                                     |
 | GeographicRegion              | tekenreeks             | De geografische regio.                                                                             |
-| CountryCallingCodesList       | tekenreeksmatrix   | De aanroepende codes die worden ondersteund in het land/de regio.                                                 |
-| Kenmerken                    | ResourceAttributes | De meta gegevens kenmerken die overeenkomen met de CountryInformation-resource.                          |
+| CountryCallingCodesList       | tekenreeksmatrix   | De aanroepcodes die worden ondersteund in het land/de regio.                                                 |
+| Kenmerken                    | ResourceAttributes | De metagegevenskenmerken die overeenkomen met de resource CountryInformation.                          |
 
 ## <a name="countryvalidationrules"></a>CountryValidationRules
 
-Hierin worden de adres notatie regels voor een land/regio beschreven.
+Beschrijft de regels voor adresopmaak voor een land/regio.
 
-| Eigenschap                | Type               | Description                                                                                        |
+| Eigenschap                | Type               | Beschrijving                                                                                        |
 |-------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | Iso2Code                | tekenreeks             | Een ISO-2-code.                                                                                     |
-| DefaultCulture          | tekenreeks             | De standaard cultuur.                                                                               |
-| IsStateRequired         | booleaans            | Hiermee wordt aangegeven of een staat/provincie vereist is of niet.                                             |
-| SupportedStatesList     | tekenreeksmatrix   | Als een staat/provincie vereist is, retourneert de volledige lijst voor dat land of deze regio.                    |
+| DefaultWaarden          | tekenreeks             | De standaardcultuur.                                                                               |
+| IsStateRequired         | booleaans            | Geeft aan of een staat/provincie vereist is.                                             |
+| SupportedStatesList     | tekenreeksmatrix   | Als een staat/provincie vereist is, retourneert de volledige lijst voor dat land/de regio.                    |
 | SupportedLanguagesList  | tekenreeksmatrix   | Een lijst met ondersteunde talen.                                                                     |
-| SupportedCulturesList   | tekenreeksmatrix   | Een lijst met ondersteunde cult uren.                                                                      |
-| IsPostalCodeRequired    | booleaans            | Hiermee geeft u op of een post code of post code vereist is of niet.                                    |
-| PostalCodeRegex         | tekenreeks             | De reguliere expressie die de post code definieert.                                          |
-| IsCityRequired          | booleaans            | Hiermee wordt aangegeven of een stad vereist is of niet.                                                       |
-| IsVatIdSupported        | booleaans            | Hiermee wordt aangegeven of een BTW-ID vereist is of niet.                                                     |
-| TaxIdFormat             | tekenreeks             | De indeling van de BTW-ID.                                                                                 |
-| TaxIdSample             | tekenreeks             | Het BTW-ID-voor beeld.                                                                                 |
-| VatIdRegex              | tekenreeks             | De reguliere expressie voor BTW-identificatie.                                                                     |
-| PhoneNumberRegex        | tekenreeks             | De reguliere expressie voor het telefoon nummer.                                                               |
-| IsTaxIdSupported        | booleaans            | Hiermee wordt aangegeven of een BTW-ID wordt ondersteund. Deze eigenschap wijkt af van de IsVatIdSupported. |
-| IsTaxIdOptional         | booleaans            | Hiermee wordt aangegeven of een BTW-ID optioneel is of niet.                                                     |
-| CountryCallingCodesList | tekenreeksmatrix   | De aanroepende codes die worden ondersteund in het land/de regio.                                                 |
-| Kenmerken              | ResourceAttributes | De meta gegevens kenmerken die overeenkomen met de CountryInformation-resource.                          |
+| SupportedCulturesList   | tekenreeksmatrix   | Een lijst met ondersteunde culturen.                                                                      |
+| IsPostalCodeRequired    | booleaans            | Geeft aan of een postcode of postcode vereist is.                                    |
+| PostalCodeRegex         | tekenreeks             | De reguliere expressie die de POSTCODE definieert.                                          |
+| IsCityRequired          | booleaans            | Geeft aan of een stad vereist is of niet.                                                       |
+| IsVatIdSupported        | booleaans            | Geeft aan of een btw-nummer vereist is.                                                     |
+| TaxIdFormat             | tekenreeks             | De btw-id-indeling.                                                                                 |
+| TaxIdSample             | tekenreeks             | Het belasting-id-voorbeeld.                                                                                 |
+| VatIdRegex              | tekenreeks             | De reguliere expressie van het belasting-id.                                                                     |
+| PhoneNumberRegex        | tekenreeks             | De reguliere expressie van het telefoonnummer.                                                               |
+| IsTaxIdSupported        | booleaans            | Geeft aan of een belasting-id al dan niet wordt ondersteund. Deze eigenschap wijkt af van IsVatIdSupported. |
+| IsTaxIdOptional         | booleaans            | Geeft aan of een btw-nummer optioneel is of niet.                                                     |
+| CountryCallingCodesList | tekenreeksmatrix   | De aanroepcodes die worden ondersteund in het land/de regio.                                                 |
+| Kenmerken              | ResourceAttributes | De metagegevenskenmerken die overeenkomen met de Resource CountryInformation.                          |

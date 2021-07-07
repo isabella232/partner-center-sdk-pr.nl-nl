@@ -1,71 +1,66 @@
 ---
 title: Partnercentrum-webhooks
-description: Met webhooks kunnen partners zich registreren voor bron wijzigings gebeurtenissen.
+description: Met webhooks kunnen partners zich registreren voor resourcewijzigingsgebeurtenissen.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 8225623ade7e922ac23ebf0ed9215686b0601244
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 74d5981436ba29ea4f6f93a5693ec6da82777eb4
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767336"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547730"
 ---
 # <a name="partner-center-webhooks"></a>Partnercentrum-webhooks
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Met Partner Center webhook-API's kunnen partners zich registreren voor resourcewijzigingsgebeurtenissen. Deze gebeurtenissen worden geleverd in de vorm van HTTP POST's aan de geregistreerde URL van de partner. Als partners een gebeurtenis van Partner Center ontvangen, hosten ze een callback waar Partner Center de gebeurtenis van de resourcewijziging kan plaatsen. De gebeurtenis wordt digitaal ondertekend, zodat de partner kan controleren of deze is verzonden vanuit Partner Center.
 
-Met de webhook-Api's van partner Center kunnen partners zich registreren voor bron wijzigings gebeurtenissen. Deze gebeurtenissen worden in de vorm van HTTP-berichten verzonden naar de geregistreerde URL van de partner. Als u een gebeurtenis van het partner centrum wilt ontvangen, hosten partners een call back waarbij het partner centrum de wijzigings gebeurtenis van de resource kan posten. De gebeurtenis wordt digitaal ondertekend, zodat de partner kan controleren of deze is verzonden vanuit het partner centrum.
+Partners kunnen kiezen uit webhookgebeurtenissen, zoals de volgende voorbeelden, die worden ondersteund door Partner Center.
 
-Partners kunnen een keuze maken uit webhook-gebeurtenissen, zoals de volgende voor beelden, die worden ondersteund door het partner centrum.
+- **Testgebeurtenis ('test gemaakt')**
 
-- **Test gebeurtenis ("test-created")**
+    Met deze gebeurtenis kunt u uw registratie zelf onboarden en testen door een testgebeurtenis aan te vragen en vervolgens de voortgang ervan bij te houden. U kunt de foutberichten zien die van Microsoft worden ontvangen tijdens het leveren van de gebeurtenis. Deze beperking is alleen van toepassing op gebeurtenissen die zijn gemaakt door een test. Gegevens ouder dan zeven dagen worden verwijderd.
 
-    Met deze gebeurtenis kunt u zelf onboards en uw registratie testen door een test gebeurtenis aan te vragen en de voortgang op te sporen. U kunt de fout berichten bekijken die van micro soft worden ontvangen tijdens het leveren van de gebeurtenis. Deze beperking is alleen van toepassing op gebeurtenissen die zijn gemaakt met een test. Gegevens die ouder zijn dan zeven dagen worden verwijderd.
+- **Gebeurtenis bijgewerkt abonnement ('abonnement bijgewerkt')**
 
-- **Bijgewerkte gebeurtenis van abonnement (abonnement-bijgewerkt)**
-
-    Deze gebeurtenis treedt op wanneer het abonnement wordt gewijzigd. Deze gebeurtenissen worden gegenereerd wanneer er een interne wijziging in aanvulling is op wanneer wijzigingen worden aangebracht via de partner centrum-API.
+    Deze gebeurtenis wordt aan het werk gesteld wanneer het abonnement wordt gewijzigd. Deze gebeurtenissen worden gegenereerd wanneer er een interne wijziging is naast wanneer wijzigingen worden aangebracht via de Partner Center API.
 
     >[!NOTE]
-    >Er is een vertraging van Maxi maal 48 uur tussen het tijdstip waarop een abonnement wijzigt en wanneer de gebeurtenis bijgewerkt abonnement wordt geactiveerd.
+    >Er is een vertraging van maximaal 48 uur tussen het moment waarop een abonnement wordt gewijzigd en het moment waarop de gebeurtenis Abonnement bijgewerkt wordt geactiveerd.
 
-- **Gebeurtenis drempelwaarde overschreden ("usagerecords-thresholdExceeded")**
+- **Drempelwaarde overschreden gebeurtenis ('usagerecords-thresholdExceeded')**
 
-    Deze gebeurtenis treedt op wanneer de hoeveelheid Microsoft Azure gebruik voor een klant groter is dan het bestedings budget van het gebruik (de drempel waarde). Zie voor meer informatie [een Azure-uitgaven budget instellen voor uw klanten/Partner-Center/set-a-Azure-besteding-budget-voor-uw klanten).
+    Deze gebeurtenis teert wanneer de hoeveelheid Microsoft Azure voor elke klant het gebruiksuitgavenbudget (hun drempelwaarde) overschrijdt. Zie [Een Azure-uitgavenbudget instellen voor uw klanten/partnercentrum/set-an-azure-spending-budget-for-your-customers) voor meer informatie.
 
-- **Gebeurtenis voor het maken van een referral (' verwijzing-gemaakt ')**
+- **Door verwijzing gemaakte gebeurtenis ("verwijzing gemaakt")**
 
-    Deze gebeurtenis treedt op wanneer de verwijzing wordt gemaakt.
+    Deze gebeurtenis wordt aangemaakt wanneer de verwijzing wordt gemaakt.
 
-- **De gebeurtenis Referral update (' verwijzing-bijgewerkt ')**
+- **Gebeurtenis bijgewerkt door verwijzing ('verwijzing bijgewerkt')**
 
-    Deze gebeurtenis treedt op wanneer de verwijzing wordt bijgewerkt.
+    Deze gebeurtenis wordt aan de orde gesteld wanneer de verwijzing wordt bijgewerkt.
 
-- **Factuur gereed gebeurtenis ("factuur gereed")**
+- **Gebeurtenis gereed voor factuur ('factuur gereed')**
 
-    Deze gebeurtenis treedt op wanneer de nieuwe factuur gereed is.
+    Deze gebeurtenis wordt verhoogd wanneer de nieuwe factuur gereed is.
 
-Toekomstige webhook-gebeurtenissen worden toegevoegd voor resources die veranderen in het systeem waarvan de partner niet in beheer is, en er worden verdere updates uitgevoerd om deze gebeurtenissen zo snel mogelijk op te halen. Feedback van partners over welke gebeurtenissen een waarde toevoegen aan hun bedrijf is handig om te bepalen welke nieuwe gebeurtenissen moeten worden toegevoegd.
+Toekomstige webhookgebeurtenissen worden toegevoegd voor resources die wijzigen in het systeem waar de partner geen controle over heeft, en er worden verdere updates aangebracht om deze gebeurtenissen zo dicht mogelijk bij 'realtime' te krijgen. Feedback van partners over welke gebeurtenissen waarde toevoegen aan hun bedrijf, is handig om te bepalen welke nieuwe gebeurtenissen moeten worden toevoegen.
 
-Zie [Partner Center-gebeurtenissen voor webhooks](partner-center-webhook-events.md)voor een volledige lijst van webhook-gebeurtenissen die worden ondersteund door het partner centrum.
+Zie webhookgebeurtenissen voor een volledige Partner Center [webhookgebeurtenissen Partner Center webhookgebeurtenissen.](partner-center-webhook-events.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-## <a name="receiving-events-from-partner-center"></a>Gebeurtenissen ontvangen van het partner centrum
+## <a name="receiving-events-from-partner-center"></a>Gebeurtenissen ontvangen van Partner Center
 
-Als u gebeurtenissen van het partner centrum wilt ontvangen, moet u een openbaar toegankelijk eind punt zichtbaar maken. Omdat dit eind punt wordt weer gegeven, moet u controleren of de communicatie van het partner centrum is. Alle webhook-gebeurtenissen die u ontvangt, worden digitaal ondertekend met een certificaat dat is gekoppeld aan de micro soft root. Er wordt ook een koppeling weer gegeven naar het certificaat dat wordt gebruikt om de gebeurtenis te ondertekenen. Hierdoor kan het certificaat worden vernieuwd zonder dat u uw service opnieuw hoeft te implementeren of opnieuw te configureren. Het partner centrum maakt 10 pogingen om de gebeurtenis te leveren. Als de gebeurtenis na 10 pogingen nog niet is bezorgd, wordt deze naar een offline wachtrij verplaatst en worden er geen nieuwe pogingen gedaan bij de levering.
+Als u gebeurtenissen van Partner Center, moet u een openbaar toegankelijk eindpunt beschikbaar maken. Omdat dit eindpunt wordt blootgesteld, moet u controleren of de communicatie afkomstig is van Partner Center. Alle webhookgebeurtenissen die u ontvangt, worden digitaal ondertekend met een certificaat dat is geketend aan microsoft Root. Er wordt ook een koppeling naar het certificaat gegeven dat wordt gebruikt om de gebeurtenis te ondertekenen. Hierdoor kan het certificaat worden vernieuwd zonder dat u uw service opnieuw moet configureren of opnieuw moet configureren. Partner Center zal 10 pogingen doen om de gebeurtenis te leveren. Als de gebeurtenis na tien pogingen nog steeds niet wordt geleverd, wordt deze verplaatst naar een offlinewachtrij en worden er geen verdere pogingen gedaan bij levering.
 
-In het volgende voor beeld ziet u een gebeurtenis die is gepost vanuit het partner centrum.
+In het volgende voorbeeld ziet u een gebeurtenis die is gepost vanuit Partner Center.
 
 ```http
 POST /webhooks/callback
@@ -87,48 +82,48 @@ Content-Length: 195
 ```
 
 >[!NOTE]
->De autorisatie-header heeft het schema hand tekening. Dit is een met base64 gecodeerde hand tekening van de inhoud.
+>De autorisatieheader heeft een schema van 'Handtekening'. Dit is een base64 gecodeerde handtekening van de inhoud.
 
-## <a name="how-to-authenticate-the-callback"></a>De call back verifiëren
+## <a name="how-to-authenticate-the-callback"></a>De callback verifiëren
 
-Voer de volgende stappen uit om de retour aanroep gebeurtenis te verifiëren die is ontvangen van het partner centrum:
+Volg deze stappen om de callbackgebeurtenis te verifiëren die Partner Center ontvangen:
 
-1. Controleer of de vereiste headers aanwezig zijn (autorisatie, x-MS-Certificate-URL, x-MS-Signature-algoritme).
+1. Controleer of de vereiste headers aanwezig zijn (Authorization, x-ms-certificate-url, x-ms-signature-algorithm).
 
-2. Down load het certificaat dat wordt gebruikt om de inhoud te ondertekenen (x-MS-Certificate-URL).
+2. Download het certificaat dat wordt gebruikt om de inhoud te ondertekenen (x-ms-certificate-url).
 
-3. Controleer de certificaat keten.
+3. Controleer de certificaatketen.
 
 4. Controleer de organisatie van het certificaat.
 
-5. Lees de inhoud met UTF8-code ring in een buffer.
+5. Lees de inhoud met UTF8-codering in een buffer.
 
-6. Maak een RSA crypto-provider.
+6. Maak een RSA Crypto Provider.
 
-7. Controleer of de gegevens overeenkomen met wat is ondertekend met het opgegeven hash-algoritme (bijvoorbeeld SHA256).
+7. Controleer of de gegevens overeenkomt met wat is ondertekend met het opgegeven hash-algoritme (bijvoorbeeld SHA256).
 
-8. Als de verificatie slaagt, verwerkt u het bericht.
+8. Als de verificatie is geslaagd, verwerkt u het bericht.
 
 > [!NOTE]
-> Het handtekening token wordt standaard verzonden in een autorisatie-header. Als u in uw registratie **SignatureTokenToMsSignatureHeader** instelt op True, wordt het handtekening token in plaats daarvan in de x-MS-Signature-header verzonden.
+> Standaard wordt het handtekening-token verzonden in een Autorisatie-header. Als u **SignatureTokenToMsSignatureHeader** in uw registratie in uw registratie in stelt op true, wordt het handtekeningtoken in plaats daarvan verzonden in de x-ms-signature-header.
 
-## <a name="event-model"></a>Gebeurtenis model
+## <a name="event-model"></a>Gebeurtenismodel
 
-In de volgende tabel worden de eigenschappen van een partner centrum-gebeurtenis beschreven.
+In de volgende tabel worden de eigenschappen van een Partner Center beschreven.
 
 ### <a name="properties"></a>Eigenschappen
 
 | Naam                      | Beschrijving                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
-| **Gebeurtenisnaam**             | De naam van de gebeurtenis. In de vorm {Resource}-{Action}. Bijvoorbeeld ' test-created '.  |
+| **Gebeurtenisnaam**             | De naam van de gebeurtenis. In de vorm {resource}-{action}. Bijvoorbeeld 'test-created'.  |
 | **ResourceUri**           | De URI van de resource die is gewijzigd.                                                 |
-| **ResourceName**          | De naam van de resource die is gewijzigd.                                                |
-| **AuditUrl**              | Optioneel. De URI van de controle record.                                                |
-| **ResourceChangeUtcDate** | De datum en tijd, in UTC-notatie, wanneer de resource is gewijzigd.                  |
+| **Resourcename**          | De naam van de resource die is gewijzigd.                                                |
+| **AuditUrl**              | Optioneel. De URI van de controlerecord.                                                |
+| **ResourceChangeUtcDate** | De datum en tijd, in UTC-indeling, waarop de resource is gewijzigd.                  |
 
 ### <a name="sample"></a>Voorbeeld
 
-In het volgende voor beeld ziet u de structuur van een partner centrum gebeurtenis.
+In het volgende voorbeeld ziet u de structuur van een Partner Center gebeurtenis.
 
 ```http
 {
@@ -140,15 +135,15 @@ In het volgende voor beeld ziet u de structuur van een partner centrum gebeurten
 }
 ```
 
-## <a name="webhook-apis"></a>Webhook-Api's
+## <a name="webhook-apis"></a>Webhook-API's
 
 ### <a name="authentication"></a>Verificatie
 
-Alle aanroepen naar de webhook-Api's worden geverifieerd met behulp van het Bearer-token in de autorisatie-header. Verkrijg een toegangs token voor toegang `https://api.partnercenter.microsoft.com` . Dit token is hetzelfde token dat wordt gebruikt voor toegang tot de rest van de partner centrum-Api's.
+Alle aanroepen naar de Webhook-API's worden geverifieerd met behulp van het Bearer-token in de autorisatieheader. Een toegangs token verkrijgen voor toegang `https://api.partnercenter.microsoft.com` tot . Dit token is hetzelfde token dat wordt gebruikt voor toegang tot de rest van de Partner Center API's.
 
-### <a name="get-a-list-of-events"></a>Een lijst met gebeurtenissen ophalen
+### <a name="get-a-list-of-events"></a>Een lijst met gebeurtenissen op halen
 
-Retourneert een lijst met de gebeurtenissen die momenteel worden ondersteund door de webhook-Api's.
+Retourneert een lijst met de gebeurtenissen die momenteel worden ondersteund door de Webhook-API's.
 
 ### <a name="resource-url"></a>Resource-URL
 
@@ -180,9 +175,9 @@ X-Locale: en-US
 [ "subscription-updated", "test-created", "usagerecords-thresholdExceeded" ]
 ```
 
-### <a name="register-to-receive-events"></a>Registreren voor het ontvangen van gebeurtenissen
+### <a name="register-to-receive-events"></a>Registreren om gebeurtenissen te ontvangen
 
-Registreert een Tenant om de opgegeven gebeurtenissen te ontvangen.
+Registreert een tenant voor het ontvangen van de opgegeven gebeurtenissen.
 
 #### <a name="resource-url"></a>Resource-URL
 
@@ -224,9 +219,9 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
-### <a name="view-a-registration"></a>Een registratie weer geven
+### <a name="view-a-registration"></a>Een registratie weergeven
 
-Retourneert de gebeurtenis registratie van webhooks voor een Tenant.
+Retourneert de webhooksgebeurtenisregistratie voor een tenant.
 
 #### <a name="resource-url"></a>Resource-URL
 
@@ -262,9 +257,9 @@ X-Locale: en-US
 }
 ```
 
-### <a name="update-an-event-registration"></a>Een gebeurtenis registratie bijwerken
+### <a name="update-an-event-registration"></a>Een gebeurtenisregistratie bijwerken
 
-Hiermee wordt een bestaande gebeurtenis registratie bijgewerkt.
+Werkt een bestaande gebeurtenisregistratie bij.
 
 #### <a name="resource-url"></a>Resource-URL
 
@@ -306,12 +301,12 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
-### <a name="send-a-test-event-to-validate-your-registration"></a>Een test gebeurtenis verzenden om uw registratie te valideren
+### <a name="send-a-test-event-to-validate-your-registration"></a>Een testgebeurtenis verzenden om uw registratie te valideren
 
-Hiermee wordt een test gebeurtenis gegenereerd om de registratie van webhooks te valideren. Deze test is bedoeld om te controleren of u gebeurtenissen van het partner centrum kunt ontvangen. De gegevens voor deze gebeurtenissen worden zeven dagen na het maken van de eerste gebeurtenis verwijderd. Voordat u een validatie gebeurtenis verzendt, moet u zijn geregistreerd voor de gebeurtenis ' test-created ', met behulp van de registratie-API.
+Genereert een testgebeurtenis om de webhooksregistratie te valideren. Deze test is bedoeld om te controleren of u gebeurtenissen kunt ontvangen van Partner Center. Gegevens voor deze gebeurtenissen worden zeven dagen na het maken van de eerste gebeurtenis verwijderd. U moet zijn geregistreerd voor de gebeurtenis 'test gemaakt' met behulp van de registratie-API voordat u een validatiegebeurtenis verstuurt.
 
 >[!NOTE]
->Er geldt een limiet van twee aanvragen per minuut bij het boeken van een validatie gebeurtenis.
+>Er is een vertragingslimiet van 2 aanvragen per minuut bij het plaatsen van een validatiegebeurtenis.
 
 #### <a name="resource-url"></a>Resource-URL
 
@@ -345,9 +340,9 @@ X-Locale: en-US
 { "correlationId": "04af2aea-d413-42db-824e-f328001484d1" }
 ```
 
-### <a name="verify-that-the-event-was-delivered"></a>Controleren of de gebeurtenis is bezorgd
+### <a name="verify-that-the-event-was-delivered"></a>Controleren of de gebeurtenis is geleverd
 
-Retourneert de huidige status van de validatie gebeurtenis. Deze verificatie kan nuttig zijn bij het oplossen van problemen met de levering van gebeurtenissen. Het antwoord bevat een resultaat voor elke poging tot het leveren van de gebeurtenis.
+Retourneert de huidige status van de validatiegebeurtenis. Deze verificatie kan handig zijn voor het oplossen van problemen met de levering van gebeurtenissen. Het antwoord bevat een resultaat voor elke poging om de gebeurtenis te leveren.
 
 #### <a name="resource-url"></a>Resource-URL
 
@@ -391,9 +386,9 @@ X-Locale: en-US
 }
 ```
 
-## <a name="example-for-signature-validation"></a>Voor beeld voor handtekening validatie
+## <a name="example-for-signature-validation"></a>Voorbeeld voor handtekeningvalidatie
 
-### <a name="sample-callback-controller-signature-aspnet"></a>Voor beeld van een hand tekening voor een call back controller (ASP.NET)
+### <a name="sample-callback-controller-signature-aspnet"></a>Voorbeeld van callback-controllerhandtekening (ASP.NET)
 
 ``` csharp
 [AuthorizeSignature]
@@ -401,9 +396,9 @@ X-Locale: en-US
 public IHttpActionResult Post(PartnerResourceChangeCallBack callback)
 ```
 
-### <a name="signature-validation"></a>Handtekening validatie
+### <a name="signature-validation"></a>Handtekeningvalidatie
 
-In het volgende voor beeld ziet u hoe u een autorisatie kenmerk toevoegt aan de controller die retour aanroepen ontvangt van webhook-gebeurtenissen.
+In het volgende voorbeeld ziet u hoe u een autorisatiekenmerk toevoegt aan de controller die callbacks van webhookgebeurtenissen ontvangt.
 
 ``` csharp
 namespace Webhooks.Security
