@@ -1,51 +1,47 @@
 ---
-title: Een klant order maken voor een indirecte wederverkoper
-description: Meer informatie over het gebruik van partner Center-Api's voor het maken van een bestelling voor een klant van een indirecte wederverkoper. Artikel bevat vereisten, stappen en exmaples.
+title: Klantorder voor indirecte reseller maken
+description: Meer informatie over het gebruik Partner Center API's om een order te maken voor een klant van een indirecte reseller. Het artikel bevat vereisten, stappen en voorbeelden.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f72ecec8d82e6b8a1bc53c277206cafd7d8a4e03
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: 6253ba2289ea1f58e7d8eaa960d7d0daaa887f0d
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767644"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973537"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Een bestelling maken voor een klant van een indirecte reseller
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-Hoe u een bestelling maakt voor een klant van een indirecte wederverkoper.
+Een order maken voor een klant van een indirecte reseller.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De aanbiedings-id van het item dat moet worden gekocht.
 
-- De Tenant-id van de indirecte wederverkoper.
+- De tenant-id van de indirecte reseller.
 
 ## <a name="c"></a>C\#
 
-Voor het maken van een bestelling voor een klant van een indirecte wederverkoper:
+Een order maken voor een klant van een indirecte reseller:
 
-1. Een verzameling van de indirecte wederverkopers ophalen die een relatie hebben met de aangemelde partner.
+1. Haal een verzameling van de indirecte resellers op die een relatie hebben met de aangemelde partner.
 
-2. Een lokale variabele ophalen voor het item in de verzameling dat overeenkomt met de ID van de indirecte wederverkoper. Deze stap helpt u bij het openen van de [**MpnId**](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) -eigenschap van de wederverkoper wanneer u de order maakt.
+2. Haal een lokale variabele op voor het item in de verzameling dat overeenkomt met de indirecte reseller-id. Met deze stap krijgt u toegang tot de [**mpnId-eigenschap**](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) van de reseller wanneer u de order maakt.
 
-3. Maak een exemplaar van een object [**order**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) en stel de eigenschap [**ReferenceCustomerID**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) in op de klant-id om de klant op te nemen.
+3. Instantieer een [**Order-object**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) en stel de eigenschap [**ReferenceCustomerID**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) in op de klant-id om de klant vast te stellen.
 
-4. Maak een lijst met [**OrderLineItem**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) -objecten en wijs de lijst toe aan de eigenschap [**regel items**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) van de order. Elk order regel item bevat de inkoop gegevens voor één aanbieding. Zorg ervoor dat u de eigenschap [**PartnerIdOnRecord**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) in elk regel item vult met de MPN-id van de indirecte wederverkoper. U moet ten minste één order regel item hebben.
+4. Maak een lijst met [**OrderLineItem-objecten**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) en wijs de lijst toe aan de eigenschap [**LineItems van de**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) order. Elk orderregelitem bevat de aankoopgegevens voor één aanbieding. Zorg ervoor dat u de [**eigenschap PartnerIdOnRecord**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) in elk regelitem vult met de MPN-id van de indirecte reseller. U moet ten minste één orderregelitem hebben.
 
-5. Schaf een interface aan om bewerkingen uit te best Ellen door de [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) -methode aan te roepen met de klant-id om de klant te identificeren en haal vervolgens de interface op uit de eigenschap [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
+5. Verkrijg een interface voor orderbewerkingen door de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren en vervolgens de interface op te halen uit de [**eigenschap Orders.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)
 
-6. Roep de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) aan om de order te maken.
+6. Roep de [**methode Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) of [**CreateAsync aan**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) om de order te maken.
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -81,57 +77,57 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-Voor **beeld**: [console test app](console-test-app.md)**project**: Partner Center SDK samples **klasse**: PlaceOrderForCustomer.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md)**Project**: Partnercentrum-SDK **Samples Class**: PlaceOrderForCustomer.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/orders http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende para meter voor het identificeren van de klant.
+Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| klant-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling die de klant identificeert. |
+| customer-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
 #### <a name="order"></a>Volgorde
 
-In deze tabel worden de eigenschappen van de **bestelling** in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de **ordereigenschappen** in de aanvraag body beschreven.
 
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
-| id | tekenreeks | No | Een order-id die wordt geleverd bij het maken van de order. |
-| referenceCustomerId | tekenreeks | Yes | De klant-id. |
-| billingCycle | tekenreeks | No | De frequentie waarmee de partner voor deze order wordt gefactureerd. De standaard waarde is &quot; maandelijks &quot; en wordt toegepast bij het maken van de order. Ondersteunde waarden zijn de lidnamen in [**BillingCycleType**](/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Opmerking: de jaarlijkse facturerings functie is nog niet algemeen beschikbaar. De ondersteuning voor jaarlijkse facturering is binnenkort beschikbaar. |
-| Regel items | matrix van objecten | Yes | Een matrix met [**OrderLineItem**](#orderlineitem) -resources. |
-| creationDate | tekenreeks | No | De datum waarop de order is gemaakt, in datum-tijd notatie. Wordt toegepast bij het maken van de order. |
-| kenmerken | object | No | Bevat "object type": "order". |
+| id | tekenreeks | No | Een order-id die wordt opgegeven wanneer de order is gemaakt. |
+| referenceCustomerId | tekenreeks | Ja | De klant-id. |
+| billingCycle | tekenreeks | No | De frequentie waarmee de partner wordt gefactureerd voor deze bestelling. De standaardwaarde is &quot; Maandelijks en wordt toegepast wanneer de order is &quot; gemaakt. Ondersteunde waarden zijn de namen van leden in [**BillingCycleType.**](/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype) Opmerking: de jaarlijkse factureringsfunctie is nog niet algemeen beschikbaar. Ondersteuning voor jaarlijkse facturering is binnenkort beschikbaar. |
+| lineItems | matrix van objecten | Ja | Een matrix met [**OrderLineItem-resources.**](#orderlineitem) |
+| creationDate | tekenreeks | No | De datum waarop de order is gemaakt, in datum/tijd-indeling. Toegepast wanneer de order is gemaakt. |
+| kenmerken | object | Nee | Bevat 'ObjectType': 'Order'. |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
-In deze tabel worden de eigenschappen van **OrderLineItem** in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de **eigenschappen van OrderLineItem** in de aanvraag body beschreven.
 
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
-| lineItemNumber | int | Ja | Elk regel item in de verzameling krijgt een uniek regel nummer, geteld van 0 tot aantal-1. |
-| offerId | tekenreeks | Yes | De aanbiedings-id. |
+| lineItemNumber | int | Ja | Elk regelitem in de verzameling krijgt een uniek regelnummer, dat wordt geteld van 0 tot count-1. |
+| offerId | tekenreeks | Ja | De aanbiedings-id. |
 | subscriptionId | tekenreeks | No | De abonnements-id. |
-| parentSubscriptionId | tekenreeks | No | Optioneel. De ID van het bovenliggende abonnement in een invoeg toepassing. Is alleen van toepassing op PATCH. |
-| friendlyName | tekenreeks | No | Optioneel. De beschrijvende naam voor het abonnement dat is gedefinieerd door de partner om dubbel zinnigheid te helpen. |
-| quantity | int | Ja | Het aantal licenties voor een abonnement op basis van licenties. |
-| partnerIdOnRecord | tekenreeks | No | Wanneer een indirecte provider een bestelling namens een indirecte wederverkoper plaatst, vult u dit veld alleen met de MPN-ID van de **indirecte wederverkoper** (nooit de id van de indirecte provider). Dit zorgt voor een goede administratieve verwerking van prikkels. **Als de wederverkoper MPN-ID niet kan worden verstrekt, mislukt de order niet. De wederverkoper wordt echter niet geregistreerd en als gevolg hiervan kan de verkoop niet worden inbegrepen.** |
-| kenmerken | object | No | Bevat "object type": "OrderLineItem". |
+| parentSubscriptionId | tekenreeks | No | Optioneel. De id van het bovenliggende abonnement in een invoegaanbieding. Alleen van toepassing op PATCH. |
+| Friendlyname | tekenreeks | No | Optioneel. De gebruiksvriendelijke naam voor het abonnement dat is gedefinieerd door de partner om te helpen bij het op ondubbelzinnig maken. |
+| quantity | int | Ja | Het aantal licenties voor een abonnement op basis van een licentie. |
+| partnerIdOnRecord | tekenreeks | No | Wanneer een indirecte provider een order plaatst namens een indirecte reseller, vult u dit veld in met de MPN-id van alleen de **indirecte reseller** (nooit de id van de indirecte provider). Dit zorgt voor een juiste boekhouding voor incentives. **Als de MPN-id van de reseller niet wordt verstrekt, mislukt de order niet. De reseller wordt echter niet vastgelegd en als gevolg hiervan zijn de incentive-berekeningen mogelijk niet opgenomen in de verkoop.** |
+| kenmerken | object | Nee | Bevat "ObjectType":"OrderLineItem". |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -173,11 +169,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de ingevulde [order](order-resources.md) resource.
+Als dit lukt, bevat de antwoord-body de ingevulde [resource Order.](order-resources.md)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

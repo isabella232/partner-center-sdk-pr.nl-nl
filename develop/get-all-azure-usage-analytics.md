@@ -1,55 +1,50 @@
 ---
 title: Alle gebruiksanalysegegevens van Azure ophalen
-description: Alle informatie over Azure Usage Analytics ophalen.
+description: Informatie over het verkrijgen van alle azure-gebruiksanalysegegevens.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: c281dcdeb93771a69a388ad64e1127b24156c809
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 7fe987c7dc50d55b26cd72d5aead52963eb1cfbe
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767408"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760212"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Alle gebruiksanalysegegevens van Azure ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hoe u alle informatie over Azure Usage Analytics kunt verkrijgen voor uw klanten.
+Informatie over het verkrijgen van alle Azure-gebruiksanalysegegevens voor uw klanten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario biedt alleen ondersteuning voor verificatie met gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI |
 |---------|-------------|
-| **Toevoegen** | [*\{ BASEURL \}*](partner-center-rest-urls.md)/partner/v1/Analytics/Usage/Azure http/1.1 |
+| **Toevoegen** | [*\{ baseURL \}*](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-|Parameter        |Type                        |Description               |
+|Parameter        |Type                        |Beschrijving               |
 |:----------------|:---------------------------|:-------------------------|
-|top              | tekenreeks                     | Het aantal rijen met gegevens dat in de aanvraag moet worden geretourneerd. De maximum waarde en de standaard waarde als niet wordt opgegeven, zijn 10000. Als er meer rijen in de query staan, bevat de antwoord tekst een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen.                        |
-|skip             | int                        | Het aantal rijen dat in de query moet worden overgeslagen. Gebruik deze para meter om door grote gegevens sets te bladeren. Zo `top=10000 and skip=0` haalt de eerste 10000 rijen met gegevens op, `top=10000 and skip=10000` haalt de volgende 10000 rijen met gegevens op, enzovoort.                       |
-|filter           | tekenreeks                     | De *filter* parameter van de aanvraag bevat een of meer instructies waarmee de rijen in het antwoord worden gefilterd. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de `eq` or `ne` -Opera tors en instructies kunnen worden gecombineerd met `and` of `or` . U kunt de volgende teken reeksen opgeven:<br/><br/>                                                       `customerTenantId`<br/> `customerName`<br/> `subscriptionId`<br/> `subscriptionName`<br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>**Voorbeeld:**<br/> `.../usage/azure?filter=meterCategory eq 'Data Management'`<br/><br/> **Voorbeeld:**<br/>`.../usage/azure?filter=meterCategory eq 'Data Management' or (usageDate le cast('2018-01-01', Edm.DateTimeOffset) and usageDate le cast('2018-04-01', Edm.DateTimeOffset))`                        |
-|aggregationLevel | tekenreeks                    | Hiermee geeft u het tijds bereik op waarvoor u de samengevoegde gegevens wilt ophalen. Dit kan een van de volgende teken reeksen zijn: `day` , `week` of `month` . Als u dit niet opgeeft, wordt de standaard waarde `day` .<br/><br/>                                              De `aggregationLevel` para meter wordt niet ondersteund zonder een `groupby` . De `aggregationLevel` para meter is van toepassing op alle datum velden in de `groupby` .                                                      |
-|OrderBy          |tekenreeks                     | Een instructie waarmee de resultaat gegevens voor elke installatie worden gesorteerd. De syntaxis is `...&orderby=field [order],field [order],...`. De `field` para meter kan een van de volgende teken reeksen zijn:<br/><br/>                    `customerTenantId`<br/>`customerName`<br/>`subscriptionId`<br/>`subscriptionName`<br/>`usageDate`<br/>`resourceLocation`<br/>`meterCategory`<br/>`meterSubcategory`<br/>`meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/> De *volg orde* van de para meters is optioneel en kan worden `asc` `desc` opgegeven of om respectievelijk een oplopende of aflopende volg orde voor elk veld op te geven. De standaardwaarde is `asc`.<br/><br/>**Voorbeeld:**<br/> `...&orderby=meterCategory,meterUnit`                                                                                           |
-|GroupBy          |tekenreeks                    | Een instructie die alleen gegevens aggregatie toepast op de opgegeven velden. U kunt de volgende velden opgeven:<br/><br/>                                                                                                                     `customerTenantId`<br/>`customerName`<br/> `subscriptionId` <br/> `subscriptionName` <br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit` <br/> `reservationOrderId` <br/> `reservationId` <br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>De geretourneerde gegevens rijen bevatten de velden die zijn opgegeven in de `groupby`  para meter en de *hoeveelheid*.<br/><br/>De `groupby` para meter kan worden gebruikt met de `aggregationLevel` para meter.<br/><br/>**Voorbeeld:**<br/>`...&groupby=meterCategory,meterUnit` |
+|top              | tekenreeks                     | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10000. Als er meer rijen in de query staan, bevat de antwoord-body een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen.                        |
+|skip             | int                        | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om door grote gegevenssets te gaan. Haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, haalt de volgende `top=10000 and skip=0` 10000 rijen met gegevens `top=10000 and skip=10000` op, en meer.                       |
+|filter           | tekenreeks                     | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies `eq` kunnen worden gecombineerd met behulp van of `ne` `and` `or` . U kunt de volgende tekenreeksen opgeven:<br/><br/>                                                       `customerTenantId`<br/> `customerName`<br/> `subscriptionId`<br/> `subscriptionName`<br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>**Voorbeeld:**<br/> `.../usage/azure?filter=meterCategory eq 'Data Management'`<br/><br/> **Voorbeeld:**<br/>`.../usage/azure?filter=meterCategory eq 'Data Management' or (usageDate le cast('2018-01-01', Edm.DateTimeOffset) and usageDate le cast('2018-04-01', Edm.DateTimeOffset))`                        |
+|aggregationLevel | tekenreeks                    | Hiermee geeft u het tijdsbereik op waarvoor geaggregeerde gegevens moeten worden opgehaald. Kan een van de volgende tekenreeksen zijn: `day` `week` , of `month` . Als dit niet is gespecificeerd, is de standaardwaarde `day` .<br/><br/>                                              De `aggregationLevel` parameter wordt niet ondersteund zonder een `groupby` . De `aggregationLevel` parameter is van toepassing op alle datumvelden die aanwezig zijn in de `groupby` .                                                      |
+|Orderby          |tekenreeks                     | Een instructie die de resultaatgegevenswaarden voor elke installatie bestelt. De syntaxis is `...&orderby=field [order],field [order],...`. De `field` parameter kan een van de volgende tekenreeksen zijn:<br/><br/>                    `customerTenantId`<br/>`customerName`<br/>`subscriptionId`<br/>`subscriptionName`<br/>`usageDate`<br/>`resourceLocation`<br/>`meterCategory`<br/>`meterSubcategory`<br/>`meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/> De *orderparameter* is optioneel en kan of zijn om respectievelijk de oplopende of aflopende volgorde voor `asc` elk veld op te `desc` geven. De standaardwaarde is `asc`.<br/><br/>**Voorbeeld:**<br/> `...&orderby=meterCategory,meterUnit`                                                                                           |
+|groupby          |tekenreeks                    | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>                                                                                                                     `customerTenantId`<br/>`customerName`<br/> `subscriptionId` <br/> `subscriptionName` <br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit` <br/> `reservationOrderId` <br/> `reservationId` <br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de `groupby`  parameter en de *Hoeveelheid*.<br/><br/>De `groupby` parameter kan worden gebruikt met de parameter `aggregationLevel` .<br/><br/>**Voorbeeld:**<br/>`...&groupby=meterCategory,meterUnit` |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -67,11 +62,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [Azure-gebruiks](partner-center-analytics-resources.md#csp-program-azure-usage-analytics) resources.
+Als dit lukt, bevat de antwoord-body een verzameling [Azure-gebruiksresources.](partner-center-analytics-resources.md#csp-program-azure-usage-analytics)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

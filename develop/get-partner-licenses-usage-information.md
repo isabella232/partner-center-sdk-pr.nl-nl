@@ -1,34 +1,30 @@
 ---
 title: Gebruiksgegevens van partnerlicenties ophalen
-description: Het verkrijgen van gebruiks gegevens van partner licenties voor het toevoegen van alle klanten.
+description: Gebruiksgegevens van partnerlicenties samenvoegen om alle klanten op te nemen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93d003fb269a3421b8efd8cebe8f396f97599a10
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f3d05d61ac4f2c90b0d8a4bfd93fe24e94bd5c1b
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767562"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445592"
 ---
 # <a name="get-partner-licenses-usage-information"></a>Gebruiksgegevens van partnerlicenties ophalen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Het verkrijgen van gebruiks gegevens van partner licenties voor het toevoegen van alle klanten.
+Gebruiksgegevens van partnerlicenties samenvoegen om alle klanten op te nemen.
 
 > [!NOTE]
-> Dit scenario wordt vervangen door [gebruiks gegevens over licenties te verkrijgen](get-licenses-usage-information.md).
+> Dit scenario wordt vervangen door [Gebruiksgegevens voor licenties verkrijgen.](get-licenses-usage-information.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties.
+Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u geaggregeerde gegevens voor de implementatie van licenties wilt ophalen, moet u eerst een interface op het niveau van de verzameling van de [**IAggregatePartner. Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) -eigenschappen ophalen. Haal vervolgens een interface op bij de verzameling van de licenties voor het partner niveau-analyse van de eigenschap [**licenties**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) . Roep tot slot de methode [**usage. Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) aan om de geaggregeerde gegevens over het gebruik van licenties op te halen. Als de methode slaagt, krijgt u een verzameling [**PartnerLicensesUsageInsights**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) -objecten.
+Als u geaggregeerde gegevens over de implementatie van licenties wilt ophalen, moet u eerst een interface ophalen voor bewerkingen voor het verzamelen van analyses op partnerniveau van de [**eigenschap IAggregatePartner.Analytics.**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) Haal vervolgens een interface op voor de analyseverzameling licenties op partnerniveau uit [**de eigenschap Licenties.**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) Roep ten slotte de [**methode Usage.Get aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) om de geaggregeerde gegevens over het gebruik van licenties op te halen. Als de methode slaagt, krijgt u een verzameling [**PartnerLicensesUsageInsights-objecten.**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,15 +34,15 @@ var partnerLicensesUsageAnalytics = partnerOperations.Analytics.Licenses.Usage.G
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                      |
 |---------|----------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Analytics/licenses/Usage http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/licenses/usage HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -66,11 +62,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) -resources die informatie geven over de gebruikte licenties.
+Als dit lukt, bevat de antwoord-body een verzameling [PartnerLicensesUsageInsights-resources](analytics-resources.md#partnerlicensesusageinsights) die informatie bieden over de gebruikte licenties.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

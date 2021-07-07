@@ -1,23 +1,19 @@
 ---
-title: Relaties resources
-description: Hierin worden de resources met betrekking tot relaties beschreven.
+title: Relaties van resources
+description: Beschrijft resources die betrekking hebben op relaties.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c5701414bd704b375dc23859b920609d5a975d9f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7dba1e99a6c97c759e3c61cde1e7565faa2ef4d1
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767220"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445728"
 ---
-# <a name="relationships-resources"></a>Relaties resources
+# <a name="relationships-resources"></a>Relaties van resources
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hierin worden de resources met betrekking tot relaties beschreven.
+Beschrijft resources die betrekking hebben op relaties.
 
 ## <a name="partnerrelationship"></a>PartnerRelationship
 
@@ -25,19 +21,19 @@ Vertegenwoordigt een relatie tussen twee partners.
 
 | Eigenschap         | Type                                                           | Beschrijving                                                                                                                                    |
 |------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| id               | tekenreeks                                                         | De partner-id. De partner-id geeft de Tenant-id van de partner op die zich in de ontvanger (aan) zijde van de relatie bevindt. |
+| id               | tekenreeks                                                         | De partner-id. De partner-id geeft de tenant-id op van de partner die zich aan de ontvangerszijde (van) de relatie heeft. |
 | location         | tekenreeks                                                         | De locatie van de partner.                                                                                                                   |
-| mpnId            | tekenreeks                                                         | De Microsoft Partner Network-ID (MPN) van de partner.                                                                                 |
+| mpnId            | tekenreeks                                                         | De Microsoft Partner Network (MPN) van de partner.                                                                                 |
 | naam             | tekenreeks                                                         | De naam van de partner.                                                                                                                       |
 | relationshipType | tekenreeks                                                         | Het type relatie.                                                                                                                      |
 | staat            | tekenreeks                                                         | De status van de relatie (bijvoorbeeld `active` ).                                                                                                 |
-| kenmerken       | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                                                                                                                       |
+| kenmerken       | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                                                                                                                       |
 
 ## <a name="relationshiprequest"></a>RelationshipRequest
 
-Biedt de URL waarmee een klant een relatie met een partner kan maken.
+Biedt de URL waarmee een klant een relatie met een partner kan opzetten.
 
-| Eigenschap   | Type                                                           | Description                   |
+| Eigenschap   | Type                                                           | Beschrijving                   |
 |------------|----------------------------------------------------------------|-------------------------------|
-| url        | tekenreeks                                                         | De relatie aanvraag-URL. |
-| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.      |
+| url        | tekenreeks                                                         | De URL van de relatieaanvraag. |
+| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.      |

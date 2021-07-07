@@ -1,39 +1,35 @@
 ---
-title: De beschik baarheid op basis van ID ophalen
-description: Hiermee wordt de beschik baarheid voor het opgegeven product en de SKU opgehaald met behulp van een beschikbaarheids-ID.
+title: De beschikbaarheid op id op halen
+description: Hiermee haalt u de beschikbaarheid op voor het opgegeven product en de SKU met behulp van een beschikbaarheids-id.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 824303d40e1dcb0405246c8e29562c4527d147fd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c31bc12d8d484cc8042f36aa865145600d9e6738
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767181"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760195"
 ---
-# <a name="get-the-availability-by-id"></a>De beschik baarheid op basis van ID ophalen
+# <a name="get-the-availability-by-id"></a>De beschikbaarheid op id op halen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hiermee wordt de beschik baarheid voor het opgegeven product en de SKU opgehaald met behulp van een beschikbaarheids-ID.
+Hiermee haalt u de beschikbaarheid op voor het opgegeven product en de SKU met behulp van een beschikbaarheids-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een product-ID.
+- Een product-id.
 
-- EEN SKU-ID.
+- Een SKU-id.
 
-- Een beschikbaarheids-ID.
+- Een beschikbaarheids-id.
 
 ## <a name="c"></a>C\#
 
-Als u meer wilt weten over een specifieke [Beschik baarheid](product-resources.md#availability), kunt u beginnen met de stappen in [een SKU ophalen op basis](get-a-sku-by-id.md) van de id om de interface te verkrijgen voor een specifieke [SKU](product-resources.md#sku) -bewerking. Selecteer in de resulterende interface de eigenschap **Availabilities** om een interface te verkrijgen met de beschik bare bewerkingen voor Availabilities. Daarna geeft u de beschikbaarheids-ID door aan de methode **ById ()** om de bewerkingen voor die specifieke Beschik baarheid te verkrijgen en roept u **Get ()** of **GetAsync (** ) aan om de beschikbaarheids gegevens op te halen.
+Als u meer informatie wilt over een specifieke [beschikbaarheid,](product-resources.md#availability)gebruikt u eerst de stappen in Een [SKU](get-a-sku-by-id.md) op id op halen om de interface voor de bewerkingen van een specifieke [SKU op te](product-resources.md#sku) halen. Selecteer in de resulterende interface de eigenschap **Beschikbaarheid** om een interface te verkrijgen met de beschikbare bewerkingen voor beschikbaarheid. Geef daarna de beschikbaarheids-id door aan de **methode ById()** om de bewerkingen voor die specifieke beschikbaarheid op te halen en roep vervolgens **Get()** of **GetAsync()** aan om de beschikbaarheidsgegevens op te halen.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -50,7 +46,7 @@ var availability = partnerOperations.Products.ByCountry(countryCode).ById(produc
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u meer wilt weten over een specifieke [Beschik baarheid](product-resources.md#availability), kunt u beginnen met de stappen in [een SKU ophalen op basis](get-a-sku-by-id.md) van de id om de interface te verkrijgen voor een specifieke [SKU](product-resources.md#sku) -bewerking. Selecteer in de resulterende interface de functie **getAvailabilities** om een interface te verkrijgen met de beschik bare bewerkingen voor Availabilities. Daarna geeft u de beschikbaarheids-ID door aan de functie **byId ()** om de bewerkingen voor die specifieke Beschik baarheid op te halen. Vervolgens roept u de functie **Get ()** aan om de beschikbaarheids gegevens op te halen.
+Als u meer informatie wilt over een specifieke [beschikbaarheid,](product-resources.md#availability)gebruikt u eerst de stappen in Een [SKU](get-a-sku-by-id.md) op id op halen om de interface voor de bewerkingen van een specifieke [SKU op te](product-resources.md#sku) halen. Selecteer in de resulterende interface de **functie getAvailabilities** om een interface te verkrijgen met de beschikbare bewerkingen voor Beschikbaarheid. Geef daarna de beschikbaarheids-id door aan de **functie byId()** om de bewerkingen voor die specifieke beschikbaarheid op te halen en roep vervolgens de **functie get()** aan om de beschikbaarheidsdetails op te halen.
 
 ```java
 IAggregatePartner partnerOperations;
@@ -67,7 +63,7 @@ Availability availability = partnerOperations.getProducts().byCountry(countryCod
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u meer wilt weten over een specifieke [Beschik baarheid](product-resources.md#availability), voert u de [**Get-PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) uit en geeft u de para meters **AvailabilityId**, **CountryCode**, **ProductID** en **SkuId** op om de beschikbaarheids gegevens op te halen.
+Als u details over een specifieke beschikbaarheid wilt [ophalen,](product-resources.md#availability)voert u de parameters [**Get-PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) en geeft u de parameters **AvailabilityId,** **CountryCode,** **ProductId** en **SkuId** op om de beschikbaarheidsgegevens op te halen.
 
 ```powershell
 Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId $availabilityId
@@ -75,26 +71,26 @@ Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/SKUs/{SKU-id}/Availabilities/{Availability-id}? land = {land nummer} http/1.1         |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}?country={country-code} HTTP/1.1         |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende pad-en query parameters om een specifieke Beschik baarheid te verkrijgen met behulp van een beschikbaarheids-ID.
+Gebruik het volgende pad en de queryparameters om een specifieke beschikbaarheid te krijgen met behulp van een beschikbaarheids-id.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Yes      | Een teken reeks met een GUID-indeling waarmee het product wordt geïdentificeerd.            |
-| SKU-id                 | tekenreeks   | Yes      | Een teken reeks met een GUID-indeling waarmee de SKU wordt geïdentificeerd.                |
-| Beschik baarheid-id        | tekenreeks   | Yes      | Een teken reeks met een GUID-indeling waarmee de beschik baarheid wordt geïdentificeerd.       |
-| land code           | tekenreeks   | Yes      | Een land/regio-ID.                                            |
+| product-id             | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die het product identificeert.            |
+| sku-id                 | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die de SKU identificeert.                |
+| availability-id        | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die de beschikbaarheid identificeert.       |
+| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -115,19 +111,19 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een [beschikbaarheids](product-resources.md#availability) resource.
+Als dit lukt, bevat de antwoord-body een [beschikbaarheidsresource.](product-resources.md#availability)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                                               |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 404                  | 400013       | Het product is niet gevonden.                                                                                    |
+| 404                  | 400013       | Product is niet gevonden.                                                                                    |
 | 404                  | 400018       | SKU is niet gevonden.                                                                                        |
-| 404                  | 400019       | Kan geen Beschik baarheid vinden.                                                                                   |
+| 404                  | 400019       | Beschikbaarheid niet gevonden.                                                                                   |
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,54 +1,50 @@
 ---
-title: Een download koppeling voor de micro soft-sjabloon voor klant overeenkomsten ophalen
-description: Een download koppeling voor de micro soft-sjabloon voor klant overeenkomsten ophalen.
+title: Downloadkoppeling voor de sjabloon Microsoft-klantovereenkomst downloaden
+description: Haal een downloadkoppeling op voor Microsoft-klantovereenkomst sjabloon.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 8c794d264ad64a42fa6ca823ddfc3841248c01cd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: fccb9e3d4a837f3e8043f8c7ae1e3911d819afd7
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767319"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906532"
 ---
-# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Een download koppeling voor de micro soft-sjabloon voor klant overeenkomsten ophalen
+# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Downloadkoppeling voor de sjabloon Microsoft-klantovereenkomst downloaden
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center
 
-- Partnercentrum
+**Is niet van toepassing op**: Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-De **AgreementDocument** -resource wordt momenteel alleen ondersteund door het partner centrum in de *open bare cloud van micro soft*. Deze resource is niet van toepassing op:
+De **AgreementDocument-resource** wordt momenteel ondersteund door Partner Center alleen in de openbare Cloud van Microsoft.
 
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-In dit artikel wordt beschreven hoe u een koppeling krijgt voor het downloaden van de micro soft-sjabloon voor klant overeenkomsten, op basis van het land en de taal van de klant.
+In dit artikel wordt beschreven hoe u een koppeling krijgt om de sjabloon Microsoft-klantovereenkomst downloaden, op basis van het land en de taal van de klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u gebruikmaakt van de .NET SDK van partner Center, is versie 1,14 of nieuwer vereist.
+- Als u de .NET SDK Partner Center, is versie 1.14 of nieuwer vereist.
 
-- Referenties zoals beschreven in [Partner Center-verificatie](./partner-center-authentication.md). Dit scenario ondersteunt alleen app + gebruikers verificatie.
+- Referenties zoals beschreven in [Partner Center verificatie](./partner-center-authentication.md). Dit scenario ondersteunt alleen App+Gebruikersverificatie.
 
-- Het land van de klant waarop de micro soft-sjabloon voor klant overeenkomst van toepassing is.
+- Het land van de klant waarop de Microsoft-klantovereenkomst van toepassing is.
 
-- De taal waarin de micro soft-sjabloon voor klant overeenkomsten moet worden gelokaliseerd.
+- De taal waarin de Microsoft-klantovereenkomst sjabloon moet worden gelokaliseerd.
 
 > [!IMPORTANT]
 >
-> - De klant overeenkomst van micro soft is specifiek voor het land. Bij het aanvragen van een koppeling voor het downloaden van de micro soft-sjabloon voor klant overeenkomsten, moet u het juiste land opgeven op basis van de locatie van de klant. of lijst met ondersteunde landen, verwijzen we naar een [lijst met ondersteunde landen en talen](#list-of-supported-countries-and-languages).
+> - De Microsoft-klantovereenkomst is specifiek voor het land. Wanneer u een koppeling aanvraagt om de sjabloon Microsoft-klantovereenkomst downloaden, moet u het juiste land opgeven op basis van de locatie van de klant. of lijst met ondersteunde landen, [raadpleegt u Lijst met ondersteunde landen en talen.](#list-of-supported-countries-and-languages)
 >
-> - Voor sommige landen is de micro soft-klant overeenkomst beschikbaar in meerdere talen. Kies voor de beste gebruikers ervaring de taal die het beste overeenkomt met de behoeften van de klant. Raadpleeg de [lijst met ondersteunde landen en talen](#list-of-supported-countries-and-languages)voor een lijst met ondersteunde talen.
-> - Deze methode wordt alleen ondersteund in de micro soft-klanten overeenkomst.
+> - Voor sommige landen is de Microsoft-klantovereenkomst beschikbaar in meerdere talen. Kies voor de beste klantervaring de taal die het beste bij de behoeften van de klant past. Raadpleeg Lijst met ondersteunde landen en talen voor een lijst met [ondersteunde talen.](#list-of-supported-countries-and-languages)
+> - Deze methode wordt alleen ondersteund met de Microsoft-klantovereenkomst.
 
 ## <a name="net"></a>.NET
 
-Een koppeling ophalen om de micro soft-sjabloon voor klant overeenkomsten te downloaden:
+Een koppeling ophalen om de sjabloon Microsoft-klantovereenkomst downloaden:
 
-1. Haal de meta gegevens van de overeenkomst voor de micro soft-klant overeenkomst op. U moet de **ontbrekende templateid** van de micro soft-klant overeenkomst verkrijgen. Zie voor meer informatie de [meta gegevens van de overeenkomst ophalen voor de micro soft-klant overeenkomst](get-customer-agreement-metadata.md).
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van de** Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -58,17 +54,17 @@ Een koppeling ophalen om de micro soft-sjabloon voor klant overeenkomsten te dow
    AgreementMetaData microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.   ByAgreementType(agreementType).Get().Items.Single();
    ```
 
-2. Gebruik de verzameling IAggregatePartner. AgreementTemplates.
+2. Gebruik de verzameling IAggregatePartner.AgreementTemplates.
 
-3. Roep de **ById** -methode aan en geef de **ontbrekende templateid** van de micro soft-klant overeenkomst op.
+3. Roep de **ById-methode** aan en geef de **templateId** van de Microsoft-klantovereenkomst.
 
-4. Haal de **document** eigenschap op.
+4. Haal de **eigenschap Document** op.
 
-5. Roep de methode **ByCountry** aan en geef het land van de klant op waarop de overeenkomst sjabloon van toepassing is. De query wordt standaard *ingesteld als de* methode niet is opgegeven. Raadpleeg de [lijst met ondersteunde landen en talen](#list-of-supported-countries-and-languages)voor een lijst met ondersteunde land codes. Deze methode is **hoofdletter gevoelig**.
+5. Roep de **ByCountry-methode** aan en geef het land van de klant op waarop de overeenkomstsjabloon van toepassing is. De query wordt standaard ingesteld *op US* als de methode niet is opgegeven. Raadpleeg Lijst met ondersteunde landen en talen voor een lijst met ondersteunde [landcodes.](#list-of-supported-countries-and-languages) Deze methode is **casegevoelig.**
 
-6. Roep de methode **ByLanguage** aan en geef de taal op waarin de overeenkomst sjabloon moet worden gelokaliseerd. De query wordt standaard ingesteld op *nl-nl* als de methode niet is opgegeven, of de opgegeven land code niet wordt ondersteund voor het opgegeven land. Raadpleeg de [lijst met ondersteunde landen en talen](#list-of-supported-countries-and-languages)voor een lijst met ondersteunde taal codes.
+6. Roep de **methode ByLanguage** aan en geef de taal op waarin de overeenkomstsjabloon moet worden gelokaliseerd. De query wordt standaard ingesteld *op en-US* als de methode niet is opgegeven of als de opgegeven landcode niet wordt ondersteund voor het opgegeven land. Raadpleeg Lijst met ondersteunde landen en talen voor een lijst met [ondersteunde taalcodes.](#list-of-supported-countries-and-languages)
 
-7. Roep de methode Get of **GetAsync** **aan** .
+7. Roep de **methode Get** of **GetAsync aan.**
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -80,41 +76,41 @@ Een koppeling ophalen om de micro soft-sjabloon voor klant overeenkomsten te dow
    var agreementDocument = partnerOperations.   AgreementTemplates.ById   (microsoftCustomerAgreementDetails.   TemplateId).Document.ByCountry   (customerCountry).ByLanguage   (languageForLocalization).Get();
    ```
 
-Een volledig voor beeld vindt u in de [GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) -klasse in het [console test-app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) -project.
+Een volledig voorbeeld vindt u in de [klasse GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) van het [consoletest-app-project.](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-Een koppeling ophalen om de micro soft-sjabloon voor klant overeenkomsten te downloaden:
+Een koppeling ophalen om de sjabloon Microsoft-klantovereenkomst downloaden:
 
-1. Haal de meta gegevens van de overeenkomst voor de micro soft-klant overeenkomst op. U moet de **ontbrekende templateid** van de micro soft-klant overeenkomst verkrijgen. Zie voor meer informatie de [meta gegevens van de overeenkomst ophalen voor de micro soft-klant overeenkomst](get-customer-agreement-metadata.md).
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van de** Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
-2. Maak een REST-aanvraag om een [ **AgreementDocument** -resource](./agreement-document-resources.md)op te halen. Zie voor een voor beeld de [syntaxis](#request-syntax) van de aanvraag. U moet de volgende informatie opgeven:
+2. Maak een REST-aanvraag om een [ **AgreementDocument-resource op** te halen.](./agreement-document-resources.md) Zie het voorbeeld van de [aanvraagsyntaxis voor een](#request-syntax) voorbeeld. U moet de volgende informatie opgeven:
 
-    - De **ontbrekende templateid** van de micro soft-klant overeenkomst.
-    - Het land waarop de micro soft-sjabloon voor klant overeenkomst van toepassing is.
-    - De taal waarin de micro soft-sjabloon voor klant overeenkomsten moet worden gelokaliseerd.
+    - De **templateId** van de Microsoft-klantovereenkomst.
+    - Het land waarop de Microsoft-klantovereenkomst is toegepast.
+    - De taal waarin de Microsoft-klantovereenkomst sjabloon moet worden gelokaliseerd.
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
-Gebruik de volgende aanvraag syntaxis voor deze resource:
+Gebruik de volgende aanvraagsyntaxis voor deze resource:
 
 | Methode | Aanvraag-URI |
 |--------|---------------------------------------------------------------------|
-| GET | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/agreementtemplates/{Agreement-Template-id}/document? taal = {taal} &land = {Country} http/1.1 |
+| GET | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/agreementtemplates/{agreement-template-id}/document?language={language}&country={country} HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-U kunt de volgende URI-para meters met uw aanvraag gebruiken:
+U kunt de volgende URI-parameters gebruiken bij uw aanvraag:
 
 | Naam                   | Type   | Vereist | Beschrijving                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| overeenkomst-sjabloon-id  | tekenreeks | Yes      | De unieke id van het overeenkomst type. U kunt de ontbrekende templateid voor de micro soft-klant overeenkomst verkrijgen door de meta gegevens van de overeenkomst voor de micro soft-klant overeenkomst op te halen. Zie voor meer informatie de [meta gegevens van de overeenkomst ophalen voor de micro soft-klant overeenkomst](./get-customer-agreement-metadata.md). Deze para meter is **hoofdletter gevoelig**.|
-| country                | tekenreeks | No       | Hiermee wordt het land aangegeven waarop de overeenkomst sjabloon van toepassing is. De query wordt standaard *ingesteld als de* para meter niet is opgegeven. Raadpleeg de [lijst met ondersteunde landen en talen](#list-of-supported-countries-and-languages)voor een lijst met ondersteunde land codes.|
-| language               | tekenreeks | No       | Hiermee wordt de taal aangegeven waarin de overeenkomst sjabloon moet worden gelokaliseerd. De query wordt standaard ingesteld op *nl-nl* als de para meter niet is opgegeven, of de land code die is opgegeven in't wordt ondersteund voor het opgegeven land. Raadpleeg de [lijst met ondersteunde landen en talen](#list-of-supported-countries-and-languages)voor een lijst met ondersteunde land codes.|
+| agreement-template-id  | tekenreeks | Ja      | De unieke id van het overeenkomsttype. U kunt de templateId voor Microsoft-klantovereenkomst verkrijgen door de metagegevens van de overeenkomst op te halen voor Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](./get-customer-agreement-metadata.md) Deze parameter is **casegevoelig.**|
+| country                | tekenreeks | No       | Geeft het land aan waarop de overeenkomstsjabloon van toepassing is. De query wordt standaard ingesteld *op US* als de parameter niet is opgegeven. Raadpleeg Lijst met ondersteunde landen en talen voor een lijst met ondersteunde [landcodes.](#list-of-supported-countries-and-languages)|
+| language               | tekenreeks | No       | Hiermee wordt de taal aangegeven waarin de overeenkomstsjabloon moet worden gelokaliseerd. De query wordt standaard ingesteld *op en-US* als de parameter niet is opgegeven of als de landcode die is opgegeven in niet wordt ondersteund voor het opgegeven land. Raadpleeg Lijst met ondersteunde landen en talen voor een lijst met [ondersteunde landcodes.](#list-of-supported-countries-and-languages)|
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -132,15 +128,15 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een [ **AgreementDocument** -resource](./agreement-document-resources.md) in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een [ **AgreementDocument-resource**](./agreement-document-resources.md) in de antwoord-body.
 
-De resource heeft een eigenschap **downloadUri** , die een URL-teken reeks bevat die kan worden gebruikt om de overeenkomst sjabloon te downloaden. Telkens wanneer u een query maakt, wordt er een andere koppeling geretourneerd. Deze koppeling verloopt na vijf minuten.
+De resource heeft de **eigenschap downloadUri,** die een URL-tekenreeks bevat die kan worden gebruikt om de overeenkomstsjabloon te downloaden. Telkens wanneer u een query maakt, wordt er een andere koppeling geretourneerd. Deze koppeling verloopt na vijf minuten.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.
 
-Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
@@ -161,41 +157,41 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ## <a name="list-of-supported-countries-and-languages"></a>Lijst met ondersteunde landen en talen
 
 > [!IMPORTANT]
-> De land code-eigenschap is hoofdletter gevoelig. Zorg ervoor dat u de juiste behuizing gebruikt die in de onderstaande tabel is opgegeven.
+> De eigenschap landcode is casegevoelig. Zorg ervoor dat u de juiste casing gebruikt die is opgegeven in de onderstaande tabel.
 
-| Land/regio                   | Landcode   | Ondersteunde taal code (s) |
+| Land/regio                   | Landcode   | Ondersteunde taalcode(s) |
 |------------------------|--------|----------|
-| Åland-eilanden | AX | en-US |
+| Ålandeilanden | Ax | en-US |
 | Afghanistan | AF | en-US |
 | Albanië | AL | en-US |
-| Algerije | DZ | nl-nl, fr-FR en nl-US |
+| Algerije | DZ | en-US, fr-FR, en-US |
 | Amerikaans-Samoa | AS | en-US |
 | Andorra | AD | en-US |
 | Angola | AO | en-US, pt-PT |
 | Anguilla | AI | en-US |
-| Antarctica | AQ | en-US |
+| Antarctica | Aq | en-US |
 | Antigua en Barbuda | AG | en-US |
 | Argentinië | AR | en-US, es-ES |
 | Armenië | AM | en-US |
-| Aruba | AW | en-US |
+| Aruba | Aw | en-US |
 | Australië | AU | en-US |
-| Oostenrijk | AT | nl-nl, de-DE |
+| Oostenrijk | AT | en-US, de-DE |
 | Azerbeidzjan | AZ | en-US |
 | Bahama's | BS | en-US |
-| Bahrein | BH | en-US, AR-SA |
+| Bahrein | BH | en-US, ar-SA |
 | Bangladesh | BD | en-US |
 | Barbados | BB | en-US |
 | Belarus | BY | en-US, ru-RU |
 | België | BE | en-US, nl-NL |
 | Belize | BZ | en-US, es-ES |
 | Benin | BJ | en-US |
-| Bermuda | BM | en-US |
+| Bermuda | Bm | en-US |
 | Bhutan | BT | en-US |
 | Bolivia | BO | en-US, es-ES |
-| Bonaire | BV | en-US |
+| Bonaire | Bq | en-US |
 | Bosnië en Herzegovina | BA | en-US |
 | Botswana | BW | en-US |
-| Bouveteiland | BW | en-US |
+| Bouveteiland | Bv | en-US |
 | Brazilië | BR | en-US, pt-BR |
 | Brits Territorium in de Indische Oceaan | I/O | en-US |
 | Britse Maagdeneilanden | VG | en-US |
@@ -203,118 +199,118 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Bulgarije | BG | en-US, bg-BG |
 | Burkina Faso | BF | en-US |
 | Burundi | BI | en-US |
-| Cote d'Ivoire | CI | nl-nl, fr-FR |
+| Cote d'Ivoire | CI | en-US, fr-FR |
 | Cabo Verde | CV | en-US, pt-PT |
 | Cambodja | KH | en-US |
-| Kameroen | CM | nl-nl, fr-FR |
-| Canada | CA (consistentie en beschikbaarheid) | nl-nl, fr-FR |
-| Kaaimaneilanden | KY | nl-nl, nl-nl |
+| Kameroen | CM | en-US, fr-FR |
+| Canada | CA (consistentie en beschikbaarheid) | en-US, fr-FR |
+| Kaaimaneilanden | KY | en-US, en-US |
 | Centraal-Afrikaanse Republiek | CF | en-US |
 | Tsjaad | TD | en-US |
 | Chili | CL | en-US, es-ES |
 | Christmaseiland | CX | en-US |
 | Cocoseilanden | CC | en-US |
 | Colombia | CO | en-US, es-ES |
-| Comoren | KM | en-US |
+| Comoren | Km | en-US |
 | Congo (DRC) | CD | en-US |
-| Congo | CG | en-US |
-| Cookeilanden | CK | en-US |
+| Congo | Cg | en-US |
+| Cookeilanden | Ck | en-US |
 | Costa Rica | CR | en-US, es-ES |
-| Kroatië | HR | nl-nl, HR-HR |
-| Curaçao | WAARNAAR | en-US |
+| Kroatië | HR | en-US, hr-HR |
+| Curaçao | Cw | en-US |
 | Cyprus | CY | en-US |
-| Czechia | CZ | en-US, CS-CZ |
+| Tsjechië | CZ | en-US, cs- CSR |
 | Denemarken | DK | en-US, da-DK |
-| Djibouti | DJ | en-US |
+| Djibouti | Dj | en-US |
 | Dominica | DM | en-US |
 | Dominicaanse Republiek | DO | en-US, es-ES |
 | Ecuador | EC | en-US |
-| Egypte | EG | en-US, AR-SA |
+| Egypte | EG | en-US, ar-SA |
 | El Salvador | SV | en-US, es-ES |
-| Equatoriaal-Guinea | GQ | en-US |
+| Equatoriaal-Guinea | Gq | en-US |
 | Eritrea | ER | en-US |
 | Estland | EE | en-US, et-EE |
-| eSwatini | SZ | en-US |
+| eSwaautoriteit | SZ | en-US |
 | Ethiopië | ET | en-US |
-| Falklandeilanden | FK | en-US |
-| Faröer | FO | en-US |
+| Falklandeilanden | Fk | en-US |
+| Faröer | Fo | en-US |
 | Fiji | FJ | en-US |
-| Finland | FI | nl-nl, fi-FI |
-| Frankrijk | FR | nl-nl, fr-FR |
-| Frans-Guyana | GF | nl-nl, fr-FR  |
+| Finland | FI | en-US, fi-FI |
+| Frankrijk | FR | en-US, fr-FR |
+| Frans-Guyana | GF | en-US, fr-FR  |
 | Frans-Polynesië | PF | en-US |
-| Franse Gebieden in de zuidelijke Indische Oceaan | TF | en-US |
+| Franse Gebieden in de zuidelijke Indische Oceaan | Tf | en-US |
 | Gabon | Algemene beschikbaarheid | en-US |
 | Gambia | GM | en-US |
 | Georgië | GE | en-US |
-| Duitsland | DE | nl-nl, de-DE |
+| Duitsland | DE | en-US, de-DE |
 | Ghana | GH | en-US |
-| Gibraltar | GI | en-US |
-| Griekenland | GR | nl-nl, El-GR |
-| Groenland | BOEKHOUD | en-US |
-| Grenada | GD | en-US |
+| Gibraltar | Gi | en-US |
+| Griekenland | GR | en-US, el-GR |
+| Groenland | Gl | en-US |
+| Grenada | Gd | en-US |
 | Guadeloupe | GP | en-US |
 | Guam | GU | en-US |
 | Guatemala | GT | en-US, es-ES |
-| Guernsey | GG | en-US |
+| Guernsey | Gg | en-US |
 | Guinee | GN | en-US |
 | Guinee-Bissau | GW | en-US |
 | Guyana | GY | en-US |
 | Haïti | HT | en-US |
-| Heard- en McDonald-eilanden | HM | en-US |
+| Heard- en McDonald-eilanden | Hm | en-US |
 | Honduras | HN | en-US, es-ES |
-| Hongkong SAR | HK | nl-nl, zh-HK |
+| Hongkong SAR | HK | en-US, zh-HK |
 | Hongarije | HU | en-US, hu-HU |
 | IJsland | IS | en-US |
-| India | IN | en-US, Hi-IN |
-| Indonesië | Id | nl-nl, id-ID |
-| Irak | IQ | en-US, AR-SA |
+| India | IN | en-US, hi-IN |
+| Indonesië | Id | en-US, id-id |
+| Irak | IQ | en-US, ar-SA |
 | Ierland | IE | en-US |
 | Isle of Man | IM | en-US |
-| Israël | IL | en-US, hij-IL |
+| Israël | IL | en-US, he-IL |
 | Italië | IT | en-US, it-IT |
 | Jamaica | JM | en-US |
-| Jan Mayen | XJ | en-US |
+| Jan Mayen | Xj | en-US |
 | Japan | JP | en-US, ja-JP |
 | Jersey | JE | en-US |
-| Jordanië | JO | en-US, AR-SA |
-| Kazachstan | KZ | nl-nl, KK-KZ |
+| Jordanië | JO | en-US, ar-SA |
+| Kazachstan | KZ | en-US, kk-KZ |
 | Kenia | KE | en-US |
 | Kiribati | KI | en-US |
 | Korea | KR | en-US, ko-KR |
 | Kosovo | XK | en-US |
-| Koeweit | KW | en-US, AR-SA |
+| Koeweit | KW | en-US, ar-SA |
 | Kirgistan | KG | en-US, ru-RU |
 | Laos | LA | en-US |
-| Letland | LV | en-US, LV-LV |
-| Libanon | LB | en-US, AR-SA |
+| Letland | LV | en-US, lv-LV |
+| Libanon | LB | en-US, ar-SA |
 | Lesotho | LS | en-US |
 | Liberia | LR | en-US |
-| Libië | LY | en-US, AR-SA |
-| Liechtenstein | LI | nl-nl, de-DE |
+| Libië | LY | en-US, ar-SA |
+| Liechtenstein | LI | en-US, de-DE |
 | Litouwen | LT | en-US, lt-LT |
-| Luxemburg | LU | nl-nl, fr-FR |
-| Macau SAR | MO | nl-nl, zh-HK |
-| Macedonië, voormalige Joegoslavische Republiek | MK | en-US |
+| Luxemburg | LU | en-US, fr-FR |
+| Macau SAR | MO | en-US, zh-HK |
+| Noord-Oost, FYRO | MK | en-US |
 | Madagaskar | MG | en-US |
 | Malawi | MW | en-US |
-| Maleisië | MY | nl-nl, MS-MY |
+| Maleisië | MY | en-US, ms-MY |
 | Maldiven | MV | en-US |
 | Mali | ML | en-US |
 | Malta | MT | en-US |
 | Marshalleilanden | MH | en-US |
 | Martinique | MQ | en-US |
 | Mauritanië | MR | en-US |
-| Mauritius | MU | en-US, AR-SA |
+| Mauritius | Mu | en-US, ar-SA |
 | Mayotte | YT | en-US |
 | Mexico | MX | en-US, es-ES |
 | Micronesia | FM | en-US |
-| Moldavië | MD | en-US, RO-RO |
-| Monaco | MC | nl-nl, fr-FR |
+| Moldavië | MD | en-US, ro-RO |
+| Monaco | MC | en-US, fr-FR |
 | Mongolië | MN | en-US |
 | Montenegro | ME | en-US |
 | Montserrat | MS | en-US |
-| Marokko | MA | nl-nl, fr-FR en nl-US |
+| Marokko | MA | en-US, fr-FR, en-US |
 | Mozambique | MZ | en-US |
 | Myanmar | MM | en-US |
 | Namibië | NA | en-US |
@@ -327,87 +323,87 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Niger | NE | en-US |
 | Nigeria | NG | en-US |
 | Niue | NU | en-US |
-| Norfolk | NF | en-US |
+| Norfolk | Nf | en-US |
 | Noordelijke Marianen | MP | en-US |
-| Noorwegen | NO | nl-nl, nb-NO |
-| Oman | OM | en-US, AR-SA |
+| Noorwegen | NO | en-US, nb-NO |
+| Oman | OM | en-US, ar-SA |
 | Pakistan | PK | en-US |
 | Palau | PW | en-US |
 | Palestijnse Autoriteit | PS | en-US |
 | Panama | PA | en-US, es-ES |
-| Papoea-Nieuw-Guinea | 3000CN | en-US |
+| Papoea-Nieuw-Guinea | Pg | en-US |
 | Paraguay | PY | en-US, es-ES |
 | Peru | PE | en-US, es-ES |
 | Filipijnen | PH | en-US |
-| Pitcairneilanden | PN | en-US |
+| Pitcairneilanden | Pn | en-US |
 | Polen | PL | en-US, pl-PL |
 | Portugal | PT | en-US, pt-PT |
-| Puerto Rico | PR | nl-nl, nl-nl |
-| Qatar | QA | en-US, AR-SA |
+| Puerto Rico | PR | en-US, en-US |
+| Qatar | QA | en-US, ar-SA |
 | Réunion | RE | en-US |
-| Roemenië | RO | en-US, RO-RO |
+| Roemenië | RO | en-US, ro-RO |
 | Rusland | RU | en-US, ru-RU |
-| Rwanda | RW | nl-nl, fr-FR |
-| Sao Tomé en principe | ST | nl-nl, fr-FR |
-| Saba | X'EN | en-US |
+| Rwanda | RW | en-US, fr-FR |
+| Sño Toñ en Prñncipe | ST | en-US, fr-FR |
+| Saba | Xs | en-US |
 | Saint-Barthélemy | BL | en-US |
 | Saint Kitts en Nevis | KN | en-US |
-| Saint Lucia | KREDIET | nl-nl, nl-nl |
-| Saint-Martin | V | nl-nl, nl-nl |
+| Saint Lucia | Lc | en-US, en-US |
+| Saint-Martin | Mf | en-US, en-US |
 | Saint-Pierre en Miquelon | PM | en-US |
 | Saint Vincent en de Grenadines | VC | en-US |
 | Samoa | WS | en-US |
-| San Marino | 'S | en-US |
+| San Marino | Sm | en-US |
 | Saoedi-Arabië | SA | en-US |
-| Senegal | SN | nl-nl, fr-FR |
-| Servië | RS | en-US, sr-Latn-RS en nl-US |
+| Senegal | SN | en-US, fr-FR |
+| Servië | RS | en-US, sr-Latn-RS, en-US |
 | Seychellen | SC | en-US |
 | Sierra Leone | SL | en-US |
-| Singapore | SG | en-US, zh-AG |
-| Sint Eustatius | XE | en-US |
-| Sint Maarten | SX | nl-nl, nl-nl |
+| Singapore | SG | en-US, zh-SG |
+| Sint Eustatius | Xe | en-US |
+| Sint Maarten | Sx | en-US, en-US |
 | Slowakije | SK | en-US, sk-SK |
 | Slovenië | SI | en-US, sl-SI |
-| Salomonseilanden | SB | en-US |
+| Salomonseilanden | Sb | en-US |
 | Somalië | SO | en-US |
 | Zuid-Afrika | ZA | en-US |
-| Zuid-Georgië en de Zuidelijke Sandwicheilanden | GS | en-US |
+| Zuid-Georgië en de Zuidelijke Sandwicheilanden | Gs | en-US |
 | Zuid-Soedan | SS | en-US |
-| Spanje | ES | en-US, es-ES, nl-nl en nl-nl |
+| Spanje | ES | en-US, es-ES, en-US, en-US |
 | Sri Lanka | LK | en-US |
-| Sint-Helena, Ascension en Tristan da Cunha | SH | en-US |
+| St Helena, Ascension, Tristan da Cunha | SH | en-US |
 | Suriname | SR | en-US |
-| Svalbard | SJ | en-US |
-| Zweden | SE | nl-nl, sv-SE |
-| Zwitserland | CH | nl-nl, fr-FR, en-US en nl-nl |
-| Taiwan | TW | nl-nl, zh-HK |
-| Tadzjikistan | TJ | en-US |
+| Svalbard | Sj | en-US |
+| Zweden | SE | en-US, sv-SE |
+| Zwitserland | CH | en-US, fr-FR, en-US, en-US |
+| Taiwan | TW | en-US, zh-HK |
+| Tadzjikistan | Tj | en-US |
 | Tanzania | TZ | en-US |
-| Thailand | TH | en-US, th-do |
+| Thailand | TH | en-US, th-TH |
 | Timor-Leste | TL | en-US |
 | Togo | TG | en-US |
-| Tokelau | TK | en-US |
+| Tokelau | Tk | en-US |
 | Tonga | TO | en-US |
 | Trinidad en Tobago | TT | en-US |
-| Tunesië | TN | nl-nl, fr-FR en nl-US |
+| Tunesië | TN | en-US, fr-FR, en-US |
 | Turkije | TR | en-US, tr-TR |
 | Turkmenistan | TM | en-US |
 | Turks- en Caicos-eilanden | TC | en-US |
 | Tuvalu | TV | en-US |
-| Amerikaanse ondergeschikte afgelegen eilanden | UM | en-US |
-| Amerikaanse Maagden eilanden | VI | en-US |
+| Amerikaanse outlyingeilanden | UM | en-US |
+| Amerikaanse Maagdeneilanden | VI | en-US |
 | Oeganda | UG | en-US |
-| Oekraïne | UA | nl-nl, UK-UA |
-| Verenigde Arabische Emiraten | AE | en-US, AR-SA |
+| Oekraïne | UA | en-US, uk-UA |
+| Verenigde Arabische Emiraten | AE | en-US, ar-SA |
 | Verenigd Koninkrijk | GB | en-US |
 | Verenigde Staten | VS | en-US |
 | Uruguay | UY | en-US, es-ES |
 | Oezbekistan | UZ | en-US, ru-RU |
-| Vanuatu | VU | en-US |
+| Vanuatu | Vu | en-US |
 | Vaticaanstad | VA | en-US |
 | Venezuela | VE | en-US, es-ES |
-| Vietnam | VN | nl-nl, VI-VN |
-| Wallis en Futuna | WF | en-US |
-| Jemen | TEZAM | en-US, AR-SA |
+| Vietnam | VN | en-US, vi-VN |
+| Wallis en Walluna | WF | en-US |
+| Jemen | Gij | en-US, ar-SA |
 | Zambia | ZM | en-US |
 | Zimbabwe | ZW | en-US |

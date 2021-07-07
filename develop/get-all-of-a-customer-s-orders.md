@@ -1,42 +1,37 @@
 ---
 title: Alle bestellingen van een klant ophalen
-description: Hiermee wordt een verzameling opgehaald van alle orders voor een opgegeven klant.
+description: Hiermee haalt u een verzameling van alle orders voor een opgegeven klant op.
 ms.date: 06/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 4d71cd138421704d94a55a9fe21e074d92638815
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: e8f23e90cbb5afb45e519e2c58fd0d3b9ea2de6a
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767503"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760297"
 ---
 # <a name="get-all-of-a-customers-orders"></a>Alle bestellingen van een klant ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een verzameling opgehaald van alle orders voor een opgegeven klant. Er is een vertraging van Maxi maal 15 minuten tussen de tijd dat een bestelling wordt verzonden en wanneer deze wordt weer gegeven in een verzameling van de orders van een klant.
+Hiermee haalt u een verzameling van alle orders voor een opgegeven klant op. Er is een vertraging van maximaal 15 minuten tussen het moment waarop een order wordt verzonden en het moment waarop deze wordt weergegeven in een verzameling orders van een klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Voor het verkrijgen van een verzameling van alle orders van een klant:
+Een verzameling van alle orders van een klant verkrijgen:
 
-1. Gebruik uw verzameling [**IAggregatePartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roep de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan.
+1. Gebruik de [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roep de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan.
 
-2. Roep de eigenschap [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) aan, gevolgd door de methoden [**Get ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) .
+2. Roep de [**eigenschap Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) aan, gevolgd door de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) of [**GetAsync().**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,27 +40,27 @@ Voor het verkrijgen van een verzameling van alle orders van een klant:
 var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSamples- **klasse**: GetOrders.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: GetOrders.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/orders http/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders HTTP/1.1  |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om alle orders op te halen.
+Gebruik de volgende queryparameter om alle orders op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| klant-Tenant-id     | tekenreeks   | Yes      | Een GUID-indelings teken reeks die overeenkomt met de klant.    |
+| customer-tenant-id     | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die overeenkomt met de klant.    |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -84,11 +79,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling [bestel](order-resources.md) resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling [orderresources](order-resources.md) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

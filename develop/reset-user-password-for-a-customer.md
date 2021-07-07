@@ -1,35 +1,31 @@
 ---
 title: Gebruikerswachtwoord voor een klant opnieuw instellen
-description: Het opnieuw instellen van een wacht woord lijkt veel op het bijwerken van andere gegevens in een bestaand gebruikers account voor uw klant.
+description: Het opnieuw instellen van een wachtwoord is vergelijkbaar met het bijwerken van andere gegevens in een bestaand gebruikersaccount voor uw klant.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e0df93c2db55ec0fe49fc0e3089b7e11928f32bb
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f3661a588f566485cbd58035c63ae9f8e5d383af
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767219"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445677"
 ---
 # <a name="reset-user-password-for-a-customer"></a>Gebruikerswachtwoord voor een klant opnieuw instellen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Het opnieuw instellen van een wacht woord lijkt veel op het bijwerken van andere gegevens in een bestaand gebruikers account voor uw klant.
+Het opnieuw instellen van een wachtwoord is vergelijkbaar met het bijwerken van andere gegevens in een bestaand gebruikersaccount voor uw klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een wacht woord voor een opgegeven klant gebruiker opnieuw wilt instellen, moet u eerst de opgegeven klant-ID en de doel gebruiker ophalen. Maak vervolgens een nieuw **CustomerUser** -object dat de informatie voor de bestaande klant bevat, maar met een nieuw **PasswordProfile** -object. Vervolgens gebruikt u de verzameling **IAggregatePartner. Customers** en roept u de methode **ById ()** aan. Roep vervolgens de eigenschap **Users** , de methode **ById ()** , en vervolgens de **patch** -methode aan.
+Als u een wachtwoord voor een opgegeven klantgebruiker opnieuw wilt instellen, haalt u eerst de opgegeven klant-id en de beoogde gebruiker op. Maak vervolgens een nieuw **CustomerUser-object** dat de informatie voor de bestaande klant bevat, maar met een nieuw **PasswordProfile-object.** Gebruik vervolgens de verzameling **IAggregatePartner.Customers** en roep de **methode ById()** aan. Roep vervolgens de **eigenschap Users,** de **methode ById()** en vervolgens de **patchmethode aan.**
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -52,28 +48,28 @@ User updatedCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSamples- **klasse**: CustomerUserUpdate.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: CustomerUserUpdate.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                  |
 |-----------|----------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/users http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de juiste klant te identificeren.
+Gebruik de volgende queryparameter om de juiste klant te identificeren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **gebruikers-id**            | **guid** | J        | De waarde is een **gebruikers-id** met een GUID-indeling die tot één gebruikers account behoort.                                                                       |
+| **customer-tenant-id** | **guid** | J        | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
+| **user-id**            | **guid** | J        | De waarde is een **gebruikers-id** met GUID-indeling die bij één gebruikersaccount hoort.                                                                       |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -99,11 +95,11 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de gebruikers gegevens, samen met de bijgewerkte wachtwoord gegevens.
+Als dit lukt, retourneert deze methode de gebruikersgegevens, samen met de bijgewerkte wachtwoordgegevens.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

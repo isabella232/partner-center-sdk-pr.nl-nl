@@ -1,49 +1,45 @@
 ---
 title: Implementatiegegevens van licenties ophalen
-description: Implementatie-informatie over Office-en Dynamics-licenties ophalen.
+description: Informatie over de implementatie van Office en Dynamics-licenties.
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ef0e5d73d34bc51e4cc58143db6c9fc49cb58fcb
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 9eb0dc655affb2216b11635e58e00ed6464d6792
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767406"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445660"
 ---
 # <a name="get-licenses-deployment-information"></a>Implementatiegegevens van licenties ophalen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Implementatie-informatie over Office-en Dynamics-licenties ophalen.
+Informatie over de implementatie van Office en Dynamics-licenties.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties.
+Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                     |
 |---------|-------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Analytics/Commercial/Deployment/License/http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/commercial/deployment/license/ HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
 | Parameter         | Type     | Beschrijving | Vereist |
 |-------------------|----------|-------------|----------|
-| top               | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden geretourneerd. De maximum waarde en de standaard waarde als niet wordt opgegeven, zijn 10000. Als er meer rijen in de query staan, bevat de antwoord tekst een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. | No |
-| skip              | int      | Het aantal rijen dat in de query moet worden overgeslagen. Gebruik deze para meter om door grote gegevens sets te bladeren. Bijvoorbeeld Top = 10000 en skip = 0 haalt de eerste 10000 rijen met gegevens op, Top = 10000 en skip = 10000 de volgende 10000 rijen met gegevens ophalen, enzovoort. | No |
-| filter            | tekenreeks   | De *filter* parameter van de aanvraag bevat een of meer instructies waarmee de rijen in het antwoord worden gefilterd. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de `eq` or `ne` -Opera tors en instructies kunnen worden gecombineerd met `and` of `or` . Hier volgen enkele voor beelden van *filter* parameters:<br/><br/> *filter = serviceCode EQ ' O365 '*<br/> *filter = serviceCode EQ ' O365 '* of (*Channel EQ ' wederverkoper*')<br/><br/> U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**serviceName**<br/>**kanalen**<br/>**customerTenantId**<br/>**customerName**<br/>**productId**<br/>**Product**  | No |
-| GroupBy           | tekenreeks   | Een instructie die alleen gegevens aggregatie toepast op de opgegeven velden. U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**serviceName**<br/>**kanalen**<br/>**customerTenantId**<br/>**customerName**<br/>**productId**<br/>**Product**<br/><br/> De geretourneerde gegevens rijen bevatten de velden die zijn opgegeven in de para meter *GroupBy* , evenals de volgende:<br/><br/>**licensesDeployed**<br/>**licensesSold**  | No |
-| processedDateTime | DateTime | De ene kan de datum opgeven waarop de gebruiks gegevens zijn verwerkt. Wordt standaard ingesteld op de laatste datum waarop de gegevens zijn verwerkt | No |
+| top               | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10.000. Als er meer rijen in de query staan, bevat de hoofdpagina van het antwoord een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. | Nee |
+| skip              | int      | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om grote gegevenssets te bekijken. Top=10000 en skip=0 haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, top=10000 en skip=10000 haalt de volgende 10000 rijen met gegevens op, bijvoorbeeld. | Nee |
+| filter            | tekenreeks   | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies `eq` kunnen worden gecombineerd met of `ne` `and` `or` . Hier volgen enkele *voorbeeldfilterparameters:*<br/><br/> *filter=serviceCode eq 'O365'*<br/> *filter=serviceCode eq 'O365'* of (*kanaal eq 'Reseller'*)<br/><br/> U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**  | Nee |
+| groupby           | tekenreeks   | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**<br/><br/> De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de *groupby-parameter* en het volgende:<br/><br/>**licenties Geïmplementeerd**<br/>**licentiesVerkocht**  | Nee |
+| processedDateTime | DateTime | U kunt de datum opgeven vanaf welke gebruiksgegevens zijn verwerkt. De standaardwaarde is de laatste datum waarop de gegevens zijn verwerkt | Nee |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -59,24 +55,24 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de volgende velden met gegevens over de geïmplementeerde licenties.
+Als dit lukt, bevat de antwoord-body de volgende velden met gegevens over de geïmplementeerde licenties.
 
-| Veld             | Type     | Description                           |
+| Veld             | Type     | Beschrijving                           |
 |-------------------|----------|---------------------------------------|
-| serviceCode       | tekenreeks   | Service code                          |
-| serviceName       | tekenreeks   | Servicenaam                          |
-| kanalen           | tekenreeks   | Kanaal naam, wederverkoper                |
-| customerTenantId  | tekenreeks   | De unieke id voor de klant    |
+| serviceCode       | tekenreeks   | Servicecode                          |
+| Servicenaam       | tekenreeks   | Servicenaam                          |
+| Kanaal           | tekenreeks   | Kanaalnaam, reseller                |
+| customerTenantId  | tekenreeks   | Unieke id voor de klant    |
 | customerName      | tekenreeks   | Klantnaam                         |
-| productId         | tekenreeks   | De unieke id voor het product     |
-| Product       | tekenreeks   | Productnaam                          |
-| licensesDeployed  | long     | Aantal geïmplementeerde licenties           |
-| licensesSold      | long     | Aantal verkochte licenties               |
-| processedDateTime | DateTime | Datum waarop de gegevens voor het laatst zijn verwerkt |
+| productId         | tekenreeks   | Unieke id voor het product     |
+| Productnaam       | tekenreeks   | Productnaam                          |
+| licenties Geïmplementeerd  | long     | Aantal geïmplementeerde licenties           |
+| licentiesVerkocht      | long     | Aantal verkochte licenties               |
+| processedDateTime | DateTime | De datum waarop de gegevens voor het laatst zijn verwerkt |
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -4,33 +4,28 @@ description: Meer informatie over het gebruik Partner Center API's om verschille
 ms.date: 04/28/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c3bf862c62804a56e6f73dd3ec36d2e9eb65f997
-ms.sourcegitcommit: f59a9311c8a37d45695caf74794ec1697426acc9
+ms.openlocfilehash: 4c4b658f406e420d8d3cd425688364fe3d440d3d
+ms.sourcegitcommit: a3a78ec0f5078645b5a4f3b534165eef30f2c822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108210016"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113104968"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox-using-partner-center-apis"></a>Een bestelling van de integratie-sandbox annuleren met behulp van Partner Center API's
 
-**Van toepassing op:**
-
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
 In dit artikel wordt beschreven hoe u Partner Center api's kunt gebruiken om verschillende typen abonnementsorders van sandbox-accounts voor integratie te annuleren. Dergelijke orders kunnen gereserveerde instanties, software en commerciële marketplace-SaaS-abonnementsorders (Software as a Service) bevatten.
 
->[!NOTE] 
->Houd er rekening mee dat het annuleren van gereserveerde instanties of saaS-abonnementsorders op de commerciële marketplace alleen mogelijk is via sandbox-accounts voor integratie. Sandbox-orders die ouder zijn dan 60 dagen, kunnen niet worden geannuleerd voor Partner Center. Als u hulp nodig hebt, kunt u contact op Partner Center ondersteuning. 
+> [!NOTE] 
+> Houd er rekening mee dat het annuleren van gereserveerde instanties of saaS-abonnementsorders op de commerciële marketplace alleen mogelijk is via sandbox-accounts voor integratie. Sandbox-orders die ouder zijn dan 60 dagen, kunnen niet worden geannuleerd voor Partner Center.
 
 Als u productieorders van software via de API wilt annuleren, gebruikt [u cancel-software-purchases.](cancel-software-purchases.md)
 U kunt productieorders van software ook annuleren via een dashboard met [behulp van een aankoop annuleren.](/partner-center/csp-software-subscriptions)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een sandbox-partneraccount voor integratie met een klant met actieve gereserveerde instanties/software/SaaS-abonnementsorders van derden.
 
@@ -71,11 +66,11 @@ Gebruik de volgende queryparameter om een klant te verwijderen.
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | J        | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
-| **order-id** | **tekenreeks** | J        | De waarde is een tekenreeks die de order-ID's aantekent die moeten worden geannuleerd. |
+| **order-id** | **tekenreeks** | J        | De waarde is een tekenreeks die de order-ID's aantekeningt die moeten worden geannuleerd. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -106,7 +101,7 @@ Als dit lukt, retourneert deze methode de geannuleerde bestelling.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

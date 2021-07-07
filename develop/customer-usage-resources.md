@@ -1,91 +1,87 @@
 ---
-title: Resources voor klant gebruik
-description: Resources voor klanten met op gebruik gebaseerde abonnementen en maandelijks gebruik van budgetten (waaronder CustomerMonthlyUsageRecord, CustomerUsageSummary, PartnerUsageSummary en SpendingBudget).
+title: Resources voor klantgebruik
+description: Resources voor klanten met abonnementen op basis van gebruik en budgetten voor maandelijks gebruik (waaronder CustomerMonthlyUsageRecord, CustomerUsageSummary, PartnerUsageSummary en SpendingBudget).
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ec82fcfe6c08a8ad55dd1fb48984859b954dd3c8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: eae516e2f759dfc2e8f80e946a835d70760c5c9e
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767192"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973040"
 ---
-# <a name="customer-usage-resources"></a>Resources voor klant gebruik
+# <a name="customer-usage-resources"></a>Resources voor klantgebruik
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Klanten met op gebruik gebaseerde abonnementen kunnen een maandelijks budget gebruiken. In deze begroting wordt een limiet ingesteld voor het maximale gebruik van de klant en kan de partner het gebruik gedurende een periode bijhouden.
+Klanten met een abonnement op basis van gebruik hebben mogelijk een maandelijks gebruiksbudget. Met dit budget stelt u een limiet in voor het maximumgebruik van de klant en kan de partner het gebruik in de tijd bijhouden.
 
 > [!NOTE]
-> Gebruiks nummers van klanten zijn schattingen (niet de uiteindelijke waarden), die niet mogen worden gebruikt voor facturerings doeleinden.
+> Klantgebruiksnummers zijn schattingen (geen eindwaarden), die niet mogen worden gebruikt voor factureringsdoeleinden.
 
 ## <a name="customermonthlyusagerecord"></a>CustomerMonthlyUsageRecord
 
-**CustomerMonthlyUsageRecord** vertegenwoordigt de geschatte monetaire kosten van het gebruik van een klant in de huidige maand.
+**CustomerMonthlyUsageRecord vertegenwoordigt** de geschatte monetaire kosten van het gebruik van een klant in de huidige maand.
 
-| Eigenschap         | Type               | Description                                                              |
+| Eigenschap         | Type               | Beschrijving                                                              |
 |------------------|--------------------|--------------------------------------------------------------------------|
-| Budget           | SpendingBudget     | Het bestedings budget dat voor de klant is toegewezen.                          |
-| PercentUsed      | decimal             | Het percentage dat uit het toegewezen budget wordt gebruikt.                        |
+| Budget           | UitgavenBudget     | Het bestedingsbudget dat aan de klant is toegewezen.                          |
+| PercentUsed      | decimal             | Het percentage dat is gebruikt buiten het toegewezen budget.                        |
 | ResourceId       | tekenreeks             | De unieke id van de resource.                                   |
 | ResourceName     | tekenreeks             | De naam van de resource.                                                |
-| Totale        | decimal             | De geschatte totale kosten voor het gebruik van de resources in het abonnement.|
-| CurrencyLocale   | tekenreeks             | De valuta-land instelling van de klant. Beschikbaar voor Microsoft Azure-abonnementen (MS-AZR-0145P).            |
-| CurrencyCode     | tekenreeks             | Hiermee wordt de valuta code opgehaald of ingesteld. Beschikbaar voor Azure-abonnementen.           |
-| USDTotalCost     | decimal             | Hiermee worden de geschatte totale kosten in USD opgehaald of ingesteld. Beschikbaar voor Azure-abonnementen.                                         |
-| IsUpgraded       | booleaans             | Hiermee wordt een waarde opgehaald of ingesteld waarmee wordt aangegeven of het Azure-abonnement van de klant wordt bijgewerkt. De waarde **True** vertegenwoordigt klanten die een Azure-abonnement hebben.                         |
-| LastModifiedDate | date               | De datum waarop de gebruiks gegevens voor het laatst zijn gewijzigd.                               |
-| Kenmerken       | ResourceAttributes | De meta gegevens kenmerken die overeenkomen met de gebruiks record.               |
+| TotalCost        | decimal             | De geschatte totale gebruikskosten voor de resources in het abonnement.|
+| CurrencyLocale   | tekenreeks             | De valutavaluta van de klant. Beschikbaar voor Microsoft Azure (MS-AZR-0145P) abonnementen.            |
+| CurrencyCode     | tekenreeks             | Hiermee haalt u de valutacode op of stelt u deze in. Beschikbaar voor Azure-abonnementen.           |
+| USDTotalCost     | decimal             | Haalt de geschatte totale kosten in USD op of stelt deze in. Beschikbaar voor Azure-abonnementen.                                         |
+| IsUpgraded       | booleaans             | Hiermee haalt u een waarde op of stelt u in die aangeeft of het Azure-abonnement van de klant is bijgewerkt. De waarde **true vertegenwoordigt** klanten die een Azure-plan hebben.                         |
+| LastModifiedDate | date               | De datum waarop de gebruiksgegevens het laatst zijn gewijzigd.                               |
+| Kenmerken       | ResourceAttributes | De metagegevenskenmerken die overeenkomen met de gebruiksrecord.               |
 
 ## <a name="customerusagesummary"></a>CustomerUsageSummary
 
-**CustomerUsageSummary** vertegenwoordigt een samen vatting van het gebruik van de klant voor een volledige facturerings periode.
+**CustomerUsageSummary** vertegenwoordigt een samenvatting van het gebruik van de klant voor een hele factureringsperiode.
 
-| Eigenschap         | Type               | Description                                                                                                      |
+| Eigenschap         | Type               | Beschrijving                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| Budget           | SpendingBudget     | Het bestedings budget dat voor de klant is toegewezen.                                                                  |
+| Budget           | UitgavenBudget     | Het bestedingsbudget dat aan de klant is toegewezen.                                                                  |
 | ResourceId       | tekenreeks             | De unieke id van de resource. In de context van CustomerMonthlyUsageRecord is deze id de klant-id. |
 | ResourceName     | tekenreeks             | De naam van de resource. In de context van CustomerMonthlyUsageRecord is dit de naam van de klant.               |
-| BillingStartDate | date               | De begin datum van de huidige facturerings periode.                                                                    |
-| BillingEndDate   | date               | De eind datum van de huidige facturerings periode.                                                                      |
-| Totale        | decimal             | De geschatte totale kosten voor het gebruik van de resources in het abonnement.                                         |
-| CurrencyLocale   | tekenreeks             | De valuta-land instelling van de klant. Beschikbaar voor Microsoft Azure-abonnementen (MS-AZR-0145P).                                         |
-| CurrencyCode     | tekenreeks             | Hiermee wordt de valuta code opgehaald of ingesteld. Beschikbaar voor Azure-abonnementen.                                         |
-| USDTotalCost     | decimal             | Hiermee worden de geschatte totale kosten in USD opgehaald of ingesteld. Beschikbaar voor Azure Plan-resources voor abonnementen.                                         |
-| LastModifiedDate | date               | De datum waarop de gebruiks gegevens voor het laatst zijn gewijzigd.                                                                       |
-| Koppelingen            | ResourceLinks      | De resource koppelingen die overeenkomen met de samen vatting van het gebruik.                                                           |
-| Kenmerken       | ResourceAttributes | De meta gegevens kenmerken die overeenkomen met de samen vatting van het gebruik.                                                      |
+| BillingStartDate | date               | De begindatum van de huidige factureringsperiode.                                                                    |
+| BillingEndDate   | date               | De einddatum van de huidige factureringsperiode.                                                                      |
+| TotalCost        | decimal             | De geschatte totale gebruikskosten voor de resources in het abonnement.                                         |
+| CurrencyLocale   | tekenreeks             | De valutavaluta van de klant. Beschikbaar voor Microsoft Azure (MS-AZR-0145P) abonnementen.                                         |
+| CurrencyCode     | tekenreeks             | Hiermee haalt u de valutacode op of stelt u deze in. Beschikbaar voor Azure-abonnementen.                                         |
+| USDTotalCost     | decimal             | Haalt de geschatte totale kosten in USD op of stelt deze in. Beschikbaar voor azure-abonnementsbronnen.                                         |
+| LastModifiedDate | date               | De datum waarop de gebruiksgegevens het laatst zijn gewijzigd.                                                                       |
+| Koppelingen            | ResourceLinks      | De resourcekoppelingen die overeenkomen met het gebruiksoverzicht.                                                           |
+| Kenmerken       | ResourceAttributes | De metagegevenskenmerken die overeenkomen met het gebruiksoverzicht.                                                      |
 
 ## <a name="partnerusagesummary"></a>PartnerUsageSummary
 
-**PartnerUsageSummary** vertegenwoordigt een samen vatting van het gebruik van budget tering op partner niveau voor alle klanten.
+**PartnerUsageSummary** vertegenwoordigt een samenvatting op partnerniveau van gebruiksbudgetten voor alle klanten.
 
-| Eigenschap         | Type               | Description                                                                                                      |
+| Eigenschap         | Type               | Beschrijving                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| EmailsToNotify   | tekenreeksmatrix   | De lijst met e-mail adressen voor meldingen.                                                                   |
-| CustomerOverBudget | geheel getal          | Het aantal klanten dat het budget overschrijdt.                                                                    |
-| CustomersTrendingOver | geheel getal       | Het aantal klanten dat bijna het budget gaat overschrijden.                                                     |
+| EmailsToNotify   | tekenreeksmatrix   | De lijst met e-mailadressen voor meldingen.                                                                   |
+| CustomerOverBudget | geheel getal          | Het aantal klanten dat boven budget is.                                                                    |
+| CustomersTrendingOver | geheel getal       | Het aantal klanten dat bijna boven het budget uit komt.                                                     |
 | CustomersWithUsageBasedSubscriptions  | geheel getal | Het aantal klanten met een abonnement op basis van gebruik.                                               |
 | ResourceId       | tekenreeks             | De unieke id van de resource. In de context van CustomerMonthlyUsageRecord is deze id de klant-id. |
 | ResourceName     | tekenreeks             | De naam van de resource. In de context van CustomerMonthlyUsageRecord is dit de naam van de klant.               |
-| BillingStartDate | date               | De begin datum van de huidige facturerings periode.                                                                    |
-| BillingEndDate   | date               | De eind datum van de huidige facturerings periode.                                                                      |
-| Totale        | decimal             | De geschatte totale kosten van het gebruik van alle klanten op basis van het huidige gebruik vanaf het begin van de facturerings periode.      |
-| CurrencyLocale   | tekenreeks             | De valuta-land instelling.                                                                                             |
-| LastModifiedDate | date               | De datum waarop de gebruiks gegevens voor het laatst zijn gewijzigd.                                                                       |
-| Koppelingen            | ResourceLinks      | De resource koppelingen die overeenkomen met de samen vatting van het gebruik.                                                           |
-| Kenmerken       | ResourceAttributes | De meta gegevens kenmerken die overeenkomen met de samen vatting van het gebruik.                                                      |
+| BillingStartDate | date               | De begindatum van de huidige factureringsperiode.                                                                    |
+| BillingEndDate   | date               | De einddatum van de huidige factureringsperiode.                                                                      |
+| TotalCost        | decimal             | De geschatte totale kosten van al het klantgebruik op basis van het huidige gebruik vanaf het begin van de factureringsperiode.      |
+| CurrencyLocale   | tekenreeks             | De valuta-locale.                                                                                             |
+| LastModifiedDate | date               | De datum waarop de gebruiksgegevens het laatst zijn gewijzigd.                                                                       |
+| Koppelingen            | ResourceLinks      | De resourcekoppelingen die overeenkomen met het gebruiksoverzicht.                                                           |
+| Kenmerken       | ResourceAttributes | De metagegevenskenmerken die overeenkomen met het gebruiksoverzicht.                                                      |
 
-## <a name="spendingbudget"></a>SpendingBudget
+## <a name="spendingbudget"></a>UitgavenBudget
 
-**SpendingBudget** vertegenwoordigt het budget dat aan deze klant wordt toegewezen voor op gebruik gebaseerde abonnementen.
+**UitgavenBudget** vertegenwoordigt het budget dat aan deze klant is toegewezen voor abonnementen op basis van gebruik.
 
-| Eigenschap   | Type               | Description                                                                                         |
+| Eigenschap   | Type               | Beschrijving                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
-| Bedrag     | decimal             | Het toegewezen budget. Als de waarde Null is, wordt er geen bestedings budget aan deze klant toegewezen. |
-| Kenmerken | ResourceAttributes | De meta gegevens kenmerken die overeenkomen met het budget.                                                |
+| Bedrag     | decimal             | Het toegewezen budget. Als de waarde null is, wordt er geen bestedingsbudget toegewezen aan deze klant. |
+| Kenmerken | ResourceAttributes | De metagegevenskenmerken die overeenkomen met het budget.                                                |

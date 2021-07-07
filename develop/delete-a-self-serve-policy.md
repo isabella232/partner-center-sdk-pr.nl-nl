@@ -1,35 +1,31 @@
 ---
-title: Een beleid voor zelf behoud verwijderen
-description: Een selfservice beleid verwijderen.
+title: Een self-serve-beleid verwijderen
+description: Zelfhulpbeleid verwijderen.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3450145d6daf2ffca5e2886245e592406cb0886d
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: 063cf98d4c78e82622e486427baeb1a5721715e5
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97768657"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973091"
 ---
 # <a name="delete-a-selfservepolicy"></a>Een SelfServePolicy verwijderen
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-In dit onderwerp wordt uitgelegd hoe u een beleid voor zelf behoud bijwerkt.
+In dit artikel wordt uitgelegd hoe u een beleid voor self-serve kunt bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met toepassings-en gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie ondersteund met referenties van toepassing en gebruiker.
 
 ## <a name="c"></a>C\#
 
-Een beleid voor zelf behoud verwijderen:
+Een beleid voor self-serve verwijderen:
 
-1. Roep de [**IAggregatePartner. SelfServePolicies. ById**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) -methode aan met de entiteit-id om een interface op te halen voor bewerkingen op het beleid.
+1. Roep de [**methode IAggregatePartner.SelfServePolicies.ById**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) aan met de entiteits-id om een interface op te halen voor bewerkingen op het beleid.
 
-2. Roep de methode [**Delete**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.delete) of [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.deleteasync) aan om het beleid voor zelf behoud te verwijderen.
+2. Roep de [**methode Delete**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.delete) of [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.deleteasync) aan om het self-serve-beleid te verwijderen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,32 +38,32 @@ IPartner scopedPartnerOperations = partnerOperations.With(RequestContextFactory.
 partnerOperations.SelfServePolicies.ById(policyId).Delete();
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **DeleteSelfServePolicies.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **VERWIJDERD** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} http/1.1 |
+| **Verwijderen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} HTTP/1.1 |
 
-**URI-para meter**
+**URI-parameter**
 
-Gebruik de volgende Path-para meters om het opgegeven product op te halen.
+Gebruik de volgende padparameters om het opgegeven product op te halen.
 
 | Naam                       | Type         | Vereist | Beschrijving                                                     |
 |----------------------------|--------------|----------|-----------------------------------------------------------------|
-| **SelfServePolicy-id**     | **tekenreeksexpressie**   | Yes      | Een teken reeks die het selfservice beleid identificeert.                 |
+| **SelfServePolicy-id**     | **Tekenreeks**   | Ja      | Een tekenreeks die het self-serve-beleid identificeert.                 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Een aanvraag-ID en correlatie-ID zijn vereist.
-- Zie de [rest headers van het Partner Center](headers.md) voor meer informatie.
+- Een aanvraag-id en correlatie-id zijn vereist.
+- Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -90,9 +86,9 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

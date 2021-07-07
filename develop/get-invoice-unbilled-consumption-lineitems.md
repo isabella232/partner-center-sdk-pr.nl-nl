@@ -1,53 +1,49 @@
 ---
-title: Niet-gefactureerde, commerciële verbruikte regel items ophalen
-description: U kunt een verzameling van niet-gefactureerde commerciële verbruiks regel items voor een opgegeven factuur ophalen met behulp van de Partner Center-Api's.
+title: Niet-gefactureerde regelitems voor commercieel verbruik van facturen ontvangen
+description: U kunt een verzameling niet-gefactureerde regelitemgegevens voor commercieel verbruik ophalen voor een opgegeven factuur met behulp van Partner Center API's.
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8b6ca8d6ff7af53dd2a258ea20e6eaeb26421440
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: 1b7dba3333aaec8df73f0e8147b0bbbc78b9b184
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274662"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446143"
 ---
-# <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Niet-gefactureerde, commerciële verbruikte regel items ophalen
+# <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Niet-gefactureerde regelitems voor commercieel verbruik van facturen ontvangen
 
-**Van toepassing op:**
+Informatie over het ophalen van een verzameling niet-gebillede regelitemdes voor commercieel verbruik.
 
-- Partnercentrum
-
-Een verzameling van Details over niet-gefactureerde commerciële verbruiks regels ophalen.
-
-U kunt de volgende methoden gebruiken om een verzameling Details van niet-gefactureerde commerciële verbruiks regel items te verkrijgen.
+U kunt de volgende methoden gebruiken om programmatisch een verzameling niet-gebillede regelitems voor commercieel verbruik (ook wel bekend als regelitems voor open gebruik) op te halen.
 
 >[!NOTE]
->Het dagelijks geclassificeerde gebruik duurt doorgaans 24 uur in het partner centrum of voor toegang via de API.
+>Normaal gesproken duurt het 24 uur voordat het dagelijks beoordeelde gebruik wordt weergegeven in Partner Center of om te worden geopend via de API.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een factuur-ID. Hiermee wordt de factuur aangegeven waarvoor de regel items moeten worden opgehaald.
+- Een factuur-id. Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.
 
 ## <a name="c"></a>C\#
 
-De regel items voor de opgegeven factuur ophalen:
+De regelitems voor de opgegeven factuur op te halen:
 
-1. Roep de methode [**ById**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface te verkrijgen voor het factureren van bewerkingen voor de opgegeven factuur.
+1. Roep de [**ById-methode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface op te halen voor factuurbewerkingen voor de opgegeven factuur.
 
-2. Roep de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) aan om het object invoice op te halen.
+2. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) om het factuurobject op te halen.
 
-Het **object invoice** bevat alle informatie voor de opgegeven factuur. De **provider** identificeert de bron van de niet-gefactureerde detail informatie (bijvoorbeeld **eenmalige**). De **InvoiceLineItemType** geeft het type aan (bijvoorbeeld **UsageLineItem**).
+Het **factuurobject** bevat alle informatie voor de opgegeven factuur. De **provider** identificeert de bron van de niet-gebileerde details (bijvoorbeeld **OneTime**). **InvoiceLineItemType geeft** het type op (bijvoorbeeld **UsageLineItem).**
 
-De volgende voorbeeld code gebruikt een **foreach** -lus om de **InvoiceLineItems** -verzameling te verwerken. Voor elke **InvoiceLineItemType** wordt een afzonderlijke verzameling regel items opgehaald.
+In de volgende voorbeeldcode wordt een **foreach-lus** gebruikt om de **verzameling InvoiceLineItems te** verwerken. Voor elk **InvoiceLineItemType** wordt een afzonderlijke verzameling regelitems opgehaald.
 
-Ophalen van een verzameling regel items die overeenkomen met een **InvoiceDetail** -exemplaar:
+Een verzameling regelitems ophalen die overeenkomen met een **InvoiceDetail-exemplaar:**
 
-1. Geef de **BillingProvider** en **InvoiceLineItemType** van het exemplaar door aan de methode [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) .
+1. Geef de **BillingProvider** en **InvoiceLineItemType** van het exemplaar door aan de [**methode By.**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)
 
-2. Roep de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) aan om de gekoppelde regel items op te halen.
-3. Maak een enumerator om door de verzameling te bladeren, zoals wordt weer gegeven in het volgende voor beeld.
+2. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) om de bijbehorende regelitems op te halen.
+3. Maak een enumerator om de verzameling te doorlopen, zoals wordt weergegeven in het volgende voorbeeld.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -105,40 +101,40 @@ while (fetchNext)
 }
 ```
 
-Zie voor een vergelijkbaar voor beeld:
+Zie voor een vergelijkbaar voorbeeld:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **Partner Center SDK** -voor beelden
-- Klasse: **GetUnBilledConsumptionReconLineItemsPaging. cs**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **Partnercentrum-SDK Voorbeelden**
+- Klasse: **GetUnBilledConsumptionReconLineItemsPaging.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
-U kunt de volgende syntaxis voor uw REST-aanvraag gebruiken, afhankelijk van uw use-case. Zie de beschrijvingen voor elke syntaxis voor meer informatie.
+U kunt de volgende syntaxis gebruiken voor uw REST-aanvraag, afhankelijk van uw use-case. Zie de beschrijvingen voor elke syntaxis voor meer informatie.
 
-| Methode  | Aanvraag-URI                                                                                                                                                                                              | Beschrijving van de syntaxis use case                                                                                                     |
+| Methode  | Aanvraag-URI                                                                                                                                                                                              | Beschrijving van het gebruikscase van de syntaxis                                                                                                     |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} http/1.1                       | Gebruik deze syntaxis om een volledige lijst van elk regel item voor de opgegeven factuur te retour neren.                                                    |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} &grootte = {size} http/1.1           | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en een offset op basis van 0 om een pagina lijst met regel items te retour neren. |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = eenmalige&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &periode = {period} &grootte = {size} &SeekOperation = Next | Gebruik deze syntaxis om de volgende pagina van regel items voor reconciliatie te verkrijgen met `seekOperation = "Next"` .                                  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period} HTTP/1.1                       | Gebruik deze syntaxis om een volledige lijst met alle regelitem voor de opgegeven factuur te retourneren.                                                    |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1           | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en een offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next | Gebruik deze syntaxis om de volgende pagina met afstemmingsregelitems op te halen met behulp van `seekOperation = "Next"` .                                  |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende URI en query parameters bij het maken van de aanvraag.
+Gebruik de volgende URI en queryparameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                |
 |------------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| providers               | tekenreeks | Ja      | De provider: '**eenmalige**'.                                                                                                                                                                                                               |
-| factuur-regel-item-type | tekenreeks | Ja      | Het type factuur Details: "**UsageLineItems**", "**UsageLineItems**".                                                                                                                                                                    |
-| currencyCode           | tekenreeks | Ja      | De valuta code voor de niet-gefactureerde regel items.                                                                                                                                                                                             |
-| period                 | tekenreeks | Ja      | De periode voor niet-gefactureerde afstemming (bijvoorbeeld: **huidige**, **vorige**). Stel dat u in januari een query wilt uitvoeren op uw niet-gefactureerde gebruiks gegevens van de facturerings cyclus (01/01/2020 – 01/31/2020), kies periode als **' Huidig ',** else **' eerder. '** |
-| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden geretourneerd. De standaard grootte is 2000.                                                                                                                                                                           |
-| seekOperation          | tekenreeks | No       | Stel `seekOperation=Next` deze waarde in om de volgende pagina met lijn items voor afstemming weer te geven.                                                                                                                                                                |
+| Provider               | tekenreeks | Ja      | De provider:**OneTime.**                                                                                                                                                                                                               |
+| invoice-line-item-type | tekenreeks | Ja      | Het type factuurdetails: "**UsageLineItems**", "**UsageLineItems**".                                                                                                                                                                    |
+| currencyCode           | tekenreeks | Ja      | De valutacode voor de niet-gebillede regelitems.                                                                                                                                                                                             |
+| period                 | tekenreeks | Ja      | De periode voor niet-gebillede recon (bijvoorbeeld: **huidige**, **vorige**). Stel dat u in januari een query moet uitvoeren op uw niet-gefactureerde gebruiksgegevens van de factureringscyclus (01-01-2020 - 31-01-2020) en de periode 'Huidig', anders  'Vorige'.  |
+| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000.                                                                                                                                                                           |
+| zoekoperation          | tekenreeks | No       | Stel `seekOperation=Next` in om de volgende pagina met afstemmingsregelitems op te halen.                                                                                                                                                                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -146,25 +142,25 @@ Geen.
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord het verzamelen van regel items.
+Als dit lukt, bevat het antwoord de verzameling regelitemdetails.
 
-*Voor de **ChargeType** van het regel item wordt de **gekochte** waarde toegewezen aan **Nieuw** en de **terugbetaling** van de waarde wordt toegewezen om te **Annuleren**.*
+*Voor het regelitem **ChargeType** wordt de waarde **Aankoop** aan **Nieuw** en de waarde **Restitutie** is aan **Annuleren.***
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
-## <a name="request-response-examples"></a>Aanvraag-antwoord voorbeelden
+## <a name="request-response-examples"></a>Voorbeelden van aanvraag-antwoord
 
-### <a name="request-response-example-1"></a>Aanvraag-antwoord-voor beeld 1
+### <a name="request-response-example-1"></a>Voorbeeld van aanvraag-antwoord 1
 
-De volgende details zijn van toepassing op dit voor beeld:
+De volgende details zijn van toepassing op dit voorbeeld:
 
-- **Provider**: **eenmalige**
-- **InvoiceLineItemType**: **UsageLineItems**
-- **Periode**: **vorige**
+- **Provider:** **OneTime**
+- **InvoiceLineItemType:** **UsageLineItems**
+- **Periode:** **vorige**
 
-#### <a name="request-example-1"></a>Voor beeld 1 aanvragen
+#### <a name="request-example-1"></a>Aanvraagvoorbeeld 1
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1//invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -177,7 +173,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="response-example-1"></a>Antwoord voorbeeld 1
+### <a name="response-example-1"></a>Antwoordvoorbeeld 1
 
 ```http
 HTTP/1.1 200 OK
@@ -334,16 +330,16 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a>Aanvraag-antwoord-voor beeld 2
+### <a name="request-response-example-2"></a>Voorbeeld 2 van aanvraag-antwoord
 
-De volgende details zijn van toepassing op dit voor beeld:
+De volgende details zijn van toepassing op dit voorbeeld:
 
-- **Provider**: **eenmalige**
-- **InvoiceLineItemType**: **UsageLineItems**
-- **Periode**: **vorige**
-- **SeekOperation**: **volgende**
+- **Provider:** **OneTime**
+- **InvoiceLineItemType:** **UsageLineItems**
+- **Periode:** **vorige**
+- **Zoekoperation**: **Volgende**
 
-#### <a name="request-example-2"></a>Voor beeld 2 aanvragen
+#### <a name="request-example-2"></a>Aanvraagvoorbeeld 2
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/unbilled/lineitems?provider=onetime&invoiceLineItemType=usagelineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -357,7 +353,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-2"></a>Antwoord voorbeeld 2
+#### <a name="response-example-2"></a>Antwoordvoorbeeld 2
 
 ```http
 HTTP/1.1 200 OK

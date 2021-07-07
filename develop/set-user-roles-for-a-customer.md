@@ -1,33 +1,29 @@
 ---
 title: Gebruikersrollen voor een klant instellen
-description: Binnen een klant account is er een set Directory rollen. U kunt gebruikers accounts toewijzen aan deze rollen.
+description: Binnen een klantaccount is er een set adreslijstrollen. U kunt gebruikersaccounts toewijzen aan deze rollen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f42120e40e54ff8bd6242634d97268091abf8e1c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: a035d711ffa91200fa7b479ed5ec53929aa4feaf
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767458"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446697"
 ---
 # <a name="set-user-roles-for-a-customer"></a>Gebruikersrollen voor een klant instellen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Binnen een klant account is er een set Directory rollen. U kunt gebruikers accounts toewijzen aan deze rollen.
+Binnen een klantaccount is er een set adreslijstrollen. U kunt gebruikersaccounts toewijzen aan deze rollen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een directory-rol aan een klant gebruiker wilt toewijzen, maakt u een nieuwe [**UserMember**](/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) met de relevante gebruikers details. Vervolgens roept u de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de opgegeven klant-id om de klant te identificeren. Gebruik vervolgens de methode [**DirectoryRoles. ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) met de Directory-rol-id om de rol op te geven. Vervolgens opent u de **UserMembers** -verzameling en gebruikt u de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) om het nieuwe lid van de gebruiker toe te voegen aan de verzameling gebruikers leden die aan die rol zijn toegewezen.
+Als u een directoryrol wilt toewijzen aan een klantgebruiker, maakt u een nieuw [**UserMember**](/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) met de relevante gebruikersgegevens. Roep vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de opgegeven klant-id om de klant te identificeren. Van hieruit gebruikt u de [**methode DirectoryRoles.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) met de id van de directoryrol om de rol op te geven. Ga vervolgens naar de **verzameling UserMembers** en gebruik de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) om het nieuwe gebruikerslid toe te voegen aan de verzameling gebruikersleden die aan die rol zijn toegewezen.
 
 ``` csharp
 // UserMember createdUser;
@@ -47,39 +43,39 @@ UserMember userMemberToAdd = new UserMember()
 var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).DirectoryRoles.ById(selectedRole.Id).UserMembers.Create(userMemberToAdd);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: AddUserMemberToDirectoryRole.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Klasse **Samples:** AddUserMemberToDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/directoryroles/{Role-id}/usermembers http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende URI-para meters om de juiste klant en rol te identificeren. Geef de identiteits informatie op in de aanvraag tekst om de gebruiker te identificeren aan wie de rol moet worden toegewezen.
+Gebruik de volgende URI-parameters om de juiste klant en rol te identificeren. Als u de gebruiker wilt identificeren aan wie de rol moet worden toegewezen, geeft u de identificatiegegevens op in de aanvraag body.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **rol-id**            | **guid** | J        | De waarde is een GUID-indeling met een **rol-id** waarmee de rol wordt geïdentificeerd die aan de gebruiker moet worden toegewezen.                                                              |
+| **customer-tenant-id** | **guid** | J        | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
+| **role-id**            | **guid** | J        | De waarde is een **rol-id** met GUID-indeling die de rol identificeert die aan de gebruiker moet worden toegewezen.                                                              |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 | Naam                  | Type       | Vereist | Beschrijving                            |
 |-----------------------|------------|----------|----------------------------------------|
-| **Id**                | **tekenreeksexpressie** | J        | De id van de gebruiker die aan de rol moet worden toegevoegd. |
-| **DisplayName**       | **tekenreeksexpressie** | J        | De beschrijvende weergave naam van de gebruiker. |
-| **UserPrincipalName** | **tekenreeksexpressie** | J        | De naam van de gebruikers-principal.        |
-| **Kenmerken**        | **object** | J        | Bevat "object type": "UserMember"     |
+| **Id**                | **tekenreeks** | J        | De id van de gebruiker die aan de rol moet worden toevoegen. |
+| **DisplayName**       | **tekenreeks** | J        | De gebruiksvriendelijke weergavenaam van de gebruiker. |
+| **UserPrincipalName** | **tekenreeks** | J        | De naam van de user principal.        |
+| **Kenmerken**        | **Object** | J        | Bevat "ObjectType":"UserMember"     |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -107,11 +103,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Deze methode retourneert het gebruikers account met de rol-id die is gekoppeld wanneer de gebruiker is toegewezen aan de rol.
+Deze methode retourneert het gebruikersaccount met de rol-id die is gekoppeld wanneer de gebruiker de rol heeft toegewezen.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,37 +1,33 @@
 ---
 title: Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
-description: De eigenschap autorenew bijwerken voor een abonnements resource die overeenkomt met de klant-en abonnements-ID.
+description: Werk de eigenschap autorenew bij voor een abonnementsresource die overeenkomt met de klant- en abonnements-id.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8dccec57901ea4ea429b74044e3b6c28178c43f6
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: cc0b4c4bff5e8762ffcc2552b2e9e36bcf93686c
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767456"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446663"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
 
-**Van toepassing op**
+Werk de eigenschap autorenew bij voor een commerciële [marketplace-abonnementsresource](subscription-resources.md) die overeenkomt met de klant- en abonnements-id.
 
-- Partnercentrum
-
-De eigenschap autorenew bijwerken voor een commerciële Marketplace- [abonnements](subscription-resources.md) resource die overeenkomt met de klant-en abonnements-id.
-
-In het dash board van de partner centrum wordt deze bewerking uitgevoerd door eerst [een klant te selecteren](get-a-customer-by-name.md). Selecteer vervolgens het abonnement dat u wilt bijwerken. Schakel ten slotte de optie **automatisch vernieuwen** in en selecteer vervolgens **verzenden**.
+In het Partner Center dashboard wordt deze bewerking uitgevoerd door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement dat u wilt bijwerken. Schakel ten slotte de optie **Automatisch verlengen** in en selecteer **verzenden.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een abonnements-ID.
+- Een abonnements-id.
 
 ## <a name="c"></a>C\#
 
-Als u het abonnement van een klant wilt bijwerken, moet u eerst [het abonnement ophalen](get-a-subscription-by-id.md)en vervolgens de eigenschap [**autoRenewEnabled**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled) van het abonnement instellen. Nadat de wijziging is aangebracht, gebruikt u de verzameling **IAggregatePartner. Customers** en roept u de methode **ById ()** aan. Roep vervolgens de eigenschap [**abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Voltooi vervolgens de methode **patch ()** .
+Als u het abonnement van een klant wilt bijwerken, moet u eerst [het](get-a-subscription-by-id.md)abonnement downloaden en vervolgens de eigenschap [**autoRenewEnabled van het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled) instellen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,32 +39,32 @@ selectedSubscription.AutoRenewEnabled = false;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: UpdateSubscription.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{id-for-Subscription} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameter om het abonnement te onderbreken.
+Deze tabel bevat de vereiste queryparameter om het abonnement op te schorten.
 
 | Naam                    | Type     | Vereist | Beschrijving                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **klant-Tenant-id**  | **GPT** | J        | Een GUID die overeenkomt met de klant.     |
-| **id voor abonnement** | **GPT** | J        | Een GUID die overeenkomt met het abonnement. |
+| **customer-tenant-id**  | **Guid** | J        | Een GUID die overeenkomt met de klant.     |
+| **id-for-subscription** | **Guid** | J        | Een GUID die overeenkomt met het abonnement. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Er is een volledige **abonnements** resource voor commerciële Marketplace vereist in de hoofd tekst van de aanvraag. Zorg ervoor dat de eigenschap **AutoRenewEnabled** is bijgewerkt.
+Een volledige commerciële **marketplace-abonnementsresource** is vereist in de aanvraag body. Zorg ervoor dat **de eigenschap AutoRenewEnabled** is bijgewerkt.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -116,11 +112,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode bijgewerkte eigenschappen van [abonnements](subscription-resources.md) bronnen in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode [bijgewerkte eigenschappen van](subscription-resources.md) abonnementsresources in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,33 +1,29 @@
 ---
 title: Een klantgebruiker uit een rol verwijderen
-description: Een gebruiker verwijderen uit een directory-rol binnen een klant account.
+description: Een gebruiker verwijderen uit een directoryrol binnen een klantaccount.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6253e86f3733bbf2b9c593c5ca3f3e2fccce7c2c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 36dc742c4f713131b4996d7dc945b6dd008a3ef5
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767477"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445643"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>Een klantgebruiker uit een rol verwijderen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Een gebruiker verwijderen uit een directory-rol binnen een klant account.
+Een gebruiker verwijderen uit een directoryrol binnen een klantaccount.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een gebruiker uit een directory-rol wilt verwijderen, selecteert u de klant met de gebruiker die u wilt wijzigen met een aanroep van de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) , geeft u de functie op met behulp van de methode [**DirectoryRoles. ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) met de rol-id van de Directory. Vervolgens opent u de methode [**UserMembers. ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) om de gebruiker te identificeren die moet worden verwijderd en de [**Verwijder**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) methode om de gebruiker te verwijderen uit de rol.
+Als u een gebruiker uit een directoryrol wilt verwijderen, selecteert u de klant met de gebruiker die u wilt wijzigen met een aanroep naar de methode [**IAggregatePartner.Customers.ById.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) Geef hier de rol op met behulp van de [**methode DirectoryRoles.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) met de directoryrol-id. Ga vervolgens naar de [**methode UserMembers.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) om de gebruiker te identificeren die u wilt verwijderen en de methode [**Delete**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) om de gebruiker uit de rol te verwijderen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,29 +34,29 @@ Als u een gebruiker uit een directory-rol wilt verwijderen, selecteert u de klan
 partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selectedRoleId).UserMembers.ById(selectedUserMemberId).Delete();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: RemoveCustomerUserMemberFromDirectoryRole.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Klasse **Samples:** RemoveCustomerUserMemberFromDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode     | Aanvraag-URI                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **VERWIJDERD** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/directoryroles/{Role-id}/usermembers/{User-ID} http/1.1 |
+| **Verwijderen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers/{user-ID} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende URI-para meters om de juiste klant, rol en gebruiker te identificeren.
+Gebruik de volgende URI-parameters om de juiste klant, rol en gebruiker te identificeren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | De waarde is een **klant-Tenant-id** die de klant aanduidt. |
-| **rol-id**            | **guid** | J        | De waarde is een GUID-indeling met een **rol-id** waarmee de rol wordt geïdentificeerd.                |
-| **gebruikers-id**            | **guid** | J        | De waarde is een **gebruikers-id** met een GUID-indeling waarmee één gebruikers account wordt geïdentificeerd.   |
+| **customer-tenant-id** | **guid** | J        | De waarde is een in GUID **opgemaakte klant-tenant-id** die de klant identificeert. |
+| **role-id**            | **guid** | J        | De waarde is een **rol-id** met GUID-indeling die de rol identificeert.                |
+| **user-id**            | **guid** | J        | De waarde is een **gebruikers-id** met GUID-indeling die één gebruikersaccount identificeert.   |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -82,11 +78,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als de gebruiker is verwijderd uit de rol, is de antwoord tekst leeg.
+Als de gebruiker is verwijderd uit de rol, is de antwoord-body leeg.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,47 +1,43 @@
 ---
 title: Een gebruikersaccount voor een klant verwijderen
-description: Een bestaand gebruikers account voor een klant verwijderen.
+description: Een bestaand gebruikersaccount voor een klant verwijderen.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 77fc1a1c7264779ca549be8d52798e90c91138bb
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: c45646da43b8926f911942374de5da07f318c526
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767388"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973057"
 ---
 # <a name="delete-a-user-account-for-a-customer"></a>Een gebruikersaccount voor een klant verwijderen
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-In dit artikel wordt uitgelegd hoe u een bestaand gebruikers account voor een klant verwijdert.
+In dit artikel wordt uitgelegd hoe u een bestaand gebruikersaccount voor een klant verwijdert.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een gebruikers-ID. Als u de gebruikers-ID niet hebt, raadpleegt u [een lijst met alle gebruikers accounts voor een klant ophalen](get-a-list-of-all-user-accounts-for-a-customer.md).
+- Een gebruikers-id. Zie Get a list of all user accounts for a customer (Een lijst met alle gebruikersaccounts voor een klant opmaken) als u niet over de [gebruikers-id hebt.](get-a-list-of-all-user-accounts-for-a-customer.md)
 
-## <a name="deleting-a-user-account"></a>Een gebruikers account verwijderen
+## <a name="deleting-a-user-account"></a>Een gebruikersaccount verwijderen
 
-Wanneer u een gebruikers account verwijdert, wordt de gebruikers status op dertig dagen ingesteld op **inactief** . Na dertig dagen worden het gebruikers account en de bijbehorende gegevens verwijderd en onherstelbaar gemaakt.
+Wanneer u een gebruikersaccount verwijdert, wordt de gebruikerstoestand ingesteld op **inactief** voor 30 dagen. Na dertig dagen worden het gebruikersaccount en de bijbehorende gegevens verwijderd en onherkenbaar gemaakt.
 
-U kunt [een verwijderd gebruikers account voor een klant herstellen](restore-a-user-for-a-customer.md) als het inactieve account zich in het venster van dertig dagen bevindt. Wanneer u echter een account herstelt dat is verwijderd en als inactief is gemarkeerd, wordt het account niet langer geretourneerd als lid van de gebruikers verzameling (bijvoorbeeld wanneer u [een lijst met alle gebruikers accounts voor een klant krijgt](get-a-list-of-all-user-accounts-for-a-customer.md)).
+U kunt [een verwijderd gebruikersaccount voor een](restore-a-user-for-a-customer.md) klant herstellen als het inactieve account binnen het venster van 30 dagen valt. Wanneer u echter een account herstelt dat is verwijderd en gemarkeerd als inactief, wordt het account niet meer geretourneerd als lid van de gebruikersverzameling (bijvoorbeeld wanneer u een lijst met alle gebruikersaccounts voor een klant [krijgt).](get-a-list-of-all-user-accounts-for-a-customer.md)
 
 ## <a name="c"></a>C\#
 
-Een bestaand gebruikers account van de klant verwijderen:
+Een bestaand klantgebruikersaccount verwijderen:
 
-1. Gebruik de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren.
+1. Gebruik de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren.
 
-2. Roep de [**gebruikers. ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) -methode aan om de gebruiker te identificeren.
+2. Roep de [**methode Users.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) om de gebruiker te identificeren.
 
-3. Roep de [**verwijderings**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) methode aan om de gebruiker te verwijderen en stel de gebruikers status in op inactief.
+3. Roep de [**methode Delete**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) aan om de gebruiker te verwijderen en de gebruikerstoestand in te stellen op inactief.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,28 +47,28 @@ Een bestaand gebruikers account van de klant verwijderen:
 partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdToDelete).Delete();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: DeleteCustomerUser.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK **Voorbeeldklasse:** DeleteCustomerUser.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode     | Aanvraag-URI                                                                                            |
 |------------|--------------------------------------------------------------------------------------------------------|
-| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/users/{user-id} http/1.1 |
+| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende query parameters om de klant en gebruiker te identificeren.
+Gebruik de volgende queryparameters om de klant en gebruiker te identificeren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| klant-Tenant-id     | GUID     | J        | De waarde is een **klant-Tenant-id** van de GUID-indeling waarmee de wederverkoper de resultaten voor een bepaalde klant kan filteren. |
-| user-id                | GUID     | J        | De waarde is een **gebruikers-id** met een GUID-indeling die tot één gebruikers account behoort.                                          |
+| customer-tenant-id     | GUID     | J        | De waarde is een **klant-tenant-id** in GUID-indeling waarmee de reseller de resultaten voor een bepaalde klant kan filteren. |
+| user-id                | GUID     | J        | De waarde is een gebruikers-id in **GUID-indeling** die bij één gebruikersaccount hoort.                                          |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -93,11 +89,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze methode is geslaagd, wordt de status code van **204 geen inhoud** geretourneerd.
+Als dit lukt, retourneert deze methode de statuscode **204 Geen** inhoud.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center de volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

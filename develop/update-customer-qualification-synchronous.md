@@ -1,37 +1,33 @@
 ---
 title: De kwalificatie van een klant bijwerken
-description: Meer informatie over het bijwerken van de kwalificaties van een klant via synchrone screening of hebben, met inbegrip van het adres dat aan het profiel is gekoppeld.
+description: Meer informatie over het bijwerken van de kwalificaties van een klant via synchrone screening of controle, met inbegrip van het adres dat is gekoppeld aan het profiel.
 ms.date: 12/07/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 0ffe6d1a236a8a07e1ff71163e7639ef1f3437e1
-ms.sourcegitcommit: bbdb5f7c9ddd42c2fc4eaadbb67d61aeeae805ca
+ms.openlocfilehash: 5047743afdef02033d9494e3d8c16c9ab96b3fe9
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105030586"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446646"
 ---
 # <a name="update-a-customers-qualification-via-synchronous-validation"></a>De kwalificatie van een klant bijwerken via synchrone validatie
 
-**Van toepassing op**
+Meer informatie over het synchroon bijwerken van de kwalificaties van een klant via Partner Center API's. Zie Kwalificatie van een klant bijwerken via asynchrone validatie voor meer informatie over hoe u [dit asynchroon kunt doen.](update-customer-qualification-asynchronous.md)
 
-- Partnercentrum
-
-Meer informatie over hoe u de kwalificaties van een klant synchroon kunt bijwerken via partner Center-Api's. Zie [de kwalificatie van een klant bijwerken via asynchrone validatie](update-customer-qualification-asynchronous.md)voor meer informatie over hoe u dit asynchroon kunt doen.
-
-Een partner kan de kwalificatie van een klant zo bijwerken dat deze ' Education ' of ' GovernmentCommunityCloud ' is. Andere waarden ' none ' en ' non profit ' kunnen niet worden ingesteld.
+Een partner kan de kwalificatie van een klant bijwerken naar Education of GovernmentCommunityCloud. Andere waarden, 'Geen' en 'Non-non-profit', kunnen niet worden ingesteld.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u de kwalificatie van een klant wilt bijwerken naar ' Education ', roept u **[Update/DotNet/API/Microsoft. Store. partnercenter. kwalificatie. icustomerqualification. update)** aan voor een bestaande  [**klant**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer).
+Als u de kwalificatie van een klant wilt bijwerken naar Education, roept u **[Update/dotnet/api/microsoft.store.partnercenter.kwalificatie.edtomerqualification.update)** aan bij een bestaande [**klant.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer)
 
 ``` csharp
 // CustomerQualification is an enum
@@ -39,9 +35,9 @@ Als u de kwalificatie van een klant wilt bijwerken naar ' Education ', roept u *
 var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.Update(CustomerQualification.Education);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSamples- **klasse**: CustomerQualificationOperations. cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: CustomerQualificationOperations.cs 
 
-Als u de kwalificatie van een klant wilt bijwerken naar **GovernmentCommunityCloud** op een bestaande klant zonder kwalificatie, moet de partner de [**ValidationCode**](utility-resources.md#validationcode)van de klant bevatten.
+Als u de kwalificatie van een klant wilt bijwerken naar **GovernmentCommunityCloud** voor een bestaande klant zonder kwalificatie, moet de partner de [**ValidationCode van de klant opnemen.**](utility-resources.md#validationcode)
 
 ``` csharp
 // CustomerQualification is an enum
@@ -52,28 +48,28 @@ var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer_ID}/Qualification? code = {VALIDATIONCODE} http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer_id}/kwalificatie?code={validationCode} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de kwalificatie bij te werken.
+Gebruik de volgende queryparameter om de kwalificatie bij te werken.
 
 | Naam                   | Type | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | GUID | Ja      | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **validationCode**     | int  | Nee       | Alleen nodig voor de cloud van de community.                                                                                                            |
+| **customer-tenant-id** | GUID | Ja      | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
+| **validationCode**     | int  | Nee       | Alleen nodig voor Government Community Cloud.                                                                                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De waarde van het gehele getal uit de Enum van de [**CustomerQualification**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification) .
+De gehele waarde uit de [**enum CustomerQualification.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification)
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -88,11 +84,11 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de bijgewerkte [**Kwalificatie**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) -eigenschap in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode de [**bijgewerkte eigenschap Kwalificatie**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

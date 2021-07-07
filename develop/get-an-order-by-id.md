@@ -1,45 +1,40 @@
 ---
 title: Een bestelling ophalen op basis van id
-description: Hiermee wordt een order resource opgehaald die overeenkomt met de klant-en Order-ID.
+description: Haalt een Order-resource op die overeenkomt met de klant en de order-id.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 0a39d7142e5bf97f9fb345416964d4ed6bb935ad
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 2cb2822935113fe1c5337b4ffc899fccff333d2f
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767551"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760178"
 ---
 # <a name="get-an-order-by-id"></a>Een bestelling ophalen op basis van id
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een [order](order-resources.md) resource opgehaald die overeenkomt met de klant-en order-id.
+Haalt een [Order-resource](order-resources.md) op die overeenkomt met de klant en de order-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een order-ID.
+- Een order-id.
 
 ## <a name="c"></a>C\#
 
-De order van een klant ophalen op basis van de ID:
+De order van een klant op id krijgen:
 
-1. Gebruik uw verzameling **IAggregatePartner. Customers** en roep de methode **ById ()** aan.
+1. Gebruik de **verzameling IAggregatePartner.Customers** en roep de **methode ById()** aan.
 
-2. Roep de eigenschap [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) aan, gevolgd door de methode [**ByID ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) .
-3. Roep [**Get ()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)aan.
+2. Roep de [**eigenschap Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) aan, gevolgd door de [**methode ByID().**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)
+3. Roep [**Get()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) of [**GetAsync() aan.**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -49,18 +44,18 @@ De order van een klant ophalen op basis van de ID:
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: GetOrder.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: GetOrder.cs 
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-De order van een klant ophalen op basis van de ID:
+De order van een klant op id krijgen:
 
-1. Gebruik de functie **IAggregatePartner. getCustomers** en roep de functie **byId ()** aan.
+1. Gebruik de **functie IAggregatePartner.getCustomers** en roep de **functie byId()** aan.
 
-2. Roep de functie **getOrders** aan, gevolgd door de functie **byID ()** nog een keer.
-3. Roep de functie **Get () aan** .
+2. Roep de **functie getOrders** aan, gevolgd door de **functie byID().**
+3. Roep de **functie get()** aan.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -74,7 +69,7 @@ Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrder
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u de order op ID van een klant wilt ophalen, voert u de opdracht [**Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) uit en geeft u de para meters **CustomerId** en **OrderID** op.
+Als u de order van een klant op id wilt krijgen, voert u de [**opdracht Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) uit en geeft u de parameters **CustomerId** en **OrderId** op.
 
 ```powershell
 # $selectedCustomerId
@@ -85,24 +80,24 @@ Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrder
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                  |
 |---------|--------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/orders/{id-for-order} http/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1  |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Deze tabel bevat de vereiste query parameters om een order by-ID op te halen.
+Deze tabel bevat de vereiste queryparameters om een order op id op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
-| klant-Tenant-id     | tekenreeks   | Yes      | Een GUID-indelings teken reeks die overeenkomt met de klant. |
-| id voor order           | tekenreeks   | Yes      | Een teken reeks die overeenkomt met de order-ID.                |
+| customer-tenant-id     | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die overeenkomt met de klant. |
+| id-for-order           | tekenreeks   | Ja      | Een tekenreeks die overeenkomt met de order-id.                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -121,11 +116,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een [order](order-resources.md) resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een [Order-resource](order-resources.md) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

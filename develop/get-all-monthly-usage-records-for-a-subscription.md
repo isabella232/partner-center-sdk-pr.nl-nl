@@ -1,46 +1,42 @@
 ---
-title: Alle maandelijkse gebruiks records voor een abonnement ophalen.
-description: U kunt de resource verzameling AzureResourceMonthlyUsageRecord gebruiken om een lijst met services te verkrijgen binnen het abonnement van een klant en de bijbehorende geclassificeerde gebruiks gegevens.
+title: Alle maandelijkse gebruiksrecords voor een abonnement ophalen
+description: U kunt de resourceverzameling AzureResourceMonthlyUsageRecord gebruiken om een lijst met services op te halen binnen het abonnement van een klant en de bijbehorende beoordeelde gebruiksgegevens.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1dd09d4976c9626e088cda02ce36669dd7121a99
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: ee4bd413eec7d5a2dddbe3803df8839589ab7504
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767506"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760280"
 ---
-# <a name="get-all-monthly-usage-records-for-a-subscription"></a>Alle maandelijkse gebruiks records voor een abonnement ophalen.
+# <a name="get-all-monthly-usage-records-for-a-subscription"></a>Alle maandelijkse gebruiksrecords voor een abonnement ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt de resource verzameling [**AzureResourceMonthlyUsageRecord**](/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) gebruiken om een lijst met services te verkrijgen binnen het abonnement van een klant en de bijbehorende geclassificeerde gebruiks gegevens.
+U kunt de resourceverzameling [**AzureResourceMonthlyUsageRecord**](/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) gebruiken om een lijst met services op te halen binnen het abonnement van een klant en de bijbehorende beoordeelde gebruiksgegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
-*Deze API ondersteunt alleen Microsoft Azure (MS-AZR-0145P)-abonnementen. Als u een Azure-abonnement gebruikt, raadpleegt u in plaats daarvan [gebruiks gegevens voor abonnement op meter ophalen](get-a-customer-subscription-meter-usage-records.md) .*
+*Deze API ondersteunt alleen Microsoft Azure (MS-AZR-0145P) abonnementen. Als u een Azure-abonnement gebruikt, zie in [plaats daarvan Gebruiksgegevens voor abonnement per meter](get-a-customer-subscription-meter-usage-records.md) op halen.*
 
 ## <a name="c"></a>C\#
 
-Informatie over het resource gebruik van een abonnement ophalen:
+Informatie over het resourcegebruik van een abonnement verkrijgen:
 
-1. Gebruik uw verzameling **IAggregatePartner. Customers** om de methode **ById ()** aan te roepen.
+1. Gebruik de **verzameling IAggregatePartner.Customers om** de **methode ById() aan te** roepen.
 
-2. Roep de eigenschap **abonnementen** aan, evenals **UsageRecords**, en vervolgens de eigenschap **resources** .
-3. Roep de methoden **Get ()** of **GetAsync ()** aan.
+2. Roep de **eigenschap Abonnementen** en **UsageRecords** aan en vervolgens de **eigenschap Resources.**
+3. Roep de **methoden Get()** of **GetAsync()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,32 +46,32 @@ Informatie over het resource gebruik van een abonnement ophalen:
 var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).UsageRecords.Resources.Get();
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSample**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSample**
 - Klasse: **SubscriptionResourceUsageRecords.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{id-for-Subscription}/usagerecords/resources http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/usagerecords/resources HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Deze tabel bevat de vereiste query parameters voor het verkrijgen van de geclassificeerde gebruiks gegevens.
+Deze tabel bevat de vereiste queryparameters om de beoordeelde gebruiksgegevens op te halen.
 
 | Naam                    | Type     | Vereist | Beschrijving                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **klant-Tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
-| **abonnement-id** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
+| **customer-tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
+| **subscription-id** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -93,11 +89,11 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling **AzureResourceMonthlyUsageRecord** -resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling **AzureResourceMonthlyUsageRecord-resources** in de hoofdbestel van het antwoord.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

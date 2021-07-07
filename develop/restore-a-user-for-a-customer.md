@@ -1,43 +1,39 @@
 ---
 title: Een verwijderde gebruiker voor een klant herstellen
-description: Een verwijderde gebruiker herstellen op basis van klant-ID en gebruikers-ID.
+description: Een verwijderde gebruiker herstellen op klant-id en gebruikers-id.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9fd86a268c804a2fdd5efd67a8982afc043c95a6
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 23caf91c6b29b292c2638b4a1ad208c606c47492
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767527"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445711"
 ---
 # <a name="restore-a-deleted-user-for-a-customer"></a>Een verwijderde gebruiker voor een klant herstellen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Een verwijderde **gebruiker** herstellen op basis van klant-id en gebruikers-id.
+Een verwijderde gebruiker herstellen op **klant-id** en gebruikers-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- De gebruikers-ID. Als u de gebruikers-ID niet hebt, raadpleegt u [Verwijderde gebruikers voor een klant weer geven](view-a-deleted-user.md).
+- De gebruikers-id. Zie Verwijderde gebruikers weergeven voor een klant als u niet over de gebruikers-id [hebt.](view-a-deleted-user.md)
 
-## <a name="when-can-you-restore-a-deleted-user-account"></a>Wanneer kunt u een verwijderd gebruikers account herstellen?
+## <a name="when-can-you-restore-a-deleted-user-account"></a>Wanneer kunt u een verwijderd gebruikersaccount herstellen?
 
-De gebruikers status wordt ingesteld op ' inactief ' wanneer u een gebruikers account verwijdert. Gedurende dertig dagen blijft het de gebruikers account en de bijbehorende gegevens verwijderd en worden ze onherstelbaar gemaakt. U kunt een verwijderd gebruikers account alleen herstellen tijdens deze periode van dertig dagen. Nadat het gebruikers account is verwijderd en gemarkeerd als ' inactief ', wordt het niet meer weer gegeven als lid van de gebruikers verzameling (bijvoorbeeld met behulp [van een lijst met alle gebruikers accounts voor een klant](get-a-list-of-all-user-accounts-for-a-customer.md)).
+De gebruikerstoestand wordt ingesteld op 'inactief' wanneer u een gebruikersaccount verwijdert. Dit blijft 30 dagen zo, waarna het gebruikersaccount en de bijbehorende gegevens worden verwijderd en onherkenbaar worden gemaakt. U kunt een verwijderd gebruikersaccount alleen herstellen tijdens dit venster van 30 dagen. Zodra het gebruikersaccount is verwijderd en als 'inactief' is gemarkeerd, wordt het niet meer geretourneerd als lid van de gebruikersverzameling (bijvoorbeeld met Een lijst met alle gebruikersaccounts voor een [klant ophalen).](get-a-list-of-all-user-accounts-for-a-customer.md)
 
 ## <a name="c"></a>C\#
 
-Als u een gebruiker wilt herstellen, maakt u een nieuw exemplaar van de klasse [**CustomerUser**](/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) en stelt u de waarde van de eigenschap [**User. State**](/dotnet/api/microsoft.store.partnercenter.models.users.user.state) in op [**UserState. Active**](/dotnet/api/microsoft.store.partnercenter.models.users.userstate).
+Als u een gebruiker wilt herstellen, maakt u een nieuw exemplaar van de klasse [**CustomerUser**](/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) en stelt u de waarde van de eigenschap [**User.State**](/dotnet/api/microsoft.store.partnercenter.models.users.user.state) in [**op UserState.Active.**](/dotnet/api/microsoft.store.partnercenter.models.users.userstate)
 
-U herstelt een verwijderde gebruiker door de status van de gebruiker in te stellen op actief. U hoeft de resterende velden niet opnieuw in te vullen in de gebruikers resource. Deze waarden worden automatisch hersteld op basis van de verwijderde, niet-actieve gebruikers resource. Gebruik vervolgens de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren en de [**gebruikers. ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) -methode om de gebruiker te identificeren.
+U herstelt een verwijderde gebruiker door de status van de gebruiker in te stellen op actief. U hoeft de resterende velden in de gebruikersresource niet opnieuw in tepopuleren. Deze waarden worden automatisch hersteld vanuit de verwijderde, inactieve gebruikersresource. Gebruik vervolgens de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren en de [**methode Users.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) om de gebruiker te identificeren.
 
-Ten slotte roept u de [**patch**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) -methode aan en geeft u het **CustomerUser** -exemplaar door om de aanvraag te verzenden om de gebruiker te herstellen.
+Roep ten slotte de [**patchmethode aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) en geef het **CustomerUser-exemplaar** door om de aanvraag voor het herstellen van de gebruiker te verzenden.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,37 +49,37 @@ var updatedCustomerUser = new CustomerUser()
 var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Patch(updatedCustomerUser);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: CustomerUserRestore.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CustomerUserRestore.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                            |
 |-----------|--------------------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/users/{user-id} http/1.1 |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameters om de klant-id en gebruikers-id op te geven.
+Gebruik de volgende queryparameters om de klant-id en gebruikers-id op te geven.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                              |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | De waarde is een **klant-Tenant-id** die de wederverkoper toestaat de resultaten te filteren op een bepaalde klant. |
-| **gebruikers-id**            | **guid** | J        | De waarde is een **gebruikers-id** met een GUID-indeling die tot één gebruikers account behoort.                                         |
+| **customer-tenant-id** | **guid** | J        | De waarde is een in GUID **opgemaakte klant-tenant-id** waarmee de reseller de resultaten kan filteren op een bepaalde klant. |
+| **user-id**            | **guid** | J        | De waarde is een guid-opgemaakte **gebruikers-id** die bij één gebruikersaccount hoort.                                         |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 | Naam       | Type   | Vereist | Beschrijving                                                            |
 |------------|--------|----------|------------------------------------------------------------------------|
-| Staat      | tekenreeks | J        | De gebruikers status. Deze teken reeks moet ' Active ' bevatten om een verwijderde gebruiker te herstellen. |
-| Kenmerken | object | N        | Bevat "object type": "CustomerUser".                                 |
+| Staat      | tekenreeks | J        | De gebruikerstoestand. Als u een verwijderde gebruiker wilt herstellen, moet deze tekenreeks 'actief' bevatten. |
+| Kenmerken | object | N        | Bevat 'ObjectType': 'CustomerUser'.                                 |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -109,11 +105,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert het antwoord de herstelde gebruikers gegevens in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert het antwoord de herstelde gebruikersgegevens in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

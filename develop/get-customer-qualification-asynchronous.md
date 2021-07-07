@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: JoeyBytes
 ms.author: jobiesel
-ms.openlocfilehash: df605e4d400d29e14fd0b44bef34f88bbc7ca8b2
-ms.sourcegitcommit: 7d59c58ee36b217bd5cac089f918059e9dbb8a62
+ms.openlocfilehash: 4795b6e1ad008f9d854dc7efbee0c2099aefa609
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110027925"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446306"
 ---
 # <a name="get-a-customers-qualification-asynchronously"></a>De kwalificatie van een klant asynchroon krijgen
-
-**Van toepassing op**
-
-- Partnercentrum
 
 De kwalificaties van een klant asynchroon krijgen.
 
@@ -25,7 +21,7 @@ De kwalificaties van een klant asynchroon krijgen.
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
@@ -37,7 +33,7 @@ Als u de kwalificaties van een klant wilt weten, roept u de methode [**IAggregat
 var customerQualifications = partnerOperations.Customers.ById(customerId).Qualification.GetQualifications();
 ```
 
-**Voorbeeld:** [consolevoorbeeld-app](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Project**: SdkSamples-klasse : GetCustomerQualifications.cs 
+**Voorbeeld:** [consolevoorbeeld-app.](https://github.com/microsoft/Partner-Center-DotNet-Samples) **Project:** Klasse SdkSamples: GetCustomerQualifications.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -53,7 +49,7 @@ Deze tabel bevat de vereiste queryparameter om alle kwalificaties op te halen.
 
 | Naam               | Type   | Vereist | Beschrijving                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| **customer-tenant-id** | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| **customer-tenant-id** | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -75,11 +71,11 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling kwalificaties in de antwoord-body.  Hieronder vindt u voorbeelden van de **GET-aanroep** van een klant met de kwalificatie **voor** het onderwijs.
+Als dit lukt, retourneert deze methode een verzameling kwalificaties in de antwoord-body.  Hieronder vindt u  voorbeelden van de GET-aanroep van een klant met de **kwalificatie Opleiding.**
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-examples"></a>Antwoordvoorbeelden
 
@@ -139,7 +135,7 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 #### <a name="state-owned-entity-samples"></a>Voorbeelden van entiteiten die eigendom zijn van de staat
 
-**Voorbeeld van entiteit in staats-eigendom via POST**
+**Statusentiteit via POST-voorbeeld**
 
 ```csharp
 
@@ -184,7 +180,7 @@ GET {customer_id}/qualifications
 
 ```
 
-**Entiteit in eigendom van de staat via kwalificaties met GCC**
+**Entiteit in eigendom van de staat via Kwalificaties krijgen met GCC**
 
 ```csharp
 

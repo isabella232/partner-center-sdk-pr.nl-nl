@@ -1,36 +1,32 @@
 ---
 title: Gebruiksgegevens van klantlicenties ophalen
-description: Het gebruik van inzichten over licenties voor een specifieke klant ophalen.
+description: Inzicht krijgen in het gebruik van licenties voor een specifieke klant.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1ee19e458ec65faa21034dd230b5388f7de981b2
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: cfec12d37ce4f5f50baad57bfd45770388f8a2dc
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767497"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446425"
 ---
 # <a name="get-customer-licenses-usage-information"></a>Gebruiksgegevens van klantlicenties ophalen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Het verkrijgen van inzichten over de implementatie van licenties voor een specifieke klant.
+Inzicht krijgen in de implementatie van licenties voor een specifieke klant.
 
 > [!NOTE]
-> Dit scenario wordt vervangen door [gebruiks gegevens over licenties te verkrijgen](get-licenses-usage-information.md).
+> Dit scenario wordt vervangen door [Gebruiksgegevens voor licenties verkrijgen.](get-licenses-usage-information.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties.
+Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u geaggregeerde gegevens wilt ophalen voor de implementatie van een opgegeven klant, roept u eerst de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant te identificeren. Krijg vervolgens een interface voor verzamelings bewerkingen op klant niveau van de eigenschap [**Analytics**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) . Vervolgens haalt u een interface op bij de analyse verzameling licenties op klant niveau vanuit de eigenschap [**licenties**](/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) . Roep tot slot de methode [**usage. Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) aan om de geaggregeerde gegevens over het gebruik van licenties op te halen. Als de methode slaagt, krijgt u een verzameling [**CustomerLicensesUsageInsights**](/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesusageinsights) -objecten.
+Als u geaggregeerde gegevens over de implementatie voor een opgegeven klant wilt ophalen, roept u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant te identificeren. Haal vervolgens een interface op naar bewerkingen voor het verzamelen van analyses op klantniveau van de [**eigenschap Analytics.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) Haal vervolgens een interface op voor de analyseverzameling licenties op klantniveau uit de [**eigenschap Licenties.**](/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) Roep ten slotte de [**methode Usage.Get aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) om de geaggregeerde gegevens over het gebruik van licenties op te halen. Als de methode slaagt, krijgt u een verzameling [**CustomerLicensesUsageInsights-objecten.**](/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesusageinsights)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,23 +37,23 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Analytics/licenses/Usage http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/analytics/licenses/usage HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende para meter voor het identificeren van de klant.
+Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type | Vereist | Beschrijving                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| klant-id | guid | Yes      | Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd. |
+| customer-id | guid | Ja      | Een met GUID opgemaakte klant-id die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -78,11 +74,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [CustomerLicensesUsageInsights](analytics-resources.md#customerlicensesusageinsights) -resources die informatie geven over het gebruik van licenties.
+Als dit lukt, bevat de antwoord-body een verzameling [CustomerLicensesUsageInsights-resources](analytics-resources.md#customerlicensesusageinsights) die informatie bieden over het gebruik van licenties.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

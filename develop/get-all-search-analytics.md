@@ -1,52 +1,47 @@
 ---
 title: Alle analysegegevens van zoeken ophalen
-description: Alle informatie over de zoek analyse ophalen.
+description: Hoe u alle zoekanalysegegevens opzoekt.
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 967f8d0ed2d276e0f68a047204b64d83dc69da95
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e789a013b01fb63a38c72f4fe94864ecf21f7e4b
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767180"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760161"
 ---
 # <a name="get-all-search-analytics-information"></a>Alle analysegegevens van zoeken ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt alle informatie over de zoek analyse voor uw klanten ophalen.
+Informatie over het verkrijgen van alle zoekanalysegegevens voor uw klanten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario biedt alleen ondersteuning voor verificatie met gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI |
 |---------|-------------|
-| **Toevoegen** | [*\{ BASEURL \}*](partner-center-rest-urls.md)/partner/v1/Analytics/Search http/1.1 |
+| **Toevoegen** | [*\{ baseURL \}*](partner-center-rest-urls.md)/partner/v1/analytics/search HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-|    Parameter     |  Type  |                                                                                                                   Description                                                                                                                    |
+|    Parameter     |  Type  |                                                                                                                   Beschrijving                                                                                                                    |
 |------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      filter      | tekenreeks |                                                                     Hiermee worden gegevens geretourneerd die overeenkomen met de filter voorwaarde. </br> **Voorbeeld:**</br> `.../search?filter=field eq 'value'`                                                                     |
-|     GroupBy      | tekenreeks |                                         Ondersteunt zowel termen als datums. Korte circuit logica om het aantal buckets te beperken. </br> **Voorbeeld:**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
-| aggregationLevel | tekenreeks | Voor de para meter *aggregationLevel* is een *GroupBy* vereist. De para meter *aggregationLevel* is van toepassing op alle datum velden die in de *GroupBy* worden weer gegeven. </br> **Voorbeeld:**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
-|       top        | tekenreeks |                                                                     De pagina limiet is 10000. Neemt een waarde op die kleiner is dan 10000.  </br> **Voorbeeld:**</br>  `.../search?top=100`                                                                     |
-|       skip       | tekenreeks |                                                                                  Het aantal rijen dat moet worden overgeslagen. </br> **Voorbeeld:**</br> `.../search?top=100&skip=100`                                                                                   |
+|      filter      | tekenreeks |                                                                     Retourneert gegevens die overeenkomen met de filtervoorwaarde. </br> **Voorbeeld:**</br> `.../search?filter=field eq 'value'`                                                                     |
+|     groupby      | tekenreeks |                                         Ondersteunt zowel voorwaarden als datums. Kortcircuitlogica om het aantal buckets te beperken. </br> **Voorbeeld:**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
+| aggregationLevel | tekenreeks | De *parameter aggregationLevel* vereist een *groupby*. De *parameter aggregationLevel* is van toepassing op alle datumvelden die aanwezig zijn in *de groupby*. </br> **Voorbeeld:**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
+|       top        | tekenreeks |                                                                     De paginalimiet is 10000. Neemt een waarde die kleiner is dan 10000.  </br> **Voorbeeld:**</br>  `.../search?top=100`                                                                     |
+|       skip       | tekenreeks |                                                                                  Aantal rijen dat moet worden overgeslagen. </br> **Voorbeeld:**</br> `.../search?top=100&skip=100`                                                                                   |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -64,11 +59,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [Zoek](partner-center-analytics-resources.md#search-resource) bronnen.
+Als dit lukt, bevat de antwoord-body een verzameling [zoekresources.](partner-center-analytics-resources.md#search-resource)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

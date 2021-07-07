@@ -1,28 +1,25 @@
 ---
 title: Implementatie van apparaat
-description: Implementatie functies van het partner centrum API-apparaat zijn onder andere configuratie beleid en apparaten.
+description: Partner Center API-apparaatimplementatiefuncties zijn configuratiebeleid en apparaten.
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 72292ee59955bb35be7ad9d59789a3e109d5f7ec
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 46fd8b53d6d42816d498103192122a81b5f6564f
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767186"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906492"
 ---
 # <a name="device-deployment"></a>Implementatie van apparaat
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-De Api's van het partner centrum bieden toegang tot Zero-touch implementatie functies, zodat u de beveiliging van uw klanten kunt vereenvoudigen.
+De Partner Center bieden toegang tot zero-touch-implementatiefuncties, zodat u het instellen van beveiligde apparaten voor uw klanten kunt vereenvoudigen.
 
 ## <a name="configuration-policies"></a>Configuratiebeleid
 
-Onderwerpen over het toevoegen, verwijderen, bijwerken en ophalen van beleids instellingen voor apparaatconfiguratie:
+Onderwerpen over het toevoegen, verwijderen, bijwerken en ophalen van apparaatconfiguratiebeleid:
 
 - [Een nieuw configuratiebeleid maken voor de opgegeven klant](create-a-new-configuration-policy-for-the-specified-customer.md)
 - [Een configuratiebeleid verwijderen voor de opgegeven klant](delete-a-configuration-policy-for-the-specified-customer.md)
@@ -32,7 +29,7 @@ Onderwerpen over het toevoegen, verwijderen, bijwerken en ophalen van beleids in
 
 ## <a name="devices"></a>Apparaten
 
-Onderwerpen over het werken met en het uploaden van batches en meta gegevens van apparaten:
+Onderwerpen over het werken met en uploaden van batches en metagegevens van apparaten:
 
 - [De status ophalen van het uploaden van een apparaat-batch](get-the-status-of-a-device-batch-upload.md)
 - [Een lijst met de batches van een apparaat voor de opgegeven klant ophalen](get-the-list-of-device-batches-for-the-specified-customer.md)

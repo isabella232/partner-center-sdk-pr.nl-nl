@@ -1,84 +1,79 @@
 ---
-title: Klant resources
-description: Klant bronnen die een klant of wederverkoper vertegenwoordigen.
+title: Klantbronnen
+description: Klantbronnen die een klant of wederverkoper vertegenwoordigen.
 ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 78622258880ab77ca99eae98082cc66acb3b66a7
-ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
+ms.openlocfilehash: 7d76de33c9a0d28e9d3fb0b0821cbd37ad67e7af
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106103960"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973142"
 ---
-# <a name="customer-resources"></a>Klant resources
+# <a name="customer-resources"></a>Klantbronnen
 
-**Van toepassing op:**
-
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
 ## <a name="customer"></a>Klant
 
-De resource van de **klant** vertegenwoordigt een klant of wederverkoper. In het algemeen kan een klant resource iedereen, werk nemer of organisatie zijn die zaken wil doen met micro soft en de wederverkopers van micro soft. Klanten hebben ook een bedrijfs profiel en een facturerings profiel.
+De **klantresource** vertegenwoordigt een klant of reseller. In het algemeen kan een klantresource elke persoon, werknemer of organisatie zijn die zaken wil doen met Microsoft en de wederverkopers van Microsoft. Klanten hebben ook een bedrijfsprofiel en een factureringsprofiel.
 
 >[!NOTE]
->De resource van de **klant** heeft een frequentie limiet van 500 aanvragen per minuut per Tenant-id.
+>De **resource Klant** heeft een snelheidslimiet van 500 aanvragen per minuut per tenant-id.
 
 | Eigenschap              | Type                                                             | Beschrijving                                                                                                                                  |
 |-----------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| id                    | tekenreeks                                                           | De klant-ID.                                                                                                                             |
-| commerceId            | tekenreeks                                                           | De commerce-ID.                                                                                                                             |
+| id                    | tekenreeks                                                           | De klant-id.                                                                                                                             |
+| commerceId            | tekenreeks                                                           | De handels-id.                                                                                                                             |
 | companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | Aanvullende informatie over het bedrijf of de organisatie.                                                                                    |
 | billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Aanvullende informatie die wordt gebruikt voor facturering.                                                                                                     |
-| relationshipToPartner | tekenreeks                                                           | Hiermee wordt het licentie programma gedefinieerd dat de partner gebruikt voor deze klant: ' none ', ' wederverkoper ', ' Advisor ', ' Syndication ' of ' micro soft- \_ ondersteuning '. |
-| allowDelegatedAccess  | booleaans                                                          | Hiermee wordt aangegeven of aan de partner gedelegeerde beheerders bevoegdheden zijn toegekend door deze klant. Deze eigenschap is alleen beschikbaar wanneer een klant wordt opgehaald op basis van ID, niet op lijst.                                                         |
-| userCredentials       | [UserCredentials](user-resources.md#usercredentials) | De gebruikers referenties.                                                                                                                        |
+| relationshipToPartner | tekenreeks                                                           | Definieert het licentieprogramma dat de partner voor deze klant gebruikt: 'geen', 'reseller', 'advisor', 'syndication' of 'microsoft \_ support'. |
+| allowDelegatedAccess  | booleaans                                                          | Geeft aan of aan de partner gedelegeerde beheerdersbevoegdheden zijn verleend door deze klant. Deze eigenschap is alleen beschikbaar wanneer een klant wordt op id, niet per lijst.                                                         |
+| userCredentials       | [UserCredentials](user-resources.md#usercredentials) | De gebruikersreferenties.                                                                                                                        |
 | customDomains         | tekenreeksmatrix                                                 | Lijst met aangepaste domeinen van een klant.                                                                                                        |
-| associatedPartnerId   | tekenreeks                                                           | De indirecte wederverkoper die aan dit klant account is gekoppeld. Deze waarde kan alleen worden ingesteld door de indirecte CSP-partners.                              |
-| koppelen                 | [ResourceLinks](utility-resources.md#resourcelinks)             | De resource koppelingen in het profiel.                                                                                             |
-| kenmerken            | [ResourceAttributes](utility-resources.md#resourceattributes)   | De meta gegevens kenmerken die overeenkomen met het profiel.                                                                                        |
+| associatedPartnerId   | tekenreeks                                                           | De indirecte reseller die is gekoppeld aan dit klantaccount. Deze waarde kan alleen worden ingesteld door indirecte CSP-partners.                              |
+| Verwijzigingen                 | [ResourceLinks](utility-resources.md#resourcelinks)             | De resourcekoppelingen in het profiel.                                                                                             |
+| kenmerken            | [ResourceAttributes](utility-resources.md#resourceattributes)   | De metagegevenskenmerken die overeenkomen met het profiel.                                                                                        |
 
 ## <a name="customercompanyprofile"></a>CustomerCompanyProfile
 
-De **CustomerCompanyProfile** -resource is aanvullende informatie over het bedrijf of de organisatie.
+De **resource CustomerCompanyProfile** is aanvullende informatie over het bedrijf of de organisatie.
 
-| Eigenschap    | Type                                                           | Description                                                                       |
+| Eigenschap    | Type                                                           | Beschrijving                                                                       |
 |-------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| tenantId    | tekenreeks                                                         | De Tenant-id van de klant voor Azure AD. Dit wordt ook wel een MicrosoftID genoemd. |
+| tenantId    | tekenreeks                                                         | De tenant-id van de klant voor Azure AD. Dit wordt ook wel een MicrosoftID genoemd. |
 | domein      | tekenreeks                                                         | De naam van de klant, zoals contoso.onmicrosoft.com.                             |
 | companyName | tekenreeks                                                         | De naam van het bedrijf of de organisatie.                                          |
-| koppelen       | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen in het profiel.                                  |
-| kenmerken  | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel.                             |
-|organizationRegistrationNumber|Tekenreeks|Het registratie nummer van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant in de volgende landen: Armenië (AM), Azerbeidzjan (AZ), Belarus (op), Hongarije (HU), Kazachstan (KZ), Kirgizië (KG), Moldavië (MD), Rusland (RU), Tadzjikistan (TJ), Oezbekistan (UZ), Oekraïne (UA), India, Brazilië, Zuid-Afrika, Polen, Verenigde Arabische Emiraten, Saoedi-Arabië, Turkije, Thai, Vietnam, Myanmar, Irak, Zuid-Soedan en Venezuela. Voor het bedrijf/de organisatie van de klant die zich in andere landen bevindt, moet dit niet worden opgegeven.|
+| Verwijzigingen       | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen in het profiel.                                  |
+| kenmerken  | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel.                             |
+|organizationRegistrationNumber|Tekenreeks|Het registratienummer van de organisatie van de klant (ook wel INN-nummer genoemd in bepaalde landen). Alleen vereist voor het bedrijf/de organisatie van de klant die zich in de volgende landen bevindt: 10000000000000. Voor het bedrijf/de organisatie van de klant die zich in andere landen bevindt, moet dit niet worden opgegeven.|
 
 
 ## <a name="customerbillingprofile"></a>CustomerBillingProfile
 
-De **CustomerBillingProfile** -resource is aanvullende informatie die wordt gebruikt om de klant te factureren.
+De **CustomerBillingProfile-resource** is aanvullende informatie die wordt gebruikt om de klant te factureren.
 
 | Eigenschap       | Type                                                           | Beschrijving                                                                                                                                            |
 |----------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id             | tekenreeks                                                         | De profiel-id.                                                                                                                                |
-| voornaam      | tekenreeks                                                         | De voor naam van de facturerings contactpersoon van het bedrijf van de klant. Dit is de persoon aan wie facturen en andere facturerings communicatie worden omgeleid. |
-| achternaam       | tekenreeks                                                         | De achternaam van de facturerings contactpersoon.                                                                                                                  |
-| e-mail          | tekenreeks                                                         | Het e-mail adres van de contact persoon voor facturering                                                                                                                    |
-| culturele        | tekenreeks                                                         | De voorkeurs cultuur voor communicatie en valuta, zoals ' en-us '.                                                                               |
-| language       | tekenreeks                                                         | De voorkeurs taal voor communicatie.                                                                                                            |
+| voornaam      | tekenreeks                                                         | De voornaam van de contactpersoon voor facturering bij het bedrijf van de klant. Dit is de persoon naar wie facturen en andere factureringscommunicatie wordt doorgestuurd. |
+| achternaam       | tekenreeks                                                         | De achternaam van de contactpersoon voor facturering.                                                                                                                  |
+| e-mail          | tekenreeks                                                         | Het e-mailadres van de contactpersoon voor facturering                                                                                                                    |
+| Cultuur        | tekenreeks                                                         | Hun voorkeurscultuur voor communicatie en valuta, zoals 'en-us'.                                                                               |
+| language       | tekenreeks                                                         | Hun voorkeurstaal voor communicatie.                                                                                                            |
 | companyName    | tekenreeks                                                         | De naam van het bedrijf of de organisatie.                                                                                                               |
-| defaultAddress | [Adres](utility-resources.md#address)                       | Het adres waarnaar facturen worden verzonden, waarbij de contact persoon van de facturering werkt.                                                                                   |
-| koppelen          | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen in het profiel.                                                                                                       |
-| kenmerken     | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel.                                                                                                  |
+| defaultAddress | [Adres](utility-resources.md#address)                       | Het adres waar de factuur naar wordt verzonden, waar de contactpersoon voor facturering werkt.                                                                                   |
+| Verwijzigingen          | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen in het profiel.                                                                                                       |
+| kenmerken     | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel.                                                                                                  |
 
 ## <a name="customerrelationshiprequest"></a>CustomerRelationshipRequest
 
-De **CustomerRelationshipRequest** -resource bevat de URL die door de klant wordt gebruikt om een reseller-relatie met een partner tot stand te brengen.
+De **Resource CustomerRelationshipRequest bevat** de URL die door de klant wordt gebruikt om een resellerrelatie met een partner tot stand te stellen.
 
-| Eigenschap   | Type                                                           | Description                                                              |
+| Eigenschap   | Type                                                           | Beschrijving                                                              |
 |------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| url        | tekenreeks                                                         | De URL die door de klant wordt gebruikt om een relatie met een partner tot stand te brengen. |
-| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met de relatie aanvraag.       |
+| url        | tekenreeks                                                         | De URL die door de klant wordt gebruikt om een relatie met een partner tot stand te stellen. |
+| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met de relatieaanvraag.       |

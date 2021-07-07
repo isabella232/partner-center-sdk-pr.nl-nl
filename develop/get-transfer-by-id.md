@@ -1,50 +1,46 @@
 ---
-title: Details van overdracht op id ophalen
-description: Meer informatie over het overdragen van abonnementen voor een klant.
+title: Overdrachtsdetails per id op halen
+description: Meer informatie over een overdracht van abonnementen voor een klant.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c39e9483f1e51469981b0d6fa2541a6372ff2dac
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1347f95debec458b8c70c5e803cef6203ad34818
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767231"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445932"
 ---
-# <a name="get-transfer-details-by-id"></a>Details van overdracht op id ophalen
-
-**Van toepassing op:**
-
-- Partnercentrum
+# <a name="get-transfer-details-by-id"></a>Overdrachtsdetails per id op halen
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een overdrachts-id voor een bestaande overdracht.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/transfers/{Transfer-id} http/1.1                    |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id} HTTP/1.1                    |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende para meter Path om de klant te identificeren en de overdracht op te geven die moet worden geaccepteerd.
+Gebruik de volgende padparameter om de klant te identificeren en geef de overdracht op die moet worden geaccepteerd.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **klant-id** | tekenreeks   | Yes      | Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd.             |
-| **overdracht-id** | tekenreeks   | Yes      | Een door de GUID geformatteerde overdracht-id waarmee de overdracht wordt aangeduid.             |
+| **customer-id** | tekenreeks   | Ja      | Een met GUID opgemaakte klant-id die de klant identificeert.             |
+| **transfer-id** | tekenreeks   | Ja      | Een met GUID opgemaakte overdrachts-id die de overdracht identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -59,11 +55,11 @@ Accept: application/json
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de gevulde [TransferEntity](transfer-entity-resources.md) -resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode de ingevulde [TransferEntity-resource](transfer-entity-resources.md) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

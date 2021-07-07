@@ -1,35 +1,31 @@
 ---
 title: Indirecte resellers van een klant ophalen
-description: Een lijst met de indirecte wederverkopers ophalen die een relatie hebben met een opgegeven klant.
+description: Een lijst op te halen met de indirecte resellers die een relatie hebben met een opgegeven klant.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: d69abf9530548f110820ca04fefb698e0e37556c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 8697c40c22d5c19979c066b8d3a1de733e211f71
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767491"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446238"
 ---
 # <a name="get-indirect-resellers-of-a-customer"></a>Indirecte resellers van een klant ophalen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Een lijst met de indirecte wederverkopers ophalen die een relatie hebben met een opgegeven klant.
+Een lijst op te halen met de indirecte resellers die een relatie hebben met een opgegeven klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een lijst wilt ophalen met de indirecte wederverkopers waarmee de opgegeven klant een relatie heeft, kunt u eerst een interface voor klant verzamelings bewerkingen voor de specifieke klant ophalen uit de eigenschap [**partnerOperations. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) door de klant-id op te geven om de klant te identificeren. Roep vervolgens de [**relaties aan. ophalen**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) of ophalen van de methode [**\_ async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) om de lijst met indirecte wederverkopers op te halen.
+Als u een lijst met indirecte resellers wilt ophalen met wie de opgegeven klant een relatie heeft, haalt u eerst een interface op met klantverzamelingsbewerkingen voor de specifieke klant van de [**eigenschap partnerOperations.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) door de klant-id op te geven om de klant te identificeren. Roep vervolgens de [**methode Relationships.Get**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) of [**Get \_ Async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) aan om de lijst met indirecte resellers op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,27 +34,27 @@ Als u een lijst wilt ophalen met de indirecte wederverkopers waarmee de opgegeve
  var indirectResellers = partnerOperations.Customers[customerId].Relationships.Get();
 ```
 
-Voor **beeld**: [console test app](console-test-app.md)**project**: Partner Center SDK samples **klasse**: GetIndirectResellersOfCustomer.cs
+**Voorbeeld**: [Consoletest-app](console-test-app.md)**Project:** Partnercentrum-SDK Voorbeelden **Klasse**: GetIndirectResellersOfCustomer.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/relationships http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/relationships HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende para meter voor het identificeren van de klant.
+Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| klant-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling die de klant identificeert. |
+| customer-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -78,11 +74,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [PartnerRelationship](relationships-resources.md) -resources om de wederverkopers te identificeren.
+Als dit lukt, bevat de antwoord-body een verzameling [PartnerRelationship-resources](relationships-resources.md) om de resellers te identificeren.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

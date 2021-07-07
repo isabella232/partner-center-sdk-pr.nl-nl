@@ -4,27 +4,24 @@ description: Een apparaat verwijderen dat bij een opgegeven klant hoort.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 69b5440f2cf07d3cb4ecd5addf429acd64530257
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: a1e05ceb8615d6f84c1df101c542342f9a6eb04b
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767390"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973074"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>Een apparaat voor de opgegeven klant verwijderen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-In dit artikel wordt uitgelegd hoe u een apparaat verwijdert dat deel uitmaakt van een opgegeven klant.
+In dit artikel wordt uitgelegd hoe u een apparaat verwijdert dat bij een opgegeven klant hoort.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De batch-id van het apparaat.
 
@@ -34,13 +31,13 @@ In dit artikel wordt uitgelegd hoe u een apparaat verwijdert dat deel uitmaakt v
 
 Een apparaat voor de opgegeven klant verwijderen:
 
-1. Roep de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de klant.
+1. Roep de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface voor bewerkingen op de klant op te halen.
 
-2. Roep de methode [**DeviceBatches. ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) aan met de batch-id van het apparaat om een interface te verkrijgen voor bewerkingen voor de opgegeven batch.
+2. Roep de [**methode DeviceBatches.ById aan met**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) de batch-id van het apparaat om een interface op te halen voor bewerkingen voor de opgegeven batch.
 
-3. Roep de methode [**devices. ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) aan om een interface te verkrijgen voor bewerking op het opgegeven apparaat.
+3. Roep de [**methode Devices.ById aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) om een interface op te halen voor bewerking op het opgegeven apparaat.
 
-4. Roep de methode [**Delete**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) of [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) aan om het apparaat uit de batch te verwijderen.
+4. Roep de [**methode Delete**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) of [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) aan om het apparaat uit de batch te verwijderen.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -51,29 +48,29 @@ string selectedDeviceId;
 partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.ById(selectedDeviceId).Delete();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: DeleteDevice.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Klasse **Samples:** DeleteDevice.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode     | Aanvraag-URI                                                                                                                        |
 |------------|------------------------------------------------------------------------------------------------------------------------------------|
-| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/devices/{Device-ID} http/1.1  |
+| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices/{device-id} HTTP/1.1  |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende Path-para meters bij het maken van de aanvraag.
+Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam           | Type   | Vereist | Beschrijving                                                        |
 |----------------|--------|----------|--------------------------------------------------------------------|
-| klant-id    | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.              |
-| devicebatch-id | tekenreeks | Yes      | De batch-id van het apparaat van de batch die het apparaat bevat. |
-| apparaat-id      | tekenreeks | Yes      | De apparaat-id.                                             |
+| customer-id    | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert.              |
+| devicebatch-id | tekenreeks | Ja      | De batch-id van het apparaat van de batch die het apparaat bevat. |
+| device-id      | tekenreeks | Ja      | De apparaat-id.                                             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -94,11 +91,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als de aanvraag is voltooid, wordt de status code van **204 geen inhoud** geretourneerd.
+Als dit lukt, retourneert het antwoord de statuscode **204 Geen** inhoud.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,61 +1,56 @@
 ---
 title: Een klantaccount verwijderen uit de integratie-sandbox
-description: Een klant account verwijderen uit de sandbox met Testing in Production (tip) Integration.
+description: Een klantaccount verwijderen uit de sandbox voor Testing in Production -integratie (Tip).
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e3a1642c0202c174ddd4f65a6aeda2752def9176
-ms.sourcegitcommit: b1ff781b67b1d322820bbcac2c583229201a8c07
+ms.openlocfilehash: b9d9e44ac9c40bd4e3c7e1a9e04253f853dfd96c
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "97767402"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973125"
 ---
 # <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Een klantaccount verwijderen uit de integratie-sandbox
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-In dit artikel wordt uitgelegd hoe u de relatie tussen de partner en het klant account verbreekt en de sandbox-integratie voor Testing in Production (tip) in de quota kunt herstellen.
+In dit artikel wordt uitgelegd hoe u de relatie tussen de partner en het klantaccount verbreekt en het quotum voor de sandbox voor Testing in Production -integratie (Tip) opnieuw kunt krijgen.
 
 > [!IMPORTANT]
-> Wanneer u een klant account verwijdert, worden alle resources die zijn gekoppeld aan de Tenant van de klant, verwijderd.
+> Wanneer u een klantaccount verwijdert, worden alle resources verwijderd die zijn gekoppeld aan die klantten tenant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Alle Azure Reserved Virtual Machine Instances-en software-inkoop orders moeten worden geannuleerd voordat u een klant verwijdert uit de tip Integration sandbox.
+- Alle Azure Reserved Virtual Machine Instances en software-aankooporders moeten worden geannuleerd voordat u een klant uit de Sandbox voor tipintegratie kunt verwijderen.
 
 ## <a name="c"></a>C\#
 
-Een klant verwijderen uit de tip Integration sandbox:
+Een klant verwijderen uit de Sandbox voor Tip-integratie:
 
-1. Geef de referenties van uw tip-account door aan de methode [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) om een [**IPartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) -interface te verkrijgen voor partner bewerkingen.
+1. Geef uw Tip-accountreferenties door aan [**de methode CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) om een [**IPartner-interface**](/dotnet/api/microsoft.store.partnercenter.ipartner) voor partnerbewerkingen op te halen.
 
-2. Gebruik de interface voor partner bewerkingen om de verzameling van rechten op te halen:
+2. Gebruik de interface voor partnerbewerkingen om de verzameling rechten op te halen:
 
-    1. Roep de methode [**klanten. ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan bij de klant-id om de klant op te geven.
+    1. Roep de [**methode Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant op te geven.
 
-    2. Roep de eigenschap **rechten** aan.
+    2. Roep de **eigenschap Rechten aan.**
 
-    3. Roep de methode **Get** of **GetAsync** aan om de [**rechtings**](entitlement-resources.md) verzameling op te halen.
+    3. Roep de **methode Get** of **GetAsync aan** om de rechtenverzameling op [**te**](entitlement-resources.md) halen.
 
-3. Zorg ervoor dat alle Azure Reserved Virtual Machine Instances-en software-inkoop orders voor die klant zijn geannuleerd. Voor elke [**recht**](entitlement-resources.md) in de verzameling:
+3. Zorg ervoor dat alle Azure Reserved Virtual Machine Instances- en softwareaankooporders voor die klant worden geannuleerd. Voor elk [**recht**](entitlement-resources.md) in de verzameling:
 
-    1. Gebruik het [**recht. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) voor het ophalen van een lokale kopie van de bijbehorende [order](order-resources.md#order) van de verzameling orders van de klant.
+    1. Gebruik het [**recht. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) lokale kopie van de bijbehorende order [ophalen](order-resources.md#order) uit de verzameling orders van de klant.
 
-    2. Stel de eigenschap [**order. status**](order-resources.md#order) in op "geannuleerd".
+    2. Stel de [**eigenschap Order.Status**](order-resources.md#order) in op Geannuleerd.
 
-    3. Gebruik de methode **patch ()** om de volg orde bij te werken.
+    3. Gebruik de **methode Patch()** om de volgorde bij te werken.
 
-4. Alle orders annuleren. Het volgende code voorbeeld maakt bijvoorbeeld gebruik van een lus om elke volg orde te pollen totdat de status ' geannuleerd ' is.
+4. Annuleer alle orders. In het volgende codevoorbeeld wordt bijvoorbeeld een lus gebruikt om elke bestelling te peilen totdat de status 'Geannuleerd' is.
 
     ``` csharp
     // IPartnerCredentials tipAccountCredentials;
@@ -64,7 +59,7 @@ Een klant verwijderen uit de tip Integration sandbox:
 
     IPartner tipAccountPartnerOperations = PartnerService.Instance.CreatePartnerOperations(tipAccountCredentials);
 
-    // Get all entitlements whose order must be cancelled.
+    // Get all entitlements whose order must be canceled.
     ResourceCollection<Entitlement> entitlements = tipAccountPartnerOperations.Customers.ById(customerTenantId).Entitlements.Get();
 
     // Cancel all orders
@@ -79,7 +74,7 @@ Een klant verwijderen uit de tip Integration sandbox:
     bool proceed = true;
     do
     {
-        // Check if all the orders were cancelled.
+        // Check if all the orders were canceled.
         foreach (var entitlement in entitlements)
         {
             var order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(entitlement.ReferenceOrder.Id).Get();
@@ -97,29 +92,29 @@ Een klant verwijderen uit de tip Integration sandbox:
     tipAccountPartnerOperations.Customers.ById(customerTenantId).Delete();
     ```
 
-5. Zorg ervoor dat alle orders zijn geannuleerd door de **verwijderings** methode voor de klant aan te roepen.
+5. Zorg ervoor dat alle orders worden geannuleerd door de methode **Delete voor** de klant aan te roepen.
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: partner centrum PartnerCenterSDK. FeaturesSamples **klasse**: DeleteCustomerFromTipAccount.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Partner Center PartnerCenterSDK.FeaturesSamples-klasse: DeleteCustomerFromTipAccount.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode     | Aanvraag-URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id} http/1.1 |
+| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om een klant te verwijderen.
+Gebruik de volgende queryparameter om een klant te verwijderen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| klant-Tenant-id     | GUID     | J        | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
+| customer-tenant-id     | GUID     | J        | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -139,9 +134,9 @@ Content-Length: 0
 
 Als dit lukt, retourneert deze methode een leeg antwoord.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

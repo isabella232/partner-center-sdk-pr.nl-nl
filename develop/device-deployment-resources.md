@@ -1,84 +1,81 @@
 ---
-title: Implementatie bronnen voor apparaten
-description: Resources met betrekking tot de implementatie van het partner centrum-apparaat.
+title: Resources voor apparaatimplementatie
+description: Resources met betrekking tot Partner Center implementatie van apparaten.
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a464cdad3979c305df16a3bdc9133ce70a7ac688
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c85f0bd6a633ac18aa8e56e5a89bfc5c8f0398cc
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767189"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906504"
 ---
-# <a name="device-deployment-resources"></a>Implementatie bronnen voor apparaten
+# <a name="device-deployment-resources"></a>Resources voor apparaatimplementatie
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-De volgende bronnen zijn gerelateerd aan de implementatie van het apparaat.
+De volgende resources zijn gerelateerd aan de implementatie van apparaten.
 
 ## <a name="configurationpolicy"></a>ConfigurationPolicy
 
-**ConfigurationPolicy** biedt informatie over een configuratie beleid.
+**ConfigurationPolicy** biedt informatie over een configuratiebeleid.
 
 | Eigenschap             | Type                                                           | Beschrijving                                                        |
 |----------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| id                   | tekenreeks                                       | Een teken reeks met een GUID-indeling waarmee het beleid wordt geïdentificeerd.                                  |
-| naam                 | tekenreeks                                       | De beschrijvende naam voor het beleid.                                                    |
+| id                   | tekenreeks                                       | Een tekenreeks met GUID-indeling die het beleid identificeert.                                  |
+| naam                 | tekenreeks                                       | De gebruiksvriendelijke naam voor het beleid.                                                    |
 | category             | tekenreeks                                       | De categorie.                                                                        |
 | beschrijving          | tekenreeks                                       | De beschrijving van het beleid.                                                              |
 | devicesAssignedCount | getal                                       | Het aantal apparaten dat aan dit beleid is toegewezen.                                       |
-| policySettings       | tekenreeksmatrix                             | De beleids instellingen: ' geen ', ' \_ OEM- \_ voor installatie verwijderen ', ' OOBE- \_ gebruiker \_ niet \_ lokale \_ beheerder ', ' overs laan van \_ snelle instellingen ', ' overs laan van OEM- \_ \_ \_ registratie ', ' \_ gebruiksrecht overeenkomst overs Laan '.    |
-| createdDate          | teken reeks in UTC-datum-tijd notatie               | De datum en tijd waarop het beleid is gemaakt.                                            |
-| lastModifiedDate     | teken reeks in UTC-datum-tijd notatie               | De datum en tijd waarop het beleid voor het laatst is gewijzigd.                                      |
-| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                                            |
+| policySettings       | tekenreeksmatrix                             | De beleidsinstellingen: "none","remove \_ oem \_ preinstalls","oobe \_ user not local \_ \_ \_ admin","skip \_ express \_ settings","skip \_ oem \_ registration", \_ "skip eula".    |
+| createdDate          | tekenreeks in UTC-datum/tijd-indeling               | De datum en tijd waarop het beleid is gemaakt.                                            |
+| lastModifiedDate     | tekenreeks in UTC-datum/tijd-indeling               | De datum en tijd waarop het beleid voor het laatst is gewijzigd.                                      |
+| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                                            |
 
 ## <a name="device"></a>Apparaat
 
-**Apparaat** biedt informatie over een apparaat.
+**Het** apparaat biedt informatie over een apparaat.
 
 | Eigenschap            | Type                                                           | Beschrijving                                                              |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| id                  | tekenreeks                                                         | Een teken reeks met een GUID-indeling waarmee het apparaat wordt geïdentificeerd.                      |
-| serialNumber        | tekenreeks                                                         | Het serie nummer dat uniek is gekoppeld aan het apparaat.                   |
-| productKey          | tekenreeks                                                         | De product code die uniek is gekoppeld aan het apparaat.                     |
+| id                  | tekenreeks                                                         | Een tekenreeks met GUID-indeling die het apparaat identificeert.                      |
+| serialNumber        | tekenreeks                                                         | Het serienummer dat uniek is gekoppeld aan het apparaat.                   |
+| productKey          | tekenreeks                                                         | De productcode die uniek is gekoppeld aan het apparaat.                     |
 | hardwareHash        | tekenreeks                                                         | De hardware-hash die uniek is gekoppeld aan het apparaat.                   |
-| modelName           | tekenreeks                                                         | De naam van het model dat aan het apparaat is gekoppeld.                               |
+| modelName           | tekenreeks                                                         | De modelnaam die aan het apparaat is gekoppeld.                               |
 | oemManufacturerName | tekenreeks                                                         | De naam van de OEM-fabrikant die aan het apparaat is gekoppeld.             |
-| policies            | matrix van objecten                                               | De lijst met beleids regels die zijn toegewezen aan het apparaat.                             |
-| uploadedDate        | teken reeks in UTC-datum-tijd notatie                                 | De datum en tijd waarop de details van het apparaat zijn geüpload.                      |
-| allowedOperations   | tekenreeksmatrix                                               | De lijst met HTTP-methoden die zijn toegestaan op een apparaat synchroniseren als GET, PATCH, verwijderen. |
-| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes)  | De meta gegevens kenmerken.                                                 |
+| policies            | matrix van objecten                                               | De lijst met beleidsregels die zijn toegewezen aan het apparaat.                             |
+| uploadedDate        | tekenreeks in UTC-datum/tijd-indeling                                 | De datum en tijd waarop de apparaatdetails zijn geüpload.                      |
+| allowedOperations   | tekenreeksmatrix                                               | De lijst met HTTP-methoden die zijn toegestaan op een apparaatsynchronisatie, zoals GET, PATCH, DELETE. |
+| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken.                                                 |
 
 ## <a name="batchuploaddetails"></a>BatchUploadDetails
 
-**BatchUploadDetails** beschrijft de status van een apparaat batch upload van informatie over elk apparaat in een lijst met apparaten.
+**BatchUploadDetails beschrijft** de status van een apparaat batchupload van informatie over elk apparaat in een lijst met apparaten.
 
-| Eigenschap        | Type     | Description                                                                  |
+| Eigenschap        | Type     | Beschrijving                                                                  |
 |-----------------|----------|------------------------------------------------------------------------------|
-| batchTrackingId | tekenreeks   | Een teken reeks die is ingedeeld in de GUID die is gekoppeld aan de batch apparaten die zijn geüpload. |
-| status          | tekenreeks   | De status van de batch upload: ' onbekend ', ' in wachtrij ', ' verwerking ', ' voltooid ', \_ met fouten voltooid \_ . |
-| startedTime     | teken reeks in UTC-datum-tijd notatie | De datum en tijd waarop het batch-upload proces is gestart.   |
-| completedTime   | teken reeks in UTC-datum-tijd notatie  | De datum en tijd waarop het batch-upload proces is voltooid.   |
-| devicesStatus   | matrix van [DeviceUploadDetails](#deviceuploaddetails) -resources | Een matrix met objecten waarmee de status van elke apparaatgegevens worden geüpload. |
-| kenmerken      | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.  |
+| batchTrackingId | tekenreeks   | Een tekenreeks met GUID-indeling die is gekoppeld aan de batch met geüploade apparaten. |
+| status          | tekenreeks   | De status van de batchupload: 'onbekend', 'in de wachtrij geplaatst', 'verwerking', 'voltooid', 'voltooid \_ met \_ fouten'. |
+| startedTime     | tekenreeks in UTC-datum/tijd-indeling | De datum en tijd waarop het batchuploadproces is gestart.   |
+| completedTime   | tekenreeks in UTC-datum/tijd-indeling  | De datum en tijd waarop het batchuploadproces is voltooid.   |
+| devicesStatus   | matrix van [DeviceUploadDetails-resources](#deviceuploaddetails) | Een matrix met objecten die de status van elke upload van apparaatgegevens specificeert. |
+| kenmerken      | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.  |
 
 ## <a name="deviceuploaddetails"></a>DeviceUploadDetails
 
-**DeviceUploadDetails** beschrijft de status van het uploaden van gegevens over een apparaat.
+**DeviceUploadDetails** beschrijft de status van een upload van informatie over een apparaat.
 
-| Eigenschap         | Type                    | Description                                 |
+| Eigenschap         | Type                    | Beschrijving                                 |
 |------------------|-------------------------|---------------------------------------------|
-| deviceId         | tekenreeks                  | Een teken reeks met een GUID-indeling die aan het apparaat is gekoppeld. |
-| serialNumber     | tekenreeks                  | Het serie nummer dat uniek is gekoppeld aan het apparaat. |
-| productKey       | tekenreeks                  | De product code die uniek is gekoppeld aan het apparaat. |
-| status           | tekenreeks                  | De status van de apparaatgegevens uploaden: ' in uitvoering ', ' voltooid ', \_ met \_ fouten voltooid. |
-| errorCode        | tekenreeks                  | De fout code van de HTTP-status die wordt geretourneerd als het uploaden van het apparaat mislukt. |
-| errorDescription | tekenreeks                  | De HTTP-fout beschrijving als het uploaden van het apparaat mislukt. |
-| kenmerken       | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.   |
+| deviceId         | tekenreeks                  | Een tekenreeks met GUID-indeling die is gekoppeld aan het apparaat. |
+| serialNumber     | tekenreeks                  | Het serienummer dat uniek is gekoppeld aan het apparaat. |
+| productKey       | tekenreeks                  | De productcode die uniek is gekoppeld aan het apparaat. |
+| status           | tekenreeks                  | De status van de upload van de apparaatgegevens: 'wordt uitgevoerd', 'voltooid', 'voltooid \_ met \_ fouten'. |
+| errorCode        | tekenreeks                  | De HTTP-statusfoutcode die wordt geretourneerd als het uploaden van het apparaat mislukt. |
+| errorDescription | tekenreeks                  | De beschrijving van de HTTP-fout als het uploaden van het apparaat mislukt. |
+| kenmerken       | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.   |
 
 ## <a name="devicebatch"></a>DeviceBatch
 
@@ -86,28 +83,28 @@ De volgende bronnen zijn gerelateerd aan de implementatie van het apparaat.
 
 | Eigenschap     | Type                                                           | Beschrijving                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| id           | tekenreeks                                                         | Een teken reeks met een GUID-indeling die is gekoppeld aan de batch apparaten. |
-| Type CreatedBy    | tekenreeks                                                         | De naam van de Tenant die de verzameling heeft gemaakt.                   |
-| creationDate | teken reeks in UTC-datum-tijd notatie                                 | De gegevens en het tijdstip waarop de verzameling is gemaakt.                    |
+| id           | tekenreeks                                                         | Een tekenreeks in GUID-indeling die is gekoppeld aan de batch apparaten. |
+| Createdby    | tekenreeks                                                         | De naam van de tenant die de verzameling heeft gemaakt.                   |
+| creationDate | tekenreeks in UTC-datum/tijd-indeling                                 | De gegevens en tijd dat de verzameling is gemaakt.                    |
 | deviceCount  | getal                                                         | Het aantal apparaten in de verzameling.                              |
-| devicesLink  | [Koppeling](utility-resources.md#link)                              | Een koppeling naar de apparaten die zijn opgenomen in deze batch.                        |
-| kenmerken   | [ResourceAttributes](utility-resources.md#resourceattributes)  | De meta gegevens kenmerken.                                              |
+| devicesLink  | [Koppeling](utility-resources.md#link)                              | Een koppeling naar de apparaten in deze batch.                        |
+| kenmerken   | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken.                                              |
 
 ## <a name="devicebatchcreationrequest"></a>DeviceBatchCreationRequest
 
-**DeviceBatchCreationRequest** biedt de vereiste informatie voor het maken van een apparaat batch en vult deze met apparaten.
+**DeviceBatchCreationRequest biedt** de informatie die nodig is om een apparaatbatch te maken en vult deze met apparaten.
 
-| Eigenschap     | Type                                                           | Description                                                           |
+| Eigenschap     | Type                                                           | Beschrijving                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| batchId      | tekenreeks                                                         | Een teken reeks met een GUID-indeling die is gekoppeld aan de batch apparaten. |
-| devices      | matrix van [apparaatobject](#device)                             | Met elk object wordt een apparaat opgegeven. De volgende combi Naties van velden voor het identificeren van een apparaat worden geaccepteerd: hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash alleen, productKey, serialNumber + oemManufacturerName + modelnaam. |
-| kenmerken   | [ResourceAttributes](utility-resources.md#resourceattributes)  | De meta gegevens kenmerken.                                              |
+| batchId      | tekenreeks                                                         | Een tekenreeks in GUID-indeling die is gekoppeld aan de batch apparaten. |
+| devices      | matrix van [apparaatobjecten](#device)                             | Elk object geeft een apparaat aan. De volgende combinaties van velden voor het identificeren van een apparaat worden geaccepteerd: hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash only, productKey only, serialNumber + oemManufacturerName + modelName. |
+| kenmerken   | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken.                                              |
 
 ## <a name="devicepolicyupdaterequest"></a>DevicePolicyUpdateRequest
 
-**DevicePolicyUpdateRequest** biedt de vereiste informatie voor het bijwerken van een lijst met apparaten met een beleid.
+**DevicePolicyUpdateRequest bevat** de informatie die nodig is voor het bijwerken van een lijst met apparaten met een beleid.
 
-| Eigenschap     | Type                                                           | Description                                                           |
+| Eigenschap     | Type                                                           | Beschrijving                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| devices      | matrix van [apparaatobject](#device)                             | Met elk object wordt een apparaat opgegeven. De volgende eigenschappen zijn vereist: id, beleids regels. |
-| kenmerken   | [ResourceAttributes](utility-resources.md#resourceattributes)  | De meta gegevens kenmerken.                                              |
+| devices      | matrix van [apparaatobjecten](#device)                             | Elk object geeft een apparaat aan. De volgende eigenschappen zijn vereist: Id, Beleid. |
+| kenmerken   | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken.                                              |

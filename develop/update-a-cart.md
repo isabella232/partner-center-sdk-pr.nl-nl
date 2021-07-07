@@ -1,37 +1,33 @@
 ---
 title: Een winkelwagen bijwerken
-description: Hoe u een bestelling voor een klant in een winkel wagen bijwerkt.
+description: Een order voor een klant in een winkelwagen bijwerken.
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7c0806ccc87281b9b34005f22cd8d6ad57fb5de5
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8954d4dad39f9b1a1b9a2f213e0231f01856fcd2
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767241"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446680"
 ---
 # <a name="update-a-cart"></a>Een winkelwagen bijwerken
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hoe u een bestelling voor een klant in een winkel wagen bijwerkt.
+Een order voor een klant in een winkelwagen bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een winkel wagen-ID voor een bestaande winkel wagen.
+- Een winkelwagen-id voor een bestaande winkelwagen.
 
 ## <a name="c"></a>C\#
 
-Als u een bestelling voor een klant wilt bijwerken, haalt u de winkel wagen op met de methode **Get ()** door de id van de klant en de winkel wagen te geven met behulp van de functie **ById ()** . Breng de benodigde wijzigingen aan in de winkel wagen. Roep nu de **put** -methode aan met behulp van de methode **ById ()** .
+Als u een order voor een klant wilt bijwerken, moet u de winkelwagen op halen met behulp van de **methode Get()** door de klant- en winkelwagen-ID's door te geven met behulp van de **functie ById().** Wijzig de benodigde wijzigingen in de winkelwagen. Roep nu de **methode Put aan** met behulp van klant- en winkelwagen-ID's met behulp van de methode **ById().**
 
-Roep ten slotte de methode **put ()** of **PutAsync ()** aan om de volg orde te maken.
+Roep ten slotte de **methode Put()** of **PutAsync()** aan om de bestelling te maken.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -47,52 +43,52 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Carts/{Cart-id} http/1.1              |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende pad-para meters om de klant te identificeren en geef op welke winkel wagen moet worden bijgewerkt.
+Gebruik de volgende padparameters om de klant te identificeren en geef de winkelwagen op die moet worden bijgewerkt.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **klant-id** | tekenreeks   | Yes      | Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd.             |
-| **Winkel wagen-id**     | tekenreeks   | Yes      | Een door de GUID ingedeelde winkel wagen-id waarmee de winkel wagen wordt aangeduid.                     |
+| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
+| **cart-id**     | tekenreeks   | Ja      | Een met GUID opgemaakte cart-id die de winkelwagen identificeert.                     |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de eigenschappen van de [winkel wagen](cart-resources.md) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de eigenschappen [van de winkelwagen](cart-resources.md) in de aanvraag body beschreven.
 
 | Eigenschap              | Type             | Vereist        | Beschrijving                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | tekenreeks           | No              | Een winkel wagen-id die is opgegeven bij het maken van de winkel wagen.                                  |
-| creationTimeStamp     | DateTime         | No              | De datum waarop de winkel wagen is gemaakt, in datum-tijd notatie. Wordt toegepast bij het maken van de winkel wagen.        |
-| lastModifiedTimeStamp | DateTime         | No              | De datum waarop de winkel wagen voor het laatst is bijgewerkt, in datum-tijd notatie. Wordt toegepast bij het maken van de winkel wagen.    |
-| expirationTimeStamp   | DateTime         | No              | De datum waarop de winkel wagen verloopt, in datum-tijd notatie.  Wordt toegepast bij het maken van de winkel wagen.            |
-| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkel wagen het laatst heeft bijgewerkt. Wordt toegepast bij het maken van de winkel wagen.                             |
-| Regel items             | Matrix van objecten | Yes             | Een matrix met [CartLineItem](cart-resources.md#cartlineitem) -resources.                                               |
+| id                    | tekenreeks           | No              | Een winkelwagen-id die wordt opgegeven wanneer de winkelwagen is gemaakt.                                  |
+| creationTimeStamp     | DateTime         | Nee              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.        |
+| lastModifiedTimeStamp | DateTime         | Nee              | De datum waarop de winkelwagen voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
+| expirationTimeStamp   | DateTime         | Nee              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast bij het maken van de winkelwagen.            |
+| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast bij het maken van de winkelwagen.                             |
+| lineItems             | Matrix met objecten | Ja             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                               |
 
-In deze tabel worden de eigenschappen van [CartLineItem](cart-resources.md#cartlineitem) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartlineitem) in de aanvraag body beschreven.
 
 | Eigenschap             | Type                        | Vereist     | Beschrijving                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| id                   | tekenreeks                      | No           | Een unieke id voor een winkelwagen regel item. Wordt toegepast bij het maken van de winkel wagen.                |
-| catalogId            | tekenreeks                      | Yes          | De id van het catalogus item.                                                                       |
-| friendlyName         | tekenreeks                      | No           | Optioneel. De beschrijvende naam voor het item dat is gedefinieerd door de partner om dubbel zinnigheid te helpen.              |
-| quantity             | int                         | Ja          | Het aantal licenties of exemplaren.     |
-| currencyCode         | tekenreeks                      | No           | De valuta code.                                                                                 |
-| billingCycle         | Object                      | Ja          | Het type facturerings cyclus dat voor de huidige periode is ingesteld.                                              |
-| deelnemers         | Lijst met object teken reeks paren | No           | Een verzameling deel nemers aan de aankoop.                                                      |
-| provisioningContext  | Dictionary<teken reeks, teken reeks>  | No           | Een context die wordt gebruikt voor het inrichten van de aanbieding.                                                          |
-| orderGroup           | tekenreeks                      | No           | Een groep om aan te geven welke items bij elkaar kunnen worden geplaatst.                                            |
-| fout                | Object                      | No           | Wordt toegepast nadat de winkel wagen is gemaakt in het geval van een fout.                                                 |
+| id                   | tekenreeks                      | No           | Een unieke id voor een winkelwagenregelitem. Toegepast bij het maken van de winkelwagen.                |
+| catalogId            | tekenreeks                      | Ja          | De id van het catalogusitem.                                                                       |
+| Friendlyname         | tekenreeks                      | No           | Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het opsysen van ambiguïteit.              |
+| quantity             | int                         | Ja          | Het aantal licenties of instanties.     |
+| currencyCode         | tekenreeks                      | No           | De valutacode.                                                                                 |
+| billingCycle         | Object                      | Ja          | Het type factureringscyclus dat is ingesteld voor de huidige periode.                                              |
+| deelnemers         | Lijst met objectreeksparen | Nee           | Een verzameling deelnemers aan de aankoop.                                                      |
+| provisioningContext  | Woordenlijst<tekenreeks, tekenreeks>  | Nee           | Een context die wordt gebruikt voor het inrichten van de aanbieding.                                                          |
+| orderGroup           | tekenreeks                      | No           | Een groep om aan te geven welke items samen kunnen worden geplaatst.                                            |
+| fout                | Object                      | Nee           | Toegepast nadat de winkelwagen is gemaakt in het geval van een fout.                                                 |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -136,11 +132,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de gevulde [Winkelwagen](cart-resources.md) resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode de ingevulde [winkelwagenresource](cart-resources.md) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

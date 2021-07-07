@@ -1,39 +1,35 @@
 ---
 title: Een abonnement registreren
-description: Registreer een bestaand abonnement zodat het geschikt is voor het best Ellen van Azure-reserve ringen.
+description: Registreer een bestaand abonnement zodat het is ingeschakeld voor het bestellen van Azure-reserveringen.
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9a96bb350f22430c9fd7a1759e336cc9f3ca1939
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: d26a7c77f60e6ef817cde80b9e97c88bd8bdc786
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767478"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446612"
 ---
 # <a name="register-a-subscription"></a>Een abonnement registreren
 
-**Van toepassing op**
+Registreer een bestaand [abonnement](subscription-resources.md) zodat dit is ingeschakeld voor het bestellen van Azure-reserveringen.
 
-- Partnercentrum
-
-Registreer een bestaand [abonnement](subscription-resources.md) zodat het geschikt is voor het best Ellen van Azure-reserve ringen.
-
-Als u een Azure-reserve ring wilt kopen, moet u ten minste één bestaand CSP Azure-abonnement hebben. Met deze methode kunt u uw bestaande CSP Azure-abonnement registreren, zodat het Azure-reserve ringen kan aanschaffen.
+Als u een Azure-reservering wilt aanschaffen, moet u ten minste één bestaand CSP Azure-abonnement hebben. Met deze methode kunt u uw bestaande CSP Azure-abonnement registreren, zodat u deze kunt inschakelen voor het kopen van Azure-reserveringen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een abonnements-ID.
+- Een abonnements-id.
 
 ## <a name="c"></a>C\#
 
-Als u het abonnement van een klant wilt registreren, haalt u een interface op voor abonnements bewerkingen door de [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) -methode aan te roepen met de klant-id om de klant te identificeren. Vervolgens roept u de methode [**Subscription. ById ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) aan met de abonnements-id om het abonnement te identificeren dat u registreert.
+Als u het abonnement van een klant wilt registreren, haalt u een interface op voor abonnementsbewerkingen door de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren. Roep vervolgens de methode [**Subscription.ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) aan met de abonnements-id om het abonnement te identificeren dat u registreert.
 
-Roep ten slotte de methode **Registration. REGI ster ()** aan om het abonnement te registreren en haal een URI op die kan worden gebruikt om de registratie status van het abonnement op te halen. Zie [inschrijvings status van abonnementen ophalen](get-subscription-registration-status.md)voor meer informatie.
+Roep ten slotte de **methode Registration.Register()** aan om het abonnement te registreren en een URI op te halen die kan worden gebruikt om de registratiestatus van het abonnement op te halen. Zie Registratiestatus van abonnement verkrijgen [voor meer informatie.](get-subscription-registration-status.md)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,24 +42,24 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Verzenden**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Subscriptions/{Subscription-id}/Registrations http/1.1 |
+| **Verzenden**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende Path-para meters om de klant en het abonnement te identificeren.
+Gebruik de volgende padparameters om de klant en het abonnement te identificeren.
 
 | Naam                    | Type       | Vereist | Beschrijving                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| klant-id             | tekenreeks     | Yes      | Een teken reeks met een GUID-indeling die de klant identificeert.         |
-| abonnement-id         | tekenreeks     | Yes      | Een teken reeks met een GUID-indeling waarmee het abonnement wordt geïdentificeerd.     |
+| customer-id             | tekenreeks     | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.         |
+| subscription-id         | tekenreeks     | Ja      | Een tekenreeks met GUID-indeling die het abonnement identificeert.     |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -85,11 +81,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord een **locatie** header met een URI die kan worden gebruikt om de registratie status van het abonnement op te halen. Sla deze URI op voor gebruik met andere verwante REST Api's. Zie [inschrijvings status van abonnementen ophalen](get-subscription-registration-status.md)voor een voor beeld van het ophalen van de status.
+Als dit lukt, bevat het antwoord een **Location-header** met een URI die kan worden gebruikt om de registratiestatus van het abonnement op te halen. Sla deze URI op voor gebruik met andere gerelateerde REST API's. Zie Registratiestatus van abonnement ophalen voor een voorbeeld van het ophalen [van de status.](get-subscription-registration-status.md)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

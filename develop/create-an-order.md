@@ -1,49 +1,45 @@
 ---
-title: Een klant order maken
-description: Meer informatie over het gebruik van partner Center-Api's voor het maken van een bestelling voor een klant. Artikel bevat vereisten, stappen en voor beelden.
+title: Een klantorder maken
+description: Meer informatie over het gebruik Partner Center API's om een order voor een klant te maken. Het artikel bevat vereisten, stappen en voorbeelden.
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ce176909a1f9c350f1c16615171de57a7beb888d
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: c3a86a99f43bdeec5e4c560ab59e1924b76c0636
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767636"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973539"
 ---
-# <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>Een bestelling maken voor een klant die partner Center-Api's gebruikt
+# <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>Een order voor een klant maken met behulp van Partner Center API's
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Het maken van een **order voor voor Azure gereserveerde VM-instantie producten** is *alleen* van toepassing op:
+Het maken van **een bestelling voor azure-producten voor gereserveerde VM-instanties is** alleen van toepassing *op:*
 
 - Partnercentrum
 
-Zie [partner aanbiedingen in het Cloud Solution Provider-programma](/partner-center/csp-offers)voor meer informatie over wat momenteel beschikbaar is om te verkopen.
+Zie Partneraanbiedingen in het Cloud Solution Provider voor meer informatie over [wat momenteel beschikbaar is om te verkopen.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een aanbiedings-id.
 
 ## <a name="c"></a>C\#
 
-Voor het maken van een bestelling voor een klant:
+Een order voor een klant maken:
 
-1. Maak een exemplaar van een object [**order**](order-resources.md) en stel de eigenschap **ReferenceCustomerID** in op de klant-id voor het registreren van de klant.
+1. Instantieer een [**Order-object**](order-resources.md) en stel de **eigenschap ReferenceCustomerID** in op de klant-id om de klant vast te stellen.
 
-2. Maak een lijst met [**OrderLineItem**](order-resources.md#orderlineitem) -objecten en wijs de lijst toe aan de eigenschap **regel items** van de order. Elk order regel item bevat de inkoop gegevens voor één aanbieding. U moet ten minste één order regel item hebben.
+2. Maak een lijst met [**OrderLineItem-objecten**](order-resources.md#orderlineitem) en wijs de lijst toe aan de eigenschap **LineItems van de** order. Elk orderregelitem bevat de aankoopgegevens voor één aanbieding. U moet ten minste één orderregelitem hebben.
 
-3. Een interface voor het best Ellen van bewerkingen verkrijgen. Roep eerst de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant te identificeren. Haal vervolgens de interface op uit de eigenschap [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
+3. Een interface verkrijgen voor het orden van bewerkingen. Roep eerst de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant te identificeren. Haal vervolgens de interface op uit de [**eigenschap Orders.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)
 
-4. Roep de methode [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) aan en geef het [**volg orde**](order-resources.md) -object door.
+4. Roep de [**methode Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) of [**CreateAsync aan**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) en geef het [**orderobject**](order-resources.md) door.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -73,74 +69,74 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: CreateOrder.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class**: CreateOrder.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/orders http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende para meter voor het identificeren van de klant.
+Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| klant-id | tekenreeks | Yes      | Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd. |
+| customer-id | tekenreeks | Ja      | Een met GUID opgemaakte klant-id die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
 #### <a name="order"></a>Volgorde
 
-In deze tabel worden de eigenschappen van de [bestelling](order-resources.md) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de [ordereigenschappen](order-resources.md) in de aanvraag body beschreven.
 
 | Eigenschap             | Type                        | Vereist                        | Beschrijving                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| id                   | tekenreeks                      | No                              | Een order-id die wordt geleverd bij het maken van de order.   |
+| id                   | tekenreeks                      | No                              | Een order-id die wordt opgegeven wanneer de order is gemaakt.   |
 | referenceCustomerId  | tekenreeks                      | No                              | De klant-id. |
-| billingCycle         | tekenreeks                      | No                              | Hiermee wordt de frequentie aangegeven waarmee de partner voor deze order wordt gefactureerd. Ondersteunde waarden zijn de lidnamen in [BillingCycleType](product-resources.md#billingcycletype). De standaard waarde is ' maandelijks ' of ' eenmalige ' bij het maken van de order. Dit veld wordt toegepast bij het maken van de order. |
-| Regel items            | matrix van [OrderLineItem](order-resources.md#orderlineitem) -resources | Yes      | Een gespecificeerde lijst met de aanbiedingen die de klant koopt, met inbegrip van de hoeveelheid.        |
-| currencyCode         | tekenreeks                      | No                              | Alleen-lezen. De valuta die wordt gebruikt bij het plaatsen van de order. Wordt toegepast bij het maken van de order.           |
-| creationDate         | datum/tijd                    | No                              | Alleen-lezen. De datum waarop de order is gemaakt, in datum-tijd notatie. Wordt toegepast bij het maken van de order.                                   |
-| status               | tekenreeks                      | No                              | Alleen-lezen. De status van de order.  Ondersteunde waarden zijn de lidnamen in [OrderStatus](order-resources.md#orderstatus).        |
-| koppelen                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | De resource koppelingen die overeenkomen met de volg orde. |
-| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | De meta gegevens kenmerken die overeenkomen met de volg orde. |
+| billingCycle         | tekenreeks                      | No                              | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de namen van leden in [BillingCycleType.](product-resources.md#billingcycletype) De standaardwaarde is 'Maandelijks' of 'OneTime' bij het maken van de order. Dit veld wordt toegepast wanneer de order is gemaakt. |
+| lineItems            | matrix van [OrderLineItem-resources](order-resources.md#orderlineitem) | Ja      | Een gespecificeerde lijst met aanbiedingen die de klant aanschaft, inclusief de hoeveelheid.        |
+| currencyCode         | tekenreeks                      | No                              | Alleen-lezen. De valuta die wordt gebruikt bij het plaatsen van de order. Toegepast wanneer de order is gemaakt.           |
+| creationDate         | datum/tijd                    | Nee                              | Alleen-lezen. De datum waarop de order is gemaakt, in datum/tijd-indeling. Toegepast wanneer de order is gemaakt.                                   |
+| status               | tekenreeks                      | No                              | Alleen-lezen. De status van de bestelling.  Ondersteunde waarden zijn de ledennamen in [OrderStatus](order-resources.md#orderstatus).        |
+| Verwijzigingen                | [OrderLinks](utility-resources.md#resourcelinks)              | Nee                              | De resourcekoppelingen die overeenkomen met de Order. |
+| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | Nee                              | De metagegevenskenmerken die overeenkomen met de volgorde. |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
-In deze tabel worden de eigenschappen van [OrderLineItem](order-resources.md#orderlineitem) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de [eigenschappen van OrderLineItem](order-resources.md#orderlineitem) in de aanvraag body beschreven.
 
 >[!NOTE]
->De partnerIdOnRecord mag alleen worden gegeven wanneer een indirecte provider een bestelling namens een indirecte wederverkoper plaatst. Het wordt gebruikt voor het opslaan van de Microsoft Partner Network ID alleen van de indirecte wederverkoper (nooit de ID van de indirecte provider).
+>De partnerIdOnRecord mag alleen worden opgegeven wanneer een indirecte provider een bestelling plaatst namens een indirecte reseller. Deze wordt gebruikt voor het opslaan van Microsoft Partner Network id van de indirecte reseller (nooit de id van de indirecte provider).
 
 | Naam                 | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | int    | Ja      | Elk regel item in de verzameling krijgt een uniek regel nummer, geteld van 0 tot aantal-1.                                                                                                                                                 |
-| offerId              | tekenreeks | Yes      | De aanbiedings-id.                                                                                                                                                                                                                      |
+| lineItemNumber       | int    | Ja      | Elk regelitem in de verzameling krijgt een uniek regelnummer, dat wordt geteld van 0 tot count-1.                                                                                                                                                 |
+| offerId              | tekenreeks | Ja      | De aanbiedings-id.                                                                                                                                                                                                                      |
 | subscriptionId       | tekenreeks | No       | De abonnements-id.                                                                                                                                                                                                               |
-| parentSubscriptionId | tekenreeks | No       | Optioneel. De ID van het bovenliggende abonnement in een invoeg toepassing. Is alleen van toepassing op PATCH.                                                                                                                                                     |
-| friendlyName         | tekenreeks | No       | Optioneel. De beschrijvende naam voor het abonnement dat is gedefinieerd door de partner om dubbel zinnigheid te helpen.                                                                                                                                              |
-| quantity             | int    | Ja      | Het aantal licenties voor een abonnement op basis van licenties.                                                                                                                                                                                   |
-| partnerIdOnRecord    | tekenreeks | No       | Wanneer een indirecte provider een bestelling namens een indirecte wederverkoper plaatst, vult u dit veld alleen met de MPN-ID van de **indirecte wederverkoper** (nooit de id van de indirecte provider). Dit zorgt voor een goede administratieve verwerking van prikkels. |
-| provisioningContext  | Dictionary<teken reeks, teken reeks>                | No       |  Informatie die is vereist voor het inrichten van sommige items in de catalogus. De eigenschap provisioningVariables in een SKU geeft aan welke eigenschappen vereist zijn voor specifieke items in de catalogus.                  |
-| koppelen                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | No       |  Alleen-lezen. De resource koppelingen die overeenkomen met het order regel item.  |
-| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | No       | De meta gegevens kenmerken die overeenkomen met de OrderLineItem. |
-| renewsTo             | Matrix van objecten                          | No    |Een matrix met [RenewsTo](order-resources.md#renewsto) -resources.                                                                            |
+| parentSubscriptionId | tekenreeks | No       | Optioneel. De id van het bovenliggende abonnement in een invoegaanbieding. Alleen van toepassing op PATCH.                                                                                                                                                     |
+| Friendlyname         | tekenreeks | No       | Optioneel. De gebruiksvriendelijke naam voor het abonnement dat is gedefinieerd door de partner om ondubbelzinnig te maken.                                                                                                                                              |
+| quantity             | int    | Ja      | Het aantal licenties voor een abonnement op basis van een licentie.                                                                                                                                                                                   |
+| partnerIdOnRecord    | tekenreeks | No       | Wanneer een indirecte provider een bestelling plaatst namens een indirecte reseller, vult u dit veld in met de MPN-id van de **indirecte reseller** (nooit de id van de indirecte provider). Dit zorgt voor de juiste boekhouding voor incentives. |
+| provisioningContext  | Woordenlijst<tekenreeks, tekenreeks>                | Nee       |  Informatie die vereist is voor het inrichten van sommige items in de catalogus. De eigenschap provisioningVariables in een SKU geeft aan welke eigenschappen vereist zijn voor specifieke items in de catalogus.                  |
+| Verwijzigingen                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | Nee       |  Alleen-lezen. De resourcekoppelingen die overeenkomen met het regelitem Order.  |
+| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | Nee       | De metagegevenskenmerken die overeenkomen met de OrderLineItem. |
+| renewsTo             | Matrix van objecten                          | Nee    |Een matrix van [RenewsTo-resources.](order-resources.md#renewsto)                                                                            |
 
 ##### <a name="renewsto"></a>RenewsTo
 
-In deze tabel worden de eigenschappen van [RenewsTo](order-resources.md#renewsto) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de [renewsTo-eigenschappen](order-resources.md#renewsto) in de aanvraag body beschreven.
 
 | Eigenschap              | Type             | Vereist        | Beschrijving |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | tekenreeks           | No              | Een ISO 8601-representatie van de duur van de verlengings termijn. De huidige ondersteunde waarden zijn **P1M** (1 maand) en **P1Y** (1 jaar). |
+| termDuration          | tekenreeks           | No              | Een ISO 8601-weergave van de duur van de verlengingsperiode. De huidige ondersteunde waarden zijn **P1M** (1 maand) en **P1Y** (1 jaar). |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -172,11 +168,11 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert de methode een [order](order-resources.md) resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert de methode een [Order-resource](order-resources.md) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
