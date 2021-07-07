@@ -1,130 +1,127 @@
 ---
-title: App-gegevens registreren voor Partner Center voor micro soft National Cloud
-description: Meer informatie over hoe en waarom app-ontwikkel aars voor partner centrum voor micro soft National Cloud details moeten registreren over hun app met Azure AD via de Azure Portal.
+title: App-gegevens registreren voor Partner Center voor Microsoft National Cloud
+description: Ontdek hoe en waarom app-ontwikkelaars voor Partner Center for Microsoft National Cloud details over hun app moeten registreren bij Azure AD via de Azure Portal.
 MS-HAID:
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_cloud\_germany
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_national\_clouds
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 887cb71c752ac5d9c61398536711545c19cc7600
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: 93d46a17bc26e9586e5e773bdf934653a571367f
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97767642"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973448"
 ---
-# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud-through-the-azure-portal"></a><span data-ttu-id="66ad8-103">Registreer app-gegevens voor het partner centrum voor micro soft National Cloud via de Azure Portal</span><span class="sxs-lookup"><span data-stu-id="66ad8-103">Register app details for Partner Center for Microsoft National Cloud through the Azure portal</span></span>
+# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud-through-the-azure-portal"></a><span data-ttu-id="8fd6c-103">App-gegevens voor Partner Center voor Microsoft National Cloud registreren via de Azure Portal</span><span class="sxs-lookup"><span data-stu-id="8fd6c-103">Register app details for Partner Center for Microsoft National Cloud through the Azure portal</span></span>
 
-<span data-ttu-id="66ad8-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="66ad8-104">**Applies to:**</span></span>
+<span data-ttu-id="8fd6c-104">**Van toepassing op**: Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="8fd6c-104">**Applies to**: Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="66ad8-105">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="66ad8-105">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="66ad8-106">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="66ad8-106">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="8fd6c-105">Ontwikkelaars moeten details over hun app registreren bij Azure AD via de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-105">Developers must register details about their app with Azure AD through the Azure portal.</span></span> <span data-ttu-id="8fd6c-106">Dit zorgt ervoor dat alleen opgegeven apps verbinding kunnen maken met partner- en klantgegevens.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-106">This helps ensure that only specified apps are able to connect to partner and customer data.</span></span>
 
-<span data-ttu-id="66ad8-107">Ontwikkel aars moeten gegevens over hun app met Azure AD registreren via de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="66ad8-107">Developers must register details about their app with Azure AD through the Azure portal.</span></span> <span data-ttu-id="66ad8-108">Dit helpt ervoor te zorgen dat alleen opgegeven apps verbinding kunnen maken met de partner-en klant gegevens.</span><span class="sxs-lookup"><span data-stu-id="66ad8-108">This helps ensure that only specified apps are able to connect to partner and customer data.</span></span>
-
-<span data-ttu-id="66ad8-109">Voor het partner centrum voor Microsoft Cloud voor de Amerikaanse overheid moet u momenteel apps beheren via Power shell.</span><span class="sxs-lookup"><span data-stu-id="66ad8-109">For Partner Center for Microsoft Cloud for US Government, you currently must manage apps through PowerShell.</span></span> <span data-ttu-id="66ad8-110">Zie de [documentatie over Azure PowerShell](/powershell/module/Azuread/#applications)voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="66ad8-110">For more information, see the [Azure PowerShell reference documentation](/powershell/module/Azuread/#applications).</span></span>
+<span data-ttu-id="8fd6c-107">Voor Partner Center voor Microsoft Cloud for US Government moet u momenteel apps beheren via PowerShell.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-107">For Partner Center for Microsoft Cloud for US Government, you currently must manage apps through PowerShell.</span></span> <span data-ttu-id="8fd6c-108">Zie de referentiedocumentatie Azure PowerShell [meer informatie.](/powershell/module/Azuread/#applications)</span><span class="sxs-lookup"><span data-stu-id="8fd6c-108">For more information, see the [Azure PowerShell reference documentation](/powershell/module/Azuread/#applications).</span></span>
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-<span data-ttu-id="66ad8-111">Houd rekening met de volgende aanvullende vereisten wanneer u een app maakt voor partner centrum voor Microsoft Cloud Duitsland of partner centrum voor Microsoft Cloud voor de Amerikaanse overheid.</span><span class="sxs-lookup"><span data-stu-id="66ad8-111">Be aware of the following additional requirements when you create an app for Partner Center for Microsoft Cloud Germany or Partner Center for Microsoft Cloud for US Government.</span></span>
+<span data-ttu-id="8fd6c-109">Let op de volgende aanvullende vereisten wanneer u een app maakt voor Partner Center voor Microsoft Cloud Duitsland of wanneer Partner Center voor Microsoft Cloud for US Government.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-109">Be aware of the following additional requirements when you create an app for Partner Center for Microsoft Cloud Germany or Partner Center for Microsoft Cloud for US Government.</span></span>
 
-## <a name="web-apps"></a><span data-ttu-id="66ad8-112">Web-apps</span><span class="sxs-lookup"><span data-stu-id="66ad8-112">Web apps</span></span>
+## <a name="web-apps"></a><span data-ttu-id="8fd6c-110">Web-apps</span><span class="sxs-lookup"><span data-stu-id="8fd6c-110">Web apps</span></span>
 
-<span data-ttu-id="66ad8-113">Gebruik voor web-apps de volgende procedures om uw toepassings-ID te registreren.</span><span class="sxs-lookup"><span data-stu-id="66ad8-113">For web apps, use the following procedures to register your application ID.</span></span>
+<span data-ttu-id="8fd6c-111">Gebruik voor web-apps de volgende procedures om uw toepassings-id te registreren.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-111">For web apps, use the following procedures to register your application ID.</span></span>
 
-### <a name="create-or-update-web-app"></a><span data-ttu-id="66ad8-114">Een web-app maken of bijwerken</span><span class="sxs-lookup"><span data-stu-id="66ad8-114">Create or update web app</span></span>
+### <a name="create-or-update-web-app"></a><span data-ttu-id="8fd6c-112">Web-app maken of bijwerken</span><span class="sxs-lookup"><span data-stu-id="8fd6c-112">Create or update web app</span></span>
 
-1. <span data-ttu-id="66ad8-115">Ga naar de pagina [Azure Portal-app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) om uw app te registreren.</span><span class="sxs-lookup"><span data-stu-id="66ad8-115">Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app.</span></span> <span data-ttu-id="66ad8-116">Meld u aan bij de Azure Portal met behulp van een werk-of school account of een persoonlijke Microsoft-account.</span><span class="sxs-lookup"><span data-stu-id="66ad8-116">Sign in to the Azure portal using either a work or school account or a personal Microsoft account.</span></span>
+1. <span data-ttu-id="8fd6c-113">Navigeer [naar Azure Portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) om uw app te registreren.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-113">Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app.</span></span> <span data-ttu-id="8fd6c-114">Meld u aan bij Azure Portal met een werk- of schoolaccount of een persoonlijk Microsoft-account.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-114">Sign in to the Azure portal using either a work or school account or a personal Microsoft account.</span></span>
 
-2. <span data-ttu-id="66ad8-117">Selecteer **Nieuwe registratie**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-117">Select **New registration**.</span></span> <span data-ttu-id="66ad8-118">Zie [Quick Start: een toepassing registreren bij het micro soft Identity-platform](/azure/active-directory/develop/quickstart-register-app)voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="66ad8-118">For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).</span></span>
+2. <span data-ttu-id="8fd6c-115">Selecteer **Nieuwe registratie**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-115">Select **New registration**.</span></span> <span data-ttu-id="8fd6c-116">Zie Snelstart: Een toepassing registreren met de Microsoft identity platform voor [meer Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)</span><span class="sxs-lookup"><span data-stu-id="8fd6c-116">For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).</span></span>
 
-### <a name="configure-api-access-permissions-for-web-app"></a><span data-ttu-id="66ad8-119">API-toegangs machtigingen voor web-app configureren</span><span class="sxs-lookup"><span data-stu-id="66ad8-119">Configure API access permissions for web app</span></span>
+### <a name="configure-api-access-permissions-for-web-app"></a><span data-ttu-id="8fd6c-117">API-toegangsmachtigingen voor web-app configureren</span><span class="sxs-lookup"><span data-stu-id="8fd6c-117">Configure API access permissions for web app</span></span>
 
-1. <span data-ttu-id="66ad8-120">Kies uw app.</span><span class="sxs-lookup"><span data-stu-id="66ad8-120">Choose your app.</span></span> <span data-ttu-id="66ad8-121">Ga naar de **instellingen** van de web-app.</span><span class="sxs-lookup"><span data-stu-id="66ad8-121">Go to **Settings** of the Web app.</span></span>
+1. <span data-ttu-id="8fd6c-118">Kies uw app.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-118">Choose your app.</span></span> <span data-ttu-id="8fd6c-119">Ga naar **Instellingen** van de web-app.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-119">Go to **Settings** of the Web app.</span></span>
 
-2. <span data-ttu-id="66ad8-122">Kies in het gedeelte **API-toegang** de optie **vereiste machtigingen**</span><span class="sxs-lookup"><span data-stu-id="66ad8-122">In **API Access** section, choose **Required permissions**</span></span>
+2. <span data-ttu-id="8fd6c-120">Kies **in de sectie API-toegang** de optie Vereiste **machtigingen**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-120">In **API Access** section, choose **Required permissions**</span></span>
 
-3. <span data-ttu-id="66ad8-123">Voor Windows Azure Active Directory-machtigingen:</span><span class="sxs-lookup"><span data-stu-id="66ad8-123">For Windows Azure Active directory permissions:</span></span>
+3. <span data-ttu-id="8fd6c-121">Voor Windows Machtigingen voor Azure Active Directory:</span><span class="sxs-lookup"><span data-stu-id="8fd6c-121">For Windows Azure Active directory permissions:</span></span>
 
-    1. <span data-ttu-id="66ad8-124">Kies **Windows-Azure Active Directory machtigingen**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-124">Choose **Windows Azure Active Directory permissions**.</span></span>
+    1. <span data-ttu-id="8fd6c-122">Kies **Windows Azure Active Directory machtigingen**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-122">Choose **Windows Azure Active Directory permissions**.</span></span>
 
-    2. <span data-ttu-id="66ad8-125">Selecteer in **toepassings machtigingen** de optie Directory gegevens lezen.</span><span class="sxs-lookup"><span data-stu-id="66ad8-125">In **Applications permissions**, select Read directory data.</span></span>
+    2. <span data-ttu-id="8fd6c-123">Selecteer **in Toepassingsmachtigingen** de optie Mapgegevens lezen.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-123">In **Applications permissions**, select Read directory data.</span></span>
 
-    3. <span data-ttu-id="66ad8-126">Sla de machtigingen op.</span><span class="sxs-lookup"><span data-stu-id="66ad8-126">Save the permissions.</span></span>
+    3. <span data-ttu-id="8fd6c-124">Sla de machtigingen op.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-124">Save the permissions.</span></span>
 
-4. <span data-ttu-id="66ad8-127">Noteer de toepassings-ID in het gedeelte **Eigenschappen** van uw web-app.</span><span class="sxs-lookup"><span data-stu-id="66ad8-127">Note the application ID in the **Properties** section of your web app.</span></span>
+4. <span data-ttu-id="8fd6c-125">Noteer de toepassings-id in **de sectie** Eigenschappen van uw web-app.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-125">Note the application ID in the **Properties** section of your web app.</span></span>
 
-### <a name="add-a-secret-key-to-your-app"></a><span data-ttu-id="66ad8-128">Een geheime sleutel toevoegen aan uw app</span><span class="sxs-lookup"><span data-stu-id="66ad8-128">Add a secret key to your app</span></span>
+### <a name="add-a-secret-key-to-your-app"></a><span data-ttu-id="8fd6c-126">Een geheime sleutel toevoegen aan uw app</span><span class="sxs-lookup"><span data-stu-id="8fd6c-126">Add a secret key to your app</span></span>
 
-1. <span data-ttu-id="66ad8-129">Ga naar de sectie **sleutels** van uw web-app.</span><span class="sxs-lookup"><span data-stu-id="66ad8-129">Go to the **Keys** section of your web app.</span></span>
+1. <span data-ttu-id="8fd6c-127">Ga naar de **sectie Sleutels** van uw web-app.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-127">Go to the **Keys** section of your web app.</span></span>
 
-2. <span data-ttu-id="66ad8-130">Voer de sleutel beschrijving in en selecteer duur als 1 of 2 jaar, zoals u wilt.</span><span class="sxs-lookup"><span data-stu-id="66ad8-130">Enter key description and select duration as 1 or 2 years, as you need.</span></span>
+2. <span data-ttu-id="8fd6c-128">Voer een sleutelbeschrijving in en selecteer de duur als 1 of 2 jaar, zoals u dat nodig hebt.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-128">Enter key description and select duration as 1 or 2 years, as you need.</span></span>
 
-3. <span data-ttu-id="66ad8-131">Sla de waarde van de geheime sleutel op en kopieer deze.</span><span class="sxs-lookup"><span data-stu-id="66ad8-131">Save and copy the secret key value.</span></span> <span data-ttu-id="66ad8-132">**Deze waarde wordt niet weer gegeven wanneer u deze pagina verlaat.**</span><span class="sxs-lookup"><span data-stu-id="66ad8-132">**This value will not be shown again once you leave this page.**</span></span>
+3. <span data-ttu-id="8fd6c-129">Sla de geheime sleutelwaarde op en kopieer deze.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-129">Save and copy the secret key value.</span></span> <span data-ttu-id="8fd6c-130">**Deze waarde wordt niet meer weergegeven wanneer u deze pagina verlaat.**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-130">**This value will not be shown again once you leave this page.**</span></span>
 
-<span data-ttu-id="66ad8-133">U moet de volgende details van de web-app configureren:</span><span class="sxs-lookup"><span data-stu-id="66ad8-133">You should have the following details from the web app configuration:</span></span>
+<span data-ttu-id="8fd6c-131">U moet de volgende gegevens uit de configuratie van de web-app hebben:</span><span class="sxs-lookup"><span data-stu-id="8fd6c-131">You should have the following details from the web app configuration:</span></span>
 
-- <span data-ttu-id="66ad8-134">Toepassings-id</span><span class="sxs-lookup"><span data-stu-id="66ad8-134">Application ID</span></span>
-- <span data-ttu-id="66ad8-135">Toepassingsgeheim</span><span class="sxs-lookup"><span data-stu-id="66ad8-135">Application secret</span></span>
+- <span data-ttu-id="8fd6c-132">Toepassings-id</span><span class="sxs-lookup"><span data-stu-id="8fd6c-132">Application ID</span></span>
+- <span data-ttu-id="8fd6c-133">Toepassingsgeheim</span><span class="sxs-lookup"><span data-stu-id="8fd6c-133">Application secret</span></span>
 
-### <a name="register-the-web-app-in-partner-center"></a><span data-ttu-id="66ad8-136">De web-app registreren in het partner centrum</span><span class="sxs-lookup"><span data-stu-id="66ad8-136">Register the Web app in Partner Center</span></span>
+### <a name="register-the-web-app-in-partner-center"></a><span data-ttu-id="8fd6c-134">De web-app registreren in Partner Center</span><span class="sxs-lookup"><span data-stu-id="8fd6c-134">Register the Web app in Partner Center</span></span>
 
-1. <span data-ttu-id="66ad8-137">Meld u aan bij [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) .</span><span class="sxs-lookup"><span data-stu-id="66ad8-137">Log in to [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com).</span></span>
+1. <span data-ttu-id="8fd6c-135">Meld u aan bij [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="8fd6c-135">Sign in to [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com).</span></span>
 
-2. <span data-ttu-id="66ad8-138">Kies **dash board**, kies **account instellingen** en kies vervolgens **app-beheer**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-138">Choose **Dashboard**, then choose **Account Settings**, then choose **App Management**.</span></span>
+2. <span data-ttu-id="8fd6c-136">Kies **Dashboard,** kies vervolgens **Account Instellingen** en kies vervolgens App **Management.**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-136">Choose **Dashboard**, then choose **Account Settings**, then choose **App Management**.</span></span>
 
-3. <span data-ttu-id="66ad8-139">Kies **bestaande app registreren** in het gedeelte **Web-app** .</span><span class="sxs-lookup"><span data-stu-id="66ad8-139">In the **Web App** section, choose **Register existing app**.</span></span>
+3. <span data-ttu-id="8fd6c-137">Kies in **de sectie Web-app** **de optie Bestaande app registreren.**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-137">In the **Web App** section, choose **Register existing app**.</span></span>
 
-4. <span data-ttu-id="66ad8-140">Selecteer de web-app die u hebt gemaakt in Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="66ad8-140">Select the web app you created in Azure portal.</span></span>
+4. <span data-ttu-id="8fd6c-138">Selecteer de web-app die u in de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-138">Select the web app you created in Azure portal.</span></span>
 
-5. <span data-ttu-id="66ad8-141">Kies **uw app registreren**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-141">Choose **register your app**.</span></span>
+5. <span data-ttu-id="8fd6c-139">Kies **uw app registreren.**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-139">Choose **register your app**.</span></span>
 
-## <a name="native-apps"></a><span data-ttu-id="66ad8-142">Systeemeigen apps</span><span class="sxs-lookup"><span data-stu-id="66ad8-142">Native apps</span></span>
+## <a name="native-apps"></a><span data-ttu-id="8fd6c-140">Systeemeigen apps</span><span class="sxs-lookup"><span data-stu-id="8fd6c-140">Native apps</span></span>
 
-<span data-ttu-id="66ad8-143">Systeem eigen apps hoeven niet te worden geregistreerd bij het partner centrum.</span><span class="sxs-lookup"><span data-stu-id="66ad8-143">Native apps do not need to be registered to Partner Center.</span></span> <span data-ttu-id="66ad8-144">Maar deze apps moeten worden geconfigureerd om toegang te bieden tot partner Center-Api's.</span><span class="sxs-lookup"><span data-stu-id="66ad8-144">But these apps need to be configured to provide access to Partner Center APIs.</span></span>
+<span data-ttu-id="8fd6c-141">Native apps hoeven niet te worden geregistreerd bij Partner Center.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-141">Native apps do not need to be registered to Partner Center.</span></span> <span data-ttu-id="8fd6c-142">Deze apps moeten echter worden geconfigureerd om toegang te bieden tot Partner Center API's.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-142">But these apps need to be configured to provide access to Partner Center APIs.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="66ad8-145">Voordat u een systeem eigen app maakt in de Azure Portal, meldt u zich aan bij Partner Center met behulp van de gebruikers referenties van de beheerder van de partner-Tenant.</span><span class="sxs-lookup"><span data-stu-id="66ad8-145">Before creating a native app in the Azure portal, log in into Partner Center using the admin user credentials from the partner tenant.</span></span> <span data-ttu-id="66ad8-146">Hiermee maakt u de instellingen op de Tenant om app-machtigingen in te scha kelen.</span><span class="sxs-lookup"><span data-stu-id="66ad8-146">This creates the settings on the tenant to enable app permissions.</span></span>
+><span data-ttu-id="8fd6c-143">Voordat u een systeemeigen app in de Azure Portal, moet u zich aanmelden bij Partner Center met de gebruikersreferenties van de beheerder van de partnerten tenant.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-143">Before creating a native app in the Azure portal, log in into Partner Center using the admin user credentials from the partner tenant.</span></span> <span data-ttu-id="8fd6c-144">Hiermee maakt u de instellingen op de tenant om app-machtigingen in te kunnenschakelen.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-144">This creates the settings on the tenant to enable app permissions.</span></span>
 
-### <a name="create-native-app"></a><span data-ttu-id="66ad8-147">Systeem eigen app maken</span><span class="sxs-lookup"><span data-stu-id="66ad8-147">Create native app</span></span>
+### <a name="create-native-app"></a><span data-ttu-id="8fd6c-145">Een native app maken</span><span class="sxs-lookup"><span data-stu-id="8fd6c-145">Create native app</span></span>
 
-1. <span data-ttu-id="66ad8-148">Ga naar de pagina [Azure Portal-app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) om uw app te registreren.</span><span class="sxs-lookup"><span data-stu-id="66ad8-148">Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app.</span></span> <span data-ttu-id="66ad8-149">Meld u aan bij de Azure Portal met behulp van een werk-of school account of een persoonlijke Microsoft-account.</span><span class="sxs-lookup"><span data-stu-id="66ad8-149">Sign in to the Azure portal using either a work or school account or a personal Microsoft account.</span></span>
+1. <span data-ttu-id="8fd6c-146">Navigeer [naar Azure Portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) om uw app te registreren.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-146">Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app.</span></span> <span data-ttu-id="8fd6c-147">Meld u aan bij Azure Portal met een werk- of schoolaccount of een persoonlijk Microsoft-account.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-147">Sign in to the Azure portal using either a work or school account or a personal Microsoft account.</span></span>
 
-2. <span data-ttu-id="66ad8-150">Selecteer **Nieuwe registratie**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-150">Select **New registration**.</span></span> <span data-ttu-id="66ad8-151">Zie [Quick Start: een toepassing registreren bij het micro soft Identity-platform](/azure/active-directory/develop/quickstart-register-app)voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="66ad8-151">For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).</span></span>
+2. <span data-ttu-id="8fd6c-148">Selecteer **Nieuwe registratie**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-148">Select **New registration**.</span></span> <span data-ttu-id="8fd6c-149">Zie Snelstart: Een toepassing registreren met de Microsoft identity platform voor [meer Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)</span><span class="sxs-lookup"><span data-stu-id="8fd6c-149">For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).</span></span>
 
-### <a name="configure-api-access-permissions-for-native-app"></a><span data-ttu-id="66ad8-152">API-toegangs machtigingen voor systeem eigen app configureren</span><span class="sxs-lookup"><span data-stu-id="66ad8-152">Configure API access permissions for native app</span></span>
+### <a name="configure-api-access-permissions-for-native-app"></a><span data-ttu-id="8fd6c-150">API-toegangsmachtigingen configureren voor systeemeigen apps</span><span class="sxs-lookup"><span data-stu-id="8fd6c-150">Configure API access permissions for native app</span></span>
 
-1. <span data-ttu-id="66ad8-153">Kies uw app.</span><span class="sxs-lookup"><span data-stu-id="66ad8-153">Choose your app.</span></span> <span data-ttu-id="66ad8-154">Ga naar **Settings**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-154">Go to **Settings**.</span></span>
+1. <span data-ttu-id="8fd6c-151">Kies uw app.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-151">Choose your app.</span></span> <span data-ttu-id="8fd6c-152">Ga naar **Settings**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-152">Go to **Settings**.</span></span>
 
-2. <span data-ttu-id="66ad8-155">Kies in API-toegang de optie **vereiste machtigingen**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-155">In API Access, choose **Required permissions**.</span></span>
+2. <span data-ttu-id="8fd6c-153">Kies vereiste machtigingen **in API-toegang.**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-153">In API Access, choose **Required permissions**.</span></span>
 
-3. <span data-ttu-id="66ad8-156">Kies **Windows-Azure Active Directory machtigingen**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-156">Choose **Windows Azure Active Directory permissions**.</span></span> <span data-ttu-id="66ad8-157">Selecteer in **gedelegeerde machtigingen** de volgende machtigingen:</span><span class="sxs-lookup"><span data-stu-id="66ad8-157">In **Delegated permissions**, select these permissions:</span></span>
+3. <span data-ttu-id="8fd6c-154">Kies **Windows Azure Active Directory machtigingen**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-154">Choose **Windows Azure Active Directory permissions**.</span></span> <span data-ttu-id="8fd6c-155">Selecteer **in Gedelegeerde machtigingen** de volgende machtigingen:</span><span class="sxs-lookup"><span data-stu-id="8fd6c-155">In **Delegated permissions**, select these permissions:</span></span>
 
-    - <span data-ttu-id="66ad8-158">**Aanmelden en gebruikersprofiel lezen**</span><span class="sxs-lookup"><span data-stu-id="66ad8-158">**Sign in and read user profile**</span></span>
-    - <span data-ttu-id="66ad8-159">**Mapgegevens lezen**</span><span class="sxs-lookup"><span data-stu-id="66ad8-159">**Read directory data**</span></span>
-    - <span data-ttu-id="66ad8-160">**Toegang tot de map als de aangemelde gebruiker**</span><span class="sxs-lookup"><span data-stu-id="66ad8-160">**Access the directory as the signed-in user**</span></span>
-    - <span data-ttu-id="66ad8-161">**Alle groepen lezen**</span><span class="sxs-lookup"><span data-stu-id="66ad8-161">**Read all groups**</span></span>
+    - <span data-ttu-id="8fd6c-156">**Aanmelden en gebruikersprofiel lezen**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-156">**Sign in and read user profile**</span></span>
+    - <span data-ttu-id="8fd6c-157">**Mapgegevens lezen**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-157">**Read directory data**</span></span>
+    - <span data-ttu-id="8fd6c-158">**Toegang tot de map als de aangemelde gebruiker**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-158">**Access the directory as the signed-in user**</span></span>
+    - <span data-ttu-id="8fd6c-159">**Alle groepen lezen**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-159">**Read all groups**</span></span>
 
-4. <span data-ttu-id="66ad8-162">Sla de machtigingen op.</span><span class="sxs-lookup"><span data-stu-id="66ad8-162">Save the permissions.</span></span>
+4. <span data-ttu-id="8fd6c-160">Sla de machtigingen op.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-160">Save the permissions.</span></span>
 
-5. <span data-ttu-id="66ad8-163">Kies **toevoegen** in **vereiste machtigingen**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-163">Choose **Add** in **Required permissions**.</span></span>
+5. <span data-ttu-id="8fd6c-161">Kies **Toevoegen** in **Vereiste machtigingen.**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-161">Choose **Add** in **Required permissions**.</span></span>
 
-6. <span data-ttu-id="66ad8-164">Kies **Een API selecteren**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-164">Choose **Select an API**.</span></span>
+6. <span data-ttu-id="8fd6c-162">Kies **Een API selecteren**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-162">Choose **Select an API**.</span></span>
 
-    1. <span data-ttu-id="66ad8-165">Voer in het zoekvak **micro soft Partner Center** in en selecteer het in de lijst met resultaten.</span><span class="sxs-lookup"><span data-stu-id="66ad8-165">In the search box, enter **Microsoft Partner Center** and select it from the results list.</span></span>
+    1. <span data-ttu-id="8fd6c-163">Voer in het zoekvak **Microsoft Partner Center** selecteer deze in de lijst met resultaten.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-163">In the search box, enter **Microsoft Partner Center** and select it from the results list.</span></span>
 
-    2. <span data-ttu-id="66ad8-166">Kies **Selecteren**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-166">Choose **Select**.</span></span>
+    2. <span data-ttu-id="8fd6c-164">Kies **Selecteren**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-164">Choose **Select**.</span></span>
 
-7. <span data-ttu-id="66ad8-167">Kies **Machtigingen selecteren**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-167">Choose **Select permissions**.</span></span>
+7. <span data-ttu-id="8fd6c-165">Kies **Machtigingen selecteren**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-165">Choose **Select permissions**.</span></span>
 
-    1. <span data-ttu-id="66ad8-168">Selecteer **toegang tot het beschermings partner centrum**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-168">Select **Access Partner Center PPE**.</span></span>
+    1. <span data-ttu-id="8fd6c-166">Selecteer **Toegang Partner Center PPE.**</span><span class="sxs-lookup"><span data-stu-id="8fd6c-166">Select **Access Partner Center PPE**.</span></span>
     
-    2. <span data-ttu-id="66ad8-169">Kies **Selecteren**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-169">Choose **Select**.</span></span>
+    2. <span data-ttu-id="8fd6c-167">Kies **Selecteren**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-167">Choose **Select**.</span></span>
 
-8. <span data-ttu-id="66ad8-170">Kies **Gereed**.</span><span class="sxs-lookup"><span data-stu-id="66ad8-170">Choose **Done**.</span></span>
+8. <span data-ttu-id="8fd6c-168">Kies **Gereed**.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-168">Choose **Done**.</span></span>
 
 >[!IMPORTANT]
-> <span data-ttu-id="66ad8-171">Noteer de toepassings-ID in de eigenschappen van uw app.</span><span class="sxs-lookup"><span data-stu-id="66ad8-171">Note the application ID in the Properties of your app.</span></span>
+> <span data-ttu-id="8fd6c-169">Noteer de toepassings-id in de eigenschappen van uw app.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-169">Note the application ID in the Properties of your app.</span></span>
 
-<span data-ttu-id="66ad8-172">U hoeft geen systeem eigen apps te registreren in het partner centrum, maar de systeem eigen app moet zijn gestemd met de beheerder.</span><span class="sxs-lookup"><span data-stu-id="66ad8-172">You do not need to register native apps in Partner Center, however the native app must be admin consented .</span></span> <span data-ttu-id="66ad8-173">Noteer de toepassings-ID van uw systeem eigen app.</span><span class="sxs-lookup"><span data-stu-id="66ad8-173">Note the application ID of your native app.</span></span>
+<span data-ttu-id="8fd6c-170">U hoeft geen systeemeigen apps te registreren in Partner Center, maar de systeemeigen app moet wel beheerdersmachtiging hebben.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-170">You do not need to register native apps in Partner Center, however the native app must be admin consented.</span></span> <span data-ttu-id="8fd6c-171">Noteer de toepassings-id van uw eigen app.</span><span class="sxs-lookup"><span data-stu-id="8fd6c-171">Note the application ID of your native app.</span></span>

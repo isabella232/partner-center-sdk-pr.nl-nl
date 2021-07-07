@@ -1,45 +1,40 @@
 ---
 title: Een bestelling ophalen op basis van id
-description: Hiermee wordt een order resource opgehaald die overeenkomt met de klant-en Order-ID.
+description: Haalt een Order-resource op die overeenkomt met de klant en de order-id.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 0a39d7142e5bf97f9fb345416964d4ed6bb935ad
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 2cb2822935113fe1c5337b4ffc899fccff333d2f
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767551"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760178"
 ---
-# <a name="get-an-order-by-id"></a><span data-ttu-id="6d5ed-103">Een bestelling ophalen op basis van id</span><span class="sxs-lookup"><span data-stu-id="6d5ed-103">Get an order by ID</span></span>
+# <a name="get-an-order-by-id"></a><span data-ttu-id="59066-103">Een bestelling ophalen op basis van id</span><span class="sxs-lookup"><span data-stu-id="59066-103">Get an order by ID</span></span>
 
-<span data-ttu-id="6d5ed-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="6d5ed-104">**Applies to:**</span></span>
+<span data-ttu-id="59066-104">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="59066-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="6d5ed-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="6d5ed-105">Partner Center</span></span>
-- <span data-ttu-id="6d5ed-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="6d5ed-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="6d5ed-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="6d5ed-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="6d5ed-108">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="6d5ed-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="59066-105">Haalt een [Order-resource](order-resources.md) op die overeenkomt met de klant en de order-id.</span><span class="sxs-lookup"><span data-stu-id="59066-105">Gets an [Order](order-resources.md) resource that matches the customer and order ID.</span></span>
 
-<span data-ttu-id="6d5ed-109">Hiermee wordt een [order](order-resources.md) resource opgehaald die overeenkomt met de klant-en order-id.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-109">Gets an [Order](order-resources.md) resource that matches the customer and order ID.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="59066-106">Vereisten</span><span class="sxs-lookup"><span data-stu-id="59066-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="6d5ed-110">Vereisten</span><span class="sxs-lookup"><span data-stu-id="6d5ed-110">Prerequisites</span></span>
+- <span data-ttu-id="59066-107">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="59066-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="59066-108">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="59066-108">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="6d5ed-111">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="6d5ed-111">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="6d5ed-112">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-112">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="59066-109">Een klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="59066-109">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="59066-110">Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span><span class="sxs-lookup"><span data-stu-id="59066-110">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="59066-111">Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**.</span><span class="sxs-lookup"><span data-stu-id="59066-111">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="59066-112">Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**.</span><span class="sxs-lookup"><span data-stu-id="59066-112">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="59066-113">Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.**</span><span class="sxs-lookup"><span data-stu-id="59066-113">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="59066-114">De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="59066-114">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="6d5ed-113">Een klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="6d5ed-113">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="6d5ed-114">Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-114">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="6d5ed-115">Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-115">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="6d5ed-116">Selecteer de klant in de lijst klant en selecteer vervolgens **account**.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-116">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="6d5ed-117">Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** .</span><span class="sxs-lookup"><span data-stu-id="6d5ed-117">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="6d5ed-118">De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="6d5ed-118">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+- <span data-ttu-id="59066-115">Een order-id.</span><span class="sxs-lookup"><span data-stu-id="59066-115">An order ID.</span></span>
 
-- <span data-ttu-id="6d5ed-119">Een order-ID.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-119">An order ID.</span></span>
+## <a name="c"></a><span data-ttu-id="59066-116">C\#</span><span class="sxs-lookup"><span data-stu-id="59066-116">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="6d5ed-120">C\#</span><span class="sxs-lookup"><span data-stu-id="6d5ed-120">C\#</span></span>
+<span data-ttu-id="59066-117">De order van een klant op id krijgen:</span><span class="sxs-lookup"><span data-stu-id="59066-117">To get a customer's order by ID:</span></span>
 
-<span data-ttu-id="6d5ed-121">De order van een klant ophalen op basis van de ID:</span><span class="sxs-lookup"><span data-stu-id="6d5ed-121">To get a customer's order by ID:</span></span>
+1. <span data-ttu-id="59066-118">Gebruik de **verzameling IAggregatePartner.Customers** en roep de **methode ById()** aan.</span><span class="sxs-lookup"><span data-stu-id="59066-118">Use your **IAggregatePartner.Customers** collection and call the **ById()** method.</span></span>
 
-1. <span data-ttu-id="6d5ed-122">Gebruik uw verzameling **IAggregatePartner. Customers** en roep de methode **ById ()** aan.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-122">Use your **IAggregatePartner.Customers** collection and call the **ById()** method.</span></span>
-
-2. <span data-ttu-id="6d5ed-123">Roep de eigenschap [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) aan, gevolgd door de methode [**ByID ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) .</span><span class="sxs-lookup"><span data-stu-id="6d5ed-123">Call the [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property, followed by the [**ByID()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) method once more.</span></span>
-3. <span data-ttu-id="6d5ed-124">Roep [**Get ()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)aan.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-124">Call [**Get()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) or [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync).</span></span>
+2. <span data-ttu-id="59066-119">Roep de [**eigenschap Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) aan, gevolgd door de [**methode ByID().**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)</span><span class="sxs-lookup"><span data-stu-id="59066-119">Call the [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property, followed by the [**ByID()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) method once more.</span></span>
+3. <span data-ttu-id="59066-120">Roep [**Get()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) of [**GetAsync() aan.**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)</span><span class="sxs-lookup"><span data-stu-id="59066-120">Call [**Get()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) or [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync).</span></span>
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -49,18 +44,18 @@ ms.locfileid: "97767551"
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-<span data-ttu-id="6d5ed-125">Voor **beeld**: [console test-app](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="6d5ed-125">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="6d5ed-126">**Project**: PartnerSDK. FeatureSample- **klasse**: GetOrder.cs</span><span class="sxs-lookup"><span data-stu-id="6d5ed-126">**Project**: PartnerSDK.FeatureSample **Class**: GetOrder.cs</span></span>
+<span data-ttu-id="59066-121">**Voorbeeld:** [Consoletest-app](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="59066-121">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="59066-122">**Project:** PartnerSDK.FeatureSample-klasse: GetOrder.cs </span><span class="sxs-lookup"><span data-stu-id="59066-122">**Project**: PartnerSDK.FeatureSample **Class**: GetOrder.cs</span></span>
 
-## <a name="java"></a><span data-ttu-id="6d5ed-127">Java</span><span class="sxs-lookup"><span data-stu-id="6d5ed-127">Java</span></span>
+## <a name="java"></a><span data-ttu-id="59066-123">Java</span><span class="sxs-lookup"><span data-stu-id="59066-123">Java</span></span>
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-<span data-ttu-id="6d5ed-128">De order van een klant ophalen op basis van de ID:</span><span class="sxs-lookup"><span data-stu-id="6d5ed-128">To get a customer's order by ID:</span></span>
+<span data-ttu-id="59066-124">De order van een klant op id krijgen:</span><span class="sxs-lookup"><span data-stu-id="59066-124">To get a customer's order by ID:</span></span>
 
-1. <span data-ttu-id="6d5ed-129">Gebruik de functie **IAggregatePartner. getCustomers** en roep de functie **byId ()** aan.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-129">Use your **IAggregatePartner.getCustomers** function and call the **byId()** function.</span></span>
+1. <span data-ttu-id="59066-125">Gebruik de **functie IAggregatePartner.getCustomers** en roep de **functie byId()** aan.</span><span class="sxs-lookup"><span data-stu-id="59066-125">Use your **IAggregatePartner.getCustomers** function and call the **byId()** function.</span></span>
 
-2. <span data-ttu-id="6d5ed-130">Roep de functie **getOrders** aan, gevolgd door de functie **byID ()** nog een keer.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-130">Call the **getOrders** function, followed by the **byID()** function once more.</span></span>
-3. <span data-ttu-id="6d5ed-131">Roep de functie **Get () aan** .</span><span class="sxs-lookup"><span data-stu-id="6d5ed-131">Call the **get()** function.</span></span>
+2. <span data-ttu-id="59066-126">Roep de **functie getOrders** aan, gevolgd door de **functie byID().**</span><span class="sxs-lookup"><span data-stu-id="59066-126">Call the **getOrders** function, followed by the **byID()** function once more.</span></span>
+3. <span data-ttu-id="59066-127">Roep de **functie get()** aan.</span><span class="sxs-lookup"><span data-stu-id="59066-127">Call the **get()** function.</span></span>
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -70,11 +65,11 @@ var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(sel
 Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrders().byId(selectedOrderId).get();
 ```
 
-## <a name="powershell"></a><span data-ttu-id="6d5ed-132">PowerShell</span><span class="sxs-lookup"><span data-stu-id="6d5ed-132">PowerShell</span></span>
+## <a name="powershell"></a><span data-ttu-id="59066-128">PowerShell</span><span class="sxs-lookup"><span data-stu-id="59066-128">PowerShell</span></span>
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-<span data-ttu-id="6d5ed-133">Als u de order op ID van een klant wilt ophalen, voert u de opdracht [**Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) uit en geeft u de para meters **CustomerId** en **OrderID** op.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-133">To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) command, and specify the **CustomerId** and **OrderId** parameters.</span></span>
+<span data-ttu-id="59066-129">Als u de order van een klant op id wilt krijgen, voert u de [**opdracht Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) uit en geeft u de parameters **CustomerId** en **OrderId** op.</span><span class="sxs-lookup"><span data-stu-id="59066-129">To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) command, and specify the **CustomerId** and **OrderId** parameters.</span></span>
 
 ```powershell
 # $selectedCustomerId
@@ -83,32 +78,32 @@ Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrder
 Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrderId
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="6d5ed-134">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="6d5ed-134">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="59066-130">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="59066-130">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="6d5ed-135">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="6d5ed-135">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="59066-131">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="59066-131">Request syntax</span></span>
 
-| <span data-ttu-id="6d5ed-136">Methode</span><span class="sxs-lookup"><span data-stu-id="6d5ed-136">Method</span></span>  | <span data-ttu-id="6d5ed-137">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="6d5ed-137">Request URI</span></span>                                                                                                  |
+| <span data-ttu-id="59066-132">Methode</span><span class="sxs-lookup"><span data-stu-id="59066-132">Method</span></span>  | <span data-ttu-id="59066-133">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="59066-133">Request URI</span></span>                                                                                                  |
 |---------|--------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="6d5ed-138">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="6d5ed-138">**GET**</span></span> | <span data-ttu-id="6d5ed-139">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/orders/{id-for-order} http/1.1</span><span class="sxs-lookup"><span data-stu-id="6d5ed-139">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1</span></span>  |
+| <span data-ttu-id="59066-134">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="59066-134">**GET**</span></span> | <span data-ttu-id="59066-135">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="59066-135">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1</span></span>  |
 
-#### <a name="uri-parameters"></a><span data-ttu-id="6d5ed-140">URI-para meters</span><span class="sxs-lookup"><span data-stu-id="6d5ed-140">URI parameters</span></span>
+#### <a name="uri-parameters"></a><span data-ttu-id="59066-136">URI-parameters</span><span class="sxs-lookup"><span data-stu-id="59066-136">URI parameters</span></span>
 
-<span data-ttu-id="6d5ed-141">Deze tabel bevat de vereiste query parameters om een order by-ID op te halen.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-141">This table lists the required query parameters to get an order by ID.</span></span>
+<span data-ttu-id="59066-137">Deze tabel bevat de vereiste queryparameters om een order op id op te halen.</span><span class="sxs-lookup"><span data-stu-id="59066-137">This table lists the required query parameters to get an order by ID.</span></span>
 
-| <span data-ttu-id="6d5ed-142">Naam</span><span class="sxs-lookup"><span data-stu-id="6d5ed-142">Name</span></span>                   | <span data-ttu-id="6d5ed-143">Type</span><span class="sxs-lookup"><span data-stu-id="6d5ed-143">Type</span></span>     | <span data-ttu-id="6d5ed-144">Vereist</span><span class="sxs-lookup"><span data-stu-id="6d5ed-144">Required</span></span> | <span data-ttu-id="6d5ed-145">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="6d5ed-145">Description</span></span>                                            |
+| <span data-ttu-id="59066-138">Naam</span><span class="sxs-lookup"><span data-stu-id="59066-138">Name</span></span>                   | <span data-ttu-id="59066-139">Type</span><span class="sxs-lookup"><span data-stu-id="59066-139">Type</span></span>     | <span data-ttu-id="59066-140">Vereist</span><span class="sxs-lookup"><span data-stu-id="59066-140">Required</span></span> | <span data-ttu-id="59066-141">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="59066-141">Description</span></span>                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
-| <span data-ttu-id="6d5ed-146">klant-Tenant-id</span><span class="sxs-lookup"><span data-stu-id="6d5ed-146">customer-tenant-id</span></span>     | <span data-ttu-id="6d5ed-147">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="6d5ed-147">string</span></span>   | <span data-ttu-id="6d5ed-148">Yes</span><span class="sxs-lookup"><span data-stu-id="6d5ed-148">Yes</span></span>      | <span data-ttu-id="6d5ed-149">Een GUID-indelings teken reeks die overeenkomt met de klant.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-149">A GUID formatted string corresponding to the customer.</span></span> |
-| <span data-ttu-id="6d5ed-150">id voor order</span><span class="sxs-lookup"><span data-stu-id="6d5ed-150">id-for-order</span></span>           | <span data-ttu-id="6d5ed-151">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="6d5ed-151">string</span></span>   | <span data-ttu-id="6d5ed-152">Yes</span><span class="sxs-lookup"><span data-stu-id="6d5ed-152">Yes</span></span>      | <span data-ttu-id="6d5ed-153">Een teken reeks die overeenkomt met de order-ID.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-153">A string corresponding to the order ID.</span></span>                |
+| <span data-ttu-id="59066-142">customer-tenant-id</span><span class="sxs-lookup"><span data-stu-id="59066-142">customer-tenant-id</span></span>     | <span data-ttu-id="59066-143">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="59066-143">string</span></span>   | <span data-ttu-id="59066-144">Ja</span><span class="sxs-lookup"><span data-stu-id="59066-144">Yes</span></span>      | <span data-ttu-id="59066-145">Een tekenreeks met GUID-indeling die overeenkomt met de klant.</span><span class="sxs-lookup"><span data-stu-id="59066-145">A GUID formatted string corresponding to the customer.</span></span> |
+| <span data-ttu-id="59066-146">id-for-order</span><span class="sxs-lookup"><span data-stu-id="59066-146">id-for-order</span></span>           | <span data-ttu-id="59066-147">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="59066-147">string</span></span>   | <span data-ttu-id="59066-148">Ja</span><span class="sxs-lookup"><span data-stu-id="59066-148">Yes</span></span>      | <span data-ttu-id="59066-149">Een tekenreeks die overeenkomt met de order-id.</span><span class="sxs-lookup"><span data-stu-id="59066-149">A string corresponding to the order ID.</span></span>                |
 
-### <a name="request-headers"></a><span data-ttu-id="6d5ed-154">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="6d5ed-154">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="59066-150">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="59066-150">Request headers</span></span>
 
-<span data-ttu-id="6d5ed-155">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="6d5ed-155">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="59066-151">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="59066-151">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="6d5ed-156">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="6d5ed-156">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="59066-152">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="59066-152">Request body</span></span>
 
-<span data-ttu-id="6d5ed-157">Geen.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-157">None.</span></span>
+<span data-ttu-id="59066-153">Geen.</span><span class="sxs-lookup"><span data-stu-id="59066-153">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="6d5ed-158">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="6d5ed-158">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="59066-154">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="59066-154">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/orders/<id-for-order> HTTP/1.1
@@ -119,15 +114,15 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="6d5ed-159">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="6d5ed-159">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="59066-155">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="59066-155">REST response</span></span>
 
-<span data-ttu-id="6d5ed-160">Als dit lukt, retourneert deze methode een [order](order-resources.md) resource in de hoofd tekst van het antwoord.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-160">If successful, this method returns an [Order](order-resources.md) resource in the response body.</span></span>
+<span data-ttu-id="59066-156">Als dit lukt, retourneert deze methode een [Order-resource](order-resources.md) in de antwoord-body.</span><span class="sxs-lookup"><span data-stu-id="59066-156">If successful, this method returns an [Order](order-resources.md) resource in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="6d5ed-161">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="6d5ed-161">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="59066-157">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="59066-157">Response success and error codes</span></span>
 
-<span data-ttu-id="6d5ed-162">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-162">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="6d5ed-163">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-163">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="6d5ed-164">Zie [fout codes](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="6d5ed-164">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="59066-158">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="59066-158">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="59066-159">Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="59066-159">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="59066-160">Zie Foutcodes voor de [volledige lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="59066-160">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="6d5ed-165">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="6d5ed-165">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="59066-161">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="59066-161">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

@@ -1,61 +1,56 @@
 ---
 title: Een klantaccount verwijderen uit de integratie-sandbox
-description: Een klant account verwijderen uit de sandbox met Testing in Production (tip) Integration.
+description: Een klantaccount verwijderen uit de sandbox voor Testing in Production -integratie (Tip).
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e3a1642c0202c174ddd4f65a6aeda2752def9176
-ms.sourcegitcommit: b1ff781b67b1d322820bbcac2c583229201a8c07
+ms.openlocfilehash: b9d9e44ac9c40bd4e3c7e1a9e04253f853dfd96c
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "97767402"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973125"
 ---
-# <a name="delete-a-customer-account-from-the-integration-sandbox"></a><span data-ttu-id="ae2be-103">Een klantaccount verwijderen uit de integratie-sandbox</span><span class="sxs-lookup"><span data-stu-id="ae2be-103">Delete a customer account from the integration sandbox</span></span>
+# <a name="delete-a-customer-account-from-the-integration-sandbox"></a><span data-ttu-id="95af9-103">Een klantaccount verwijderen uit de integratie-sandbox</span><span class="sxs-lookup"><span data-stu-id="95af9-103">Delete a customer account from the integration sandbox</span></span>
 
-<span data-ttu-id="ae2be-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="ae2be-104">**Applies to:**</span></span>
+<span data-ttu-id="95af9-104">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="95af9-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="ae2be-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="ae2be-105">Partner Center</span></span>
-- <span data-ttu-id="ae2be-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="ae2be-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="ae2be-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="ae2be-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="ae2be-108">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="ae2be-108">Partner Center for Microsoft Cloud for US Government</span></span>
-
-<span data-ttu-id="ae2be-109">In dit artikel wordt uitgelegd hoe u de relatie tussen de partner en het klant account verbreekt en de sandbox-integratie voor Testing in Production (tip) in de quota kunt herstellen.</span><span class="sxs-lookup"><span data-stu-id="ae2be-109">This article explains, how to break the relationship between the partner and the customer account and regain the quota for Testing in Production (Tip) integration sandbox.</span></span>
+<span data-ttu-id="95af9-105">In dit artikel wordt uitgelegd hoe u de relatie tussen de partner en het klantaccount verbreekt en het quotum voor de sandbox voor Testing in Production -integratie (Tip) opnieuw kunt krijgen.</span><span class="sxs-lookup"><span data-stu-id="95af9-105">This article explains, how to break the relationship between the partner and the customer account and regain the quota for Testing in Production (Tip) integration sandbox.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="ae2be-110">Wanneer u een klant account verwijdert, worden alle resources die zijn gekoppeld aan de Tenant van de klant, verwijderd.</span><span class="sxs-lookup"><span data-stu-id="ae2be-110">When you delete a customer account, all resources associated with that customer tenant will be purged.</span></span>
+> <span data-ttu-id="95af9-106">Wanneer u een klantaccount verwijdert, worden alle resources verwijderd die zijn gekoppeld aan die klantten tenant.</span><span class="sxs-lookup"><span data-stu-id="95af9-106">When you delete a customer account, all resources associated with that customer tenant will be purged.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="ae2be-111">Vereisten</span><span class="sxs-lookup"><span data-stu-id="ae2be-111">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="95af9-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="95af9-107">Prerequisites</span></span>
 
-- <span data-ttu-id="ae2be-112">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="ae2be-112">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="ae2be-113">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="ae2be-113">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="95af9-108">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="95af9-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="95af9-109">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="95af9-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="ae2be-114">Een klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="ae2be-114">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="ae2be-115">Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum.</span><span class="sxs-lookup"><span data-stu-id="ae2be-115">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="ae2be-116">Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**.</span><span class="sxs-lookup"><span data-stu-id="ae2be-116">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="ae2be-117">Selecteer de klant in de lijst klant en selecteer vervolgens **account**.</span><span class="sxs-lookup"><span data-stu-id="ae2be-117">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="ae2be-118">Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** .</span><span class="sxs-lookup"><span data-stu-id="ae2be-118">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="ae2be-119">De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="ae2be-119">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+- <span data-ttu-id="95af9-110">Een klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="95af9-110">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="95af9-111">Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span><span class="sxs-lookup"><span data-stu-id="95af9-111">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="95af9-112">Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**.</span><span class="sxs-lookup"><span data-stu-id="95af9-112">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="95af9-113">Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**.</span><span class="sxs-lookup"><span data-stu-id="95af9-113">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="95af9-114">Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.**</span><span class="sxs-lookup"><span data-stu-id="95af9-114">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="95af9-115">De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="95af9-115">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="ae2be-120">Alle Azure Reserved Virtual Machine Instances-en software-inkoop orders moeten worden geannuleerd voordat u een klant verwijdert uit de tip Integration sandbox.</span><span class="sxs-lookup"><span data-stu-id="ae2be-120">All Azure Reserved Virtual Machine Instances and software purchase orders must be cancelled before deleting a customer from the Tip integration sandbox.</span></span>
+- <span data-ttu-id="95af9-116">Alle Azure Reserved Virtual Machine Instances en software-aankooporders moeten worden geannuleerd voordat u een klant uit de Sandbox voor tipintegratie kunt verwijderen.</span><span class="sxs-lookup"><span data-stu-id="95af9-116">All Azure Reserved Virtual Machine Instances and software purchase orders must be canceled before deleting a customer from the Tip integration sandbox.</span></span>
 
-## <a name="c"></a><span data-ttu-id="ae2be-121">C\#</span><span class="sxs-lookup"><span data-stu-id="ae2be-121">C\#</span></span>
+## <a name="c"></a><span data-ttu-id="95af9-117">C\#</span><span class="sxs-lookup"><span data-stu-id="95af9-117">C\#</span></span>
 
-<span data-ttu-id="ae2be-122">Een klant verwijderen uit de tip Integration sandbox:</span><span class="sxs-lookup"><span data-stu-id="ae2be-122">To delete a customer from the Tip integration sandbox:</span></span>
+<span data-ttu-id="95af9-118">Een klant verwijderen uit de Sandbox voor Tip-integratie:</span><span class="sxs-lookup"><span data-stu-id="95af9-118">To delete a customer from the Tip integration sandbox:</span></span>
 
-1. <span data-ttu-id="ae2be-123">Geef de referenties van uw tip-account door aan de methode [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) om een [**IPartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) -interface te verkrijgen voor partner bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="ae2be-123">Pass your Tip account credentials to the [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) method to get an [**IPartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) interface to partner operations.</span></span>
+1. <span data-ttu-id="95af9-119">Geef uw Tip-accountreferenties door aan [**de methode CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) om een [**IPartner-interface**](/dotnet/api/microsoft.store.partnercenter.ipartner) voor partnerbewerkingen op te halen.</span><span class="sxs-lookup"><span data-stu-id="95af9-119">Pass your Tip account credentials to the [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) method to get an [**IPartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) interface to partner operations.</span></span>
 
-2. <span data-ttu-id="ae2be-124">Gebruik de interface voor partner bewerkingen om de verzameling van rechten op te halen:</span><span class="sxs-lookup"><span data-stu-id="ae2be-124">Use the partner operations interface to retrieve the collection of entitlements:</span></span>
+2. <span data-ttu-id="95af9-120">Gebruik de interface voor partnerbewerkingen om de verzameling rechten op te halen:</span><span class="sxs-lookup"><span data-stu-id="95af9-120">Use the partner operations interface to retrieve the collection of entitlements:</span></span>
 
-    1. <span data-ttu-id="ae2be-125">Roep de methode [**klanten. ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan bij de klant-id om de klant op te geven.</span><span class="sxs-lookup"><span data-stu-id="ae2be-125">Call the [**Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to specify the customer.</span></span>
+    1. <span data-ttu-id="95af9-121">Roep de [**methode Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant op te geven.</span><span class="sxs-lookup"><span data-stu-id="95af9-121">Call the [**Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to specify the customer.</span></span>
 
-    2. <span data-ttu-id="ae2be-126">Roep de eigenschap **rechten** aan.</span><span class="sxs-lookup"><span data-stu-id="ae2be-126">Call the **Entitlements** property.</span></span>
+    2. <span data-ttu-id="95af9-122">Roep de **eigenschap Rechten aan.**</span><span class="sxs-lookup"><span data-stu-id="95af9-122">Call the **Entitlements** property.</span></span>
 
-    3. <span data-ttu-id="ae2be-127">Roep de methode **Get** of **GetAsync** aan om de [**rechtings**](entitlement-resources.md) verzameling op te halen.</span><span class="sxs-lookup"><span data-stu-id="ae2be-127">Call the **Get** or **GetAsync** method to retrieve the [**Entitlement**](entitlement-resources.md) collection.</span></span>
+    3. <span data-ttu-id="95af9-123">Roep de **methode Get** of **GetAsync aan** om de rechtenverzameling op [**te**](entitlement-resources.md) halen.</span><span class="sxs-lookup"><span data-stu-id="95af9-123">Call the **Get** or **GetAsync** method to retrieve the [**Entitlement**](entitlement-resources.md) collection.</span></span>
 
-3. <span data-ttu-id="ae2be-128">Zorg ervoor dat alle Azure Reserved Virtual Machine Instances-en software-inkoop orders voor die klant zijn geannuleerd.</span><span class="sxs-lookup"><span data-stu-id="ae2be-128">Make sure that all Azure Reserved Virtual Machine Instances and software purchase orders for that customer are cancelled.</span></span> <span data-ttu-id="ae2be-129">Voor elke [**recht**](entitlement-resources.md) in de verzameling:</span><span class="sxs-lookup"><span data-stu-id="ae2be-129">For each [**Entitlement**](entitlement-resources.md) in the collection:</span></span>
+3. <span data-ttu-id="95af9-124">Zorg ervoor dat alle Azure Reserved Virtual Machine Instances- en softwareaankooporders voor die klant worden geannuleerd.</span><span class="sxs-lookup"><span data-stu-id="95af9-124">Make sure that all Azure Reserved Virtual Machine Instances and software purchase orders for that customer are canceled.</span></span> <span data-ttu-id="95af9-125">Voor elk [**recht**](entitlement-resources.md) in de verzameling:</span><span class="sxs-lookup"><span data-stu-id="95af9-125">For each [**Entitlement**](entitlement-resources.md) in the collection:</span></span>
 
-    1. <span data-ttu-id="ae2be-130">Gebruik het [**recht. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) voor het ophalen van een lokale kopie van de bijbehorende [order](order-resources.md#order) van de verzameling orders van de klant.</span><span class="sxs-lookup"><span data-stu-id="ae2be-130">Use the [**entitlement.ReferenceOrder.Id**](entitlement-resources.md#referenceorder) to get a local copy of the corresponding [Order](order-resources.md#order) from the customer's collection of orders.</span></span>
+    1. <span data-ttu-id="95af9-126">Gebruik het [**recht. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) lokale kopie van de bijbehorende order [ophalen](order-resources.md#order) uit de verzameling orders van de klant.</span><span class="sxs-lookup"><span data-stu-id="95af9-126">Use the [**entitlement.ReferenceOrder.Id**](entitlement-resources.md#referenceorder) to get a local copy of the corresponding [Order](order-resources.md#order) from the customer's collection of orders.</span></span>
 
-    2. <span data-ttu-id="ae2be-131">Stel de eigenschap [**order. status**](order-resources.md#order) in op "geannuleerd".</span><span class="sxs-lookup"><span data-stu-id="ae2be-131">Set the [**Order.Status**](order-resources.md#order) property to "Cancelled".</span></span>
+    2. <span data-ttu-id="95af9-127">Stel de [**eigenschap Order.Status**](order-resources.md#order) in op Geannuleerd.</span><span class="sxs-lookup"><span data-stu-id="95af9-127">Set the [**Order.Status**](order-resources.md#order) property to "Cancelled".</span></span>
 
-    3. <span data-ttu-id="ae2be-132">Gebruik de methode **patch ()** om de volg orde bij te werken.</span><span class="sxs-lookup"><span data-stu-id="ae2be-132">Use the **Patch()** method to update the order.</span></span>
+    3. <span data-ttu-id="95af9-128">Gebruik de **methode Patch()** om de volgorde bij te werken.</span><span class="sxs-lookup"><span data-stu-id="95af9-128">Use the **Patch()** method to update the order.</span></span>
 
-4. <span data-ttu-id="ae2be-133">Alle orders annuleren.</span><span class="sxs-lookup"><span data-stu-id="ae2be-133">Cancel all orders.</span></span> <span data-ttu-id="ae2be-134">Het volgende code voorbeeld maakt bijvoorbeeld gebruik van een lus om elke volg orde te pollen totdat de status ' geannuleerd ' is.</span><span class="sxs-lookup"><span data-stu-id="ae2be-134">For example, the following code sample uses a loop to poll each order until its status is "Cancelled".</span></span>
+4. <span data-ttu-id="95af9-129">Annuleer alle orders.</span><span class="sxs-lookup"><span data-stu-id="95af9-129">Cancel all orders.</span></span> <span data-ttu-id="95af9-130">In het volgende codevoorbeeld wordt bijvoorbeeld een lus gebruikt om elke bestelling te peilen totdat de status 'Geannuleerd' is.</span><span class="sxs-lookup"><span data-stu-id="95af9-130">For example, the following code sample uses a loop to poll each order until its status is "Cancelled".</span></span>
 
     ``` csharp
     // IPartnerCredentials tipAccountCredentials;
@@ -64,7 +59,7 @@ ms.locfileid: "97767402"
 
     IPartner tipAccountPartnerOperations = PartnerService.Instance.CreatePartnerOperations(tipAccountCredentials);
 
-    // Get all entitlements whose order must be cancelled.
+    // Get all entitlements whose order must be canceled.
     ResourceCollection<Entitlement> entitlements = tipAccountPartnerOperations.Customers.ById(customerTenantId).Entitlements.Get();
 
     // Cancel all orders
@@ -79,7 +74,7 @@ ms.locfileid: "97767402"
     bool proceed = true;
     do
     {
-        // Check if all the orders were cancelled.
+        // Check if all the orders were canceled.
         foreach (var entitlement in entitlements)
         {
             var order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(entitlement.ReferenceOrder.Id).Get();
@@ -97,35 +92,35 @@ ms.locfileid: "97767402"
     tipAccountPartnerOperations.Customers.ById(customerTenantId).Delete();
     ```
 
-5. <span data-ttu-id="ae2be-135">Zorg ervoor dat alle orders zijn geannuleerd door de **verwijderings** methode voor de klant aan te roepen.</span><span class="sxs-lookup"><span data-stu-id="ae2be-135">Make sure all orders are cancelled by calling the **Delete** method for the customer.</span></span>
+5. <span data-ttu-id="95af9-131">Zorg ervoor dat alle orders worden geannuleerd door de methode **Delete voor** de klant aan te roepen.</span><span class="sxs-lookup"><span data-stu-id="95af9-131">Make sure all orders are canceled by calling the **Delete** method for the customer.</span></span>
 
-<span data-ttu-id="ae2be-136">Voor **beeld**: [console test-app](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="ae2be-136">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="ae2be-137">**Project**: partner centrum PartnerCenterSDK. FeaturesSamples **klasse**: DeleteCustomerFromTipAccount.cs</span><span class="sxs-lookup"><span data-stu-id="ae2be-137">**Project**: Partner Center PartnerCenterSDK.FeaturesSamples **Class**: DeleteCustomerFromTipAccount.cs</span></span>
+<span data-ttu-id="95af9-132">**Voorbeeld:** [Consoletest-app](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="95af9-132">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="95af9-133">**Project:** Partner Center PartnerCenterSDK.FeaturesSamples-klasse: DeleteCustomerFromTipAccount.cs</span><span class="sxs-lookup"><span data-stu-id="95af9-133">**Project**: Partner Center PartnerCenterSDK.FeaturesSamples **Class**: DeleteCustomerFromTipAccount.cs</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="ae2be-138">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="ae2be-138">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="95af9-134">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="95af9-134">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="ae2be-139">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="ae2be-139">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="95af9-135">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="95af9-135">Request syntax</span></span>
 
-| <span data-ttu-id="ae2be-140">Methode</span><span class="sxs-lookup"><span data-stu-id="ae2be-140">Method</span></span>     | <span data-ttu-id="ae2be-141">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="ae2be-141">Request URI</span></span>                                                                            |
+| <span data-ttu-id="95af9-136">Methode</span><span class="sxs-lookup"><span data-stu-id="95af9-136">Method</span></span>     | <span data-ttu-id="95af9-137">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="95af9-137">Request URI</span></span>                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| <span data-ttu-id="ae2be-142">DELETE</span><span class="sxs-lookup"><span data-stu-id="ae2be-142">DELETE</span></span>     | <span data-ttu-id="ae2be-143">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id} http/1.1</span><span class="sxs-lookup"><span data-stu-id="ae2be-143">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1</span></span> |
+| <span data-ttu-id="95af9-138">DELETE</span><span class="sxs-lookup"><span data-stu-id="95af9-138">DELETE</span></span>     | <span data-ttu-id="95af9-139">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="95af9-139">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1</span></span> |
 
-#### <a name="uri-parameter"></a><span data-ttu-id="ae2be-144">URI-para meter</span><span class="sxs-lookup"><span data-stu-id="ae2be-144">URI parameter</span></span>
+#### <a name="uri-parameter"></a><span data-ttu-id="95af9-140">URI-parameter</span><span class="sxs-lookup"><span data-stu-id="95af9-140">URI parameter</span></span>
 
-<span data-ttu-id="ae2be-145">Gebruik de volgende query parameter om een klant te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="ae2be-145">Use the following query parameter to delete a customer.</span></span>
+<span data-ttu-id="95af9-141">Gebruik de volgende queryparameter om een klant te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="95af9-141">Use the following query parameter to delete a customer.</span></span>
 
-| <span data-ttu-id="ae2be-146">Naam</span><span class="sxs-lookup"><span data-stu-id="ae2be-146">Name</span></span>                   | <span data-ttu-id="ae2be-147">Type</span><span class="sxs-lookup"><span data-stu-id="ae2be-147">Type</span></span>     | <span data-ttu-id="ae2be-148">Vereist</span><span class="sxs-lookup"><span data-stu-id="ae2be-148">Required</span></span> | <span data-ttu-id="ae2be-149">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="ae2be-149">Description</span></span>                                                                         |
+| <span data-ttu-id="95af9-142">Naam</span><span class="sxs-lookup"><span data-stu-id="95af9-142">Name</span></span>                   | <span data-ttu-id="95af9-143">Type</span><span class="sxs-lookup"><span data-stu-id="95af9-143">Type</span></span>     | <span data-ttu-id="95af9-144">Vereist</span><span class="sxs-lookup"><span data-stu-id="95af9-144">Required</span></span> | <span data-ttu-id="95af9-145">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="95af9-145">Description</span></span>                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| <span data-ttu-id="ae2be-150">klant-Tenant-id</span><span class="sxs-lookup"><span data-stu-id="ae2be-150">customer-tenant-id</span></span>     | <span data-ttu-id="ae2be-151">GUID</span><span class="sxs-lookup"><span data-stu-id="ae2be-151">GUID</span></span>     | <span data-ttu-id="ae2be-152">J</span><span class="sxs-lookup"><span data-stu-id="ae2be-152">Y</span></span>        | <span data-ttu-id="ae2be-153">De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort.</span><span class="sxs-lookup"><span data-stu-id="ae2be-153">The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller.</span></span> |
+| <span data-ttu-id="95af9-146">customer-tenant-id</span><span class="sxs-lookup"><span data-stu-id="95af9-146">customer-tenant-id</span></span>     | <span data-ttu-id="95af9-147">GUID</span><span class="sxs-lookup"><span data-stu-id="95af9-147">GUID</span></span>     | <span data-ttu-id="95af9-148">J</span><span class="sxs-lookup"><span data-stu-id="95af9-148">Y</span></span>        | <span data-ttu-id="95af9-149">De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort.</span><span class="sxs-lookup"><span data-stu-id="95af9-149">The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="ae2be-154">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="ae2be-154">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="95af9-150">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="95af9-150">Request headers</span></span>
 
-<span data-ttu-id="ae2be-155">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="ae2be-155">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="95af9-151">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="95af9-151">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="ae2be-156">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="ae2be-156">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="95af9-152">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="95af9-152">Request body</span></span>
 
-<span data-ttu-id="ae2be-157">Geen.</span><span class="sxs-lookup"><span data-stu-id="ae2be-157">None.</span></span>
+<span data-ttu-id="95af9-153">Geen.</span><span class="sxs-lookup"><span data-stu-id="95af9-153">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="ae2be-158">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="ae2be-158">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="95af9-154">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="95af9-154">Request example</span></span>
 
 ```http
 DELETE https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id> HTTP/1.1
@@ -135,15 +130,15 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="ae2be-159">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="ae2be-159">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="95af9-155">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="95af9-155">REST response</span></span>
 
-<span data-ttu-id="ae2be-160">Als dit lukt, retourneert deze methode een leeg antwoord.</span><span class="sxs-lookup"><span data-stu-id="ae2be-160">If successful, this method returns an empty response.</span></span>
+<span data-ttu-id="95af9-156">Als dit lukt, retourneert deze methode een leeg antwoord.</span><span class="sxs-lookup"><span data-stu-id="95af9-156">If successful, this method returns an empty response.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="ae2be-161">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="ae2be-161">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="95af9-157">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="95af9-157">Response success and error codes</span></span>
 
-<span data-ttu-id="ae2be-162">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="ae2be-162">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="ae2be-163">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="ae2be-163">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="ae2be-164">Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="ae2be-164">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="95af9-158">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="95af9-158">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="95af9-159">Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="95af9-159">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="95af9-160">Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="95af9-160">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="ae2be-165">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="ae2be-165">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="95af9-161">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="95af9-161">Response example</span></span>
 
 ```http
 HTTP/1.1 204 No Content

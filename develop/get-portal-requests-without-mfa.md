@@ -1,45 +1,41 @@
 ---
 title: Portal-aanvragen zonder MFA ophalen
-description: Een lijst met gebruikers aanvragen zonder multi-factor Authentication (MFA) ophalen met behulp van de partner REST API.
+description: Haal een lijst met gebruikersaanvragen op zonder meervoudige verificatie (MFA) met behulp van de partner REST API.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: fd350aa3301f00926942ae6c6af359b0d0edc423
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 41627751d3402d7712d96c15c4281a25ed9a44a7
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767286"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445575"
 ---
-# <a name="get-portal-requests-without-mfa"></a><span data-ttu-id="fd1b2-103">Portal-aanvragen zonder MFA ophalen</span><span class="sxs-lookup"><span data-stu-id="fd1b2-103">Get portal requests without MFA</span></span>
+# <a name="get-portal-requests-without-mfa"></a><span data-ttu-id="48149-103">Portal-aanvragen zonder MFA ophalen</span><span class="sxs-lookup"><span data-stu-id="48149-103">Get portal requests without MFA</span></span>
 
-<span data-ttu-id="fd1b2-104">Van toepassing op:</span><span class="sxs-lookup"><span data-stu-id="fd1b2-104">Applies to:</span></span>
+<span data-ttu-id="48149-104">In dit artikel wordt uitgelegd hoe u een lijst met de meest recente aanvragen kunt verkrijgen van gebruikers die toegang hebben tot Partner Center portal zonder meervoudige verificatie (MFA) te voltooien.</span><span class="sxs-lookup"><span data-stu-id="48149-104">This article explains how to obtain a list of the most recent requests from users who access Partner Center portal without completing multi-factor authentication (MFA).</span></span>
 
-- <span data-ttu-id="fd1b2-105">Partnercentrum-API</span><span class="sxs-lookup"><span data-stu-id="fd1b2-105">Partner Center API</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="48149-105">Vereisten</span><span class="sxs-lookup"><span data-stu-id="48149-105">Prerequisites</span></span>
 
-<span data-ttu-id="fd1b2-106">In dit artikel wordt uitgelegd hoe u een lijst kunt verkrijgen met de meest recente aanvragen van gebruikers die toegang hebben tot de Partner Center-Portal zonder multi-factor Authentication (MFA) in te voeren.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-106">This article explains how to obtain a list of the most recent requests from users who access Partner Center portal without completing multi-factor authentication (MFA).</span></span>
+- <span data-ttu-id="48149-106">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="48149-106">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="48149-107">Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="48149-107">This scenario supports authentication with App+User credentials.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="fd1b2-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="fd1b2-107">Prerequisites</span></span>
+## <a name="rest-request"></a><span data-ttu-id="48149-108">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="48149-108">REST request</span></span>
 
-- <span data-ttu-id="fd1b2-108">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="fd1b2-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="fd1b2-109">Dit scenario ondersteunt verificatie met app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-109">This scenario supports authentication with App+User credentials.</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="48149-109">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="48149-109">Request syntax</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="fd1b2-110">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="fd1b2-110">REST request</span></span>
-
-### <a name="request-syntax"></a><span data-ttu-id="fd1b2-111">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="fd1b2-111">Request syntax</span></span>
-
-| <span data-ttu-id="fd1b2-112">Methode</span><span class="sxs-lookup"><span data-stu-id="fd1b2-112">Method</span></span>  | <span data-ttu-id="fd1b2-113">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="fd1b2-113">Request URI</span></span>                                                  |
+| <span data-ttu-id="48149-110">Methode</span><span class="sxs-lookup"><span data-stu-id="48149-110">Method</span></span>  | <span data-ttu-id="48149-111">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="48149-111">Request URI</span></span>                                                  |
 |---------|--------------------------------------------------------------|
-| <span data-ttu-id="fd1b2-114">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="fd1b2-114">**GET**</span></span> | <span data-ttu-id="fd1b2-115">[*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals</span><span class="sxs-lookup"><span data-stu-id="fd1b2-115">[*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals</span></span> |
+| <span data-ttu-id="48149-112">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="48149-112">**GET**</span></span> | <span data-ttu-id="48149-113">[*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals</span><span class="sxs-lookup"><span data-stu-id="48149-113">[*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="fd1b2-116">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="fd1b2-116">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="48149-114">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="48149-114">Request headers</span></span>
 
-- <span data-ttu-id="fd1b2-117">Zie de [rest headers van het Partner Center](headers.md) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-117">See [Partner Center REST headers](headers.md) for more information.</span></span>
+- <span data-ttu-id="48149-115">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="48149-115">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="fd1b2-118">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="fd1b2-118">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="48149-116">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="48149-116">Request body</span></span>
 
-<span data-ttu-id="fd1b2-119">Geen.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-119">None.</span></span>
+<span data-ttu-id="48149-117">Geen.</span><span class="sxs-lookup"><span data-stu-id="48149-117">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="fd1b2-120">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="fd1b2-120">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="48149-118">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="48149-118">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/nonMfaCompliantPartnerPrincipals HTTP/1.1
@@ -52,15 +48,15 @@ Connection: keep-alive
 
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="fd1b2-121">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="fd1b2-121">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="48149-119">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="48149-119">REST response</span></span>
 
-<span data-ttu-id="fd1b2-122">Als dit lukt, retourneert deze methode een verzameling van [Portal aanvraag](mfa-resources.md#portal-request-without-mfa) bronnen in de hoofd tekst van het antwoord.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-122">If successful, this method returns a collection of [Portal request](mfa-resources.md#portal-request-without-mfa) resources in the response body.</span></span>
+<span data-ttu-id="48149-120">Als dit lukt, retourneert deze methode een verzameling [portalaanvraagresources](mfa-resources.md#portal-request-without-mfa) in de antwoord-body.</span><span class="sxs-lookup"><span data-stu-id="48149-120">If successful, this method returns a collection of [Portal request](mfa-resources.md#portal-request-without-mfa) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="fd1b2-123">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="fd1b2-123">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="48149-121">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="48149-121">Response success and error codes</span></span>
 
-<span data-ttu-id="fd1b2-124">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-124">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="fd1b2-125">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-125">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="fd1b2-126">Zie [fout codes](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="fd1b2-126">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="48149-122">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="48149-122">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="48149-123">Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="48149-123">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="48149-124">Zie Foutcodes voor de [volledige lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="48149-124">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="fd1b2-127">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="fd1b2-127">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="48149-125">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="48149-125">Response example</span></span>
 
 ``` http
 HTTP/1.1 200 OK

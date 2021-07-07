@@ -1,53 +1,49 @@
 ---
 title: De overdrachten van een klant ophalen
-description: Een lijst met de overdrachten van een klant ophalen.
+description: Een lijst met overdrachten van een klant krijgen.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4a25a9f6ccba0a3d64934b23ccd83a535da05e4a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a5892e25953bc2eec4451bdbbd5accea008828b8
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767183"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760229"
 ---
-# <a name="get-a-customers-transfers"></a><span data-ttu-id="eee93-103">De overdrachten van een klant ophalen</span><span class="sxs-lookup"><span data-stu-id="eee93-103">Get a customer's transfers</span></span>
+# <a name="get-a-customers-transfers"></a><span data-ttu-id="388f5-103">De overdrachten van een klant ophalen</span><span class="sxs-lookup"><span data-stu-id="388f5-103">Get a customer's transfers</span></span>
 
-<span data-ttu-id="eee93-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="eee93-104">**Applies To**</span></span>
+<span data-ttu-id="388f5-104">Een lijst met overdrachten van een klant krijgen.</span><span class="sxs-lookup"><span data-stu-id="388f5-104">How to get a list of a customer's transfers.</span></span>
 
-- <span data-ttu-id="eee93-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="eee93-105">Partner Center</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="388f5-105">Vereisten</span><span class="sxs-lookup"><span data-stu-id="388f5-105">Prerequisites</span></span>
 
-<span data-ttu-id="eee93-106">Een lijst met de overdrachten van een klant ophalen.</span><span class="sxs-lookup"><span data-stu-id="eee93-106">How to get a list of a customer's transfers.</span></span>
+- <span data-ttu-id="388f5-106">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="388f5-106">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="388f5-107">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="388f5-107">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="eee93-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="eee93-107">Prerequisites</span></span>
+- <span data-ttu-id="388f5-108">Een klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="388f5-108">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="388f5-109">Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span><span class="sxs-lookup"><span data-stu-id="388f5-109">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="388f5-110">Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.**</span><span class="sxs-lookup"><span data-stu-id="388f5-110">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="388f5-111">Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**.</span><span class="sxs-lookup"><span data-stu-id="388f5-111">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="388f5-112">Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.**</span><span class="sxs-lookup"><span data-stu-id="388f5-112">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="388f5-113">De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="388f5-113">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="eee93-108">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="eee93-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="eee93-109">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="eee93-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="388f5-114">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="388f5-114">Request syntax</span></span>
 
-- <span data-ttu-id="eee93-110">Een klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="eee93-110">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="eee93-111">Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum.</span><span class="sxs-lookup"><span data-stu-id="eee93-111">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="eee93-112">Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**.</span><span class="sxs-lookup"><span data-stu-id="eee93-112">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="eee93-113">Selecteer de klant in de lijst klant en selecteer vervolgens **account**.</span><span class="sxs-lookup"><span data-stu-id="eee93-113">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="eee93-114">Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** .</span><span class="sxs-lookup"><span data-stu-id="eee93-114">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="eee93-115">De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="eee93-115">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
-
-### <a name="request-syntax"></a><span data-ttu-id="eee93-116">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="eee93-116">Request syntax</span></span>
-
-| <span data-ttu-id="eee93-117">Methode</span><span class="sxs-lookup"><span data-stu-id="eee93-117">Method</span></span>  | <span data-ttu-id="eee93-118">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="eee93-118">Request URI</span></span>                                                                                          |
+| <span data-ttu-id="388f5-115">Methode</span><span class="sxs-lookup"><span data-stu-id="388f5-115">Method</span></span>  | <span data-ttu-id="388f5-116">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="388f5-116">Request URI</span></span>                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="eee93-119">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="eee93-119">**GET**</span></span> | <span data-ttu-id="eee93-120">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/transfers http/1.1</span><span class="sxs-lookup"><span data-stu-id="eee93-120">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/transfers HTTP/1.1</span></span> |
+| <span data-ttu-id="388f5-117">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="388f5-117">**GET**</span></span> | <span data-ttu-id="388f5-118">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/transfers HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="388f5-118">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/transfers HTTP/1.1</span></span> |
 
-### <a name="uri-parameter"></a><span data-ttu-id="eee93-121">URI-para meter</span><span class="sxs-lookup"><span data-stu-id="eee93-121">URI parameter</span></span>
+### <a name="uri-parameter"></a><span data-ttu-id="388f5-119">URI-parameter</span><span class="sxs-lookup"><span data-stu-id="388f5-119">URI parameter</span></span>
 
-<span data-ttu-id="eee93-122">Deze tabel bevat de vereiste query parameter om alle abonnementen op te halen.</span><span class="sxs-lookup"><span data-stu-id="eee93-122">This table lists the required query parameter to get all the subscriptions.</span></span>
+<span data-ttu-id="388f5-120">Deze tabel bevat de vereiste queryparameter om alle abonnementen op te halen.</span><span class="sxs-lookup"><span data-stu-id="388f5-120">This table lists the required query parameter to get all the subscriptions.</span></span>
 
-| <span data-ttu-id="eee93-123">Naam</span><span class="sxs-lookup"><span data-stu-id="eee93-123">Name</span></span>               | <span data-ttu-id="eee93-124">Type</span><span class="sxs-lookup"><span data-stu-id="eee93-124">Type</span></span>   | <span data-ttu-id="eee93-125">Vereist</span><span class="sxs-lookup"><span data-stu-id="eee93-125">Required</span></span> | <span data-ttu-id="eee93-126">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="eee93-126">Description</span></span>                                           |
+| <span data-ttu-id="388f5-121">Naam</span><span class="sxs-lookup"><span data-stu-id="388f5-121">Name</span></span>               | <span data-ttu-id="388f5-122">Type</span><span class="sxs-lookup"><span data-stu-id="388f5-122">Type</span></span>   | <span data-ttu-id="388f5-123">Vereist</span><span class="sxs-lookup"><span data-stu-id="388f5-123">Required</span></span> | <span data-ttu-id="388f5-124">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="388f5-124">Description</span></span>                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| <span data-ttu-id="eee93-127">klant-Tenant-id</span><span class="sxs-lookup"><span data-stu-id="eee93-127">customer-tenant-id</span></span> | <span data-ttu-id="eee93-128">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="eee93-128">string</span></span> | <span data-ttu-id="eee93-129">Yes</span><span class="sxs-lookup"><span data-stu-id="eee93-129">Yes</span></span>      | <span data-ttu-id="eee93-130">Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.</span><span class="sxs-lookup"><span data-stu-id="eee93-130">A GUID-formatted string that identifies the customer.</span></span> |
+| <span data-ttu-id="388f5-125">customer-tenant-id</span><span class="sxs-lookup"><span data-stu-id="388f5-125">customer-tenant-id</span></span> | <span data-ttu-id="388f5-126">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="388f5-126">string</span></span> | <span data-ttu-id="388f5-127">Ja</span><span class="sxs-lookup"><span data-stu-id="388f5-127">Yes</span></span>      | <span data-ttu-id="388f5-128">Een tekenreeks in GUID-indeling die de klant identificeert.</span><span class="sxs-lookup"><span data-stu-id="388f5-128">A GUID-formatted string that identifies the customer.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="eee93-131">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="eee93-131">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="388f5-129">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="388f5-129">Request headers</span></span>
 
-<span data-ttu-id="eee93-132">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="eee93-132">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="388f5-130">Zie REST-headers Partner Center [meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="388f5-130">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="eee93-133">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="eee93-133">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="388f5-131">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="388f5-131">Request body</span></span>
 
-<span data-ttu-id="eee93-134">Geen.</span><span class="sxs-lookup"><span data-stu-id="eee93-134">None.</span></span>
+<span data-ttu-id="388f5-132">Geen.</span><span class="sxs-lookup"><span data-stu-id="388f5-132">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="eee93-135">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="eee93-135">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="388f5-133">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="388f5-133">Request example</span></span>
 
 ```http
 GET /v1/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers HTTP/1.1
@@ -58,15 +54,15 @@ MS-CorrelationId: dec58181-67b5-4831-c2c9-2fa099122f5d
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="eee93-136">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="eee93-136">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="388f5-134">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="388f5-134">REST response</span></span>
 
-<span data-ttu-id="eee93-137">Als deze methode is geslaagd, wordt een lijst met [TransferEntity](transfer-entity-resources.md) -resources in de antwoord tekst geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="eee93-137">If successful, this method returns a list of [TransferEntity](transfer-entity-resources.md) resources in the response body.</span></span>
+<span data-ttu-id="388f5-135">Als dit lukt, retourneert deze methode een lijst met [TransferEntity-resources](transfer-entity-resources.md) in de antwoord-body.</span><span class="sxs-lookup"><span data-stu-id="388f5-135">If successful, this method returns a list of [TransferEntity](transfer-entity-resources.md) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="eee93-138">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="eee93-138">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="388f5-136">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="388f5-136">Response success and error codes</span></span>
 
-<span data-ttu-id="eee93-139">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="eee93-139">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="eee93-140">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="eee93-140">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="eee93-141">Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="eee93-141">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="388f5-137">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="388f5-137">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="388f5-138">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="388f5-138">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="388f5-139">Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="388f5-139">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="eee93-142">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="eee93-142">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="388f5-140">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="388f5-140">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

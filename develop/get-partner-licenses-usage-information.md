@@ -1,34 +1,30 @@
 ---
 title: Gebruiksgegevens van partnerlicenties ophalen
-description: Het verkrijgen van gebruiks gegevens van partner licenties voor het toevoegen van alle klanten.
+description: Gebruiksgegevens van partnerlicenties samenvoegen om alle klanten op te nemen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93d003fb269a3421b8efd8cebe8f396f97599a10
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f3d05d61ac4f2c90b0d8a4bfd93fe24e94bd5c1b
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767562"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445592"
 ---
-# <a name="get-partner-licenses-usage-information"></a><span data-ttu-id="644a7-103">Gebruiksgegevens van partnerlicenties ophalen</span><span class="sxs-lookup"><span data-stu-id="644a7-103">Get partner licenses usage information</span></span>
+# <a name="get-partner-licenses-usage-information"></a><span data-ttu-id="96644-103">Gebruiksgegevens van partnerlicenties ophalen</span><span class="sxs-lookup"><span data-stu-id="96644-103">Get partner licenses usage information</span></span>
 
-<span data-ttu-id="644a7-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="644a7-104">**Applies To**</span></span>
-
-- <span data-ttu-id="644a7-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="644a7-105">Partner Center</span></span>
-
-<span data-ttu-id="644a7-106">Het verkrijgen van gebruiks gegevens van partner licenties voor het toevoegen van alle klanten.</span><span class="sxs-lookup"><span data-stu-id="644a7-106">How to get partner licenses usage information aggregated to include all customers.</span></span>
+<span data-ttu-id="96644-104">Gebruiksgegevens van partnerlicenties samenvoegen om alle klanten op te nemen.</span><span class="sxs-lookup"><span data-stu-id="96644-104">How to get partner licenses usage information aggregated to include all customers.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="644a7-107">Dit scenario wordt vervangen door [gebruiks gegevens over licenties te verkrijgen](get-licenses-usage-information.md).</span><span class="sxs-lookup"><span data-stu-id="644a7-107">This scenario is superceded by [Get licenses usage information](get-licenses-usage-information.md).</span></span>
+> <span data-ttu-id="96644-105">Dit scenario wordt vervangen door [Gebruiksgegevens voor licenties verkrijgen.](get-licenses-usage-information.md)</span><span class="sxs-lookup"><span data-stu-id="96644-105">This scenario is superceded by [Get licenses usage information](get-licenses-usage-information.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="644a7-108">Vereisten</span><span class="sxs-lookup"><span data-stu-id="644a7-108">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="96644-106">Vereisten</span><span class="sxs-lookup"><span data-stu-id="96644-106">Prerequisites</span></span>
 
-<span data-ttu-id="644a7-109">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="644a7-109">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="644a7-110">Dit scenario ondersteunt verificatie met app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="644a7-110">This scenario supports authentication with App+User credentials.</span></span>
+<span data-ttu-id="96644-107">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="96644-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="96644-108">Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="96644-108">This scenario supports authentication with App+User credentials.</span></span>
 
-## <a name="c"></a><span data-ttu-id="644a7-111">C\#</span><span class="sxs-lookup"><span data-stu-id="644a7-111">C\#</span></span>
+## <a name="c"></a><span data-ttu-id="96644-109">C\#</span><span class="sxs-lookup"><span data-stu-id="96644-109">C\#</span></span>
 
-<span data-ttu-id="644a7-112">Als u geaggregeerde gegevens voor de implementatie van licenties wilt ophalen, moet u eerst een interface op het niveau van de verzameling van de [**IAggregatePartner. Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) -eigenschappen ophalen.</span><span class="sxs-lookup"><span data-stu-id="644a7-112">To retrieve aggregated data on licenses deployment, first get an interface to partner level analytics collection operations from the [**IAggregatePartner.Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) property.</span></span> <span data-ttu-id="644a7-113">Haal vervolgens een interface op bij de verzameling van de licenties voor het partner niveau-analyse van de eigenschap [**licenties**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) .</span><span class="sxs-lookup"><span data-stu-id="644a7-113">Then retrieve an interface to the partner level licenses analytics collection from the [**Licenses**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) property.</span></span> <span data-ttu-id="644a7-114">Roep tot slot de methode [**usage. Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) aan om de geaggregeerde gegevens over het gebruik van licenties op te halen.</span><span class="sxs-lookup"><span data-stu-id="644a7-114">Finally, call the [**Usage.Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) method to get the aggregated data on licenses usage.</span></span> <span data-ttu-id="644a7-115">Als de methode slaagt, krijgt u een verzameling [**PartnerLicensesUsageInsights**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) -objecten.</span><span class="sxs-lookup"><span data-stu-id="644a7-115">If the method succeeds you'll get a collection of [**PartnerLicensesUsageInsights**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) objects.</span></span>
+<span data-ttu-id="96644-110">Als u geaggregeerde gegevens over de implementatie van licenties wilt ophalen, moet u eerst een interface ophalen voor bewerkingen voor het verzamelen van analyses op partnerniveau van de [**eigenschap IAggregatePartner.Analytics.**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics)</span><span class="sxs-lookup"><span data-stu-id="96644-110">To retrieve aggregated data on licenses deployment, first get an interface to partner level analytics collection operations from the [**IAggregatePartner.Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) property.</span></span> <span data-ttu-id="96644-111">Haal vervolgens een interface op voor de analyseverzameling licenties op partnerniveau uit [**de eigenschap Licenties.**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses)</span><span class="sxs-lookup"><span data-stu-id="96644-111">Then retrieve an interface to the partner level licenses analytics collection from the [**Licenses**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) property.</span></span> <span data-ttu-id="96644-112">Roep ten slotte de [**methode Usage.Get aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) om de geaggregeerde gegevens over het gebruik van licenties op te halen.</span><span class="sxs-lookup"><span data-stu-id="96644-112">Finally, call the [**Usage.Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) method to get the aggregated data on licenses usage.</span></span> <span data-ttu-id="96644-113">Als de methode slaagt, krijgt u een verzameling [**PartnerLicensesUsageInsights-objecten.**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights)</span><span class="sxs-lookup"><span data-stu-id="96644-113">If the method succeeds, you'll get a collection of [**PartnerLicensesUsageInsights**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) objects.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,23 +32,23 @@ ms.locfileid: "97767562"
 var partnerLicensesUsageAnalytics = partnerOperations.Analytics.Licenses.Usage.Get();
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="644a7-116">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="644a7-116">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="96644-114">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="96644-114">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="644a7-117">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="644a7-117">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="96644-115">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="96644-115">Request syntax</span></span>
 
-| <span data-ttu-id="644a7-118">Methode</span><span class="sxs-lookup"><span data-stu-id="644a7-118">Method</span></span>  | <span data-ttu-id="644a7-119">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="644a7-119">Request URI</span></span>                                                                      |
+| <span data-ttu-id="96644-116">Methode</span><span class="sxs-lookup"><span data-stu-id="96644-116">Method</span></span>  | <span data-ttu-id="96644-117">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="96644-117">Request URI</span></span>                                                                      |
 |---------|----------------------------------------------------------------------------------|
-| <span data-ttu-id="644a7-120">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="644a7-120">**GET**</span></span> | <span data-ttu-id="644a7-121">[*{baseURL}*](partner-center-rest-urls.md)/v1/Analytics/licenses/Usage http/1.1</span><span class="sxs-lookup"><span data-stu-id="644a7-121">[*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/licenses/usage HTTP/1.1</span></span> |
+| <span data-ttu-id="96644-118">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="96644-118">**GET**</span></span> | <span data-ttu-id="96644-119">[*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/licenses/usage HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="96644-119">[*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/licenses/usage HTTP/1.1</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="644a7-122">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="644a7-122">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="96644-120">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="96644-120">Request headers</span></span>
 
-<span data-ttu-id="644a7-123">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="644a7-123">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="96644-121">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="96644-121">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="644a7-124">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="644a7-124">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="96644-122">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="96644-122">Request body</span></span>
 
-<span data-ttu-id="644a7-125">Geen.</span><span class="sxs-lookup"><span data-stu-id="644a7-125">None.</span></span>
+<span data-ttu-id="96644-123">Geen.</span><span class="sxs-lookup"><span data-stu-id="96644-123">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="644a7-126">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="644a7-126">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="96644-124">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="96644-124">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/analytics/licenses/usage HTTP/1.1
@@ -64,15 +60,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="644a7-127">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="644a7-127">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="96644-125">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="96644-125">REST response</span></span>
 
-<span data-ttu-id="644a7-128">Als dit lukt, bevat de antwoord tekst een verzameling [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) -resources die informatie geven over de gebruikte licenties.</span><span class="sxs-lookup"><span data-stu-id="644a7-128">If successful, the response body contains a collection of [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) resources that provide information about the licenses used.</span></span>
+<span data-ttu-id="96644-126">Als dit lukt, bevat de antwoord-body een verzameling [PartnerLicensesUsageInsights-resources](analytics-resources.md#partnerlicensesusageinsights) die informatie bieden over de gebruikte licenties.</span><span class="sxs-lookup"><span data-stu-id="96644-126">If successful, the response body contains a collection of [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) resources that provide information about the licenses used.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="644a7-129">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="644a7-129">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="96644-127">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="96644-127">Response success and error codes</span></span>
 
-<span data-ttu-id="644a7-130">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="644a7-130">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="644a7-131">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="644a7-131">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="644a7-132">Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="644a7-132">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="96644-128">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="96644-128">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="96644-129">Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="96644-129">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="96644-130">Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="96644-130">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="644a7-133">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="644a7-133">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="96644-131">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="96644-131">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK
