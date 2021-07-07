@@ -1,39 +1,35 @@
 ---
-title: De Cloud validatie codes van een partner community ophalen
-description: Informatie over het verkrijgen van validatie codes voor Cloud Community's van een partner.
+title: Validatiecodes van een partner Government Community Cloud krijgen
+description: De validatiecodes van een partner Government Community Cloud krijgen.
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: d84a3d3c69d835e42565c4e6f1edb06ab338340a
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 04bccf587628337004a5825b534048945f791839
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767356"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873867"
 ---
-# <a name="get-a-partners-validation-codes"></a><span data-ttu-id="28157-103">De validatiecodes van een partner ophalen</span><span class="sxs-lookup"><span data-stu-id="28157-103">Get a partner's validation codes</span></span>
+# <a name="get-a-partners-validation-codes"></a><span data-ttu-id="e1b3d-103">De validatiecodes van een partner ophalen</span><span class="sxs-lookup"><span data-stu-id="e1b3d-103">Get a partner's validation codes</span></span>
 
-<span data-ttu-id="28157-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="28157-104">**Applies To**</span></span>
+<span data-ttu-id="e1b3d-104">In dit artikel wordt beschreven hoe u een verzameling van de validatiecodes van een partner Government Community Cloud ophalen.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-104">This article describes how to get a collection of a partner's Government Community Cloud validation codes.</span></span> <span data-ttu-id="e1b3d-105">Er is een validatiecode vereist om een klant te maken in de communitycloud van de overheid.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-105">A validation code is required to create a customer in the government community cloud.</span></span>
 
-- <span data-ttu-id="28157-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="28157-105">Partner Center</span></span>
+<span data-ttu-id="e1b3d-106">Zie Office 365 Government GCC for CSP Partner and Customer eligibility criteria (Office 365 Government GCC voor [CSP-partner](/partner-center/csp-gcc-validate)en klantcriteria) als u geïnteresseerd bent in het goedkeuren van Office 365 Government GCC voor CSP door uw organisatie of de organisatie van uw klant.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-106">If you are interested in having your organization or your customer's organization approved for Office 365 Government GCC for CSP, see [Office 365 Government GCC for CSP Partner and Customer eligibility criteria](/partner-center/csp-gcc-validate).</span></span>
 
-<span data-ttu-id="28157-106">Een verzameling van de Cloud validatie codes van een partner community ophalen.</span><span class="sxs-lookup"><span data-stu-id="28157-106">How to get a collection of a partner's Government Community Cloud validation codes.</span></span> <span data-ttu-id="28157-107">Een validatie code is vereist voor het maken van een klant in de cloud van de Government-community.</span><span class="sxs-lookup"><span data-stu-id="28157-107">A validation code is required to create a customer in the government community cloud.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="e1b3d-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="e1b3d-107">Prerequisites</span></span>
 
-<span data-ttu-id="28157-108">Als u geïnteresseerd bent in het goed keuren van uw organisatie of uw organisatie voor Office 365 Government GCC voor CSP, raadpleegt u [Office 365 Government GCC voor CSP-partner en klant geschiktheids criteria/Partner-Center/CSP-gcc-validate).</span><span class="sxs-lookup"><span data-stu-id="28157-108">If you are interested in having your organization or your customers organization approved for Office 365 Government GCC for CSP, please see [Office 365 Government GCC for CSP Partner and Customer Eligibility Criteria/partner-center/csp-gcc-validate).</span></span>
+- <span data-ttu-id="e1b3d-108">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="e1b3d-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="e1b3d-109">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="28157-109">Vereisten</span><span class="sxs-lookup"><span data-stu-id="28157-109">Prerequisites</span></span>
+- <span data-ttu-id="e1b3d-110">Validatie bevestigd na het invullen van het [formulier hier](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).</span><span class="sxs-lookup"><span data-stu-id="e1b3d-110">Confirmed validation after filling out form [here](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).</span></span>
 
-- <span data-ttu-id="28157-110">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="28157-110">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="28157-111">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="28157-111">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="e1b3d-111">Een klant zonder kwalificatie.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-111">A customer without a qualification.</span></span>
 
-- <span data-ttu-id="28157-112">Bevestigde validatie na invullen van [het formulier.](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)</span><span class="sxs-lookup"><span data-stu-id="28157-112">Confirmed validation after filling out form [here](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).</span></span>
+## <a name="c"></a><span data-ttu-id="e1b3d-112">C\#</span><span class="sxs-lookup"><span data-stu-id="e1b3d-112">C\#</span></span>
 
-- <span data-ttu-id="28157-113">Een klant zonder een kwalificatie.</span><span class="sxs-lookup"><span data-stu-id="28157-113">A customer without a qualification.</span></span>
-
-## <a name="c"></a><span data-ttu-id="28157-114">C\#</span><span class="sxs-lookup"><span data-stu-id="28157-114">C\#</span></span>
-
-<span data-ttu-id="28157-115">Roep **GetValidationCodes** aan om een lijst met alle validatie codes van een partner op te halen.</span><span class="sxs-lookup"><span data-stu-id="28157-115">To get a list of all of a partner's validation codes, call **GetValidationCodes**.</span></span>
+<span data-ttu-id="e1b3d-113">Voor een lijst met alle validatiecodes van een partner roept u **GetValidationCodes aan.**</span><span class="sxs-lookup"><span data-stu-id="e1b3d-113">To get a list of all of a partner's validation codes, call **GetValidationCodes**.</span></span>
 
 ``` csharp
 // create the partner operations
@@ -42,23 +38,23 @@ IAggregatePartner partnerOperations = PartnerService.Instance.CreatePartnerOpera
 var gccValidations = partnerOperations.Validations.GetValidationCodes();
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="28157-116">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="28157-116">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="e1b3d-114">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="e1b3d-114">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="28157-117">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="28157-117">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="e1b3d-115">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="e1b3d-115">Request syntax</span></span>
 
-| <span data-ttu-id="28157-118">Methode</span><span class="sxs-lookup"><span data-stu-id="28157-118">Method</span></span>  | <span data-ttu-id="28157-119">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="28157-119">Request URI</span></span>                                                                                          |
+| <span data-ttu-id="e1b3d-116">Methode</span><span class="sxs-lookup"><span data-stu-id="e1b3d-116">Method</span></span>  | <span data-ttu-id="e1b3d-117">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="e1b3d-117">Request URI</span></span>                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="28157-120">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="28157-120">**GET**</span></span> | <span data-ttu-id="28157-121">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/all/validations http/1.1</span><span class="sxs-lookup"><span data-stu-id="28157-121">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1</span></span> |
+| <span data-ttu-id="e1b3d-118">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="e1b3d-118">**GET**</span></span> | <span data-ttu-id="e1b3d-119">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="e1b3d-119">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="28157-122">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="28157-122">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="e1b3d-120">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="e1b3d-120">Request headers</span></span>
 
-<span data-ttu-id="28157-123">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="28157-123">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="e1b3d-121">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="e1b3d-121">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="28157-124">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="28157-124">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="e1b3d-122">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="e1b3d-122">Request body</span></span>
 
-<span data-ttu-id="28157-125">Geen.</span><span class="sxs-lookup"><span data-stu-id="28157-125">None.</span></span>
+<span data-ttu-id="e1b3d-123">Geen.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-123">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="28157-126">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="28157-126">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="e1b3d-124">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="e1b3d-124">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/all/validations HTTP/1.1
@@ -68,15 +64,15 @@ MS-CorrelationId: 283b9b70-963a-4159-9920-f2bdf7ab7fce
 MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="28157-127">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="28157-127">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="e1b3d-125">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="e1b3d-125">REST response</span></span>
 
-<span data-ttu-id="28157-128">Als deze methode is geslaagd, wordt een lijst met [**ValidationCode**](utility-resources.md#validationcode) -resources in de antwoord tekst geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="28157-128">If successful, this method returns a list of [**ValidationCode**](utility-resources.md#validationcode) resources in the response body.</span></span>
+<span data-ttu-id="e1b3d-126">Als dit lukt, retourneert deze methode een lijst met [**ValidationCode-resources**](utility-resources.md#validationcode) in de antwoord-body.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-126">If successful, this method returns a list of [**ValidationCode**](utility-resources.md#validationcode) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="28157-129">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="28157-129">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="e1b3d-127">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="e1b3d-127">Response success and error codes</span></span>
 
-<span data-ttu-id="28157-130">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="28157-130">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="28157-131">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="28157-131">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="28157-132">Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="28157-132">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="e1b3d-128">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-128">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="e1b3d-129">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="e1b3d-129">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="e1b3d-130">Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="e1b3d-130">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="28157-133">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="28157-133">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="e1b3d-131">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="e1b3d-131">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

@@ -1,38 +1,33 @@
 ---
 title: Het wettelijke bedrijfsprofiel van een partner bijwerken
-description: Het partner juridisch Business-profiel bijwerken.
+description: Het juridische bedrijfsprofiel van de partner bijwerken.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 6c61b51ab0680e36daa99c11dc8e8c3506259d29
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: cb9f5815e0019c5e9b648dfd865e9752f0afdf05
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767461"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530324"
 ---
-# <a name="update-the-partner-legal-business-profile"></a><span data-ttu-id="a5b79-103">Het wettelijke bedrijfsprofiel van een partner bijwerken</span><span class="sxs-lookup"><span data-stu-id="a5b79-103">Update the partner legal business profile</span></span>
+# <a name="update-the-partner-legal-business-profile"></a><span data-ttu-id="c1978-103">Het wettelijke bedrijfsprofiel van een partner bijwerken</span><span class="sxs-lookup"><span data-stu-id="c1978-103">Update the partner legal business profile</span></span>
 
-<span data-ttu-id="a5b79-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="a5b79-104">**Applies To**</span></span>
+<span data-ttu-id="c1978-104">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="c1978-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="a5b79-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="a5b79-105">Partner Center</span></span>
-- <span data-ttu-id="a5b79-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="a5b79-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="a5b79-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="a5b79-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="a5b79-108">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="a5b79-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="c1978-105">Het juridische bedrijfsprofiel van de partner bijwerken.</span><span class="sxs-lookup"><span data-stu-id="c1978-105">How to update the partner legal business profile.</span></span>
 
-<span data-ttu-id="a5b79-109">Het partner juridisch Business-profiel bijwerken.</span><span class="sxs-lookup"><span data-stu-id="a5b79-109">How to update the partner legal business profile.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="c1978-106">Vereisten</span><span class="sxs-lookup"><span data-stu-id="c1978-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="a5b79-110">Vereisten</span><span class="sxs-lookup"><span data-stu-id="a5b79-110">Prerequisites</span></span>
+- <span data-ttu-id="c1978-107">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="c1978-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="c1978-108">In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="c1978-108">This scenario supports authentication with App+User credentials only.</span></span>
 
-- <span data-ttu-id="a5b79-111">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="a5b79-111">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="a5b79-112">In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.</span><span class="sxs-lookup"><span data-stu-id="a5b79-112">This scenario supports authentication with App+User credentials only.</span></span>
+## <a name="c"></a><span data-ttu-id="c1978-109">C\#</span><span class="sxs-lookup"><span data-stu-id="c1978-109">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="a5b79-113">C\#</span><span class="sxs-lookup"><span data-stu-id="a5b79-113">C\#</span></span>
+<span data-ttu-id="c1978-110">Als u het juridische bedrijfsprofiel van de partner wilt bijwerken, instantieert u eerst een **LegalBusinessProfile-object** en vult u dit met het bestaande profiel.</span><span class="sxs-lookup"><span data-stu-id="c1978-110">To update the partner legal business profile, first instantiate a **LegalBusinessProfile** object and populate it with the existing profile.</span></span> <span data-ttu-id="c1978-111">Zie Het juridische bedrijfsprofiel van [de partner verkrijgen voor meer informatie.](get-legal-business-profile.md)</span><span class="sxs-lookup"><span data-stu-id="c1978-111">For more information, see [Get the partner legal business profile](get-legal-business-profile.md).</span></span> <span data-ttu-id="c1978-112">Werk vervolgens de eigenschappen bij die u moet wijzigen.</span><span class="sxs-lookup"><span data-stu-id="c1978-112">Then, update the properties that you need to change.</span></span> <span data-ttu-id="c1978-113">Het volgende codevoorbeeld illustreert het wijzigen van het adres en de telefoonnummers van de primaire contactpersoon.</span><span class="sxs-lookup"><span data-stu-id="c1978-113">The following code example illustrates changing the address and primary contact phone numbers.</span></span>
 
-<span data-ttu-id="a5b79-114">Als u het partner juridisch Business-profiel wilt bijwerken, moet u eerst een **LegalBusinessProfile** -object instantiëren en dit vullen met het bestaande profiel.</span><span class="sxs-lookup"><span data-stu-id="a5b79-114">To update the partner legal business profile, first instantiate a **LegalBusinessProfile** object and populate it with the existing profile.</span></span> <span data-ttu-id="a5b79-115">Zie [het partner juridisch Business-profiel ophalen](get-legal-business-profile.md)voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="a5b79-115">For more information, see [Get the partner legal business profile](get-legal-business-profile.md).</span></span> <span data-ttu-id="a5b79-116">Werk vervolgens de eigenschappen bij die u wilt wijzigen.</span><span class="sxs-lookup"><span data-stu-id="a5b79-116">Then, update the properties that you need to change.</span></span> <span data-ttu-id="a5b79-117">In het volgende code voorbeeld ziet u hoe u het adres en de telefoon nummer van de primaire contact persoon wijzigt.</span><span class="sxs-lookup"><span data-stu-id="a5b79-117">The following code example illustrates changing the address and primary contact phone numbers.</span></span>
-
-<span data-ttu-id="a5b79-118">Vervolgens krijgt u een interface voor de verzameling van de partner profiel bewerkingen van de eigenschap **IAggregatePartner. Profiles** .</span><span class="sxs-lookup"><span data-stu-id="a5b79-118">Next, get an interface to the partner profile operations collection from the **IAggregatePartner.Profiles** property.</span></span> <span data-ttu-id="a5b79-119">Vervolgens haalt u de waarde van de eigenschap **LegalBusinessProfile** op om een interface te verkrijgen voor juridische bedrijfs profiel bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="a5b79-119">Then, retrieve the value of the **LegalBusinessProfile** property to get an interface to legal business profile operations.</span></span> <span data-ttu-id="a5b79-120">Roep tot slot de [**Update**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) -of [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) -methode aan met het gewijzigde object om het profiel bij te werken.</span><span class="sxs-lookup"><span data-stu-id="a5b79-120">Finally, call the [**Update**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) or [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) method with the changed object to update the profile.</span></span>
+<span data-ttu-id="c1978-114">Haal vervolgens een interface op voor de verzameling bewerkingen van het partnerprofiel van **de eigenschap IAggregatePartner.Profiles.**</span><span class="sxs-lookup"><span data-stu-id="c1978-114">Next, get an interface to the partner profile operations collection from the **IAggregatePartner.Profiles** property.</span></span> <span data-ttu-id="c1978-115">Haal vervolgens de waarde van de eigenschap **LegalBusinessProfile** op om een interface te krijgen voor juridische bedrijfsprofielbewerkingen.</span><span class="sxs-lookup"><span data-stu-id="c1978-115">Then, retrieve the value of the **LegalBusinessProfile** property to get an interface to legal business profile operations.</span></span> <span data-ttu-id="c1978-116">Roep ten slotte de [**methode Update**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) of [**UpdateAsync aan**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) met het gewijzigde object om het profiel bij te werken.</span><span class="sxs-lookup"><span data-stu-id="c1978-116">Finally, call the [**Update**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) or [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) method with the changed object to update the profile.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,23 +42,23 @@ legalBusinessProfile.PrimaryContact.PhoneNumber = "4255550110";
 var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfile.Update(legalBusinessProfile);
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="a5b79-121">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="a5b79-121">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="c1978-117">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="c1978-117">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="a5b79-122">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="a5b79-122">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="c1978-118">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="c1978-118">Request syntax</span></span>
 
-| <span data-ttu-id="a5b79-123">Methode</span><span class="sxs-lookup"><span data-stu-id="a5b79-123">Method</span></span>  | <span data-ttu-id="a5b79-124">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="a5b79-124">Request URI</span></span>                                                                    |
+| <span data-ttu-id="c1978-119">Methode</span><span class="sxs-lookup"><span data-stu-id="c1978-119">Method</span></span>  | <span data-ttu-id="c1978-120">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="c1978-120">Request URI</span></span>                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| <span data-ttu-id="a5b79-125">**PUT**</span><span class="sxs-lookup"><span data-stu-id="a5b79-125">**PUT**</span></span> | <span data-ttu-id="a5b79-126">[*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1</span><span class="sxs-lookup"><span data-stu-id="a5b79-126">[*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1</span></span> |
+| <span data-ttu-id="c1978-121">**PUT**</span><span class="sxs-lookup"><span data-stu-id="c1978-121">**PUT**</span></span> | <span data-ttu-id="c1978-122">[*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="c1978-122">[*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="a5b79-127">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="a5b79-127">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="c1978-123">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="c1978-123">Request headers</span></span>
 
-<span data-ttu-id="a5b79-128">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="a5b79-128">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="c1978-124">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="c1978-124">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="a5b79-129">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="a5b79-129">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="c1978-125">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="c1978-125">Request body</span></span>
 
-<span data-ttu-id="a5b79-130">De bron van het juridische zakelijke profiel.</span><span class="sxs-lookup"><span data-stu-id="a5b79-130">The legal business profile resource.</span></span>
+<span data-ttu-id="c1978-126">De juridische bedrijfsprofielresource.</span><span class="sxs-lookup"><span data-stu-id="c1978-126">The legal business profile resource.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="a5b79-131">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="a5b79-131">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="c1978-127">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="c1978-127">Request example</span></span>
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/profiles/legalbusiness HTTP/1.1
@@ -125,15 +120,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="a5b79-132">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="a5b79-132">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="c1978-128">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="c1978-128">REST response</span></span>
 
-<span data-ttu-id="a5b79-133">Als dit lukt, bevat de antwoord tekst de bijgewerkte **LegalBusinessProfile**</span><span class="sxs-lookup"><span data-stu-id="a5b79-133">If successful, the response body contains the updated **LegalBusinessProfile**</span></span>
+<span data-ttu-id="c1978-129">Als dit lukt, bevat de antwoord-body het **bijgewerkte LegalBusinessProfile**</span><span class="sxs-lookup"><span data-stu-id="c1978-129">If successful, the response body contains the updated **LegalBusinessProfile**</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="a5b79-134">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="a5b79-134">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="c1978-130">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="c1978-130">Response success and error codes</span></span>
 
-<span data-ttu-id="a5b79-135">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="a5b79-135">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="a5b79-136">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="a5b79-136">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="a5b79-137">Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="a5b79-137">For the full list, see [Partner Center error codes](error-codes.md).</span></span>
+<span data-ttu-id="c1978-131">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="c1978-131">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="c1978-132">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="c1978-132">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="c1978-133">Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="c1978-133">For the full list, see [Partner Center error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="a5b79-138">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="a5b79-138">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="c1978-134">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="c1978-134">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

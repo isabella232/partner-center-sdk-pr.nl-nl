@@ -1,43 +1,39 @@
 ---
-title: Een product upgrade-entiteit maken voor een klant
-description: U kunt de ProductUpgradeRequest-Resource gebruiken om een product upgrade-entiteit te maken om een klant bij te werken naar een bepaalde product familie.
+title: Een entiteit voor productupgrade maken voor een klant
+description: U kunt de resource ProductUpgradeRequest gebruiken om een entiteit voor productupgrade te maken om een klant te upgraden naar een bepaalde productfamilie.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 45830033d93e0906eafc169cf04b997e2ff7c3d8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4e346b7f5294a8847047c85115d8c80f34eaca84
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767199"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973398"
 ---
-# <a name="create-a-product-upgrade-entity-for-a-customer"></a><span data-ttu-id="55445-103">Een product upgrade-entiteit maken voor een klant</span><span class="sxs-lookup"><span data-stu-id="55445-103">Create a product upgrade entity for a customer</span></span>
+# <a name="create-a-product-upgrade-entity-for-a-customer"></a><span data-ttu-id="eddc5-103">Een entiteit voor productupgrade maken voor een klant</span><span class="sxs-lookup"><span data-stu-id="eddc5-103">Create a product upgrade entity for a customer</span></span>
 
-<span data-ttu-id="55445-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="55445-104">**Applies to:**</span></span>
+<span data-ttu-id="eddc5-104">U kunt een entiteit voor productupgrade maken om een klant te upgraden naar een bepaalde productfamilie (bijvoorbeeld een Azure-plan) met behulp van de **productUpgradeRequest-resource.**</span><span class="sxs-lookup"><span data-stu-id="eddc5-104">You can create a product upgrade entity to upgrade a customer to a given product family (for example, Azure plan) using the **ProductUpgradeRequest** resource.</span></span>
 
-- <span data-ttu-id="55445-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="55445-105">Partner Center</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="eddc5-105">Vereisten</span><span class="sxs-lookup"><span data-stu-id="eddc5-105">Prerequisites</span></span>
 
-<span data-ttu-id="55445-106">U kunt een product upgrade-entiteit maken om een klant bij te werken naar een bepaalde product familie (bijvoorbeeld Azure-abonnement) met behulp van de **ProductUpgradeRequest** -resource.</span><span class="sxs-lookup"><span data-stu-id="55445-106">You can create a product upgrade entity to upgrade a customer to a given product family (for example, Azure plan) using the **ProductUpgradeRequest** resource.</span></span>
+- <span data-ttu-id="eddc5-106">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="eddc5-106">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="eddc5-107">Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="eddc5-107">This scenario supports authentication with App+User credentials.</span></span> <span data-ttu-id="eddc5-108">Volg het [model voor beveiligde apps bij](enable-secure-app-model.md) het gebruik van App+User-verificatie met Partner Center API's.</span><span class="sxs-lookup"><span data-stu-id="eddc5-108">Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="55445-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="55445-107">Prerequisites</span></span>
+- <span data-ttu-id="eddc5-109">Een klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="eddc5-109">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="eddc5-110">Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span><span class="sxs-lookup"><span data-stu-id="eddc5-110">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="eddc5-111">Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.**</span><span class="sxs-lookup"><span data-stu-id="eddc5-111">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="eddc5-112">Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**.</span><span class="sxs-lookup"><span data-stu-id="eddc5-112">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="eddc5-113">Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.**</span><span class="sxs-lookup"><span data-stu-id="eddc5-113">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="eddc5-114">De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="eddc5-114">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="55445-108">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="55445-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="55445-109">Dit scenario ondersteunt verificatie met app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="55445-109">This scenario supports authentication with App+User credentials.</span></span> <span data-ttu-id="55445-110">Volg het [model voor beveiligde apps](enable-secure-app-model.md) wanneer u app + gebruikers authenticatie met partner Center api's gebruikt.</span><span class="sxs-lookup"><span data-stu-id="55445-110">Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.</span></span>
+- <span data-ttu-id="eddc5-115">De productfamilie waarvoor u de klant wilt upgraden.</span><span class="sxs-lookup"><span data-stu-id="eddc5-115">The product family to which you want to upgrade the customer.</span></span>
 
-- <span data-ttu-id="55445-111">Een klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="55445-111">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="55445-112">Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum.</span><span class="sxs-lookup"><span data-stu-id="55445-112">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="55445-113">Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**.</span><span class="sxs-lookup"><span data-stu-id="55445-113">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="55445-114">Selecteer de klant in de lijst klant en selecteer vervolgens **account**.</span><span class="sxs-lookup"><span data-stu-id="55445-114">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="55445-115">Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** .</span><span class="sxs-lookup"><span data-stu-id="55445-115">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="55445-116">De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="55445-116">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+## <a name="c"></a><span data-ttu-id="eddc5-116">C\#</span><span class="sxs-lookup"><span data-stu-id="eddc5-116">C\#</span></span>
 
-- <span data-ttu-id="55445-117">De product familie waarvoor u de klant wilt bijwerken.</span><span class="sxs-lookup"><span data-stu-id="55445-117">The product family to which you want to upgrade the customer.</span></span>
+<span data-ttu-id="eddc5-117">Een klant upgraden naar een Azure-abonnement:</span><span class="sxs-lookup"><span data-stu-id="eddc5-117">To upgrade a customer to Azure plan:</span></span>
 
-## <a name="c"></a><span data-ttu-id="55445-118">C\#</span><span class="sxs-lookup"><span data-stu-id="55445-118">C\#</span></span>
+1. <span data-ttu-id="eddc5-118">Maak een **ProductUpgradesRequest-object** en geef de klant-id en 'Azure' op als de productfamilie.</span><span class="sxs-lookup"><span data-stu-id="eddc5-118">Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.</span></span>
 
-<span data-ttu-id="55445-119">Een upgrade uitvoeren van een klant naar een Azure-abonnement:</span><span class="sxs-lookup"><span data-stu-id="55445-119">To upgrade a customer to Azure plan:</span></span>
+2. <span data-ttu-id="eddc5-119">Gebruik de **verzameling IAggregatePartner.ProductUpgrades.**</span><span class="sxs-lookup"><span data-stu-id="eddc5-119">Use the **IAggregatePartner.ProductUpgrades** collection.</span></span>
 
-1. <span data-ttu-id="55445-120">Maak een **ProductUpgradesRequest** -object en geef de klant-id en ' Azure ' op als de product familie.</span><span class="sxs-lookup"><span data-stu-id="55445-120">Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.</span></span>
+3. <span data-ttu-id="eddc5-120">Roep de **methode Create** aan en geef het **productUpgradesRequest-object** door, waarmee een locatieheaderreeks **wordt** retourneert.</span><span class="sxs-lookup"><span data-stu-id="eddc5-120">Call the **Create** method and pass in the **ProductUpgradesRequest** object, which will return a **location header** string.</span></span>
 
-2. <span data-ttu-id="55445-121">Gebruik de verzameling **IAggregatePartner. ProductUpgrades** .</span><span class="sxs-lookup"><span data-stu-id="55445-121">Use the **IAggregatePartner.ProductUpgrades** collection.</span></span>
-
-3. <span data-ttu-id="55445-122">Roep de **Create** -methode aan en geef het object **ProductUpgradesRequest** door. Hiermee wordt een teken reeks voor de **locatie-header** geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="55445-122">Call the **Create** method and pass in the **ProductUpgradesRequest** object, which will return a **location header** string.</span></span>
-
-4. <span data-ttu-id="55445-123">Pak de **upgrade-ID** uit van de teken reeks voor de locatie-header die kan worden gebruikt om [de upgrade status](get-product-upgrade-status.md)op te vragen.</span><span class="sxs-lookup"><span data-stu-id="55445-123">Extract the **upgrade-id** from the location header string which can be used to [query the upgrade status](get-product-upgrade-status.md).</span></span>
+4. <span data-ttu-id="eddc5-121">Extraheren van **de upgrade-id** uit de locatieheaderreeks die kan worden gebruikt om de [upgradestatus op te vragen.](get-product-upgrade-status.md)</span><span class="sxs-lookup"><span data-stu-id="eddc5-121">Extract the **upgrade-id** from the location header string that can be used to [query the upgrade status](get-product-upgrade-status.md).</span></span>
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -58,23 +54,23 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="55445-124">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="55445-124">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="eddc5-122">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="eddc5-122">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="55445-125">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="55445-125">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="eddc5-123">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="eddc5-123">Request syntax</span></span>
 
-| <span data-ttu-id="55445-126">Methode</span><span class="sxs-lookup"><span data-stu-id="55445-126">Method</span></span>   | <span data-ttu-id="55445-127">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="55445-127">Request URI</span></span>                                                                                   |
+| <span data-ttu-id="eddc5-124">Methode</span><span class="sxs-lookup"><span data-stu-id="eddc5-124">Method</span></span>   | <span data-ttu-id="eddc5-125">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="eddc5-125">Request URI</span></span>                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| <span data-ttu-id="55445-128">**Verzenden**</span><span class="sxs-lookup"><span data-stu-id="55445-128">**POST**</span></span> | <span data-ttu-id="55445-129">[*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades http/1.1</span><span class="sxs-lookup"><span data-stu-id="55445-129">[*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1</span></span> |
+| <span data-ttu-id="eddc5-126">**Verzenden**</span><span class="sxs-lookup"><span data-stu-id="eddc5-126">**POST**</span></span> | <span data-ttu-id="eddc5-127">[*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="eddc5-127">[*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1</span></span> |
 
-#### <a name="request-headers"></a><span data-ttu-id="55445-130">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="55445-130">Request headers</span></span>
+#### <a name="request-headers"></a><span data-ttu-id="eddc5-128">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="eddc5-128">Request headers</span></span>
 
-<span data-ttu-id="55445-131">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="55445-131">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="eddc5-129">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="eddc5-129">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-#### <a name="request-body"></a><span data-ttu-id="55445-132">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="55445-132">Request body</span></span>
+#### <a name="request-body"></a><span data-ttu-id="eddc5-130">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="eddc5-130">Request body</span></span>
 
-<span data-ttu-id="55445-133">De aanvraag tekst moet een [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) -resource bevatten.</span><span class="sxs-lookup"><span data-stu-id="55445-133">The request body must contain a [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) resource.</span></span>
+<span data-ttu-id="eddc5-131">De aanvraag body moet een [ProductUpgradeRequest-resource](product-upgrade-resources.md#productupgraderequest) bevatten.</span><span class="sxs-lookup"><span data-stu-id="eddc5-131">The request body must contain a [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) resource.</span></span>
 
-#### <a name="request-example"></a><span data-ttu-id="55445-134">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="55445-134">Request example</span></span>
+#### <a name="request-example"></a><span data-ttu-id="eddc5-132">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="eddc5-132">Request example</span></span>
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/productupgrades HTTP/1.1
@@ -95,15 +91,15 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="55445-135">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="55445-135">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="eddc5-133">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="eddc5-133">REST response</span></span>
 
-<span data-ttu-id="55445-136">Als dit is gelukt, bevat het antwoord een **locatie** header met een URI die kan worden gebruikt om de upgrade status van het product op te halen.</span><span class="sxs-lookup"><span data-stu-id="55445-136">If successful, the response contains a **Location** header that has a URI that can be used to retrieve product upgrade status.</span></span> <span data-ttu-id="55445-137">Sla deze URI op voor gebruik met andere verwante REST Api's.</span><span class="sxs-lookup"><span data-stu-id="55445-137">Save this URI for use with other related REST APIs.</span></span>
+<span data-ttu-id="eddc5-134">Als dit lukt, bevat het antwoord een **Location-header** met een URI die kan worden gebruikt om de status van de productupgrade op te halen.</span><span class="sxs-lookup"><span data-stu-id="eddc5-134">If successful, the response contains a **Location** header that has a URI that can be used to retrieve product upgrade status.</span></span> <span data-ttu-id="eddc5-135">Sla deze URI op voor gebruik met andere gerelateerde REST API's.</span><span class="sxs-lookup"><span data-stu-id="eddc5-135">Save this URI for use with other related REST APIs.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="55445-138">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="55445-138">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="eddc5-136">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="eddc5-136">Response success and error codes</span></span>
 
-<span data-ttu-id="55445-139">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="55445-139">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="55445-140">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="55445-140">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="55445-141">Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="55445-141">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="eddc5-137">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="eddc5-137">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="eddc5-138">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="eddc5-138">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="eddc5-139">Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="eddc5-139">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="55445-142">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="55445-142">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="eddc5-140">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="eddc5-140">Response example</span></span>
 
 ```http
 HTTP/1.1 202 Accepted

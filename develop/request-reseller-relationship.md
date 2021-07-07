@@ -1,33 +1,29 @@
 ---
 title: Een URL voor relatie aanvragen ophalen
-description: Een URL voor relatie aanvragen ophalen om naar een klant te verzenden.
+description: De URL van een relatieaanvraag ophalen om naar een klant te verzenden.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5f899734b774ff460e005e20df8658275b2ce9d5
-ms.sourcegitcommit: d4e652e3b73c6137704d43d4a472cc5aa5549f11
+ms.openlocfilehash: 07804b36dfe0892cf8b531e0731188260c014f49
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "97768681"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547444"
 ---
-# <a name="retrieve-a-relationship-request-url"></a><span data-ttu-id="d3f85-103">Een URL voor relatie aanvragen ophalen</span><span class="sxs-lookup"><span data-stu-id="d3f85-103">Retrieve a relationship request URL</span></span>
+# <a name="retrieve-a-relationship-request-url"></a><span data-ttu-id="2c13e-103">Een URL voor relatie aanvragen ophalen</span><span class="sxs-lookup"><span data-stu-id="2c13e-103">Retrieve a relationship request URL</span></span>
 
-<span data-ttu-id="d3f85-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="d3f85-104">**Applies To**</span></span>
+<span data-ttu-id="2c13e-104">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="2c13e-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany</span></span>
 
-- <span data-ttu-id="d3f85-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="d3f85-105">Partner Center</span></span>
-- <span data-ttu-id="d3f85-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="d3f85-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="d3f85-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="d3f85-107">Partner Center for Microsoft Cloud Germany</span></span>
+<span data-ttu-id="2c13e-105">De URL van een relatieaanvraag ophalen om naar een klant te verzenden.</span><span class="sxs-lookup"><span data-stu-id="2c13e-105">How to retrieve a relationship request URL to send to a customer.</span></span>
 
-<span data-ttu-id="d3f85-108">Een URL voor relatie aanvragen ophalen om naar een klant te verzenden.</span><span class="sxs-lookup"><span data-stu-id="d3f85-108">How to retrieve a relationship request URL to send to a customer.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="2c13e-106">Vereisten</span><span class="sxs-lookup"><span data-stu-id="2c13e-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="d3f85-109">Vereisten</span><span class="sxs-lookup"><span data-stu-id="d3f85-109">Prerequisites</span></span>
+- <span data-ttu-id="2c13e-107">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="2c13e-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="2c13e-108">Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="2c13e-108">This scenario supports authentication with App+User credentials only.</span></span>
 
-- <span data-ttu-id="d3f85-110">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="d3f85-110">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="d3f85-111">In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.</span><span class="sxs-lookup"><span data-stu-id="d3f85-111">This scenario supports authentication with App+User credentials only.</span></span>
+## <a name="c"></a><span data-ttu-id="2c13e-109">C\#</span><span class="sxs-lookup"><span data-stu-id="2c13e-109">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="d3f85-112">C\#</span><span class="sxs-lookup"><span data-stu-id="d3f85-112">C\#</span></span>
-
-<span data-ttu-id="d3f85-113">Als u een URL voor de relatie aanvraag wilt ophalen, moet u eerst [**IAggregatePartner. klanten**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) gebruiken om een interface te verkrijgen voor de klant bewerkingen van de partner.</span><span class="sxs-lookup"><span data-stu-id="d3f85-113">To retrieve a relationship request URL, first use [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) to get an interface to the partner's customer operations.</span></span> <span data-ttu-id="d3f85-114">Gebruik vervolgens de eigenschap [**RelationshipRequest**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) om een interface op te halen voor de bewerkingen van klant relatie aanvragen.</span><span class="sxs-lookup"><span data-stu-id="d3f85-114">Next, use the [**RelationshipRequest**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) property to get an interface to customer relationship request operations.</span></span> <span data-ttu-id="d3f85-115">Roep ten slotte de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) aan om de URL op te halen.</span><span class="sxs-lookup"><span data-stu-id="d3f85-115">Finally, call the [**Get**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) method to retrieve the URL.</span></span>
+<span data-ttu-id="2c13e-110">Als u een URL voor een relatieaanvraag wilt ophalen, gebruikt u [**eerst IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een interface te krijgen met de klantactiviteiten van de partner.</span><span class="sxs-lookup"><span data-stu-id="2c13e-110">To retrieve a relationship request URL, first use [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) to get an interface to the partner's customer operations.</span></span> <span data-ttu-id="2c13e-111">Gebruik vervolgens de eigenschap [**RelationshipRequest om**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) een interface op te halen voor aanvraagbewerkingen voor klantrelaties.</span><span class="sxs-lookup"><span data-stu-id="2c13e-111">Next, use the [**RelationshipRequest**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) property to get an interface to customer relationship request operations.</span></span> <span data-ttu-id="2c13e-112">Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) om de URL op te halen.</span><span class="sxs-lookup"><span data-stu-id="2c13e-112">Finally, call the [**Get**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) method to retrieve the URL.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -35,25 +31,25 @@ ms.locfileid: "97768681"
 var customerRelationshipRequest = partnerOperations.Customers.RelationshipRequest.Get();
 ```
 
-<span data-ttu-id="d3f85-116">Voor **beeld**: [console test-app](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="d3f85-116">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="d3f85-117">**Project**: Partner Center SDK-voor beelden **klasse**: GetCustomerRelationshipRequest.cs</span><span class="sxs-lookup"><span data-stu-id="d3f85-117">**Project**: Partner Center SDK Samples **Class**: GetCustomerRelationshipRequest.cs</span></span>
+<span data-ttu-id="2c13e-113">**Voorbeeld:** [consoletest-app](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="2c13e-113">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="2c13e-114">**Project:** Partnercentrum-SDK Samples **Class**: GetCustomerRelationshipRequest.cs</span><span class="sxs-lookup"><span data-stu-id="2c13e-114">**Project**: Partner Center SDK Samples **Class**: GetCustomerRelationshipRequest.cs</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="d3f85-118">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="d3f85-118">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="2c13e-115">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="2c13e-115">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="d3f85-119">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="d3f85-119">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="2c13e-116">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="2c13e-116">Request syntax</span></span>
 
-| <span data-ttu-id="d3f85-120">Methode</span><span class="sxs-lookup"><span data-stu-id="d3f85-120">Method</span></span>  | <span data-ttu-id="d3f85-121">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="d3f85-121">Request URI</span></span>                                                                            |
+| <span data-ttu-id="2c13e-117">Methode</span><span class="sxs-lookup"><span data-stu-id="2c13e-117">Method</span></span>  | <span data-ttu-id="2c13e-118">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="2c13e-118">Request URI</span></span>                                                                            |
 |---------|----------------------------------------------------------------------------------------|
-| <span data-ttu-id="d3f85-122">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="d3f85-122">**GET**</span></span> | <span data-ttu-id="d3f85-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/relationshiprequests http/1.1</span><span class="sxs-lookup"><span data-stu-id="d3f85-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/relationshiprequests HTTP/1.1</span></span> |
+| <span data-ttu-id="2c13e-119">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="2c13e-119">**GET**</span></span> | <span data-ttu-id="2c13e-120">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/relationshiprequests HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="2c13e-120">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/relationshiprequests HTTP/1.1</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="d3f85-124">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="d3f85-124">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="2c13e-121">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="2c13e-121">Request headers</span></span>
 
-<span data-ttu-id="d3f85-125">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="d3f85-125">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="2c13e-122">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="2c13e-122">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="d3f85-126">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="d3f85-126">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="2c13e-123">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="2c13e-123">Request body</span></span>
 
-<span data-ttu-id="d3f85-127">Geen</span><span class="sxs-lookup"><span data-stu-id="d3f85-127">None</span></span>
+<span data-ttu-id="2c13e-124">Geen</span><span class="sxs-lookup"><span data-stu-id="2c13e-124">None</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="d3f85-128">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="d3f85-128">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="2c13e-125">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="2c13e-125">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/relationshiprequests HTTP/1.1
@@ -66,15 +62,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="d3f85-129">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="d3f85-129">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="2c13e-126">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="2c13e-126">REST response</span></span>
 
-<span data-ttu-id="d3f85-130">Als dit is gelukt, bevat het antwoord het [RelationshipRequest](relationships-resources.md#relationshiprequest) -object.</span><span class="sxs-lookup"><span data-stu-id="d3f85-130">If successful, the response contains the [RelationshipRequest](relationships-resources.md#relationshiprequest) object.</span></span>
+<span data-ttu-id="2c13e-127">Als dit lukt, bevat het antwoord het [object RelationshipRequest.](relationships-resources.md#relationshiprequest)</span><span class="sxs-lookup"><span data-stu-id="2c13e-127">If successful, the response contains the [RelationshipRequest](relationships-resources.md#relationshiprequest) object.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="d3f85-131">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="d3f85-131">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="2c13e-128">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="2c13e-128">Response success and error codes</span></span>
 
-<span data-ttu-id="d3f85-132">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="d3f85-132">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="d3f85-133">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="d3f85-133">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="d3f85-134">Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="d3f85-134">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="2c13e-129">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="2c13e-129">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="2c13e-130">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="2c13e-130">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="2c13e-131">Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="2c13e-131">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="d3f85-135">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="d3f85-135">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="2c13e-132">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="2c13e-132">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK
