@@ -1,38 +1,33 @@
 ---
 title: Een winkelwagen afhandelen
-description: Meer informatie over het controleren van een bestelling voor een klant in een mandje met behulp van partner Center-Api's. U kunt dit doen om een klant order te volt ooien.
+description: Meer informatie over het controleren van een bestelling voor een klant in een winkelwagen met behulp Partner Center API's. U kunt dit doen om een klantorder te voltooien.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 094817a34cd29bc96788fcfb6a16610a8192d784
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 9ee06797602b22a1f8257c94880a2d81e2280f2e
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97767621"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974043"
 ---
-# <a name="checkout-an-order-for-a-customer-in-a-cart"></a><span data-ttu-id="3ce32-104">Een bestelling voor een klant in een mandje afhandelen</span><span class="sxs-lookup"><span data-stu-id="3ce32-104">Checkout an order for a customer in a cart</span></span>
+# <a name="checkout-an-order-for-a-customer-in-a-cart"></a><span data-ttu-id="3ba32-104">Een bestelling voor een klant in een winkelwagen afrekenen</span><span class="sxs-lookup"><span data-stu-id="3ba32-104">Checkout an order for a customer in a cart</span></span>
 
-<span data-ttu-id="3ce32-105">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="3ce32-105">**Applies to:**</span></span>
+<span data-ttu-id="3ba32-105">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="3ba32-105">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="3ce32-106">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="3ce32-106">Partner Center</span></span>
-- <span data-ttu-id="3ce32-107">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="3ce32-107">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="3ce32-108">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="3ce32-108">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="3ce32-109">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="3ce32-109">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="3ba32-106">Een order voor een klant in een winkelwagen afrekenen.</span><span class="sxs-lookup"><span data-stu-id="3ba32-106">How to checkout an order for a customer in a cart.</span></span>
 
-<span data-ttu-id="3ce32-110">Het afhandelen van een bestelling voor een klant in een winkel wagen.</span><span class="sxs-lookup"><span data-stu-id="3ce32-110">How to checkout an order for a customer in a cart.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="3ba32-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="3ba32-107">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="3ce32-111">Vereisten</span><span class="sxs-lookup"><span data-stu-id="3ce32-111">Prerequisites</span></span>
+- <span data-ttu-id="3ba32-108">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="3ba32-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="3ba32-109">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="3ba32-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="3ce32-112">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="3ce32-112">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="3ce32-113">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="3ce32-113">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="3ba32-110">Een klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="3ba32-110">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="3ba32-111">Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span><span class="sxs-lookup"><span data-stu-id="3ba32-111">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="3ba32-112">Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.**</span><span class="sxs-lookup"><span data-stu-id="3ba32-112">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="3ba32-113">Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**.</span><span class="sxs-lookup"><span data-stu-id="3ba32-113">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="3ba32-114">Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.**</span><span class="sxs-lookup"><span data-stu-id="3ba32-114">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="3ba32-115">De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="3ba32-115">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="3ce32-114">Een klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="3ce32-114">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="3ce32-115">Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum.</span><span class="sxs-lookup"><span data-stu-id="3ce32-115">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="3ce32-116">Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**.</span><span class="sxs-lookup"><span data-stu-id="3ce32-116">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="3ce32-117">Selecteer de klant in de lijst klant en selecteer vervolgens **account**.</span><span class="sxs-lookup"><span data-stu-id="3ce32-117">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="3ce32-118">Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** .</span><span class="sxs-lookup"><span data-stu-id="3ce32-118">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="3ce32-119">De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="3ce32-119">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+- <span data-ttu-id="3ba32-116">Een winkelwagen-id voor een bestaande winkelwagen.</span><span class="sxs-lookup"><span data-stu-id="3ba32-116">A Cart ID for an existing cart.</span></span>
 
-- <span data-ttu-id="3ce32-120">Een winkel wagen-ID voor een bestaande winkel wagen.</span><span class="sxs-lookup"><span data-stu-id="3ce32-120">A Cart ID for an existing cart.</span></span>
+## <a name="c"></a><span data-ttu-id="3ba32-117">C\#</span><span class="sxs-lookup"><span data-stu-id="3ba32-117">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="3ce32-121">C\#</span><span class="sxs-lookup"><span data-stu-id="3ce32-121">C\#</span></span>
-
-<span data-ttu-id="3ce32-122">Als u een bestelling wilt afhandelen voor een klant, kunt u een verwijzing naar de winkel wagen ophalen met behulp van het wagentje en de klant-id.</span><span class="sxs-lookup"><span data-stu-id="3ce32-122">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="3ce32-123">Roep tot slot de functies **Create** of **CreateAsync** aan om de volg orde te volt ooien.</span><span class="sxs-lookup"><span data-stu-id="3ce32-123">Finally, call the **Create** or **CreateAsync** functions to complete the order.</span></span>
+<span data-ttu-id="3ba32-118">Als u een order voor een klant wilt afrekenen, krijgt u een verwijzing naar de winkelwagen met behulp van de winkelwagen en de klant-id.</span><span class="sxs-lookup"><span data-stu-id="3ba32-118">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="3ba32-119">Roep ten slotte de **functies Create** of **CreateAsync aan** om de bestelling te voltooien.</span><span class="sxs-lookup"><span data-stu-id="3ba32-119">Finally, call the **Create** or **CreateAsync** functions to complete the order.</span></span>
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -42,11 +37,11 @@ ms.locfileid: "97767621"
 var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checkout();
 ```
 
-## <a name="java"></a><span data-ttu-id="3ce32-124">Java</span><span class="sxs-lookup"><span data-stu-id="3ce32-124">Java</span></span>
+## <a name="java"></a><span data-ttu-id="3ba32-120">Java</span><span class="sxs-lookup"><span data-stu-id="3ba32-120">Java</span></span>
 
 [!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-<span data-ttu-id="3ce32-125">Als u een bestelling wilt afhandelen voor een klant, kunt u een verwijzing naar de winkel wagen ophalen met behulp van het wagentje en de klant-id.</span><span class="sxs-lookup"><span data-stu-id="3ce32-125">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="3ce32-126">Roep ten slotte de functie **maken** aan om de volg orde te volt ooien.</span><span class="sxs-lookup"><span data-stu-id="3ce32-126">Finally, call the **create** function to complete the order.</span></span>
+<span data-ttu-id="3ba32-121">Als u een order voor een klant wilt afrekenen, krijgt u een verwijzing naar de winkelwagen met behulp van de winkelwagen en de klant-id.</span><span class="sxs-lookup"><span data-stu-id="3ba32-121">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="3ba32-122">Roep ten slotte de **functie create aan** om de bestelling te voltooien.</span><span class="sxs-lookup"><span data-stu-id="3ba32-122">Finally, call the **create** function to complete the order.</span></span>
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -56,11 +51,11 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(cartId).checkout();
 ```
 
-## <a name="powershell"></a><span data-ttu-id="3ce32-127">PowerShell</span><span class="sxs-lookup"><span data-stu-id="3ce32-127">PowerShell</span></span>
+## <a name="powershell"></a><span data-ttu-id="3ba32-123">PowerShell</span><span class="sxs-lookup"><span data-stu-id="3ba32-123">PowerShell</span></span>
 
 [!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-<span data-ttu-id="3ce32-128">Als u een bestelling voor een klant wilt afhandelen, voert u de opdracht [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) uit om de order te volt ooien.</span><span class="sxs-lookup"><span data-stu-id="3ce32-128">To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) to complete the order.</span></span>
+<span data-ttu-id="3ba32-124">Als u een order voor een klant wilt afrekenen, voert u [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) uit om de order te voltooien.</span><span class="sxs-lookup"><span data-stu-id="3ba32-124">To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) to complete the order.</span></span>
 
 ```powershell
 # $customerId
@@ -69,32 +64,32 @@ Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(car
 Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="3ce32-129">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="3ce32-129">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="3ba32-125">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="3ba32-125">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="3ce32-130">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="3ce32-130">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="3ba32-126">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="3ba32-126">Request syntax</span></span>
 
-| <span data-ttu-id="3ce32-131">Methode</span><span class="sxs-lookup"><span data-stu-id="3ce32-131">Method</span></span>   | <span data-ttu-id="3ce32-132">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="3ce32-132">Request URI</span></span>                                                                                                 |
+| <span data-ttu-id="3ba32-127">Methode</span><span class="sxs-lookup"><span data-stu-id="3ba32-127">Method</span></span>   | <span data-ttu-id="3ba32-128">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="3ba32-128">Request URI</span></span>                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="3ce32-133">**Verzenden**</span><span class="sxs-lookup"><span data-stu-id="3ce32-133">**POST**</span></span> | <span data-ttu-id="3ce32-134">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Carts/{Cart-id}/checkout http/1.1</span><span class="sxs-lookup"><span data-stu-id="3ce32-134">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1</span></span>     |
+| <span data-ttu-id="3ba32-129">**Verzenden**</span><span class="sxs-lookup"><span data-stu-id="3ba32-129">**POST**</span></span> | <span data-ttu-id="3ba32-130">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="3ba32-130">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1</span></span>     |
 
-### <a name="uri-parameters"></a><span data-ttu-id="3ce32-135">URI-para meters</span><span class="sxs-lookup"><span data-stu-id="3ce32-135">URI parameters</span></span>
+### <a name="uri-parameters"></a><span data-ttu-id="3ba32-131">URI-parameters</span><span class="sxs-lookup"><span data-stu-id="3ba32-131">URI parameters</span></span>
 
-<span data-ttu-id="3ce32-136">Gebruik de volgende para meters om de klant te identificeren en de winkel wagen op te geven die moet worden uitgecheckt.</span><span class="sxs-lookup"><span data-stu-id="3ce32-136">Use the following path parameters to identify the customer and specify the cart to be checked out.</span></span>
+<span data-ttu-id="3ba32-132">Gebruik de volgende padparameters om de klant te identificeren en geef de winkelwagen op die moet worden uitgecheckt.</span><span class="sxs-lookup"><span data-stu-id="3ba32-132">Use the following path parameters to identify the customer and specify the cart to be checked out.</span></span>
 
-| <span data-ttu-id="3ce32-137">Naam</span><span class="sxs-lookup"><span data-stu-id="3ce32-137">Name</span></span>            | <span data-ttu-id="3ce32-138">Type</span><span class="sxs-lookup"><span data-stu-id="3ce32-138">Type</span></span>     | <span data-ttu-id="3ce32-139">Vereist</span><span class="sxs-lookup"><span data-stu-id="3ce32-139">Required</span></span> | <span data-ttu-id="3ce32-140">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="3ce32-140">Description</span></span>                                                            |
+| <span data-ttu-id="3ba32-133">Naam</span><span class="sxs-lookup"><span data-stu-id="3ba32-133">Name</span></span>            | <span data-ttu-id="3ba32-134">Type</span><span class="sxs-lookup"><span data-stu-id="3ba32-134">Type</span></span>     | <span data-ttu-id="3ba32-135">Vereist</span><span class="sxs-lookup"><span data-stu-id="3ba32-135">Required</span></span> | <span data-ttu-id="3ba32-136">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="3ba32-136">Description</span></span>                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| <span data-ttu-id="3ce32-141">**klant-id**</span><span class="sxs-lookup"><span data-stu-id="3ce32-141">**customer-id**</span></span> | <span data-ttu-id="3ce32-142">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="3ce32-142">string</span></span>   | <span data-ttu-id="3ce32-143">Yes</span><span class="sxs-lookup"><span data-stu-id="3ce32-143">Yes</span></span>      | <span data-ttu-id="3ce32-144">Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd.</span><span class="sxs-lookup"><span data-stu-id="3ce32-144">A GUID formatted customer-id that identifies the customer.</span></span>             |
-| <span data-ttu-id="3ce32-145">**Winkel wagen-id**</span><span class="sxs-lookup"><span data-stu-id="3ce32-145">**cart-id**</span></span>     | <span data-ttu-id="3ce32-146">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="3ce32-146">string</span></span>   | <span data-ttu-id="3ce32-147">Yes</span><span class="sxs-lookup"><span data-stu-id="3ce32-147">Yes</span></span>      | <span data-ttu-id="3ce32-148">Een door de GUID ingedeelde winkel wagen-id waarmee de winkel wagen wordt aangeduid.</span><span class="sxs-lookup"><span data-stu-id="3ce32-148">A GUID formatted cart-id that identifies the cart.</span></span>                     |
+| <span data-ttu-id="3ba32-137">**customer-id**</span><span class="sxs-lookup"><span data-stu-id="3ba32-137">**customer-id**</span></span> | <span data-ttu-id="3ba32-138">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="3ba32-138">string</span></span>   | <span data-ttu-id="3ba32-139">Ja</span><span class="sxs-lookup"><span data-stu-id="3ba32-139">Yes</span></span>      | <span data-ttu-id="3ba32-140">Een in GUID opgemaakte klant-id die de klant identificeert.</span><span class="sxs-lookup"><span data-stu-id="3ba32-140">A GUID formatted customer-id that identifies the customer.</span></span>             |
+| <span data-ttu-id="3ba32-141">**cart-id**</span><span class="sxs-lookup"><span data-stu-id="3ba32-141">**cart-id**</span></span>     | <span data-ttu-id="3ba32-142">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="3ba32-142">string</span></span>   | <span data-ttu-id="3ba32-143">Ja</span><span class="sxs-lookup"><span data-stu-id="3ba32-143">Yes</span></span>      | <span data-ttu-id="3ba32-144">Een cart-id met GUID-indeling die de winkelwagen identificeert.</span><span class="sxs-lookup"><span data-stu-id="3ba32-144">A GUID formatted cart-id that identifies the cart.</span></span>                     |
 
-### <a name="request-headers"></a><span data-ttu-id="3ce32-149">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="3ce32-149">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="3ba32-145">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="3ba32-145">Request headers</span></span>
 
-<span data-ttu-id="3ce32-150">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="3ce32-150">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="3ba32-146">Zie REST-headers Partner Center [meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="3ba32-146">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="3ce32-151">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="3ce32-151">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="3ba32-147">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="3ba32-147">Request body</span></span>
 
-<span data-ttu-id="3ce32-152">Geen.</span><span class="sxs-lookup"><span data-stu-id="3ce32-152">None.</span></span>
+<span data-ttu-id="3ba32-148">Geen.</span><span class="sxs-lookup"><span data-stu-id="3ba32-148">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="3ce32-153">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="3ce32-153">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="3ba32-149">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="3ba32-149">Request example</span></span>
 
 ```http
 POST /v1/customers/d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d/carts/b4c8fdea-cbe4-4d17-9576-13fcacbf9605/checkout HTTP/1.1
@@ -112,15 +107,15 @@ Expect: 100-continue
 No-Content-Body
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="3ce32-154">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="3ce32-154">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="3ba32-150">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="3ba32-150">REST response</span></span>
 
-<span data-ttu-id="3ce32-155">Als dit lukt, bevat de antwoord tekst de gevulde [CartCheckoutResult](cart-resources.md#cartcheckoutresult) -resource.</span><span class="sxs-lookup"><span data-stu-id="3ce32-155">If successful, the response body contains the populated [CartCheckoutResult](cart-resources.md#cartcheckoutresult) resource.</span></span>
+<span data-ttu-id="3ba32-151">Als dit lukt, bevat de antwoord-body de ingevulde [CartCheckoutResult-resource.](cart-resources.md#cartcheckoutresult)</span><span class="sxs-lookup"><span data-stu-id="3ba32-151">If successful, the response body contains the populated [CartCheckoutResult](cart-resources.md#cartcheckoutresult) resource.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="3ce32-156">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="3ce32-156">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="3ba32-152">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="3ba32-152">Response success and error codes</span></span>
 
-<span data-ttu-id="3ce32-157">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="3ce32-157">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="3ce32-158">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="3ce32-158">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="3ce32-159">Zie [fout codes](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="3ce32-159">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="3ba32-153">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="3ba32-153">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="3ba32-154">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="3ba32-154">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="3ba32-155">Zie Foutcodes voor de [volledige lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="3ba32-155">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="3ce32-160">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="3ce32-160">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="3ba32-156">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="3ba32-156">Response example</span></span>
 
 ```http
 HTTP/1.1 201 Created

@@ -1,71 +1,66 @@
 ---
 title: Partnercentrum-webhooks
-description: Met webhooks kunnen partners zich registreren voor bron wijzigings gebeurtenissen.
+description: Met webhooks kunnen partners zich registreren voor resourcewijzigingsgebeurtenissen.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 8225623ade7e922ac23ebf0ed9215686b0601244
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 74d5981436ba29ea4f6f93a5693ec6da82777eb4
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767336"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547730"
 ---
-# <a name="partner-center-webhooks"></a><span data-ttu-id="32c81-103">Partnercentrum-webhooks</span><span class="sxs-lookup"><span data-stu-id="32c81-103">Partner Center webhooks</span></span>
+# <a name="partner-center-webhooks"></a><span data-ttu-id="b8132-103">Partnercentrum-webhooks</span><span class="sxs-lookup"><span data-stu-id="b8132-103">Partner Center webhooks</span></span>
 
-<span data-ttu-id="32c81-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="32c81-104">**Applies To**</span></span>
+<span data-ttu-id="b8132-104">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="b8132-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="32c81-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="32c81-105">Partner Center</span></span>
-- <span data-ttu-id="32c81-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="32c81-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="32c81-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="32c81-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="32c81-108">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="32c81-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="b8132-105">Met Partner Center webhook-API's kunnen partners zich registreren voor resourcewijzigingsgebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="b8132-105">The Partner Center Webhook APIs allow partners to register for resource change events.</span></span> <span data-ttu-id="b8132-106">Deze gebeurtenissen worden geleverd in de vorm van HTTP POST's aan de geregistreerde URL van de partner.</span><span class="sxs-lookup"><span data-stu-id="b8132-106">These events are delivered in the form of HTTP POSTs to the partner's registered URL.</span></span> <span data-ttu-id="b8132-107">Als partners een gebeurtenis van Partner Center ontvangen, hosten ze een callback waar Partner Center de gebeurtenis van de resourcewijziging kan plaatsen.</span><span class="sxs-lookup"><span data-stu-id="b8132-107">To receive an event from Partner Center, partners will host a callback where Partner Center can POST the resource change event.</span></span> <span data-ttu-id="b8132-108">De gebeurtenis wordt digitaal ondertekend, zodat de partner kan controleren of deze is verzonden vanuit Partner Center.</span><span class="sxs-lookup"><span data-stu-id="b8132-108">The event will be digitally signed so that the partner can verify that it was sent from Partner Center.</span></span>
 
-<span data-ttu-id="32c81-109">Met de webhook-Api's van partner Center kunnen partners zich registreren voor bron wijzigings gebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="32c81-109">The Partner Center Webhook APIs allow partners to register for resource change events.</span></span> <span data-ttu-id="32c81-110">Deze gebeurtenissen worden in de vorm van HTTP-berichten verzonden naar de geregistreerde URL van de partner.</span><span class="sxs-lookup"><span data-stu-id="32c81-110">These events are delivered in the form of HTTP POSTs to the partner's registered URL.</span></span> <span data-ttu-id="32c81-111">Als u een gebeurtenis van het partner centrum wilt ontvangen, hosten partners een call back waarbij het partner centrum de wijzigings gebeurtenis van de resource kan posten.</span><span class="sxs-lookup"><span data-stu-id="32c81-111">To receive an event from Partner Center, partners will host a callback where Partner Center can POST the resource change event.</span></span> <span data-ttu-id="32c81-112">De gebeurtenis wordt digitaal ondertekend, zodat de partner kan controleren of deze is verzonden vanuit het partner centrum.</span><span class="sxs-lookup"><span data-stu-id="32c81-112">The event will be digitally signed so that the partner can verify that it was sent from Partner Center.</span></span>
+<span data-ttu-id="b8132-109">Partners kunnen kiezen uit webhookgebeurtenissen, zoals de volgende voorbeelden, die worden ondersteund door Partner Center.</span><span class="sxs-lookup"><span data-stu-id="b8132-109">Partners can select from Webhook events, like the following examples, that are supported by Partner Center.</span></span>
 
-<span data-ttu-id="32c81-113">Partners kunnen een keuze maken uit webhook-gebeurtenissen, zoals de volgende voor beelden, die worden ondersteund door het partner centrum.</span><span class="sxs-lookup"><span data-stu-id="32c81-113">Partners can select from Webhook events, like the following examples, that are supported by Partner Center.</span></span>
+- <span data-ttu-id="b8132-110">**Testgebeurtenis ('test gemaakt')**</span><span class="sxs-lookup"><span data-stu-id="b8132-110">**Test Event ("test-created")**</span></span>
 
-- <span data-ttu-id="32c81-114">**Test gebeurtenis ("test-created")**</span><span class="sxs-lookup"><span data-stu-id="32c81-114">**Test Event ("test-created")**</span></span>
+    <span data-ttu-id="b8132-111">Met deze gebeurtenis kunt u uw registratie zelf onboarden en testen door een testgebeurtenis aan te vragen en vervolgens de voortgang ervan bij te houden.</span><span class="sxs-lookup"><span data-stu-id="b8132-111">This event allows you to self-onboard and test your registration by requesting a test event and then tracking its progress.</span></span> <span data-ttu-id="b8132-112">U kunt de foutberichten zien die van Microsoft worden ontvangen tijdens het leveren van de gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="b8132-112">You can see the failure messages that are being received from Microsoft while trying to deliver the event.</span></span> <span data-ttu-id="b8132-113">Deze beperking is alleen van toepassing op gebeurtenissen die zijn gemaakt door een test.</span><span class="sxs-lookup"><span data-stu-id="b8132-113">This restriction only applies to "test-created" events.</span></span> <span data-ttu-id="b8132-114">Gegevens ouder dan zeven dagen worden verwijderd.</span><span class="sxs-lookup"><span data-stu-id="b8132-114">Data older than seven days will be purged.</span></span>
 
-    <span data-ttu-id="32c81-115">Met deze gebeurtenis kunt u zelf onboards en uw registratie testen door een test gebeurtenis aan te vragen en de voortgang op te sporen.</span><span class="sxs-lookup"><span data-stu-id="32c81-115">This event allows you to self-onboard and test your registration by requesting a test event and then tracking its progress.</span></span> <span data-ttu-id="32c81-116">U kunt de fout berichten bekijken die van micro soft worden ontvangen tijdens het leveren van de gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="32c81-116">You can see the failure messages that are being received from Microsoft while trying to deliver the event.</span></span> <span data-ttu-id="32c81-117">Deze beperking is alleen van toepassing op gebeurtenissen die zijn gemaakt met een test.</span><span class="sxs-lookup"><span data-stu-id="32c81-117">This restriction only applies to "test-created" events.</span></span> <span data-ttu-id="32c81-118">Gegevens die ouder zijn dan zeven dagen worden verwijderd.</span><span class="sxs-lookup"><span data-stu-id="32c81-118">Data older than seven days will be purged.</span></span>
+- <span data-ttu-id="b8132-115">**Gebeurtenis bijgewerkt abonnement ('abonnement bijgewerkt')**</span><span class="sxs-lookup"><span data-stu-id="b8132-115">**Subscription Updated Event ("subscription-updated")**</span></span>
 
-- <span data-ttu-id="32c81-119">**Bijgewerkte gebeurtenis van abonnement (abonnement-bijgewerkt)**</span><span class="sxs-lookup"><span data-stu-id="32c81-119">**Subscription Updated Event ("subscription-updated")**</span></span>
-
-    <span data-ttu-id="32c81-120">Deze gebeurtenis treedt op wanneer het abonnement wordt gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="32c81-120">This event is raised when the subscription changes.</span></span> <span data-ttu-id="32c81-121">Deze gebeurtenissen worden gegenereerd wanneer er een interne wijziging in aanvulling is op wanneer wijzigingen worden aangebracht via de partner centrum-API.</span><span class="sxs-lookup"><span data-stu-id="32c81-121">These events will be generated when there is an internal change in addition to when changes are made through the Partner Center API.</span></span>
+    <span data-ttu-id="b8132-116">Deze gebeurtenis wordt aan het werk gesteld wanneer het abonnement wordt gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="b8132-116">This event is raised when the subscription changes.</span></span> <span data-ttu-id="b8132-117">Deze gebeurtenissen worden gegenereerd wanneer er een interne wijziging is naast wanneer wijzigingen worden aangebracht via de Partner Center API.</span><span class="sxs-lookup"><span data-stu-id="b8132-117">These events will be generated when there is an internal change in addition to when changes are made through the Partner Center API.</span></span>
 
     >[!NOTE]
-    ><span data-ttu-id="32c81-122">Er is een vertraging van Maxi maal 48 uur tussen het tijdstip waarop een abonnement wijzigt en wanneer de gebeurtenis bijgewerkt abonnement wordt geactiveerd.</span><span class="sxs-lookup"><span data-stu-id="32c81-122">There is a delay of up to 48 hours between the time a subscription changes and when the Subscription Updated event is triggered.</span></span>
+    ><span data-ttu-id="b8132-118">Er is een vertraging van maximaal 48 uur tussen het moment waarop een abonnement wordt gewijzigd en het moment waarop de gebeurtenis Abonnement bijgewerkt wordt geactiveerd.</span><span class="sxs-lookup"><span data-stu-id="b8132-118">There is a delay of up to 48 hours between the time a subscription changes and when the Subscription Updated event is triggered.</span></span>
 
-- <span data-ttu-id="32c81-123">**Gebeurtenis drempelwaarde overschreden ("usagerecords-thresholdExceeded")**</span><span class="sxs-lookup"><span data-stu-id="32c81-123">**Threshold Exceeded Event ("usagerecords-thresholdExceeded")**</span></span>
+- <span data-ttu-id="b8132-119">**Drempelwaarde overschreden gebeurtenis ('usagerecords-thresholdExceeded')**</span><span class="sxs-lookup"><span data-stu-id="b8132-119">**Threshold Exceeded Event ("usagerecords-thresholdExceeded")**</span></span>
 
-    <span data-ttu-id="32c81-124">Deze gebeurtenis treedt op wanneer de hoeveelheid Microsoft Azure gebruik voor een klant groter is dan het bestedings budget van het gebruik (de drempel waarde).</span><span class="sxs-lookup"><span data-stu-id="32c81-124">This event is raised when the amount of Microsoft Azure usage for any customer exceeds their usage spending budget (their threshold).</span></span> <span data-ttu-id="32c81-125">Zie voor meer informatie [een Azure-uitgaven budget instellen voor uw klanten/Partner-Center/set-a-Azure-besteding-budget-voor-uw klanten).</span><span class="sxs-lookup"><span data-stu-id="32c81-125">For more information, see  [Set an Azure spending budget for your customers/partner-center/set-an-azure-spending-budget-for-your-customers).</span></span>
+    <span data-ttu-id="b8132-120">Deze gebeurtenis teert wanneer de hoeveelheid Microsoft Azure voor elke klant het gebruiksuitgavenbudget (hun drempelwaarde) overschrijdt.</span><span class="sxs-lookup"><span data-stu-id="b8132-120">This event is raised when the amount of Microsoft Azure usage for any customer exceeds their usage spending budget (their threshold).</span></span> <span data-ttu-id="b8132-121">Zie [Een Azure-uitgavenbudget instellen voor uw klanten/partnercentrum/set-an-azure-spending-budget-for-your-customers) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="b8132-121">For more information, see  [Set an Azure spending budget for your customers/partner-center/set-an-azure-spending-budget-for-your-customers).</span></span>
 
-- <span data-ttu-id="32c81-126">**Gebeurtenis voor het maken van een referral (' verwijzing-gemaakt ')**</span><span class="sxs-lookup"><span data-stu-id="32c81-126">**Referral Created Event ("referral-created")**</span></span>
+- <span data-ttu-id="b8132-122">**Door verwijzing gemaakte gebeurtenis ("verwijzing gemaakt")**</span><span class="sxs-lookup"><span data-stu-id="b8132-122">**Referral Created Event ("referral-created")**</span></span>
 
-    <span data-ttu-id="32c81-127">Deze gebeurtenis treedt op wanneer de verwijzing wordt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="32c81-127">This event is raised when the referral is created.</span></span>
+    <span data-ttu-id="b8132-123">Deze gebeurtenis wordt aangemaakt wanneer de verwijzing wordt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="b8132-123">This event is raised when the referral is created.</span></span>
 
-- <span data-ttu-id="32c81-128">**De gebeurtenis Referral update (' verwijzing-bijgewerkt ')**</span><span class="sxs-lookup"><span data-stu-id="32c81-128">**Referral Updated Event ("referral-updated")**</span></span>
+- <span data-ttu-id="b8132-124">**Gebeurtenis bijgewerkt door verwijzing ('verwijzing bijgewerkt')**</span><span class="sxs-lookup"><span data-stu-id="b8132-124">**Referral Updated Event ("referral-updated")**</span></span>
 
-    <span data-ttu-id="32c81-129">Deze gebeurtenis treedt op wanneer de verwijzing wordt bijgewerkt.</span><span class="sxs-lookup"><span data-stu-id="32c81-129">This event is raised when the referral is updated.</span></span>
+    <span data-ttu-id="b8132-125">Deze gebeurtenis wordt aan de orde gesteld wanneer de verwijzing wordt bijgewerkt.</span><span class="sxs-lookup"><span data-stu-id="b8132-125">This event is raised when the referral is updated.</span></span>
 
-- <span data-ttu-id="32c81-130">**Factuur gereed gebeurtenis ("factuur gereed")**</span><span class="sxs-lookup"><span data-stu-id="32c81-130">**Invoice Ready Event ("invoice-ready")**</span></span>
+- <span data-ttu-id="b8132-126">**Gebeurtenis gereed voor factuur ('factuur gereed')**</span><span class="sxs-lookup"><span data-stu-id="b8132-126">**Invoice Ready Event ("invoice-ready")**</span></span>
 
-    <span data-ttu-id="32c81-131">Deze gebeurtenis treedt op wanneer de nieuwe factuur gereed is.</span><span class="sxs-lookup"><span data-stu-id="32c81-131">This event is raised when the new invoice is ready.</span></span>
+    <span data-ttu-id="b8132-127">Deze gebeurtenis wordt verhoogd wanneer de nieuwe factuur gereed is.</span><span class="sxs-lookup"><span data-stu-id="b8132-127">This event is raised when the new invoice is ready.</span></span>
 
-<span data-ttu-id="32c81-132">Toekomstige webhook-gebeurtenissen worden toegevoegd voor resources die veranderen in het systeem waarvan de partner niet in beheer is, en er worden verdere updates uitgevoerd om deze gebeurtenissen zo snel mogelijk op te halen.</span><span class="sxs-lookup"><span data-stu-id="32c81-132">Future Webhook events will be added for resources that change in the system that the partner isn't in control of, and further updates will be made to get those events as close to "real time" as possible.</span></span> <span data-ttu-id="32c81-133">Feedback van partners over welke gebeurtenissen een waarde toevoegen aan hun bedrijf is handig om te bepalen welke nieuwe gebeurtenissen moeten worden toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="32c81-133">Feedback from Partners on which events add value to their business will be useful in determining what new events to add.</span></span>
+<span data-ttu-id="b8132-128">Toekomstige webhookgebeurtenissen worden toegevoegd voor resources die wijzigen in het systeem waar de partner geen controle over heeft, en er worden verdere updates aangebracht om deze gebeurtenissen zo dicht mogelijk bij 'realtime' te krijgen.</span><span class="sxs-lookup"><span data-stu-id="b8132-128">Future Webhook events will be added for resources that change in the system that the partner isn't in control of, and further updates will be made to get those events as close to "real time" as possible.</span></span> <span data-ttu-id="b8132-129">Feedback van partners over welke gebeurtenissen waarde toevoegen aan hun bedrijf, is handig om te bepalen welke nieuwe gebeurtenissen moeten worden toevoegen.</span><span class="sxs-lookup"><span data-stu-id="b8132-129">Feedback from Partners on which events add value to their business will be useful in determining what new events to add.</span></span>
 
-<span data-ttu-id="32c81-134">Zie [Partner Center-gebeurtenissen voor webhooks](partner-center-webhook-events.md)voor een volledige lijst van webhook-gebeurtenissen die worden ondersteund door het partner centrum.</span><span class="sxs-lookup"><span data-stu-id="32c81-134">For a complete list of Webhook events supported by Partner Center, see [Partner Center webhook events](partner-center-webhook-events.md).</span></span>
+<span data-ttu-id="b8132-130">Zie webhookgebeurtenissen voor een volledige Partner Center [webhookgebeurtenissen Partner Center webhookgebeurtenissen.](partner-center-webhook-events.md)</span><span class="sxs-lookup"><span data-stu-id="b8132-130">For a complete list of Webhook events supported by Partner Center, see [Partner Center webhook events](partner-center-webhook-events.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="32c81-135">Vereisten</span><span class="sxs-lookup"><span data-stu-id="32c81-135">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="b8132-131">Vereisten</span><span class="sxs-lookup"><span data-stu-id="b8132-131">Prerequisites</span></span>
 
-- <span data-ttu-id="32c81-136">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="32c81-136">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="32c81-137">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="32c81-137">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="b8132-132">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="b8132-132">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="b8132-133">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="b8132-133">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-## <a name="receiving-events-from-partner-center"></a><span data-ttu-id="32c81-138">Gebeurtenissen ontvangen van het partner centrum</span><span class="sxs-lookup"><span data-stu-id="32c81-138">Receiving events from Partner Center</span></span>
+## <a name="receiving-events-from-partner-center"></a><span data-ttu-id="b8132-134">Gebeurtenissen ontvangen van Partner Center</span><span class="sxs-lookup"><span data-stu-id="b8132-134">Receiving events from Partner Center</span></span>
 
-<span data-ttu-id="32c81-139">Als u gebeurtenissen van het partner centrum wilt ontvangen, moet u een openbaar toegankelijk eind punt zichtbaar maken.</span><span class="sxs-lookup"><span data-stu-id="32c81-139">To receive events from Partner Center, you must expose a publicly accessible endpoint.</span></span> <span data-ttu-id="32c81-140">Omdat dit eind punt wordt weer gegeven, moet u controleren of de communicatie van het partner centrum is.</span><span class="sxs-lookup"><span data-stu-id="32c81-140">Because this endpoint is exposed, you must validate that the communication is from Partner Center.</span></span> <span data-ttu-id="32c81-141">Alle webhook-gebeurtenissen die u ontvangt, worden digitaal ondertekend met een certificaat dat is gekoppeld aan de micro soft root.</span><span class="sxs-lookup"><span data-stu-id="32c81-141">All Webhook events that you receive are digitally signed with a certificate that chains to the Microsoft Root.</span></span> <span data-ttu-id="32c81-142">Er wordt ook een koppeling weer gegeven naar het certificaat dat wordt gebruikt om de gebeurtenis te ondertekenen.</span><span class="sxs-lookup"><span data-stu-id="32c81-142">A link to the certificate used to sign the event will also be provided.</span></span> <span data-ttu-id="32c81-143">Hierdoor kan het certificaat worden vernieuwd zonder dat u uw service opnieuw hoeft te implementeren of opnieuw te configureren.</span><span class="sxs-lookup"><span data-stu-id="32c81-143">This will allow the certificate to be renewed without you having to redeploy or reconfigure your service.</span></span> <span data-ttu-id="32c81-144">Het partner centrum maakt 10 pogingen om de gebeurtenis te leveren.</span><span class="sxs-lookup"><span data-stu-id="32c81-144">Partner Center will make 10 attempts to deliver the event.</span></span> <span data-ttu-id="32c81-145">Als de gebeurtenis na 10 pogingen nog niet is bezorgd, wordt deze naar een offline wachtrij verplaatst en worden er geen nieuwe pogingen gedaan bij de levering.</span><span class="sxs-lookup"><span data-stu-id="32c81-145">If the event is still not delivered after 10 attempts, it will be moved into an offline queue and no further attempts will be made at delivery.</span></span>
+<span data-ttu-id="b8132-135">Als u gebeurtenissen van Partner Center, moet u een openbaar toegankelijk eindpunt beschikbaar maken.</span><span class="sxs-lookup"><span data-stu-id="b8132-135">To receive events from Partner Center, you must expose a publicly accessible endpoint.</span></span> <span data-ttu-id="b8132-136">Omdat dit eindpunt wordt blootgesteld, moet u controleren of de communicatie afkomstig is van Partner Center.</span><span class="sxs-lookup"><span data-stu-id="b8132-136">Because this endpoint is exposed, you must validate that the communication is from Partner Center.</span></span> <span data-ttu-id="b8132-137">Alle webhookgebeurtenissen die u ontvangt, worden digitaal ondertekend met een certificaat dat is geketend aan microsoft Root.</span><span class="sxs-lookup"><span data-stu-id="b8132-137">All Webhook events that you receive are digitally signed with a certificate that chains to the Microsoft Root.</span></span> <span data-ttu-id="b8132-138">Er wordt ook een koppeling naar het certificaat gegeven dat wordt gebruikt om de gebeurtenis te ondertekenen.</span><span class="sxs-lookup"><span data-stu-id="b8132-138">A link to the certificate used to sign the event will also be provided.</span></span> <span data-ttu-id="b8132-139">Hierdoor kan het certificaat worden vernieuwd zonder dat u uw service opnieuw moet configureren of opnieuw moet configureren.</span><span class="sxs-lookup"><span data-stu-id="b8132-139">This will allow the certificate to be renewed without you having to redeploy or reconfigure your service.</span></span> <span data-ttu-id="b8132-140">Partner Center zal 10 pogingen doen om de gebeurtenis te leveren.</span><span class="sxs-lookup"><span data-stu-id="b8132-140">Partner Center will make 10 attempts to deliver the event.</span></span> <span data-ttu-id="b8132-141">Als de gebeurtenis na tien pogingen nog steeds niet wordt geleverd, wordt deze verplaatst naar een offlinewachtrij en worden er geen verdere pogingen gedaan bij levering.</span><span class="sxs-lookup"><span data-stu-id="b8132-141">If the event is still not delivered after 10 attempts, it will be moved into an offline queue and no further attempts will be made at delivery.</span></span>
 
-<span data-ttu-id="32c81-146">In het volgende voor beeld ziet u een gebeurtenis die is gepost vanuit het partner centrum.</span><span class="sxs-lookup"><span data-stu-id="32c81-146">The following sample shows an event posted from Partner Center.</span></span>
+<span data-ttu-id="b8132-142">In het volgende voorbeeld ziet u een gebeurtenis die is gepost vanuit Partner Center.</span><span class="sxs-lookup"><span data-stu-id="b8132-142">The following sample shows an event posted from Partner Center.</span></span>
 
 ```http
 POST /webhooks/callback
@@ -87,48 +82,48 @@ Content-Length: 195
 ```
 
 >[!NOTE]
-><span data-ttu-id="32c81-147">De autorisatie-header heeft het schema hand tekening.</span><span class="sxs-lookup"><span data-stu-id="32c81-147">The Authorization header has a scheme of "Signature".</span></span> <span data-ttu-id="32c81-148">Dit is een met base64 gecodeerde hand tekening van de inhoud.</span><span class="sxs-lookup"><span data-stu-id="32c81-148">This is a base64 encoded signature of the content.</span></span>
+><span data-ttu-id="b8132-143">De autorisatieheader heeft een schema van 'Handtekening'.</span><span class="sxs-lookup"><span data-stu-id="b8132-143">The Authorization header has a scheme of "Signature".</span></span> <span data-ttu-id="b8132-144">Dit is een base64 gecodeerde handtekening van de inhoud.</span><span class="sxs-lookup"><span data-stu-id="b8132-144">This is a base64 encoded signature of the content.</span></span>
 
-## <a name="how-to-authenticate-the-callback"></a><span data-ttu-id="32c81-149">De call back verifiëren</span><span class="sxs-lookup"><span data-stu-id="32c81-149">How to authenticate the callback</span></span>
+## <a name="how-to-authenticate-the-callback"></a><span data-ttu-id="b8132-145">De callback verifiëren</span><span class="sxs-lookup"><span data-stu-id="b8132-145">How to authenticate the callback</span></span>
 
-<span data-ttu-id="32c81-150">Voer de volgende stappen uit om de retour aanroep gebeurtenis te verifiëren die is ontvangen van het partner centrum:</span><span class="sxs-lookup"><span data-stu-id="32c81-150">To authenticate the callback event received from Partner Center, follow these steps:</span></span>
+<span data-ttu-id="b8132-146">Volg deze stappen om de callbackgebeurtenis te verifiëren die Partner Center ontvangen:</span><span class="sxs-lookup"><span data-stu-id="b8132-146">To authenticate the callback event received from Partner Center, follow these steps:</span></span>
 
-1. <span data-ttu-id="32c81-151">Controleer of de vereiste headers aanwezig zijn (autorisatie, x-MS-Certificate-URL, x-MS-Signature-algoritme).</span><span class="sxs-lookup"><span data-stu-id="32c81-151">Verify the required headers are present (Authorization, x-ms-certificate-url, x-ms-signature-algorithm).</span></span>
+1. <span data-ttu-id="b8132-147">Controleer of de vereiste headers aanwezig zijn (Authorization, x-ms-certificate-url, x-ms-signature-algorithm).</span><span class="sxs-lookup"><span data-stu-id="b8132-147">Verify the required headers are present (Authorization, x-ms-certificate-url, x-ms-signature-algorithm).</span></span>
 
-2. <span data-ttu-id="32c81-152">Down load het certificaat dat wordt gebruikt om de inhoud te ondertekenen (x-MS-Certificate-URL).</span><span class="sxs-lookup"><span data-stu-id="32c81-152">Download the certificate used to sign the content (x-ms-certificate-url).</span></span>
+2. <span data-ttu-id="b8132-148">Download het certificaat dat wordt gebruikt om de inhoud te ondertekenen (x-ms-certificate-url).</span><span class="sxs-lookup"><span data-stu-id="b8132-148">Download the certificate used to sign the content (x-ms-certificate-url).</span></span>
 
-3. <span data-ttu-id="32c81-153">Controleer de certificaat keten.</span><span class="sxs-lookup"><span data-stu-id="32c81-153">Verify the Certificate Chain.</span></span>
+3. <span data-ttu-id="b8132-149">Controleer de certificaatketen.</span><span class="sxs-lookup"><span data-stu-id="b8132-149">Verify the Certificate Chain.</span></span>
 
-4. <span data-ttu-id="32c81-154">Controleer de organisatie van het certificaat.</span><span class="sxs-lookup"><span data-stu-id="32c81-154">Verify the "Organization" of the certificate.</span></span>
+4. <span data-ttu-id="b8132-150">Controleer de organisatie van het certificaat.</span><span class="sxs-lookup"><span data-stu-id="b8132-150">Verify the "Organization" of the certificate.</span></span>
 
-5. <span data-ttu-id="32c81-155">Lees de inhoud met UTF8-code ring in een buffer.</span><span class="sxs-lookup"><span data-stu-id="32c81-155">Read the content with UTF8 encoding into a buffer.</span></span>
+5. <span data-ttu-id="b8132-151">Lees de inhoud met UTF8-codering in een buffer.</span><span class="sxs-lookup"><span data-stu-id="b8132-151">Read the content with UTF8 encoding into a buffer.</span></span>
 
-6. <span data-ttu-id="32c81-156">Maak een RSA crypto-provider.</span><span class="sxs-lookup"><span data-stu-id="32c81-156">Create an RSA Crypto Provider.</span></span>
+6. <span data-ttu-id="b8132-152">Maak een RSA Crypto Provider.</span><span class="sxs-lookup"><span data-stu-id="b8132-152">Create an RSA Crypto Provider.</span></span>
 
-7. <span data-ttu-id="32c81-157">Controleer of de gegevens overeenkomen met wat is ondertekend met het opgegeven hash-algoritme (bijvoorbeeld SHA256).</span><span class="sxs-lookup"><span data-stu-id="32c81-157">Verify the data matches what was signed with the specified hash algorithm (for example SHA256).</span></span>
+7. <span data-ttu-id="b8132-153">Controleer of de gegevens overeenkomt met wat is ondertekend met het opgegeven hash-algoritme (bijvoorbeeld SHA256).</span><span class="sxs-lookup"><span data-stu-id="b8132-153">Verify the data matches what was signed with the specified hash algorithm (for example SHA256).</span></span>
 
-8. <span data-ttu-id="32c81-158">Als de verificatie slaagt, verwerkt u het bericht.</span><span class="sxs-lookup"><span data-stu-id="32c81-158">If the verification succeeds, process the message.</span></span>
+8. <span data-ttu-id="b8132-154">Als de verificatie is geslaagd, verwerkt u het bericht.</span><span class="sxs-lookup"><span data-stu-id="b8132-154">If the verification succeeds, process the message.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="32c81-159">Het handtekening token wordt standaard verzonden in een autorisatie-header.</span><span class="sxs-lookup"><span data-stu-id="32c81-159">By default, the signature token will be sent in an Authorization header.</span></span> <span data-ttu-id="32c81-160">Als u in uw registratie **SignatureTokenToMsSignatureHeader** instelt op True, wordt het handtekening token in plaats daarvan in de x-MS-Signature-header verzonden.</span><span class="sxs-lookup"><span data-stu-id="32c81-160">If you set **SignatureTokenToMsSignatureHeader** to true in your registration, the signature token will be sent in the x-ms-signature header instead.</span></span>
+> <span data-ttu-id="b8132-155">Standaard wordt het handtekening-token verzonden in een Autorisatie-header.</span><span class="sxs-lookup"><span data-stu-id="b8132-155">By default, the signature token will be sent in an Authorization header.</span></span> <span data-ttu-id="b8132-156">Als u **SignatureTokenToMsSignatureHeader** in uw registratie in uw registratie in stelt op true, wordt het handtekeningtoken in plaats daarvan verzonden in de x-ms-signature-header.</span><span class="sxs-lookup"><span data-stu-id="b8132-156">If you set **SignatureTokenToMsSignatureHeader** to true in your registration, the signature token will be sent in the x-ms-signature header instead.</span></span>
 
-## <a name="event-model"></a><span data-ttu-id="32c81-161">Gebeurtenis model</span><span class="sxs-lookup"><span data-stu-id="32c81-161">Event model</span></span>
+## <a name="event-model"></a><span data-ttu-id="b8132-157">Gebeurtenismodel</span><span class="sxs-lookup"><span data-stu-id="b8132-157">Event model</span></span>
 
-<span data-ttu-id="32c81-162">In de volgende tabel worden de eigenschappen van een partner centrum-gebeurtenis beschreven.</span><span class="sxs-lookup"><span data-stu-id="32c81-162">The following table describes the properties of a Partner Center event.</span></span>
+<span data-ttu-id="b8132-158">In de volgende tabel worden de eigenschappen van een Partner Center beschreven.</span><span class="sxs-lookup"><span data-stu-id="b8132-158">The following table describes the properties of a Partner Center event.</span></span>
 
-### <a name="properties"></a><span data-ttu-id="32c81-163">Eigenschappen</span><span class="sxs-lookup"><span data-stu-id="32c81-163">Properties</span></span>
+### <a name="properties"></a><span data-ttu-id="b8132-159">Eigenschappen</span><span class="sxs-lookup"><span data-stu-id="b8132-159">Properties</span></span>
 
-| <span data-ttu-id="32c81-164">Naam</span><span class="sxs-lookup"><span data-stu-id="32c81-164">Name</span></span>                      | <span data-ttu-id="32c81-165">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="32c81-165">Description</span></span>                                                                           |
+| <span data-ttu-id="b8132-160">Naam</span><span class="sxs-lookup"><span data-stu-id="b8132-160">Name</span></span>                      | <span data-ttu-id="b8132-161">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="b8132-161">Description</span></span>                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
-| <span data-ttu-id="32c81-166">**Gebeurtenisnaam**</span><span class="sxs-lookup"><span data-stu-id="32c81-166">**EventName**</span></span>             | <span data-ttu-id="32c81-167">De naam van de gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="32c81-167">The name of the event.</span></span> <span data-ttu-id="32c81-168">In de vorm {Resource}-{Action}.</span><span class="sxs-lookup"><span data-stu-id="32c81-168">In the form {resource}-{action}.</span></span> <span data-ttu-id="32c81-169">Bijvoorbeeld ' test-created '.</span><span class="sxs-lookup"><span data-stu-id="32c81-169">For example, "test-created".</span></span>  |
-| <span data-ttu-id="32c81-170">**ResourceUri**</span><span class="sxs-lookup"><span data-stu-id="32c81-170">**ResourceUri**</span></span>           | <span data-ttu-id="32c81-171">De URI van de resource die is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="32c81-171">The URI of the resource that changed.</span></span>                                                 |
-| <span data-ttu-id="32c81-172">**ResourceName**</span><span class="sxs-lookup"><span data-stu-id="32c81-172">**ResourceName**</span></span>          | <span data-ttu-id="32c81-173">De naam van de resource die is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="32c81-173">The name of the resource that changed.</span></span>                                                |
-| <span data-ttu-id="32c81-174">**AuditUrl**</span><span class="sxs-lookup"><span data-stu-id="32c81-174">**AuditUrl**</span></span>              | <span data-ttu-id="32c81-175">Optioneel.</span><span class="sxs-lookup"><span data-stu-id="32c81-175">Optional.</span></span> <span data-ttu-id="32c81-176">De URI van de controle record.</span><span class="sxs-lookup"><span data-stu-id="32c81-176">The URI of the Audit record.</span></span>                                                |
-| <span data-ttu-id="32c81-177">**ResourceChangeUtcDate**</span><span class="sxs-lookup"><span data-stu-id="32c81-177">**ResourceChangeUtcDate**</span></span> | <span data-ttu-id="32c81-178">De datum en tijd, in UTC-notatie, wanneer de resource is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="32c81-178">The date and time, in UTC format, when the resource change occurred.</span></span>                  |
+| <span data-ttu-id="b8132-162">**Gebeurtenisnaam**</span><span class="sxs-lookup"><span data-stu-id="b8132-162">**EventName**</span></span>             | <span data-ttu-id="b8132-163">De naam van de gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="b8132-163">The name of the event.</span></span> <span data-ttu-id="b8132-164">In de vorm {resource}-{action}.</span><span class="sxs-lookup"><span data-stu-id="b8132-164">In the form {resource}-{action}.</span></span> <span data-ttu-id="b8132-165">Bijvoorbeeld 'test-created'.</span><span class="sxs-lookup"><span data-stu-id="b8132-165">For example, "test-created".</span></span>  |
+| <span data-ttu-id="b8132-166">**ResourceUri**</span><span class="sxs-lookup"><span data-stu-id="b8132-166">**ResourceUri**</span></span>           | <span data-ttu-id="b8132-167">De URI van de resource die is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="b8132-167">The URI of the resource that changed.</span></span>                                                 |
+| <span data-ttu-id="b8132-168">**Resourcename**</span><span class="sxs-lookup"><span data-stu-id="b8132-168">**ResourceName**</span></span>          | <span data-ttu-id="b8132-169">De naam van de resource die is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="b8132-169">The name of the resource that changed.</span></span>                                                |
+| <span data-ttu-id="b8132-170">**AuditUrl**</span><span class="sxs-lookup"><span data-stu-id="b8132-170">**AuditUrl**</span></span>              | <span data-ttu-id="b8132-171">Optioneel.</span><span class="sxs-lookup"><span data-stu-id="b8132-171">Optional.</span></span> <span data-ttu-id="b8132-172">De URI van de controlerecord.</span><span class="sxs-lookup"><span data-stu-id="b8132-172">The URI of the Audit record.</span></span>                                                |
+| <span data-ttu-id="b8132-173">**ResourceChangeUtcDate**</span><span class="sxs-lookup"><span data-stu-id="b8132-173">**ResourceChangeUtcDate**</span></span> | <span data-ttu-id="b8132-174">De datum en tijd, in UTC-indeling, waarop de resource is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="b8132-174">The date and time, in UTC format, when the resource change occurred.</span></span>                  |
 
-### <a name="sample"></a><span data-ttu-id="32c81-179">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="32c81-179">Sample</span></span>
+### <a name="sample"></a><span data-ttu-id="b8132-175">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="b8132-175">Sample</span></span>
 
-<span data-ttu-id="32c81-180">In het volgende voor beeld ziet u de structuur van een partner centrum gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="32c81-180">The following sample shows the structure of a Partner Center event.</span></span>
+<span data-ttu-id="b8132-176">In het volgende voorbeeld ziet u de structuur van een Partner Center gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="b8132-176">The following sample shows the structure of a Partner Center event.</span></span>
 
 ```http
 {
@@ -140,21 +135,21 @@ Content-Length: 195
 }
 ```
 
-## <a name="webhook-apis"></a><span data-ttu-id="32c81-181">Webhook-Api's</span><span class="sxs-lookup"><span data-stu-id="32c81-181">Webhook APIs</span></span>
+## <a name="webhook-apis"></a><span data-ttu-id="b8132-177">Webhook-API's</span><span class="sxs-lookup"><span data-stu-id="b8132-177">Webhook APIs</span></span>
 
-### <a name="authentication"></a><span data-ttu-id="32c81-182">Verificatie</span><span class="sxs-lookup"><span data-stu-id="32c81-182">Authentication</span></span>
+### <a name="authentication"></a><span data-ttu-id="b8132-178">Verificatie</span><span class="sxs-lookup"><span data-stu-id="b8132-178">Authentication</span></span>
 
-<span data-ttu-id="32c81-183">Alle aanroepen naar de webhook-Api's worden geverifieerd met behulp van het Bearer-token in de autorisatie-header.</span><span class="sxs-lookup"><span data-stu-id="32c81-183">All calls to the Webhook APIs are authenticated using the Bearer token in the Authorization Header.</span></span> <span data-ttu-id="32c81-184">Verkrijg een toegangs token voor toegang `https://api.partnercenter.microsoft.com` .</span><span class="sxs-lookup"><span data-stu-id="32c81-184">Acquire an access token to access `https://api.partnercenter.microsoft.com`.</span></span> <span data-ttu-id="32c81-185">Dit token is hetzelfde token dat wordt gebruikt voor toegang tot de rest van de partner centrum-Api's.</span><span class="sxs-lookup"><span data-stu-id="32c81-185">This token is the same token that is used to access the rest of the Partner Center APIs.</span></span>
+<span data-ttu-id="b8132-179">Alle aanroepen naar de Webhook-API's worden geverifieerd met behulp van het Bearer-token in de autorisatieheader.</span><span class="sxs-lookup"><span data-stu-id="b8132-179">All calls to the Webhook APIs are authenticated using the Bearer token in the Authorization Header.</span></span> <span data-ttu-id="b8132-180">Een toegangs token verkrijgen voor toegang `https://api.partnercenter.microsoft.com` tot .</span><span class="sxs-lookup"><span data-stu-id="b8132-180">Acquire an access token to access `https://api.partnercenter.microsoft.com`.</span></span> <span data-ttu-id="b8132-181">Dit token is hetzelfde token dat wordt gebruikt voor toegang tot de rest van de Partner Center API's.</span><span class="sxs-lookup"><span data-stu-id="b8132-181">This token is the same token that is used to access the rest of the Partner Center APIs.</span></span>
 
-### <a name="get-a-list-of-events"></a><span data-ttu-id="32c81-186">Een lijst met gebeurtenissen ophalen</span><span class="sxs-lookup"><span data-stu-id="32c81-186">Get a list of events</span></span>
+### <a name="get-a-list-of-events"></a><span data-ttu-id="b8132-182">Een lijst met gebeurtenissen op halen</span><span class="sxs-lookup"><span data-stu-id="b8132-182">Get a list of events</span></span>
 
-<span data-ttu-id="32c81-187">Retourneert een lijst met de gebeurtenissen die momenteel worden ondersteund door de webhook-Api's.</span><span class="sxs-lookup"><span data-stu-id="32c81-187">Returns a list of the events that are currently supported by the Webhook APIs.</span></span>
+<span data-ttu-id="b8132-183">Retourneert een lijst met de gebeurtenissen die momenteel worden ondersteund door de Webhook-API's.</span><span class="sxs-lookup"><span data-stu-id="b8132-183">Returns a list of the events that are currently supported by the Webhook APIs.</span></span>
 
-### <a name="resource-url"></a><span data-ttu-id="32c81-188">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="32c81-188">Resource URL</span></span>
+### <a name="resource-url"></a><span data-ttu-id="b8132-184">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="b8132-184">Resource URL</span></span>
 
 `https://api.partnercenter.microsoft.com/webhooks/v1/registration/events`
 
-### <a name="request-example"></a><span data-ttu-id="32c81-189">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="32c81-189">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="b8132-185">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="b8132-185">Request example</span></span>
 
 ```http
 GET /webhooks/v1/registration/events
@@ -164,7 +159,7 @@ accept: */*
 host: api.partnercenter.microsoft.com
 ```
 
-### <a name="response-example"></a><span data-ttu-id="32c81-190">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="32c81-190">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="b8132-186">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="b8132-186">Response example</span></span>
 
 ```http
 HTTP/1.1 200
@@ -180,15 +175,15 @@ X-Locale: en-US
 [ "subscription-updated", "test-created", "usagerecords-thresholdExceeded" ]
 ```
 
-### <a name="register-to-receive-events"></a><span data-ttu-id="32c81-191">Registreren voor het ontvangen van gebeurtenissen</span><span class="sxs-lookup"><span data-stu-id="32c81-191">Register to receive events</span></span>
+### <a name="register-to-receive-events"></a><span data-ttu-id="b8132-187">Registreren om gebeurtenissen te ontvangen</span><span class="sxs-lookup"><span data-stu-id="b8132-187">Register to receive events</span></span>
 
-<span data-ttu-id="32c81-192">Registreert een Tenant om de opgegeven gebeurtenissen te ontvangen.</span><span class="sxs-lookup"><span data-stu-id="32c81-192">Registers a tenant to receive the specified events.</span></span>
+<span data-ttu-id="b8132-188">Registreert een tenant voor het ontvangen van de opgegeven gebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="b8132-188">Registers a tenant to receive the specified events.</span></span>
 
-#### <a name="resource-url"></a><span data-ttu-id="32c81-193">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="32c81-193">Resource URL</span></span>
+#### <a name="resource-url"></a><span data-ttu-id="b8132-189">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="b8132-189">Resource URL</span></span>
 
 `https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-### <a name="request-example"></a><span data-ttu-id="32c81-194">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="32c81-194">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="b8132-190">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="b8132-190">Request example</span></span>
 
 ```http
 POST /webhooks/v1/registration
@@ -205,7 +200,7 @@ Content-Length: 219
 }
 ```
 
-### <a name="response-example"></a><span data-ttu-id="32c81-195">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="32c81-195">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="b8132-191">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="b8132-191">Response example</span></span>
 
 ```http
 HTTP/1.1 200
@@ -224,15 +219,15 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
-### <a name="view-a-registration"></a><span data-ttu-id="32c81-196">Een registratie weer geven</span><span class="sxs-lookup"><span data-stu-id="32c81-196">View a registration</span></span>
+### <a name="view-a-registration"></a><span data-ttu-id="b8132-192">Een registratie weergeven</span><span class="sxs-lookup"><span data-stu-id="b8132-192">View a registration</span></span>
 
-<span data-ttu-id="32c81-197">Retourneert de gebeurtenis registratie van webhooks voor een Tenant.</span><span class="sxs-lookup"><span data-stu-id="32c81-197">Returns the Webhooks event registration for a tenant.</span></span>
+<span data-ttu-id="b8132-193">Retourneert de webhooksgebeurtenisregistratie voor een tenant.</span><span class="sxs-lookup"><span data-stu-id="b8132-193">Returns the Webhooks event registration for a tenant.</span></span>
 
-#### <a name="resource-url"></a><span data-ttu-id="32c81-198">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="32c81-198">Resource URL</span></span>
+#### <a name="resource-url"></a><span data-ttu-id="b8132-194">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="b8132-194">Resource URL</span></span>
 
 `https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-### <a name="request-example"></a><span data-ttu-id="32c81-199">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="32c81-199">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="b8132-195">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="b8132-195">Request example</span></span>
 
 ```http
 GET /webhooks/v1/registration
@@ -243,7 +238,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-### <a name="response-example"></a><span data-ttu-id="32c81-200">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="32c81-200">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="b8132-196">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="b8132-196">Response example</span></span>
 
 ```http
 HTTP/1.1 200
@@ -262,15 +257,15 @@ X-Locale: en-US
 }
 ```
 
-### <a name="update-an-event-registration"></a><span data-ttu-id="32c81-201">Een gebeurtenis registratie bijwerken</span><span class="sxs-lookup"><span data-stu-id="32c81-201">Update an event registration</span></span>
+### <a name="update-an-event-registration"></a><span data-ttu-id="b8132-197">Een gebeurtenisregistratie bijwerken</span><span class="sxs-lookup"><span data-stu-id="b8132-197">Update an event registration</span></span>
 
-<span data-ttu-id="32c81-202">Hiermee wordt een bestaande gebeurtenis registratie bijgewerkt.</span><span class="sxs-lookup"><span data-stu-id="32c81-202">Updates an existing event registration.</span></span>
+<span data-ttu-id="b8132-198">Werkt een bestaande gebeurtenisregistratie bij.</span><span class="sxs-lookup"><span data-stu-id="b8132-198">Updates an existing event registration.</span></span>
 
-#### <a name="resource-url"></a><span data-ttu-id="32c81-203">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="32c81-203">Resource URL</span></span>
+#### <a name="resource-url"></a><span data-ttu-id="b8132-199">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="b8132-199">Resource URL</span></span>
 
 `https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-### <a name="request-example"></a><span data-ttu-id="32c81-204">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="32c81-204">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="b8132-200">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="b8132-200">Request example</span></span>
 
 ```http
 PUT /webhooks/v1/registration
@@ -287,7 +282,7 @@ Content-Length: 258
 }
 ```
 
-### <a name="response-example"></a><span data-ttu-id="32c81-205">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="32c81-205">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="b8132-201">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="b8132-201">Response example</span></span>
 
 ```http
 HTTP/1.1 200
@@ -306,18 +301,18 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
-### <a name="send-a-test-event-to-validate-your-registration"></a><span data-ttu-id="32c81-206">Een test gebeurtenis verzenden om uw registratie te valideren</span><span class="sxs-lookup"><span data-stu-id="32c81-206">Send a test event to validate your registration</span></span>
+### <a name="send-a-test-event-to-validate-your-registration"></a><span data-ttu-id="b8132-202">Een testgebeurtenis verzenden om uw registratie te valideren</span><span class="sxs-lookup"><span data-stu-id="b8132-202">Send a test event to validate your registration</span></span>
 
-<span data-ttu-id="32c81-207">Hiermee wordt een test gebeurtenis gegenereerd om de registratie van webhooks te valideren.</span><span class="sxs-lookup"><span data-stu-id="32c81-207">Generates a test event to validate the Webhooks registration.</span></span> <span data-ttu-id="32c81-208">Deze test is bedoeld om te controleren of u gebeurtenissen van het partner centrum kunt ontvangen.</span><span class="sxs-lookup"><span data-stu-id="32c81-208">This test is intended to validate that you can receive events from Partner Center.</span></span> <span data-ttu-id="32c81-209">De gegevens voor deze gebeurtenissen worden zeven dagen na het maken van de eerste gebeurtenis verwijderd.</span><span class="sxs-lookup"><span data-stu-id="32c81-209">Data for these events will be deleted seven days after the initial event is created.</span></span> <span data-ttu-id="32c81-210">Voordat u een validatie gebeurtenis verzendt, moet u zijn geregistreerd voor de gebeurtenis ' test-created ', met behulp van de registratie-API.</span><span class="sxs-lookup"><span data-stu-id="32c81-210">You must be registered for the "test-created" event, using the registration API, before sending a validation event.</span></span>
+<span data-ttu-id="b8132-203">Genereert een testgebeurtenis om de webhooksregistratie te valideren.</span><span class="sxs-lookup"><span data-stu-id="b8132-203">Generates a test event to validate the Webhooks registration.</span></span> <span data-ttu-id="b8132-204">Deze test is bedoeld om te controleren of u gebeurtenissen kunt ontvangen van Partner Center.</span><span class="sxs-lookup"><span data-stu-id="b8132-204">This test is intended to validate that you can receive events from Partner Center.</span></span> <span data-ttu-id="b8132-205">Gegevens voor deze gebeurtenissen worden zeven dagen na het maken van de eerste gebeurtenis verwijderd.</span><span class="sxs-lookup"><span data-stu-id="b8132-205">Data for these events will be deleted seven days after the initial event is created.</span></span> <span data-ttu-id="b8132-206">U moet zijn geregistreerd voor de gebeurtenis 'test gemaakt' met behulp van de registratie-API voordat u een validatiegebeurtenis verstuurt.</span><span class="sxs-lookup"><span data-stu-id="b8132-206">You must be registered for the "test-created" event, using the registration API, before sending a validation event.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="32c81-211">Er geldt een limiet van twee aanvragen per minuut bij het boeken van een validatie gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="32c81-211">There is a throttle limit of 2 requests per minute when posting a validation event.</span></span>
+><span data-ttu-id="b8132-207">Er is een vertragingslimiet van 2 aanvragen per minuut bij het plaatsen van een validatiegebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="b8132-207">There is a throttle limit of 2 requests per minute when posting a validation event.</span></span>
 
-#### <a name="resource-url"></a><span data-ttu-id="32c81-212">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="32c81-212">Resource URL</span></span>
+#### <a name="resource-url"></a><span data-ttu-id="b8132-208">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="b8132-208">Resource URL</span></span>
 
 `https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents`
 
-### <a name="request-example"></a><span data-ttu-id="32c81-213">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="32c81-213">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="b8132-209">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="b8132-209">Request example</span></span>
 
 ```http
 POST /webhooks/v1/registration/validationEvents
@@ -329,7 +324,7 @@ Accept-Encoding: gzip, deflate
 Content-Length:
 ```
 
-### <a name="response-example"></a><span data-ttu-id="32c81-214">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="32c81-214">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="b8132-210">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="b8132-210">Response example</span></span>
 
 ```http
 HTTP/1.1 200
@@ -345,15 +340,15 @@ X-Locale: en-US
 { "correlationId": "04af2aea-d413-42db-824e-f328001484d1" }
 ```
 
-### <a name="verify-that-the-event-was-delivered"></a><span data-ttu-id="32c81-215">Controleren of de gebeurtenis is bezorgd</span><span class="sxs-lookup"><span data-stu-id="32c81-215">Verify that the event was delivered</span></span>
+### <a name="verify-that-the-event-was-delivered"></a><span data-ttu-id="b8132-211">Controleren of de gebeurtenis is geleverd</span><span class="sxs-lookup"><span data-stu-id="b8132-211">Verify that the event was delivered</span></span>
 
-<span data-ttu-id="32c81-216">Retourneert de huidige status van de validatie gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="32c81-216">Returns the current state of the validation event.</span></span> <span data-ttu-id="32c81-217">Deze verificatie kan nuttig zijn bij het oplossen van problemen met de levering van gebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="32c81-217">This verification can be helpful for troubleshooting event delivery issues.</span></span> <span data-ttu-id="32c81-218">Het antwoord bevat een resultaat voor elke poging tot het leveren van de gebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="32c81-218">The Response contains a result for each attempt that is made to deliver the event.</span></span>
+<span data-ttu-id="b8132-212">Retourneert de huidige status van de validatiegebeurtenis.</span><span class="sxs-lookup"><span data-stu-id="b8132-212">Returns the current state of the validation event.</span></span> <span data-ttu-id="b8132-213">Deze verificatie kan handig zijn voor het oplossen van problemen met de levering van gebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="b8132-213">This verification can be helpful for troubleshooting event delivery issues.</span></span> <span data-ttu-id="b8132-214">Het antwoord bevat een resultaat voor elke poging om de gebeurtenis te leveren.</span><span class="sxs-lookup"><span data-stu-id="b8132-214">The Response contains a result for each attempt that is made to deliver the event.</span></span>
 
-#### <a name="resource-url"></a><span data-ttu-id="32c81-219">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="32c81-219">Resource URL</span></span>
+#### <a name="resource-url"></a><span data-ttu-id="b8132-215">Resource-URL</span><span class="sxs-lookup"><span data-stu-id="b8132-215">Resource URL</span></span>
 
 `https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents/{correlationId}`
 
-### <a name="request-example"></a><span data-ttu-id="32c81-220">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="32c81-220">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="b8132-216">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="b8132-216">Request example</span></span>
 
 ```http
 GET /webhooks/v1/registration/validationEvents/04af2aea-d413-42db-824e-f328001484d1
@@ -364,7 +359,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-### <a name="response-example"></a><span data-ttu-id="32c81-221">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="32c81-221">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="b8132-217">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="b8132-217">Response example</span></span>
 
 ```http
 HTTP/1.1 200
@@ -391,9 +386,9 @@ X-Locale: en-US
 }
 ```
 
-## <a name="example-for-signature-validation"></a><span data-ttu-id="32c81-222">Voor beeld voor handtekening validatie</span><span class="sxs-lookup"><span data-stu-id="32c81-222">Example for Signature Validation</span></span>
+## <a name="example-for-signature-validation"></a><span data-ttu-id="b8132-218">Voorbeeld voor handtekeningvalidatie</span><span class="sxs-lookup"><span data-stu-id="b8132-218">Example for Signature Validation</span></span>
 
-### <a name="sample-callback-controller-signature-aspnet"></a><span data-ttu-id="32c81-223">Voor beeld van een hand tekening voor een call back controller (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="32c81-223">Sample Callback Controller signature (ASP.NET)</span></span>
+### <a name="sample-callback-controller-signature-aspnet"></a><span data-ttu-id="b8132-219">Voorbeeld van callback-controllerhandtekening (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="b8132-219">Sample Callback Controller signature (ASP.NET)</span></span>
 
 ``` csharp
 [AuthorizeSignature]
@@ -401,9 +396,9 @@ X-Locale: en-US
 public IHttpActionResult Post(PartnerResourceChangeCallBack callback)
 ```
 
-### <a name="signature-validation"></a><span data-ttu-id="32c81-224">Handtekening validatie</span><span class="sxs-lookup"><span data-stu-id="32c81-224">Signature Validation</span></span>
+### <a name="signature-validation"></a><span data-ttu-id="b8132-220">Handtekeningvalidatie</span><span class="sxs-lookup"><span data-stu-id="b8132-220">Signature Validation</span></span>
 
-<span data-ttu-id="32c81-225">In het volgende voor beeld ziet u hoe u een autorisatie kenmerk toevoegt aan de controller die retour aanroepen ontvangt van webhook-gebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="32c81-225">The following example shows how to add an Authorization Attribute to the controller that is receiving callbacks from Webhook events.</span></span>
+<span data-ttu-id="b8132-221">In het volgende voorbeeld ziet u hoe u een autorisatiekenmerk toevoegt aan de controller die callbacks van webhookgebeurtenissen ontvangt.</span><span class="sxs-lookup"><span data-stu-id="b8132-221">The following example shows how to add an Authorization Attribute to the controller that is receiving callbacks from Webhook events.</span></span>
 
 ``` csharp
 namespace Webhooks.Security
