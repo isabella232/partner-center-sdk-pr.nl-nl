@@ -4,21 +4,16 @@ description: Partner-sandbox biedt de mogelijkheid om relaties tussen de partner
 ms.date: 05/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9bef4a15685ebbdc2212988f5ac5724b946cfd54
-ms.sourcegitcommit: 1aeaa12705a5945b8aab6bca254fedebd9c8bc4e
+ms.openlocfilehash: aa6c4fb9ef71bacfad7e0f1510fec15f6af60a05
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2021
-ms.locfileid: "110243381"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547390"
 ---
 # <a name="sandbox-capabilities-for-reseller-relationship"></a>Sandbox-mogelijkheden voor reseller-relatie
 
-**Van toepassing op:**
-
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
 In dit artikel wordt uitgelegd wat er wordt ondersteund in de Sandbox voor resellerrelaties tussen de partner en de klant. 
 
@@ -83,7 +78,7 @@ In dit artikel wordt uitgelegd wat er wordt ondersteund in de Sandbox voor resel
     -   Kan relaties met nieuwe klanten aanvragen
 
 
-Volg de [instructies in Resellerrelatie verwijderen](remove-a-reseller-relationship-with-a-customer.md) voor de klant voor meer informatie. Er zijn echter enkele verschillen tussen de product- en sandbox-mogelijkheden.
+Volg de [instructies in Resellerrelatie](remove-a-reseller-relationship-with-a-customer.md) verwijderen voor de klant voor meer informatie. Er zijn echter enkele verschillen tussen de product- en sandbox-mogelijkheden.
 
 ### <a name="request-syntax"></a>AANVRAAGSYNTAXIS
 
@@ -95,7 +90,7 @@ Aanvraag body None
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](./error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](./error-codes.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

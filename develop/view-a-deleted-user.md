@@ -1,37 +1,33 @@
 ---
 title: Verwijderde gebruikers voor een klant weergeven
-description: Hiermee wordt een lijst met verwijderde CustomerUser-resources voor een klant opgehaald op basis van de klant-ID. U kunt desgewenst een pagina grootte instellen. U moet een filter opgeven.
+description: Haalt een lijst met verwijderde CustomerUser-resources voor een klant op op klant-id. U kunt desgewenst een paginaformaat instellen. U moet een filter leveren.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9b1a9b85e3eba7ae7ec1dab8e951134d03371604
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f4fec958a9a6bb580d35de1cf3007e1db3b2b650
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767439"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445303"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>Verwijderde gebruikers voor een klant weergeven
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hiermee wordt een lijst met verwijderde CustomerUser-resources voor een klant opgehaald op basis van de klant-ID. U kunt desgewenst een pagina grootte instellen. U moet een filter opgeven.
+Haalt een lijst met verwijderde CustomerUser-resources voor een klant op op klant-id. U kunt desgewenst een paginaformaat instellen. U moet een filter leveren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-## <a name="what-happens-when-you-delete-a-user-account"></a>Wat gebeurt er wanneer u een gebruikers account verwijdert?
+## <a name="what-happens-when-you-delete-a-user-account"></a>Wat gebeurt er wanneer u een gebruikersaccount verwijdert?
 
-De gebruikers status wordt ingesteld op ' inactief ' wanneer u een gebruikers account verwijdert. Gedurende dertig dagen blijft het de gebruikers account en de bijbehorende gegevens verwijderd en worden ze onherstelbaar gemaakt. Als u een verwijderd gebruikers account in het venster van de dertig dag wilt herstellen, raadpleegt u [een verwijderde gebruiker herstellen voor een klant](restore-a-user-for-a-customer.md). Eenmaal verwijderd en gemarkeerd als ' inactief ', wordt het gebruikers account niet langer geretourneerd als lid van de gebruikers verzameling (bijvoorbeeld met behulp [van een lijst met alle gebruikers accounts voor een klant ophalen](get-a-list-of-all-user-accounts-for-a-customer.md)). Als u een lijst wilt weer geven met verwijderde gebruikers die nog niet zijn opgeschoond, moet u een query uitvoeren voor gebruikers accounts die zijn ingesteld op inactief.
+De gebruikerstoestand wordt ingesteld op 'inactief' wanneer u een gebruikersaccount verwijdert. Dit blijft 30 dagen zo, waarna het gebruikersaccount en de bijbehorende gegevens worden verwijderd en onherkenbaar worden gemaakt. Zie Een verwijderde gebruiker herstellen voor een klant als u een verwijderd gebruikersaccount binnen het venster van 30 dagen [wilt herstellen.](restore-a-user-for-a-customer.md) Zodra het gebruikersaccount is verwijderd en als 'inactief' is gemarkeerd, wordt het niet meer geretourneerd als lid van de gebruikersverzameling (bijvoorbeeld met Een lijst met alle gebruikersaccounts voor een klant [ophalen).](get-a-list-of-all-user-accounts-for-a-customer.md) Als u een lijst met verwijderde gebruikers wilt opvragen die nog niet zijn verwijderd, moet u een query uitvoeren voor gebruikersaccounts die zijn ingesteld op inactief.
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met verwijderde gebruikers wilt ophalen, moet u een query maken die filtert op klant gebruikers waarvan de status is ingesteld op inactief. Maak eerst het filter door een [**SimpleFieldFilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) -object te instantiëren met de para meters, zoals wordt weer gegeven in het volgende code fragment. Maak vervolgens de query met behulp van de methode [**BuildIndexedQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) . Als u geen pagina-resultaten wilt, kunt u in plaats daarvan de [**BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) -methode gebruiken. Gebruik vervolgens de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Roep ten slotte de [**query**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) methode aan om de aanvraag te verzenden.
+Als u een lijst met verwijderde gebruikers wilt ophalen, maakt u een query die filtert op gebruikers van klanten waarvan de status is ingesteld op inactief. Maak eerst het filter door een [**SimpleFieldFilter-object**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) te instantiëren met de parameters, zoals wordt weergegeven in het volgende codefragment. Maak vervolgens de query met behulp van [**de methode BuildIndexedQuery.**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) Als u geen paginaresultaten wilt, kunt u in plaats daarvan de [**methode BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) gebruiken. Gebruik vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Roep ten slotte de [**querymethode aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) om de aanvraag te verzenden.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,29 +43,29 @@ var simpleQueryWithFilter = QueryFactory.Instance.BuildIndexedQuery(customerUser
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Query(simpleQueryWithFilter);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: GetCustomerInactiveUsers.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetCustomerInactiveUsers.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/users? grootte = {size} &filter = {filter} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users?size={size}&filter={filter} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende pad-en query parameters bij het maken van de aanvraag.
+Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| klant-id | guid   | Yes      | De waarde is een klant-id met een GUID-indeling waarmee de klant wordt geïdentificeerd.                                                                                                            |
-| grootte        | int    | No       | Het aantal resultaten dat tegelijk moet worden weer gegeven. Deze parameter is optioneel.                                                                                                     |
-| filter      | filter | Yes      | De query die de zoek opdracht van de gebruiker filtert. Als u verwijderde gebruikers wilt ophalen, moet u de volgende teken reeks insluiten en coderen: {"veld": "UserState", "waarde": "inactieve", "operator": "is gelijk aan"}. |
+| customer-id | guid   | Ja      | De waarde is een in GUID opgemaakte klant-id die de klant identificeert.                                                                                                            |
+| grootte        | int    | Nee       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel.                                                                                                     |
+| filter      | filter | Ja      | De query die de zoekopdracht van de gebruiker filtert. Als u verwijderde gebruikers wilt ophalen, moet u de volgende tekenreeks opnemen en coderen: {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -89,11 +85,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling [CustomerUser](user-resources.md#customeruser) -resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling [CustomerUser-resources](user-resources.md#customeruser) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

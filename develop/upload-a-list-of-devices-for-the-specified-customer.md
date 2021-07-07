@@ -1,52 +1,49 @@
 ---
 title: Een lijst met apparaten uploaden naar een bestaande batch voor de opgegeven klant
-description: Een lijst met informatie over apparaten uploaden naar een bestaande batch voor de opgegeven klant. Hiermee worden de apparaten gekoppeld aan een apparaat batch die al is gemaakt.
+description: Een lijst met informatie over apparaten uploaden naar een bestaande batch voor de opgegeven klant. Hiermee koppelt u de apparaten aan een apparaatbatch die al is gemaakt.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d01ac1a42c50416487167070be9d104562300baf
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 3fa9cff39113130c54cecfaef1f8ca28e0ac5adf
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767509"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530307"
 ---
 # <a name="upload-a-list-of-devices-to-an-existing-batch-for-the-specified-customer"></a>Een lijst met apparaten uploaden naar een bestaande batch voor de opgegeven klant
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-Een lijst met informatie over apparaten uploaden naar een bestaande batch voor de opgegeven klant. Hiermee worden de apparaten gekoppeld aan een apparaat batch die al is gemaakt.
+Een lijst met informatie over apparaten uploaden naar een bestaande batch voor de opgegeven klant. Hiermee koppelt u de apparaten aan een apparaatbatch die al is gemaakt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De batch-id van het apparaat.
 
-- De lijst met apparaten die de informatie over de afzonderlijke apparaten bieden.
+- De lijst met apparaatbronnen die de informatie over de afzonderlijke apparaten bevatten.
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met apparaten wilt uploaden naar een bestaande apparaat batch, maakt u eerst een nieuwe [list/DotNet/API/System. Collections. generic. List -1) van het type [**apparaat**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) en vult u de lijst met de apparaten in. De volgende combi Naties van gevulde eigenschappen zijn vereist ten minste voor het identificeren van elk apparaat:
+Als u een lijst met apparaten wilt uploaden naar een bestaande apparaatbatch, instantieer dan eerst een nieuw [List/dotnet/api/system.collections.generic.list-1) van het type [**Apparaat**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) en vul de lijst met de apparaten in. De volgende combinaties van ingevulde eigenschappen zijn minimaal vereist voor het identificeren van elk apparaat:
 
 - [**HardwareHash**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**ProductKey**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey).
 
-- [**HardwareHash**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**Serialnumber**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
+- [**HardwareHash**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**SerialNumber**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
 
-- [**HardwareHash**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**ProductKey**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)  +  [**Serialnumber**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
+- [**HardwareHash**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**ProductKey**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)  +  [**SerialNumber**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
 
-- Alleen [**HardwareHash**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) .
+- [**Alleen HardwareHash.**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)
 
-- Alleen [**ProductKey**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) .
+- [**Alleen ProductKey.**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)
 
-- [**Serialnumber**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)  +  [**OemManufacturerName**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername)  +  [**Modelnaam**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname).
+- [**SerialNumber**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)  +  [**OemManufacturerName**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername)  +  [**ModelName**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname).
 
-Vervolgens roept u de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Vervolgens roept u de methode [**DeviceBatches. ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) aan met de batch-id van het apparaat om een interface te verkrijgen voor bewerkingen voor de opgegeven batch. Roep ten slotte de methode [**apparaten. Create**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.createasync) aan met de lijst met apparaten om de apparaten toe te voegen aan de apparaat batch.
+Roep vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Roep vervolgens de [**methode DeviceBatches.ById aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) met de batch-id van het apparaat om een interface op te halen voor bewerkingen voor de opgegeven batch. Roep ten slotte de [**methode Devices.Create**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.create) of [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.createasync) aan met de lijst met apparaten om de apparaten toe te voegen aan de apparaatbatch.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -74,39 +71,39 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.Create(devicesToBeUploaded);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: CreateDevices.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateDevices.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                            |
 |----------|------------------------------------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/devices http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende pad-en query parameters bij het maken van de aanvraag.
+Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 
 | Naam           | Type   | Vereist | Beschrijving                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| klant-id    | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd. |
-| devicebatch-id | tekenreeks | Yes      | Een teken reeks-id waarmee de apparaat-batch wordt geïdentificeerd. |
+| customer-id    | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| devicebatch-id | tekenreeks | Ja      | Een tekenreeks-id die de apparaatbatch identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag tekst moet een matrix van [apparaatobject](device-deployment-resources.md#device) bevatten. De volgende combi Naties van velden voor het identificeren van een apparaat worden geaccepteerd:
+De aanvraag body moet een matrix van [apparaatobjecten](device-deployment-resources.md#device) bevatten. De volgende combinaties van velden voor het identificeren van een apparaat worden geaccepteerd:
 
 - hardwareHash + productKey.
 - hardwareHash + serialNumber.
 - hardwareHash + productKey + serialNumber.
 - alleen hardwareHash.
 - alleen productKey.
-- serialNumber + oemManufacturerName + modelnaam.
+- serialNumber + oemManufacturerName + modelName.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -153,11 +150,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord een **locatie** header met een URI die kan worden gebruikt om de upload status van het apparaat op te halen. Sla deze URI op voor gebruik met andere verwante REST Api's.
+Als dit lukt, bevat het antwoord een **Location-header** met een URI die kan worden gebruikt om de uploadstatus van het apparaat op te halen. Sla deze URI op voor gebruik met andere gerelateerde REST API's.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

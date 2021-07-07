@@ -1,45 +1,41 @@
 ---
-title: Een lijst met SKU’s voor een product ophalen (per land)
-description: U kunt een verzameling van Sku's per land voor een product ophalen en filteren met behulp van de partner centrum-Api's.
+title: Een lijst met SKU’s voor een product ophalen (per land/regio)
+description: U kunt een verzameling SKU's per land ophalen en filteren voor een product met behulp van Partner Center API's.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 9d5ec9172ed92d33e6ff291eafd523cbc13bfbbd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 27a2391a22a9439461fb53764b87c1cafa68b875
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767292"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873884"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-country"></a>Een lijst met SKU’s voor een product ophalen (per land)
+# <a name="get-a-list-of-skus-for-a-product-by-country"></a>Een lijst met SKU’s voor een product ophalen (per land/regio)
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-U kunt een verzameling Sku's die beschikbaar zijn in een land voor een specifiek product ophalen met behulp van partner Center-Api's.
+U kunt een verzameling SKU's ophalen die beschikbaar zijn in een land voor een specifiek product met behulp Partner Center API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een product-id.
 
 ## <a name="c"></a>C\#
 
-De lijst met Sku's voor een product ophalen:
+De lijst met SKU's voor een product op te halen:
 
-1. Haal een interface op voor de bewerkingen van een specifiek product door de stappen in [een product ophalen op basis van id](get-a-product-by-id.md)te volgen.
+1. Haal een interface op voor de bewerkingen van een specifiek product door de stappen in [Een product op id krijgen te volgen.](get-a-product-by-id.md)
 
-2. Selecteer in de interface de eigenschap **sku's** om een interface te verkrijgen met de beschik bare bewerkingen voor sku's.
+2. Selecteer in de interface de eigenschap **SKU's** om een interface te verkrijgen met de beschikbare bewerkingen voor SKU's.
 
-3. Roep de methode **Get ()** of **GetAsync ()** aan om een verzameling van de beschik bare sku's voor het product op te halen.
+3. Roep de **methode Get()** of **GetAsync()** aan om een verzameling van de beschikbare SKU's voor het product op te halen.
 
-4. Beschrijving Selecteer het reserverings bereik met de methode **ByReservationScope ()** .
+4. (Optioneel) Selecteer het reserveringsbereik met behulp **van de methode ByReservationScope().**
 
-5. Beschrijving Gebruik de methode **ByTargetSegment ()** om de sku's te filteren op doel segment voordat u **Get ()** of **GetAsync ()** aanroept.
+5. (Optioneel) Gebruik de **methode ByTargetSegment() om** de SKU's te filteren op doelsegment voordat u **Get()** of **GetAsync() aanroept.**
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -67,15 +63,15 @@ var skus = partnerOperations.Products.ByCountry(countryCode).ById(productIdForAz
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-De lijst met Sku's voor een product ophalen:
+De lijst met SKU's voor een product op te halen:
 
-1. Haal een interface op voor de bewerkingen van een specifiek product door de stappen in [een product ophalen op basis van id](get-a-product-by-id.md)te volgen.
+1. Haal een interface op voor de bewerkingen van een specifiek product door de stappen in [Een product op id krijgen te volgen.](get-a-product-by-id.md)
 
-2. Selecteer de functie **getSkus** van de interface om een interface met de beschik bare bewerkingen voor sku's te verkrijgen.
+2. Selecteer in de interface de **functie getSkus** om een interface te verkrijgen met de beschikbare bewerkingen voor SKU's.
 
-3. Roep de functie **Get ()** aan om een verzameling van de beschik bare sku's voor het product op te halen.
+3. Roep de **functie get()** aan om een verzameling van de beschikbare SKU's voor het product op te halen.
 
-4. Beschrijving Gebruik de functie **byTargetSegment ()** om de sku's te filteren op doel segment voordat u de functie **Get ()** aanroept.
+4. (Optioneel) Gebruik de **functie byTargetSegment() om** de SKU's te filteren op doelsegment voordat u de **functie get()** aanroept.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -95,11 +91,11 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-De lijst met Sku's voor een product ophalen:
+De lijst met SKU's voor een product op te halen:
 
-1. Voer de opdracht [**Get-PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md) uit.
+1. Voer de [**opdracht Get-PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md) uit.
 
-2. Beschrijving Geef de **segment** parameter op om de sku's te filteren op doel segment.
+2. (Optioneel) Geef de **parameter Segment** op om de SKU's te filteren op doelsegment.
 
 ```powershell
 # $productId
@@ -114,34 +110,34 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/SKUs? land = {land nummer} &targetSegment = {target-segment} http/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus?country={country-code}&targetSegment={target-segment} HTTP/1.1  |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende pad-en query parameters om een lijst met Sku's voor een product op te halen.
+Gebruik het volgende pad en de queryparameters om een lijst met SKU's voor een product op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Yes      | Een teken reeks waarmee het product wordt geïdentificeerd.                           |
-| land code           | tekenreeks   | Yes      | Een land/regio-ID.                                            |
-| doel segment         | tekenreeks   | No       | Een teken reeks die het doel segment identificeert dat wordt gebruikt voor het filteren. |
-| reservationScope | tekenreeks   | No | Bij het uitvoeren van een query op een lijst met Sku's voor een Azure-reserverings product, geeft `reservationScope=AzurePlan` u een lijst op met sku's die van toepassing zijn op AzurePlan. Sluit deze para meter uit om een lijst op te halen met Sku's voor een Azure-reserverings product die van toepassing zijn op Microsoft Azure (MS-AZR-0145P)-abonnementen.  |
+| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
+| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| doelsegment         | tekenreeks   | No       | Een tekenreeks die het doelsegment identificeert dat wordt gebruikt voor filteren. |
+| reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met SKU's voor een Azure Reservation-product, geeft u op om een lijst op te halen met SKU's die van `reservationScope=AzurePlan` toepassing zijn op AzurePlan. Sluit deze parameter uit om een lijst met SKU's voor Azure Reservation-producten op te halen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
 Geen.
 
-### <a name="request-examples"></a>Aanvraag voorbeelden
+### <a name="request-examples"></a>Voorbeelden van aanvragen
 
-Een lijst met Sku's voor een bepaald product ophalen:
+Een lijst met SKU's voor een bepaald product op te halen:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BPS6/skus?country=US HTTP/1.1
@@ -151,7 +147,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Haal een lijst op met Sku's voor een reserve ring product van Azure. Neem alleen de Sku's op die van toepassing zijn op Azure-abonnementen en niet Microsoft Azure (MS-AZR-0145P):
+Haal een lijst met SKU's op voor een Azure Reservation-product. Neem alleen de SKU's op die van toepassing zijn op Azure-abonnementen en niet Microsoft Azure (MS-AZR-0145P) abonnementen:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US&reservationScope=AzurePlan HTTP/1.1
@@ -161,7 +157,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Haal een lijst op met Sku's voor een reserve ring product van Azure. Neem alleen de Sku's op die van toepassing zijn op Microsoft Azure (MS-AZR-0145P) en niet voor Azure-abonnementen:
+Haal een lijst met SKU's op voor een Azure Reservation-product. Neem alleen de SKU's op die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P) en niet op Azure-abonnementen:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US HTTP/1.1
@@ -173,17 +169,17 @@ MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [SKU](product-resources.md#sku) -resources.
+Als dit lukt, bevat de antwoord-body een verzameling [SKU-resources.](product-resources.md#sku)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                                               |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Toegang tot de aangevraagde targetSegment is niet toegestaan.                                                     |
+| 403                  | 400030       | Toegang tot het aangevraagde targetSegment is niet toegestaan.                                                     |
 | 404                  | 400013       | Het bovenliggende product is niet gevonden.                                                                         |
 
 ### <a name="response-example"></a>Voorbeeld van antwoord

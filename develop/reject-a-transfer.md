@@ -1,59 +1,55 @@
 ---
 title: Een overdracht afwijzen
-description: Een overdracht van abonnementen voor een klant afwijzen.
+description: Het afwijzen van een overdracht van abonnementen voor een klant.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e4a182ff92a21cf72ca1c2da9de7e211b433725f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d09905979a89c9b2092462512c485524cd681d5f
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767254"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445371"
 ---
 # <a name="reject-a-transfer"></a>Een overdracht afwijzen
 
-**Van toepassing op:**
-
-- Partnercentrum
-
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een overdrachts-id voor een bestaande overdracht.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/transfers/{Transfer-id} http/1.1                    |
+| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id} HTTP/1.1                    |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende para meter Path om de klant te identificeren en de overdracht op te geven die moet worden geaccepteerd.
+Gebruik de volgende padparameter om de klant te identificeren en geef de overdracht op die moet worden geaccepteerd.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **klant-id** | tekenreeks   | Yes      | Een door de klant-id opgemaakte GUID waarmee de klant wordt geïdentificeerd.             |
-| **overdracht-id** | tekenreeks   | Yes      | Een door de GUID geformatteerde overdracht-id waarmee de overdracht wordt aangeduid.             |
+| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
+| **transfer-id** | tekenreeks   | Ja      | Een met GUID opgemaakte overdrachts-id die de overdracht identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de eigenschappen van [TransferEntity](transfer-entity-resources.md) in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de [eigenschappen van TransferEntity](transfer-entity-resources.md) in de aanvraag body beschreven.
 
 | Eigenschap              | Type          | Vereist  | Beschrijving                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | tekenreeks        | No    | Een transferEntity-id die wordt geleverd bij het maken van de transferEntity.                               |
-| status                | tekenreeks        | No    | De status van de transferEntity. Als u een overdracht wilt afwijzen, moet de waarde worden ingesteld op ' afwijzen '|
+| id                    | tekenreeks        | No    | Een id voor transferEntity die wordt opgegeven bij het maken van de transferEntity.                               |
+| status                | tekenreeks        | No    | De status van de transferEntity. Als u een overdracht wilt weigeren, moet de waarde worden ingesteld op 'weigeren'|
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -72,11 +68,11 @@ Content-Length: 63
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de gevulde [TransferEntity](transfer-entity-resources.md) -resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode de ingevulde [TransferEntity-resource](transfer-entity-resources.md) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,61 +1,56 @@
 ---
-title: API-scenario's voor partner centrum
-description: Meer informatie over hoe de partners van het Cloud Solution Provider-programma de partner centrum-API kunnen gebruiken om klant accounts, bestellingen, ondersteuning en facturering programmatisch te beheren.
+title: Partner Center API-scenario's
+description: Ontdek hoe Cloud Solution Provider programmapartners de Partner Center-API kunnen gebruiken voor het programmatisch beheren van klantaccounts, orders, ondersteuning en facturering.
 ms.date: 10/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 14dbd501e3d075c3880fae6f362feef797cba133
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: d74400a975323d5f0f276dbdece3621d8b47a609
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97767580"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547475"
 ---
-# <a name="partner-center-api-scenarios-that-let-you-programmatically-manage-customer-accounts"></a>API-scenario's voor partner centrum waarmee u op een programmatische manier klant accounts kunt beheren
+# <a name="partner-center-api-scenarios-that-let-you-programmatically-manage-customer-accounts"></a>Partner Center API-scenario's waarin u klantaccounts programmatisch kunt beheren
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Center for Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+In dit artikel worden enkele van de manieren beschreven waarop partners in het Cloud Solution Provider-programma de Partner Center-API kunnen gebruiken om programmatisch gebieden te beheren, zoals:
 
-In dit artikel worden een aantal manieren beschreven waarop partners in het Cloud Solution Provider-programma de partner centrum-API kunnen gebruiken om op een programmatische manier gebieden te beheren:
-
-- Klant accounts
+- Klantaccounts
 - Bestellingen
 - Abonnementen
 - Ondersteuning
 - Billing
 
-Er zijn verschillende versies van het partner centrum beschikbaar die verschillende mogelijkheden hebben. Niet alle scenario's worden ondersteund in alle versies van partner Center. Zie [ontwikkelen voor Partner Center voor micro soft National Cloud](developing-for-partner-center-for-microsoft-national-cloud.md)voor meer informatie.
+Er zijn verschillende versies van Partner Center beschikbaar die verschillende mogelijkheden bevatten. Niet alle scenario's worden ondersteund in alle versies van Partner Center. Zie Developing for Partner Center for Microsoft National Cloud (Ontwikkelen voor [Partner Center voor Microsoft National Cloud) voor meer informatie.](developing-for-partner-center-for-microsoft-national-cloud.md)
 
-## <a name="scenarios-supported-by-the-partner-center-sdk"></a>Scenario's die worden ondersteund door de Partner Center SDK
+## <a name="scenarios-supported-by-the-partner-center-sdk"></a>Scenario's die worden ondersteund door de Partnercentrum-SDK
 
 Alle volgende scenario's kunnen op drie verschillende manieren worden uitgevoerd:
 
-- Hand matig in het dash board van de [partner centrum](https://partner.microsoft.com/dashboard) .
+- Handmatig in het [Partner Center](https://partner.microsoft.com/dashboard) dashboard.
 
-- Programmatisch met behulp van de beheerde API van het partner centrum.
+- Programmatisch met behulp van Partner Center beheerde API.
 
-- Programmatisch met behulp van het REST API van de Partner Center.
+- Programmatisch met behulp van de Partner Center REST API.
 
 | Voor meer informatie over deze ondersteunde scenario's:  | Zie deze resource:     |
 |----------------------------------|--------------------------|
-| **Analytics:** Meer informatie over het ophalen van analyse gegevens over Azure-gebruik, abonnementen, licenties of verwijzingen.         | [Analyse](usage-analytics.md)  |
-| **Controle bewerkingen:** Meer informatie over het ophalen van historische controle records van de activiteiten en bewerkingen van het partner centrum. | [Auditbewerkingen](audit.md)                     |
-| **Implementaties van apparaten:** Meer informatie over het configureren van beleids regels voor apparaten, het werken met batches voor apparaten en meta gegevens van apparaten. Deze scenario's omvatten het toevoegen, verwijderen, bijwerken en ophalen van het configuratie beleid voor apparaten.    | [Implementatie van apparaat](device-deployment.md)  |
-| **Accounts en profielen:** Meer informatie over het ophalen of bijwerken van facturerings profielen voor partners, juridische profielen, MPN profiel, zakelijke profielen of ondersteunings profielen. U kunt ook een lijst met klanten of indirecte wederverkopers ophalen. | [Accounts en profielen beheren](manage-profiles-and-information.md)                                                                        |
-| **Facturering:** Meer informatie over gebieden zoals het wijzigen van de facturerings cyclus, het ophalen van Azure-tarieven en Azure-gebruiks gegevens, het ophalen van facturen, het verkrijgen van het huidige account saldo van de partner of het verkrijgen van kosten voor de klanten service.  | [De facturering beheren](manage-billing.md)   |
-| **Azure-uitgaven:** Krijg informatie over het gebruik van Azure-uitgaven en-partners, het gebruik van klant abonnementen, gebruik van de data limiet en budget gebruik. Daarnaast wordt beschreven hoe u een klant gebruiks budget bijwerkt. | [Uitgaven voor Azure](azure-spending.md)  |
-| **Klant accounts beheren:** Leer hoe u veel aspecten van het account beheer van klanten kunt doen, zoals het maken en verwijderen van klant accounts of de gebruikers accounts van een klant, het beheren en valideren van klant account gegevens, het beheren van gebruikers accounts en het toewijzen van licenties.  | [Klanten beheren](manage-customers.md)  |
-| **Beheren van orders:** Meer informatie over de manieren waarop u klant orders en abonnementen kunt beheren via een programma. Dit gebied omvat het aanschaffen van Azure-reserve ringen, het maken van orders, het ophalen van aanbiedingen uit de catalogus en het beheren van aanbiedingen voor proef versies.   | [Bestellingen beheren](manage-orders.md)  |
-| **Ondersteuning bieden:** Meer informatie over het beheren van services voor een klant, het verkrijgen of bijwerken van ondersteunings contacten voor een abonnement en het beheren van service aanvragen.  | [Ondersteuning bieden](provide-support.md)   |
-| **Verwijzingen:** Meer informatie over het maken van een verwijzing, het ophalen van een lijst met verwijzingen of het bijwerken van een verwijzing.  | [Verwijzingen](/partner/develop/referrals)  |
-| **Hulpprogram ma's:** Meer informatie over het valideren van een adres, het ophalen van adres regels per markt, het controleren van de beschik baarheid van domeinen, het verwijderen van een klant account uit de integratie sandbox of het verkrijgen van een record van de Partner Center-activiteit. | [Hulpprogramma's](utilities.md)  |
-| **Beveiliging:** Meer informatie over de REST-Api's met betrekking tot multi-factor Authentication (MFA) in partner centrum. Met deze Api's kunt u MFA afdwingen voor elk gebruikers account in uw partner Tenant.  | [Status van partner beveiligings vereisten](partner-security-requirements.md)  |
+| **Analyse:** Meer informatie over het ophalen van analysegegevens over azure-gebruik, abonnementen, licenties of verwijzingen.         | [Analyse](usage-analytics.md)  |
+| **Controlebewerkingen:** Meer informatie over het ophalen van historische controlerecords Partner Center activiteiten en bewerkingen. | [Auditbewerkingen](audit.md)                     |
+| **Apparaatimplementaties:** Meer informatie over apparaatconfiguratiebeleid, het werken met batches van apparaten en metagegevens van apparaten. Deze scenario's omvatten het toevoegen, verwijderen, bijwerken en ophalen van apparaatconfiguratiebeleid.    | [Implementatie van apparaat](device-deployment.md)  |
+| **Accounts en profielen:** Meer informatie over het downloaden of bijwerken van partnerfactureringsprofielen, juridische profielen, MPN-profielen, bedrijfsprofielen of ondersteuningsprofielen. U kunt ook een lijst met klanten of indirecte resellers krijgen. | [Accounts en profielen beheren](manage-profiles-and-information.md)                                                                        |
+| **Facturering:** Meer informatie over gebieden zoals het wijzigen van de factureringscyclus, het verkrijgen van Azure-tarieven en Azure-gebruiksrecords, het ontvangen van facturen, het huidige rekeningsaldo van de partner of het verkrijgen van servicekosten voor klanten.  | [De facturering beheren](manage-billing.md)   |
+| **Azure-uitgaven:** Krijg informatie over Azure-uitgaven en partnergebruik, het gebruik van klantabonnementen, het gebruik naar gebruik naar gebruik en de budgetten van klanten. Scenario's omvatten ook het bijwerken van een klantgebruiksbudget. | [Uitgaven voor Azure](azure-spending.md)  |
+| **Klantaccounts beheren:** Meer informatie over het beheren van klantaccounts, zoals het maken en verwijderen van klantaccounts of gebruikersaccounts van een klant, het beheren en valideren van klantaccountgegevens, het beheren van gebruikersaccounts en het toewijzen van licenties.  | [Klanten beheren](manage-customers.md)  |
+| **Orders beheren:** Ontdek alle manieren waarop u klantorders en abonnementen programmatisch kunt beheren. Dit gebied omvat het kopen van Azure-reserveringen, het maken van orders, het ontvangen van aanbiedingen uit de catalogus en het beheren van aanbiedingen voor proefversies.   | [Bestellingen beheren](manage-orders.md)  |
+| **Ondersteuning bieden:** Meer informatie over het beheren van services voor een klant, het krijgen of bijwerken van ondersteuningscontacten voor een abonnement en het beheren van serviceaanvragen.  | [Ondersteuning bieden](provide-support.md)   |
+| **Verwijzingen:** Meer informatie over het maken van een verwijzing, het op halen van een lijst met verwijzingen of het bijwerken van een verwijzing.  | [Verwijzingen](/partner/develop/referrals)  |
+| **Hulpprogramma's:** Meer informatie over het valideren van een adres, het opmaken van regels voor adresopmaak per markt, het controleren van de beschikbaarheid van domeinen, het verwijderen van een klantaccount uit de integratie-sandbox of het opmaken van een Partner Center activiteit. | [Hulpprogramma's](utilities.md)  |
+| **Beveiliging:** Meer informatie over de REST API's met betrekking tot meervoudige verificatie (MFA) in Partner Center. Met deze API's kunt u MFA afdwingen voor elk gebruikersaccount in uw partner-tenant.  | [Status van beveiligingsvereisten van partner](partner-security-requirements.md)  |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zie voor beelden van partner Center](partner-center-samples.md)
-- [Meer informatie over hoe u aan de slag gaat](get-started.md)
+- [Zie Partner Center voorbeelden](partner-center-samples.md)
+- [Meer informatie over hoe u aan de slag kunt gaan](get-started.md)

@@ -1,98 +1,94 @@
 ---
-title: Service kosten resources
-description: Hierin worden de resources beschreven die zijn gerelateerd aan services die door een klant zijn gekocht.
+title: Resources voor servicekosten
+description: Beschrijft resources met betrekking tot services die zijn gekocht door een klant.
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c0236329d93d8ddc9019a15fb67a81a3af3e7620
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dbddc1973dd9a904cedd549c1772cd4c74c69a60
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767327"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547407"
 ---
-# <a name="service-costs-resources"></a>Service kosten resources
+# <a name="service-costs-resources"></a>Resources voor servicekosten
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-Hierin worden de resources beschreven die zijn gerelateerd aan services die door een klant zijn gekocht.
+Beschrijft resources met betrekking tot services die zijn gekocht door een klant.
 
 ## <a name="servicecostssummary"></a>ServiceCostsSummary
 
-**ServiceCostsSummary** bevat een samen vatting waarin alle services die door de opgegeven klant zijn gekocht tijdens de facturerings periode, worden geaggregeerd.
+**ServiceCostsSummary** bevat een samenvatting waarin alle services worden geaggregeerd die tijdens de factureringsperiode door de opgegeven klant zijn gekocht.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| nadere | matrix van [ServiceCostsSummaryDetail](#servicecostssummarydetail) -objecten | De lijst met samenvattings gegevens voor service kosten, onderscheiden per factuur type.|
-| koppelen | [ResourceLinks](utility-resources.md#resourcelinks) | De resource koppelingen. |
-| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken. |
+| Details | matrix van [ServiceCostsSummaryDetail-objecten](#servicecostssummarydetail) | De overzichtslijst met servicekosten, onderscheiden op factuurtype.|
+| Verwijzigingen | [ResourceLinks](utility-resources.md#resourcelinks) | De resourcekoppelingen. |
+| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken. |
 
 > [!IMPORTANT]
-> **De velden in de volgende tabel worden afgeschaft.** Als u terugkerende en eenmalige service kosten samen vattingen wilt ophalen, gebruikt u in plaats daarvan het veld **Details** . Het veld **Details** wordt beschreven in de vorige tabel. Raadpleeg de bijbehorende gegevens waarden van het veld **Details** , maar niet van de velden op het hoofd niveau.
+> **De velden in de volgende tabel worden afgeschaft.** Als u terugkerende en eenmalige samenvattingen van servicekosten wilt ophalen, gebruikt u in plaats daarvan **het veld** Details. Het **detailveld** wordt beschreven in de vorige tabel. Raadpleeg de **bijbehorende gegevenswaarden** van het detailveld, maar niet de velden op hoofdniveau.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| billingStartDate | date | Het begin van de facturerings periode. |
-| billingEndDate | date | Het einde van de facturerings periode. |
-| pretaxTotal | double | Het totaal van de kosten voor de klant. |
-| belasting  | double | De totale belasting die is gemaakt voor alle items die de klant heeft gekocht. |
+| billingStartDate | date | Het begin van de factureringsperiode. |
+| billingEndDate | date | Het einde van de factureringsperiode. |
+| pretaxTotal | double | Het totaal vóór belasting van alle kosten voor de klant. |
+| Belasting  | double | De totale belasting die wordt gemaakt voor alle items die door de klant zijn gekocht. |
 | afterTaxTotal | double | De netto totale kosten voor alle items die door de klant zijn gekocht. |
-| currencyCode | tekenreeks | Hiermee wordt de valuta aangegeven die wordt gebruikt voor de kosten. |
-| currencySymbol | tekenreeks | Het valuta symbool dat wordt gebruikt voor de kosten. |
-| customerId | tekenreeks | De ID van de klant die de aankoop doet. |
+| currencyCode | tekenreeks | Vertegenwoordigt de valuta die wordt gebruikt voor de kosten. |
+| currencySymbol | tekenreeks | Het valutasymbool dat wordt gebruikt voor de kosten. |
+| customerId | tekenreeks | De id van de klant die de aankoop heeft gedaan. |
 
 ## <a name="servicecostssummarydetail"></a>ServiceCostsSummaryDetail
 
-In **ServiceCostsSummaryDetail** wordt een samen vatting van service kosten beschreven waarmee alle services die door de opgegeven klant zijn gekocht tijdens de facturerings periode, worden geaggregeerd (vanuit terugkerende of eenmalige facturen).
+**ServiceCostsSummaryDetail** beschrijft een overzicht van servicekosten waarin alle services worden geaggregeerd die tijdens de factureringsperiode zijn gekocht door de opgegeven klant (van terugkerende of eenmalige facturen).
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| invoiceType | tekenreeks | De invoiceType waarvoor een service kosten overzicht is gegenereerd. |
-| samenvatting | [ServiceCostsSummary](#servicecostssummary) | Het overzicht van service kosten dat is geaggregeerd door een klant onder één factuur type. |
+| invoiceType | tekenreeks | Het invoiceType dat het overzicht van de servicekosten is gegenereerd. |
+| samenvatting | [ServiceCostsSummary](#servicecostssummary) | Het overzicht van servicekosten, geaggregeerd door een klant onder één factuurtype. |
 
 ## <a name="servicecostlineitem"></a>ServiceCostLineItem
 
-**ServiceCostLineItem** beschrijft een enkel item dat door de klant is gekocht.
+**ServiceCostLineItem** beschrijft één item dat door de klant is gekocht.
 
 > [!IMPORTANT]
-> De volgende eigenschappen *gelden alleen voor* service kosten regel items waarbij het product een *eenmalige aankoop* is: **ProductID**, **productName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, naam **Uitgever**, **termAndBillingCycle**, **discountDetails**. Deze eigenschappen *zijn niet van toepassing op* service regel items waarbij het product een *terugkerende aankoop* is. Deze eigenschappen *zijn bijvoorbeeld niet van toepassing* op op abonnementen gebaseerde Office 365 en Azure.
+> De volgende  eigenschappen zijn alleen van toepassing op servicekostenregelitems waarbij het product een een *time-aankoop* is: **productId**, **productName**, **skuId**, **skuName,** **availabilityId**, **publisherId,** **publisherName**, **termAndBillingCycle,** **discountDetails**. Deze eigenschappen *zijn niet van toepassing op* serviceregelitems waarbij het product een terugkerende aankoop *is.* Deze eigenschappen zijn bijvoorbeeld niet *van toepassing op* abonnementsgebaseerde Office 365 en Azure.
 
-| Eigenschap                 | Type                           | Description                                                          |
+| Eigenschap                 | Type                           | Beschrijving                                                          |
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
-| Begin                | teken reeks in UTC-datum-tijd notatie | De begin datum voor de kosten.                                       |
-| endDate                  | teken reeks in UTC-datum-tijd notatie | De eind datum voor de kosten.                                         |
-| subscriptionFriendlyName | tekenreeks                         | De beschrijvende naam voor het abonnement.                              |
+| Startdate                | tekenreeks in UTC-datum/tijd-indeling | De begindatum voor de kosten.                                       |
+| Enddate                  | tekenreeks in UTC-datum/tijd-indeling | De einddatum voor de kosten.                                         |
+| subscriptionFriendlyName | tekenreeks                         | De gebruiksvriendelijke naam voor het abonnement.                              |
 | subscriptionId           | tekenreeks                         | De abonnements-id.                                         |
-| Velden                  | tekenreeks                         | De order-id.                                                |
+| Orderid                  | tekenreeks                         | De order-id.                                                |
 | offerId                  | tekenreeks                         | De aanbiedings-id.                                                |
 | offerName                | tekenreeks                         | De naam van de aanbieding.                                                      |
-| resellerMPNId            | tekenreeks                         | Wordt alleen gebruikt in scenario's met twee lagen. Verwijst naar de MPN-id. |
-| chargeType               | tekenreeks                         | Het gekoppelde kosten type.                                          |
-| quantity                 | getal                         | Het aantal gebruikte eenheden of de aangeschafte hoeveelheid.                             |
+| resellerMPNId            | tekenreeks                         | Alleen gebruikt in partnerscenario's met twee lagen. Verwijst naar de MPN-id. |
+| chargeType               | tekenreeks                         | Het bijbehorende kostentype.                                          |
+| quantity                 | getal                         | Het aantal gebruikte of aangeschafte eenheden.                             |
 | unitPrice                | getal                         | De prijs per eenheid.                                                  |
 | pretaxTotal              | getal                         | De totale kosten voor dit item vóór belastingen.                         |
-| belasting                      | getal                         | De totale belasting kosten voor dit artikel.                         |
-| afterTaxTotal            | getal                         | De totale kosten voor dit item in het netwerk.                                    |
-| currencyCode             | tekenreeks                         | Hiermee wordt de valuta aangegeven die wordt gebruikt voor de kosten.                          |
-| currencySymbol           | tekenreeks                         | Het valuta symbool dat wordt gebruikt voor de kosten.                              |
-| customerId               | tekenreeks                         | De ID van de klant die de aankoop doet.                          |
-| customerName             | tekenreeks                         | De naam van de klant die de aankoop maakt.                        |
-| invoiceNumber            | tekenreeks                         | Het factuur nummer waarvan dit regel item deel uitmaakt.                   |
+| Belasting                      | getal                         | De totale btw-kosten voor dit item.                         |
+| afterTaxTotal            | getal                         | De netto totale kosten voor dit item.                                    |
+| currencyCode             | tekenreeks                         | Vertegenwoordigt de valuta die wordt gebruikt voor de kosten.                          |
+| currencySymbol           | tekenreeks                         | Het valutasymbool dat wordt gebruikt voor de kosten.                              |
+| customerId               | tekenreeks                         | De id van de klant die de aankoop heeft gedaan.                          |
+| customerName             | tekenreeks                         | De naam van de klant die de aankoop doet.                        |
+| invoiceNumber            | tekenreeks                         | Het factuurnummer waar dit regelitem bij hoort.                   |
 | productId                | tekenreeks                         | De product-id.                                              |
 | skuId                    | tekenreeks                         | De SKU-id.                                                  |
-| availabilityId           | tekenreeks                         | De beschikbaarheids identificatie.                                         |
-| Product              | tekenreeks                         | De product naam.                                                    |
+| availabilityId           | tekenreeks                         | De beschikbaarheids-id.                                         |
+| Productnaam              | tekenreeks                         | De productnaam.                                                    |
 | skuName                  | tekenreeks                         | De naam van de SKU.                                                        |
 | publisherName            | tekenreeks                         | De naam van de uitgever.                                                  |
-| publisherId              | tekenreeks                         | De uitgevers-id.                                            |
-| termAndBillingCycle      | tekenreeks                         | De term en facturerings cyclus.                                          |
-| discountDetails          | tekenreeks                         | De kortings gegevens.                                                |
+| publisherId              | tekenreeks                         | De uitgever-id.                                            |
+| termAndBillingCycle      | tekenreeks                         | De periode en factureringscyclus.                                          |
+| discountDetails          | tekenreeks                         | De kortingsdetails.                                                |
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 
-| Eigenschap             | Type                               | Description                         |
+| Eigenschap             | Type                               | Beschrijving                         |
 |----------------------|------------------------------------|-------------------------------------|
-| serviceCostLineItems | [Koppeling](utility-resources.md#link) | De URI voor het ophalen van de regel items. |
-| Online                 | [Koppeling](utility-resources.md#link) | De zelf-URI.                       |
+| serviceCostLineItems | [Koppeling](utility-resources.md#link) | De URI voor het ophalen van de regelitems. |
+| Zelf                 | [Koppeling](utility-resources.md#link) | De zelf-URI.                       |

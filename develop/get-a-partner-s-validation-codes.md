@@ -1,39 +1,35 @@
 ---
-title: De Cloud validatie codes van een partner community ophalen
-description: Informatie over het verkrijgen van validatie codes voor Cloud Community's van een partner.
+title: Validatiecodes van een partner Government Community Cloud krijgen
+description: De validatiecodes van een partner Government Community Cloud krijgen.
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: d84a3d3c69d835e42565c4e6f1edb06ab338340a
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 04bccf587628337004a5825b534048945f791839
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767356"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873867"
 ---
 # <a name="get-a-partners-validation-codes"></a>De validatiecodes van een partner ophalen
 
-**Van toepassing op**
+In dit artikel wordt beschreven hoe u een verzameling van de validatiecodes van een partner Government Community Cloud ophalen. Er is een validatiecode vereist om een klant te maken in de communitycloud van de overheid.
 
-- Partnercentrum
-
-Een verzameling van de Cloud validatie codes van een partner community ophalen. Een validatie code is vereist voor het maken van een klant in de cloud van de Government-community.
-
-Als u geïnteresseerd bent in het goed keuren van uw organisatie of uw organisatie voor Office 365 Government GCC voor CSP, raadpleegt u [Office 365 Government GCC voor CSP-partner en klant geschiktheids criteria/Partner-Center/CSP-gcc-validate).
+Zie Office 365 Government GCC for CSP Partner and Customer eligibility criteria (Office 365 Government GCC voor [CSP-partner](/partner-center/csp-gcc-validate)en klantcriteria) als u geïnteresseerd bent in het goedkeuren van Office 365 Government GCC voor CSP door uw organisatie of de organisatie van uw klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Bevestigde validatie na invullen van [het formulier.](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)
+- Validatie bevestigd na het invullen van het [formulier hier](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).
 
-- Een klant zonder een kwalificatie.
+- Een klant zonder kwalificatie.
 
 ## <a name="c"></a>C\#
 
-Roep **GetValidationCodes** aan om een lijst met alle validatie codes van een partner op te halen.
+Voor een lijst met alle validatiecodes van een partner roept u **GetValidationCodes aan.**
 
 ``` csharp
 // create the partner operations
@@ -44,15 +40,15 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/all/validations http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -70,11 +66,11 @@ MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze methode is geslaagd, wordt een lijst met [**ValidationCode**](utility-resources.md#validationcode) -resources in de antwoord tekst geretourneerd.
+Als dit lukt, retourneert deze methode een lijst met [**ValidationCode-resources**](utility-resources.md#validationcode) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

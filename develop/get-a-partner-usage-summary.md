@@ -1,41 +1,37 @@
 ---
-title: Een samen vatting van het gebruik van een partner ophalen
-description: U kunt de PartnerUsageSummary-Resource gebruiken om een samen vatting van een partner gebruik te krijgen van alle klanten die tijdens de huidige facturerings periode een specifieke Azure-service of resource hebben aangeschaft.
+title: Een gebruiksoverzicht voor een partner krijgen
+description: U kunt de resource PartnerUsageSummary gebruiken om een samenvatting van het gebruik van partners te krijgen van alle klanten die een specifieke Azure-service of -resource hebben aangeschaft tijdens de huidige factureringsperiode.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: ba1885f46043a75274595239fe61ce3ef0998acf
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f003980f1b521ad0ac26dbfd0d4821b9096fdd27
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767273"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873901"
 ---
-# <a name="get-a-usage-summary-for-a-partner"></a>Een samen vatting van het gebruik van een partner ophalen
+# <a name="get-a-usage-summary-for-a-partner"></a>Een gebruiksoverzicht voor een partner krijgen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+U kunt de resource **PartnerUsageSummary** gebruiken om een samenvatting van het gebruik van partners te krijgen van alle klanten die een specifieke Azure-service of -resource hebben aangeschaft tijdens de huidige factureringsperiode.
 
-U kunt de **PartnerUsageSummary** -Resource gebruiken om een samen vatting van een partner gebruik te krijgen van alle klanten die tijdens de huidige facturerings periode een specifieke Azure-service of resource hebben aangeschaft.
-
-*Het totaal dat door deze API wordt geretourneerd, retourneert geen verbruik voor klanten die een Azure-abonnement hebben.* In de toekomst gepland voor afschaffing.
+*Het totaal dat door deze API wordt geretourneerd, retourneerd geen verbruik voor klanten die een Azure-plan hebben.* Gepland voor afschaffing in de toekomst.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Voor een overzicht van het gebruik van alle klanten die een specifieke Azure-service of-resource hebben gekocht tijdens de huidige facturerings periode:
+Ga als volgt te werk om een gebruiksoverzicht te krijgen voor alle klanten die een specifieke Azure-service of -resource hebben aangeschaft tijdens de huidige factureringsperiode:
 
-1. Gebruik uw **IAggregatePartner**.
+1. Gebruik uw **IAggregatePartner.**
 
-2. Roep de eigenschap **UsageSummary** aan, gevolgd door de methoden **Get ()** of **GetAsync ()** :
+2. Roep de **eigenschap UsageSummary** aan, gevolgd door de **methoden Get()** of **GetAsync()** :
 
     ``` csharp
     // IAggregatePartner partnerOperations;
@@ -43,23 +39,23 @@ Voor een overzicht van het gebruik van alle klanten die een specifieke Azure-ser
     var usageSummary = partnerOperations.UsageSummary.Get();
     ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **GetPartnerUsageSummary.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                         |
 |---------|---------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/usagesummary http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/usagesummary HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -77,11 +73,11 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **PartnerUsageSummary** -resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **PartnerUsageSummary-resource** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

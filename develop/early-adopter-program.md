@@ -1,52 +1,47 @@
 ---
 title: Aanmelden voor het Early Adopter-programma voor API en SDK van Partnercentrum
-description: Partners kunnen samen werken met micro soft over de ontwikkeling van de functies en mogelijkheden van de partner.
+description: Partners kunnen samenwerken met Microsoft aan de ontwikkeling van partnerfuncties en -mogelijkheden.
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 62770ea695f63e1be7dbd624f1239286620a6432
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8bb46a84aaab41b8e65376ce580a40ce4bc1d188
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767318"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906378"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>Aanmelden voor het Early Adopter-programma voor API en SDK van Partnercentrum
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Partners kunnen samenwerken met Microsoft aan de ontwikkeling van Partner Center API en SDK-functies en -mogelijkheden.
 
-Partners kunnen samen werken met micro soft op het gebied van de ontwikkeling van de API-en SDK-functies en-mogelijkheden van partner Center.
+## <a name="program-features"></a>Programmafuncties
 
-## <a name="program-features"></a>Programma functies
+De volgende functies zijn beschikbaar voor partners die deelnemen aan de Partner Center API en SDK Early Adopter Program:
 
-De volgende functies zijn beschikbaar voor partners die lid zijn van de Partner Center API en het Early prehands programma voor SDK:
+- Toegang tot voorlopige versies van de Partner Center-API's en **SDK:** we kondigen nieuwe functies en mogelijkheden aan voor de Yammer-groep van het Partner Center Early Adopter Program.
 
-- **Toegang tot voorlopige versies van de partner centrum-api's en SDK**: we zullen nieuwe functies en mogelijkheden bekendmaken aan de Yammer-groep van het verouderde programma van de Partner Center.
+- **Maandelijkse webinars:** er wordt een maandelijkse webinar voor vroege gebruikers uitgevoerd om vragen te beantwoorden, feedback te verzamelen, planningen en tijdlijnen te delen en ondersteuning te bieden voor nieuwe functies.
 
-- **Maandelijks webinars**: een maandelijks webinar voor vroege toepassers wordt uitgevoerd om vragen te beantwoorden, feedback te verzamelen, planningen en tijd lijnen te delen en ondersteuning te bieden voor nieuwe functies.
+- **Ondersteuning van deskundigen: deelnemers** kunnen feedback geven en communiceren met deskundigen (SME's) in de Yammer privégroep.
 
-- **Ondersteuning door experts**: deel nemers kunnen feedback geven en communiceren met experts van het subject (MKB) in de privé Yammer-groep.
+## <a name="join-the-program"></a>Deelnemen aan het programma
 
-## <a name="join-the-program"></a>Word lid van het programma
+U moet een bestaande **CSP-partner** of een **goedgekeurde platformleverancier zijn om** deel te nemen aan het programma.
 
-U moet een **bestaande CSP-partner** of een **goedgekeurde platform leverancier** zijn om lid te worden van het programma.
-
-1. **Word lid van het Yammer** -programma voor het maken van een [passer-partner centrum](https://www.yammer.com/cloudpartnercommunity/#/threads/inGroup?type=in_group&feedId=5944712&view=all). Het kan ons enige tijd duren om uw toepassing te controleren. We sturen u een e-mail wanneer u bent goedgekeurd om lid te worden van de groep.
+1. **Word lid Yammer groep Partner Center** Early [Adopter Program](https://www.yammer.com/cloudpartnercommunity/#/threads/inGroup?type=in_group&feedId=5944712&view=all). Het duurt even om uw toepassing te controleren. We sturen u een e-mail wanneer u bent goedgekeurd om lid te worden van de groep.
 
    > [!NOTE]
-   > Mogelijk moet u lid worden van het Microsoft Cloud Yammer-community-netwerk voordat u kunt samen voegen met de toepassing Yammer-groep van het partner centrum.
+   > Mogelijk moet u lid worden van het Microsoft Cloud Yammer Community-netwerk voordat u kunt deelnemen aan de Partner Center Early Adopter Program Yammer groep.
 
-2. **Een E-mail verzenden naar [pctap@microsoft.com](mailto:pctap@microsoft.com)** met uw micro soft-ID of uw TiP-(Testing in Production)-sandbox-account en uw primaire domein.
+2. **Een e-mail verzenden naar [pctap@microsoft.com](mailto:pctap@microsoft.com)** met uw Microsoft-id of uw TiP-sandboxaccount (Testing in Production) en uw primaire domein.
 
    > [!TIP]
-   > U kunt uw micro soft-ID vinden op de pagina **organisatie profiel** in het menu **account instellingen** .
+   > U vindt uw Microsoft-id op de **pagina Organisatieprofiel** in het **Instellingen** Account.
 
-3. **Deel nemen aan actief** in het programma door nieuwe functies vroegtijdig te testen, te communiceren met micro soft en feedback te geven. Neem contact op met anderen in de early adopter community.
+3. **Neem deel aan** het programma door nieuwe functies vroegtijdig te testen, contact op te nemen met Microsoft en feedback te geven. Wees betrokken bij anderen in de early adopter community.
 
    > [!IMPORTANT]
-   > Micro soft behoudt zich het recht voor om inactieve partners van het programma te verwijderen.
+   > Microsoft behoudt zich het recht voor om inactieve partners uit het programma te verwijderen.

@@ -1,38 +1,33 @@
 ---
 title: Het wettelijke bedrijfsprofiel van een partner bijwerken
-description: Het partner juridisch Business-profiel bijwerken.
+description: Het juridische bedrijfsprofiel van de partner bijwerken.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 6c61b51ab0680e36daa99c11dc8e8c3506259d29
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: cb9f5815e0019c5e9b648dfd865e9752f0afdf05
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767461"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530324"
 ---
 # <a name="update-the-partner-legal-business-profile"></a>Het wettelijke bedrijfsprofiel van een partner bijwerken
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Het partner juridisch Business-profiel bijwerken.
+Het juridische bedrijfsprofiel van de partner bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u het partner juridisch Business-profiel wilt bijwerken, moet u eerst een **LegalBusinessProfile** -object instantiëren en dit vullen met het bestaande profiel. Zie [het partner juridisch Business-profiel ophalen](get-legal-business-profile.md)voor meer informatie. Werk vervolgens de eigenschappen bij die u wilt wijzigen. In het volgende code voorbeeld ziet u hoe u het adres en de telefoon nummer van de primaire contact persoon wijzigt.
+Als u het juridische bedrijfsprofiel van de partner wilt bijwerken, instantieert u eerst een **LegalBusinessProfile-object** en vult u dit met het bestaande profiel. Zie Het juridische bedrijfsprofiel van [de partner verkrijgen voor meer informatie.](get-legal-business-profile.md) Werk vervolgens de eigenschappen bij die u moet wijzigen. Het volgende codevoorbeeld illustreert het wijzigen van het adres en de telefoonnummers van de primaire contactpersoon.
 
-Vervolgens krijgt u een interface voor de verzameling van de partner profiel bewerkingen van de eigenschap **IAggregatePartner. Profiles** . Vervolgens haalt u de waarde van de eigenschap **LegalBusinessProfile** op om een interface te verkrijgen voor juridische bedrijfs profiel bewerkingen. Roep tot slot de [**Update**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) -of [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) -methode aan met het gewijzigde object om het profiel bij te werken.
+Haal vervolgens een interface op voor de verzameling bewerkingen van het partnerprofiel van **de eigenschap IAggregatePartner.Profiles.** Haal vervolgens de waarde van de eigenschap **LegalBusinessProfile** op om een interface te krijgen voor juridische bedrijfsprofielbewerkingen. Roep ten slotte de [**methode Update**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) of [**UpdateAsync aan**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) met het gewijzigde object om het profiel bij te werken.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,19 +44,19 @@ var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfil
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De bron van het juridische zakelijke profiel.
+De juridische bedrijfsprofielresource.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -127,11 +122,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de bijgewerkte **LegalBusinessProfile**
+Als dit lukt, bevat de antwoord-body het **bijgewerkte LegalBusinessProfile**
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

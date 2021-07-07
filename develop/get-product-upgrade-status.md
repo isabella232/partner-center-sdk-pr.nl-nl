@@ -1,45 +1,41 @@
 ---
-title: De product upgrade status voor een klant ophalen
-description: U kunt de ProductUpgradeRequest-Resource gebruiken om de status van een product upgrade voor een klant te bepalen voor een nieuwe product familie, zoals van een Microsoft Azure (MS-AZR-0145P) naar een Azure-abonnement.
+title: De status van de productupgrade voor een klant op te halen
+description: U kunt de productUpgradeRequest-resource gebruiken om de status van een productupgrade voor een klant naar een nieuwe productfamilie te bepalen, zoals van een Microsoft Azure-abonnement (MS-AZR-0145P) naar een Azure-abonnement.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1819887d459ec72a48ea2b7a5a4121dc56718313
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 03d925dd0fae987226ad1f8e71fad380ba144b83
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767281"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445558"
 ---
-# <a name="get-the-product-upgrade-status-for-a-customer"></a>De product upgrade status voor een klant ophalen
+# <a name="get-the-product-upgrade-status-for-a-customer"></a>De status van de productupgrade voor een klant op te halen
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-U kunt de [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) -Resource gebruiken om de status van een upgrade naar een nieuwe product familie op te halen. Deze resource is van toepassing wanneer u een upgrade uitvoert van een klant van een Microsoft Azure (MS-AZR-0145P) naar een Azure-abonnement. Een succes volle aanvraag retourneert de [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) -resource.
+U kunt de [**resource ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) gebruiken om de status van een upgrade naar een nieuwe productfamilie op te halen. Deze resource is van toepassing wanneer u een klant upgradet van een Microsoft Azure-abonnement (MS-AZR-0145P) naar een Azure-abonnement. Een geslaagde aanvraag retourneert [**de resource ProductUpgradesEligibility.**](product-upgrade-resources.md#productupgradeseligibility)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties. Volg het [model voor beveiligde apps](enable-secure-app-model.md) wanneer u app + gebruikers authenticatie met partner Center api's gebruikt.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps bij](enable-secure-app-model.md) het gebruik van App+User-verificatie met Partner Center API's.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- De product familie.
+- De productfamilie.
 
-- De upgrade-ID van een upgrade-aanvraag.
+- De upgrade-id van een upgradeaanvraag.
 
 ## <a name="c"></a>C\#
 
-Controleren of een klant in aanmerking komt voor een upgrade naar een Azure-abonnement:
+Ga als volgende te werk om te controleren of een klant in aanmerking komt voor een upgrade naar een Azure-plan:
 
-1. Maak een **ProductUpgradesRequest** -object en geef de klant-id en ' Azure ' op als de product familie.
+1. Maak een **ProductUpgradesRequest-object** en geef de klant-id en 'Azure' op als de productfamilie.
 
-2. Gebruik de verzameling **IAggregatePartner. ProductUpgrades** .
+2. Gebruik de **verzameling IAggregatePartner.ProductUpgrades.**
 
-3. Roep de **ById** -methode aan en geef de **upgrade-ID** door.
+3. Roep de **ById-methode** aan en geef **de upgrade-id door.**
 
-4. Roep de methode **CheckStatus** aan en geef het object **ProductUpgradesRequest** door, waardoor een **ProductUpgradeStatus** -object wordt geretourneerd.
+4. Roep de **methode CheckStatus** aan en geef het **productUpgradesRequest-object** door. Dit retourneert een **ProductUpgradeStatus-object.**
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -65,27 +61,27 @@ if (productUpgradeEligibility.IsEligibile)
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI |
 |----------|-----------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{upgrade-ID}/status http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{upgrade-id}/status HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de klant op te geven voor wie u de upgrade status van een product hebt opgehaald.
+Gebruik de volgende queryparameter om de klant op te geven voor wie u de status van een productupgrade krijgt.
 
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **upgrade-ID** | GUID | Yes | De waarde is een upgrade-ID met een GUID-indeling. U kunt deze id gebruiken om een upgrade op te geven die moet worden gevolgd. |
+| **upgrade-id** | GUID | Ja | De waarde is een upgrade-id met GUID-indeling. U kunt deze id gebruiken om een bij te houden upgrade op te geven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag tekst moet een [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) -resource bevatten.
+De aanvraag body moet een [**ProductUpgradeRequest-resource**](product-upgrade-resources.md#productupgraderequest) bevatten.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -115,11 +111,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) -resource in de hoofd tekst.
+Als dit lukt, retourneert deze methode een [**ProductUpgradesEligibility-resource**](product-upgrade-resources.md#productupgradeseligibility) in de body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

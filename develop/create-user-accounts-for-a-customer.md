@@ -1,41 +1,37 @@
 ---
 title: Gebruikersaccounts maken voor een klant
-description: Maak een nieuw gebruikers account voor uw klant.
+description: Maak een nieuw gebruikersaccount voor uw klant.
 ms.date: 05/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 9131a1c4c37d07b1994b67379ec8361fda13a371
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d086d7ba72c9d9e42dc88684ddeafc9a597bfd7c
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767197"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973380"
 ---
 # <a name="create-user-accounts-for-a-customer"></a>Gebruikersaccounts maken voor een klant
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-Maak een nieuw gebruikers account voor uw klant.
+Maak een nieuw gebruikersaccount voor uw klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Een nieuw gebruikers account voor een klant verkrijgen:
+Een nieuw gebruikersaccount voor een klant verkrijgen:
 
-1. Maak een nieuw **CustomerUser** -object met de relevante gebruikers informatie.
+1. Maak een nieuw **CustomerUser-object** met de relevante gebruikersgegevens.
 
-2. Gebruik uw verzameling **IAggregatePartner. Customers** en roep de methode **ById ()** aan.
+2. Gebruik de **verzameling IAggregatePartner.Customers** en roep de **methode ById()** aan.
 
-3. Roep de eigenschap **Users** aan, gevolgd door de methode **Create** .
+3. Roep de **eigenschap Users** aan, gevolgd door de **methode Create.**
 
 ``` csharp
 // string selectedCustomerId;
@@ -55,28 +51,28 @@ var userToCreate = new CustomerUser()
 User createdUser = partnerOperations.Customers.ById(selectedCustomerId).Users.Create(userToCreate);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSamples- **klasse**: CustomerUserCreate.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: CustomerUserCreate.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                  |
 |----------|----------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/users http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende query parameters om de juiste klant te identificeren.
+Gebruik de volgende queryparameters om de juiste klant te identificeren.
 
 | Naam | Type | Vereist | Beschrijving |
 |----- |----- | -------- |------------ |
-| **klant-Tenant-id** | **guid** | J | De waarde is een **klant-Tenant-id** die als GUID is opgemaakt. Hiermee kan de wederverkoper de resultaten filteren voor een bepaalde klant die bij de wederverkoper hoort. |
-| **gebruikers-id** | **guid** | N | De waarde is een **gebruikers-id** met een GUID-indeling die tot één gebruikers account behoort. |
+| **customer-tenant-id** | **guid** | J | De waarde is een in GUID **opgemaakte customer-tenant-id.** Hiermee kan de reseller de resultaten filteren voor een bepaalde klant die bij de reseller hoort. |
+| **user-id** | **guid** | N | De waarde is een guid-opgemaakte **gebruikers-id** die bij één gebruikersaccount hoort. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -109,11 +105,11 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een gebruikers account, met inbegrip van de GUID.
+Als dit lukt, retourneert deze methode een gebruikersaccount, inclusief de GUID.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,60 +1,59 @@
 ---
 title: Webwinkel van CSP-klant
-description: Deze voorbeeld website code toont een werkend online archief voor klanten om abonnementen op micro soft-producten te kopen.
+description: Deze voorbeeldwebsitecode toont een werkende online winkel waar klanten abonnementen op Microsoft-producten kunnen kopen.
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bd488b9b9bf2c1df4bebc8513d230a02b06b2ce4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d68f17d707731f426cb980a566b6478790d3507c
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767194"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973329"
 ---
 # <a name="csp-customer-web-storefront"></a>Webwinkel van CSP-klant
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center
 
-- Partnercentrum
+**Is niet van toepassing op**: Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-> [!NOTE]
-> Deze voor beeld-app is alleen van toepassing op het globale exemplaar van partner centrum. Het is niet van toepassing op het partner centrum voor Microsoft Cloud Duitsland of het partner centrum voor Microsoft Cloud voor de Amerikaanse overheid.
+Deze voorbeeld-app is alleen van toepassing op het globale exemplaar van Partner Center.
 
-Het [Partner Center-winkel](https://github.com/Microsoft/Partner-Center-Storefront) is een voor beeld van een **website** voor een online winkel die klanten kunnen gebruiken om abonnementen op micro soft-producten te kopen. U kunt deze **voorbeeld code** voor eigen gebruik wijzigen om [de aanbiedingen te configureren](#configure-offers), een [huis stijl toe te voegen](#configure-branding) en [een betalings methode toe te voegen](#configure-payment-types).
+De [Partner Center-webwinkel](https://github.com/Microsoft/Partner-Center-Storefront) is een **voorbeeldwebsite** voor een online winkel die klanten kunnen gebruiken om abonnementen op Microsoft-producten te kopen. U kunt deze **voorbeeldcode voor eigen** gebruik wijzigen om de [aanbiedingen te](#configure-offers)configureren, huisstijl toe te voegen en een [](#configure-branding) [betalingswijze toe te voegen.](#configure-payment-types)
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-Down load de [voorbeeld code van het Partner Center-winkel programma](https://github.com/Microsoft/Partner-Center-Storefront) vanuit github.
+Download de [voorbeeldcode Partner Center webwinkel van](https://github.com/Microsoft/Partner-Center-Storefront) GitHub.
 
 ## <a name="configure-authentication"></a>Verificatie configureren
 
-Voordat u de toepassing bouwt, moet u de volgende waarden bijwerken in het Web.config-bestand om de Azure AD-verificatie gegevens weer te geven die u hebt gemaakt in [Partner Center-verificatie](partner-center-authentication.md). U moet uw account instellingen voor de integratie sandbox gebruiken tijdens vroegtijdige ontwikkeling of voor testen in productie (TiP).
+Voordat u de toepassing bouwt, moet u de volgende waarden in het Web.config-bestand bijwerken om de Azure AD-verificatiegegevens weer te geven die u hebt gemaakt in [Partner Center verificatie.](partner-center-authentication.md) Gebruik de instellingen van uw sandbox-account voor integratie tijdens vroege ontwikkeling of voor testen in productie (TiP).
 
-- **partnerCenter. applicationId**
+- **partnerCenter.applicationId**
 - **partnerCenter.applicationSecret**
-- **partnerCenter. Domain**
-- **webportal. clientId**
-- **webportal. clientSecret**
-- **webportal. domein**
-- **webportal. azureStorageConnectionString**
+- **partnerCenter.domain**
+- **webPortal.clientId**
+- **webPortal.clientSecret**
+- **webPortal.domain**
+- **webPortal.azureStorageConnectionString**
 
 ## <a name="configure-offers"></a>Aanbiedingen configureren
 
-U kunt de set met aanbiedingen (**MicrosoftOffer**) configureren in de **OfferCatalogViewModel**.
+U kunt de set aanbiedingen (**MicrosoftOffer**) configureren in **OfferCatalogViewModel.**
 
-## <a name="configure-branding"></a>Huis stijl configureren
+## <a name="configure-branding"></a>Huisstijl configureren
 
-Deze voorbeeld website houdt de volgende bedrijfs-en merk gegevens bij in *BrandingConfiguration.cs* en *PortalBranding.cs*:
+Deze voorbeeldwebsite houdt de volgende bedrijfs- en merkinformatie bij in *BrandingConfiguration.cs* en *PortalBranding.cs:*
 
 - Organisatienaam
-- Logo van organisatie
-- Afbeelding van koptekst
-- Privacyverklaring
+- Organisatielogo
+- Koptekstafbeelding
+- Privacyovereenkomst
 - E-mailadres van contactpersoon
-- Telefoon nummer contact persoon
-- E-mail voor ondersteuning
-- Telefoon nummer voor ondersteuning
+- Telefoonnummer van contactpersoon
+- Ondersteunings-e-mail
+- Ondersteuningstelefoonnummer
 
-### <a name="configure-payment-types"></a>Betalings typen configureren
+### <a name="configure-payment-types"></a>Betalingstypen configureren
 
-De app maakt momenteel gebruik van een PayPal-gateway, geïmplementeerd in *PayPalGateway.cs*.
+De app gebruikt momenteel een PayPal-gateway, geïmplementeerd in *PayPalGateway.cs.*

@@ -1,43 +1,39 @@
 ---
-title: Een product upgrade-entiteit maken voor een klant
-description: U kunt de ProductUpgradeRequest-Resource gebruiken om een product upgrade-entiteit te maken om een klant bij te werken naar een bepaalde product familie.
+title: Een entiteit voor productupgrade maken voor een klant
+description: U kunt de resource ProductUpgradeRequest gebruiken om een entiteit voor productupgrade te maken om een klant te upgraden naar een bepaalde productfamilie.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 45830033d93e0906eafc169cf04b997e2ff7c3d8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4e346b7f5294a8847047c85115d8c80f34eaca84
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767199"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973398"
 ---
-# <a name="create-a-product-upgrade-entity-for-a-customer"></a>Een product upgrade-entiteit maken voor een klant
+# <a name="create-a-product-upgrade-entity-for-a-customer"></a>Een entiteit voor productupgrade maken voor een klant
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-U kunt een product upgrade-entiteit maken om een klant bij te werken naar een bepaalde product familie (bijvoorbeeld Azure-abonnement) met behulp van de **ProductUpgradeRequest** -resource.
+U kunt een entiteit voor productupgrade maken om een klant te upgraden naar een bepaalde productfamilie (bijvoorbeeld een Azure-plan) met behulp van de **productUpgradeRequest-resource.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties. Volg het [model voor beveiligde apps](enable-secure-app-model.md) wanneer u app + gebruikers authenticatie met partner Center api's gebruikt.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps bij](enable-secure-app-model.md) het gebruik van App+User-verificatie met Partner Center API's.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- De product familie waarvoor u de klant wilt bijwerken.
+- De productfamilie waarvoor u de klant wilt upgraden.
 
 ## <a name="c"></a>C\#
 
-Een upgrade uitvoeren van een klant naar een Azure-abonnement:
+Een klant upgraden naar een Azure-abonnement:
 
-1. Maak een **ProductUpgradesRequest** -object en geef de klant-id en ' Azure ' op als de product familie.
+1. Maak een **ProductUpgradesRequest-object** en geef de klant-id en 'Azure' op als de productfamilie.
 
-2. Gebruik de verzameling **IAggregatePartner. ProductUpgrades** .
+2. Gebruik de **verzameling IAggregatePartner.ProductUpgrades.**
 
-3. Roep de **Create** -methode aan en geef het object **ProductUpgradesRequest** door. Hiermee wordt een teken reeks voor de **locatie-header** geretourneerd.
+3. Roep de **methode Create** aan en geef het **productUpgradesRequest-object** door, waarmee een locatieheaderreeks **wordt** retourneert.
 
-4. Pak de **upgrade-ID** uit van de teken reeks voor de locatie-header die kan worden gebruikt om [de upgrade status](get-product-upgrade-status.md)op te vragen.
+4. Extraheren van **de upgrade-id** uit de locatieheaderreeks die kan worden gebruikt om de [upgradestatus op te vragen.](get-product-upgrade-status.md)
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -60,19 +56,19 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades http/1.1 |
+| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
 
 #### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 #### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag tekst moet een [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) -resource bevatten.
+De aanvraag body moet een [ProductUpgradeRequest-resource](product-upgrade-resources.md#productupgraderequest) bevatten.
 
 #### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -97,11 +93,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord een **locatie** header met een URI die kan worden gebruikt om de upgrade status van het product op te halen. Sla deze URI op voor gebruik met andere verwante REST Api's.
+Als dit lukt, bevat het antwoord een **Location-header** met een URI die kan worden gebruikt om de status van de productupgrade op te halen. Sla deze URI op voor gebruik met andere gerelateerde REST API's.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

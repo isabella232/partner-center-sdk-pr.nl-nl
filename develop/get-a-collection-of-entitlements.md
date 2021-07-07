@@ -4,30 +4,26 @@ description: Een verzameling rechten ophalen.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d2cc485429941dd2080bd285553333a01fc0ffd1
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 7bb8d3aefb11fae0af4bce790b41598d935de57c
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767358"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906423"
 ---
 # <a name="get-a-collection-of-entitlements"></a>Een verzameling rechten ophalen
-
-**Van toepassing op**
-
-- Partnercentrum
 
 Een verzameling rechten ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een verzameling rechten voor een klant wilt ophalen, moet u een interface voor de [**rechten**](entitlement-resources.md#entitlement) van de gebruiker verkrijgen door de methode  [**IAggregatePartner. Customs. ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren. Vervolgens haalt u de interface op uit de eigenschap **rechten** en roept u de methode **Get ()** of **GetAsync ()** aan om de verzameling van rechten op te halen.
+Als u een verzameling rechten voor een [](entitlement-resources.md#entitlement) klant wilt ophalen, verkrijgt u een interface voor Rechtenbewerkingen door de methode [**IAggregatePartner.Customers.ById() aan**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) te roepen met de klant-id om de klant te identificeren. Haal vervolgens de interface op uit de eigenschap **Entitlements** en roep de methode **Get()** of **GetAsync()** aan om de verzameling rechten op te halen.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -37,32 +33,32 @@ string customerId;
 var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get();
 ```
 
-Als u verval datums wilt invullen voor de rechten die moeten worden opgehaald, roept u dezelfde methoden op en stelt u de optionele Booleaanse para meter **showExpiry** in op True **Get (true)** of **GetAsync (true)**. Dit geeft aan dat de rechten voor verval datums vereist zijn (indien van toepassing).
+Als u de vervaldatums wilt in vullen voor de rechten die moeten worden opgehaald, roept u dezelfde bovenstaande methoden aan en stelt u de optionele Booleaanse parameter **showExpiry** in op true **Get(true)** of **GetAsync(true)**. Dit geeft aan dat vervaldatums voor rechten vereist zijn (indien van toepassing).
 
 > [!IMPORTANT]
-> De typen voor on-premises rechten hebben geen verval datum.
+> On-premises rechtentypen hebben geen vervaldatums.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode | Aanvraag-URI |
 |--------|-------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{customerId}/Entitlements http/1.1                            |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1.1                            |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende pad-en query parameters bij het maken van de aanvraag.
+Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 
 | Naam | Type | Vereist | Beschrijving |
 |------|------|----------|-------------|
-| customerId | tekenreeks | Yes | Een KlantId met GUID-indeling die de klant identificeert. |
-| entitlementType | tekenreeks | No | Kan worden gebruikt om het type rechten op te geven dat moet worden opgehaald (**Software** of **reservedInstance** ). Als niet is ingesteld, worden alle typen opgehaald |
-| showExpiry | booleaans | No | Optionele vlag die aangeeft of verval datums van rechten zijn vereist. |
+| customerId | tekenreeks | Ja | Een in GUID opgemaakte customerId die de klant identificeert. |
+| entitlementType | tekenreeks | No | Kan worden gebruikt om het type rechten op te geven dat moet worden opgehaald (**software** of **reservedInstance).** Als dit niet is ingesteld, worden alle typen opgehaald |
+| showExpiry | booleaans | Nee | Optionele vlag die aangeeft of er vervaldatums voor rechten zijn vereist. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -82,11 +78,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [rechten](entitlement-resources.md#entitlement) resources.
+Als dit lukt, bevat de antwoord-body een verzameling [rechtenresources.](entitlement-resources.md#entitlement)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
@@ -173,13 +169,13 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 }
 ```
 
-## <a name="additional-examples"></a>Aanvullende voor beelden
+## <a name="additional-examples"></a>Aanvullende voorbeelden
 
-In het volgende voor beeld ziet u hoe u een specifiek type rechten kunt ophalen naast de verval datum (indien van toepassing)
+In het volgende voorbeeld ziet u hoe u een specifiek type rechten kunt ophalen, samen met vervaldatums (indien van toepassing)
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
-Als u een specifiek type rechten wilt ophalen, moet u de **ByEntitlementType** -interface ophalen uit de **rechten** interface en de methoden **Get ()** of **GetAsync ()** gebruiken.
+Als u een specifiek type rechten wilt ophalen, haalt u de **ByEntitlementType-interface** op via de interface **Rechten** en gebruikt u de methoden **Get()** of **GetAsync().**
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("software").Get(true);
@@ -301,13 +297,13 @@ Date: Mon, 28 Jan 2019 18:31:43 GMT
 }
 ```
 
-In de volgende voor beelden ziet u hoe u informatie over producten en reserve ringen kunt ophalen van een recht.
+In de volgende voorbeelden ziet u hoe u informatie over producten en reserveringen kunt ophalen van een recht.
 
-### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>Details van de virtuele-machine reservering ophalen van een recht met behulp van SDK V 1.8
+### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>Reserveringsgegevens van virtuele machines ophalen uit een recht met behulp van SDK V1.8
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
-Als u meer informatie wilt ophalen over de reserve ringen van de virtuele machine van een recht, roept u de URI aan die wordt weer gegeven onder entitledArtifacts. link with artifactType = virtual_machine_reserved_instance.
+Als u meer details wilt ophalen met betrekking tot de reserveringen voor virtuele machines van een recht, roept u de URI aan die wordt blootgesteld onder entitledArtifacts.link met artifactType = virtual_machine_reserved_instance.
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("VirtualMachineReservedInstance").Get();
@@ -355,11 +351,11 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>Reserverings Details ophalen van een recht met behulp van SDK V 1,9
+### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>Reserveringsgegevens ophalen van een recht met behulp van SDK V1.9
 
-### <a name="c-example"></a>C- \# voor beeld
+### <a name="c-example"></a>\#C-voorbeeld
 
-Als u meer informatie wilt ophalen over de reserve ringen van een gereserveerde instantie recht, roept u de URI aan die wordt weer gegeven in ```entitledArtifacts.link``` met ```artifactType = reservedinstance``` .
+Als u meer details wilt ophalen met betrekking tot de reserveringen van een gereserveerde instantie, roept u de URI aan die wordt blootgesteld ```entitledArtifacts.link``` onder met ```artifactType = reservedinstance``` .
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();
@@ -407,6 +403,6 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="api-consumers"></a>API-gebruikers
+### <a name="api-consumers"></a>API-consumenten
 
-Partners die de API gebruiken om een query uit te voeren voor gereserveerde instanties van virtuele machines-de aanvraag-URI bijwerken van **/Customers/{customerId}/Entitlements naar/Customers/{customerId}/Entitlements? entitlementType = virtualmachinereservedinstance** om achterwaartse compatibiliteit te behouden. Als u een virtuele machine of Azure SQL wilt gebruiken met uitgebreid contract, werkt u de aanvraag-URI bij naar **/Customers/{customerId}/Entitlements? entitlementType = reservedinstance**.
+Partners die de API gebruiken om de rechten van gereserveerde instanties van virtuele machines op te vragen: werk de aanvraag-URI bij **van /customers/{customerId}/entitlements?entitlementType=virtualmachinereservedinstance** om achterwaartse compatibiliteit te behouden. Als u een virtuele machine of Azure SQL wilt gebruiken met een uitgebreid contract, moet u de aanvraag-URI bijwerken naar **/customers/{customerId}/entitlements?entitlementType=reservedinstance.**

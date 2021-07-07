@@ -1,37 +1,33 @@
 ---
 title: Een SKU ophalen op basis van id
-description: Hiermee wordt een SKU opgehaald voor het opgegeven product met behulp van de opgegeven SKU-ID.
+description: Hiermee haalt u een SKU op voor het opgegeven product met behulp van de opgegeven SKU-id.
 ms.date: 01/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 54ef72413d2d2b9e7154e82e4bbdd7427a79a2dd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9516a87a438a0a84a6f6069c1f9b2a2e97e90fba
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767291"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873850"
 ---
 # <a name="get-a-sku-by-id"></a>Een SKU ophalen op basis van id
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hiermee wordt een SKU opgehaald voor het opgegeven product met behulp van de opgegeven SKU-ID.
+Hiermee haalt u een SKU op voor het opgegeven product met behulp van de opgegeven SKU-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een product-ID.
+- Een product-id.
 
-- EEN SKU-ID.
+- Een SKU-id.
 
 ## <a name="c"></a>C\#
 
-Als u de details van een specifieke SKU wilt ophalen, gaat u eerst aan de hand van de stappen in [een product ophalen op id](get-a-product-by-id.md) om de interface voor de bewerkingen van een specifiek product op te halen. Selecteer in de resulterende interface de eigenschap **sku's** om een interface te verkrijgen met de beschik bare bewerkingen voor sku's. Geef de SKU-ID door aan de methode **ById ()** en roep **Get ()** of **GetAsync (** ) aan om de SKU-gegevens op te halen.
+Als u de details van een specifieke SKU wilt weten, volgt u eerst de stappen in Een [product op id](get-a-product-by-id.md) op halen om de interface voor de bewerkingen van een specifiek product op te halen. Selecteer in de resulterende interface de eigenschap **Skus** om een interface te verkrijgen met de beschikbare bewerkingen voor SKU's. Geef de SKU-id door aan de **methode ById()** en roep **Get()** of **GetAsync()** aan om de SKU-details op te halen.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -45,25 +41,25 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/SKUs/{SKU-id}? land = {land nummer} http/1.1   |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}?country={country-code} HTTP/1.1   |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende pad-en query parameters om een SKU voor het opgegeven product op te halen met behulp van de opgegeven SKU-ID.
+Gebruik het volgende pad en de queryparameters om een SKU voor het opgegeven product op te halen met behulp van de opgegeven SKU-id.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Yes      | Een teken reeks waarmee het product wordt geïdentificeerd.                           |
-| SKU-id                 | tekenreeks   | Yes      | Een teken reeks waarmee de SKU wordt geïdentificeerd.                               |
-| land code           | tekenreeks   | Yes      | Een land/regio-ID.                                            |
+| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
+| sku-id                 | tekenreeks   | Ja      | Een tekenreeks die de SKU identificeert.                               |
+| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -85,17 +81,17 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een [SKU](product-resources.md#sku) -resource.
+Als dit lukt, bevat de antwoord-body een [SKU-resource.](product-resources.md#sku)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                                               |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 404                  | 400013       | Het product is niet gevonden.                                                                                    |
+| 404                  | 400013       | Product is niet gevonden.                                                                                    |
 | 404                  | 400018       | SKU is niet gevonden.                                                                                        |
 
 ### <a name="response-example"></a>Voorbeeld van antwoord

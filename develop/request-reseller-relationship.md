@@ -1,33 +1,29 @@
 ---
 title: Een URL voor relatie aanvragen ophalen
-description: Een URL voor relatie aanvragen ophalen om naar een klant te verzenden.
+description: De URL van een relatieaanvraag ophalen om naar een klant te verzenden.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5f899734b774ff460e005e20df8658275b2ce9d5
-ms.sourcegitcommit: d4e652e3b73c6137704d43d4a472cc5aa5549f11
+ms.openlocfilehash: 07804b36dfe0892cf8b531e0731188260c014f49
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "97768681"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547444"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>Een URL voor relatie aanvragen ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-Een URL voor relatie aanvragen ophalen om naar een klant te verzenden.
+De URL van een relatieaanvraag ophalen om naar een klant te verzenden.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u een URL voor de relatie aanvraag wilt ophalen, moet u eerst [**IAggregatePartner. klanten**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) gebruiken om een interface te verkrijgen voor de klant bewerkingen van de partner. Gebruik vervolgens de eigenschap [**RelationshipRequest**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) om een interface op te halen voor de bewerkingen van klant relatie aanvragen. Roep ten slotte de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) aan om de URL op te halen.
+Als u een URL voor een relatieaanvraag wilt ophalen, gebruikt u [**eerst IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een interface te krijgen met de klantactiviteiten van de partner. Gebruik vervolgens de eigenschap [**RelationshipRequest om**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) een interface op te halen voor aanvraagbewerkingen voor klantrelaties. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) om de URL op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -35,19 +31,19 @@ Als u een URL voor de relatie aanvraag wilt ophalen, moet u eerst [**IAggregateP
 var customerRelationshipRequest = partnerOperations.Customers.RelationshipRequest.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: GetCustomerRelationshipRequest.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class**: GetCustomerRelationshipRequest.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                            |
 |---------|----------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/relationshiprequests http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/relationshiprequests HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -68,11 +64,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, bevat het antwoord het [RelationshipRequest](relationships-resources.md#relationshiprequest) -object.
+Als dit lukt, bevat het antwoord het [object RelationshipRequest.](relationships-resources.md#relationshiprequest)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

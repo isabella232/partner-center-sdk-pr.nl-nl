@@ -1,35 +1,31 @@
 ---
-title: Een selfservice beleid bijwerken
-description: Een selfservice beleid bijwerken.
+title: Een self-serve-beleid bijwerken
+description: Een beleid voor self-serve bijwerken.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4d53ab8e5b8ef5b7be83360a3f43ec7791b2e3b4
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: d94382e73fd2a79751fe5f8f8414df2befde584f
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97768669"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445252"
 ---
 # <a name="update-a-selfservepolicy"></a>Een SelfServePolicy bijwerken
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-In dit onderwerp wordt uitgelegd hoe u een beleid voor zelf behoud bijwerkt.
+In dit artikel wordt uitgelegd hoe u een beleid voor self-serve kunt bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met toepassings-en gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie ondersteund met referenties van toepassing en gebruiker.
 
 ## <a name="c"></a>C\#
 
-Een beleid voor zelf behoud verwijderen:
+Een beleid voor self-serve verwijderen:
 
-1. Roep de [**IAggregatePartner. SelfServePolicies. ById**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) -methode aan met de entiteit-id om een interface op te halen voor bewerkingen op het beleid.
+1. Roep de [**methode IAggregatePartner.SelfServePolicies.ById**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) aan met de entiteits-id om een interface op te halen voor bewerkingen op het beleid.
 
-2. Roep de [**put**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.put) -of [**PutAsync**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.putasync) -methode aan om het beleid voor eigen beheer bij te werken.
+2. Roep de [**methode Put**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.put) of [**PutAsync aan**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.putasync) om het self-serve-beleid bij te werken.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,36 +40,36 @@ partnerOperations.SelfServePolicies.ById(policy.id).Put(policy);
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode   | Aanvraag-URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
 - Een aanvraag-id en correlatie-id zijn vereist.
-- Zie de [rest headers van het Partner Center](headers.md) voor meer informatie.
+- Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de vereiste eigenschappen in de hoofd tekst van de aanvraag beschreven.
+In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
-| Naam                              | Type   | Description                                 |
+| Naam                              | Type   | Beschrijving                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
-| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | De informatie over zelf-beleids regels. |
+| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | De beleidsinformatie voor self-serve. |
 
 #### <a name="selfservepolicy"></a>SelfServePolicy
 
-In deze tabel worden de minimale vereiste velden uit de [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) -resource beschreven die nodig zijn voor het maken van een nieuw beleid voor zelf behoud.
+In deze tabel worden de minimaal vereiste velden van de [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) beschreven die nodig zijn om een nieuw beleid voor selfservice te maken.
 
 | Eigenschap              | Type             | Beschrijving                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| id                    | tekenreeks           | Een selfservice beleids-id die wordt geleverd bij het maken van het selfservice beleid.     |
-| SelfServeEntity       | SelfServeEntity  | De selfservice-entiteit waarvoor toegang wordt verleend.                                                     |
-| Verlener               | Verlener          | De subsidie die toegang verleent.                                                                    |
-| Machtigingen           | Matrix van machtigingen| Een matrix met [machtigings](self-serve-policy-resources.md#permission) bronnen.                                                      |
-| ETAG                  | tekenreeks           | De ETag.                                                                                               |
+| id                    | tekenreeks           | Een self-serve beleids-id die wordt opgegeven wanneer het self-serve-beleid is gemaakt.     |
+| SelfServeEntity       | SelfServeEntity  | De zelfhulpentiteit die toegang krijgt.                                                     |
+| Grantor               | Grantor          | De grantor die toegang verleent.                                                                    |
+| Machtigingen           | Matrix van machtigingen| Een matrix met [machtigingsbronnen.](self-serve-policy-resources.md#permission)                                                      |
+| Etag                  | tekenreeks           | De Etag.                                                                                               |
 
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
@@ -110,18 +106,18 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als deze is geslaagd, retourneert deze API een [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) -resource voor het bijgewerkte beleid voor zelf behoud.
+Als dit lukt, retourneert deze API een [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) voor het bijgewerkte beleid voor selfservice.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 404                  | 600039       | Het beleid voor selfservice beheer is niet gevonden                                            |
-| 404                  | 600040       | De beleids-id zelf behouden is onjuist                                  |
+| 404                  | 600039       | Self-serve-beleid is niet gevonden                                            |
+| 404                  | 600040       | De beleids-id voor self-serve is onjuist                                  |
 
 
 ### <a name="response-example"></a>Voorbeeld van antwoord

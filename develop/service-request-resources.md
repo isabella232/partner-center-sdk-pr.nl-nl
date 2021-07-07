@@ -1,94 +1,90 @@
 ---
-title: Resources van service aanvraag
-description: Partners kunnen service aanvragen namens hun partners indienen om verstoringen van de door micro soft geleverde services te melden of om andere technische ondersteuning te vragen die ze niet kunnen leveren.
+title: Resources voor serviceaanvraag
+description: Partners kunnen serviceaanvragen indienen namens hun partners om onderbrekingsservices te melden die worden geleverd door Microsoft of om andere technische ondersteuning aan te vragen die ze niet kunnen bieden.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 072f9eddaf9d854f1dcc8cc65f7928b6c95700fa
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 02a02e6a873ad8785150368f3d4b89af2b588529
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767236"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547356"
 ---
-# <a name="service-request-resources"></a>Resources van service aanvraag
+# <a name="service-request-resources"></a>Resources voor serviceaanvraag
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Partners kunnen service aanvragen namens hun partners indienen om verstoringen van de door micro soft geleverde services te melden of om andere technische ondersteuning te vragen die ze niet kunnen leveren.
+Partners kunnen serviceaanvragen indienen namens hun partners om onderbrekingsservices te melden die worden geleverd door Microsoft of om andere technische ondersteuning aan te vragen die ze niet kunnen bieden.
 
 ## <a name="servicerequest"></a>ServiceRequest
 
-Beschrijft een service aanvraag die is ingediend door een partner, met inbegrip van de voortgang van de aanvraag.
+Beschrijft een serviceaanvraag die is ingediend door een partner, inclusief de voortgang van die aanvraag.
 
-| Eigenschap         | Type                                                          | Description                                                                          |
+| Eigenschap         | Type                                                          | Beschrijving                                                                          |
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Titel            | tekenreeks                                                        | De titel van de service aanvraag.                                                           |
+| Titel            | tekenreeks                                                        | De titel van de serviceaanvraag.                                                           |
 | Description      | tekenreeks                                                        | De beschrijving.                                                                     |
-| Severity         | tekenreeks                                                        | De ernst: "onbekend", "kritiek", "gemiddeld" of "mini maal".                       |
-| SupportTopicId   | tekenreeks                                                        | De id van het ondersteunings onderwerp.                                                         |
-| SupportTopicName | tekenreeks                                                        | De naam van het ondersteunings onderwerp.                                                       |
-| Id               | tekenreeks                                                        | De id van de service aanvraag.                                                       |
-| Status           | tekenreeks                                                        | De status van de service aanvraag: ' geen ', ' openen ', ' gesloten ' of ' aandacht \_ vereist '. |
-| Organisatie     | [ServiceRequestOrganization](#servicerequestorganization)     | De organisatie waarvoor de service aanvraag is gemaakt.                               |
-| PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Primaire contact persoon op de service aanvraag.                                              |
-| LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | De contact persoon ' laatst bijgewerkt door ' voor wijzigingen in de service aanvraag.                        |
-| ProductName      | tekenreeks                                                        | De naam van het product dat overeenkomt met de service aanvraag.                     |
+| Severity         | tekenreeks                                                        | De ernst: 'onbekend', 'kritiek', 'gemiddeld' of 'minimaal'.                       |
+| SupportTopicId   | tekenreeks                                                        | De id van het ondersteuningsonderwerp.                                                         |
+| SupportTopicName | tekenreeks                                                        | De naam van het ondersteuningsonderwerp.                                                       |
+| Id               | tekenreeks                                                        | De id van de serviceaanvraag.                                                       |
+| Status           | tekenreeks                                                        | De status van de serviceaanvraag: 'none', 'open', 'closed' of 'attention \_ needed'. |
+| Organisatie     | [ServiceRequestOrganization](#servicerequestorganization)     | Organisatie waarvoor de serviceaanvraag is gemaakt.                               |
+| PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Primaire contactpersoon voor de serviceaanvraag.                                              |
+| LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | Contactpersoon laatst bijgewerkt door voor wijzigingen in de serviceaanvraag.                        |
+| ProductName      | tekenreeks                                                        | De naam van het product dat overeenkomt met de serviceaanvraag.                     |
 | ProductId        | tekenreeks                                                        | De id van het product.                                                               |
-| CreatedDate      | date                                                          | De datum waarop de service aanvraag is gemaakt.                                          |
-| LastModifiedDate | date                                                          | De datum waarop de service aanvraag voor het laatst is gewijzigd.                                 |
-| LastClosedDate   | date                                                          | De datum waarop de service aanvraag voor het laatst is gesloten.                                   |
-| FileLinks        | matrix van [file info](utility-resources.md#fileinfo) -resources | De verzameling bestands koppelingen die betrekking hebben op de service aanvraag.                    |
-| NewNote          | [ServiceRequestNote](#servicerequestnote)                     | Een notitie kan worden toegevoegd aan een bestaande service aanvraag.                                  |
-| Notities            | matrix van [ServiceRequestNotes](#servicerequestnote)           | Een verzameling notities die worden toegevoegd aan de service aanvraag.                                  |
-| CountryCode      | tekenreeks                                                        | Het land dat overeenkomt met de service aanvraag.                                    |
-| Kenmerken       | ResourceAttributes                                            | De meta gegevens kenmerken die overeenkomen met de service aanvraag.                        |
+| CreatedDate      | date                                                          | De datum waarop de serviceaanvraag is gemaakt.                                          |
+| LastModifiedDate | date                                                          | De datum waarop de serviceaanvraag voor het laatst is gewijzigd.                                 |
+| LastClosedDate   | date                                                          | De datum waarop de serviceaanvraag voor het laatst is gesloten.                                   |
+| FileLinks        | matrix van [FileInfo-resources](utility-resources.md#fileinfo) | De verzameling bestandskoppelingen die betrekking hebben op de serviceaanvraag.                    |
+| NewNote          | [ServiceRequestNote](#servicerequestnote)                     | Een opmerking kan worden toegevoegd aan een bestaande serviceaanvraag.                                  |
+| Notities            | matrix van [ServiceRequestNotes](#servicerequestnote)           | Een verzameling notities toegevoegd aan de serviceaanvraag.                                  |
+| CountryCode      | tekenreeks                                                        | Het land dat overeenkomt met de serviceaanvraag.                                    |
+| Kenmerken       | ResourceAttributes                                            | De metagegevenskenmerken die overeenkomen met de serviceaanvraag.                        |
 
 ## <a name="servicerequestcontact"></a>ServiceRequestContact
 
-Beschrijft een contact persoon die een service aanvraag maakt of wijzigt.
+Beschrijft een contactpersoon die een serviceaanvraag maakt of wijzigt.
 
-| Eigenschap     | Type                                                      | Description                                            |
+| Eigenschap     | Type                                                      | Beschrijving                                            |
 |--------------|-----------------------------------------------------------|--------------------------------------------------------|
-| Organisatie | [ServiceRequestOrganization](#servicerequestorganization) | De organisatie waarvoor de service aanvraag is gemaakt. |
-| ContactId    | tekenreeks                                                    | De unieke id van de contact persoon.                               |
-| LastName     | tekenreeks                                                    | De achternaam van de contact persoon.                          |
-| FirstName    | tekenreeks                                                    | De voor naam van de contact persoon.                         |
-| E-mail        | tekenreeks                                                    | Het e-mail adres van de contact persoon.                              |
-| PhoneNumber  | tekenreeks                                                    | Het telefoon nummer van de contact persoon.                       |
+| Organisatie | [ServiceRequestOrganization](#servicerequestorganization) | Organisatie waarvoor de serviceaanvraag is gemaakt. |
+| ContactId    | tekenreeks                                                    | De unieke id van de contactpersoon.                               |
+| LastName     | tekenreeks                                                    | De achternaam van de contactpersoon.                          |
+| FirstName    | tekenreeks                                                    | De voornaam van de contactpersoon.                         |
+| E-mail        | tekenreeks                                                    | Het e-mailadres van de contactpersoon.                              |
+| PhoneNumber  | tekenreeks                                                    | Het telefoonnummer van de contactpersoon.                       |
 
 ## <a name="servicerequestnote"></a>ServiceRequestNote
 
-Hierin wordt een notitie beschreven die is gekoppeld aan een service aanvraag.
+Beschrijft een opmerking die is gekoppeld aan een serviceaanvraag.
 
-| Eigenschap      | Type   | Description                                  |
+| Eigenschap      | Type   | Beschrijving                                  |
 |---------------|--------|----------------------------------------------|
-| CreatedByName | tekenreeks | De naam van de maker van de notitie.         |
+| CreatedByName | tekenreeks | De naam van de maker van de opmerking.         |
 | CreatedDate   | date   | De datum en tijd waarop de notitie is gemaakt. |
-| Tekst          | tekenreeks | De tekst van de notitie.                        |
+| Tekst          | tekenreeks | De tekst van de opmerking.                        |
 
 ## <a name="servicerequestorganization"></a>ServiceRequestOrganization
 
-Hierin wordt de organisatie beschreven waarvoor de service aanvraag is gemaakt.
+Beschrijft de organisatie waarvoor de serviceaanvraag is gemaakt.
 
-| Eigenschap    | Type   | Description                           |
+| Eigenschap    | Type   | Beschrijving                           |
 |-------------|--------|---------------------------------------|
 | Id          | tekenreeks | De unieke id van de organisatie.    |
 | Name        | tekenreeks | De naam van de organisatie.         |
-| PhoneNumber | tekenreeks | Het telefoon nummer van de organisatie. |
+| PhoneNumber | tekenreeks | Het telefoonnummer van de organisatie. |
 
 ## <a name="supporttopic"></a>SupportTopic
 
-Hierin wordt een ondersteunings onderwerp beschreven. Service aanvragen geven een ondersteunings onderwerp op om ervoor te zorgen dat ze snel en effectief worden verwerkt.
+Beschrijft een ondersteuningsonderwerp. Serviceaanvragen geven een ondersteuningsonderwerp op om ervoor te zorgen dat ze snel en effectief worden verwerkt.
 
 | Eigenschap    | Type               | Beschrijving                                                   |
 |-------------|--------------------|---------------------------------------------------------------|
-| Name        | tekenreeks             | De naam van het ondersteunings onderwerp.                                |
-| Description | tekenreeks             | De beschrijving van het ondersteunings onderwerp.                         |
-| Id          | tekenreeks             | De unieke id van het ondersteunings onderwerp.                           |
-| Kenmerken  | ResourceAttributes | De meta gegevens kenmerken die overeenkomen met de service aanvraag. |
+| Name        | tekenreeks             | De naam van het ondersteuningsonderwerp.                                |
+| Description | tekenreeks             | De beschrijving van het ondersteuningsonderwerp.                         |
+| Id          | tekenreeks             | De unieke id van het ondersteuningsonderwerp.                           |
+| Kenmerken  | ResourceAttributes | De metagegevenskenmerken die overeenkomen met de serviceaanvraag. |
 

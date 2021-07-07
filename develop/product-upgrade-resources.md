@@ -1,90 +1,86 @@
 ---
 title: Bronnen voor product-upgrades
-description: U kunt meerdere resources met betrekking tot partner Center-product upgrades gebruiken voor een Azure-abonnement. Dit zijn onder andere ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct en error Details.
+description: U kunt meerdere resources gebruiken die betrekking hebben op Partner Center productupgrades naar een Azure-plan. Dit zijn onder andere ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct en ErrorDetails.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d8975f0a135c88796a21f8abab944e53181f591e
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: c995ac44dbe22000f7bc86991cb973ed31a5c018
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274611"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445337"
 ---
 # <a name="product-upgrade-resources"></a>Bronnen voor product-upgrades
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-U kunt de volgende bronnen gebruiken voor informatie over het upgraden van een partner Center-product van een Microsoft Azure (MS-AZR-0145P) naar een Azure-abonnement.
+U kunt de volgende resources gebruiken voor informatie over Partner Center productupgrades van een Microsoft Azure-abonnement (MS-AZR-0145P) naar een Azure-abonnement.
 
 ## <a name="productupgraderequest"></a>ProductUpgradeRequest
 
-De **ProductUpgradesRequest** -resource bevat informatie over het aanvraag object voor product upgrades.
+De **resource ProductUpgradesRequest bevat** informatie over het aanvraagobject voor productupgrades.
 
 | Eigenschap      | Type                                                          | Beschrijving                                                |
 |---------------|---------------------------------------------------------------|------------------------------------------------------------|
-| customerId    | tekenreeks                                                        | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.      |
-| productFamily | tekenreeks                                                        | De product familie waarvoor de upgrade is aangevraagd. |
-| kenmerken    | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                                   |
+| customerId    | tekenreeks                                                        | Een tekenreeks in GUID-indeling die de klant identificeert.      |
+| productFamily | tekenreeks                                                        | De productfamilie waarvoor de upgrade is aangevraagd. |
+| kenmerken    | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                                   |
 
 ## <a name="productupgradeseligibility"></a>ProductUpgradesEligibility
 
-De **ProductUpgradesEligibility** -resource biedt informatie over de geschiktheid van de klant voor het upgraden van een product.
+De **resource ProductUpgradesEligibility** biedt informatie over de geschiktheid van de klant voor het upgraden van een product.
 
 | Eigenschap      | Type                                                          | Beschrijving                                                                      |
 |---------------|---------------------------------------------------------------|----------------------------------------------------------------------------------|
-| customerId    | tekenreeks                                                        | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.                            |
-| productFamily | tekenreeks                                                        | De product familie waarvoor de upgrade is aangevraagd.                       |
-| isEligible    | booleaans                                                          | De Boole-waarde geeft aan of de klant in aanmerking komt voor de aangevraagde upgrade. |
-| upgradeId     | tekenreeks                                                        | De upgrade-ID als er al een product upgrade voor de betreffende familie is.        |
-| reason        | tekenreeks                                                        | De reden waarom de klant niet in aanmerking komt voor product upgrade.                |
-| productFamily | tekenreeks                                                        | De product familie waarvoor de upgrade is aangevraagd.                       |
-| kenmerken    | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                                                         |
+| customerId    | tekenreeks                                                        | Een tekenreeks in GUID-indeling die de klant identificeert.                            |
+| productFamily | tekenreeks                                                        | De productfamilie waarvoor de upgrade is aangevraagd.                       |
+| isEligible    | booleaans                                                          | De waarde bool geeft aan of de klant in aanmerking komt voor de aangevraagde upgrade. |
+| upgradeId     | tekenreeks                                                        | De upgrade-id als er al een productupgrade voor een bepaalde familie is uitgevoerd.        |
+| reason        | tekenreeks                                                        | De reden waarom de klant niet in aanmerking komt voor productupgrade.                |
+| productFamily | tekenreeks                                                        | De productfamilie waarvoor de upgrade is aangevraagd.                       |
+| kenmerken    | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                                                         |
 
 ## <a name="productupgradesstatus"></a>ProductUpgradesStatus
 
-De **ProductUpgradesStatus** -resource bevat informatie over de status van een product upgrade.
+De **resource ProductUpgradesStatus** bevat informatie over de status van een productupgrade.
 
 | Eigenschap | Type   | Beschrijving                                          |
 |----------|--------|------------------------------------------------------|
-| Id       | tekenreeks | Een teken reeks met een GUID-indeling waarmee de upgrade wordt geïdentificeerd. |
-| productFamily       | tekenreeks                                                         | De product familie waarvoor de upgrade is aangevraagd.
-| status              | tekenreeks                                                         | De status van de product upgrade.
-| Regel items           | matrix van [UpgradesLineItem](#upgradeslineitem) -resources       | Een matrix met objecten die informatie bevatten over de upgrade Details voor elk regel item dat deel uitmaakt van de aanvraag tekst.
-| Error Details        | [Error Details](#errordetails) -resource                         | De fout Details voor de aangevraagde upgrade.
-| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes)  | De meta gegevens kenmerken. |
+| Id       | tekenreeks | Een tekenreeks in GUID-indeling die de upgrade identificeert. |
+| productFamily       | tekenreeks                                                         | De productfamilie waarvoor de upgrade is aangevraagd.
+| status              | tekenreeks                                                         | De status van de productupgrade.
+| lineItems           | matrix van [UpgradesLineItem-resources](#upgradeslineitem)       | Een matrix met objecten die informatie biedt over de upgradedetails voor elk regelitem dat deel uitmaakte van de aanvraag body.
+| errorDetails        | [ErrorDetails-resource](#errordetails)                         | De foutdetails voor de aangevraagde upgrade.
+| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken. |
 
 ## <a name="upgradeslineitem"></a>UpgradesLineItem
 
-De **UpgradesLineItem** -resource beschrijft de status van product upgrade Details voor elk regel item van de aanvraag.
+De **resource UpgradesLineItem beschrijft** de status van de details van de productupgrade voor elk regelitem van de aanvraag.
 
 | Eigenschap      | Type                                                          | Beschrijving                                       |
 |---------------|---------------------------------------------------------------|---------------------------------------------------|
-| sourceProduct | [UpgradeProduct](#upgradeproduct) -object                      | Gegevens van het bron product dat wordt geüpgraded. |
-| targetProduct | [UpgradeProduct](#upgradeproduct) -object                      | Informatie over de product post-upgrade voor het doel.   |
-| upgradedDate  | teken reeks in UTC-datum-tijd notatie                                | De datum waarop het abonnement is bijgewerkt.           |
-| status        | tekenreeks                                                        | De status van de product upgrade.                |
-| Error Details  | [Error Details](#errordetails) -resource                        | De fout Details voor de aangevraagde upgrade.          |
-| kenmerken    | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                          |
+| sourceProduct | [UpgradeProduct-object](#upgradeproduct)                      | Informatie over het bronproduct dat wordt bijgewerkt. |
+| targetProduct | [UpgradeProduct-object](#upgradeproduct)                      | Informatie over het doelproduct na de upgrade.   |
+| upgradedDate  | tekenreeks in UTC-datum/tijd-indeling                                | De datum waarop het abonnement is bijgewerkt.           |
+| status        | tekenreeks                                                        | De status van de productupgrade.                |
+| errorDetails  | [ErrorDetails-resource](#errordetails)                        | De foutdetails voor de aangevraagde upgrade.          |
+| kenmerken    | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                          |
 
 ## <a name="upgradeproduct"></a>UpgradeProduct
 
-De **UpgradeProduct** -resource bevat informatie over het product dat wordt geüpgraded.
+De **resource UpgradeProduct** bevat informatie over het product dat wordt bijgewerkt.
 
 | Eigenschap   | Type                                                          | Beschrijving                                          |
 |------------|---------------------------------------------------------------|------------------------------------------------------|
-| id         | tekenreeks                                                        | Een teken reeks met een GUID-indeling waarmee het product wordt geïdentificeerd. |
-| naam       | tekenreeks                                                        | De beschrijvende naam van het product dat wordt geüpgraded.         |
-| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                             |
+| id         | tekenreeks                                                        | Een tekenreeks in GUID-indeling die het product identificeert. |
+| naam       | tekenreeks                                                        | De gebruiksvriendelijke naam van het product dat wordt bijgewerkt.         |
+| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                             |
 
 ## <a name="errordetails"></a>ErrorDetails
 
-De **Error Details** -resource biedt Details over fouten tijdens het upgrade proces.
+De **Resource ErrorDetails** bevat details over fouten tijdens het upgradeproces.
 
 | Eigenschap   | Type                                                          | Beschrijving                                       |
 |------------|---------------------------------------------------------------|---------------------------------------------------|
-| code       | tekenreeks                                                        | Een fout code wanneer het bijwerken van het product mislukt.      |
-| message    | tekenreeks                                                        | Het fout bericht wanneer het bijwerken van het product mislukt. |
-| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                          |
+| code       | tekenreeks                                                        | Een foutcode wanneer de productupgrade mislukt.      |
+| message    | tekenreeks                                                        | Het foutbericht wanneer de productupgrade mislukt. |
+| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                          |

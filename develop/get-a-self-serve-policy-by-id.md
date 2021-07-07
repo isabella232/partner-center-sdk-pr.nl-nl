@@ -1,53 +1,49 @@
 ---
-title: Een beleid voor eigen beheer op basis van id ophalen
-description: Hiermee wordt het opgegeven beleid voor zelf behoud opgehaald met de ID.
+title: Een beleid voor self-serve op id krijgen
+description: Hiermee haalt u het opgegeven beleid voor self-serve op met behulp van de id.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: ec01d0d9b7c3858cdacf1dbaad3b2b0bb7b6a1a4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 074d7ba65c7aab91687a67f50e871cee913fc2bb
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767290"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873833"
 ---
-# <a name="get-a-self-serve-policy-by-id"></a>Een beleid voor eigen beheer op basis van id ophalen
+# <a name="get-a-self-serve-policy-by-id"></a>Een beleid voor self-serve op id krijgen
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hiermee wordt het opgegeven beleid voor zelf behoud opgehaald met de ID.
+Hiermee haalt u het opgegeven beleid voor self-serve op met behulp van de id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties.
-- Een selfservice beleids-ID.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Een beleids-id voor self-serve.
 
 ## <a name="examples"></a>Voorbeelden
 
 
 ## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST-aanvraag
 
-**Syntaxis van aanvraag**
+**Aanvraagsyntaxis**
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} HTTP/1.1 |
 
-**URI-para meter**
+**URI-parameter**
 
-Gebruik de volgende Path-para meters om het opgegeven product op te halen.
+Gebruik de volgende padparameters om het opgegeven product op te halen.
 
 | Naam                       | Type         | Vereist | Beschrijving                                                     |
 |----------------------------|--------------|----------|-----------------------------------------------------------------|
-| **SelfServePolicy-id**     | **tekenreeksexpressie**   | Yes      | Een teken reeks waarmee het beleid voor zelf beheer wordt geïdentificeerd.                 |
+| **SelfServePolicy-id**     | **Tekenreeks**   | Ja      | Een tekenreeks die het self-serve-beleid identificeert.                 |
 
 **Aanvraagheaders**
 
-- Zie [kopteksten](headers.md) voor meer informatie.
+- Zie Headers voor [meer informatie.](headers.md)
 
 **Aanvraagbody**
 
@@ -65,19 +61,19 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) -resource.
+Als dit lukt, bevat de antwoord-body een [SelfServePolicy-resource.](self-serve-policy-resources.md#selfservepolicy)
 
-**Geslaagde en fout codes**
+**Antwoord geslaagd en foutcodes**
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 404                  | 600039       | Er is geen beleid voor zelf beheer gevonden.                                                     |
+| 404                  | 600039       | Self-serve beleid niet gevonden.                                                     |
 
-**Antwoord voorbeeld**
+**Voorbeeld van een antwoord**
 
 ```http
 HTTP/1.1 200 OK

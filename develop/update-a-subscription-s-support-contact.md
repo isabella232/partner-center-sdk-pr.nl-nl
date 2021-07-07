@@ -1,39 +1,35 @@
 ---
 title: De ondersteuningscontactpersoon van een abonnement bijwerken
-description: Het bijwerken van de ondersteunings contact persoon van een abonnement op een van de toegevoegde waarden van de partner.
+description: Het bijwerken van de ondersteuningscontact van een abonnement naar een van de toegevoegde waarde resellers van de partner.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c8c6b658cfe6e14c75b0c06b177920ce3eb1b4ed
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 8c89f91fc9e89384a7be1237c08d7a9a1cfe3164
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767457"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530358"
 ---
 # <a name="update-a-subscriptions-support-contact"></a>De ondersteuningscontactpersoon van een abonnement bijwerken
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Het bijwerken van de ondersteunings contact persoon van een abonnement op een van de toegevoegde waarden van de partner.
+Het bijwerken van de ondersteuningscontact van een abonnement naar een van de toegevoegde waarde resellers van de partner.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
-- Informatie over de nieuwe ondersteunings contactpersoon: Tenant-id, Microsoft Partner Network-ID en naam. De contact persoon voor ondersteuning moet een van de toegevoegde waarde van de partner zijn.
+- Informatie over de nieuwe contactpersoon voor ondersteuning: tenant-id, Microsoft Partner Network id en naam. De contactpersoon voor ondersteuning moet een van de toegevoegde waarde resellers van de partner zijn.
 
 ## <a name="c"></a>C\#
 
-Als u de ondersteunings contactpersoon van een abonnement wilt bijwerken, moet u eerst een [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) -object instantiëren en vullen met de nieuwe waarden. Gebruik vervolgens de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Vervolgens krijgt u een interface voor het uitvoeren van een abonnement door de methode [**abonnementen. ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) aan te roepen met de abonnements-id. Gebruik vervolgens de eigenschap [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) om een interface te verkrijgen voor de ondersteuning van contact bewerkingen. Roep tot slot de [**Update**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update) -of [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync) -methode aan met het gevulde SupportContact-object om de ondersteunings contactpersoon bij te werken.
+Als u de contactpersoon voor ondersteuning van een abonnement wilt bijwerken, instantieert en vult u eerst een [**SupportContact-object**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) met de nieuwe waarden. Gebruik vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens een interface op voor abonnementsbewerkingen door de methode [**Subscriptions.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) te roepen met de abonnements-id. Gebruik vervolgens de eigenschap [**SupportContact om een**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) interface te verkrijgen voor de ondersteuning van contactbewerkingen. Roep ten slotte de [**methode Update**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update) of [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync) aan met het ingevulde SupportContact-object om de contactpersoon voor ondersteuning bij te werken.
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -52,32 +48,32 @@ var supportContact = new SupportContact()
 var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionID).SupportContact.Update(supportContact);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: UpdateSubscriptionSupportContact.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class**: UpdateSubscriptionSupportContact.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Subscriptions/{Subscription-id}/supportcontact http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende Path-para meters om de klant en het abonnement te identificeren.
+Gebruik de volgende padparameters om de klant en het abonnement te identificeren.
 
 | Naam            | Type   | Vereist | Beschrijving                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| klant-id     | tekenreeks | Yes      | Een teken reeks met een GUID-indeling die de klant identificeert.           |
-| abonnement-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee het proef abonnement wordt geïdentificeerd. |
+| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.           |
+| subscription-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het proefabonnement identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-U moet een gevulde [SupportContact](subscription-resources.md#supportcontact) -resource in de hoofd tekst van de aanvraag toevoegen. De contact persoon voor ondersteuning moet een bestaande wederverkoper zijn met een relatie met de partner.
+U moet een ingevulde [resource SupportContact](subscription-resources.md#supportcontact) opnemen in de aanvraag body. De contactpersoon voor ondersteuning moet een bestaande reseller zijn met een relatie met de partner.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -112,11 +108,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de [SupportContact](subscription-resources.md#supportcontact) -resource.
+Als dit lukt, bevat de antwoord-body de resource [SupportContact.](subscription-resources.md#supportcontact)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
