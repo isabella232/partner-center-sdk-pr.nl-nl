@@ -1,41 +1,37 @@
 ---
-title: Het bestedings budget van een klant ophalen
-description: U kunt een bestedings budget (het SpendingBudget-object) gebruiken om een samen vatting van klant gebruik (de CustomerUsageSummary-resource) bij te werken.
+title: Het uitgavenbudget voor gebruik van een klant op halen
+description: U kunt een uitgavenbudget (het object SpendingBudget) gebruiken om een samenvatting van het gebruik van klanten bij te werken (de resource CustomerUsageSummary).
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8be9ceaab6b7546de8eacba1e52e8766719e5125
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: b55f59fff7e5d7865811ecab3e901848126d31f7
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767376"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874870"
 ---
-# <a name="get-a-customers-usage-spending-budget"></a><span data-ttu-id="03b27-103">Het bestedings budget van een klant ophalen</span><span class="sxs-lookup"><span data-stu-id="03b27-103">Get a customer's usage spending budget</span></span>
+# <a name="get-a-customers-usage-spending-budget"></a><span data-ttu-id="58bc3-103">Het uitgavenbudget voor gebruik van een klant op halen</span><span class="sxs-lookup"><span data-stu-id="58bc3-103">Get a customer's usage spending budget</span></span>
 
-<span data-ttu-id="03b27-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="03b27-104">**Applies to:**</span></span>
+<span data-ttu-id="58bc3-104">**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="58bc3-104">**Applies to**: Partner Center | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="03b27-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="03b27-105">Partner Center</span></span>
-- <span data-ttu-id="03b27-106">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="03b27-106">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="03b27-107">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="03b27-107">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="58bc3-105">U kunt het bestedingsbudget (het object **SpendingBudget)** bijwerken in het gebruiksoverzicht van de klant [(de resource **CustomerUsageSummary).**](customer-usage-resources.md#customerusagesummary)</span><span class="sxs-lookup"><span data-stu-id="58bc3-105">You can update the spending budget (the **SpendingBudget** object) in the [customer usage summary (the **CustomerUsageSummary** resource)](customer-usage-resources.md#customerusagesummary).</span></span>
 
-<span data-ttu-id="03b27-108">U kunt het bestedings budget (het object **SpendingBudget** ) bijwerken in de [samen vatting van klant gebruik (de **CustomerUsageSummary** -resource)](customer-usage-resources.md#customerusagesummary).</span><span class="sxs-lookup"><span data-stu-id="03b27-108">You can update the spending budget (the **SpendingBudget** object) in the [customer usage summary (the **CustomerUsageSummary** resource)](customer-usage-resources.md#customerusagesummary).</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="58bc3-106">Vereisten</span><span class="sxs-lookup"><span data-stu-id="58bc3-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="03b27-109">Vereisten</span><span class="sxs-lookup"><span data-stu-id="03b27-109">Prerequisites</span></span>
+- <span data-ttu-id="58bc3-107">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="58bc3-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="58bc3-108">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="58bc3-108">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="03b27-110">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="03b27-110">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="03b27-111">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="03b27-111">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="58bc3-109">Een klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="58bc3-109">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="58bc3-110">Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span><span class="sxs-lookup"><span data-stu-id="58bc3-110">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="58bc3-111">Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.**</span><span class="sxs-lookup"><span data-stu-id="58bc3-111">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="58bc3-112">Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**.</span><span class="sxs-lookup"><span data-stu-id="58bc3-112">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="58bc3-113">Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.**</span><span class="sxs-lookup"><span data-stu-id="58bc3-113">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="58bc3-114">De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="58bc3-114">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="03b27-112">Een klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="03b27-112">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="03b27-113">Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum.</span><span class="sxs-lookup"><span data-stu-id="03b27-113">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="03b27-114">Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**.</span><span class="sxs-lookup"><span data-stu-id="03b27-114">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="03b27-115">Selecteer de klant in de lijst klant en selecteer vervolgens **account**.</span><span class="sxs-lookup"><span data-stu-id="03b27-115">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="03b27-116">Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** .</span><span class="sxs-lookup"><span data-stu-id="03b27-116">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="03b27-117">De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="03b27-117">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+## <a name="c"></a><span data-ttu-id="58bc3-115">C\#</span><span class="sxs-lookup"><span data-stu-id="58bc3-115">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="03b27-118">C\#</span><span class="sxs-lookup"><span data-stu-id="03b27-118">C\#</span></span>
+<span data-ttu-id="58bc3-116">Ga als volgende te werk om het gebruiksbudget van een klant bij te werken:</span><span class="sxs-lookup"><span data-stu-id="58bc3-116">To update a customer's usage spending budget:</span></span>
 
-<span data-ttu-id="03b27-119">Het budget voor gebruik van een klant bijwerken:</span><span class="sxs-lookup"><span data-stu-id="03b27-119">To update a customer's usage spending budget:</span></span>
+1. <span data-ttu-id="58bc3-117">Maak een nieuw [**SpendingBudget-object**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) met het bijgewerkte bedrag.</span><span class="sxs-lookup"><span data-stu-id="58bc3-117">Create a new [**SpendingBudget**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) object with the updated amount.</span></span>
 
-1. <span data-ttu-id="03b27-120">Maak een nieuw [**SpendingBudget**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) -object met de bijgewerkte hoeveelheid.</span><span class="sxs-lookup"><span data-stu-id="03b27-120">Create a new [**SpendingBudget**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) object with the updated amount.</span></span>
+2. <span data-ttu-id="58bc3-118">Gebruik de [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) om de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de id van de opgegeven klant.</span><span class="sxs-lookup"><span data-stu-id="58bc3-118">Use the [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) collection to call the [**ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the specified customer's identifier.</span></span>
 
-2. <span data-ttu-id="03b27-121">Gebruik de verzameling [**IAggregatePartner. Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) om de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de opgegeven klant-id.</span><span class="sxs-lookup"><span data-stu-id="03b27-121">Use the [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) collection to call the [**ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the specified customer's identifier.</span></span>
-
-3. <span data-ttu-id="03b27-122">Roep de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) aan om het gebruiks budget van de klant op te halen.</span><span class="sxs-lookup"><span data-stu-id="03b27-122">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) method to get the customer's usage budget.</span></span>
+3. <span data-ttu-id="58bc3-119">Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) om het gebruiksbudget van de klant op te halen.</span><span class="sxs-lookup"><span data-stu-id="58bc3-119">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) method to get the customer's usage budget.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,31 +47,31 @@ var newUsageBudget = new SpendingBudget()
 var usageBudget = partnerOperations.Customers.ById(selectedCustomerId).UsageBudget.Get();
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="03b27-123">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="03b27-123">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="58bc3-120">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="58bc3-120">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="03b27-124">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="03b27-124">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="58bc3-121">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="58bc3-121">Request syntax</span></span>
 
-| <span data-ttu-id="03b27-125">Methode</span><span class="sxs-lookup"><span data-stu-id="03b27-125">Method</span></span>    | <span data-ttu-id="03b27-126">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="03b27-126">Request URI</span></span>                                                                                             |
+| <span data-ttu-id="58bc3-122">Methode</span><span class="sxs-lookup"><span data-stu-id="58bc3-122">Method</span></span>    | <span data-ttu-id="58bc3-123">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="58bc3-123">Request URI</span></span>                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="03b27-127">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="03b27-127">**GET**</span></span> | <span data-ttu-id="03b27-128">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/usagebudget http/1.1</span><span class="sxs-lookup"><span data-stu-id="03b27-128">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget  HTTP/1.1</span></span> |
+| <span data-ttu-id="58bc3-124">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="58bc3-124">**GET**</span></span> | <span data-ttu-id="58bc3-125">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="58bc3-125">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget  HTTP/1.1</span></span> |
 
-### <a name="uri-parameter"></a><span data-ttu-id="03b27-129">URI-para meter</span><span class="sxs-lookup"><span data-stu-id="03b27-129">URI parameter</span></span>
+### <a name="uri-parameter"></a><span data-ttu-id="58bc3-126">URI-parameter</span><span class="sxs-lookup"><span data-stu-id="58bc3-126">URI parameter</span></span>
 
-<span data-ttu-id="03b27-130">Gebruik de volgende query parameter om het facturerings profiel bij te werken.</span><span class="sxs-lookup"><span data-stu-id="03b27-130">Use the following query parameter to update the billing profile.</span></span>
+<span data-ttu-id="58bc3-127">Gebruik de volgende queryparameter om het factureringsprofiel bij te werken.</span><span class="sxs-lookup"><span data-stu-id="58bc3-127">Use the following query parameter to update the billing profile.</span></span>
 
-| <span data-ttu-id="03b27-131">Naam</span><span class="sxs-lookup"><span data-stu-id="03b27-131">Name</span></span>                   | <span data-ttu-id="03b27-132">Type</span><span class="sxs-lookup"><span data-stu-id="03b27-132">Type</span></span>     | <span data-ttu-id="03b27-133">Vereist</span><span class="sxs-lookup"><span data-stu-id="03b27-133">Required</span></span> | <span data-ttu-id="03b27-134">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="03b27-134">Description</span></span>                                                                                                                                            |
+| <span data-ttu-id="58bc3-128">Naam</span><span class="sxs-lookup"><span data-stu-id="58bc3-128">Name</span></span>                   | <span data-ttu-id="58bc3-129">Type</span><span class="sxs-lookup"><span data-stu-id="58bc3-129">Type</span></span>     | <span data-ttu-id="58bc3-130">Vereist</span><span class="sxs-lookup"><span data-stu-id="58bc3-130">Required</span></span> | <span data-ttu-id="58bc3-131">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="58bc3-131">Description</span></span>                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="03b27-135">**klant-Tenant-id**</span><span class="sxs-lookup"><span data-stu-id="03b27-135">**customer-tenant-id**</span></span> | <span data-ttu-id="03b27-136">**guid**</span><span class="sxs-lookup"><span data-stu-id="03b27-136">**guid**</span></span> | <span data-ttu-id="03b27-137">J</span><span class="sxs-lookup"><span data-stu-id="03b27-137">Y</span></span>        | <span data-ttu-id="03b27-138">De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort.</span><span class="sxs-lookup"><span data-stu-id="03b27-138">The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller.</span></span> |
+| <span data-ttu-id="58bc3-132">**customer-tenant-id**</span><span class="sxs-lookup"><span data-stu-id="58bc3-132">**customer-tenant-id**</span></span> | <span data-ttu-id="58bc3-133">**guid**</span><span class="sxs-lookup"><span data-stu-id="58bc3-133">**guid**</span></span> | <span data-ttu-id="58bc3-134">J</span><span class="sxs-lookup"><span data-stu-id="58bc3-134">Y</span></span>        | <span data-ttu-id="58bc3-135">De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort.</span><span class="sxs-lookup"><span data-stu-id="58bc3-135">The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="03b27-139">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="03b27-139">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="58bc3-136">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="58bc3-136">Request headers</span></span>
 
-<span data-ttu-id="03b27-140">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="03b27-140">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="58bc3-137">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="58bc3-137">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="03b27-141">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="03b27-141">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="58bc3-138">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="58bc3-138">Request body</span></span>
 
-<span data-ttu-id="03b27-142">De volledige resource.</span><span class="sxs-lookup"><span data-stu-id="03b27-142">The full resource.</span></span>
+<span data-ttu-id="58bc3-139">De volledige resource.</span><span class="sxs-lookup"><span data-stu-id="58bc3-139">The full resource.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="03b27-143">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="03b27-143">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="58bc3-140">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="58bc3-140">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/usagebudget HTTP/1.1
@@ -87,15 +83,15 @@ Content-Type: application/json;charset=utf-8
 X-Locale: "en-US"
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="03b27-144">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="03b27-144">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="58bc3-141">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="58bc3-141">REST response</span></span>
 
-<span data-ttu-id="03b27-145">Als dit lukt, retourneert deze methode het uitgaven budget van een gebruiker met de bijgewerkte hoeveelheid.</span><span class="sxs-lookup"><span data-stu-id="03b27-145">If successful, this method returns a user's spending budget with the updated amount.</span></span>
+<span data-ttu-id="58bc3-142">Als dit lukt, retourneert deze methode het bestedingsbudget van een gebruiker met het bijgewerkte bedrag.</span><span class="sxs-lookup"><span data-stu-id="58bc3-142">If successful, this method returns a user's spending budget with the updated amount.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="03b27-146">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="03b27-146">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="58bc3-143">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="58bc3-143">Response success and error codes</span></span>
 
-<span data-ttu-id="03b27-147">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="03b27-147">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="03b27-148">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="03b27-148">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="03b27-149">Zie [fout codes](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="03b27-149">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="58bc3-144">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="58bc3-144">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="58bc3-145">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="58bc3-145">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="58bc3-146">Zie Foutcodes voor de [volledige lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="58bc3-146">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="03b27-150">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="03b27-150">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="58bc3-147">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="58bc3-147">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

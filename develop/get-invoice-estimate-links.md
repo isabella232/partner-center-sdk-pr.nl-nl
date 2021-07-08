@@ -1,39 +1,34 @@
 ---
 title: Koppelingen voor factuurramingen ophalen
-description: U kunt een verzameling ramings koppelingen ophalen voor de details van het regel item van de query-afstemming.
+description: U kunt een verzameling van schattingskoppelingen ophalen om de details van het query-afstemmingsregelitem op te vragen.
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.assetid: ''
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 10801cdb1f9d4f50a1f8fc86c2d0eaf8610ed68c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 719becd3fac5605c4ad48ab86d483ba7903d65d8
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767267"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549141"
 ---
-# <a name="get-invoice-estimate-links"></a><span data-ttu-id="ac70f-103">Koppelingen voor factuurramingen ophalen</span><span class="sxs-lookup"><span data-stu-id="ac70f-103">Get invoice estimate links</span></span>
+# <a name="get-invoice-estimate-links"></a><span data-ttu-id="94623-103">Koppelingen voor factuurramingen ophalen</span><span class="sxs-lookup"><span data-stu-id="94623-103">Get invoice estimate links</span></span>
 
-<span data-ttu-id="ac70f-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="ac70f-104">**Applies to:**</span></span>
+<span data-ttu-id="94623-104">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="94623-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="ac70f-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="ac70f-105">Partner Center</span></span>
-- <span data-ttu-id="ac70f-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="ac70f-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="ac70f-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="ac70f-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="ac70f-108">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="ac70f-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="94623-105">U kunt schattingskoppelingen krijgen om gegevens op te vragen voor niet-gebilbileerde afstemmingslijnitems.</span><span class="sxs-lookup"><span data-stu-id="94623-105">You can get estimate links to help query details for unbilled reconciliation line items.</span></span>
 
-<span data-ttu-id="ac70f-109">U kunt schattings koppelingen verkrijgen om de details van de query voor niet-gefactureerde reconciliatie regel items te controleren.</span><span class="sxs-lookup"><span data-stu-id="ac70f-109">You can get estimate links to help query details for unbilled reconciliation line items.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="94623-106">Vereisten</span><span class="sxs-lookup"><span data-stu-id="94623-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="ac70f-110">Vereisten</span><span class="sxs-lookup"><span data-stu-id="ac70f-110">Prerequisites</span></span>
+- <span data-ttu-id="94623-107">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="94623-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="94623-108">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="94623-108">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="ac70f-111">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="ac70f-111">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="ac70f-112">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="ac70f-112">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="94623-109">Een factuur-id.</span><span class="sxs-lookup"><span data-stu-id="94623-109">An invoice identifier.</span></span> <span data-ttu-id="94623-110">Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.</span><span class="sxs-lookup"><span data-stu-id="94623-110">This identifies the invoice for which to retrieve the line items.</span></span>
 
-- <span data-ttu-id="ac70f-113">Een factuur-ID.</span><span class="sxs-lookup"><span data-stu-id="ac70f-113">An invoice identifier.</span></span> <span data-ttu-id="ac70f-114">Hiermee wordt de factuur aangegeven waarvoor de regel items moeten worden opgehaald.</span><span class="sxs-lookup"><span data-stu-id="ac70f-114">This identifies the invoice for which to retrieve the line items.</span></span>
+## <a name="c"></a><span data-ttu-id="94623-111">C\#</span><span class="sxs-lookup"><span data-stu-id="94623-111">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="ac70f-115">C\#</span><span class="sxs-lookup"><span data-stu-id="ac70f-115">C\#</span></span>
-
-<span data-ttu-id="ac70f-116">De volgende voorbeeld code laat zien hoe u de ramings koppelingen kunt ophalen om niet-gefactureerde regel items voor een bepaalde valuta op te vragen.</span><span class="sxs-lookup"><span data-stu-id="ac70f-116">The following example code shows how you can get the estimate links to query unbilled line items for a given currency.</span></span> <span data-ttu-id="ac70f-117">Het antwoord bevat de ramings koppelingen voor elke periode (bijvoorbeeld de huidige en vorige maand).</span><span class="sxs-lookup"><span data-stu-id="ac70f-117">The response contains the estimate links for each period (for example, the current and previous month).</span></span>
+<span data-ttu-id="94623-112">De volgende voorbeeldcode laat zien hoe u de schattingskoppelingen kunt krijgen om niet-gebileerde regelitems voor een bepaalde valuta op te vragen.</span><span class="sxs-lookup"><span data-stu-id="94623-112">The following example code shows how you can get the estimate links to query unbilled line items for a given currency.</span></span> <span data-ttu-id="94623-113">Het antwoord bevat de schattingskoppelingen voor elke periode (bijvoorbeeld de huidige en vorige maand).</span><span class="sxs-lookup"><span data-stu-id="94623-113">The response contains the estimate links for each period (for example, the current and previous month).</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,40 +41,40 @@ ms.locfileid: "97767267"
 var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(curencyCode).Get();
 ```
 
-<span data-ttu-id="ac70f-118">Voor een vergelijkbaar voor beeld raadpleegt u het volgende:</span><span class="sxs-lookup"><span data-stu-id="ac70f-118">For a similar example, see the following:</span></span>
+<span data-ttu-id="94623-114">Zie het volgende voor een vergelijkbaar voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="94623-114">For a similar example, see the following:</span></span>
 
-- <span data-ttu-id="ac70f-119">Voor beeld: [console test-app](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="ac70f-119">Sample: [Console test app](console-test-app.md)</span></span>
-- <span data-ttu-id="ac70f-120">Project: **Partner Center SDK** -voor beelden</span><span class="sxs-lookup"><span data-stu-id="ac70f-120">Project: **Partner Center SDK Samples**</span></span>
-- <span data-ttu-id="ac70f-121">Klasse: **GetEstimatesLinks.cs**</span><span class="sxs-lookup"><span data-stu-id="ac70f-121">Class: **GetEstimatesLinks.cs**</span></span>
+- <span data-ttu-id="94623-115">Voorbeeld: [Consoletest-app](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="94623-115">Sample: [Console test app](console-test-app.md)</span></span>
+- <span data-ttu-id="94623-116">Project: **Partnercentrum-SDK Voorbeelden**</span><span class="sxs-lookup"><span data-stu-id="94623-116">Project: **Partner Center SDK Samples**</span></span>
+- <span data-ttu-id="94623-117">Klasse: **GetEstimatesLinks.cs**</span><span class="sxs-lookup"><span data-stu-id="94623-117">Class: **GetEstimatesLinks.cs**</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="ac70f-122">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="ac70f-122">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="94623-118">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="94623-118">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="ac70f-123">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="ac70f-123">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="94623-119">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="94623-119">Request syntax</span></span>
 
-| <span data-ttu-id="ac70f-124">Methode</span><span class="sxs-lookup"><span data-stu-id="ac70f-124">Method</span></span>  | <span data-ttu-id="ac70f-125">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="ac70f-125">Request URI</span></span>                                                                                                 |
+| <span data-ttu-id="94623-120">Methode</span><span class="sxs-lookup"><span data-stu-id="94623-120">Method</span></span>  | <span data-ttu-id="94623-121">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="94623-121">Request URI</span></span>                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="ac70f-126">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="ac70f-126">**GET**</span></span> | <span data-ttu-id="ac70f-127">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/estimates/links? CurrencyCode = {CURRENCYCODE} http/1.1</span><span class="sxs-lookup"><span data-stu-id="ac70f-127">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/estimates/links?currencycode={currencycode} HTTP/1.1</span></span> |
+| <span data-ttu-id="94623-122">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="94623-122">**GET**</span></span> | <span data-ttu-id="94623-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/estimates/links?currencycode={currencycode} HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="94623-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/estimates/links?currencycode={currencycode} HTTP/1.1</span></span> |
 
-#### <a name="uri-parameters"></a><span data-ttu-id="ac70f-128">URI-para meters</span><span class="sxs-lookup"><span data-stu-id="ac70f-128">URI parameters</span></span>
+#### <a name="uri-parameters"></a><span data-ttu-id="94623-124">URI-parameters</span><span class="sxs-lookup"><span data-stu-id="94623-124">URI parameters</span></span>
 
-<span data-ttu-id="ac70f-129">Gebruik de volgende URI en query parameter bij het maken van de aanvraag.</span><span class="sxs-lookup"><span data-stu-id="ac70f-129">Use the following URI and query parameter when creating the request.</span></span>
+<span data-ttu-id="94623-125">Gebruik de volgende URI en queryparameter bij het maken van de aanvraag.</span><span class="sxs-lookup"><span data-stu-id="94623-125">Use the following URI and query parameter when creating the request.</span></span>
 
-| <span data-ttu-id="ac70f-130">Naam</span><span class="sxs-lookup"><span data-stu-id="ac70f-130">Name</span></span>                   | <span data-ttu-id="ac70f-131">Type</span><span class="sxs-lookup"><span data-stu-id="ac70f-131">Type</span></span>   | <span data-ttu-id="ac70f-132">Vereist</span><span class="sxs-lookup"><span data-stu-id="ac70f-132">Required</span></span> | <span data-ttu-id="ac70f-133">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="ac70f-133">Description</span></span>                                                       |
+| <span data-ttu-id="94623-126">Naam</span><span class="sxs-lookup"><span data-stu-id="94623-126">Name</span></span>                   | <span data-ttu-id="94623-127">Type</span><span class="sxs-lookup"><span data-stu-id="94623-127">Type</span></span>   | <span data-ttu-id="94623-128">Vereist</span><span class="sxs-lookup"><span data-stu-id="94623-128">Required</span></span> | <span data-ttu-id="94623-129">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="94623-129">Description</span></span>                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| <span data-ttu-id="ac70f-134">currencyCode</span><span class="sxs-lookup"><span data-stu-id="ac70f-134">currencyCode</span></span>           | <span data-ttu-id="ac70f-135">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ac70f-135">string</span></span> | <span data-ttu-id="ac70f-136">Yes</span><span class="sxs-lookup"><span data-stu-id="ac70f-136">Yes</span></span>      | <span data-ttu-id="ac70f-137">De valuta code voor de niet-gefactureerde regel items.</span><span class="sxs-lookup"><span data-stu-id="ac70f-137">The currency code for the unbilled line items.</span></span>                    |
+| <span data-ttu-id="94623-130">currencyCode</span><span class="sxs-lookup"><span data-stu-id="94623-130">currencyCode</span></span>           | <span data-ttu-id="94623-131">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="94623-131">string</span></span> | <span data-ttu-id="94623-132">Ja</span><span class="sxs-lookup"><span data-stu-id="94623-132">Yes</span></span>      | <span data-ttu-id="94623-133">De valutacode voor de niet-gebillede regelitems.</span><span class="sxs-lookup"><span data-stu-id="94623-133">The currency code for the unbilled line items.</span></span>                    |
 
-### <a name="request-headers"></a><span data-ttu-id="ac70f-138">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="ac70f-138">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="94623-134">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="94623-134">Request headers</span></span>
 
-<span data-ttu-id="ac70f-139">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="ac70f-139">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="94623-135">Zie REST-headers Partner Center [meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="94623-135">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="ac70f-140">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="ac70f-140">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="94623-136">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="94623-136">Request body</span></span>
 
-<span data-ttu-id="ac70f-141">Geen.</span><span class="sxs-lookup"><span data-stu-id="ac70f-141">None.</span></span>
+<span data-ttu-id="94623-137">Geen.</span><span class="sxs-lookup"><span data-stu-id="94623-137">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="ac70f-142">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="ac70f-142">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="94623-138">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="94623-138">Request example</span></span>
 
 ```http
-GET https://api.partnercenter.microsoft.com/v1/invoices/estimates/links?currencycode=usd HTTP/1.1
+GET https://api.partnercenter.microsoft.com/v1/invoices/estimates/links?currencycode=usd HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 1234ecb8-37af-45f4-a1a1-358de3ca2b9e
@@ -89,15 +84,15 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="ac70f-143">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="ac70f-143">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="94623-139">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="94623-139">REST response</span></span>
 
-<span data-ttu-id="ac70f-144">Als dit lukt, bevat het antwoord de koppelingen om niet-gefactureerde ramingen op te halen.</span><span class="sxs-lookup"><span data-stu-id="ac70f-144">If successful, the response contains the links to retrieve unbilled estimates.</span></span>
+<span data-ttu-id="94623-140">Als dit lukt, bevat het antwoord de koppelingen voor het ophalen van niet-gebileerde schattingen.</span><span class="sxs-lookup"><span data-stu-id="94623-140">If successful, the response contains the links to retrieve unbilled estimates.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="ac70f-145">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="ac70f-145">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="94623-141">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="94623-141">Response success and error codes</span></span>
 
-<span data-ttu-id="ac70f-146">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="ac70f-146">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="ac70f-147">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="ac70f-147">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="ac70f-148">Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="ac70f-148">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="94623-142">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="94623-142">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="94623-143">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="94623-143">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="94623-144">Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="94623-144">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="ac70f-149">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="ac70f-149">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="94623-145">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="94623-145">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK
