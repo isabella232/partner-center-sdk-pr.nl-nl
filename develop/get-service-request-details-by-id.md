@@ -1,35 +1,31 @@
 ---
-title: Details van service aanvraag ophalen op ID.
-description: De details van een bestaande klantenservice aanvraag ophalen op basis van de ID.
+title: Haal de details van de serviceaanvraag op op id.
+description: De details van een bestaande klantenserviceaanvraag ophalen op id.
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c79fd3f5e5609a1893891e9b2a8078f8678497b3
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 66488cf9592d630cb1f0237d379e8df5ead6a3a8
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767561"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548767"
 ---
 # <a name="get-service-request-details-by-id"></a>Details van serviceaanvraag ophalen op basis van id
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De details van een bestaande aanvraag van een klanten service ophalen met de service aanvraag-id.
+De details van een bestaande klantenserviceaanvraag ophalen met behulp van de serviceaanvraag-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een service aanvraag-ID.
+- Een serviceaanvraag-id.
 
 ## <a name="c"></a>C\#
 
-Als u de details van een bestaande aanvraag van een klanten service wilt ophalen, roept u de methode [**IServiceRequestCollection. ById**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) aan en geeft u een [**ServiceRequest.id**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) door om een interface te identificeren en te retour neren aan het specifieke [**ServiceRequest**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) -object.
+Als u de details van een bestaande klantenserviceaanvraag wilt ophalen, roept u de methode [**IServiceRequestCollection.ById**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) aan en geeft u een [**ServiceRequest.Id**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) door om een interface te identificeren en te retourneren naar het specifieke [**ServiceRequest-object.**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,23 +42,23 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode    | Aanvraag-URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} http/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1  |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende URI-para meter om de opgegeven service aanvraag op te halen.
+Gebruik de volgende URI-parameter om de opgegeven serviceaanvraag op te halen.
 
 | Naam                  | Type     | Vereist | Beschrijving                                 |
 |-----------------------|----------|----------|---------------------------------------------|
-| **servicerequest-id** | **guid** | J        | Een GUID waarmee de service aanvraag wordt geïdentificeerd. |
+| **servicerequest-id** | **guid** | J        | Een GUID die de serviceaanvraag identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -84,11 +80,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een resource van een **service aanvraag** in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **serviceaanvraagresource** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

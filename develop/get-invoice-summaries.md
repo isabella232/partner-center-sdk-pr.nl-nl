@@ -1,43 +1,38 @@
 ---
 title: Factuuroverzichten ophalen
-description: U kunt een factuur samenvattingen resource voor elk valuta type gebruiken om het saldo en de totale kosten van periodieke en eenmalige kosten weer te geven.
+description: U kunt een factuurresource met samenvattingen voor elk valutatype gebruiken om het saldo en de totale kosten van zowel terugkerende als eenmalige kosten weer te geven.
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 82cd669117db72e1819d941f48f8ea69b2eddaec
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: fb6ff839c56c7b0b77a9904abf05d95ca0500b00
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767166"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549107"
 ---
 # <a name="get-invoice-summaries"></a>Factuuroverzichten ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt de **InvoiceSummaries** gebruiken om een factuur overzicht op te halen waarin het saldo en de totale kosten van periodieke en eenmalige kosten worden weer gegeven. De **InvoiceSummaries** -resource bevat een factuur overzicht voor elk valuta type.
+U kunt de **InvoiceSummaries gebruiken** om een factuuroverzicht op te halen met het saldo en de totale kosten van zowel terugkerende als eenmalige kosten. De **resource InvoiceSummaries** bevat een factuuroverzicht voor elk valutatype.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een geldige factuur-ID.
+- Een geldige factuur-id.
 
 ## <a name="c"></a>C\#
 
-Ophalen van een [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) -verzameling die een [**InvoiceSummary**](invoice-resources.md#invoicesummary) bevat voor elk valuta type:
+Een verzameling [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) ophalen die een [**InvoiceSummary**](invoice-resources.md#invoicesummary) bevat voor elk valutatype:
 
-1. Gebruik de verzameling **IAggregatePartner. facturen** om de eigenschap **samen vattingen** aan te roepen.
+1. Gebruik de **verzameling IAggregatePartner.Invoices** om de eigenschap **Samenvattingen aan te** roepen.
 
-2. Roep de methode **Get () aan** .
-3. Als u het saldo van een afzonderlijke [**InvoiceSummary**](invoice-resources.md#invoicesummary)wilt weer geven, opent u de eigenschap **BalanceAmount** voor dat lid van de verzameling.
+2. Roep de **methode Get()** aan.
+3. Als u het saldo van een afzonderlijke [**InvoiceSummary**](invoice-resources.md#invoicesummary)wilt ophalen, gaat u naar de **eigenschap BalanceAmount** voor dat lid van de verzameling.
 
 ``` csharp
 // IAggregatePartner scopedPartnerOperations;
@@ -49,27 +44,27 @@ var invoiceSummaries = scopedPartnerOperations.Invoices.Summaries.Get();
 Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].BalanceAmount);
 ```
 
-Zie de volgende voorbeeld code voor meer informatie:
+Zie de volgende voorbeeldcode voor meer informatie:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSample**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSample**
 - Klasse: **GetInvoiceSummaries.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/summaries http/1.1     |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1.1     |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
 Geen.
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -88,11 +83,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) -resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een [**resource InvoiceSummaries**](invoice-resources.md#invoicesummaries) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

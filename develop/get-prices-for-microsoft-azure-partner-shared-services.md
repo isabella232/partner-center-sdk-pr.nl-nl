@@ -1,33 +1,29 @@
 ---
 title: Prijzen voor Microsoft Azure Partner Shared Services ophalen
-description: Hoe u een Azure-tarief kaart krijgt met de prijzen voor de gedeelde services van Microsoft Azure partner.
+description: Een Azure-tariefkaart met prijzen voor Microsoft Azure Partner Shared Services.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: cd396c35b6b89de4d0f092ba4da738a2ed0ac633
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 0008d7474f7e57bbbd765afdf2487ee279848ac3
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767563"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548801"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Prijzen voor Microsoft Azure Partner Shared Services ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Een Azure-tariefkaart [met prijzen voor](azure-rate-card-resources.md) Microsoft Azure Partner Shared Services.
 
-Hoe u een [Azure-tarief kaart](azure-rate-card-resources.md) krijgt met de prijzen voor de gedeelde Services van Microsoft Azure partner.
+De prijzen verschillen per markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partnerprofielinstellingen in Partner Center en uw browsertaal. Deze instellingen kunnen worden aangepast. De locatiebewustheid is vooral relevant als u de verkoop in meerdere markten beheert vanuit één gecentraliseerd kantoor.
 
-De prijzen zijn afhankelijk van de markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partner Profiel instellingen in partner centrum en uw browser taal, en deze instellingen zijn aanpasbaar. De locatie van het bewustzijn is vooral relevant als u de verkoop op meerdere markten beheert vanuit één gecentraliseerd kantoor.
-
-## <a name="example-code"></a>Voorbeeld code
+## <a name="example-code"></a>Voorbeeldcode
 
 ## <a name="c"></a>C\#
 
-Als u de Azure-tarief kaart wilt ophalen, roept u de methode [**IAzureRateCard. GetShared**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) aan om een [**AzureRateCard**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) -resource te retour neren die de Azure-prijzen bevat.
+Als u de Azure-tariefkaart wilt verkrijgen, roept u de methode [**IAzureRateCard.GetShared**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) aan om een [**AzureRateCard-resource**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) te retourneren die de Azure-prijzen bevat.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -39,7 +35,7 @@ var azureRateCard = partner.RateCards.Azure.GetShared();
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u de Azure-tarief kaart wilt ophalen, roept u de functie **IAzureRateCard. getShared** aan om de tarief kaart gegevens te retour neren die de Azure-prijzen bevatten.
+Als u de Azure-tariefkaart wilt verkrijgen, roept u de functie **IAzureRateCard.getShared** aan om details van de tariefkaart te retourneren die de Azure-prijzen bevatten.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -51,7 +47,7 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u de Azure-kaart wilt ophalen, voert u de opdracht [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) uit en geeft u de para meter **SharedServices** op om de tarief kaart gegevens te retour neren die de Azure-prijzen bevatten.
+Als u de Azure-kaart wilt verkrijgen, voert u de opdracht [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) uit en geeft u de parameter **SharedServices** op om tariefkaartgegevens te retourneren die de Azure-prijzen bevatten.
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
@@ -59,24 +55,24 @@ Get-PartnerAzureRateCard -SharedServices
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                               |
 |---------|---------------------------------------------------------------------------|
-| **Toevoegen** | *{baseURL}*/v1/ratecards/Azure-Shared? Currency = {currency} &regio = {Region} |
+| **Toevoegen** | *{baseURL}*/v1/ratecards/azure-shared?currency={currency}&region={region} |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
 | Naam     | Type   | Vereist | Beschrijving                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | tekenreeks | No       | Optionele ISO-code van drie letters voor de valuta waarin de resource tarieven worden gegeven (bijvoorbeeld `EUR` ). De standaard waarde is de valuta die is gekoppeld aan de markt in het Partner profiel. |
-| regio   | tekenreeks | No       | Optionele ISO-land/regio code van twee letters waarmee de markt wordt aangegeven waar de aanbieding wordt gekocht (bijvoorbeeld `FR` ). De standaard waarde is de land/regio code die is ingesteld in het Partner profiel.        |
+| currency | tekenreeks | No       | Optionele ISO-code van drie letters voor de valuta waarin de resourcetarieven worden opgegeven (bijvoorbeeld `EUR` ). De standaardwaarde is de valuta die is gekoppeld aan de markt in het partnerprofiel. |
+| regio   | tekenreeks | No       | Optionele iso-land-/regiocode van twee letters die de markt aangeeft waarop de aanbieding is gekocht (bijvoorbeeld `FR` ). De standaardwaarde is de land-/regiocode die is ingesteld in het partnerprofiel.        |
 
-Als de optionele X-locale header is opgenomen in de aanvraag, bepaalt de waarde ervan de taal die wordt gebruikt voor de details in het antwoord.
+Als de optionele X-Locale-header is opgenomen in de aanvraag, bepaalt de waarde de taal die wordt gebruikt voor de details in het antwoord.
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -97,11 +93,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als de aanvraag is voltooid, wordt een [Azure-tarieven](azure-rate-card-resources.md) resource geretourneerd.
+Als de aanvraag is geslaagd, wordt een [Azure Rate Card-resource](azure-rate-card-resources.md) retourneert.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

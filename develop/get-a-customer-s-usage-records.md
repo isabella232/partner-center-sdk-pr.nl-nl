@@ -1,62 +1,58 @@
 ---
-title: Gebruiks records voor alle klanten ophalen
-description: U kunt de resource verzameling CustomerMonthlyUsageRecord gebruiken om gebruiks records op te halen voor alle klanten die een specifieke Azure-service of-resource hebben gekocht.
+title: Gebruiksrecords voor alle klanten op halen
+description: U kunt de resourceverzameling CustomerMonthlyUsageRecord gebruiken om gebruiksrecords op te halen voor alle klanten die een specifieke Azure-service of -resource hebben aangeschaft.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: da829a6de3690a9b1117ce9dfa58fbe381cafd81
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6b3fb0e1989336810f2afcc2a5bfc3a1d2849b7f
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767314"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874887"
 ---
-# <a name="get-usage-records-for-all-customers"></a>Gebruiks records voor alle klanten ophalen
+# <a name="get-usage-records-for-all-customers"></a>Gebruiksrecords voor alle klanten op halen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Partners kunnen de resource verzameling **CustomerMonthlyUsageRecord** gebruiken om gebruiks records voor al hun klanten op te halen. Deze resource vertegenwoordigt gebruiks records voor alle klanten. Deze klanten bevatten een Microsoft Azure (MS-AZR-0145P) of een Azure-abonnement.
+Partners kunnen de **resourceverzameling CustomerMonthlyUsageRecord** gebruiken om gebruiksrecords voor al hun klanten op te halen. Deze resource vertegenwoordigt gebruiksrecords voor alle klanten. Dit geldt ook voor klanten met een Microsoft Azure (MS-AZR-0145P) of een Azure-abonnement.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Alle gebruiks records ophalen voor alle klanten die tijdens de huidige facturerings periode een specifieke Azure-service of resource hebben gekocht:
+Alle gebruiksrecords op te halen voor alle klanten die een specifieke Azure-service of -resource hebben aangeschaft tijdens de huidige factureringsperiode:
 
-1. Gebruik uw verzameling **IAggregatePartner. Customers** om de methode **ById ()** aan te roepen.
+1. Gebruik de **verzameling IAggregatePartner.Customers om** de **methode ById() aan te** roepen.
 
-2. Roep de eigenschap **UsageRecords** aan en roep vervolgens de methode **Get ()** of **GetAsync ()** aan.
+2. Roep **de eigenschap UsageRecords** aan en roep vervolgens de **methode Get()** of **GetAsync()** aan.
 
     ``` csharp
     // IAggregatePartner partnerOperations;
     var usageRecords = partnerOperations.Customers.UsageRecords.Get();
     ```
 
-Zie het volgende voor beeld:
+Zie het volgende voorbeeld voor een voorbeeld:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **GetCustomerUsageRecords.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/usagerecords http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -74,15 +70,15 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **CustomerMonthlyUsageRecord** -resource in de hoofd tekst van het antwoord.
+Als dit is gelukt, retourneert deze methode een **CustomerMonthlyUsageRecord-resource** in de hoofd body van het antwoord.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
-U kunt de eigenschap **isUpgraded** gebruiken om klanten te identificeren die een Azure-abonnement hebben. Als de waarde voor **isUpgraded** **True** is, betekent dit dat de klanten Azure-abonnementen hebben.
+U kunt de eigenschap **isUpgraded gebruiken om** klanten te identificeren die een Azure-plan hebben. Als de waarde voor **isUpgraded** **true** is, betekent dit dat de klanten Azure-plannen hebben.
 
 ```http
 HTTP/1.1 200 OK

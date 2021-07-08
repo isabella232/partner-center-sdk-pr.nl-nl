@@ -1,39 +1,35 @@
 ---
 title: Alle gebruiksrecords voor abonnementen voor een klant ophalen
-description: U kunt de resource verzameling SubscriptionMonthlyUsageRecord gebruiken om gebruiks records voor abonnementen op te halen voor een klant van een specifieke Azure-service of-resource tijdens de huidige facturerings periode.
+description: U kunt de resourceverzameling SubscriptionMonthlyUsageRecord gebruiken om in de huidige factureringsperiode abonnementsgebruiksrecords op te halen voor een klant van een specifieke Azure-service of -resource.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 765ea16ff58b462d83ae3b8764b8b34c3ef804dc
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 976abd86f34c1c27184f277ffc89fbc65f16bb37
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767309"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874683"
 ---
-# <a name="get-subscription-usage-records-for-a-customer"></a>Gebruiks records voor abonnementen voor een klant ophalen
+# <a name="get-subscription-usage-records-for-a-customer"></a>Abonnementsgebruiksrecords voor een klant op halen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt de resource verzameling **SubscriptionMonthlyUsageRecord** gebruiken om gebruiks records voor abonnementen op te halen voor een klant van een specifieke Azure-service of-resource tijdens de huidige facturerings periode. Deze resource vertegenwoordigt alle abonnementen voor de klant. Voor een klant met een Azure-abonnement retourneert deze resource een lijst met deze plannen (geen afzonderlijke Azure-abonnementen).
+U kunt de resourceverzameling **SubscriptionMonthlyUsageRecord** gebruiken om in de huidige factureringsperiode abonnementsgebruiksrecords op te halen voor een klant van een specifieke Azure-service of -resource. Deze resource vertegenwoordigt alle abonnementen voor de klant. Voor een klant met een Azure-plan retourneert deze resource een lijst met deze abonnementen (geen afzonderlijke Azure-abonnementen).
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Voor het ophalen van abonnements gebruiks records voor een klant van een specifieke Azure-service of-resource tijdens de huidige facturerings periode.:
+Als u gebruiksrecords voor abonnementen wilt op halen voor een klant van een specifieke Azure-service of -resource tijdens de huidige factureringsperiode, moet u de volgende stappen uitvoeren:
 
-1. Gebruik uw verzameling **IAggregatePartner. Customers** om de methode **ById ()** aan te roepen.
+1. Gebruik de **verzameling IAggregatePartner.Customers** om de **methode ById() aan te** roepen.
 
-2. Roep vervolgens de eigenschap **abonnementen** aan, evenals de eigenschap **UsageRecords** . Voltooi door de methoden Get () of GetAsync () aan te roepen.
+2. Roep vervolgens de **eigenschap Abonnementen en** de eigenschap **UsageRecords aan.** Als laatste roept u de methoden Get() of GetAsync() aan.
 
     ``` csharp
     // IAggregatePartner partnerOperations;
@@ -42,31 +38,31 @@ Voor het ophalen van abonnements gebruiks records voor een klant van een specifi
     var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.UsageRecords.Get();
     ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **GetSubscriptionUsageRecords.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                      |
 |---------|------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/usagerecords http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/usagerecords HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameter voor het ophalen van de geclassificeerde gebruiks gegevens van de klant.
+Deze tabel bevat de vereiste queryparameter om de beoordeelde gebruiksgegevens van de klant op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                           |
 |------------------------|----------|----------|---------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | Een GUID die overeenkomt met de klant. |
+| **customer-tenant-id** | **guid** | J        | Een GUID die overeenkomt met de klant. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -84,17 +80,17 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **SubscriptionMonthlyUsageRecord** -resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **SubscriptionMonthlyUsageRecord-resource** in de hoofd body van het antwoord.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
-### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Antwoord voorbeeld voor Microsoft Azure-abonnementen (MS-AZR-0145P)
+### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Voorbeeld van een Microsoft Azure (MS-AZR-0145P)
 
-In dit voor beeld heeft de klant een **145P Azure PayG** -aanbieding aangeschaft.
+In dit voorbeeld heeft de klant een **Azure PayG-aanbieding van 145P** aangeschaft.
 
-*Voor klanten met Microsoft Azure-abonnementen (MS-AZR-0145P) is er geen wijziging in de API-reactie.*
+*Voor klanten met Microsoft Azure -abonnementen (MS-AZR-0145P) is er geen wijziging in het API-antwoord.*
 
 ```http
 HTTP/1.1 200 OK
@@ -136,13 +132,13 @@ Date: Tue, 17 Sep 2019 20:31:45 GMT
 }
 ```
 
-## <a name="rest-response-example-for-azure-plan"></a>Voor beeld van REST Response voor Azure-abonnement
+## <a name="rest-response-example-for-azure-plan"></a>REST-antwoordvoorbeeld voor Azure-plan
 
-In dit voor beeld heeft de klant een Azure-abonnement aangeschaft.
+In dit voorbeeld heeft de klant een Azure-abonnement aangeschaft.
 
-*Voor klanten met Azure-abonnementen zijn de volgende wijzigingen in de API-reactie:*
+*Voor klanten met Azure-plannen zijn er de volgende wijzigingen in het API-antwoord:*
 
-- **currencyLocale** wordt vervangen door **currencyCode**
+- **currencyLocale** is vervangen door **currencyCode**
 - **usdTotalCost** is een nieuw veld
 
 ```http

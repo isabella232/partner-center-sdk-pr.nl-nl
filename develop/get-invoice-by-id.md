@@ -1,42 +1,37 @@
 ---
-title: Factuur op ID ophalen
-description: Haalt een opgegeven factuur op met behulp van de factuur-ID.
+title: Factuur op id ontvangen
+description: Hiermee haalt u een bepaalde factuur op met behulp van de factuur-id.
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 17880265d06e8e5eaacc5470d83c49defd10ad51
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c888786a6b6ca941629bb7aac95227021c37a7fc
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767167"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549158"
 ---
-# <a name="get-invoice-by-id"></a>Factuur op ID ophalen
+# <a name="get-invoice-by-id"></a>Factuur op id ontvangen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Haalt een opgegeven factuur op met behulp van de factuur-ID.
+Hiermee haalt u een bepaalde factuur op met behulp van de factuur-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een geldige factuur-ID.
+- Een geldige factuur-id.
 
 ## <a name="c"></a>C\#
 
-Een factuur op basis van de ID ophalen:
+Een factuur op id ontvangen:
 
-1. Gebruik uw verzameling **IPartner. facturen** en roep de methode **ById ()** aan.
+1. Gebruik de **verzameling IPartner.Invoices en** roep de **methode ById()** aan.
 
-2. Roep de methoden **Get ()** of **GetAsync ()** aan.
+2. Roep de **methoden Get()** of **GetAsync()** aan.
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -45,27 +40,27 @@ Een factuur op basis van de ID ophalen:
 var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: GetInvoice.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: GetInvoice.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{Invoice-ID} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de factuur op te halen.
+Gebruik de volgende queryparameter om de factuur op te halen.
 
 | Naam           | Type       | Vereist | Beschrijving                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **factuur-ID** | **tekenreeksexpressie** | Yes      | De waarde is een **factuur-ID** waarmee de wederverkoper de resultaten voor een bepaalde factuur kan filteren. |
+| **factuur-id** | **Tekenreeks** | Ja      | De waarde is een **factuur-id** waarmee de reseller de resultaten voor een bepaalde factuur kan filteren. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -83,11 +78,11 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een [factuur](invoice-resources.md#invoice) resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een [factuurresource](invoice-resources.md#invoice) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

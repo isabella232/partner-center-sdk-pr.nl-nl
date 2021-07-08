@@ -1,39 +1,34 @@
 ---
 title: Koppelingen voor factuurramingen ophalen
-description: U kunt een verzameling ramings koppelingen ophalen voor de details van het regel item van de query-afstemming.
+description: U kunt een verzameling van schattingskoppelingen ophalen om de details van het query-afstemmingsregelitem op te vragen.
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.assetid: ''
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 10801cdb1f9d4f50a1f8fc86c2d0eaf8610ed68c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 719becd3fac5605c4ad48ab86d483ba7903d65d8
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767267"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549141"
 ---
 # <a name="get-invoice-estimate-links"></a>Koppelingen voor factuurramingen ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt schattings koppelingen verkrijgen om de details van de query voor niet-gefactureerde reconciliatie regel items te controleren.
+U kunt schattingskoppelingen krijgen om gegevens op te vragen voor niet-gebilbileerde afstemmingslijnitems.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een factuur-ID. Hiermee wordt de factuur aangegeven waarvoor de regel items moeten worden opgehaald.
+- Een factuur-id. Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.
 
 ## <a name="c"></a>C\#
 
-De volgende voorbeeld code laat zien hoe u de ramings koppelingen kunt ophalen om niet-gefactureerde regel items voor een bepaalde valuta op te vragen. Het antwoord bevat de ramings koppelingen voor elke periode (bijvoorbeeld de huidige en vorige maand).
+De volgende voorbeeldcode laat zien hoe u de schattingskoppelingen kunt krijgen om niet-gebileerde regelitems voor een bepaalde valuta op te vragen. Het antwoord bevat de schattingskoppelingen voor elke periode (bijvoorbeeld de huidige en vorige maand).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,31 +41,31 @@ De volgende voorbeeld code laat zien hoe u de ramings koppelingen kunt ophalen o
 var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(curencyCode).Get();
 ```
 
-Voor een vergelijkbaar voor beeld raadpleegt u het volgende:
+Zie het volgende voor een vergelijkbaar voorbeeld:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **Partner Center SDK** -voor beelden
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **Partnercentrum-SDK Voorbeelden**
 - Klasse: **GetEstimatesLinks.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/estimates/links? CurrencyCode = {CURRENCYCODE} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/estimates/links?currencycode={currencycode} HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende URI en query parameter bij het maken van de aanvraag.
+Gebruik de volgende URI en queryparameter bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| currencyCode           | tekenreeks | Yes      | De valuta code voor de niet-gefactureerde regel items.                    |
+| currencyCode           | tekenreeks | Ja      | De valutacode voor de niet-gebillede regelitems.                    |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -79,7 +74,7 @@ Geen.
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
 ```http
-GET https://api.partnercenter.microsoft.com/v1/invoices/estimates/links?currencycode=usd HTTP/1.1
+GET https://api.partnercenter.microsoft.com/v1/invoices/estimates/links?currencycode=usd HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 1234ecb8-37af-45f4-a1a1-358de3ca2b9e
@@ -91,11 +86,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat het antwoord de koppelingen om niet-gefactureerde ramingen op te halen.
+Als dit lukt, bevat het antwoord de koppelingen voor het ophalen van niet-gebileerde schattingen.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

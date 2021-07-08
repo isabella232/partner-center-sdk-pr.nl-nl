@@ -1,33 +1,29 @@
 ---
 title: Prijzen voor Microsoft Azure ophalen
-description: Hoe u een Azure-tarief kaart krijgt met real-time prijzen voor een Azure-aanbieding. Prijzen voor Azure zijn vaak dynamisch en worden gewijzigd.
+description: Een Azure-tariefkaart met realtime prijzen voor een Azure-aanbieding krijgen. Azure-prijzen zijn zeer dynamisch en veranderen regelmatig.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0716f0428b13604105b435a2ce8287a8b4609fea
-ms.sourcegitcommit: 64c498d3571f2287305968890578bc7396779621
+ms.openlocfilehash: 4f66ab19ef3723fbaa27acff941cf48683a7c25c
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97768690"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548784"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>Prijzen voor Microsoft Azure ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Een [Azure-tariefkaart met](azure-rate-card-resources.md) realtime prijzen voor een Azure-aanbieding krijgen. Azure-prijzen zijn zeer dynamisch en veranderen regelmatig.
 
-Hoe u een [Azure-tarief kaart](azure-rate-card-resources.md) krijgt met real-time prijzen voor een Azure-aanbieding. Prijzen voor Azure zijn vaak dynamisch en worden gewijzigd.
+Als u het gebruik wilt bijhouden en uw maandelijkse factuur en de facturen voor afzonderlijke klanten wilt voorspellen, kunt u deze Azure Rate Card-query combineren om prijzen voor Microsoft Azure op te halen met een aanvraag om de gebruiksrecords van een klant voor Azure op te [halen.](get-a-customer-s-utilization-record-for-azure.md)
 
-Om het gebruik bij te houden en te helpen uw maandelijkse factuur en de facturen voor afzonderlijke klanten te voors pellen, kunt u deze Azure Rate Card-query combi neren om prijzen voor Microsoft Azure op te halen met een aanvraag om [de gebruiks gegevens van een klant voor Azure te verkrijgen](get-a-customer-s-utilization-record-for-azure.md).
-
-De prijzen zijn afhankelijk van de markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partner Profiel instellingen in partner centrum en uw browser taal, en deze instellingen zijn aanpasbaar. De locatie van het bewustzijn is vooral relevant als u de verkoop op meerdere markten beheert vanuit één gecentraliseerd kantoor. Zie [URI-para meters](#uri-parameters)voor meer informatie.
+De prijzen verschillen per markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partnerprofielinstellingen in Partner Center en uw browsertaal. Deze instellingen kunnen worden aangepast. De locatiebewustheid is vooral relevant als u de verkoop in meerdere markten beheert vanuit één gecentraliseerd kantoor. Zie [URI-parameters voor meer informatie.](#uri-parameters)
 
 ## <a name="c"></a>C\#
 
-Als u de Azure-tarief kaart wilt ophalen, roept u de [**IAzureRateCard. Get**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.get) -methode aan om een [**AzureRateCard**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) -resource te retour neren die de Azure-prijzen bevat.
+Als u de Azure-tariefkaart wilt verkrijgen, roept u de methode [**IAzureRateCard.Get**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.get) aan om een [**AzureRateCard-resource**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) te retourneren die de Azure-prijzen bevat.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -35,13 +31,13 @@ Als u de Azure-tarief kaart wilt ophalen, roept u de [**IAzureRateCard. Get**](/
 var azureRateCard = partner.RateCards.Azure.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: GetAzureRateCard.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetAzureRateCard.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u de Azure-tarief kaart wilt ophalen, roept u de functie **IAzureRateCard. Get** aan om de tarief kaart gegevens te retour neren die de Azure-prijzen bevatten.
+Als u de Azure-tariefkaart wilt verkrijgen, roept u de **functie IAzureRateCard.get** aan om tariefkaartgegevens te retourneren die de Azure-prijzen bevatten.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -53,7 +49,7 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().get();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u de Azure-kaart wilt ophalen, voert u de opdracht [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) uit om de tarief kaart gegevens te retour neren die de prijzen van Azure bevatten.
+Als u de Azure-kaart wilt verkrijgen, voert u [**de opdracht Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) uit om tariefkaartgegevens te retourneren die de Azure-prijzen bevatten.
 
 ```powershell
 Get-PartnerAzureRateCard
@@ -61,28 +57,28 @@ Get-PartnerAzureRateCard
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                        |
 |---------|--------------------------------------------------------------------|
-| **Toevoegen** | *{baseURL}*/v1/ratecards/Azure? Currency = {currency} &regio = {Region} |
+| **Toevoegen** | *{baseURL}*/v1/ratecards/azure?currency={currency}&region={region} |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
 | Naam     | Type   | Vereist | Beschrijving                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | tekenreeks | No       | Optionele ISO-code van drie letters voor de valuta waarin de resource tarieven worden gegeven (bijvoorbeeld `EUR` ). De standaardwaarde is `USD`. |
-| regio   | tekenreeks | No       | Optionele ISO-land/regio code van twee letters waarmee de markt wordt aangegeven waar de aanbieding wordt gekocht (bijvoorbeeld `FR` ). De standaardwaarde is `US`.        |
+| currency | tekenreeks | No       | Optionele ISO-code van drie letters voor de valuta waarin de resourcetarieven worden opgegeven (bijvoorbeeld `EUR` ). De standaardwaarde is `USD`. |
+| regio   | tekenreeks | No       | Optionele iso-land-/regiocode van twee letters die de markt aangeeft waarop de aanbieding is gekocht (bijvoorbeeld `FR` ). De standaardwaarde is `US`.        |
 
-U kunt de optionele X-locale- [header](headers.md#rest-request-headers) in uw aanvraag toevoegen. Als u de header X-locale niet opneemt, wordt de standaard waarde ("en-US") gebruikt.
+U kunt de optionele X-Locale-header [opnemen](headers.md#rest-request-headers) in uw aanvraag. Als u de X-Locale-header niet op neemt, wordt de standaardwaarde ('en-US') gebruikt.
 
-- Als u in uw aanvraag valuta-en regio parameters opgeeft, wordt de waarde van de X-land instelling gebruikt om de taal van het antwoord te bepalen.
+- Als u valuta- en regioparameters in uw aanvraag op geeft, wordt de waarde van X-Locale gebruikt om de taal van het antwoord te bepalen.
 
-- Als u geen regio-en valuta parameters in uw aanvraag opgeeft, wordt de waarde van de X-land instelling gebruikt om de regio, valuta en taal van het antwoord te bepalen.
+- Als u geen regio- en valutaparameters in uw aanvraag op geeft, wordt de waarde van X-Locale gebruikt om de regio, valuta en taal van het antwoord te bepalen.
 
 ### <a name="request-header"></a>Aanvraagheader
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -103,11 +99,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als de aanvraag is voltooid, wordt een [Azure-tarieven](azure-rate-card-resources.md) resource geretourneerd.
+Als de aanvraag is geslaagd, wordt een [Azure Rate Card-resource](azure-rate-card-resources.md) retourneert.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

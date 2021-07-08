@@ -1,42 +1,37 @@
 ---
 title: Een lijst met klanten ophalen die zijn gefilterd op basis van een zoekveld
-description: Hiermee wordt een verzameling klant resources opgehaald die overeenkomen met een filter. U kunt desgewenst een pagina grootte instellen. U kunt filteren op bedrijfs naam, domein, indirecte wederverkoper of indirecte Cloud Solution Provider (CSP).
+description: Haalt een verzameling klantbronnen op die overeenkomen met een filter. U kunt desgewenst een paginaformaat instellen. U kunt filteren op bedrijfsnaam, domein, indirecte reseller of indirecte cloudoplossingsprovider (CSP).
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: aad9524dbe2c9edbbd7c1d50da7a448f6872fcb9
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 663b8509d8704f9c443796d9fbcf72fb9c5b7fb2
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767386"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874955"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Een lijst met klanten ophalen die zijn gefilterd op basis van een zoekveld
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een verzameling [klant](customer-resources.md#customer) resources opgehaald die overeenkomen met een filter. U kunt desgewenst een pagina grootte instellen. U kunt filteren op bedrijfs naam, domein, indirecte wederverkoper of indirecte Cloud Solution Provider (CSP).
+Haalt een verzameling [klantbronnen op](customer-resources.md#customer) die overeenkomen met een filter. U kunt desgewenst een paginaformaat instellen. U kunt filteren op bedrijfsnaam, domein, indirecte reseller of indirecte cloudoplossingsprovider (CSP).
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een door de gebruiker samengesteld filter.
 
 ## <a name="c"></a>C\#
 
-Als u een verzameling klanten wilt ophalen die overeenkomen met een filter, moet u eerst een [**SimpleFieldFilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) -object instantiëren om het filter te maken. U moet een teken reeks door geven die de [**CustomerSearchField**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)bevat en het type filter bewerking aangeven als [**FieldFilterOperation. StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation). Dat is de enige veld Filter bewerking die wordt ondersteund door het eind punt van de klant. U moet ook de teken reeks opgeven waarop u wilt filteren.
+Als u een verzameling klanten wilt ophalen die overeenkomen met een filter, moet u eerst een [**SimpleFieldFilter-object**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) maken om het filter te maken. U moet een tekenreeks doorgeven die [**customerSearchField**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)bevat en het type filterbewerking als [**FieldFilterOperation.StartsWith aangeven.**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) Dat is de enige veldfilterbewerking die wordt ondersteund door het eindpunt van de klant. U moet ook de tekenreeks verstrekken om op te filteren.
 
-Instantiër vervolgens een [**iQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) -object om door te geven aan de query door de methode [**BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) aan te roepen en het filter door te geven. BuildSimplyQuery is slechts een van de typen query's die worden ondersteund door de klasse [**QueryFactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .
+Maak vervolgens een [**iQuery-object**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) om door te geven aan de query door de [**methode BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) aan te roepen en dit door te geven aan het filter. BuildSimplyQuery is slechts een van de querytypen die wordt ondersteund door de [**klasse QueryFactory.**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)
 
-Ten slotte, om het filter uit te voeren en het resultaat te verkrijgen, moet u eerst [**IAggregatePartner. klanten**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) gebruiken om een interface te verkrijgen voor de klant activiteiten van de partner. Roep vervolgens de methode [**query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) of [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) aan.
+Als u ten slotte het filter wilt uitvoeren en het resultaat wilt krijgen, gebruikt u [**eerst IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een interface te krijgen met de klantbewerkingen van de partner. Roep vervolgens de [**methode Query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) of [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) aan.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -57,30 +52,30 @@ var myQuery = QueryFactory.Instance.BuildSimpleQuery(fieldFilter);
 var customers = partnerOperations.Customers.Query(myQuery);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: FilterCustomers.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class:** FilterCustomers.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers? grootte = {size} &filter = {filter} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers?size={size}&filter={filter} HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende query parameters.
+Gebruik de volgende queryparameters.
 
 | Naam   | Type   | Vereist | Beschrijving                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| grootte   | int    | No       | Het aantal resultaten dat tegelijk moet worden weer gegeven. Deze parameter is optioneel. |
-| filter | filter | Yes      | Het filter dat op klanten moet worden toegepast. Dit moet een gecodeerde teken reeks zijn.              |
+| grootte   | int    | Nee       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel. |
+| filter | filter | Ja      | Het filter dat moet worden toegepast op klanten. Dit moet een gecodeerde tekenreeks zijn.              |
 
-### <a name="filter-syntax"></a>Filter syntaxis
+### <a name="filter-syntax"></a>Filtersyntaxis
 
-U moet de filter parameter opstellen als een reeks door komma's gescheiden, sleutel-waardeparen. Elke sleutel en waarde moeten afzonderlijk worden genoteerd en gescheiden door een dubbele punt. Het volledige filter moet zijn gecodeerd.
+U moet de filterparameter samenstellen als een reeks door komma's gescheiden sleutel-waardeparen. Elke sleutel en waarde moeten afzonderlijk worden aangehaald en gescheiden door een dubbele punt. Het volledige filter moet worden gecodeerd.
 
-Een niet-gecodeerd voor beeld ziet er als volgt uit:
+Een niet-gecodeerd voorbeeld ziet er als volgende uit:
 
 ```http
 ?filter{"Field":"CompanyName","Value":"cont","Operator":"starts_with"}
@@ -90,13 +85,13 @@ In de volgende tabel worden de vereiste sleutel-waardeparen beschreven:
 
 | Sleutel      | Waarde                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
-| Veld    | Het veld dat moet worden gefilterd. U kunt de geldige waarden vinden in [**CustomerSearchField**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield). |
-| Waarde    | De waarde waarop moet worden gefilterd. Het geval van de waarde wordt genegeerd.                                                                |
-| Operator | De operator die moet worden toegepast. De enige ondersteunde waarde voor dit klant scenario is "begint \_ met".                            |
+| Veld    | Het veld dat moet worden gefilterd. De geldige waarden vindt u in [**CustomerSearchField.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield) |
+| Waarde    | De waarde om op te filteren. Het geval van de waarde wordt genegeerd.                                                                |
+| Operator | De operator die moet worden toegepast. De enige ondersteunde waarde voor dit klantscenario is 'begint \_ met'.                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -117,11 +112,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling overeenkomende [klant](customer-resources.md#customer) resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling overeenkomende [Klantresources](customer-resources.md#customer) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

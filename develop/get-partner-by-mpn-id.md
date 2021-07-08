@@ -1,38 +1,33 @@
 ---
 title: Een MPN-id van een partner verifiëren
-description: Lees hoe u de Microsoft Partner Network-ID van een partner (MPN-ID) kunt controleren door het MPN-Profiel van de partner via C \# of het Partner Center-rest API aan te vragen.
+description: Leer hoe u de mpn-id (Microsoft Partner Network-id) van een partner kunt controleren door het MPN-profiel van de partner aan te vragen via C of de \# Partner Center REST API.
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6ef7bcb35274a6bcbaddbe0553ca0cb4dc1b2f9c
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: 6bd51850c7bc5a099a34f9c028a58e247c2600a3
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97767574"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548818"
 ---
-# <a name="verify-a-partner-mpn-id-via-c-or-the-partner-center-rest-api"></a>Een partner MPN-ID verifiëren via C \# of het Partner Center rest API
+# <a name="verify-a-partner-mpn-id-via-c-or-the-partner-center-rest-api"></a>Controleer een MPN-id van een partner via C \# of de Partner Center REST API
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+De ID van een partner controleren Microsoft Partner Network (MPN-id).
 
-De Microsoft Partner Network-ID van een partner controleren (MPN-ID).
-
-De hier weer gegeven methode verifieert de Microsoft Partner Network-ID van de partner door het MPN-Profiel van de partner aan te vragen bij het partner centrum. De id wordt als geldig beschouwd als de aanvraag slaagt.
+Met de hier weergegeven techniek wordt de id van de partner Microsoft Partner Network door het MPN-profiel van de partner aan te vragen bij het partnercentrum. De id wordt als geldig beschouwd als de aanvraag slaagt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- De MPN-ID van de partner die moet worden geverifieerd. Als u deze waarde weglaat, wordt door de aanvraag het MPN-Profiel van de aangemelde partner opgehaald.
+- De MPN-id van de partner die moet worden geverifieerd. Als u deze waarde weglaten, haalt de aanvraag het MPN-profiel van de aangemelde partner op.
 
 ## <a name="c"></a>C\#
 
-Als u de MPN-ID van een partner wilt verifiëren, moet u eerst een interface voor het verzamelen van partner profielen ophalen uit de eigenschap [**IAggregatePartner. Profiles**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) . Vervolgens krijgt u een interface voor het MPN van profiel bewerkingen van de eigenschap [**MpnProfile**](/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) . Roep ten slotte de methoden [**Get**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) aan met de MPN-ID om het MPN-profiel op te halen. Als u de MPN-ID van de aanroep Get of GetAsync weglaat, probeert de aanvraag het MPN-Profiel van de aangemelde partner op te halen.
+Als u de MPN-id van een partner wilt controleren, haalt u eerst een interface op voor verzamelingsbewerkingen van partnerprofielen van [**de eigenschap IAggregatePartner.Profiles.**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) Haal vervolgens een interface op voor MPN-profielbewerkingen van de [**eigenschap MpnProfile.**](/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) Roep ten slotte de [**methoden Get**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) met de MPN-id om het MPN-profiel op te halen. Als u de MPN-id weglaten uit de Get- of GetAsync-aanroep, probeert de aanvraag het MPN-profiel van de aangemelde partner op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,27 +36,27 @@ Als u de MPN-ID van een partner wilt verifiëren, moet u eerst een interface voo
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **klasse**: VerifyPartnerMpnId.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Klasse **Samples:** VerifyPartnerMpnId.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/MPN? mpnId = {MPN-id} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/mpn?mpnId={mpn-id} HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Geef de volgende query parameter op om de partner te identificeren. Als u deze query parameter weglaat, retourneert de aanvraag het MPN-Profiel van de aangemelde partner.
+Geef de volgende queryparameter op om de partner te identificeren. Als u deze queryparameter weglaten, retourneert de aanvraag het MPN-profiel van de aangemelde partner.
 
 | Naam   | Type | Vereist | Beschrijving                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| MPN-id | int  | No       | Een Microsoft Partner Network-ID waarmee de partner wordt geïdentificeerd. |
+| mpn-id | int  | Nee       | Een Microsoft Partner Network-id die de partner identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -83,13 +78,13 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst de [MpnProfile](profile-resources.md#mpnprofile) -resource voor de partner.
+Als dit lukt, bevat de antwoord-body de [MpnProfile-resource](profile-resources.md#mpnprofile) voor de partner.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
-### <a name="response-example-success"></a>Voor beeld van antwoord (geslaagd)
+### <a name="response-example-success"></a>Voorbeeld van antwoord (geslaagd)
 
 ```http
 HTTP/1.1 200 OK
@@ -117,7 +112,7 @@ Date: Thu, 13 Apr 2017 18:13:40 GMT
 }
 ```
 
-### <a name="response-example-failure"></a>Voor beeld van antwoord (fout)
+### <a name="response-example-failure"></a>Voorbeeld van een reactie (fout)
 
 ```http
 HTTP/1.1 404 Not Found

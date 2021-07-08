@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 5d35c0512ba8edcf3742ee69d38c699a9a8c16d2
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 19a1c39576a4f897df2d1205e3501839f6580831
+ms.sourcegitcommit: e0077b2724d128ab20cb05696e5e5b1cde8e5214
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906401"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113481664"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Het Secure Application Model-framework inschakelen
 
@@ -225,7 +225,7 @@ Host: api.partnercenter.microsoft.com
 
 U kunt de [PowerShell Partner Center module gebruiken om](https://www.powershellgallery.com/packages/PartnerCenter) de vereiste infrastructuur te verminderen voor het uitwisselen van een autorisatiecode voor een toegangs token. Deze methode is optioneel voor het maken van [Partner Center REST-aanroepen.](#rest)
 
-Zie PowerShell-documentatie over [Secure App Model](/powershell/partnercenter/secure-app-model) voor meer informatie over dit proces.
+Zie PowerShell-documentatie voor [Secure App Model](/powershell/partnercenter/secure-app-model) voor meer informatie over dit proces.
 
 1. Installeer de Azure AD- en Partner Center PowerShell-modules.
 
@@ -242,7 +242,7 @@ Zie PowerShell-documentatie over [Secure App Model](/powershell/partnercenter/se
     ```powershell
     $credential = Get-Credential
 
-    New-PartnerAccessToken -ApplicationId 'xxxx-xxxx-xxxx-xxxx' -Scopes 'https://api.partnercenter.microsoft.com/user_impersonation' -ServicePrincipal -Credential $credential -Tenant 'yyyy-yyyy-yyyy-yyyy' -UseAuthorizationCode
+    $token = New-PartnerAccessToken -ApplicationId 'xxxx-xxxx-xxxx-xxxx' -Scopes 'https://api.partnercenter.microsoft.com/user_impersonation' -ServicePrincipal -Credential $credential -Tenant 'yyyy-yyyy-yyyy-yyyy' -UseAuthorizationCode
     ```
 
     > [!NOTE]

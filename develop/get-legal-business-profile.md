@@ -1,34 +1,29 @@
 ---
 title: Het wettelijke bedrijfsprofiel van een partner ophalen
-description: Meer informatie over het gebruik van Api's om uw juridisch zakelijk profiel op te halen.
+description: Meer informatie over het gebruik van API's om uw juridische bedrijfsprofiel op te halen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1d488c8deb9f01110e92327035ce0c3c023fcb46
-ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
+ms.openlocfilehash: ba0654e364674bc2db129a0904d411c6fb67cbb9
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106500019"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549056"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>Het wettelijke bedrijfsprofiel van een partner ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Het juridische zakelijke profiel van een partner ophalen.
+Het juridische bedrijfsprofiel van een partner op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u het partner juridisch Business-profiel wilt ophalen, moet u eerst een interface ophalen voor de verzameling van partner profiel bewerkingen van de eigenschap **IAggregatePartner. Profiles** . Haal vervolgens de waarde van de eigenschap **LegalBusinessProfile** op om een interface op te halen voor juridische bedrijfs profiel bewerkingen. Roep ten slotte de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync) aan om het profiel op te halen.
+Als u het juridische bedrijfsprofiel van de partner wilt ophalen, moet u eerst een interface ophalen voor de verzameling partnerprofielbewerkingen van de **eigenschap IAggregatePartner.Profiles.** Haal vervolgens de waarde van de eigenschap **LegalBusinessProfile** op om een interface op te halen voor juridische bedrijfsprofielbewerkingen. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get) of [**getAsync aan**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync) om het profiel op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,19 +31,19 @@ Als u het partner juridisch Business-profiel wilt ophalen, moet u eerst een inte
 var billingProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK samples **klasse**: GetLegalBusinessProfile. cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetLegalBusinessProfile.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -69,11 +64,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **LegalBusinessProfile** -object in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode **een LegalBusinessProfile-object** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
