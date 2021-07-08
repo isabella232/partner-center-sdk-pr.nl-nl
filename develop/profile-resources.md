@@ -1,100 +1,95 @@
 ---
-title: Profiel resources
-description: Hierin wordt het gedrag van de profielen van een Cloud Solution Provider beschreven.
+title: Profielbronnen
+description: Beschrijft het gedrag van Cloud Solution Provider profielen van een klant.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e0561278995f4f9747320866b51de57efea8f712
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 945cfa141d1e6bde1709da882a177daaa32fba1f
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767482"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547781"
 ---
-# <a name="profile-resources"></a>Profiel resources
+# <a name="profile-resources"></a>Profielbronnen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hierin wordt het gedrag van de profielen van een Cloud Solution Provider beschreven.
+Beschrijft het gedrag van Cloud Solution Provider profielen van een klant.
 
 ## <a name="billingprofile"></a>BillingProfile
 
-Hiermee wordt het facturerings Profiel van een partner beschreven.
+Beschrijft het factureringsprofiel van een partner.
 
-| Eigenschap            | Type                                                           | Description                                                 |
+| Eigenschap            | Type                                                           | Beschrijving                                                 |
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
-| companyName         | tekenreeks                                                         | De naam van het facturerings bedrijf.                                   |
-| adres             | [Adres](utility-resources.md#address)                       | Het adres van het factuur adres van het bedrijf of de organisatie. |
-| primaryContact      | [Contact](utility-resources.md#contact)                       | De primaire contact persoon voor het bedrijf of de organisatie.        |
-| purchaseOrderNumber | tekenreeks                                                         | Het inkooporder nummer van het bedrijf of de organisatie.        |
-| in taxI               | tekenreeks                                                         | De BTW-ID van het bedrijf of de organisatie.                       |
+| companyName         | tekenreeks                                                         | De naam van het factureringsbedrijf.                                   |
+| adres             | [Adres](utility-resources.md#address)                       | Het factureringsadres van het bedrijf of de organisatie. |
+| primaryContact      | [Contact](utility-resources.md#contact)                       | De primaire contactpersoon voor het bedrijf of de organisatie.        |
+| purchaseOrderNumber | tekenreeks                                                         | Het inkoopordernummer van het bedrijf of de organisatie.        |
+| taxId               | tekenreeks                                                         | Het btw-nummer van het bedrijf of de organisatie.                       |
 | billingCurrency     | tekenreeks                                                         | De valuta die wordt gebruikt door het bedrijf of de organisatie.           |
-| Bestands type         | tekenreeks                                                         | Het Partner Profiel type.                                   |
-| koppelen               | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen die overeenkomen met het profiel.            |
-| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel.       |
+| profileType         | tekenreeks                                                         | Het partnerprofieltype.                                   |
+| Verwijzigingen               | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met het profiel.            |
+| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel.       |
 
 ## <a name="legalbusinessprofile"></a>LegalBusinessProfile
 
-Hierin wordt het juridische zakelijke profiel van een partner beschreven.
+Beschrijft het juridische bedrijfsprofiel van een partner.
 
-| Eigenschap               | Type                                                           | Description                                                                                                                                                          |
+| Eigenschap               | Type                                                           | Beschrijving                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| companyName            | tekenreeks                                                         | De naam van het rechts bedrijf.                                                                                                                                              |
+| companyName            | tekenreeks                                                         | De naam van het juridische bedrijf.                                                                                                                                              |
 | adres                | [Adres](utility-resources.md#address)                       | Het adres van het bedrijf of de organisatie.                                                                                                                          |
-| primaryContact         | [Contact](utility-resources.md#contact)                       | De primaire contact persoon voor het bedrijf of de organisatie.                                                                                                                 |
-| companyApproverAddress | [Adres](utility-resources.md#address)                       | Het adres van de bedrijfs goed keurder.                                                                                                                                        |
-| companyApproverEmail   | tekenreeks                                                         | Het e-mail adres van de bedrijf goed keurder.                                                                                                                                          |
-| vettingStatus          | tekenreeks                                                         | De status hebben. Deze waarde is de teken reeks representatie van de naam van een van de leden die zijn gevonden in [**VettingStatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |
-| vettingSubStatus       | tekenreeks                                                         | De hebben-substatus. Deze waarde is de teken reeks representatie van de naam van een van de leden die zijn gevonden in [**VettingSubStatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus). |
-| Bestands type            | tekenreeks                                                         | Het Partner Profiel type.                                                                                                                                            |
-| koppelen                  | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen die overeenkomen met het profiel.                                                                                                                     |
-| kenmerken             | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel.                                                                                                                |
+| primaryContact         | [Contact](utility-resources.md#contact)                       | De primaire contactpersoon voor het bedrijf of de organisatie.                                                                                                                 |
+| companyApproverAddress | [Adres](utility-resources.md#address)                       | Het adres van de fiattelaar van het bedrijf.                                                                                                                                        |
+| companyApproverEmail   | tekenreeks                                                         | Het e-mailadres van de fiattelaar van het bedrijf.                                                                                                                                          |
+| vettingStatus          | tekenreeks                                                         | De status van de doorlichting. Deze waarde is de tekenreeksweergave van een van de lidnamen in [**VettingStatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |
+| vettingSubStatus       | tekenreeks                                                         | De substatus van de doorlichting. Deze waarde is de tekenreeksweergave van een van de lidnamen in [**VettingSubStatus.**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus) |
+| profileType            | tekenreeks                                                         | Het partnerprofieltype.                                                                                                                                            |
+| Verwijzigingen                  | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met het profiel.                                                                                                                     |
+| kenmerken             | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel.                                                                                                                |
 
 ## <a name="mpnprofile"></a>MpnProfile
 
-Beschrijft het Microsoft Partner Network Profiel van een partner.
+Beschrijft het Microsoft Partner Network van een partner.
 
-| Eigenschap    | Type                                                           | Description                                           |
+| Eigenschap    | Type                                                           | Beschrijving                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | partnerName | tekenreeks                                                         | De naam van het bedrijf of de organisatie.                     |
-| mpnId       | tekenreeks                                                         | De Microsoft Partner Network-ID.                     |
-| Bestands type | tekenreeks                                                         | Het Partner Profiel type.                             |
-| koppelen       | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen die overeenkomen met het profiel.      |
-| kenmerken  | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel. |
+| mpnId       | tekenreeks                                                         | De Microsoft Partner Network(MPN)-id.                     |
+| profileType | tekenreeks                                                         | Het partnerprofieltype.                             |
+| Verwijzigingen       | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met het profiel.      |
+| kenmerken  | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel. |
 
 ## <a name="organizationprofile"></a>OrganizationProfile
 
-Hierin wordt het organisatie profiel van een partner beschreven.
+Beschrijft het organisatieprofiel van een partner.
 
 | Eigenschap       | Type                                                           | Beschrijving                                                            |
 |----------------|----------------------------------------------------------------|------------------------------------------------------------------------|
 | id             | tekenreeks                                                         | De id van de organisatie.                                                 |
 | companyName    | tekenreeks                                                         | De naam van het bedrijf of de organisatie.                               |
-| defaultAddress | [Adres](utility-resources.md#address)                       | Het standaard adres van het bedrijf of de organisatie.                    |
-| tenantId       | tekenreeks                                                         | De Tenant-id.                                                 |
-| domein         | tekenreeks                                                         | Het bedrijfs domein of de organisatie.                                  |
-| e-mail          | tekenreeks                                                         | Hiermee wordt het bovenliggende abonnement opgehaald of ingesteld.                                  |
-| language       | tekenreeks                                                         | De voorkeurs taal voor communicatie.                              |
-| culturele        | tekenreeks                                                         | De voorkeurs cultuur voor communicatie en valuta, zoals ' en-us '. |
-| Bestands type    | tekenreeks                                                         | Het Partner Profiel type.                                              |
-| koppelen          | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen die overeenkomen met het profiel.                       |
-| kenmerken     | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel.                  |
+| defaultAddress | [Adres](utility-resources.md#address)                       | Het standaardadres van het bedrijf of de organisatie.                    |
+| tenantId       | tekenreeks                                                         | De tenant-id.                                                 |
+| domein         | tekenreeks                                                         | Het domein van het bedrijf of de organisatie.                                  |
+| e-mail          | tekenreeks                                                         | Haalt het bovenliggende abonnement op of stelt het in.                                  |
+| language       | tekenreeks                                                         | De voorkeurstaal voor communicatie.                              |
+| Cultuur        | tekenreeks                                                         | De voorkeurscultuur voor communicatie en valuta, zoals 'en-us'. |
+| profileType    | tekenreeks                                                         | Het partnerprofieltype.                                              |
+| Verwijzigingen          | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met het profiel.                       |
+| kenmerken     | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel.                  |
 
 ## <a name="supportprofile"></a>SupportProfile
 
-Hierin wordt het ondersteunings Profiel van een partner beschreven.
+Beschrijft het ondersteuningsprofiel van een partner.
 
-| Eigenschap    | Type                                                           | Description                                           |
+| Eigenschap    | Type                                                           | Beschrijving                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
-| e-mail       | tekenreeks                                                         | Het e-mail adres dat is gekoppeld aan het profiel.        |
-| telefoon   | tekenreeks                                                         | Het telefoon nummer dat aan het profiel is gekoppeld.         |
-| website     | tekenreeks                                                         | De ondersteunings website.                                  |
-| Bestands type | tekenreeks                                                         | Het Partner Profiel type.                             |
-| koppelen       | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen die overeenkomen met het profiel.      |
-| kenmerken  | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met het profiel. |
+| e-mail       | tekenreeks                                                         | Het e-mailadres dat is gekoppeld aan het profiel.        |
+| telefoon   | tekenreeks                                                         | Het telefoonnummer dat is gekoppeld aan het profiel.         |
+| website     | tekenreeks                                                         | De ondersteuningswebsite.                                  |
+| profileType | tekenreeks                                                         | Het partnerprofieltype.                             |
+| Verwijzigingen       | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met het profiel.      |
+| kenmerken  | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel. |
 

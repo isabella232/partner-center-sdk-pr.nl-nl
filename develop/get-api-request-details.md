@@ -1,36 +1,34 @@
 ---
-title: Een lijst met alle partner gebruikers aanvragen ophalen
-description: Een lijst met alle partner gebruikers aanvragen ophalen met behulp van de partner REST API.
+title: Een lijst met alle aanvragen van partnergebruikers opvragen
+description: Een lijst met alle aanvragen van partnergebruikers opvragen met behulp van de partner REST API.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 43b1e3d4a6220ac8adba8eed0389395113072288
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9a367f912669114969f8792a5afcc7020af1112e
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767178"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760501"
 ---
-# <a name="get-app-and-user-api-requests"></a>App-en gebruikers-API-aanvragen ophalen
+# <a name="get-app-and-user-api-requests"></a>App- en gebruikers-API-aanvragen downloaden
 
-Van toepassing op:
+**Van toepassing op**: Partner Center API
 
-- Partnercentrum-API
-
-In dit artikel wordt uitgelegd hoe u een lijst met alle partner gebruikers aanvragen binnen een Tenant kunt ophalen met behulp van REST Api's.
+In dit artikel wordt uitgelegd hoe u een lijst met alle aanvragen van partnergebruikers binnen een tenant kunt verkrijgen met behulp van REST API's.
 
  > [!NOTE]
- > Deze API retourneert alleen de meest recente API-aanvragen die zijn gemaakt door de APP + gebruikers referentie met een maximale 10.000 limiet.
+ > Deze API retourneert alleen de meest recente API-aanvragen die zijn gedaan door APP + Gebruikersreferenties met een limiet van maximaal 10.000.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                        |
 |---------|--------------------------------------------------------------------|
@@ -38,7 +36,7 @@ In dit artikel wordt uitgelegd hoe u een lijst met alle partner gebruikers aanvr
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Zie de [rest headers van het Partner Center](headers.md) voor meer informatie.
+- Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -55,11 +53,11 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling van de gegevens bronnen van de [API-aanvraag](mfa-resources.md#api-request-details) in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling resources met details van [de API-aanvraag](mfa-resources.md#api-request-details) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

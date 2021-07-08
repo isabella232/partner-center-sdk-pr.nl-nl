@@ -1,41 +1,37 @@
 ---
 title: Een lijst met alle gebruikersaccounts voor een klant ophalen
-description: Een lijst met alle gebruikers accounts ophalen die deel uitmaken van een van uw klanten.
+description: Een lijst met alle gebruikersaccounts van een van uw klanten op te halen.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 6f2b1bcf9926e02232b6e2cc68b71e992b015324
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: f3d5fcc610eae8c1bff056c1e4a9e7a74093c87d
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767372"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874564"
 ---
 # <a name="get-a-list-of-all-user-accounts-for-a-customer"></a>Een lijst met alle gebruikersaccounts voor een klant ophalen
 
-**Van toepassing op:**
+In dit artikel wordt beschreven hoe u een lijst op kunt halen met alle gebruikersaccounts die deel uitmaken van een van uw klanten.
 
-- Partnercentrum
-
-In dit artikel wordt beschreven hoe u een lijst krijgt van alle gebruikers accounts die deel uitmaken van een van uw klanten.
-
-Als u één gebruikers account wilt opzoeken op basis van ID, raadpleegt u [een gebruikers account ophalen op basis van de id](get-a-user-account-by-id.md).
+Zie Get a user account by ID (Een gebruikersaccount op id opmaken) als u één gebruikersaccount op id [wilt op zoeken.](get-a-user-account-by-id.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-De verzameling van alle gebruikers accounts voor een opgegeven klant ophalen:
+De verzameling van alle gebruikersaccounts voor een opgegeven klant ophalen:
 
-1. Roep de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de opgegeven klant-id om de klant te identificeren.
+1. Roep de [**methode IAggregatePartner.Customers.ById aan**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de opgegeven klant-id om de klant te identificeren.
 
-2. Roep de methode [**Users. Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) aan om de verzameling op te halen.
+2. Roep de [**methode Users.Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) om de verzameling op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,31 +41,31 @@ De verzameling van alle gebruikers accounts voor een opgegeven klant ophalen:
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Get();
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **Partner Center SDK** -voor beelden
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **Partnercentrum-SDK Voorbeelden**
 - Klasse: **GetCustomerUserCollection.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/users http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende URI-para meter om de juiste klant te identificeren.
+Gebruik de volgende URI-parameter om de juiste klant te identificeren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | De waarde is een door de **klant-Tenant-id** opgemaakte naam waarmee de wederverkoper de resultaten kan filteren voor een bepaalde klant die bij de wederverkoper hoort. |
+| **customer-tenant-id** | **guid** | J        | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -89,11 +85,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling gebruikers accounts voor een klant.
+Als dit lukt, retourneert deze methode een verzameling gebruikersaccounts voor een klant.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

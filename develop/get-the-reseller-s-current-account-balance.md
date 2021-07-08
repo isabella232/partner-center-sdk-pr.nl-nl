@@ -1,34 +1,29 @@
 ---
 title: Het huidige accountsaldo van de partner ophalen
-description: Haalt het huidige account saldo van de partner op. Een samen vatting van het saldo en de totale kosten van een factuur voor zowel terugkerende als eenmalige kosten.
+description: Hiermee wordt het huidige rekeningsaldo van de partner opgehaald. Een overzicht van het saldo en de totale kosten van een factuur voor zowel terugkerende als eenmalige kosten.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 110da433faa6ff4d3d068c6d68a6f497f4a2721a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a04ab63482ec9d06e2fe47d2b6ce1bc6a5fd5f27
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767276"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548495"
 ---
 # <a name="get-the-partners-current-account-balance"></a>Het huidige accountsaldo van de partner ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Haalt het huidige account saldo van de partner op. Een samen vatting van het saldo en de totale kosten van een factuur voor zowel terugkerende als eenmalige kosten.
+Hiermee wordt het huidige rekeningsaldo van de partner opgehaald. Een overzicht van het saldo en de totale kosten van een factuur voor zowel terugkerende als eenmalige kosten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u uw account saldo wilt ophalen, gebruikt u de verzameling **IAggregatePartner. facturen** en roept u de **samenvattings** eigenschap aan. Roep vervolgens de **Get** -functie aan en roep uiteindelijk de eigenschap **BalanceAmount** aan.
+Als u het saldo van uw account wilt ophalen, gebruikt u de **verzameling IAggregatePartner.Invoices** en roept u vervolgens de eigenschap **Samenvatting** aan. Roep vervolgens de **functie Get** aan en roep ten slotte de eigenschap **BalanceAmount** aan.
 
 ``` csharp
 // IAggregatePartner scopedPartnerOperations;
@@ -38,19 +33,19 @@ var invoiceSummary = scopedPartnerOperations.Invoices.Summary.Get();
 Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummary.BalanceAmount);
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: GetInvoiceSummary.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: PartnerSDK.FeatureSample-klasse: GetInvoiceSummary.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                              |
 |---------|--------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/Summary http/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/summary HTTP/1.1  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -69,11 +64,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een [InvoiceSummary](invoice-resources.md#invoicesummary) -resource in het antwoord.
+Als dit lukt, retourneert deze methode een [InvoiceSummary-resource](invoice-resources.md#invoicesummary) in het antwoord.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

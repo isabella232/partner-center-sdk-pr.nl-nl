@@ -1,27 +1,23 @@
 ---
 title: Bestellingen beheren
-description: In deze sectie worden de manieren beschreven waarop partners van Cloud solution providers het partner centrum kunnen gebruiken om klant orders en abonnementen programmatisch te beheren.
+description: In deze sectie worden de manieren beschreven Cloud Solution Provider partners de Partner Center kunnen gebruiken om klantorders en -abonnementen programmatisch te beheren.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b3df171ecf0e86cb07372deec420244af56f05d1
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 390baa87c96706e60582811774b74fcf11567058
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767422"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548155"
 ---
 # <a name="manage-orders"></a>Bestellingen beheren
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud for US Government
+In deze sectie worden de manieren beschreven waarop Cloud Solution Provider kunnen gebruiken om Partner Center en abonnementen van klanten programmatisch te beheren.
 
-In deze sectie worden de manieren beschreven waarop partners van Cloud Solution Providers Partner Center kunnen gebruiken om klant orders en abonnementen programmatisch te beheren.
-
-## <a name="purchase-azure-reserved-vm-instances"></a>Azure Reserved VM Instances aanschaffen
+## <a name="purchase-azure-reserved-vm-instances"></a>Aankoop Azure Reserved VM Instances
 
 - [Azure-reserveringen kopen](purchase-azure-reservations.md)
 
@@ -29,17 +25,17 @@ In deze sectie worden de manieren beschreven waarop partners van Cloud Solution 
 
 - [Een eenmalige aankoop doen](make-a-one-time-purchase.md)
 
-## <a name="get-offers-from-the-catalog"></a>Aanbiedingen ophalen uit de catalogus
+## <a name="get-offers-from-the-catalog"></a>Aanbiedingen uit de catalogus downloaden
 
-- [Een lijst met aanbiedings Categorieën op land en land instellingen ophalen](get-a-list-of-offer-categories-by-country-and-locale.md)
+- [Een lijst met aanbiedingscategorieën per land en land/land op halen](get-a-list-of-offer-categories-by-country-and-locale.md)
 - [Een lijst met aanbiedingen voor een markt ophalen](get-a-list-of-offers-for-a-market.md)
 - [Een aanbieding ophalen op basis van id](get-an-offer-by-id.md)
 - [Invoegtoepassingen voor een aanbiedings-id ophalen](get-addon-offers-by-offer-id.md)
-- [Een lijst met producten ophalen](get-a-list-of-products.md)
+- [Een lijst met producten op halen](get-a-list-of-products.md)
 - [Een product ophalen op basis van id](get-a-product-by-id.md)
-- [Een lijst met Sku's voor een product ophalen](get-a-list-of-skus-for-a-product.md)
+- [Een lijst met SKU's voor een product op halen](get-a-list-of-skus-for-a-product.md)
 - [Een SKU ophalen op basis van id](get-a-sku-by-id.md)
-- [Een lijst met Beschik baarheid voor een SKU ophalen](get-a-list-of-availabilities-for-a-sku.md)
+- [Een lijst met beschikbaarheid voor een SKU op halen](get-a-list-of-availabilities-for-a-sku.md)
 - [Een beschikbaarheid ophalen op basis van id](get-an-availability-by-id.md)
 - [Voorraad controleren](check-inventory.md)
 
@@ -55,12 +51,12 @@ In deze sectie worden de manieren beschreven waarop partners van Cloud Solution 
 - [Catalogusitems kopen](purchase-catalog-items.md)
 - [Een winkelwagen bijwerken](update-a-cart.md)
 
-## <a name="enable-a-subscription-for-azure-reserved-vm-instance-purchases"></a>Een abonnement voor door Azure gereserveerde VM-instantie-aankopen inschakelen
+## <a name="enable-a-subscription-for-azure-reserved-vm-instance-purchases"></a>Een abonnement inschakelen voor aankopen van gereserveerde VM-instanties in Azure
 
 - [Een abonnement registreren](register-a-subscription.md)
 - [De registratiestatus van het abonnement ophalen](get-subscription-registration-status.md)
 
-## <a name="get-subscription-details"></a>Abonnements gegevens ophalen
+## <a name="get-subscription-details"></a>Abonnementsgegevens op halen
 
 - [Een abonnement ophalen op basis van id](get-a-subscription-by-id.md)
 - [Een lijst met abonnementen op basis van bestelling ophalen](get-a-list-of-subscriptions-by-order.md)
@@ -75,4 +71,4 @@ In deze sectie worden de manieren beschreven waarop partners van Cloud Solution 
 - [Een abonnement overdragen](transition-a-subscription.md)
 - [Een abonnement op de commerciële marketplace annuleren](cancel-an-azure-marketplace-subscription.md)
 
-Zie [scenario's](scenarios.md)voor meer informatie over het proces van het controleren van aanbiedingen, het maken van orders of het werken met abonnementen.
+Zie Scenario's voor meer informatie over het proces van het beoordelen van aanbiedingen, het maken van orders of het werken met [abonnementen.](scenarios.md)

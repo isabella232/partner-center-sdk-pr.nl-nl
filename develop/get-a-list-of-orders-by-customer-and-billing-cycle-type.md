@@ -1,43 +1,38 @@
 ---
 title: Een lijst met bestellingen op basis van het type klant en factureringscyclus ophalen
-description: Hiermee wordt een verzameling order resources opgehaald voor het opgegeven type klant en facturerings cyclus.
+description: Hiermee haalt u een verzameling orderbronnen op voor het opgegeven type klant en factureringscyclus.
 ms.date: 06/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 43fe08b0791851f915e2b39a25394db5ffd022ca
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: c52a556887dba065c4ccd1a82d6223624d0ad1f2
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767440"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874224"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>Een lijst met bestellingen op basis van het type klant en factureringscyclus ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een verzameling order resources opgehaald die overeenkomen met een bepaald type klant en facturerings cyclus. Er is een vertraging van Maxi maal 15 minuten tussen de tijd dat een bestelling wordt verzonden en wanneer deze wordt weer gegeven in een verzameling van de orders van een klant.
+Haalt een verzameling orderbronnen op die overeenkomen met een bepaald type klant en factureringscyclus. Er is een vertraging van maximaal 15 minuten tussen het moment waarop een order wordt verzonden en het moment waarop deze wordt weergegeven in een verzameling orders van een klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Een verzameling van de orders van een klant ophalen:
+Een verzameling orders van een klant ophalen:
 
-1. Gebruik uw verzameling [**IAggregatePartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roep de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de geselecteerde klant-id.
+1. Gebruik de [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roep de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de geselecteerde klant-id.
 
-2. Roep de eigenschap [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) en de methode **ByBillingCycleType ()** aan met de opgegeven  [**BillingCycleType**](product-resources.md#billingcycletype).
-3. Roep de methode [**Get ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) aan.
+2. Roep de [**eigenschap Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) en de **methode ByBillingCycleType()** aan met uw opgegeven  [**BillingCycleType**](product-resources.md#billingcycletype).
+3. Roep de [**methode Get()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,24 +44,24 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/orders? billingType = {Bill-Cycle-type} HTTP/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders?billingType={billing-cycle-type} HTTP/1.1  |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Deze tabel bevat de vereiste query parameters voor het ophalen van een verzameling orders per klant-ID en type facturerings cyclus.
+Deze tabel bevat de vereiste queryparameters voor het ophalen van een verzameling orders op klant-id en type factureringscyclus.
 
 | Naam                   | Type     | Vereist | Beschrijving                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| klant-Tenant-id     | tekenreeks   | Yes      | Een GUID-indelings teken reeks die overeenkomt met de klant.    |
-| facturering-cyclus-type     | tekenreeks   | No       | Een teken reeks die overeenkomt met het type facturerings cyclus.         |
+| customer-tenant-id     | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die overeenkomt met de klant.    |
+| factureringscyclus-type     | tekenreeks   | No       | Een tekenreeks die overeenkomt met het type factureringscyclus.         |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -85,11 +80,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling [bestel](order-resources.md) resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling [orderresources](order-resources.md) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

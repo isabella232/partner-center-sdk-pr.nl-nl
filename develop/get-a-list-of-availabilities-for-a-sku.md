@@ -1,29 +1,25 @@
 ---
 title: Een lijst met beschikbaarheid voor een SKU ophalen (per land)
-description: Het ophalen van een verzameling van Beschik baarheid voor het opgegeven product en de SKU per klant land.
+description: Een verzameling beschikbaarheid voor het opgegeven product en de SKU per klantland ophalen.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b97a4ce85b5edd9de1301a577988f8c54096ebeb
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b29c005e74ad8a4da547a888b78e4599e74ebd02
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767302"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874530"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Een lijst met beschikbaarheid voor een SKU ophalen (per land)
 
-**Van toepassing op:**
-
-- Partnercentrum
-
-In dit artikel wordt beschreven hoe u een verzameling van Beschik baarheid in een bepaald land kunt ophalen voor een opgegeven product en SKU.
+In dit artikel wordt beschreven hoe u een verzameling beschikbaarheid krijgt in een bepaald land voor een opgegeven product en SKU.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een product-id.
 
@@ -33,15 +29,15 @@ In dit artikel wordt beschreven hoe u een verzameling van Beschik baarheid in ee
 
 ## <a name="c"></a>C\#
 
-De lijst met beschik [baarheid voor](product-resources.md#availability) een [SKU](product-resources.md#sku)ophalen:
+De lijst met beschikbaarheid [voor een](product-resources.md#availability) [SKU op te halen:](product-resources.md#sku)
 
-1. Volg de stappen in [een SKU ophalen op basis](get-a-sku-by-id.md) van de id om de interface te verkrijgen voor een specifieke SKU-bewerking.
+1. Volg de stappen in [Een SKU op id op halen om](get-a-sku-by-id.md) de interface voor de bewerkingen van een specifieke SKU op te halen.
 
-2. Selecteer de eigenschap **Availabilities** van de SKU-interface om een interface met de bewerkingen voor Availabilities op te halen.
+2. Selecteer in de SKU-interface de eigenschap **Beschikbaarheid** om een interface op te halen met de bewerkingen voor beschikbaarheid.
 
-3. Beschrijving Gebruik de methode **ByTargetSegment ()** om de beschik baarheid per doel segment te filteren.
+3. (Optioneel) Gebruik de **methode ByTargetSegment()** om de beschikbaarheid te filteren op doelsegment.
 
-4. Roep **Get ()** of **GetAsync ()** aan om een verzameling van de beschik baarheid voor deze SKU op te halen.
+4. Roep **Get()** of **GetAsync()** aan om een verzameling van de beschikbaarheid voor deze SKU op te halen.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -68,37 +64,37 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/SKUs/{SKU-id}/Availabilities? land = {land nummer} &targetSegment = {target-segment} http/1.1     |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities?country={country-code}&targetSegment={target-segment} HTTP/1.1     |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende pad-en query parameters om een lijst met Beschik baarheid voor een SKU op te halen.
+Gebruik het volgende pad en de queryparameters om een lijst met beschikbaarheid voor een SKU op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Yes      | Een teken reeks waarmee het product wordt geïdentificeerd.                           |
-| SKU-id                 | tekenreeks   | Yes      | Een teken reeks waarmee de SKU wordt geïdentificeerd.                               |
-| land code           | tekenreeks   | Yes      | Een land/regio-ID.                                            |
-| doel segment         | tekenreeks   | No       | Een teken reeks die het doel segment identificeert dat wordt gebruikt voor het filteren. |
-| reservationScope | tekenreeks   | No | Bij het uitvoeren van een query op een lijst met Beschik baarheid voor een Azure reservation-SKU, geeft `reservationScope=AzurePlan` u een lijst op met Availabilities die van toepassing is op AzurePlan. Sluit deze para meter uit voor een lijst met Beschik baarheid die van toepassing is op Microsoft Azure (MS-AZR-0145P)-abonnementen.  |
+| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
+| sku-id                 | tekenreeks   | Ja      | Een tekenreeks die de SKU identificeert.                               |
+| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| doelsegment         | tekenreeks   | No       | Een tekenreeks die het doelsegment identificeert dat wordt gebruikt voor filteren. |
+| reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met beschikbaarheid voor een Azure Reservation SKU, geeft u op om een lijst met beschikbaarheid op te halen die van toepassing `reservationScope=AzurePlan` zijn op AzurePlan. Sluit deze parameter uit om een lijst met beschikbaarheid op te halen die van toepassing zijn op Microsoft Azure (MS-AZR-0145P)-abonnementen.  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
 Geen.
 
-### <a name="request-examples"></a>Aanvraag voorbeelden
+### <a name="request-examples"></a>Voorbeelden van aanvragen
 
-#### <a name="availabilities-for-sku-by-country"></a>Beschik baarheid voor SKU per land
+#### <a name="availabilities-for-sku-by-country"></a>Beschikbaarheid voor SKU per land
 
-Volg dit voor beeld voor een lijst met Beschik baarheid voor een bepaalde SKU per land:
+Volg dit voorbeeld om een lijst met beschikbaarheid voor een bepaalde SKU per land op te halen:
 
 ```http
 GET http:// api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US HTTP/1.1
@@ -108,9 +104,9 @@ MS-RequestId: 70324727-62d8-4195-8f99-70ea25058d02
 MS-CorrelationId: 83b644b5-e54a-4bdc-b354-f96c525b3c58
 ```
 
-#### <a name="availabilities-for-vm-reservations-azure-plan"></a>Beschik baarheid voor VM-reserve ringen (Azure-abonnement)
+#### <a name="availabilities-for-vm-reservations-azure-plan"></a>Beschikbaarheid voor VM-reserveringen (Azure-plan)
 
-Volg dit voor beeld voor een lijst met Beschik baarheid per land voor Sku's voor Azure VM-reserve ring. Dit voor beeld is voor Sku's die van toepassing zijn op Azure-abonnementen:
+Volg dit voorbeeld voor een lijst met beschikbaarheid per land voor Azure VM-reserverings-SKU's. Dit voorbeeld is voor SKU's die van toepassing zijn op Azure-plannen:
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -120,9 +116,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Beschik baarheid voor VM-reserve ringen voor Microsoft Azure-abonnementen (MS-AZR-0145P)
+#### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Beschikbaarheid voor VM-reserveringen voor Microsoft Azure -abonnementen (MS-AZR-0145P)
 
-Volg dit voor beeld om een lijst op te halen van Beschik baarheid per land voor Azure VM-reserve ringen die van toepassing zijn op Microsoft Azure (MS-AZR-0145P)-abonnementen.
+Volg dit voorbeeld om een lijst met beschikbaarheid per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/productsDZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
@@ -134,17 +130,17 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [**beschik**](product-resources.md#availability) bare resources.
+Als dit lukt, bevat de antwoord-body een verzameling [**beschikbaarheidsresources.**](product-resources.md#availability)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor een volledige lijst Partner Center [foutcodes.](error-codes.md)
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                                               |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Toegang tot de aangevraagde **targetSegment** is niet toegestaan.                                                     |
+| 403                  | 400030       | Toegang tot het **aangevraagde targetSegment** is niet toegestaan.                                                     |
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

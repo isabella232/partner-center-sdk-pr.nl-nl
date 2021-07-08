@@ -1,48 +1,43 @@
 ---
 title: Een lijst met producten ophalen (per land)
-description: U kunt de product Resource gebruiken om een verzameling producten te verkrijgen op basis van het klant land.
+description: U kunt de productresource gebruiken om een verzameling producten per klantland op te halen.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: ea239aa008a5b7c33740e9c4697c3795908415cd
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 1258727ecbe7c5cc332624577fa8a355e28e3717
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767410"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874207"
 ---
 # <a name="get-a-list-of-products-by-country"></a>Een lijst met producten ophalen (per land)
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt de volgende methoden gebruiken om een verzameling producten te verkrijgen die beschikbaar zijn in een bepaald land.
+U kunt de volgende methoden gebruiken om een verzameling producten op te halen die beschikbaar zijn in een bepaald land.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een land.
 
 ## <a name="c"></a>C\#
 
-Een lijst met producten ophalen:
+Een lijst met producten op te halen:
 
-1. Gebruik de verzameling **IAggregatePartner. Products** om het land te selecteren met behulp van de methode **ByCountry ()** .
+1. Gebruik de **verzameling IAggregatePartner.Products om** het land te selecteren met behulp van de **methode ByCountry().**
 
-2. Selecteer de catalogus weergave met de methode **ByTargetView ()** .
+2. Selecteer de catalogusweergave met behulp van de **methode ByTargetView().**
 
-3. Beschrijving Selecteer het reserverings bereik met de methode **ByReservationScope ()** .
+3. (Optioneel) Selecteer het reserveringsbereik met behulp **van de methode ByReservationScope().**
 
-4. Beschrijving Selecteer het doel segment met de methode **ByTargetSegment ()** .
+4. (Optioneel) Selecteer het doelsegment met behulp van **de methode ByTargetSegment().**
 
-5. Roep de methode **Get ()** of **GetAsync ()** aan om de verzameling te retour neren.
+5. Roep de **methode Get()** of **GetAsync()** aan om de verzameling te retourneren.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -65,14 +60,14 @@ ResourceCollection<Product> products = partnerOperations.Products.ByCountry("US"
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Een lijst met producten ophalen:
+Een lijst met producten op te halen:
 
-1. Gebruik de functie **IAggregatePartner. getProducts** om het land te selecteren met behulp van de functie **byCountry ()** .
+1. Gebruik de **functie IAggregatePartner.getProducts** om het land te selecteren met behulp van de **functie byCountry().**
 
-2. Selecteer de catalogus weergave met behulp van de functie **byTargetView ()** .
-3. Beschrijving Selecteer het doel segment met behulp van de functie **byTargetSegment ()** .
+2. Selecteer de catalogusweergave met behulp van **de functie byTargetView().**
+3. (Optioneel) Selecteer het doelsegment met behulp van **de functie byTargetSegment().**
 
-4. Roep de functie **Get ()** aan om de verzameling te retour neren.
+4. Roep de **functie get()** aan om de verzameling te retourneren.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -88,12 +83,12 @@ ResourceCollection<Products> products = partnerOperations.getProducts().byCountr
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Een lijst met producten ophalen:
+Een lijst met producten op te halen:
 
-1. Voer de opdracht [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) uit.
+1. Voer de [**opdracht Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) uit.
 
-2. Selecteer de catalogus door de para meter **Catalog** op te geven.
-3. Beschrijving Selecteer het doel segment door de para meter **segment** op te geven.
+2. Selecteer de catalogus door de parameter **Catalog op te** geven.
+3. (Optioneel) Selecteer het doelsegment door de **parameter Segment op te** geven.
 
 ```powershell
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
@@ -101,36 +96,36 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Products? land = {country} &targetView = {targetView} &targetSegment = {TARGETSEGMENT} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products?country={country}&targetView={targetView}&targetSegment={targetSegment} HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik het volgende pad en de query parameters om een lijst met producten op te halen.
+Gebruik het volgende pad en de queryparameters om een lijst met producten op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| country                | tekenreeks   | Yes      | De ID van het land/de regio.                                                  |
-| targetView             | tekenreeks   | Yes      | Hiermee wordt de doel weergave van de catalogus geïdentificeerd. De ondersteunde waarden zijn: <br/><br/>**Azure**, inclusief alle Azure-items<br/><br/>**AzureReservations**, inclusief alle Azure-reserverings items<br/><br/>**AzureReservationsVM**, dat alle reserve ringen items van virtuele machines (VM) omvat<br/><br/>**AzureReservationsSQL**, inclusief alle SQL-reserverings items<br/><br/>**AzureReservationsCosmosDb**, met alle reserverings items voor de Cosmos-data base<br/><br/>**MicrosoftAzure**, die items bevat voor Microsoft Azure-abonnementen (**MS-AZR-0145P**) en Azure-plannen<br/><br/>**OnlineServices**, dat alle online service-items omvat (inclusief commerciële Marketplace-Producten)<br/><br/>**Software**, inclusief alle software-items<br/><br/>**SoftwareSUSELinux**, dat alle software SuSE Linux-items omvat<br/><br/>**SoftwarePerpetual**, inclusief alle permanente software-items<br/><br/>**SoftwareSubscriptions**, inclusief alle software-abonnements items    |
-| targetSegment          | tekenreeks   | No       | Hiermee wordt het doel segment aangeduid. De weer gave voor verschillende doel groepen. De ondersteunde waarden zijn: <br/><br/>**politieke**<br/>**personeel**<br/>**Government**<br/>**profit**  |
-| reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met producten voor Azure Reservations, geeft `reservationScope=AzurePlan` u een lijst op met producten die van toepassing zijn op Azure-abonnementen. Sluit deze para meter uit om een lijst met producten voor Azure-reserve ringen op te halen die van toepassing zijn op Microsoft Azure-abonnementen (**MS-AZR-0145P**).  |
+| country                | tekenreeks   | Ja      | De land-/regio-id.                                                  |
+| targetView             | tekenreeks   | Ja      | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle SQL reserveringsitems bevat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** met alle onlineservice-items (inclusief producten op de commerciële marketplace)<br/><br/>**Software**, die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle software-SUSE Linux-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat    |
+| targetSegment          | tekenreeks   | No       | Identificeert het doelsegment. De weergave voor verschillende doelgroepen. De ondersteunde waarden zijn: <br/><br/>**Commerciële**<br/>**Onderwijs**<br/>**Regering**<br/>**Non-profit**  |
+| reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met producten voor Azure-reserveringen, geeft u op om een lijst met producten op te halen die van `reservationScope=AzurePlan` toepassing zijn op Azure-abonnementen. Sluit deze parameter uit om een lijst met producten voor Azure-reserveringen op te halen die van toepassing zijn op Microsoft Azure **(MS-AZR-0145P)-abonnementen.**  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
 Geen.
 
-### <a name="request-examples"></a>Aanvraag voorbeelden
+### <a name="request-examples"></a>Voorbeelden van aanvragen
 
-#### <a name="products-by-country"></a>Producten op land
+#### <a name="products-by-country"></a>Producten per land
 
-Volg dit voor beeld om een lijst met producten te verkrijgen per land voor Microsoft Azure (MS-AZR-0145P) en Azure-abonnementen.
+Volg dit voorbeeld om een lijst met producten per land op te halen voor Microsoft Azure-abonnementen (MS-AZR-0145P) en Azure-abonnementen.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=MicrosoftAzure HTTP/1.1
@@ -140,9 +135,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="azure-vm-reservations-azure-plan"></a>Azure VM-reserve ringen (Azure-abonnement)
+#### <a name="azure-vm-reservations-azure-plan"></a>Azure VM-reserveringen (Azure-plan)
 
-Volg dit voor beeld om een lijst met producten te verkrijgen per land voor Azure VM-reserve ringen die van toepassing zijn op Azure-abonnementen.
+Volg dit voorbeeld om een lijst met producten per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Azure-plannen.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureAzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -152,9 +147,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Azure VM-reserve ringen voor Microsoft Azure-abonnementen (MS-AZR-0145P)
+#### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Azure VM-reserveringen voor Microsoft Azure -abonnementen (MS-AZR-0145P)
 
-Volg dit voor beeld om een lijst met producten te verkrijgen per land voor Azure VM-reserve ringen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).
+Volg dit voorbeeld om een lijst met producten per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureReservationsVM HTTP/1.1
@@ -166,17 +161,17 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een verzameling [**product**](product-resources.md#product) resources.
+Als dit lukt, bevat de antwoord-body een verzameling [**productresources.**](product-resources.md#product)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                                               |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Toegang tot de aangevraagde targetSegment is niet toegestaan.                                                     |
+| 403                  | 400030       | Toegang tot het aangevraagde targetSegment is niet toegestaan.                                                     |
 | 403                  | 400036       | Toegang tot de aangevraagde targetView is niet toegestaan.                                                        |
 
 ### <a name="response-example"></a>Voorbeeld van antwoord

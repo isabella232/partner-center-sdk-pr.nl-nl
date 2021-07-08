@@ -1,40 +1,35 @@
 ---
 title: De inrichtingsstatus van het abonnement ophalen
-description: De inrichtings status van het abonnement ophalen voor een klant abonnement.
+description: De inrichtingsstatus van het abonnement voor een klantabonnement op te halen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 38544aa380ba0a6a8804ae45f7d8ae7cb431d3ba
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f8797fa494cd77f11a1179d6406ca021f0d7788c
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767542"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548699"
 ---
 # <a name="get-subscription-provisioning-status"></a>De inrichtingsstatus van het abonnement ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De inrichtings status van het abonnement ophalen voor een klant abonnement.
+De inrichtingsstatus van het abonnement voor een klantabonnement op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
-- Gedelegeerde beheerders machtigingen voor het abonnement zijn vereist om deze bewerking uit te voeren.
+- Gedelegeerde beheerdersmachtigingen voor het abonnement zijn vereist om deze bewerking uit te voeren.
 
 ## <a name="c"></a>C\#
 
-Als u de inrichtings status van een abonnement wilt ophalen, begint u met de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Vervolgens krijgt u een interface voor abonnements bewerkingen door de methode [**abonnementen. ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) aan te roepen met de abonnements-id. Gebruik vervolgens de eigenschap [**ProvisioningStatus**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus) om een interface te verkrijgen voor de inrichtings status bewerkingen van het huidige abonnement en roep vervolgens de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync) aan om het [**SubscriptionProvisioningStatus**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus) -object op te halen.
+Als u de inrichtingsstatus van een abonnement wilt weten, gebruikt u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens een interface op voor abonnementsbewerkingen door de methode [**Subscriptions.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) te roepen met de abonnements-id. Gebruik vervolgens de eigenschap [**ProvisioningStatus**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus) om een interface te verkrijgen voor de inrichtingsstatusbewerkingen van het huidige abonnement en roep vervolgens de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync) aan om het object [**SubscriptionProvisioningStatus**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus) op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -47,24 +42,24 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                        |
 |---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Subscriptions/{Subscription-id}/provisioningstatus http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/provisioningstatus HTTP/1.1 |
 
-### <a name="uri-parameters"></a>URI-para meters
+### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende Path-para meters om de klant en het abonnement te identificeren.
+Gebruik de volgende padparameters om de klant en het abonnement te identificeren.
 
 | Naam            | Type   | Vereist | Beschrijving                                               |
 |-----------------|--------|----------|-----------------------------------------------------------|
-| klant-id     | tekenreeks | Yes      | Een teken reeks met een GUID-indeling die de klant identificeert.     |
-| abonnement-id | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee het abonnement wordt geïdentificeerd. |
+| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.     |
+| subscription-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het abonnement identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -84,11 +79,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) -resource.
+Als dit lukt, bevat de antwoord-body de resource [SubscriptionProvisioningStatus.](subscription-resources.md#subscriptionprovisioningstatus)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
@@ -115,6 +110,6 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 
 ## <a name="remarks"></a>Opmerkingen
 
-- Tijdens een licentie wijzigings toewijzing wordt het veld Status in [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) ingesteld op ' in behandeling '.
+- Tijdens een licentiewijzigingstoewijzing is het statusveld in [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) ingesteld op 'in behandeling'.
 
-- Het veld Status wordt elke vijf tien minuten bijgewerkt.
+- Het statusveld wordt elke 15 minuten bijgewerkt.

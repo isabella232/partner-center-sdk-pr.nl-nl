@@ -1,35 +1,31 @@
 ---
 title: Een product ophalen op basis van id
-description: Hiermee wordt de opgegeven product resource opgehaald met behulp van een product-ID.
+description: Hiermee haalt u de opgegeven productresource op met behulp van een product-id.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 8aca626597e9ec903ebecca7d55577ba636c518e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 769a4307dc3cebdc7ebbdcf51d9f2b67a9f4b7c2
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767272"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874020"
 ---
 # <a name="get-a-product-by-id"></a>Een product ophalen op basis van id
 
-**Van toepassing op**
-
-- Partnercentrum
-
-Hiermee wordt de opgegeven product resource opgehaald met behulp van een product-ID.
+Hiermee haalt u de opgegeven productresource op met behulp van een product-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een product-ID.
+- Een product-id.
 
 ## <a name="c"></a>C\#
 
-Als u een specifiek product op ID wilt zoeken, gebruikt u de verzameling **IAggregatePartner. Products** , selecteert u het land met behulp van de methode **ByCountry ()** en roept u vervolgens de methode **ById ()** aan. Roep ten slotte de methode **Get ()** of **GetAsync ()** aan om het product te retour neren.
+Als u een specifiek product op id wilt zoeken, gebruikt u de verzameling **IAggregatePartner.Products,** selecteert u het land met behulp van de **methode ByCountry()** en roept u vervolgens de **methode ById()** aan. Roep ten slotte de **methode Get()** of **GetAsync()** aan om het product te retourneren.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -41,7 +37,7 @@ Product productDetail = partnerOperations.Products.ByCountry("US").ById("DZH318Z
 
 [!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-Als u een specifiek product op ID wilt zoeken, gebruikt u de functie **IAggregatePartner. getProducts** , selecteert u het land met behulp van de functie **byCountry ()** en roept u vervolgens de functie **byId ()** aan. Roep tot slot de functie **Get ()** aan om het product te retour neren.
+Als u een specifiek product op id wilt zoeken, gebruikt u de functie **IAggregatePartner.getProducts,** selecteert u het land met behulp van de functie **byCountry()** en roept u vervolgens de **functie byId()** aan. Roep ten slotte de **functie get() aan** om het product te retourneren.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -53,7 +49,7 @@ Product productDetail = partnerOperations.getProducts().byCountry("US").byId("DZ
 
 [!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-Als u een specifiek product op ID wilt zoeken, voert u de opdracht [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) uit en geeft u de para meter **ProductID** op. De para meter **CountryCode** is opties. als deze niet is opgegeven, wordt het land dat is gekoppeld aan de wederverkoper gebruikt.
+Als u een specifiek product wilt zoeken op id, voert u [**de opdracht Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) uit en geeft u de **parameter ProductId** op. De **parameter CountryCode** is opties. Als deze niet is opgegeven, wordt het land gebruikt dat is gekoppeld aan de reseller.
 
 ```powershell
 Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
@@ -61,24 +57,24 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}? land = {Country} http/1.1  |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}?country={country} HTTP/1.1  |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende Path-para meters om het opgegeven product op te halen.
+Gebruik de volgende padparameters om het opgegeven product op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Yes      | Een teken reeks waarmee het product wordt geïdentificeerd.                           |
-| country                | tekenreeks   | Yes      | Een land/regio-ID.                                            |
+| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
+| country                | tekenreeks   | Ja      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -96,17 +92,17 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een [product](product-resources.md#product) bron.
+Als dit lukt, bevat de antwoord-body een [Product-resource.](product-resources.md#product)
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code     | Foutcode   | Beschrijving                                                                |
+| HTTP-statuscode     | Foutcode   | Beschrijving                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 404                  | 400013       | Het product is niet gevonden.                                                     |
+| 404                  | 400013       | Product is niet gevonden.                                                     |
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

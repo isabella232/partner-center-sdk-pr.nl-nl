@@ -1,31 +1,28 @@
 ---
 title: Azure-reserveringen kopen
-description: U kunt Azure-reserve ringen kopen voor een klant met behulp van de Partner Center API via uw bestaande Microsoft Azure-abonnement (MS-AZR-0145P) of Azure-plan.
+description: U kunt Azure-reserveringen voor een klant kopen met behulp van de Partner Center-API via uw bestaande Microsoft Azure-abonnement (MS-AZR-0145P) of uw Azure-abonnement.
 ms.date: 11/01/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4c09f65ae5105a74be41a7ec45824e3889217a1c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0b9ce4a808ac12c32bd67888fc92808baeb0e575
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767255"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547764"
 ---
 # <a name="purchase-azure-reservations"></a>Azure-reserveringen kopen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Als u een Azure-reserve ring voor een klant wilt kopen met behulp van de Partner Center API, moet u een bestaand Microsoft Azure (**MS-AZR-0145P**) of een Azure-abonnement hebben.
+Als u een Azure-reservering voor een klant wilt kopen met behulp van de Partner Center-API, moet u een bestaand abonnement op Microsoft Azure **(MS-AZR-0145P)** of een Azure-abonnement voor deze klant hebben.
 
 > [!NOTE]
-> Azure-reserve ringen zijn niet beschikbaar op de volgende markten:
+> Azure-reserveringen zijn niet beschikbaar in de volgende markten:
 >
-> | Niet-beschik bare markten            | Niet-beschik bare markten (voortgezet...) | Niet-beschik bare markten (voortgezet...)      |
+> | Niet-beschikbare markten            | Niet-beschikbare markten (vervolg...) | Niet-beschikbare markten (vervolg...)      |
 > |--------------------------------|-----------------------------------|------------------------------------------|
-> | Åland-eilanden                  | Groenland                         | Papoea-Nieuw-Guinea                         |
+> | Ålandeilanden                  | Groenland                         | Papoea-Nieuw-Guinea                         |
 > | Amerikaans-Samoa                 | Grenada                           | Pitcairneilanden                         |
 > | Andorra                        | Guadeloupe                        | Réunion                                  |
 > | Anguilla                       | Guam                              | Russische Federatie                       |
@@ -37,7 +34,7 @@ Als u een Azure-reserve ring voor een klant wilt kopen met behulp van de Partner
 > | Bonaire                        | Heard- en McDonald-eilanden | Saint Vincent en de Grenadines         |
 > | Bouveteiland                  | Isle of Man                       | Samoa                                    |
 > | Brazilië                         | Jan Mayen                         | San Marino                               |
-> | Brits Territorium in de Indische Oceaan | Jersey                            | Sao Tomé en principe                    |
+> | Brits Territorium in de Indische Oceaan | Jersey                            | Sño Toñ en Prñncipe                    |
 > | Britse Maagdeneilanden         | Kiribati                          | Seychellen                               |
 > | Burkina Faso                   | Kosovo                            | Sierra Leone                             |
 > | Burundi                        | Laos                              | Sint Eustatius                           |
@@ -46,7 +43,7 @@ Als u een Azure-reserve ring voor een klant wilt kopen met behulp van de Partner
 > | Tsjaad                           | Madagaskar                        | Somalië                                  |
 > | China                          | Malawi                            | Zuid-Georgië en de Zuidelijke Sandwicheilanden |
 > | Christmaseiland               | Maldiven                          | Zuid-Soedan                              |
-> | Cocoseilanden        | Mali                              | Sint-Helena, Ascension en Tristan da Cunha   |
+> | Cocoseilanden        | Mali                              | St Helena, Ascension, Tristan da Cunha   |
 > | Comoren                        | Marshalleilanden                  | Suriname                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (DRC)                    | Mauritanië                        | Swaziland                                |
@@ -56,138 +53,138 @@ Als u een Azure-reserve ring voor een klant wilt kopen met behulp van de Partner
 > | Equatoriaal-Guinea              | Mozambique                        | Tonga                                    |
 > | Eritrea                        | Myanmar                           | Turks- en Caicos-eilanden                 |
 > | Falklandeilanden               | Nauru                             | Tuvalu                                   |
-> | Frans-Guyana                  | Nieuw-Caledonië                     | Amerikaanse ondergeschikte afgelegen eilanden                    |
+> | Frans-Guyana                  | Nieuw-Caledonië                     | Amerikaanse outlyingeilanden                    |
 > | Frans-Polynesië               | Niger                             | Vanuatu                                  |
 > | Franse Gebieden in de zuidelijke Indische Oceaan    | Niue                              | Vaticaanstad                             |
-> | Gabon                          | Norfolk                    | Wallis en Futuna                        |
+> | Gabon                          | Norfolk                    | Wallis en Walluna                        |
 > | Gambia                         | Noordelijke Marianen          | Jemen                                    |
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
 >
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een abonnements-ID voor een actief CSP Azure-abonnement of een Azure-plan.
+- Een abonnements-id voor een actief CSP Azure-abonnement of een Azure-abonnement.
 
-## <a name="how-to-purchase-microsoft-azure-reservations"></a>Microsoft Azure reserve ringen aanschaffen
+## <a name="how-to-purchase-microsoft-azure-reservations"></a>Reserveringen voor Microsoft Azure aanschaffen
 
-Wanneer u het actieve CSP Azure-abonnement hebt geïdentificeerd waaraan u een Azure-reserve ring wilt toevoegen, gebruikt u de volgende stappen om het te kopen:
+Nadat u het actieve CSP Azure-abonnement hebt geïdentificeerd aan wie u een Azure-reservering wilt toevoegen, gebruikt u de volgende stappen om het aan te schaffen:
 
-1. [Activering](#enablement) : Registreer een actief CSP Azure-abonnement om het in te scha kelen voor het aanschaffen van Azure-reserve ringen.
+1. [Inschakelen:](#enablement) registreer een actief CSP Azure-abonnement om dit in te stellen voor het kopen van Azure-reserveringen.
 
-2. [Detectie](#discovery) : Zoek en selecteer de Azure reservation-producten en sku's die u wilt kopen en controleer de beschik baarheid.
+2. [Detectie:](#discovery) zoek en selecteer de Azure-reserveringsproducten en Stock Keeping Units (SKU's) die u wilt kopen en controleer de beschikbaarheid ervan.
 
-3. [Order inzending](#order-submission) : Maak een winkel wagen met de items in uw bestelling en verzend deze.
+3. [Verzending van bestelling:](#order-submission) maak een winkelwagen met de items in uw bestelling en verzend deze.
 
-4. Bestellingsgegevens [ophalen](#get-order-details) : Bekijk de details van een order, alle orders voor een klant of geef orders per facturerings cyclus type weer.
+4. [Ordergegevens op halen:](#get-order-details) bekijk de details van een order, alle orders voor een klant of bekijk orders per type factureringscyclus.
 
-Nadat u Azure-reserve ringen hebt aangeschaft, kunt u in de volgende scenario's zien hoe u hun levens cyclus beheert door informatie over uw Azure-reserve ringen te verkrijgen en saldo overzichten, facturen en factuur overzichten op te halen.
+Nadat u Azure-reserveringen hebt aangeschaft, laten de volgende scenario's zien hoe u hun levenscyclus kunt beheren door informatie op te halen over uw Azure-reserveringsrechten en hoe u saldo-instructies, facturen en factuursommen kunt ophalen.
 
-- [Levenscyclus beheer](#lifecycle-management)
-- [Factuur en reconciliatie](#invoice-and-reconciliation)
+- [Levenscyclusbeheer](#lifecycle-management)
+- [Factuur en afstemming](#invoice-and-reconciliation)
 
 ## <a name="enablement"></a>Activering
 
-Activering betekent dat u een bestaand Microsoft Azure-abonnement (**MS-AZR-0145P**) koppelt aan een gereserveerde VM-instantie van Azure door het abonnement te registreren zodat Azure-reserve ringen worden ingeschakeld. Registratie is een vereiste voor het aanschaffen van Azure Reserved VM Instances.
+Inschakelen betekent dat u een bestaand Microsoft Azure **(MS-AZR-0145P)** abonnement aan een gereserveerde VM-instantie van Azure moet koppelen door het abonnement te registreren zodat het wordt ingeschakeld voor Azure-reserveringen. Registratie is een vereiste om een Azure Reserved VM Instances.
 
-Er is een abonnement vereist vanwege het volgende:
+Een abonnement is vereist voor de ondersteuning van de volgende taken:
 
-1. Om te controleren of de klant in aanmerking komt voor het implementeren van resources en daarom het aanschaffen van Azure Reserved VM Instances in een regio of niet.
+1. Om te controleren of de klant in aanmerking komt voor het implementeren van resources en Azure Reserved VM Instances kopen in een regio of niet.
 
-2. Om capaciteits prioriteit te bieden voor implementaties op een abonnement. Dit is alleen van toepassing op de Azure Reserved VM Instances voor een enkele scope waarvoor de optie **capaciteits prioriteit** is geselecteerd.
+2. Om capaciteitsprioriteit te bieden voor implementaties in een abonnement. Dit is alleen van toepassing op één bereik Azure Reserved VM Instances de optie **capaciteitsprioriteit** is geselecteerd.
 
-Zodra u het actieve abonnement hebt geïdentificeerd waaraan u de Azure-reserve ring wilt toevoegen, moet u het abonnement registreren zodat Azure-reserve ringen worden ingeschakeld. Als u een bestaande [abonnements](subscription-resources.md) resource wilt registreren, zodat deze geschikt is voor het best Ellen van Azure-reserve ringen, raadpleegt u [een abonnement registreren](register-a-subscription.md).
+Nadat u het actieve abonnement hebt geïdentificeerd waar u de Azure-reservering aan wilt toevoegen, moet u het abonnement registreren zodat het is ingeschakeld voor Azure-reserveringen. Zie Een abonnement [registreren](subscription-resources.md) als u een bestaande abonnementsresource wilt registreren zodat deze is ingeschakeld voor het bestellen van Azure-reserveringen. [](register-a-subscription.md)
 
-Nadat u uw abonnement hebt geregistreerd, moet u controleren of het registratie proces is voltooid door de registratie status te controleren. Zie de [registratie status van het abonnement ophalen](get-subscription-registration-status.md)voor meer informatie.
+Nadat u uw abonnement hebt geregistreerd, moet u bevestigen dat het registratieproces is voltooid door de registratiestatus te controleren. Zie Registratiestatus van abonnement [krijgen om dit te doen.](get-subscription-registration-status.md)
 
 > [!NOTE]
-> Wanneer u Microsoft Azure reserve ring voor een klant met een Azure-abonnement aanschaft, moet u eerst het Azure-abonnement registreren. Net als bij een Microsoft Azure (**MS-AZR-0145P**) wordt een Azure-abonnement vertegenwoordigd door de resource van een partner Center- [abonnement](subscription-resources.md) . Daarom kunt u dezelfde methode voor het [registreren van](register-a-subscription.md) een Azure-abonnement gebruiken.
+> Wanneer u Microsoft Azure reservering voor een klant met een Azure-abonnement aanschaft, moet u het Azure-plan eerst registreren. Net als bij een Microsoft Azure (**MS-AZR-0145P)** wordt een Azure-plan vertegenwoordigd door een resource Partner Center [Subscription.](subscription-resources.md) Daarom kunt u dezelfde methode Een abonnement registreren [gebruiken](register-a-subscription.md) om een Azure-plan te registreren.
 
 ## <a name="discovery"></a>Detectie
 
-Zodra het abonnement is ingeschakeld voor het aanschaffen van Azure-reserve ringen, bent u klaar om producten en Sku's te selecteren en de beschik baarheid te controleren met de volgende partner Center API-modellen:
+Zodra het abonnement is ingeschakeld voor het kopen van Azure-reserveringen, kunt u producten en SKU's selecteren en de beschikbaarheid ervan controleren met behulp van de volgende API Partner Center-modellen:
 
-- [Product](product-resources.md#product) : een groeperings constructie voor tevens-goederen of-services. Een product zelf is geen tevens-item.
+- [Product:](product-resources.md#product) een groeperingsconsistente voor opschatbare goederen of services. Een product op zichzelf is geen opschatbaar item.
 
-- [SKU](product-resources.md#sku) : een SKU (tevens Stock Keeping Unit) onder een product. Deze vertegenwoordigen de verschillende vormen van het product.
+- [SKU:](product-resources.md#sku) een opschatbare SKU onder een product. Deze vertegenwoordigen de verschillende vormen van het product.
 
-- [Beschik baarheid](product-resources.md#availability) : een configuratie waarin een SKU beschikbaar is voor aankoop (zoals land-, valuta-en sector segment).
+- [Beschikbaarheid:](product-resources.md#availability) een configuratie waarin een SKU beschikbaar is voor aankoop (zoals land, valuta en branchesegment).
 
-Voordat u een Azure-reserve ring aanschaft, voert u de volgende stappen uit:
+Voltooi de volgende stappen voordat u een Azure-reservering aanschaft:
 
-1. Identificeer en haal het product en de SKU op die u wilt kopen. U kunt dit doen door eerst de producten en Sku's te vermelden, of als u de Id's van het product en de SKU al kent, selecteert u deze.
+1. Identificeer en haal het product en de SKU op die u wilt kopen. U kunt dit doen door eerst de producten en SKU's weer te geven, of Als u de ID's van het product en de SKU al kent, selecteert u deze.
 
    - [Een lijst met producten ophalen (per land)](get-a-list-of-products.md)
-   - [Een product ophalen met de product-ID](get-a-product-by-id.md)
-   - [Een lijst met SKU’s voor een product ophalen (per land)](get-a-list-of-skus-for-a-product.md)
-   - [Een SKU ophalen met behulp van de SKU-ID](get-a-sku-by-id.md)
+   - [Een product op halen met behulp van de product-id](get-a-product-by-id.md)
+   - [Een lijst met SKU’s voor een product ophalen (per land/regio)](get-a-list-of-skus-for-a-product.md)
+   - [Een SKU krijgen met behulp van de SKU-id](get-a-sku-by-id.md)
 
-2. Controleer de inventarisatie van een SKU. Deze stap is alleen nodig voor Sku's die zijn gelabeld met een **InventoryCheck** -vereiste.
+2. Controleer de inventaris voor een SKU. Deze stap is alleen nodig voor SKU's die zijn getagd met een **inventoryCheck-vereiste.**
 
    - [Voorraad controleren](check-inventory.md)
 
-3. De [Beschik baarheid](product-resources.md#availability) voor de [SKU](product-resources.md#sku)ophalen. U hebt de **CatalogItemId** van de beschik baarheid nodig wanneer u de order plaatst. Gebruik een van de volgende Api's om deze waarde op te halen:
+3. Haal de [beschikbaarheid voor](product-resources.md#availability) de [SKU op.](product-resources.md#sku) U hebt de **CatalogItemId van de** beschikbaarheid nodig bij het plaatsen van de order. Gebruik een van de volgende API's om deze waarde op te halen:
 
    - [Een lijst met beschikbaarheid voor een SKU ophalen (per land)](get-a-list-of-availabilities-for-a-sku.md)
-   - [Krijg een Beschik baarheid met behulp van de beschikbaarheids-ID](get-an-availability-by-id.md)
+   - [Een beschikbaarheid krijgen met behulp van de beschikbaarheids-id](get-an-availability-by-id.md)
 
 > [!IMPORTANT]
-> Elk Microsoft Azure reserverings product heeft een ander Beschik baarheid voor Microsoft Azure (**MS-AZR-0145P**)-abonnement en het Azure-plan. Als u [een lijst met producten wilt ophalen (per land)](get-a-list-of-products.md)of als u een lijst wilt ophalen [van de sku's voor een product (per](get-a-list-of-skus-for-a-product.md)land) of als u een lijst wilt ophalen met Beschik baarheid [voor een SKU (per land)](get-a-list-of-availabilities-for-a-sku.md) die alleen van toepassing is op het Azure-abonnement, geeft u de para meter ' reservationScope = AzurePlan ' op.
+> Elk Microsoft Azure reserveringsproduct heeft verschillende beschikbaarheid voor Microsoft Azure abonnement **(MS-AZR-0145P)** en een Azure-abonnement. Geef de parameter reservationScope=AzurePlan op om een lijst met producten (per [land)](get-a-list-of-products.md)of Een lijst met SKU's voor een [product (per land)](get-a-list-of-skus-for-a-product.md)op te halen of Een lijst met beschikbaarheid voor een [SKU (per land)](get-a-list-of-availabilities-for-a-sku.md) op te halen die alleen van toepassing zijn op het Azure-abonnement.
 
-## <a name="order-submission"></a>Verzen ding best Ellen
+## <a name="order-submission"></a>Verzending van order
 
-Ga als volgt te werk om uw Azure reserverings order in te dienen:
+Ga als volgt te werk om uw Azure-reserveringsorder te verzenden:
 
-1. Maak een mandje om de verzameling catalogus items te bewaren die u wilt kopen. Wanneer u een [winkel wagen](cart-resources.md)maakt, worden de [Winkelwagen regel items](cart-resources.md#cartlineitem) automatisch gegroepeerd op basis van wat er in dezelfde [volg orde](order-resources.md)kan worden aangeschaft.
+1. Maak een winkelwagen voor de verzameling catalogusitems die u wilt kopen. Wanneer u een [winkelwagen maakt,](cart-resources.md)worden de winkelwagenregelitems automatisch gegroepeerd op basis van wat samen kan worden gekocht in dezelfde [](cart-resources.md#cartlineitem) [order](order-resources.md).
 
-   - [Een winkel wagen maken](create-a-cart.md)
-   - [Een winkel wagen bijwerken](update-a-cart.md)
+   - [Een winkelwagen maken](create-a-cart.md)
+   - [Een winkelwagen bijwerken](update-a-cart.md)
 
-2. Bekijk de winkel wagen. Het uitchecken van een winkel wagen resulteert in het maken van een [order](order-resources.md).
+2. Bekijk de winkelwagen. Als u een winkelwagen bekijkt, wordt er een order [gemaakt.](order-resources.md)
 
-   - [De winkel wagen afhandelen](checkout-a-cart.md)
+   - [De winkelwagen uitchecken](checkout-a-cart.md)
 
-## <a name="get-order-details"></a>Bestellingsgegevens ophalen
+## <a name="get-order-details"></a>Ordergegevens op halen
 
-Nadat u uw Azure-reserverings order hebt gemaakt, kunt u de details van een afzonderlijke order ophalen met behulp van de order-ID of een lijst met orders voor een klant ophalen. Er is een vertraging van Maxi maal 15 minuten tussen de tijd dat een bestelling wordt verzonden en wanneer deze wordt weer gegeven in een lijst met de orders van een klant.
+Nadat u uw Azure-reserveringsorder hebt gemaakt, kunt u de details van een afzonderlijke order ophalen met behulp van de order-id of een lijst met orders voor een klant ophalen. Er is een vertraging van maximaal 15 minuten tussen het moment waarop een order wordt verzonden en wanneer deze wordt weergegeven in een lijst met orders van een klant.
 
-- Om de details van een afzonderlijke order op te halen met behulp van de order-ID. Zie [een order op basis van id ophalen](get-an-order-by-id.md).
+- Om de details van een afzonderlijke order op te halen met behulp van de order-id. Zie [Get an order by ID (Een bestelling op id krijgen).](get-an-order-by-id.md)
 
-- Een lijst met orders voor een klant ophalen met behulp van de klant-ID. Zie [alle bestellingen van een klant ophalen](get-all-of-a-customer-s-orders.md).
+- Een lijst met orders voor een klant op te halen met behulp van de klant-id. Zie [Alle orders van een klant op te halen.](get-all-of-a-customer-s-orders.md)
 
-- Als u een lijst met orders voor een klant per [facturerings cyclus type](product-resources.md#billingcycletype) wilt ophalen, kunt u Azure-reserverings orders (eenmalige kosten) en jaarlijks of maandelijks gefactureerde orders afzonderlijk weer geven. Zie [een lijst met orders ophalen op basis van het type van de klant en de facturerings cyclus](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
+- Als u een lijst met [](product-resources.md#billingcycletype) orders voor een klant wilt op halen op type factureringscyclus, kunt u afzonderlijke Azure-reserveringsorders (een time-charges) en jaarlijkse of maandelijkse gefactureerde orders opneren. Zie Get [a list of orders by customer and billing cycle type (Een lijst met orders per klant en type factureringscyclus) bekijken.](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)
 
-## <a name="lifecycle-management"></a>Levenscyclus beheer
+## <a name="lifecycle-management"></a>Levenscyclusbeheer
 
-Als onderdeel van het beheer van de levens cyclus van uw Azure-reserve ringen in het partner centrum, kunt u informatie ophalen over uw Azure-reserve ring [rechten](entitlement-resources.md)en de reserverings Details ophalen met behulp van de reserverings order-id. Zie [rechten ophalen](get-a-collection-of-entitlements.md)voor voor beelden van hoe u dit doet.   
+Als onderdeel van het beheren van de levenscyclus van uw Azure-reserveringen in Partner Center, kunt u informatie over uw Azure-reserveringsrechten ophalen en [reserveringsgegevens](entitlement-resources.md)ophalen met behulp van de reserveringsorder-id. Zie Rechten krijgen voor voorbeelden van [hoe u dit doet.](get-a-collection-of-entitlements.md)   
 
-## <a name="invoice-and-reconciliation"></a>Factuur en reconciliatie
+## <a name="invoice-and-reconciliation"></a>Factuur en afstemming
 
-In de volgende scenario's ziet u hoe u de [facturen](invoice-resources.md)van uw klant programmatisch kunt bekijken en hoe u uw account saldi en samen vattingen kunt ophalen die eenmalige kosten voor Azure-reserve ringen bevatten.
+In de volgende scenario's ziet u hoe [](invoice-resources.md)u programmatisch de facturen van uw klant kunt weergeven en de saldo's en samenvattingen van uw account kunt opsommen die een time-kosten voor Azure-reserveringen bevatten.
 
 ### <a name="balance-and-payment"></a>Saldo en betaling
 
-Als u het huidige account saldo wilt ophalen in het standaard valuta type dat een saldo van de kosten voor periodiek en eenmalig (Azure reserve ring) is, raadpleegt [u uw huidige account saldo ophalen](get-the-reseller-s-current-account-balance.md)
+Zie Uw huidige rekeningsaldo opmaken als u het huidige rekeningsaldo wilt opmaken in uw standaardvalutatype dat een saldo is van zowel terugkerende als eenmalige kosten [(Azure-reservering)](get-the-reseller-s-current-account-balance.md)
 
-### <a name="multi-currency-balance-and-payment"></a>Saldo en betaling in meerdere valuta
+### <a name="multi-currency-balance-and-payment"></a>Saldo en betaling met meerdere valuta
 
-Zie [factuur overzichten ophalen](get-invoice-summaries.md)voor een overzicht van uw huidige account saldo en een verzameling van factuur overzichten met een factuur samenvatting met zowel periodieke als eenmalige kosten voor elk van de valuta typen van uw klant.
+Zie [Factuuroverzichten](get-invoice-summaries.md)ophalen voor het saldo van uw huidige rekening en een verzameling factuuroverzichten met zowel terugkerende als eenmalige kosten voor elk van de valutatypen van uw klant.
 
 ### <a name="invoices"></a>Facturen
 
-Zie [een verzameling facturen ophalen](get-a-collection-of-invoices.md)voor een verzameling facturen waarin zowel terugkerende als eenmalige kosten worden weer gegeven. 
+Zie Een verzameling facturen ophalen voor een verzameling facturen met zowel terugkerende als eenmalige [kosten.](get-a-collection-of-invoices.md) 
 
 ### <a name="single-invoice"></a>Eén factuur
 
-Als u een specifieke factuur wilt ophalen met behulp van de factuur-ID, raadpleegt u [een factuur op id ophalen](get-invoice-by-id.md).  
+Zie Een factuur ophalen op id als u een specifieke factuur wilt ophalen met behulp van de [factuur-id.](get-invoice-by-id.md)  
 
-### <a name="reconciliation"></a>Afstemming
+### <a name="reconciliation"></a>Verzoening
 
-Zie [factuur regel items ophalen](get-invoiceline-items.md)voor een verzameling van gegevens over het factuur regel item (reconciliatie regel items) voor een specifieke factuur-ID.  
+Zie Factuurregelitems ophalen voor een verzameling factuurregelitems (afstemmingsregelitems) voor een specifieke [factuur-id.](get-invoiceline-items.md)  
 
-### <a name="download-an-invoice-as-a-pdf"></a>Een factuur als PDF-bestand downloaden
+### <a name="download-an-invoice-as-a-pdf"></a>Een factuur downloaden als PDF
 
-Zie [een factuur overzicht ophalen](get-invoice-statement.md)als u een factuur overzicht wilt ophalen in een PDF-formulier met een factuur-ID.
+Zie Een factuuroverzicht ophalen als u een factuuroverzicht in PDF-vorm wilt ophalen met behulp van een [factuur-id.](get-invoice-statement.md)

@@ -1,40 +1,35 @@
 ---
 title: Een lijst met categorieën van aanbiedingen per markt ophalen
-description: Meer informatie over het ophalen van een verzameling die alle categorieën van de aanbieding bevat in een bepaald land/regio en land instelling voor alle micro soft-Clouds.
+description: Meer informatie over het ophalen van een verzameling die alle aanbiedingscategorieën in een bepaald land/regio en land/regio voor alle Microsoft Clouds bevat.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 05aad095c6cb8eaee4cbf7ce976ca1b4b7a408c4
-ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
+ms.openlocfilehash: e699355f07dda3941eafed32f5f635d94000abd1
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106500053"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874275"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>Een lijst met categorieën van aanbiedingen per markt ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-In dit artikel wordt beschreven hoe u een verzameling kunt ophalen die alle categorieën van de aanbieding bevat in een bepaald land/regio en land instelling.
+In dit artikel wordt beschreven hoe u een verzameling ophaalt die alle aanbiedingscategorieën in een bepaald land/regio en land/regio bevat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Een lijst met aanbiedings categorieën in een bepaald land/regio en land instellingen ophalen:
+Een lijst met aanbiedingscategorieën in een bepaald land/regio en land/regio op te halen:
 
-1. Gebruik uw [**IAggregatePartner. Operations**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) -verzameling om de methode [**with ()**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) aan te roepen voor een bepaalde context.
+1. Gebruik de [**verzameling IAggregatePartner.Operations**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) om de [**methode With() aan te**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) roepen voor een bepaalde context.
 
-2. Inspecteer de eigenschap [**OfferCategories**](/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) van het resulterende object.
+2. Inspecteer [**de eigenschap OfferCategories**](/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) van het resulterende object.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,33 +37,33 @@ Een lijst met aanbiedings categorieën in een bepaald land/regio en land instell
 ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(RequestContextFactory.Instance.Create()).OfferCategories.ByCountry("US").Get();
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSample**
-- Klasse: **PartnerSDK. FeatureSample**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSample**
+- Klasse: **PartnerSDK.FeatureSample**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories? land = {land-id} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories?country={country-id} HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameters om de aanbiedings Categorieën op te halen.
+Deze tabel bevat de vereiste queryparameters om de aanbiedingscategorieën op te halen.
 
 | Naam           | Type       | Vereist | Beschrijving            |
 |----------------|------------|----------|------------------------|
-| **land-id** | **tekenreeks** | J        | De ID van het land/de regio. |
+| **country-id** | **tekenreeks** | J        | De land-/regio-id. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Een **land instellingen-id** die is opgemaakt als een teken reeks is vereist.
+Er **is een locale-id** vereist die is opgemaakt als een tekenreeks.
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -88,11 +83,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling **OfferCategory** -resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling **OfferCategory-resources** in de antwoordbody.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,31 +1,28 @@
 ---
 title: Een eenmalige aankoop doen
-description: Een eenmalige aankoop van software-en reserverings producten, zoals software-abonnementen, permanente software en Azure reserved virtual machine-exemplaren (VM), met behulp van de Partner Center-API.
+description: Een een time-aankoop doen van software- en reserveringsproducten, zoals softwareabonnementen, permanente software en Azure Reserved Virtual Machine-instanties (VM-instanties), met behulp van de Partner Center-API.
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 17a5f5c1e845ba36a94d7ce909df30e0146ba448
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1ca2d5b7ad6ba1196d74a8cdb748ab808192d569
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767228"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548376"
 ---
 # <a name="make-a-one-time-purchase"></a>Een eenmalige aankoop doen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Een eenmalige aankoop van software-en reserverings producten, zoals software-abonnementen, permanente software en Azure reserved virtual machine-exemplaren (VM), met behulp van de Partner Center-API.
+Een een time-aankoop doen van software- en reserveringsproducten, zoals softwareabonnementen, permanente software en Azure Reserved Virtual Machine-instanties (VM-instanties), met behulp van de Partner Center-API.
 
 > [!NOTE]
-> Software-abonnementen zijn niet beschikbaar op de volgende markten:
+> Softwareabonnementen zijn niet beschikbaar in de volgende markten:
 >
-> | Niet-beschik bare markten            | Niet-beschik bare markten (voortgezet...) | Niet-beschik bare markten (voortgezet...)      |
+> | Niet-beschikbare markten            | Niet-beschikbare markten (vervolg...) | Niet-beschikbare markten (vervolg...)      |
 > |--------------------------------|-----------------------------------|------------------------------------------|
-> | Åland-eilanden                  | Groenland                         | Papoea-Nieuw-Guinea                         |
+> | Ålandeilanden                  | Groenland                         | Papoea-Nieuw-Guinea                         |
 > | Amerikaans-Samoa                 | Grenada                           | Pitcairneilanden                         |
 > | Andorra                        | Guadeloupe                        | Réunion                                  |
 > | Anguilla                       | Guam                              | Russische Federatie                       |
@@ -37,7 +34,7 @@ Een eenmalige aankoop van software-en reserverings producten, zoals software-abo
 > | Bonaire                        | Heard- en McDonald-eilanden | Saint Vincent en de Grenadines         |
 > | Bouveteiland                  | Isle of Man                       | Samoa                                    |
 > | Brazilië                         | Jan Mayen                         | San Marino                               |
-> | Brits Territorium in de Indische Oceaan | Jersey                            | Sao Tomé en principe                    |
+> | Brits Territorium in de Indische Oceaan | Jersey                            | Sño Toñ en Prñncipe                    |
 > | Britse Maagdeneilanden         | Kiribati                          | Seychellen                               |
 > | Burkina Faso                   | Kosovo                            | Sierra Leone                             |
 > | Burundi                        | Laos                              | Sint Eustatius                           |
@@ -46,7 +43,7 @@ Een eenmalige aankoop van software-en reserverings producten, zoals software-abo
 > | Tsjaad                           | Madagaskar                        | Somalië                                  |
 > | China                          | Malawi                            | Zuid-Georgië en de Zuidelijke Sandwicheilanden |
 > | Christmaseiland               | Maldiven                          | Zuid-Soedan                              |
-> | Cocoseilanden        | Mali                              | Sint-Helena, Ascension en Tristan da Cunha   |
+> | Cocoseilanden        | Mali                              | St Helena, Ascension, Tristan da Cunha   |
 > | Comoren                        | Marshalleilanden                  | Suriname                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (DRC)                    | Mauritanië                        | Swaziland                                |
@@ -56,126 +53,126 @@ Een eenmalige aankoop van software-en reserverings producten, zoals software-abo
 > | Equatoriaal-Guinea              | Mozambique                        | Tonga                                    |
 > | Eritrea                        | Myanmar                           | Turks- en Caicos-eilanden                 |
 > | Falklandeilanden               | Nauru                             | Tuvalu                                   |
-> | Frans-Guyana                  | Nieuw-Caledonië                     | Amerikaanse ondergeschikte afgelegen eilanden                    |
+> | Frans-Guyana                  | Nieuw-Caledonië                     | Amerikaanse outlyingeilanden                    |
 > | Frans-Polynesië               | Niger                             | Vanuatu                                  |
 > | Franse Gebieden in de zuidelijke Indische Oceaan    | Niue                              | Vaticaanstad                             |
-> | Gabon                          | Norfolk                    | Wallis en Futuna                        |
+> | Gabon                          | Norfolk                    | Wallis en Walluna                        |
 > | Gambia                         | Noordelijke Marianen          | Jemen                                    |
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
 >
 &nbsp;
 > [!NOTE]
-> Als u permanente software wilt kopen, moet u al eerder gekwalificeerd zijn. Neem contact op met de ondersteuning voor meer informatie.
+> Als u doorlopende software wilt kopen, moet u eerder zijn gekwalificeerd. Neem contact op met de ondersteuning voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-## <a name="making-a-one-time-purchase"></a>Een eenmalige aankoop doen
+## <a name="making-a-one-time-purchase"></a>Een een time-time aankoop doen
 
-Als u een eenmalige aankoop wilt uitvoeren, voert u de volgende stappen uit:
+Gebruik de volgende stappen om een een time-aankoop te doen:
 
-1. [Activering](#enablement) : (alleen voor Azure gereserveerde VM-instantie) Registreer een actief CSP Azure-abonnement om het in te scha kelen voor het aanschaffen van een reserverings product.
+1. [Inschakelen:](#enablement) (alleen gereserveerde VM-instantie van Azure) Registreer een actief CSP Azure-abonnement om dit in te stellen voor het kopen van een reserveringsproduct.
 
-2. [Detectie](#discovery) : Zoek en selecteer de producten en sku's die u wilt kopen en controleer de beschik baarheid.
+2. [Detectie:](#discovery) zoek en selecteer de producten en SKU's die u wilt kopen en controleer de beschikbaarheid ervan.
 
-3. [Order inzending](#order-submission) : Maak een winkel wagen met de items in uw bestelling en verzend deze.
+3. [Verzending van bestelling:](#order-submission) maak een winkelwagen met de items in uw bestelling en verzend deze.
 
-4. Bestellingsgegevens [ophalen](#get-order-details) : Bekijk de details van een order, alle orders voor een klant of geef orders per facturerings cyclus type weer.
+4. [Ordergegevens op halen:](#get-order-details) bekijk de details van een order, alle orders voor een klant of bekijk orders per type factureringscyclus.
 
-Nadat u uw eenmalige aankoop hebt gedaan, kunt u in de volgende scenario's zien hoe u de levens cyclus van uw producten beheert door informatie over uw rechten op te halen en saldo overzichten, facturen en factuur overzichten te verkrijgen.
+Nadat u een een time-aankoop hebt gedaan, laten de volgende scenario's zien hoe u de levenscyclus van uw producten kunt beheren door informatie op te halen over uw rechten en hoe u saldo-instructies, facturen en factuursommen kunt ophalen.
 
-- [Levenscyclus beheer](#lifecycle-management)
+- [Levenscyclusbeheer](#lifecycle-management)
 
-- [Factuur en reconciliatie](#invoice-and-reconciliation)
+- [Factuur en afstemming](#invoice-and-reconciliation)
 
 ## <a name="enablement"></a>Activering
 
-Zodra u het actieve abonnement dat u wilt toevoegen aan de Azure gereserveerde VM-instantie hebt geïdentificeerd, moet u het abonnement registreren zodat het is ingeschakeld. Als u een bestaande [abonnements](subscription-resources.md) resource wilt registreren om deze in te scha kelen, raadpleegt u [een abonnement registreren](register-a-subscription.md).
+Zodra u het actieve abonnement hebt geïdentificeerd waar u de gereserveerde azure-VM-instantie aan wilt toevoegen, moet u het abonnement registreren zodat het is ingeschakeld. Zie Een abonnement registreren [als](subscription-resources.md) u een bestaande abonnementsresource wilt registreren zodat deze is [ingeschakeld.](register-a-subscription.md)
 
-Nadat u uw abonnement hebt geregistreerd, moet u controleren of het registratie proces is voltooid door de registratie status te controleren. Zie de registratie status van het [abonnement ophalen](get-subscription-registration-status.md)voor het uitvoeren van deze stap.
+Nadat u uw abonnement hebt geregistreerd, moet u bevestigen dat het registratieproces is voltooid door de registratiestatus te controleren. Zie Registratiestatus van abonnement krijgen voor [deze stap.](get-subscription-registration-status.md)
 
 ## <a name="discovery"></a>Detectie
 
-Zodra het abonnement is ingeschakeld, kunt u producten en Sku's selecteren en de beschik baarheid controleren met behulp van de volgende partner Center API-modellen:
+Zodra het abonnement is ingeschakeld, kunt u producten en SKU's selecteren en de beschikbaarheid ervan controleren met behulp van de Partner Center API-modellen:
 
-- [Product](product-resources.md#product) : een groeperings constructie voor tevens-goederen of-services. Een product zelf is geen tevens-item.
+- [Product:](product-resources.md#product) een groeperingsconsistente voor opschatbare goederen of services. Een product op zichzelf is geen opschatbaar item.
 
-- [SKU](product-resources.md#sku) : een SKU (tevens Stock Keeping Unit) onder een product. Sku's vertegenwoordigen de verschillende vormen van het product.
+- [SKU:](product-resources.md#sku) een purchasable Stock Keeping Unit (SKU) onder een product. SKU's vertegenwoordigen de verschillende vormen van het product.
 
-- [Beschik baarheid](product-resources.md#availability) : een configuratie waarin een SKU beschikbaar is voor aankoop (zoals land-, valuta-en sector segment).
+- [Beschikbaarheid:](product-resources.md#availability) een configuratie waarin een SKU beschikbaar is voor aankoop (zoals land, valuta en branchesegment).
 
-Voer de volgende stappen uit voordat u een eenmalige aankoop doet:
+Voltooi de volgende stappen voordat u een een time-aankoop gaat doen:
 
-1. Identificeer en haal het product en de SKU op die u wilt kopen. U kunt deze stap uitvoeren door eerst de producten en Sku's te vermelden of als u de Id's van het product en de SKU al kent, selecteert u deze.
+1. Identificeer en haal het product en de SKU op die u wilt kopen. U kunt deze stap doen door eerst de producten en SKU's weer te geven, of als u de ID's van het product en de SKU al kent en deze selecteert.
 
-   - [Een lijst met producten ophalen](get-a-list-of-products.md)
-   - [Een product ophalen met de product-ID](get-a-product-by-id.md)
-   - [Een lijst met Sku's voor een product ophalen](get-a-list-of-skus-for-a-product.md)
-   - [Een SKU ophalen met behulp van de SKU-ID](get-a-sku-by-id.md)
+   - [Een lijst met producten op halen](get-a-list-of-products.md)
+   - [Een product op halen met behulp van de product-id](get-a-product-by-id.md)
+   - [Een lijst met SKU's voor een product op halen](get-a-list-of-skus-for-a-product.md)
+   - [Een SKU krijgen met behulp van de SKU-id](get-a-sku-by-id.md)
 
-2. Controleer de inventarisatie van een SKU. Deze stap is alleen nodig voor Sku's die zijn gelabeld met een **InventoryCheck** -vereiste.
+2. Controleer de inventaris voor een SKU. Deze stap is alleen nodig voor SKU's die zijn getagd met een **inventoryCheck-vereiste.**
 
    - [Voorraad controleren](check-inventory.md)
 
-3. De [Beschik baarheid](product-resources.md#availability) voor de [SKU](product-resources.md#sku)ophalen. U hebt de **CatalogItemId** van de beschik baarheid nodig wanneer u de order plaatst. Gebruik een van de volgende Api's om deze waarde op te halen:
+3. Haal de [beschikbaarheid voor](product-resources.md#availability) de [SKU op.](product-resources.md#sku) U hebt de **CatalogItemId van de** beschikbaarheid nodig bij het plaatsen van de order. Gebruik een van de volgende API's om deze waarde op te halen:
 
-   - [Een lijst met Beschik baarheid voor een SKU ophalen](get-a-list-of-availabilities-for-a-sku.md)
-   - [Krijg een Beschik baarheid met behulp van de beschikbaarheids-ID](get-an-availability-by-id.md)
+   - [Een lijst met beschikbaarheid voor een SKU op halen](get-a-list-of-availabilities-for-a-sku.md)
+   - [Een beschikbaarheid krijgen met behulp van de beschikbaarheids-id](get-an-availability-by-id.md)
 
-## <a name="order-submission"></a>Verzen ding best Ellen
+## <a name="order-submission"></a>Verzending van order
 
-Voer de volgende stappen uit om uw bestelling te verzenden:
+Volg deze stappen om uw bestelling te verzenden:
 
-1. Maak een mandje om de verzameling catalogus items te bewaren die u wilt kopen. Wanneer u een [winkel wagen](cart-resources.md)maakt, worden de [Winkelwagen regel items](cart-resources.md#cartlineitem) automatisch gegroepeerd op basis van wat er in dezelfde [volg orde](order-resources.md)kan worden aangeschaft.
+1. Maak een winkelwagen voor de verzameling catalogusitems die u wilt kopen. Wanneer u een [winkelwagen maakt,](cart-resources.md)worden de winkelwagenregelitems automatisch gegroepeerd op basis van wat samen kan worden gekocht in dezelfde [](cart-resources.md#cartlineitem) [order](order-resources.md).
 
-   - [Een winkel wagen maken](create-a-cart.md)
-   - [Een winkel wagen bijwerken](update-a-cart.md)
+   - [Een winkelwagen maken](create-a-cart.md)
+   - [Een winkelwagen bijwerken](update-a-cart.md)
 
-2. Bekijk de winkel wagen. Het uitchecken van een winkel wagen resulteert in het maken van een [order](order-resources.md).
+2. Bekijk de winkelwagen. Als u een winkelwagen bekijkt, wordt er een order [gemaakt.](order-resources.md)
 
-   - [De winkel wagen afhandelen](checkout-a-cart.md)
+   - [De winkelwagen uitchecken](checkout-a-cart.md)
 
-## <a name="get-order-details"></a>Bestellingsgegevens ophalen
+## <a name="get-order-details"></a>Ordergegevens op halen
 
-Wanneer u uw bestelling hebt gemaakt, kunt u de details van een afzonderlijke order ophalen met de order-ID of een lijst met orders voor een klant ophalen. Er is een vertraging van Maxi maal 15 minuten tussen de tijd dat een bestelling wordt verzonden en wanneer deze wordt weer gegeven in een lijst met de orders van een klant.
+Zodra u uw order hebt gemaakt, kunt u de details van een afzonderlijke order ophalen met behulp van de order-id of een lijst met orders voor een klant ophalen. Er is een vertraging van maximaal 15 minuten tussen het moment waarop een order wordt verzonden en wanneer deze wordt weergegeven in een lijst met orders van een klant.
 
-- Om de details van een afzonderlijke order op te halen met behulp van de order-ID. Zie [een order op basis van id ophalen](get-an-order-by-id.md).
+- Om de details van een afzonderlijke order op te halen met behulp van de order-id. Zie [Get an order by ID (Een bestelling op id krijgen).](get-an-order-by-id.md)
 
-- Een lijst met orders voor een klant ophalen met behulp van de klant-ID. Zie [alle bestellingen van een klant ophalen](get-all-of-a-customer-s-orders.md).
+- Een lijst met orders voor een klant op te halen met behulp van de klant-id. Zie [Alle orders van een klant op te halen.](get-all-of-a-customer-s-orders.md)
 
-- Als u een lijst met orders voor een klant per [facturerings cyclus type](product-resources.md#billingcycletype) wilt ophalen, kunt u orders (eenmalige kosten) en jaarlijks of maandelijks gefactureerde orders afzonderlijk weer geven. Zie [een lijst met orders ophalen op basis van het type van de klant en de facturerings cyclus](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
+- Als u een lijst met [](product-resources.md#billingcycletype) orders voor een klant wilt op halen op type factureringscyclus, kunt u afzonderlijke orders (een time-charges) en jaarlijkse of maandelijkse gefactureerde orders op een lijst plaatsen. Zie Get [a list of orders by customer and billing cycle type (Een lijst met orders per klant en type factureringscyclus) bekijken.](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)
 
-## <a name="lifecycle-management"></a>Levenscyclus beheer
+## <a name="lifecycle-management"></a>Levenscyclusbeheer
 
-Als onderdeel van het beheer van de levens cyclus van uw eenmalige aankopen in het partner centrum, kunt u informatie over uw [rechten](entitlement-resources.md)ophalen en reserverings Details ophalen met behulp van de reserverings order-id. Zie [rechten ophalen](get-a-collection-of-entitlements.md)voor voor beelden van hoe u dit doet.
+Als onderdeel van het beheren van de levenscyclus van uw een time-aankopen in Partner Center, kunt u informatie over uw rechten ophalen en [reserveringsgegevens](entitlement-resources.md)ophalen met behulp van de reserveringsorder-id. Zie Rechten krijgen voor voorbeelden van [hoe u dit doet.](get-a-collection-of-entitlements.md)
 
-## <a name="invoice-and-reconciliation"></a>Factuur en reconciliatie
+## <a name="invoice-and-reconciliation"></a>Factuur en afstemming
 
-In de volgende scenario's ziet u hoe u de [facturen](invoice-resources.md)van uw klant programmatisch kunt bekijken en hoe u uw account saldi en samen vattingen kunt ophalen die eenmalige kosten bevatten.
+In de volgende scenario's ziet u hoe [](invoice-resources.md)u programmatisch de facturen van uw klant kunt weergeven en hoe u de saldo's en samenvattingen van uw account kunt opsommen die een keer kosten bevatten.
 
 ### <a name="balance-and-payment"></a>Saldo en betaling
 
-Als u het huidige account saldo wilt ophalen in uw standaard valuta type dat een saldo van zowel terugkerende als eenmalige kosten is, raadpleegt [u uw huidige account saldo ophalen](get-the-reseller-s-current-account-balance.md)
+Zie Uw huidige rekeningsaldo opmaken als u het huidige saldo in uw standaardvalutatype wilt [opmaken](get-the-reseller-s-current-account-balance.md) dat een saldo is van zowel terugkerende als eenmalige kosten
 
-### <a name="multi-currency-balance-and-payment"></a>Saldo en betaling in meerdere valuta
+### <a name="multi-currency-balance-and-payment"></a>Saldo en betaling met meerdere valuta
 
-Zie [factuur overzichten ophalen](get-invoice-summaries.md)voor een overzicht van uw huidige account saldo en een verzameling van factuur overzichten met een factuur samenvatting met zowel periodieke als eenmalige kosten voor elk van de valuta typen van uw klant.
+Zie [Factuuroverzichten](get-invoice-summaries.md)ophalen voor het saldo van uw huidige account en een verzameling factuuroverzichten met zowel terugkerende als eenmalige kosten voor elk van de valutatypen van uw klant.
 
 ### <a name="invoices"></a>Facturen
 
-Zie [een verzameling facturen ophalen](get-a-collection-of-invoices.md)voor een verzameling facturen waarin zowel terugkerende als eenmalige kosten worden weer gegeven.
+Zie Een verzameling facturen ophalen voor een verzameling facturen met zowel terugkerende als eenmalige [kosten.](get-a-collection-of-invoices.md)
 
 ### <a name="single-invoice"></a>Eén factuur
 
-Als u een specifieke factuur wilt ophalen met behulp van de factuur-ID, raadpleegt u [een factuur op id ophalen](get-invoice-by-id.md).
+Zie Een factuur ophalen op id voor het ophalen van een specifieke factuur met behulp van de [factuur-id.](get-invoice-by-id.md)
 
-### <a name="reconciliation"></a>Afstemming
+### <a name="reconciliation"></a>Verzoening
 
-Zie [factuur regel items ophalen](get-invoiceline-items.md)voor een verzameling van gegevens over het factuur regel item (reconciliatie regel items) voor een specifieke factuur-ID.
+Zie Factuurregelitems ophalen voor een verzameling factuurregelitems (afstemmingsregelitems) voor een specifieke [factuur-id.](get-invoiceline-items.md)
 
-### <a name="download-an-invoice-as-a-pdf"></a>Een factuur als PDF-bestand downloaden
+### <a name="download-an-invoice-as-a-pdf"></a>Een factuur downloaden als PDF
 
-Zie [een factuur overzicht ophalen](get-invoice-statement.md)als u een factuur overzicht wilt ophalen in een PDF-formulier met een factuur-ID.
+Zie Een factuuroverzicht ophalen als u een factuuroverzicht in PDF-vorm wilt ophalen met behulp [van een factuur-id.](get-invoice-statement.md)

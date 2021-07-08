@@ -1,41 +1,37 @@
 ---
 title: Een record van Partnercentrum-activiteiten ophalen
-description: Het ophalen van een record van bewerkingen, zoals uitgevoerd door een partner gebruiker of toepassing, gedurende een bepaalde periode.
+description: Het ophalen van een record van bewerkingen, zoals uitgevoerd door een partnergebruiker of -toepassing, gedurende een bepaalde periode.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2f37eae8bb96c1c1e7008e8c566b085e25d8807d
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: aec933d4b681d99080619505792bde56bdd25580
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767438"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873968"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>Een record van Partnercentrum-activiteiten ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+In dit artikel wordt beschreven hoe u een record kunt ophalen van bewerkingen die gedurende een bepaalde periode door een partnergebruiker of toepassing zijn uitgevoerd.
 
-In dit artikel wordt beschreven hoe u een record kunt ophalen van bewerkingen die gedurende een bepaalde periode zijn uitgevoerd door een partner gebruiker of-toepassing.
-
-Gebruik deze API om controle records op te halen voor de afgelopen 30 dagen vanaf de huidige datum of voor een datum bereik dat is opgegeven met inbegrip van de begin datum en/of de eind datum. Houd er echter rekening mee dat de beschik baarheid van het activiteiten logboek voor de prestaties beperkt is tot de vorige 90 dagen. Aanvragen met een begin datum die groter is dan 90 dagen vóór de huidige datum worden een ongeldige aanvraag uitzondering ontvangen (fout code: 400) en een geschikt bericht.
+Gebruik deze API om controlerecords op te halen voor de afgelopen 30 dagen vanaf de huidige datum, of voor een datumbereik dat is opgegeven door de begindatum en/of einddatum op te neemt. Houd er echter rekening mee dat om prestatieredenen de beschikbaarheid van gegevens in het activiteitenlogboek is beperkt tot de afgelopen 90 dagen. Aanvragen met een begindatum die langer is dan 90 dagen vóór de huidige datum, ontvangen een uitzondering met een slechte aanvraag (foutcode: 400) en een geschikt bericht.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u een record van partner Center-bewerkingen wilt ophalen, moet u eerst het datum bereik instellen voor de records die u wilt ophalen. In het volgende code voorbeeld wordt alleen een begin datum gebruikt, maar u kunt ook een eind datum toevoegen. Zie de [**query**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) methode voor meer informatie. Maak vervolgens de variabelen die u nodig hebt voor het type filter dat u wilt Toep assen en wijs de juiste waarden toe. Als u bijvoorbeeld wilt filteren op subtekenreeks bedrijfs naam, maakt u een variabele voor de subtekenreeks. Als u wilt filteren op klant-ID, maakt u een variabele om de ID op te slaan.
+Als u een record met Partner Center wilt ophalen, moet u eerst het datumbereik bepalen voor de records die u wilt ophalen. In het volgende codevoorbeeld wordt alleen een begindatum gebruikt, maar u kunt ook een einddatum opnemen. Zie de Query-methode voor [**meer**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) informatie. Maak vervolgens de variabelen die u nodig hebt voor het type filter dat u wilt toepassen en wijs de juiste waarden toe. Als u bijvoorbeeld wilt filteren op bedrijfsnaamsubtekenreeks, maakt u een variabele om de subtekenreeks op te nemen. Als u wilt filteren op klant-id, maakt u een variabele voor de id.
 
-In het volgende voor beeld wordt de voorbeeld code verschaft om te filteren op een subtekenreeks van een bedrijfs naam, een klant-ID of een resource type. U kunt een opmerking kiezen en de andere opmerkingen toevoegen. In elk geval maakt u eerst een [**SimpleFieldFilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) -object met behulp van de standaard [**constructor**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) om het filter te maken. U moet een teken reeks door geven die het veld bevat waarop moet worden gezocht en de toepasselijke operator die u wilt Toep assen, zoals wordt weer gegeven. U moet ook de teken reeks opgeven waarop moet worden gefilterd.
+In het volgende voorbeeld wordt voorbeeldcode verstrekt om te filteren op een bedrijfsnaamsubtekenreeks, klant-id of resourcetype. Kies een optie en maak commentaar van de andere. In elk geval instantieert u eerst een [**SimpleFieldFilter-object**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) met behulp van de standaard [**constructor om**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) het filter te maken. U moet een tekenreeks doorgeven die het veld bevat dat moet worden gezocht en de juiste operator om toe te passen, zoals wordt weergegeven. U moet ook de tekenreeks verstrekken om op te filteren.
 
-Gebruik vervolgens de eigenschap [**AuditRecords**](/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords) om een interface op te halen voor het controleren van record bewerkingen en roep de methode [**query**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) of [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) aan om het filter uit te voeren en de verzameling van [**AuditRecord**](/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) te verkrijgen die de eerste pagina van het resultaat voor stelt. Geef de methode de start datum, een optionele eind datum die niet in het voor beeld wordt gebruikt en een [**IQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) -object dat een query op een entiteit vertegenwoordigt. Het IQuery-object wordt gemaakt door het hierboven gemaakte filter door te geven aan de [**BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) -methode [**van QueryFactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .
+Gebruik vervolgens de eigenschap [**AuditRecords**](/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords) om een interface op te halen voor het controleren van recordbewerkingen en roep de methode [**Query**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) of [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) aan om het filter uit te voeren en de verzameling [**auditrecords**](/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) op te halen die de eerste pagina van het resultaat vertegenwoordigen. Geef de methode door aan de begindatum, een optionele einddatum die hier niet wordt gebruikt in het voorbeeld en een [**IQuery-object**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) dat een query op een entiteit vertegenwoordigt. Het IQuery-object wordt gemaakt door het hierboven gemaakte filter door te geven aan de [**BuildSimpleQuery-methode van**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) [**QueryFactory.**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)
 
-Wanneer u de eerste pagina van de items hebt, gebruikt u de methode [**enumerats. AuditRecords. Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) om een enumerator te maken die u kunt gebruiken om de resterende pagina's te herhalen.
+Zodra u de eerste pagina met items hebt, gebruikt u de methode [**Enumerators.AuditRecords.Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) om een enumerator te maken die u kunt gebruiken om de resterende pagina's te controleren.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -77,34 +73,34 @@ while (auditRecordEnumerator.HasValue)
 }
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: Partner Center SDK-voor beelden **map**: controleren
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK **map Samples:** Controle
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords? start date = {start date} http/1.1                                                                                                     |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords? start date = {start date} &EndDate = {ENDDATE} http/1.1                                                                                   |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords? start date = {start date} &EndDate = {endDate} &filter = {"veld:" CompanyName "," waarde ":" {searchSubstring} "," operator ":" subtekenreeks "} http/1.1 |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords? start date = {start date} &EndDate = {endDate} &filter = {"veld": "KlantId", "waarde": "{KlantId}", "operator": "is gelijk aan"} http/1.1          |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords? start date = {start date} &EndDate = {endDate} &filter = {"veld:" resource type "," waarde ":" {resource type} "," operator ":" is gelijk aan "} http/1.1      |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate} HTTP/1.1                                                                                                     |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate} HTTP/1.1                                                                                   |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CompanyName","Value":"{searchSubstring}","Operator":"substring"} HTTP/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CustomerId","Value":"{customerId}","Operator":"equals"} HTTP/1.1          |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"ResourceType","Value":"{resourceType}","Operator":"equals"} HTTP/1.1      |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameters bij het maken van de aanvraag.
+Gebruik de volgende queryparameters bij het maken van de aanvraag.
 
 | Naam      | Type   | Vereist | Beschrijving                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Begin | date   | No       | De begin datum in de indeling jjjj-mm-dd. Als er geen is opgegeven, wordt de resultatenset standaard ingesteld op 30 dagen vóór de aanvraag datum. Deze para meter is optioneel wanneer een filter wordt opgegeven.                                          |
-| endDate   | date   | No       | De eind datum in de indeling jjjj-mm-dd. Deze para meter is optioneel wanneer een filter wordt opgegeven. Wanneer de eind datum wordt wegge laten of op NULL wordt ingesteld, retourneert de aanvraag het maximum venster of wordt het vandaag als eind datum gebruikt, afhankelijk van wat kleiner is. |
-| filter    | tekenreeks | No       | Het filter dat moet worden toegepast. Deze para meter moet een gecodeerde teken reeks zijn. Deze para meter is optioneel wanneer de begin-of eind datum wordt opgegeven.                                                                                              |
+| Startdate | date   | Nee       | De begindatum in de indeling yyyy-mm-dd. Als er geen is opgegeven, wordt de resultatenset standaard ingesteld op 30 dagen vóór de aanvraagdatum. Deze parameter is optioneel wanneer een filter wordt opgegeven.                                          |
+| Enddate   | date   | Nee       | De einddatum in de indeling yyyy-mm-dd. Deze parameter is optioneel wanneer een filter wordt opgegeven. Wanneer de einddatum wordt weggelaten of ingesteld op null, retourneert de aanvraag het maximumvenster of gebruikt vandaag als de einddatum, wat kleiner is. |
+| filter    | tekenreeks | No       | Het filter dat moet worden toegepast. Deze parameter moet een gecodeerde tekenreeks zijn. Deze parameter is optioneel wanneer de begindatum of einddatum wordt opgegeven.                                                                                              |
 
-### <a name="filter-syntax"></a>Filter syntaxis
-U moet de filter parameter opstellen als een reeks door komma's gescheiden, sleutel-waardeparen. Elke sleutel en waarde moeten afzonderlijk worden genoteerd en gescheiden door een dubbele punt. Het volledige filter moet zijn gecodeerd.
+### <a name="filter-syntax"></a>Filtersyntaxis
+U moet de filterparameter opstellen als een reeks door komma's gescheiden sleutel-waardeparen. Elke sleutel en waarde moeten afzonderlijk worden aangehaald en gescheiden door een dubbele punt. Het hele filter moet worden gecodeerd.
 
-Een niet-gecodeerd voor beeld ziet er als volgt uit:
+Een niet-gecodeerd voorbeeld ziet er als volgende uit:
 
 ```
 ?filter{"Field":"CompanyName","Value":"bri","Operator":"substring"}
@@ -114,13 +110,13 @@ In de volgende tabel worden de vereiste sleutel-waardeparen beschreven:
 
 | Sleutel                 | Waarde                             |
 |:--------------------|:----------------------------------|
-| Veld               | Het veld dat moet worden gefilterd. De ondersteunde waarden zijn te vinden in de [aanvraag syntaxis](get-a-record-of-partner-center-activity-by-user.md#rest-request).                                         |
-| Waarde               | De waarde waarop moet worden gefilterd. Het geval van de waarde wordt genegeerd. De volgende waarde-para meters worden ondersteund, zoals wordt weer gegeven in de [aanvraag syntaxis](get-a-record-of-partner-center-activity-by-user.md#rest-request):<br/><br/>                                                                *searchSubstring* : Vervang door de naam van het bedrijf. U kunt een subtekenreeks invoeren die overeenkomt met een deel van de bedrijfs naam (bijvoorbeeld komt `bri` overeen met `Fabrikam, Inc` ).<br/>**Voor beeld:**`"Value":"bri"`<br/><br/>                                                                *KlantId* -vervangen door een teken reeks met een GUID-indeling die de klant-id vertegenwoordigt.<br/>**Voor beeld:**`"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *resource* type: Vervang door het type resource waarvoor controle records moeten worden opgehaald (bijvoorbeeld abonnement). De beschik bare resource typen worden gedefinieerd in [resource type](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype).<br/>**Voor beeld:**`"Value":"Subscription"`                                 |
-| Operator          | De operator die moet worden toegepast. De ondersteunde Opera tors zijn te vinden in de [aanvraag syntaxis](get-a-record-of-partner-center-activity-by-user.md#rest-request).   |
+| Veld               | Het veld dat moet worden gefilterd. De ondersteunde waarden vindt u in [Aanvraagsyntaxis.](get-a-record-of-partner-center-activity-by-user.md#rest-request)                                         |
+| Waarde               | De waarde die moet worden gefilterd op. Het geval van de waarde wordt genegeerd. De volgende waardeparameters worden ondersteund, zoals wordt weergegeven in [Aanvraagsyntaxis:](get-a-record-of-partner-center-activity-by-user.md#rest-request)<br/><br/>                                                                *searchSubstring:* vervang door de naam van het bedrijf. U kunt een subtekenreeks invoeren die overeen komt met een deel van de bedrijfsnaam (komt bijvoorbeeld `bri` overeen met `Fabrikam, Inc` ).<br/>**Voorbeeld:**`"Value":"bri"`<br/><br/>                                                                *customerId:* vervang door een tekenreeks met GUID-indeling die de klant-id vertegenwoordigt.<br/>**Voorbeeld:**`"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *resourceType:* vervang door het type resource waarvoor controlerecords moeten worden opgehaald (bijvoorbeeld Abonnement). De beschikbare resourcetypen worden gedefinieerd in [ResourceType](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype).<br/>**Voorbeeld:**`"Value":"Subscription"`                                 |
+| Operator          | De operator die moet worden toegepast. De ondersteunde operators vindt u in [Aanvraagsyntaxis.](get-a-record-of-partner-center-activity-by-user.md#rest-request)   |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Zie [rest-headers Centers](headers.md) voor meer informatie.
+- Zie [Parter Center REST-headers voor meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -141,11 +137,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een set activiteiten die aan de filters voldoen.
+Als dit lukt, retourneert deze methode een reeks activiteiten die voldoen aan de filters.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [rest-fout codes van het partner centrum](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

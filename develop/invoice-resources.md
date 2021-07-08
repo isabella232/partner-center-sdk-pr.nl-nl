@@ -1,47 +1,42 @@
 ---
-title: Factuur resources
-description: Er zijn meerdere factuur resources beschikbaar via de partner centrum-Api's. Deze resources zijn gerelateerd aan factuur-en Details van regel items.
+title: Factuurbronnen
+description: Er zijn meerdere factuurresources beschikbaar via de Partner Center API's. Deze resources zijn gerelateerd aan factuur- en regelitemgegevens.
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8977b3b649cd930bb517965572d0efe51d6985a0
-ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
+ms.openlocfilehash: b07b7ad14c136eac988eeb12391c24a6cf996b39
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730209"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548419"
 ---
-# <a name="invoice-resources"></a>Factuur resources
+# <a name="invoice-resources"></a>Factuurbronnen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-De volgende factuur-gerelateerde resources zijn beschikbaar via de partner centrum-Api's.
+De volgende factuurresources zijn beschikbaar via de Partner Center API's.
 
 ## <a name="invoice"></a>Factuur
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| id | tekenreeks | De factuur-ID. |
-| invoiceDate | teken reeks in UTC-datum-tijd notatie | De datum waarop de factuur is gegenereerd. |
-| billingPeriodStartDate | teken reeks in UTC-datum-tijd notatie | Begin datum facturerings periode in UTC. |
-| billingPeriodEndDate | teken reeks in UTC-datum-tijd notatie   | Eind datum van facturerings periode in UTC. |
-| totalCharges | getal | De totale kosten. Inclusief kosten voor trans acties en eventuele aanpassingen.     |
-| paidAmount | getal  | Het bedrag dat door de partner wordt betaald. Negatief als er een betaling is ontvangen.  |
-| currencyCode | tekenreeks  | Een code die de gebruikte valuta voor alle bedragen en totalen van factuur items aangeeft. |
-| currencySymbol  | tekenreeks | Het valuta symbool dat wordt gebruikt voor alle bedragen en totalen van factuur items. |
-| pdfDownloadLink | tekenreeks  | Een koppeling voor het downloaden van de factuur in PDF-indeling. Deze koppeling wordt niet geretourneerd als onderdeel van de zoek resultaten en wordt alleen ingevuld als de factuur wordt geopend met de ID. Deze koppeling is in 30 minuten automatisch verloopt. |
-| invoiceDetails  | matrix van [InvoiceDetail](#invoicedetail) -objecten  | De factuur Details.  |
-| gewijzigd      | matrix van [factuur](#invoice) objecten   | De wijzigingen in deze factuur.  |
-| Document type    | tekenreeks | Het document type van de factuur: credit nota, invoice. |
-| amendsOf        | tekenreeks | Het referentie nummer van het document waarvan dit document een wijziging is.  |
-| invoiceType     | tekenreeks  | Het type factuur: ' terugkerend ', ' eenmalig ' \_ .   |
-| koppelen           | [ResourceLinks](utility-resources.md#resourcelinks)  | De resource koppelingen.  |
-| kenmerken      | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.  |
+| id | tekenreeks | De factuur-id. |
+| invoiceDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop de factuur is gegenereerd. |
+| billingPeriodStartDate | tekenreeks in UTC-datum/tijd-indeling | Begindatum factureringsperiode in UTC. |
+| billingPeriodEndDate | tekenreeks in UTC-datum/tijd-indeling   | Einddatum van factureringsperiode in UTC. |
+| totalCharges | getal | De totale kosten. Omvat kosten voor transacties en eventuele aanpassingen.     |
+| paidAmount | getal  | Het bedrag dat is betaald door de partner. Negatief als er een betaling is ontvangen.  |
+| currencyCode | tekenreeks  | Een code die de valuta aangeeft die wordt gebruikt voor alle factuuritembedragen en totalen. |
+| currencySymbol  | tekenreeks | Het valutasymbool dat wordt gebruikt voor alle factuuritembedragen en totalen. |
+| pdfDownloadLink | tekenreeks  | Een koppeling om de factuur in PDF-indeling te downloaden. Deze koppeling wordt niet geretourneerd als onderdeel van de zoekresultaten en wordt alleen ingevuld als de factuur wordt gebruikt op id. Deze koppeling verloopt automatisch in 30 minuten. |
+| invoiceDetails  | matrix van [InvoiceDetail-objecten](#invoicedetail)  | De factuurgegevens.  |
+| Amendementen      | matrix met [factuurobjecten](#invoice)   | De wijzigingen in deze factuur.  |
+| documentType    | tekenreeks | Het documenttype van de factuur: "Tegoednota", "Factuur". |
+| wijzigtOf        | tekenreeks | Het referentienummer van het document waarvan dit document een wijziging is.  |
+| invoiceType     | tekenreeks  | Het type factuur: "recurring", "one \_ time".   |
+| Verwijzigingen           | [ResourceLinks](utility-resources.md#resourcelinks)  | De resourcekoppelingen.  |
+| kenmerken      | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.  |
 
 ## <a name="invoicedetail"></a>InvoiceDetail
 
@@ -49,257 +44,257 @@ Een factuur bevat een verzameling gefactureerde items en elk item wordt vertegen
 
 | Eigenschap            | Type                                                           | Beschrijving                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| invoiceLineItemType | tekenreeks                                                         | Het type factuur Details: ' geen ', ' Gebruik \_ regel \_ items ', ' facturerings \_ regel \_ items '. |
-| billingProvider     | tekenreeks                                                         | De facturerings provider: ' none ', ' Office ', ' Azure ' of ' Azure \_ Data \_ Market '.         |
-| koppelen               | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen.                                                               |
-| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                                                          |
+| invoiceLineItemType | tekenreeks                                                         | Het type factuurgegevens: 'geen', \_ \_ 'gebruiksregelitems', \_ 'factureringsregelitems'. \_ |
+| billingProvider     | tekenreeks                                                         | De factureringsprovider: 'none', 'office', 'azure' of 'azure \_ data \_ market'.         |
+| Verwijzigingen               | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen.                                                               |
+| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                                                          |
 
 ## <a name="invoicelineitem"></a>InvoiceLineItem
 
-Elke afzonderlijke kosten binnen een factuur worden weer gegeven als een InvoiceLineItem.
+Elke afzonderlijke kosten in een factuur worden weergegeven als een InvoiceLineItem.
 
 | Eigenschap            | Type                                                           | Beschrijving                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceLineItemType | tekenreeks                                                         | Het type factuur regel item: ' geen ', ' Gebruik \_ regel \_ items ', ' facturerings \_ regel \_ items '. |
-| billingProvider     | tekenreeks                                                         | De facturerings provider: ' none ', ' Office ', ' Azure ' of ' Azure \_ Data \_ Market '.            |
-| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken.                                                             |
+| invoiceLineItemType | tekenreeks                                                         | Het type factuurregelitem: 'geen', \_ \_ 'gebruiksregelitems', \_ 'factureringsregelitems'. \_ |
+| billingProvider     | tekenreeks                                                         | De factureringsprovider: 'none', 'office', 'azure' of 'azure \_ data \_ market'.            |
+| kenmerken          | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken.                                                             |
 
 ## <a name="invoicesummary"></a>InvoiceSummary
 
-Hierin wordt een overzicht van het saldo en de totale kosten van een factuur beschreven.
+Beschrijft een overzicht van het saldo en de totale kosten van een factuur.
 
 | Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| balanceAmount            | getal                                                         | Het saldo van de factuur. Dit is de totale hoeveelheid niet-betaalde rekeningen. |
-| currencyCode             | tekenreeks                                                         | Een code die de gebruikte valuta voor het saldo bedrag aangeeft.       |
-| currencySymbol           | tekenreeks                                                         | Het valuta symbool dat wordt gebruikt.                                             |
-| accountingDate           | teken reeks in UTC-datum-tijd notatie                                 | De datum waarop het saldo bedrag voor het laatst is bijgewerkt.                         |
-| firstInvoiceCreationDate | teken reeks in UTC-datum-tijd notatie                                 | De datum waarop de eerste factuur voor de klant is gemaakt.              |
-| lastPaymentDate          | teken reeks in UTC-datum-tijd notatie                                 | De datum van de laatste betaling.                                         |
+| balanceAmount            | getal                                                         | Het saldo van de factuur. Dit is het totale bedrag aan niet-betaalde facturen. |
+| currencyCode             | tekenreeks                                                         | Een code die de valuta aangeeft die wordt gebruikt voor het saldo.       |
+| currencySymbol           | tekenreeks                                                         | Het valutasymbool dat wordt gebruikt.                                             |
+| accountingDate           | tekenreeks in UTC-datum/tijd-indeling                                 | De datum waarop het saldo voor het laatst is bijgewerkt.                         |
+| firstInvoiceCreationDate | tekenreeks in UTC-datum/tijd-indeling                                 | De datum waarop de eerste factuur voor de klant is gemaakt.              |
+| lastPaymentDate          | tekenreeks in UTC-datum/tijd-indeling                                 | De datum van de laatste betaling.                                         |
 | lastPaymentAmount        | getal                                                         | Het bedrag van de laatste betaling.                                       |
-| latestInvoiceDate        | teken reeks in UTC-datum-tijd notatie                                 | De datum waarop de laatste factuur voor de klant is gemaakt.               |
-| nadere                  | matrix van [InvoiceSummaryDetail](#invoicesummarydetail) -objecten | De details van het factuur overzicht.                                           |
-| koppelen                    | [ResourceLinks](utility-resources.md#resourcelinks)            | De resource koppelingen.                                                   |
-| kenmerken               | [ResourceAttributes](utility-resources.md#resourceattributes)  | De meta gegevens kenmerken.                                              |
+| latestInvoiceDate        | tekenreeks in UTC-datum/tijd-indeling                                 | De datum waarop de laatste factuur voor de klant is gemaakt.               |
+| Details                  | matrix van [InvoiceSummaryDetail-objecten](#invoicesummarydetail) | De details van het factuuroverzicht.                                           |
+| Verwijzigingen                    | [ResourceLinks](utility-resources.md#resourcelinks)            | De resourcekoppelingen.                                                   |
+| kenmerken               | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken.                                              |
 
 ## <a name="invoicesummarydetail"></a>InvoiceSummaryDetail
 
-Vertegenwoordigen een samen vatting van de afzonderlijke gegevens voor een factuur type (bijvoorbeeld terugkerende, eenmalige \_ tijd).
+Vertegenwoordigen een samenvatting van de afzonderlijke gegevens voor een factuurtype (bijvoorbeeld terugkerend, één \_ keer).
 
 | Eigenschap            | Type                                                           | Beschrijving                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceType         | tekenreeks                                                         | Het type factuur: ' terugkerend ', ' eenmalig ' \_ .                                       |
-| samenvatting             | [InvoiceSummary](#invoicesummary) -object                       | De samen vatting van de factuur per factuur type.                                         |
+| invoiceType         | tekenreeks                                                         | Het type factuur: "recurring", "one \_ time".                                       |
+| samenvatting             | [Object InvoiceSummary](#invoicesummary)                       | Het overzicht van de factuur per factuurtype.                                         |
 
 ## <a name="invoicesummaries"></a>InvoiceSummaries
 
-Vertegenwoordigen een verzameling van het type [InvoiceSummary](#invoicesummary) die de afzonderlijke Details voor een factuur type per valuta bevatten.
+Vertegenwoordigen een verzameling van het type [InvoiceSummary](#invoicesummary) die de afzonderlijke details voor een factuurtype per valuta bevat.
 
 | Eigenschap            | Type                                                           | Beschrijving                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| collectionOfSummary | matrix van [InvoiceSummary](#invoicesummary) -objecten             | De samen vatting van de factuur per factuur type per valuta.                            |
+| collectionOfSummary | matrix van [InvoiceSummary-objecten](#invoicesummary)             | Het overzicht van de factuur per factuurtype per valuta.                            |
 
 ## <a name="licensebasedlineitem"></a>LicenseBasedLineItem
 
-Vertegenwoordigt een factuur facturerings regel item voor op licenties gebaseerde abonnementen.
+Vertegenwoordigt een factuurfactureringsregelitem voor gelicentieerde abonnementen.
 
 | Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| bedrag                   | tekenreeks                                                         | Hiermee wordt het totaal bedrag opgehaald of ingesteld. Totaal bedrag = eenheids prijs * aantal.  |
-| kenmerken               | tekenreeks                                                         | Hiermee worden de kenmerken opgehaald.                                                  |
-| billingCycleType         | tekenreeks                                                         | Hiermee wordt het type facturerings cyclus opgehaald of ingesteld.                                  |
-| billingProvider          | tekenreeks                                                         | Hiermee wordt de facturerings provider opgehaald.                                            |
-| chargeEndDate            | teken reeks in UTC-datum-tijd notatie                                 | Hiermee wordt de eind datum voor de kosten opgehaald of ingesteld.                             |
-| chargeStartDate          | teken reeks in UTC-datum-tijd notatie                                 | Hiermee wordt de begin datum voor de kosten opgehaald of ingesteld.                           |
-| chargeType               | tekenreeks                                                         | Hiermee wordt het type kosten opgehaald of ingesteld.                                      |
-| currency                 | tekenreeks                                                         | Hiermee wordt de valuta opgehaald of ingesteld die voor dit regel item wordt gebruikt.                    |
-| customerId               | tekenreeks                                                         | Hiermee wordt de unieke id van de klant opgehaald of ingesteld in het micro soft-factuur platform.  |
-| customerName             | teken reeks in UTC-datum-tijd notatie                                 | Hiermee wordt de naam van de klant opgehaald of ingesteld.                                       |
-| domainName               | tekenreeks                                                         | Hiermee wordt de domein naam opgehaald of ingesteld.                                             |
-| durableOfferId           | tekenreeks                                                         | Hiermee wordt de unieke id van de duurzame aanbieding opgehaald of ingesteld.                     |
-| invoiceLineItemType      | tekenreeks                                                         | Hiermee wordt het type van het factuur regel item opgehaald.                                   |
-| mpnId                    | getal                                                         | Hiermee wordt de MPN-ID opgehaald of ingesteld die aan dit regel item is gekoppeld. Voor directe wederverkopers is dit de MPN-id van de wederverkoper. Voor indirecte wederverkopers is dit de MPN-ID van de waarde added reseller (VAR).                                   |
-| offerId                  | tekenreeks                                                         | Hiermee wordt de unieke id van de aanbieding opgehaald of ingesteld.                             |
-| offerName                | tekenreeks                                                         | Hiermee wordt de naam van het aanbod opgehaald of ingesteld.                                          |
-| Velden                  | tekenreeks                                                         | Hiermee wordt de unieke id van de order opgehaald of ingesteld.                             |
-| Partner                | tekenreeks                                                         | Hiermee wordt de Tenant-ID van de partner-Azure Active Directory opgehaald of ingesteld.            |
-| quantity                 | getal                                                         | Hiermee wordt het aantal eenheden opgehaald of ingesteld dat aan dit regel item is gekoppeld.      |
-| subscriptionDescription  | tekenreeks                                                         | Hiermee wordt de beschrijving van het abonnement opgehaald of ingesteld.                            |
-| subscriptionEndDate      | teken reeks in UTC-datum-tijd notatie                                 | Hiermee wordt de datum opgehaald of ingesteld waarop het abonnement verloopt.                      |
-| subscriptionId           | tekenreeks                                                         | Hiermee wordt de unieke id van het abonnement opgehaald of ingesteld.                      |
-| subscriptionName         | tekenreeks                                                         | Hiermee wordt de naam van het abonnement opgehaald of ingesteld.                                   |
-| Subscription    | teken reeks in UTC-datum-tijd notatie                                 | Hiermee wordt de datum opgehaald of ingesteld waarop het abonnement wordt gestart.                   |
-| Subtotaal                 | getal                                                         | Hiermee wordt de hoeveelheid na de korting opgehaald of ingesteld.                               |
-| syndicationPartnerSubscriptionNumber | tekenreeks                                             | Hiermee wordt het abonnements nummer van de syndicatie partner opgehaald of ingesteld.             |
-| belasting                      | getal                                                         | Hiermee worden de gefactureerde BTW opgehaald of ingesteld.                                       |
-| tier2MpnId               | getal                                                         | Hiermee wordt de MPN-ID opgehaald of ingesteld van de laag 2-partner die aan dit regel item is gekoppeld. |
-| totalForCustomer         | getal                                                         | Hiermee wordt het totaal bedrag na de korting en belasting opgehaald of ingesteld.                 |
-| totalOtherDiscount       | getal                                                         | Hiermee wordt de korting opgehaald of ingesteld die is gekoppeld aan deze aankoop.              |
-| unitPrice                | getal                                                         | Hiermee wordt de eenheids prijs opgehaald of ingesteld.                                          |
+| bedrag                   | tekenreeks                                                         | Hiermee haalt u het totale bedrag op of stelt u dit in. Totaal bedrag = eenheidsprijs * hoeveelheid.  |
+| kenmerken               | tekenreeks                                                         | Haalt de kenmerken op.                                                  |
+| billingCycleType         | tekenreeks                                                         | Hiermee haalt u het type factureringscyclus op of stelt u dit in.                                  |
+| billingProvider          | tekenreeks                                                         | Haalt de factureringsprovider op.                                            |
+| chargeEndDate            | tekenreeks in UTC-datum/tijd-indeling                                 | Hiermee haalt u de einddatum voor de kosten op of stelt u deze in.                             |
+| chargeStartDate          | tekenreeks in UTC-datum/tijd-indeling                                 | Hiermee haalt u de begindatum voor de kosten op of stelt u deze in.                           |
+| chargeType               | tekenreeks                                                         | Hiermee haalt u het type kosten op of stelt u dit in.                                      |
+| currency                 | tekenreeks                                                         | Hiermee haalt u de valuta op die wordt gebruikt voor dit regelitem of stelt u deze in.                    |
+| customerId               | tekenreeks                                                         | Hiermee wordt de unieke id van de klant in het Microsoft-factureringsplatform op of stelt u deze in.  |
+| customerName             | tekenreeks in UTC-datum/tijd-indeling                                 | Hiermee haalt u de naam van de klant op of stelt u deze in.                                       |
+| domainName               | tekenreeks                                                         | Hiermee haalt u de domeinnaam op of stelt u deze in.                                             |
+| durableOfferId           | tekenreeks                                                         | Hiermee haalt u de unieke id van de Durable Offer op of stelt u deze in.                     |
+| invoiceLineItemType      | tekenreeks                                                         | Haalt het type factuurregelitem op.                                   |
+| mpnId                    | getal                                                         | Hiermee haalt u de MPN-id op die is gekoppeld aan dit regelitem of stelt u deze in. Voor directe resellers is dit de MPN-id van de reseller. Voor indirecte resellers is dit de MPN-id van de Value Added Reseller (VAR).                                   |
+| offerId                  | tekenreeks                                                         | Hiermee haalt u de unieke id van de aanbieding op of stelt u deze in.                             |
+| offerName                | tekenreeks                                                         | Hiermee haalt u de naam van de aanbieding op of stelt u deze in.                                          |
+| Orderid                  | tekenreeks                                                         | Hiermee haalt u de unieke id van de bestelling op of stelt u deze in.                             |
+| partnerId                | tekenreeks                                                         | Hiermee haalt u de tenant-id van de Azure Active Directory-partner op of stelt u deze in.            |
+| quantity                 | getal                                                         | Hiermee haalt of stelt u het aantal eenheden dat is gekoppeld aan dit regelitem.      |
+| subscriptionDescription  | tekenreeks                                                         | Hiermee haalt u de beschrijving van het abonnement op of stelt u deze in.                            |
+| subscriptionEndDate      | tekenreeks in UTC-datum/tijd-indeling                                 | Hiermee haalt u de datum op waarop het abonnement verloopt of stelt u deze in.                      |
+| subscriptionId           | tekenreeks                                                         | Hiermee haalt u de unieke id van het abonnement op of stelt u deze in.                      |
+| subscriptionName         | tekenreeks                                                         | Hiermee haalt u de naam van het abonnement op of stelt u deze in.                                   |
+| subscriptionStartDate    | tekenreeks in UTC-datum/tijd-indeling                                 | Hiermee haalt u de datum op waarop het abonnement wordt gestart of stelt u deze in.                   |
+| Subtotaal                 | getal                                                         | Haalt het bedrag op of stelt het in na korting.                               |
+| syndicationPartnerSubscriptionNumber | tekenreeks                                             | Hiermee wordt het abonnementsnummer van de partner voor de syndicatie of het abonnementsnummer van de partner in- of uitset.             |
+| Belasting                      | getal                                                         | Hiermee worden de in rekening gebrachte belastingen in rekening gebracht of in rekening gebracht.                                       |
+| tier2MpnId               | getal                                                         | Hiermee wordt de MPN-id van de Laag 2-partner die aan dit regelitem is gekoppeld, of deze id in of stelt u deze in. |
+| totalForCustomer         | getal                                                         | Haalt het totale bedrag op na korting en belasting of stelt het in.                 |
+| totalOtherDiscount       | getal                                                         | Hiermee wordt de korting die aan deze aankoop is gekoppeld, ontvangen of stelt.              |
+| unitPrice                | getal                                                         | Hiermee haalt u de eenheidsprijs op of stelt u deze in.                                          |
 
 ## <a name="usagebasedlineitem"></a>UsageBasedLineItem
 
-Vertegenwoordigt een facturerings regel item voor het factureren van op gebruik gebaseerde abonnementen.
+Vertegenwoordigt een factuurfactureringsregelitem voor abonnementen op basis van gebruik.
 
 | Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| kenmerken               | tekenreeks                                                         | Hiermee worden de kenmerken opgehaald.                                                  |
-| billingCycleType         | tekenreeks                                                         | Hiermee wordt het type facturerings cyclus opgehaald of ingesteld.                                  |
-| billingProvider          | tekenreeks                                                         | Hiermee wordt de facturerings provider opgehaald.                                            |
-| chargeEndDate            | teken reeks in UTC-datum-tijd notatie                                 | Hiermee wordt de eind datum voor de kosten opgehaald of ingesteld.                             |
-| chargeStartDate          | teken reeks in UTC-datum-tijd notatie                                 | Hiermee wordt de begin datum voor de kosten opgehaald of ingesteld.                           |
-| chargeType               | tekenreeks                                                         | Hiermee wordt het type kosten opgehaald of ingesteld.                                      |
-| consumedQuantity         | getal                                                         | Hiermee wordt het totale aantal verbruikte eenheden opgehaald of ingesteld.                                |
-| consumptionDiscount      | tekenreeks                                                         | Hiermee wordt de korting op verbruik opgehaald of ingesteld.                             |
-| consumptionPrice         | tekenreeks                                                         | Hiermee wordt de prijs van verbruikte hoeveelheid opgehaald of ingesteld.                          |
-| currency                 | tekenreeks                                                         | Hiermee wordt de valuta opgehaald of ingesteld die is gekoppeld aan de prijzen.                 |
-| customerName             | tekenreeks                                                         | Hiermee wordt de naam van de klant opgehaald of ingesteld.                                       |
-| customerId               | tekenreeks                                                         | Hiermee wordt de unieke id van de klant opgehaald of ingesteld.                          |
-| detailLineItemId         | getal                                                         | Hiermee wordt de item-ID van de detail regel opgehaald of ingesteld. Unieke identificatie van de regel items voor gevallen waarin de berekening afwijkt van de verbruikte eenheden. Voor beeld: totaal verbruikt = 1338, 1024 wordt in rekening gebracht met één tarief, het bedrag van 314 wordt gefactureerd met een ander tarief.        |
-| domainName               | tekenreeks                                                         | Hiermee wordt de domein naam opgehaald of ingesteld.                                             |
-| includedQuantity         | getal                                                         | Hiermee worden de eenheden opgehaald of ingesteld die in de order zijn opgenomen.                         |
-| invoiceLineItemType      | tekenreeks                                                         | Hiermee wordt het type van het factuur regel item opgehaald.                                   |
-| invoiceNumber            | tekenreeks                                                         | Hiermee wordt het factuur nummer opgehaald of ingesteld.                                      |
-| listPrice                | getal                                                         | Hiermee wordt de prijs van elke eenheid opgehaald of ingesteld.                                  |
-| mpnId                    | getal                                                         | Hiermee wordt de MPN-ID opgehaald of ingesteld die aan dit regel item is gekoppeld. Voor directe wederverkopers is dit de MPN-ID van de wederverkoper. Voor indirecte wederverkopers is dit de MPN-ID van de waarde added reseller (VAR).                                   |
-| Velden                  | tekenreeks                                                         | Hiermee wordt de unieke id van de order opgehaald of ingesteld.                             |
-| overageQuantity          | getal                                                         | Hiermee wordt de hoeveelheid verbruikt of ingesteld die het toegestane gebruik overschrijdt.               |
-| partnerBillableAccountId | tekenreeks                                                         | Hiermee wordt de factureer bare account-ID van de partner opgehaald of ingesteld.                         |
-| Partner                | tekenreeks                                                         | Hiermee wordt de Tenant-ID van de partner-Azure Active Directory opgehaald of ingesteld.            |
-| partnerName              | tekenreeks                                                         | Hiermee wordt de naam van de partner opgehaald of ingesteld.                                      |
-| postTaxEffectiveRate     | getal                                                         | Hiermee wordt de werkelijke prijs na belastingen opgehaald of ingesteld.                         |
-| postTaxTotal             | getal                                                         | Hiermee worden de totale kosten na belasting opgehaald of ingesteld. Pretax kosten + BTW-bedrag |
-| preTaxCharges            | getal                                                         | Hiermee wordt de prijs voor belastingen opgehaald of ingesteld.                          |
-| preTaxEffectiveRate      | getal                                                         | Hiermee wordt de werkelijke prijs voor belastingen opgehaald of ingesteld.                        |
-| regio                   | tekenreeks                                                         | Hiermee wordt de regio opgehaald of ingesteld die is gekoppeld aan het bron exemplaar.        |
-| GUID             | tekenreeks                                                         | Hiermee wordt de resource-id opgehaald of ingesteld.                                 |
-| resourceName             | tekenreeks                                                         | Hiermee wordt de naam van de resource opgehaald of ingesteld. Voor beeld: data base (GB/maand).         |
-| serviceName              | tekenreeks                                                         | Hiermee wordt de service naam opgehaald of ingesteld. Voor beeld: Azure data service.           |
-| Service              | tekenreeks                                                         | Hiermee wordt het Service type opgehaald of ingesteld. Voor beeld: Azure SQL Azure DB.           |
-| sku                      | tekenreeks                                                         | Hiermee wordt de Service-SKU opgehaald of ingesteld.                                         |
-| subscriptionDescription  | tekenreeks                                                         | Hiermee wordt de beschrijving van het abonnement opgehaald of ingesteld.                            |
-| subscriptionId           | tekenreeks                                                         | Hiermee wordt de unieke id van het abonnement opgehaald of ingesteld.                      |
-| subscriptionName         | tekenreeks                                                         | Hiermee wordt de naam van het abonnement opgehaald of ingesteld.                                   |
-| taxAmount                | getal                                                         | Hiermee wordt de gefactureerde hoeveelheid belasting opgehaald of ingesteld.                               |
-| tier2MpnId               | getal                                                         | Hiermee wordt de MPN-ID opgehaald of ingesteld van de laag 2-partner die aan dit regel item is gekoppeld. |
-| eenheid                     | tekenreeks                                                         | Hiermee wordt de maat eenheid voor Azure-gebruik opgehaald of ingesteld.                     |
+| kenmerken               | tekenreeks                                                         | Haalt de kenmerken op.                                                  |
+| billingCycleType         | tekenreeks                                                         | Hiermee haalt u het type factureringscyclus op of stelt u dit in.                                  |
+| billingProvider          | tekenreeks                                                         | Haalt de factureringsprovider op.                                            |
+| chargeEndDate            | tekenreeks in UTC-datum/tijd-indeling                                 | Hiermee haalt u de einddatum voor de kosten op of stelt u deze in.                             |
+| chargeStartDate          | tekenreeks in UTC-datum/tijd-indeling                                 | Hiermee haalt u de begindatum voor de kosten op of stelt u deze in.                           |
+| chargeType               | tekenreeks                                                         | Hiermee haalt u het type kosten op of stelt u dit in.                                      |
+| consumedQuantity         | getal                                                         | Haalt het totale aantal verbruikte eenheden op of stelt deze in.                                |
+| consumptionDiscount      | tekenreeks                                                         | Hiermee wordt de korting op het verbruik ontvangen of stelt u deze in.                             |
+| consumptionPrice         | tekenreeks                                                         | Hiermee wordt de prijs van de verbruikte hoeveelheid opgeslagen of stelt u deze in.                          |
+| currency                 | tekenreeks                                                         | Hiermee haalt u de valuta op die is gekoppeld aan de prijzen of stelt u deze in.                 |
+| customerName             | tekenreeks                                                         | Hiermee haalt u de naam van de klant op of stelt u deze in.                                       |
+| customerId               | tekenreeks                                                         | Hiermee haalt u de unieke klant-id op of stelt u deze in.                          |
+| detailLineItemId         | getal                                                         | Hiermee haalt u de detailregelitem-id op of stelt u deze in. Hiermee worden de regelitems uniek geïdentificeerd voor gevallen waarin de berekening verschilt voor verbruikte eenheden. Voorbeeld: Totaal verbruikt = 1338, 1024 wordt in rekening gebracht met één tarief, 314 wordt in rekening gebracht met een ander tarief.        |
+| domainName               | tekenreeks                                                         | Hiermee haalt u de domeinnaam op of stelt u deze in.                                             |
+| includedQuantity         | getal                                                         | Hiermee worden de eenheden die in de volgorde zijn opgenomen, of deze instelt.                         |
+| invoiceLineItemType      | tekenreeks                                                         | Haalt het type factuurregelitem op.                                   |
+| invoiceNumber            | tekenreeks                                                         | Hiermee haalt u het factuurnummer op of stelt u dit in.                                      |
+| listPrice                | getal                                                         | Hiermee haalt u de prijs van elke eenheid op of stelt u deze in.                                  |
+| mpnId                    | getal                                                         | Hiermee haalt u de MPN-id op die aan dit regelitem is gekoppeld of stelt u deze in. Voor directe resellers is dit de MPN-id van de reseller. Voor indirecte resellers is dit de MPN-id van de value added reseller (VAR).                                   |
+| Orderid                  | tekenreeks                                                         | Hiermee wordt de unieke id van de bestelling of de unieke id van de bestelling.                             |
+| overageQuantity          | getal                                                         | Hiermee wordt de hoeveelheid die boven het toegestane gebruik is verbruikt, opgeslagen of stelt u deze in.               |
+| partnerBillableAccountId | tekenreeks                                                         | Hiermee haalt u de factureerbare account-id van de partner op of stelt u deze in.                         |
+| partnerId                | tekenreeks                                                         | Hiermee haalt u de tenant-id van de Azure Active Directory-partner op of stelt u deze in.            |
+| partnerName              | tekenreeks                                                         | Hiermee haalt u de naam van de partner op of stelt u deze in.                                      |
+| postTaxEffectiveRate     | getal                                                         | Haalt de effectieve prijs op of stelt deze in na belastingen.                         |
+| postTaxTotal             | getal                                                         | Hiermee worden de totale kosten na belasting in rekening gebracht of in rekening gebracht. Kosten vóór belasting + btw-bedrag |
+| preTaxCharges            | getal                                                         | Hiermee wordt de prijs in rekening gebracht vóór belastingen of deze in rekening gebracht.                          |
+| preTaxEffectiveRate      | getal                                                         | Haalt of stelt de effectieve prijs vóór belastingen.                        |
+| regio                   | tekenreeks                                                         | Hiermee wordt de regio die is gekoppeld aan het resource-exemplaar, op haalt of in.        |
+| resourceGuid             | tekenreeks                                                         | Hiermee haalt u de resource-id op of stelt u deze in.                                 |
+| resourceName             | tekenreeks                                                         | Hiermee haalt u de resourcenaam op of stelt u deze in. Voorbeeld: Database (GB/maand).         |
+| Servicenaam              | tekenreeks                                                         | Hiermee haalt u de servicenaam op of stelt u deze in. Voorbeeld: Azure Data Service.           |
+| serviceType              | tekenreeks                                                         | Hiermee haalt u het servicetype op of stelt u dit in. Voorbeeld: Azure SQL Azure DB.           |
+| sku                      | tekenreeks                                                         | Hiermee haalt u de service-SKU op of stelt u deze in.                                         |
+| subscriptionDescription  | tekenreeks                                                         | Hiermee haalt u de beschrijving van het abonnement op of stelt u deze in.                            |
+| subscriptionId           | tekenreeks                                                         | Hiermee haalt u de unieke id van het abonnement op of stelt u deze in.                      |
+| subscriptionName         | tekenreeks                                                         | Hiermee haalt u de naam van het abonnement op of stelt u deze in.                                   |
+| taxAmount                | getal                                                         | Hiermee wordt het in rekening gebrachte btw-bedrag in rekening gebracht of in rekening gebracht.                               |
+| tier2MpnId               | getal                                                         | Hiermee wordt de MPN-id van de Laag 2-partner die aan dit regelitem is gekoppeld, opgehouden of stelt u deze in. |
+| eenheid                     | tekenreeks                                                         | Hiermee wordt de maateenheid voor Azure-gebruik in- of uitgevoerd.                     |
 
 ## <a name="invoicestatement"></a>InvoiceStatement
 
-Hiermee wordt de beschik bare bewerkingen in een factuur overzicht in Application/PDF aangegeven.
+Vertegenwoordigt de bewerkingen die beschikbaar zijn op een factuuroverzicht in toepassing/pdf.
 
 | Eigenschap                 | Type                                                           | Beschrijving                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| httpResponseMessage      | object                                                         | ByteArrayContent met content type = Application/PDF.                  |
+| httpResponseMessage      | object                                                         | ByteArrayContent met contentType = application/pdf.                  |
 
 ## <a name="onetimeinvoicelineitem"></a>OneTimeInvoiceLineItem
 
-Vertegenwoordigt een factuur facturerings regel item voor abonnementen op basis van licenties.
+Vertegenwoordigt een factuurfactureringsregelitem voor abonnementen op basis van een licentie.
 
 | Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
-| Partner | tekenreeks | Hiermee wordt de Tenant-ID van de partner opgehaald of ingesteld. |
-| CustomerId | tekenreeks | Hiermee wordt de Tenant-ID van de klant opgehaald of ingesteld. |
-| CustomerName | tekenreeks | Hiermee wordt de naam van de klant opgehaald of ingesteld. |
-| CustomerDomainName | tekenreeks | Hiermee wordt de domein naam van de klant opgehaald of ingesteld. |
-| CustomerCountry | tekenreeks | Hiermee wordt het land van de klant opgehaald of ingesteld. |
-| InvoiceNumber | tekenreeks | Hiermee wordt het factuur nummer opgehaald of ingesteld. |
-| MpnId | tekenreeks | Hiermee wordt de MPN-ID opgehaald of ingesteld die aan dit regel item is gekoppeld. |
-| ResellerMpnId | int | Hiermee wordt de unieke id van de order opgehaald of ingesteld. |
-| OrderDate | DateTime | Hiermee wordt de datum opgehaald of ingesteld waarop de order is gemaakt. |
-| ProductId | tekenreeks | Hiermee wordt de unieke product-id opgehaald of ingesteld. |
-| SkuId | tekenreeks | Hiermee wordt de unieke id van de SKU opgehaald of ingesteld. |
-| AvailabilityId | tekenreeks | Hiermee wordt de unieke id van de beschik baarheid opgehaald of ingesteld. |
-| ProductName | tekenreeks | Hiermee wordt de product naam opgehaald of ingesteld. |
-| SkuName | tekenreeks | Hiermee wordt de SKU-naam opgehaald of ingesteld. |
-| ChargeType | tekenreeks | Hiermee wordt het type kosten opgehaald of ingesteld. |
-| UnitPrice | decimal | Hiermee wordt de eenheids prijs opgehaald of ingesteld. |
-| EffectiveUnitPrice | decimal | Hiermee wordt de werkelijke eenheids prijs opgehaald of ingesteld. |
-| Unit type | tekenreeks | Hiermee wordt het eenheids type opgehaald of ingesteld. |
-| Aantal | int | Hiermee wordt het aantal eenheden opgehaald of ingesteld dat aan dit regel item is gekoppeld. |
-| Subtotaal | decimal | Hiermee wordt de hoeveelheid na de korting opgehaald of ingesteld. |
-| TaxTotal | decimal | Hiermee worden de gefactureerde BTW opgehaald of ingesteld. |
-| TotalForCustomer | decimal | Hiermee wordt het totaal bedrag na de korting en belasting opgehaald of ingesteld. |
-| Valuta | tekenreeks | Hiermee wordt de valuta opgehaald of ingesteld die voor dit regel item wordt gebruikt. |
-| PublisherName | tekenreeks | Hiermee wordt de naam van de uitgever opgehaald of ingesteld die aan deze aankoop is gekoppeld. |
-| PublisherId | tekenreeks | Hiermee wordt de uitgevers-ID opgehaald of ingesteld die aan deze aankoop is gekoppeld. |
-| SubscriptionDescription | tekenreeks | Hiermee wordt de beschrijving van het abonnement opgehaald of ingesteld die aan deze aankoop is gekoppeld. |
-| SubscriptionId | tekenreeks | Hiermee wordt de abonnements-ID opgehaald of ingesteld die is gekoppeld aan deze aankoop. |
-| ChargeStartDate | DateTime | Hiermee wordt de begin datum voor de kosten van deze aankoop opgehaald of ingesteld. |
-| ChargeEndDate | DateTime | Hiermee wordt de eind datum van de kosten voor deze aankoop opgehaald of ingesteld. |
-| TermAndBillingCycle | tekenreeks | Hiermee wordt de periode en facturerings cyclus opgehaald of ingesteld die aan deze aankoop is gekoppeld. |
-| AlternateId | tekenreeks | Hiermee wordt de alternatieve ID (Quote-ID) opgehaald of ingesteld. |
-| PriceAdjustmentDescription | tekenreeks | Hiermee wordt de beschrijving van de prijs correctie opgehaald of ingesteld. |
-| CreditReasonCode | tekenreeks | Hiermee wordt de code van de krediet reden opgehaald of ingesteld. |
-| DiscountDetails | tekenreeks |  **Afgeschaft**. Hiermee worden de kortings gegevens opgehaald of ingesteld die zijn gekoppeld aan deze aankoop. |
-| PricingCurrency | tekenreeks | Hiermee wordt de valuta code voor prijzen opgehaald of ingesteld. |
-| PCToBCExchangeRate | decimal | Hiermee wordt de prijs valuta opgehaald of ingesteld op basis van de valuta wisselkoers. |
-| PCToBCExchangeRateDate | DateTime | Hiermee wordt de wisselkoers datum opgehaald of ingesteld waarmee de prijs valuta voor de wissel koers van de facturerings valuta werd bepaald. |
-| BillableQuantity | decimal | Hiermee worden de aangeschafte eenheden opgehaald of ingesteld. Voor elke ontwerp kolom met de naam **BillableQuantity**. |
-| MeterDescription | tekenreeks | Hiermee wordt de meter beschrijving voor het verbruik van het regel item opgehaald of ingesteld. |
-| ReservationOrderId | tekenreeks | Hiermee wordt de reserverings order-id voor een Azure RI-aankoop opgehaald of ingesteld. |
-| BillingFrequency | tekenreeks | Hiermee wordt de facturerings frequentie opgehaald of ingesteld. |
-| InvoiceLineItemType | InvoiceLineItemType | Hiermee wordt het type van het factuur regel item geretourneerd. |
-| BillingProvider | BillingProvider | Hiermee wordt de facturerings provider geretourneerd. |
+| PartnerId | tekenreeks | Hiermee haalt u de tenant-id van de partner op of stelt u deze in. |
+| CustomerId | tekenreeks | Hiermee haalt u de tenant-id van de klant op of stelt u deze in. |
+| CustomerName | tekenreeks | Hiermee haalt u de naam van de klant op of stelt u deze in. |
+| CustomerDomainName | tekenreeks | Hiermee haalt u de domeinnaam van de klant op of stelt u deze in. |
+| CustomerCountry | tekenreeks | Hiermee haalt u het land van de klant op of stelt u het in. |
+| InvoiceNumber | tekenreeks | Hiermee haalt u het factuurnummer op of stelt u dit in. |
+| MpnId | tekenreeks | Hiermee haalt u de MPN-id op die aan dit regelitem is gekoppeld of stelt u deze in. |
+| ResellerMpnId | int | Hiermee wordt de unieke id van de bestelling of de unieke id van de bestelling. |
+| OrderDate | DateTime | Hiermee wordt de datum van het maken van de order op of instelt. |
+| ProductId | tekenreeks | Hiermee haalt u de unieke id van het product op of stelt u deze in. |
+| SkuId | tekenreeks | Hiermee haalt u de unieke SKU-id op of stelt u deze in. |
+| AvailabilityId | tekenreeks | Hiermee haalt u de unieke beschikbaarheids-id op of stelt u deze in. |
+| ProductName | tekenreeks | Hiermee haalt u de productnaam op of stelt u deze in. |
+| SkuName | tekenreeks | Hiermee haalt u de SKU-naam op of stelt u deze in. |
+| ChargeType | tekenreeks | Hiermee haalt u het type kosten op of stelt u dit in. |
+| UnitPrice | decimal | Hiermee haalt u de eenheidsprijs op of stelt u deze in. |
+| EffectiveUnitPrice | decimal | Hiermee haalt u de effectieve eenheidsprijs op of stelt u deze in. |
+| UnitType | tekenreeks | Hiermee haalt u het eenheidstype op of stelt u dit in. |
+| Aantal | int | Hiermee wordt het aantal eenheden dat aan dit regelitem is gekoppeld, op haalt of in. |
+| Subtotaal | decimal | Hiermee wordt het bedrag na korting ontvangen of stelt u dit in. |
+| TaxTotal | decimal | Hiermee worden de in rekening gebrachte belastingen in rekening gebracht of in rekening gebracht. |
+| TotalForCustomer | decimal | Haalt of stelt het totale bedrag na korting en belasting. |
+| Valuta | tekenreeks | Hiermee haalt u de valuta op die wordt gebruikt voor dit regelitem of stelt u deze in. |
+| PublisherName | tekenreeks | Hiermee haalt u de naam van de uitgever op die aan deze aankoop is gekoppeld of stelt u deze in. |
+| PublisherId | tekenreeks | Hiermee haalt u de uitgevers-id op die is gekoppeld aan deze aankoop of stelt u deze in. |
+| SubscriptionDescription | tekenreeks | Hiermee wordt de abonnementsbeschrijving die aan deze aankoop is gekoppeld, op halen of in stellen. |
+| SubscriptionId | tekenreeks | Hiermee haalt u de abonnements-id op die is gekoppeld aan deze aankoop of stelt u deze in. |
+| ChargeStartDate | DateTime | Hiermee wordt de begindatum van de kosten die aan deze aankoop is gekoppeld, op de hoogte gebracht of stelt u deze in. |
+| ChargeEndDate | DateTime | Hiermee wordt de einddatum van de kosten die aan deze aankoop is gekoppeld, op de hoogte gebracht of stelt u deze in. |
+| TermAndBillingCycle | tekenreeks | Hiermee worden de termijn en factureringscyclus die aan deze aankoop zijn gekoppeld, in- ofset. |
+| AlternateId | tekenreeks | Hiermee haalt u de alternatieve id (prijsopgave-id) op of stelt u deze in. |
+| PriceAdjustmentDescription | tekenreeks | Hiermee haalt u de beschrijving van de prijscorrectie op of stelt u deze in. |
+| CreditReasonCode | tekenreeks | Hiermee wordt de code voor de reden van het tegoed ontvangen of stelt u deze in. |
+| DiscountDetails | tekenreeks |  **Afgeschaft.** Hiermee worden de kortingsdetails voor deze aankoop ontvangen of stelt u deze in. |
+| PricingCurrency | tekenreeks | Haalt de prijsvalutacode op of stelt deze in. |
+| PCToBCExchangeRate | decimal | Haalt de prijsvaluta op of stelt deze in op de wisselkoers van de factureringsvaluta. |
+| PCToBCExchangeRateDate | DateTime | Hiermee wordt de datum van de wisselkoers waarop de prijsvaluta is bepaald, op de wisselkoers van de factureringsvaluta bepaald of bepaald. |
+| BillableQuantity | decimal | Hiermee haalt u de aangeschafte eenheden op of stelt u deze in. Voor elke ontwerpkolom met de naam **BillableQuantity**. |
+| MeterDescription | tekenreeks | Hiermee wordt de meterbeschrijving voor het verbruikslijnitem op of stelt u deze in. |
+| ReservationOrderId | tekenreeks | Hiermee wordt de reserveringsorder-id voor een Azure RI-aankoop in- of uitgevoerd. |
+| BillingFrequency | tekenreeks | Hiermee haalt u de factureringsfrequentie op of stelt u deze in. |
+| InvoiceLineItemType | InvoiceLineItemType | Retourneert het type factuurregelitem. |
+| BillingProvider | BillingProvider | Retourneert de factureringsprovider. |
 
 ## <a name="dailyratedusagelineitem"></a>DailyRatedUsageLineItem
 
-Vertegenwoordigt niet-gefactureerde, gefactureerde afstemmings regel items voor dagelijks geclassificeerd gebruik.
+Vertegenwoordigt niet-gefactureerde afstemmingslijnitems voor dagelijks beoordeeld gebruik.
 
 | Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
-| Partner | tekenreeks | Hiermee wordt de Tenant-ID van de partner opgehaald of ingesteld. |
-| PartnerName | tekenreeks | Hiermee wordt de naam van de partner opgehaald of ingesteld. |
-| CustomerId | tekenreeks | Hiermee wordt de Tenant-ID opgehaald of ingesteld van de klant waarbij het gebruik behoort. |
-| CustomerName | tekenreeks | Hiermee wordt de naam opgehaald of ingesteld van het bedrijf van de klant waarbij gebruik wordt uitmaakt. |
-| CustomerDomainName | tekenreeks | Hiermee wordt de domein naam opgehaald of ingesteld van de klant waarbij het gebruik behoort. |
-| InvoiceNumber | tekenreeks | Hiermee wordt de ID opgehaald of ingesteld van de factuur waarvan het gebruik deel uitmaakt. |
-| ProductId | tekenreeks | Hiermee wordt de unieke product-id opgehaald of ingesteld. |
-| SkuId | tekenreeks | Hiermee wordt de unieke id van de SKU opgehaald of ingesteld. |
-| AvailabilityId | tekenreeks | Hiermee wordt de unieke id van de beschik baarheid opgehaald of ingesteld. |
-| SkuName | tekenreeks | Hiermee wordt de SKU-naam voor de service opgehaald of ingesteld. |
-| ProductName | tekenreeks | Hiermee wordt de naam van het product opgehaald of ingesteld. |
-| PublisherName | tekenreeks | Hiermee wordt de naam van de uitgever opgehaald of ingesteld. |
-| PublisherId | tekenreeks | Hiermee wordt de ID van de uitgever opgehaald of ingesteld. |
-| SubscriptionId | tekenreeks | Hiermee wordt de abonnements-ID opgehaald of ingesteld. |
-| SubscriptionDescription | tekenreeks | Hiermee wordt de beschrijving van het abonnement opgehaald of ingesteld. |
-| ChargeStartDate | DateTime | Hiermee wordt de begin datum van de lading opgehaald of ingesteld. |
-| ChargeEndDate | DateTime | Hiermee wordt de eind datum van de lading opgehaald of ingesteld. |
-| UsageDate | DateTime | Hiermee wordt de gebruiks datum opgehaald of ingesteld. |
-| MeterType | tekenreeks | Hiermee wordt het meter type opgehaald of ingesteld. |
-| MeterCategory | tekenreeks | Hiermee wordt de meter categorie opgehaald of ingesteld. |
-| MeterId | tekenreeks | Hiermee wordt de meter-ID (GUID) opgehaald of ingesteld. |
-| MeterSubCategory | tekenreeks | Hiermee wordt de subcategorie van de meter opgehaald of ingesteld. |
-| MeterName | tekenreeks | Hiermee wordt de naam van de meter opgehaald of ingesteld. |
-| MeterRegion | tekenreeks | Hiermee wordt de meter regio opgehaald of ingesteld. |
-| UnitOfMeasure | tekenreeks | Hiermee wordt de maat eenheid opgehaald of ingesteld. |
-| ResourceLocation | tekenreeks | Hiermee wordt de locatie van de resource opgehaald of ingesteld. |
-| ConsumedService | tekenreeks | Hiermee wordt de verbruikte service naam opgehaald of ingesteld. |
-| ResourceGroup | tekenreeks | Hiermee wordt de naam van de resource groep opgehaald of ingesteld. |
-| ResourceUri | tekenreeks | Hiermee wordt de URI opgehaald of ingesteld van het resource-exemplaar waarvoor het gebruik wordt gebruikt. |
-| Tags | tekenreeks | Hiermee wordt de door de klant toegevoegde Tags opgehaald of ingesteld. |
-| AdditionalInfo | tekenreeks | Hiermee worden de servicespecifieke meta gegevens opgehaald of ingesteld. Bijvoorbeeld een installatiekopie voor een virtuele machine. |
-| ServiceInfo1 | tekenreeks | Hiermee worden de interne meta gegevens van Azure-service opgehaald of ingesteld. |
-| ServiceInfo2 | tekenreeks | Hiermee worden service gegevens opgehaald of ingesteld, bijvoorbeeld een installatie kopie type voor de naam van een virtuele machine en ISP voor ExpressRoute. |
-| CustomerCountry | tekenreeks | Hiermee wordt het land van de klant opgehaald of ingesteld. |
-| MpnId | tekenreeks | Hiermee wordt de MPN-ID opgehaald of ingesteld die aan dit regel item is gekoppeld. |
-| ResellerMpnId | tekenreeks | Hiermee wordt de reseller MPN-ID opgehaald of ingesteld van de laag 2-partner die aan dit regel item is gekoppeld. |
-| ChargeType | tekenreeks | Hiermee wordt het type kosten opgehaald of ingesteld. |
-| UnitPrice | decimal | Hiermee wordt de prijs van de eenheid opgehaald of ingesteld. |
-| Aantal | decimal | Hiermee wordt het aantal gebruik opgehaald of ingesteld. |
-| Unit type | tekenreeks | Hiermee wordt het eenheids type (zoals 1 uur) opgehaald of ingesteld. |
-| BillingPreTaxTotal | decimal | Hiermee worden de berekende kosten of de totale kosten voor de belasting in de lokale valuta van de klant of facturerings valuta opgehaald of ingesteld. |
-| BillingCurrency | tekenreeks | Hiermee wordt de ISO-valuta opgehaald of ingesteld waarin de meter wordt gefactureerd in de lokale valuta van de klant of facturerings valuta. |
-| PricingPreTaxTotal | decimal | Hiermee worden de berekende kosten of de totale kosten voor de belasting in USD of de catalogus valuta die voor de beoordeling wordt gebruikt, opgehaald of ingesteld. |
-| PricingCurrency | tekenreeks | Hiermee wordt de ISO-valuta opgehaald of ingesteld waarin de meter wordt gefactureerd in USD of catalogus valuta die voor beoordeling wordt gebruikt. |
-| EntitlementId | tekenreeks | Hiermee wordt de recht-ID (Azure-abonnement) opgehaald of ingesteld. |
-| EntitlementDescription | tekenreeks | Hiermee wordt de beschrijving van het recht (Azure-abonnement) opgehaald of ingesteld. |
-| PCToBCExchangeRate | tekenreeks | Hiermee wordt de prijs valuta opgehaald of ingesteld op basis van de valuta wisselkoers. |
-| PCToBCExchangeRateDate | DateTime | Hiermee wordt de prijs valuta opgehaald of ingesteld op basis van de valuta wisselkoers datum. |
-| EffectiveUnitPrice | decimal | Hiermee wordt de werkelijke eenheids prijs opgehaald of ingesteld. |
-| RateOfPartnerEarnedCredit | decimal | Hiermee wordt de frequentie van het tegoed van de partner opgehaald of ingesteld. |
-| HasPartnerEarnedCredit | booleaans | Hiermee wordt opgehaald of ingesteld dat het tegoed van de partner is toegepast. |
-| RateOfCredit | decimal | Hiermee wordt het tegoed voor het opgegeven krediet type opgehaald of ingesteld. |
-| CreditType | tekenreeks | Hiermee wordt het type krediet opgehaald of ingesteld. |
-| InvoiceLineItemType | InvoiceLineItemType | Hiermee wordt het type van het factuur regel item geretourneerd. |
-| BillingProvider | BillingProvider | Hiermee wordt de facturerings provider geretourneerd. |
+| PartnerId | tekenreeks | Hiermee haalt u de tenant-id van de partner op of stelt u deze in. |
+| PartnerName | tekenreeks | Hiermee haalt u de naam van de partner op of stelt u deze in. |
+| CustomerId | tekenreeks | Hiermee wordt de tenant-id van de klant waar het gebruik bij hoort, op haalt of in. |
+| CustomerName | tekenreeks | Hiermee wordt de naam van het klantbedrijf waar het gebruik van deel van is, in- of uit. |
+| CustomerDomainName | tekenreeks | Hiermee wordt de domeinnaam van de klant waar het gebruik van deel van is, of deze naam instellen. |
+| InvoiceNumber | tekenreeks | Hiermee wordt de id van de factuur waar het gebruik bij hoort, ontvangen of stelt u deze in. |
+| ProductId | tekenreeks | Hiermee haalt u de unieke id van het product op of stelt u deze in. |
+| SkuId | tekenreeks | Hiermee haalt u de unieke SKU-id op of stelt u deze in. |
+| AvailabilityId | tekenreeks | Hiermee haalt u de unieke beschikbaarheids-id op of stelt u deze in. |
+| SkuName | tekenreeks | Hiermee haalt u de SKU-naam voor de service op of stelt u deze in. |
+| ProductName | tekenreeks | Hiermee haalt u de naam van het product op of stelt u deze in. |
+| PublisherName | tekenreeks | Hiermee haalt u de naam van de uitgever op of stelt u deze in. |
+| PublisherId | tekenreeks | Hiermee haalt u de id van de uitgever op of stelt u deze in. |
+| SubscriptionId | tekenreeks | Hiermee haalt u de abonnements-id op of stelt u deze in. |
+| SubscriptionDescription | tekenreeks | Hiermee haalt u de beschrijving van het abonnement op of stelt u deze in. |
+| ChargeStartDate | DateTime | Hiermee haalt u de begindatum van de kosten op of stelt u deze in. |
+| ChargeEndDate | DateTime | Hiermee haalt u de einddatum van de kosten op of stelt u deze in. |
+| UsageDate | DateTime | Hiermee haalt u de gebruiksdatum op of stelt u deze in. |
+| MeterType | tekenreeks | Hiermee haalt u het metertype op of stelt u dit in. |
+| MeterCategory | tekenreeks | Hiermee haalt u de metercategorie op of stelt u deze in. |
+| MeterId | tekenreeks | Hiermee haalt u de meter-id (GUID) op of stelt u deze in. |
+| MeterSubCategory | tekenreeks | Hiermee haalt u de subcategorie van de meter op of stelt u deze in. |
+| MeterName | tekenreeks | Hiermee haalt u de meternaam op of stelt u deze in. |
+| MeterRegion | tekenreeks | Hiermee haalt u de meterregio op of stelt u deze in. |
+| UnitOfMeasure | tekenreeks | Hiermee haalt u de maateenheid op of stelt u deze in. |
+| ResourceLocation | tekenreeks | Hiermee haalt u de locatie van de resource op of stelt u deze in. |
+| ConsumedService | tekenreeks | Hiermee haalt u de naam van de verbruikte service op of stelt u deze in. |
+| ResourceGroup | tekenreeks | Hiermee haalt u de naam van de resourcegroep op of stelt u deze in. |
+| ResourceUri | tekenreeks | Hiermee wordt de URI van het resource-exemplaar waar het gebruik over gaat, op de URI in- ofsets. |
+| Tags | tekenreeks | Hiermee haalt u tags op of stelt u de tags in die de klant heeft toegevoegd. |
+| AdditionalInfo | tekenreeks | Haalt de servicespecifieke metagegevens op of stelt deze in. Bijvoorbeeld een installatiekopie voor een virtuele machine. |
+| ServiceInfo1 | tekenreeks | Hiermee worden interne Azure-servicemetagegevens opgeslagen ofsets. |
+| ServiceInfo2 | tekenreeks | Haalt servicegegevens op of stelt deze in, bijvoorbeeld een afbeeldingstype voor een virtuele machine en isp-naam voor ExpressRoute. |
+| CustomerCountry | tekenreeks | Hiermee haalt u het land van de klant op of stelt u dit in. |
+| MpnId | tekenreeks | Hiermee haalt u de MPN-id op die is gekoppeld aan dit regelitem of stelt u deze in. |
+| ResellerMpnId | tekenreeks | Hiermee wordt de MPN-id voor resellers van de Laag 2-partner die aan dit regelitem is gekoppeld, opgetrokken of ingetrokken. |
+| ChargeType | tekenreeks | Hiermee haalt u het type kosten op of stelt u dit in. |
+| UnitPrice | decimal | Hiermee haalt u de prijs van de eenheid op of stelt u deze in. |
+| Aantal | decimal | Hiermee wordt de hoeveelheid gebruik in- ofsets. |
+| UnitType | tekenreeks | Hiermee wordt het eenheidstype (zoals 1 uur) getypt of bepaald. |
+| BillingPreTaxTotal | decimal | Hiermee worden de uitgebreide kosten of de totale kosten vóór belasting in de lokale valuta van de klant of factureringsvaluta in- ofsets. |
+| BillingCurrency | tekenreeks | Hiermee wordt iso-valuta in rekening gebracht of in rekening gebracht in lokale valuta van de klant of factureringsvaluta. |
+| PricingPreTaxTotal | decimal | Hiermee worden de uitgebreide kosten of de totale kosten vóór belasting in USD of catalogusvaluta die worden gebruikt voor de classificatie, of deze in ofsets. |
+| PricingCurrency | tekenreeks | Hiermee wordt iso-valuta in rekening gebracht of in rekening gebracht in USD of catalogusvaluta die wordt gebruikt voor classificatie. |
+| EntitlementId | tekenreeks | Hiermee haalt u de rechten-id (Azure-abonnement) op of stelt u deze in. |
+| EntitlementDescription | tekenreeks | Hiermee haalt u de beschrijving van het recht (Azure-abonnement) op of stelt u deze in. |
+| PCToBCExchangeRate | tekenreeks | Haalt de prijsvaluta op of stelt deze in op de wisselkoers van de factureringsvaluta. |
+| PCToBCExchangeRateDate | DateTime | Haalt de prijsvaluta op of stelt deze in op de datum van de factureringsvaluta. |
+| EffectiveUnitPrice | decimal | Haalt de effectieve eenheidsprijs op of stelt deze in. |
+| RateOfPartnerEarnedCredit | decimal | Hiermee wordt het tarief van partnertegoeden of -tegoeden in- ofsets. |
+| HasPartnerEarnedCredit | booleaans | Hiermee wordt het partnertegoed toegepast of wordt het tegoed van de partner toegepast. |
+| RateOfCredit | decimal | Hiermee wordt het tarief van het tegoed voor het opgegeven tegoedtype in- of bepaald. |
+| CreditType | tekenreeks | Haalt het type tegoed op of stelt dit in. |
+| InvoiceLineItemType | InvoiceLineItemType | Retourneert het type factuurregelitem. |
+| BillingProvider | BillingProvider | Retourneert de factureringsprovider. |

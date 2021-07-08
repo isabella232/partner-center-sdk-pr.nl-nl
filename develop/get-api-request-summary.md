@@ -1,33 +1,31 @@
 ---
-title: De acceptatie status voor MFA ophalen
-description: Een lijst met de acceptatie status voor multi-factor Authentication ophalen voor elke partner met behulp van de partner REST API.
+title: De MFA-acceptatiestatus op halen
+description: Haal een lijst op van de acceptatiestatus voor meervoudige verificatie voor elke partner met behulp van de Partner REST API.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f82d163b704323c81e2948b78eb9b9d1a14ddc52
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9b8848c2a4531dd6609f86aae6876cec436eeea9
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767268"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760518"
 ---
-# <a name="get-mfa-adoption-status"></a>Status van MFA-acceptatie ophalen
+# <a name="get-mfa-adoption-status"></a>MFA-acceptatiestatus krijgen
 
-Van toepassing op:
+**Van toepassing op**: Partner Center API
 
-- Partnercentrum-API
-
-In dit artikel wordt uitgelegd hoe u de acceptatie status van multi-factor Authentication (MFA) kunt ophalen voor elke partner binnen een Tenant.
+In dit artikel wordt uitgelegd hoe u de MFA-acceptatiestatus (Multi-Factor Authentication) kunt krijgen voor elke partner binnen een tenant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                               |
 |---------|---------------------------------------------------------------------------|
@@ -35,7 +33,7 @@ In dit artikel wordt uitgelegd hoe u de acceptatie status van multi-factor Authe
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Zie de [rest headers van het Partner Center](headers.md) voor meer informatie.
+- Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -52,11 +50,11 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling [API-aanvragen, samen vatting van toepassings](mfa-resources.md#api-request-summarized-by-application) resources, in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling [API-aanvragen, samengevat door Toepassingsresources](mfa-resources.md#api-request-summarized-by-application) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

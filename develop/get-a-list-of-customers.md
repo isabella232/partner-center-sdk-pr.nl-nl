@@ -1,43 +1,38 @@
 ---
 title: Een lijst met klanten ophalen
-description: Hoe u een verzameling resources kunt ophalen die alle klanten van een partner vertegenwoordigen.
+description: Een verzameling resources ophalen die alle klanten van een partner vertegenwoordigen.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 2dd8469458809ab38b6d6081adc91d6d1184d2d0
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 840c9d1a61451763d37a19639f99b12f1deb7521
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767471"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874343"
 ---
 # <a name="get-a-list-of-customers"></a>Een lijst met klanten ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-In dit artikel wordt beschreven hoe u een verzameling resources kunt ophalen die alle klanten van een partner vertegenwoordigen.
+In dit artikel wordt beschreven hoe u een verzameling resources ophaalt die alle klanten van een partner vertegenwoordigt.
 
 > [!TIP]
-> U kunt deze bewerking ook uitvoeren in het dash board van partner Center. Selecteer op de hoofd pagina onder **klant beheer** de optie **klanten weer geven**. U kunt ook op de zijbalk **klanten** selecteren.
+> U kunt deze bewerking ook uitvoeren in het Partner Center dashboard. Selecteer op de hoofdpagina onder **Klantbeheer** de optie **Klanten weergeven.** Of selecteer klanten op de **zijbalk.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Een lijst met alle klanten ophalen:
+Een lijst met alle klanten op te halen:
 
-1. Gebruik de verzameling [**IAggregatePartner. Customs**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een **IPartner** -object te maken.
+1. Gebruik de [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een **IPartner-object te** maken.
 
-2. Haal de klanten lijst op met behulp van de methoden [**query ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) of [**QueryAsync ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) . (Zie de [**QueryFactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) -klasse voor instructies over het maken van een query.)
+2. Haal de klantenlijst op met behulp van [**de methoden Query()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) of [**QueryAsync().**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) (Zie de klasse [**QueryFactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) voor instructies over het maken van een query.)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,21 +45,21 @@ var customersBatch = scopedPartnerOperations.Customers.Query(QueryFactory.Instan
 var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(customersBatch);
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **CustomerPaging.cs**
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Een lijst met alle klanten ophalen:
+Een lijst met alle klanten op te halen:
 
-1. Gebruik de functie [**IAggregatePartner. getCustomers**] om een verwijzing naar de klant bewerkingen op te halen.
+1. Gebruik de functie [**IAggregatePartner.getCustomers**] om een verwijzing naar de klantbewerkingen op te halen.
 
-2. Haal de klanten lijst op met behulp van de functie **query ()** .
+2. Haal de klantenlijst op met behulp van de **functie query().**
 
 ```java
 // Query the customers, get the first page if a page size was set, otherwise get all customers
@@ -92,7 +87,7 @@ while (customersEnumerator.hasValue())
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Voer de opdracht [**Get-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) zonder para meters uit om een volledige lijst met klanten te verkrijgen.
+Voer de [**opdracht Get-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) zonder parameters uit om een volledige lijst met klanten op te halen.
 
 ```powershell
 Get-PartnerCustomer
@@ -100,23 +95,23 @@ Get-PartnerCustomer
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers? grootte = {size} http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers?size={size} HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om een lijst met klanten op te halen.
+Gebruik de volgende queryparameter om een lijst met klanten op te halen.
 
 | Naam     | Type    | Vereist | Beschrijving                                        |
 |----------|---------|----------|----------------------------------------------------|
-| **size** | **int** | J        | Het aantal resultaten dat tegelijk moet worden weer gegeven. |
+| **Grootte** | **int** | J        | Het aantal resultaten dat in één keer moet worden weergegeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -134,11 +129,11 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling [klant](customer-resources.md#customer) resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling [Klantresources](customer-resources.md#customer) in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

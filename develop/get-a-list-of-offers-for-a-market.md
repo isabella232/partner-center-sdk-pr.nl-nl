@@ -1,36 +1,31 @@
 ---
 title: Een lijst met aanbiedingen voor een markt ophalen
-description: Hiermee wordt een verzameling opgehaald die alle aanbiedingen voor een specifieke markt bevat.
+description: Haalt een verzameling op die alle aanbiedingen voor een specifieke markt bevat.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 3a004f6f8f8de8cd398d82c300793e4f196efaaa
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f4fd821879545db4e781fe3202c8ee11f167615
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767297"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874241"
 ---
 # <a name="get-a-list-of-offers-for-a-market"></a>Een lijst met aanbiedingen voor een markt ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een verzameling opgehaald die alle aanbiedingen voor een specifieke markt bevat.
+Haalt een verzameling op die alle aanbiedingen voor een specifieke markt bevat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met aanbiedingen op een bepaalde markt wilt ontvangen, gebruikt u uw **IAggregatePartner. offers** -verzameling, selecteert u de markt per land en roept u de methode **Get ()** of **Get async ()** aan.
+Als u een lijst met aanbiedingen op een bepaalde markt wilt ophalen, gebruikt u de verzameling **IAggregatePartner.Offers,** selecteert u de markt per land en roept u de methode **Get()** of **Get Async()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,28 +33,28 @@ Als u een lijst met aanbiedingen op een bepaalde markt wilt ontvangen, gebruikt 
 ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerSDK. FeatureSample- **klasse**: offers.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: Offers.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                          |
 |---------|--------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers? land = {land-id} http/1.1   |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers?country={country-id} HTTP/1.1   |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameters voor het ophalen van de aanbiedingen.
+Deze tabel bevat de vereiste queryparameters om de aanbiedingen op te halen.
 
 | Naam           | Type       | Vereist | Beschrijving            |
 |----------------|------------|----------|------------------------|
-| **land-id** | **tekenreeksexpressie** | J        | De ID van het land/de regio. |
+| **country-id** | **tekenreeks** | J        | De land-/regio-id. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-- Een **land instellingen-id** die is opgemaakt als een teken reeks is vereist.
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+- Er **is een locale-id** vereist die is opgemaakt als een tekenreeks.
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -78,11 +73,11 @@ X-Locale: <locale-id>
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling van **aanbod** resources in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling **aanbiedingsresources** in de antwoordbody.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

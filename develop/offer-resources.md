@@ -1,26 +1,21 @@
 ---
-title: Aanbiedings resources
-description: Hierin wordt een product beschreven dat wordt vermeld in de wederverkoper-catalogus en dat aan hun klanten kan worden aangeboden.
+title: Resources aanbieden
+description: Beschrijft een product dat wordt vermeld in de resellercatalogus dat ze aan hun klanten kunnen aanbieden.
 ms.date: 03/15/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 45af02705d2a03c7586ba6bf3a5537c3e4eec3c7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 704e5580f2cdf84fc82b627e3b2ca165b81a3af5
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767211"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548104"
 ---
-# <a name="offer-resources"></a>Aanbiedings resources
+# <a name="offer-resources"></a>Resources aanbieden
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hierin wordt een product beschreven dat wordt vermeld in de wederverkoper-catalogus en dat aan hun klanten kan worden aangeboden.
+Beschrijft een product dat wordt vermeld in de resellercatalogus dat ze aan hun klanten kunnen aanbieden.
 
 ## <a name="offer"></a>Aanbieding
 
@@ -29,64 +24,64 @@ Hierin wordt een product beschreven dat wordt vermeld in de wederverkoper-catalo
 | id                          | tekenreeks                    | De aanbiedings-id.                                                                                           |
 | naam                        | tekenreeks                    | De naam van de aanbieding.                                                                                                 |
 | beschrijving                 | tekenreeks                    | Een beschrijving van de aanbieding.                                                                                     |
-| minimumQuantity             | int                       | De minimale beschik bare hoeveelheid.                                                                                 |
-| maximumQuantity             | int                       | De Maxi maal beschik bare hoeveelheid.                                                                                 |
-| positie                        | int                       | De rang orde van de aanbieding of de prioriteit in vergelijking met andere categorieën in dezelfde product lijn. Deze eigenschap moet alleen worden ingesteld als er meer dan één aanbieding voor een bepaalde product lijn is.  |
-| URI                         | tekenreeks                    | De aanbiedings-URI.                                                                                                  |
-| landinstelling                      | tekenreeks                    | De land instelling waarin de aanbieding van toepassing is.                                                                          |
-| country                     | tekenreeks                    | Het land of de regio waar de aanbieding van toepassing is.                                                                    |
+| minimumQuantity             | int                       | De minimumhoeveelheid die beschikbaar is.                                                                                 |
+| maximumQuantity             | int                       | De maximale hoeveelheid die beschikbaar is.                                                                                 |
+| positie                        | int                       | De positie of prioriteit van de aanbieding vergeleken met andere categorieën in dezelfde productlijn. Deze eigenschap moet alleen worden ingesteld als er meer dan één aanbieding voor een bepaalde productlijn is.  |
+| Uri                         | tekenreeks                    | De aanbiedings-URI.                                                                                                  |
+| landinstelling                      | tekenreeks                    | De plaats waar de aanbieding van toepassing is.                                                                          |
+| country                     | tekenreeks                    | Het land/de regio waar de aanbieding van toepassing is.                                                                    |
 | category                    | [OfferCategory](#offercategory)           | De categorie van de aanbieding.                                                                   |
-| limitUnitOfMeasure          | tekenreeks                    | Een waarde die het type aankoop beperking aangeeft. Mogelijke waarden zijn:<br/> Geen: er zijn geen beperkingen voor het aantal abonnementen op basis van de gekochte aanbieding.<br/> ' Gelijktijdig ': het aantal abonnementen dat op een bepaald moment kan bestaan op de Tenant van de klant, inclusief abonnementen die actief of geannuleerd zijn. Deze waarde is vooral van toepassing op kleine bedrijven, waarbij het aantal licenties kleiner is dan 300. De provisionioned-abonnementen tellen niet mee.<br/> ' Levens duur ': het aantal abonnementen dat kan bestaan voor de levens duur van de Tenant van de klant. Deze waarde is het meest van toepassing op experimenten. De provisionioned-abonnementen tellen niet mee.      |
-| limiet                       | int                       | Het aantal abonnementen dat kan worden gekocht van deze aanbieding op basis van de limitUnitOfMeasure.                |
+| limitUnitOfMeasure          | tekenreeks                    | Een waarde die het type aankoopbeperking aangeeft. Mogelijke waarden zijn:<br/> Geen: er zijn geen beperkingen voor het aantal abonnementen op basis van de aangeschafte aanbieding.<br/> Gelijktijdig: het aantal abonnementen dat op een bepaald moment kan bestaan in de tenant van de klant. Dit omvat abonnementen die actief of geannuleerd zijn. Deze waarde geldt vooral voor aanbiedingen van kleine bedrijven waarbij het aantal licenties kleiner is dan 300. Uit inrichting verwijderde abonnementen worden niet meegetelde.<br/> LifeTime: het aantal abonnementen dat kan bestaan voor de levensduur van de tenant van de klant. Deze waarde is het meest van toepassing op proefversies. Uit inrichting verwijderde abonnementen worden niet meegetelde.      |
+| limiet                       | int                       | Het aantal abonnementen dat van deze aanbieding kan worden gekocht op basis van de limitUnitOfMeasure.                |
 | prerequisiteOffers          | tekenreeks                    | De vereiste aanbiedingen.                                                                                        |
-| isAddOn                     | booleaans                   | Een waarde die aangeeft of deze instantie een invoeg toepassing is.                                                           |
-| hasAddOns                   | booleaans                   | Een waarde die aangeeft of deze aanbieding invoeg toepassingen bevat.                                                           |
-| isAvailableForPurchase      | booleaans                   | Een waarde die aangeeft of deze instantie beschikbaar is voor aankoop.                                             |
-| facturering                     | tekenreeks                    | Hiermee geeft u het facturerings type voor de aankoop van het regel item op: "geen", "gebruik" of "licentie".                           |
-| supportedBillingCycles      | tekenreeksmatrix          | Hiermee worden de facturerings cycli aangegeven die voor deze aanbieding worden ondersteund. Ondersteunde waarden zijn de lidnamen in [BillingCycleType](product-resources.md#billingcycletype)   |
-| isAutoRenewable             | booleaans                   | Een waarde die aangeeft of de aanbieding automatisch wordt vernieuwd.                                                      |
-| upgradeTargetOffers         | tekenreeksmatrix          | De lijst met aanbiedingen waarvoor deze aanbieding kan worden bijgewerkt.                                                          |
-| conversionTargetOffers      | tekenreeksmatrix          | De lijst met aanbiedingen waarnaar deze aanbieding kan worden geconverteerd.                                                         |
-| reselleeQualifications      | tekenreeksmatrix          | De kwalificaties die de klant nodig heeft om een partner de aanbieding voor die klant te kunnen kopen.     |
-| resellerQualifications      | tekenreeksmatrix          | De kwalificaties die de partner nodig heeft om de aanbieding voor een klant te kunnen kopen.                       |
-| salesGroupId                | tekenreeks                    | Een teken reeks die wordt gebruikt om aanbiedingen in afzonderlijke orders te groeperen.                                                             |
-| isTrial                     | booleaans                   | Een waarde die aangeeft of dit een proef aanbod is.                                                               |
-| product                     | [OfferProduct](#offerproduct)           | Hiermee haalt u het aanbiedings product.                                                                           |
-| Unit type                    | tekenreeks                    | Het type eenheid.                                                                                      |
-| koppelen                       | [OfferLinks](#offerlinks)               | De koppeling "meer informatie" van de aanbieding.                                                                    |
-| kenmerken                  | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met de aanbieding.                         |
+| isAddOn                     | booleaans                   | Een waarde die aangeeft of dit exemplaar een invoegvoeging is.                                                           |
+| hasAddOns                   | booleaans                   | Een waarde die aangeeft of deze aanbieding addons heeft.                                                           |
+| isAvailableForPurchase      | booleaans                   | Een waarde die aangeeft of dit exemplaar beschikbaar is voor aankoop.                                             |
+| facturering                     | tekenreeks                    | Hiermee geeft u het factureringstype op voor de aankoop van het regelitem: 'none', 'usage' of 'license'.                           |
+| supportedBillingCycles      | tekenreeksmatrix          | Geeft de factureringscycli aan die worden ondersteund voor deze aanbieding. Ondersteunde waarden zijn de ledennamen in [BillingCycleType](product-resources.md#billingcycletype)   |
+| isAutoRenewable             | booleaans                   | Een waarde die aangeeft of de aanbieding automatisch wordt verlengd.                                                      |
+| upgradeTargetOffers         | tekenreeksmatrix          | De lijst met aanbiedingen waar deze aanbieding naar kan worden geüpgraded.                                                          |
+| conversionTargetOffers      | tekenreeksmatrix          | De lijst met aanbiedingen waar deze aanbieding naar kan worden geconverteerd.                                                         |
+| reselleeQualifications      | tekenreeksmatrix          | De kwalificaties die de klant nodig heeft om een partner de aanbieding voor die klant te laten kopen.     |
+| resellerQualifications      | tekenreeksmatrix          | De kwalificaties die de partner nodig heeft om de aanbieding voor een klant aan te schaffen.                       |
+| salesGroupId                | tekenreeks                    | Een tekenreeks die wordt gebruikt om aanbiedingen in afzonderlijke orders te groepen.                                                             |
+| isTrial                     | booleaans                   | Een waarde die aangeeft of dit een proefaanbieding is.                                                               |
+| product                     | [OfferProduct](#offerproduct)           | Haalt het product van de aanbieding op.                                                                           |
+| unitType                    | tekenreeks                    | Het type van de eenheid.                                                                                      |
+| Verwijzigingen                       | [OfferLinks](#offerlinks)               | De koppeling 'Meer informatie' van de aanbieding.                                                                    |
+| kenmerken                  | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met de aanbieding.                         |
 
 ## <a name="offercategory"></a>OfferCategory
 
-Hierin wordt de categorisatie van een aanbieding beschreven. Dit omvat de rang of prioriteit van deze aanbiedings categorie vergeleken met andere in dezelfde product lijn.
+Beschrijft de categorisatie van een aanbieding. Dit omvat de rangschikking of prioriteit van deze aanbiedingscategorie vergeleken met andere producten in dezelfde productlijn.
 
 | Eigenschap   | Type                                                           | Beschrijving                                                                                                                                                                |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id         | tekenreeks                                                         | De categorie-id.                                                                                                                                                   |
 | naam       | tekenreeks                                                         | De naam van de categorie.                                                                                                                                                         |
-| positie       | int                                                            | De rang orde van de categorie of de prioriteit in vergelijking met andere categorieën in dezelfde aanbieding. Deze eigenschap moet alleen worden ingesteld als er meer dan één aanbiedings categorie is voor een bepaalde aanbieding. |
-| landinstelling     | tekenreeks                                                         | De land instelling waarin de aanbieding van toepassing is.                                                                                                                        |
+| positie       | int                                                            | De categorierangschikking of prioriteit in vergelijking met andere categorieën in dezelfde aanbieding. Deze eigenschap moet alleen worden ingesteld als er meer dan één aanbiedingscategorie voor een bepaalde aanbieding is. |
+| landinstelling     | tekenreeks                                                         | De locale waarin de aanbieding van toepassing is.                                                                                                                        |
 | country    | tekenreeks                                                         | Het land of de regio waar de aanbieding van toepassing is.                                                                                                                   |
-| koppelen      | [ResourceLinks](utility-resources.md#resourcelinks)           | De resource koppelingen die overeenkomen met de OfferCategory.                                                                                                                     |
-| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De meta gegevens kenmerken die overeenkomen met de OfferCategory.                                                                                                                |
+| Verwijzigingen      | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met de OfferCategory.                                                                                                                     |
+| kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met de OfferCategory.                                                                                                                |
 
 ## <a name="offerlinks"></a>OfferLinks
 
 Bevat koppelingen voor meer informatie over de aanbieding.
 
-| Eigenschap  | Type | Description                 |
+| Eigenschap  | Type | Beschrijving                 |
 |-----------|------|-----------------------------|
-| learnMore | Koppeling | De koppeling meer informatie.      |
-| Online      | Koppeling | De zelf-URI                |
+| learnMore | Koppeling | De koppeling 'meer informatie'.      |
+| Zelf      | Koppeling | De zelf-URI                |
 | volgende      | Koppeling | De volgende pagina met items.     |
-| bestaande  | Koppeling | De vorige pagina met items. |
+| Vorige  | Koppeling | De vorige pagina met items. |
 
 ## <a name="offerproduct"></a>OfferProduct
 
-Een product of service waaraan meer dan één aanbieding is gekoppeld, elk met verschillende soorten functies en gericht op verschillende behoeften van de klant.
+Een product of service waar meer dan één aanbieding aan kan zijn gekoppeld, elk met verschillende functies en gericht op verschillende klantbehoeften.
 
-| Eigenschap | Type   | Description              |
+| Eigenschap | Type   | Beschrijving              |
 |----------|--------|--------------------------|
 | Id       | tekenreeks | De categorie-id. |
 | Name     | tekenreeks | De naam van de categorie.       |
-| Eenheid     | tekenreeks | De product eenheid.        |
+| Eenheid     | tekenreeks | De producteenheid.        |

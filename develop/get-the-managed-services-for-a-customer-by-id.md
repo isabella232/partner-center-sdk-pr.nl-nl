@@ -1,35 +1,31 @@
 ---
 title: De beheerde services voor een klant ophalen op basis van id
-description: Hiermee haalt u de beheerde services voor een klant op. Met andere woorden, koppelingen naar alle abonnementen van de klant ophalen waarvoor u beheerders bevoegdheden hebt gedelegeerd. U kunt deze koppelingen gebruiken om ondersteuning en aanvragen voor bestands Services bij micro soft aan te bieden.
+description: Haalt de beheerde services voor een klant op. Met andere woorden, haal koppelingen op naar alle abonnementen van de klant waarvoor u beheerdersbevoegdheden hebt gedelegeerd. U kunt deze koppelingen gebruiken om ondersteunings- en bestandsserviceaanvragen bij Microsoft te bieden.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4764fce6a80035ea4b9dcc6677a3da28fc863eb7
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1cf7e7b62113bd96b00fdc2301e4e7ac4f5d4243
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767528"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548444"
 ---
 # <a name="get-the-managed-services-for-a-customer-by-id"></a>De beheerde services voor een klant ophalen op basis van id
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee haalt u de beheerde services voor een klant op. Met andere woorden, koppelingen naar alle abonnementen van de klant ophalen waarvoor u beheerders bevoegdheden hebt gedelegeerd. U kunt deze koppelingen gebruiken om ondersteuning en aanvragen voor bestands Services bij micro soft aan te bieden.
+Haalt de beheerde services voor een klant op. Met andere woorden, haal koppelingen op naar alle abonnementen van de klant waarvoor u beheerdersbevoegdheden hebt gedelegeerd. U kunt deze koppelingen gebruiken om ondersteunings- en bestandsserviceaanvragen bij Microsoft te bieden.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met alle beheerde services voor een klant wilt weer geven, gebruikt u de verzameling **IAggregatePartner. Customers** en roept u de methode [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan. Roep vervolgens de eigenschap [**ManagedServices**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) aan, gevolgd door de methoden [**Get ()**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) .
+Als u een lijst met alle beheerde services voor een klant wilt weergeven, gebruikt u de verzameling **IAggregatePartner.Customers** en roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan. Roep vervolgens de [**eigenschap ManagedServices**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) aan, gevolgd door de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) of [**GetAsync().**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,27 +34,27 @@ Als u een lijst met alle beheerde services voor een klant wilt weer geven, gebru
 ResourceCollection<ManagedService> managedServices = partnerOperations.Customers.ById(selectedCustomerId).ManagedServices.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerCenterSDK. FeaturesSamples- **klasse**: CustomerManagedServices.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples-klasse: CustomerManagedServices.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/managedservices http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/managedservices HTTP/1.1 |
 
-### <a name="uri-parameter"></a>URI-para meter
+### <a name="uri-parameter"></a>URI-parameter
 
-Gebruik de volgende query parameter om de beheerde services van de klant op te halen.
+Gebruik de volgende queryparameter om de beheerde services van de klant op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                           |
 |------------------------|----------|----------|---------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | Een GUID die overeenkomt met de klant. |
+| **customer-tenant-id** | **guid** | J        | Een GUID die overeenkomt met de klant. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -76,11 +72,11 @@ MS-CorrelationId: 03d6064a-f048-4aee-8892-ed46dc5c8bee
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een verzameling **beheerde service** objecten in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een verzameling **Managed Service-objecten** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

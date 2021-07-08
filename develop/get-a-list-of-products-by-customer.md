@@ -1,54 +1,49 @@
 ---
 title: Een lijst met producten ophalen (per klant)
-description: U kunt een klant-id gebruiken om een verzameling van producten per klant op te halen.
+description: U kunt een klant-id gebruiken om een verzameling producten per klant op te halen.
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 98a099c458535123f675c6452db950b087b9f387
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: a7cb2430aa93beb89e4d1f9b8c89a016d66624ca
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767411"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874190"
 ---
 # <a name="get-a-list-of-products-by-customer"></a>Een lijst met producten ophalen (per klant)
 
-**Van toepassing op:**
-
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
 U kunt de volgende methoden gebruiken om een verzameling producten voor een bestaande klant op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode | Aanvraag-URI                                                                                                              |
 |--------|--------------------------------------------------------------------------------------------------------------------------|
-| POST   | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Products? targetView = {targetView} http/1.1 |
+| POST   | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products?targetView={targetView} HTTP/1.1 |
 
-#### <a name="request-uri-parameters"></a>URI-para meters aanvragen
+#### <a name="request-uri-parameters"></a>Aanvraag-URI-parameters
 
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **klant-Tenant-id** | GUID | Yes | De waarde is een **klant-Tenant-id** van de GUID-indeling, een id waarmee u een klant kunt opgeven. |
-| **targetView** | tekenreeks | Yes | Hiermee wordt de doel weergave van de catalogus geïdentificeerd. De ondersteunde waarden zijn: <br/><br/>**Azure**, inclusief alle Azure-items<br/><br/>**AzureReservations**, inclusief alle Azure-reserverings items<br/><br/>**AzureReservationsVM**, dat alle reserve ringen items van virtuele machines (VM) omvat<br/><br/>**AzureReservationsSQL**, inclusief alle SQL-reserverings items<br/><br/>**AzureReservationsCosmosDb**, met alle reserverings items voor de Cosmos-data base<br/><br/>**MicrosoftAzure**, die items bevat voor Microsoft Azure-abonnementen (**MS-AZR-0145P**) en Azure-plannen<br/><br/>**OnlineServices**, dat alle online service-items omvat, inclusief commerciële Marketplace-Producten<br/><br/>**Software**, inclusief alle software-items<br/><br/>**SoftwareSUSELinux**, dat alle software SuSE Linux-items omvat<br/><br/>**SoftwarePerpetual**, inclusief alle permanente software-items<br/><br/>**SoftwareSubscriptions**, inclusief alle software-abonnements items  |
+| **customer-tenant-id** | GUID | Ja | De waarde is een **klant-tenant-id** in GUID-indeling. Dit is een id waarmee u een klant kunt opgeven. |
+| **targetView** | tekenreeks | Ja | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle SQL reserveringsitems bevat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** die alle onlineservice-items bevat, met inbegrip van commerciële marketplace-producten<br/><br/>**Software**, die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle software-SUSE Linux-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat  |
 
 ### <a name="request-header"></a>Aanvraagheader
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -56,7 +51,7 @@ Geen.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
-Aanvraag voor een lijst met op Azure-gebruik gebaseerde producten die beschikbaar zijn voor een bepaalde klant. Producten voor zowel Microsoft Azure (MS-AZR-0145P) als Azure-abonnementen worden geretourneerd voor klanten in een open bare Cloud:
+Vraag een lijst aan met producten op basis van Azure-gebruik die beschikbaar zijn voor een bepaalde klant. Producten voor zowel Microsoft Azure (MS-AZR-0145P) als Azure-abonnementen worden geretourneerd voor klanten in de openbare cloud:
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/65543400-f8b0-4783-8530-6d35ab8c6801/products?targetView=MicrosoftAzure HTTP/1.1
@@ -68,13 +63,13 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 ## <a name="rest-response"></a>Rest-antwoord
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes voor Partner Center](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
-Deze methode retourneert de volgende fout codes:
+Deze methode retourneert de volgende foutcodes:
 
-| HTTP-status code | Foutcode   | Beschrijving                     |
+| HTTP-statuscode | Foutcode   | Beschrijving                     |
 |------------------|--------------|---------------------------------|
 | 403 | 400036 | Toegang tot de aangevraagde targetView is niet toegestaan. |
 

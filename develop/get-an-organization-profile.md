@@ -1,36 +1,31 @@
 ---
 title: Een organisatieprofiel ophalen
-description: Hiermee wordt een object opgehaald dat het organisatie profiel van de partner vertegenwoordigt.
+description: Haalt een -object op dat het organisatieprofiel van de partner vertegenwoordigt.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 132a1e0efa3efea69d4bf649e55b412e300b0685
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1c7272761612e573388d4facea1a78808a5bad52
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767550"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760552"
 ---
 # <a name="get-an-organization-profile"></a>Een organisatieprofiel ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een object opgehaald dat het organisatie profiel van de partner vertegenwoordigt.
+Haalt een -object op dat het organisatieprofiel van de partner vertegenwoordigt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Om uw organisatie profiel op te halen, gebruikt u uw **IAggregatePartner. Profiles** -verzameling en roept u de eigenschap **OrganizationProfile** aan. Roep ten slotte de methoden [**Get ()**](/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) aan.
+Als u uw organisatieprofiel wilt ophalen, gebruikt u de **verzameling IAggregatePartner.Profiles** en roept u de **eigenschap OrganizationProfile aan.** Roep ten slotte de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) aan.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -38,13 +33,13 @@ Om uw organisatie profiel op te halen, gebruikt u uw **IAggregatePartner. Profil
 OrganizationProfile organizationProfile = partnerOperations.Profiles.OrganizationProfile.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerCenterSDK. FeaturesSamples- **klasse**: GetOrganizationProfile.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples-klasse: GetOrganizationProfile.cs 
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u uw organisatie profiel wilt ophalen, gebruikt u de functie **IAggregatePartner. getProfiles** en roept u de functie **getOrganizationProfile** aan. Roep ten slotte de functie **Get ()** aan.
+Gebruik de functie **IAggregatePartner.getProfiles** en roep de **functie getOrganizationProfile** aan om uw organisatieprofiel op te halen. Roep ten slotte de **functie get()** aan.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -56,7 +51,7 @@ OrganizationProfile organizationProfile = partnerOperations.getProfiles().getOrg
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Voer de opdracht [**Get-PartnerOrganizationProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md) uit om uw organisatie profiel op te halen.
+Voer de opdracht [**Get-PartnerOrganizationProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md) uit om uw organisatieprofiel op te halen.
 
 ```powershell
 Get-PartnerOrganizationProfile
@@ -64,15 +59,15 @@ Get-PartnerOrganizationProfile
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/Organization http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/organization HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -90,11 +85,11 @@ MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **OrganizationProfile** -object in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **OrganizationProfile-object** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

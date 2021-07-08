@@ -1,33 +1,29 @@
 ---
 title: Ondersteuningsprofiel ophalen
-description: Hiermee wordt een object opgehaald dat het ondersteunings Profiel van een gebruiker vertegenwoordigt.
+description: Haalt een -object op dat het ondersteuningsprofiel van een gebruiker vertegenwoordigt.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b8b0fa533aaba74418985ea02cbb13bd722cede2
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: b112ccbbff731795c21f95845a08be9e9dfb6775
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767530"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548631"
 ---
 # <a name="get-support-profile"></a>Ondersteuningsprofiel ophalen
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-Hiermee wordt een object opgehaald dat het ondersteunings Profiel van een gebruiker vertegenwoordigt.
+Haalt een -object op dat het ondersteuningsprofiel van een gebruiker vertegenwoordigt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Gebruik uw **IAggregatePartner. Profiles** -verzameling om uw ondersteunings profiel te verkrijgen. Roep de eigenschap [**SupportProfile**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) aan, gevolgd door de methoden [**Get ()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get) of [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync) .
+Gebruik de verzameling **IAggregatePartner.Profiles** om uw ondersteuningsprofiel op te halen. Roep de [**eigenschap SupportProfile**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) aan, gevolgd door de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get) of [**GetAsync().**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -35,19 +31,19 @@ Gebruik uw **IAggregatePartner. Profiles** -verzameling om uw ondersteunings pro
 SupportProfile supportProfile = partnerOperations.Profiles.SupportProfile.Get();
 ```
 
-Voor **beeld**: [console test-app](console-test-app.md). **Project**: PartnerCenterSDK. FeaturesSamples- **klasse**: GetSupportProfile.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples-klasse: GetSupportProfile.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                              |
 |---------|--------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/support http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/support HTTP/1.1 |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -65,11 +61,11 @@ MS-CorrelationId: 20604323-50bf-4738-9968-c5486ab32be0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **SupportProfile** -object in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **SupportProfile-object** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor de volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

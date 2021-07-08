@@ -1,46 +1,43 @@
 ---
 title: Een lijst met de apparaten voor de opgegeven batch en klant ophalen
-description: Een verzameling apparaten en apparaatgegevens ophalen in de opgegeven apparaats batch voor een klant.
+description: Een verzameling apparaten en apparaatdetails ophalen in de opgegeven apparaatbatch voor een klant.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 36fe3b97612adfd26c1b498f31b90f743bf774cb
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 28af1f568f755ba4c50cfac21529d6c677656c8e
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97767444"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874258"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Een lijst met de apparaten voor de opgegeven batch en klant ophalen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-
-In dit artikel wordt beschreven hoe u een verzameling apparaten kunt ophalen in een opgegeven batch voor een opgegeven klant. Elke bron van het apparaat bevat details over het apparaat.
+In dit artikel wordt beschreven hoe u een verzameling apparaten in een opgegeven apparaatbatch ophaalt voor een opgegeven klant. Elke apparaatresource bevat details over het apparaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een batch-id voor het apparaat.
+- Een batch-id van een apparaat.
 
 ## <a name="c"></a>C\#
 
-Ophalen van een verzameling van de apparaten in een opgegeven batch voor de opgegeven klant:
+Een verzameling van de apparaten in een opgegeven apparaatbatch ophalen voor de opgegeven klant:
 
-1. Roep de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant.
+1. Roep de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant.
 
-2. Roep de methode [**DeviceBatches. ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) aan om een interface te verkrijgen voor het verzamelen van batch-bewerkingen voor het apparaat voor de opgegeven batch.
+2. Roep de [**methode DeviceBatches.ById aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) om een interface op te halen voor batchverzamelingsbewerkingen van apparaten voor de opgegeven batch.
 
-3. Haal de eigenschap [**apparaten**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) op om een interface voor het verzamelen van apparaten op te halen voor de batch.
+3. Haal de [**eigenschap Apparaten**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) op om een interface op te halen voor bewerkingen voor het verzamelen van apparaten voor de batch.
 
-4. Roep de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) aan om de verzameling van apparaten op te halen.
+4. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) om de verzameling apparaten op te halen.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -51,32 +48,32 @@ var devices =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.Get();
 ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **Partner Center SDK** -voor beelden
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **Partnercentrum-SDK Voorbeelden**
 - Klasse: **GetDevices.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/devices http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
 
-#### <a name="uri-parameters"></a>URI-para meters
+#### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende Path-para meters bij het maken van de aanvraag.
+Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam           | Type   | Vereist | Beschrijving                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| klant-id    | tekenreeks | Yes      | Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd. |
-| devicebatch-id | tekenreeks | Yes      | Een teken reeks-id waarmee de apparaat-batch wordt geïdentificeerd. |
+| customer-id    | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| devicebatch-id | tekenreeks | Ja      | Een tekenreeks-id die de apparaatbatch identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -96,11 +93,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord tekst een wissel bare verzameling van bronnen voor [apparaten](device-deployment-resources.md#device) . De verzameling bevat 100-apparaten op een pagina. Als u de volgende pagina van 100 apparaten wilt ophalen, moet de continuationToken in de antwoord tekst worden opgenomen in de volgende aanvraag als MS-ContinuationToken-header.
+Als dit lukt, bevat de antwoord-hoofdverzameling een verzameling [apparaatresources met pagina's.](device-deployment-resources.md#device) De verzameling bevat 100 apparaten op een pagina. Als u de volgende pagina van 100 apparaten wilt ophalen, moet het continuationToken in de hoofdtekst van het antwoord worden opgenomen in de volgende aanvraag als een MS-ContinuationToken header.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie voor een volledige lijst de [rest-fout codes van het partner centrum](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center een volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,39 +1,35 @@
 ---
-title: Een samen vatting van het gebruik voor alle abonnementen van een klant ophalen
-description: U kunt de CustomerUsageSummary-Resource gebruiken om het gebruik van een specifieke Azure-service of resource binnen de huidige facturerings periode te verkrijgen.
+title: Een gebruiksoverzicht voor alle abonnementen van een klant krijgen
+description: U kunt de resource CustomerUsageSummary gebruiken om het gebruik van een specifieke Azure-service of -resource van een klant op te halen tijdens de huidige factureringsperiode.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0c918434367a3514e6a6ad6034b4897c33f51025
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 88c69637c94b9263ede6924cf2dd09513aa00f70
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767304"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874615"
 ---
-# <a name="get-a-usage-summary-for-all-of-a-customers-subscriptions"></a>Een samen vatting van het gebruik voor alle abonnementen van een klant ophalen
+# <a name="get-a-usage-summary-for-all-of-a-customers-subscriptions"></a>Een gebruiksoverzicht voor alle abonnementen van een klant krijgen
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
-
-U kunt de **CustomerUsageSummary** -Resource gebruiken om het gebruik van een specifieke Azure-service of resource binnen de huidige facturerings periode te verkrijgen.
+U kunt de **resource CustomerUsageSummary** gebruiken om het gebruik van een specifieke Azure-service of -resource van een klant op te halen tijdens de huidige factureringsperiode.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md). In dit scenario wordt alleen verificatie met app + gebruikers referenties ondersteund.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-ID ( `customer-tenant-id` ). Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum. Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**. Selecteer de klant in de lijst klant en selecteer vervolgens **account**. Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** . De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Voor een overzicht van het gebruik van alle abonnementen van een klant:
+Ga als volgt te werk om een gebruiksoverzicht te krijgen voor alle abonnementen van een klant:
 
-1. Gebruik uw verzameling **IAggregatePartner. Customers** om de methode **ById ()** aan te roepen.
+1. Gebruik de **verzameling IAggregatePartner.Customers om** de **methode ById() aan te** roepen.
 
-2. Roep de eigenschap **UsageSummary** aan, gevolgd door de methoden **Get ()** of **GetAsync ()** :
+2. Roep de **eigenschap UsageSummary** aan, gevolgd door de **methoden Get()** of **GetAsync()** :
 
     ``` csharp
     // IAggregatePartner partnerOperations;
@@ -42,31 +38,31 @@ Voor een overzicht van het gebruik van alle abonnementen van een klant:
     var usageSummary = partnerOperations.Customers.ById(selectedCustomerId).UsageSummary.Get();
     ```
 
-Voor een voor beeld ziet u het volgende:
+Zie voor een voorbeeld het volgende:
 
-- Voor beeld: [console test-app](console-test-app.md)
-- Project: **PartnerSDK. FeatureSamples**
+- Voorbeeld: [Consoletest-app](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Klasse: **GetCustomerUsageSummary.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-### <a name="request-syntax"></a>Syntaxis van aanvraag
+### <a name="request-syntax"></a>Aanvraagsyntaxis
 
 | Methode  | Aanvraag-URI                                                                                         |
 |---------|-----------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/usagesummary http/1.1 |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagesummary HTTP/1.1 |
 
-#### <a name="uri-parameter"></a>URI-para meter
+#### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste query parameter voor het ophalen van de geclassificeerde gebruiks gegevens van de klant.
+Deze tabel bevat de vereiste queryparameter om de beoordeelde gebruiksgegevens van de klant op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                           |
 |------------------------|----------|----------|---------------------------------------|
-| **klant-Tenant-id** | **guid** | J        | Een GUID die overeenkomt met de klant. |
+| **customer-tenant-id** | **guid** | J        | Een GUID die overeenkomt met de klant. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie voor meer informatie [Partner Center rest headers](headers.md).
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -84,17 +80,17 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **CustomerUsageSummary** -resource in de hoofd tekst van het antwoord.
+Als dit lukt, retourneert deze methode een **CustomerUsageSummary-resource** in de antwoord-body.
 
-### <a name="response-success-and-error-codes"></a>Geslaagde en fout codes
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing. Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen. Zie [fout codes](error-codes.md)voor een volledige lijst.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
-### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscription"></a>Antwoord voorbeeld voor Microsoft Azure-abonnement (MS-AZR-0145P)
+### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscription"></a>Voorbeeld van een Microsoft Azure (MS-AZR-0145P)
 
-In dit voor beeld heeft de klant een **145P Azure PayG** -aanbieding aangeschaft.
+In dit voorbeeld heeft de klant een **Azure PayG-aanbieding van 145P** aangeschaft.
 
-*Voor klanten met Microsoft Azure-abonnementen (MS-AZR-0145P) is er geen wijziging in de API-reactie.*
+*Voor klanten met Microsoft Azure-abonnementen (MS-AZR-0145P) is er geen wijziging in het API-antwoord.*
 
 ```http
 HTTP/1.1 200 OK
@@ -131,13 +127,13 @@ Date: Tue, 17 Sep 2019 20:31:45 GMT
 }
 ```
 
-### <a name="response-example-for-azure-plan"></a>Antwoord voorbeeld voor Azure-abonnement
+### <a name="response-example-for-azure-plan"></a>Voorbeeld van een reactie voor Azure-plan
 
-In dit voor beeld heeft de klant een Azure-abonnement aangeschaft.
+In dit voorbeeld heeft de klant een Azure-abonnement aangeschaft.
 
-*Voor klanten met Azure-abonnementen zijn de volgende wijzigingen aangebracht in de API-reactie:*
+*Voor klanten met Azure-abonnementen zijn er de volgende wijzigingen in het API-antwoord:*
 
-- **currencyLocale** wordt vervangen door **currencyCode**
+- **currencyLocale** is vervangen door **currencyCode**
 - **usdTotalCost** is een nieuw veld
 
 ```http

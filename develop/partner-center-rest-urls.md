@@ -1,35 +1,30 @@
 ---
 title: REST-URL’s voor Partnercentrum
-description: Partner centrum is beschikbaar in verschillende landen en regio's. Meer informatie over de eind punten van het partner centrum en basis REST-Url's die uw apps moeten gebruiken om correct te werken.
+description: Partner Center is beschikbaar in verschillende landen en regio's. Meer informatie Partner Center eindpunten en basis-REST-URL's die uw apps moeten gebruiken om goed te werken.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 7ea62c64e57f32bd33c1319ddc7ca07b20113017
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: 715ec7dda252cf096b2ec2bd1745d8afee7c8310
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97767576"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547849"
 ---
-# <a name="different-partner-center-rest-url-end-points-for-use-in-certain-countries-or-regions"></a>Het andere partner centrum REST URL-eind punten voor gebruik in bepaalde landen of regio's
+# <a name="different-partner-center-rest-url-end-points-for-use-in-certain-countries-or-regions"></a>Verschillende Partner Center REST URL-eindpunten voor gebruik in bepaalde landen of regio's
 
-**Van toepassing op**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Partner Center is beschikbaar in verschillende landen en regio's over de hele wereld. Sommige versies van Partner Center vereisen mogelijk verschillende eindpunten om uw apps correct te laten werken.
 
-Het partner centrum is beschikbaar in verschillende landen en regio's over de hele wereld. Voor sommige versies van partner Center zijn mogelijk verschillende eind punten vereist om uw apps correct te laten werken.
+In de volgende tabel worden de basis-URL's beschreven die moeten worden gebruikt met de verschillende versies van Partner Center:
 
-In de volgende tabel worden de basis-Url's beschreven die moeten worden gebruikt met de verschillende versies van partner Center:
-
-| Partner centrum versie  | Basis-URL  |
+| Partner Center versie  | Basis-URL  |
 |---------|---------|
 |Partnercentrum</br>Partnercentrum voor Microsoft Cloud Duitsland</br>Partnercentrum voor Microsoft Cloud for US Government     | `https://api.partnercenter.microsoft.com`        |
-|Partner centrum beheerd door 21Vianet  |  `https://partner.partnercenterapi.microsoftonline.cn`       |
+|Partnercentrum beheerd door 21Vianet  |  `https://partner.partnercenterapi.microsoftonline.cn`       |
 
 >[!NOTE]
->De token Authority voor Partner Center voor Microsoft Cloud Duitsland Azure AD-bibliotheek is: https://login.microsoftonline.de .
+>De tokeninstantie voor Partner Center voor Microsoft Cloud Duitsland Azure AD Library is: https://login.microsoftonline.de .

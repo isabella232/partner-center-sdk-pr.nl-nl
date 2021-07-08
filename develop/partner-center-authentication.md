@@ -1,44 +1,39 @@
 ---
 title: Verificatie in Partnercentrum
-description: Het partner centrum gebruikt Azure AD voor verificatie en voor het gebruik van de Api's van het partner centrum moet u uw verificatie-instellingen op de juiste wijze configureren.
+description: Partner Center gebruikt Azure AD voor verificatie en voor het gebruik van de Partner Center API's moet u uw verificatie-instellingen correct configureren.
 ms.date: 11/13/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
-ms.openlocfilehash: 46ef9c6bc151c368281e943b7d24ebc07e34b66d
-ms.sourcegitcommit: 64c498d3571f2287305968890578bc7396779621
+ms.openlocfilehash: e54feba7ea727bb7f7eff8de76dcdf28c8a453ee
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97768689"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548070"
 ---
 # <a name="partner-center-authentication"></a>Verificatie in Partnercentrum
 
-**Van toepassing op:**
+**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-- Partnercentrum
-- Partner centrum beheerd door 21Vianet
-- Partnercentrum voor Microsoft Cloud Duitsland
-- Partnercentrum voor Microsoft Cloud for US Government
+Partner Center maakt gebruik van Azure Active Directory voor verificatie. Bij interactie met de API, SDK of PowerShell-module van Partner Center moet u op de juiste wijze een Azure AD-toepassing configureren en vervolgens een toegangstoken aanvragen. Toegangstokens die zijn verkregen met behulp van alleen de app of app en gebruikersverificatie kunnen worden gebruikt met de Partner Center. Er zijn echter twee belangrijke items die moeten worden overwogen
 
-Partner Center maakt gebruik van Azure Active Directory voor verificatie. Bij interactie met de API, SDK of PowerShell-module van Partner Center moet u op de juiste wijze een Azure AD-toepassing configureren en vervolgens een toegangstoken aanvragen. Toegangs tokens die zijn verkregen met behulp van alleen app of app + gebruikers authenticatie, kunnen worden gebruikt met het partner centrum. Er zijn echter twee belang rijke items die moeten worden overwogen
+- Gebruik meervoudige verificatie bij het openen van de Partner Center API met behulp van app- en gebruikersverificatie. Zie Secure Application Model inschakelen voor meer informatie [over deze wijziging.](enable-secure-app-model.md)
 
-- Gebruik multi-factor Authentication bij het openen van de partner centrum-API met behulp van app + gebruikers authenticatie. Zie voor meer informatie over deze wijziging [veilig toepassings model inschakelen](enable-secure-app-model.md).
-
-- Niet alle bewerkingen van de partner centrum-API ondersteunen alleen app-verificatie. Er zijn bepaalde scenario's waarin u app + gebruikers verificatie moet gebruiken. Onder de kop *vereisten* voor elk [artikel](scenarios.md)vindt u documentatie die aangeeft of alleen app-verificatie, app + gebruikers verificatie of beide worden ondersteund.
+- Niet alle bewerkingen die de API Partner Center bieden alleen ondersteuning voor verificatie van apps. Er zijn bepaalde scenario's waarin u app- en gebruikersverificatie moet gebruiken. Onder de *kop Vereisten* in elk [artikel](scenarios.md)vindt u documentatie met de vraag of alleen app-verificatie, app- en gebruikersverificatie of beide worden ondersteund.
 
 ## <a name="initial-setup"></a>Eerste configuratie
 
-1. Om te beginnen, moet u ervoor zorgen dat u zowel een primair partner centrum-account als een integratie sandbox-partner centrum-account hebt. Zie voor meer informatie [Partner Center-accounts instellen voor API-toegang](set-up-api-access-in-partner-center.md). Noteer de registratie-ID van de Azure AAD-app en het geheim (client geheim is vereist voor het identificeren van alleen apps) voor zowel uw primaire account als uw sandbox-account voor integratie.
+1. Om te beginnen moet u ervoor zorgen dat u zowel een primair Partner Center-account als een integratie-sandbox hebt Partner Center account. Zie Set [up Partner Center accounts for API access (Accounts instellen voor API-toegang) voor meer informatie.](set-up-api-access-in-partner-center.md) Noteer de registratie-id en het geheim van de Azure AAD-app (clientgeheim is vereist voor alleen-app-identificatie) voor zowel uw primaire account als uw sandbox-account voor integratie.
 
-2. Meld u aan bij Azure AD vanuit het Azure Portal. Stel **in machtigingen voor andere toepassingen** machtigingen voor **Windows-Azure Active Directory** in op **gedelegeerde machtigingen** en selecteer beide **toegang tot de map als de aangemelde gebruiker** en meld u aan **en het gebruikers profiel lezen**.
+2. Meld u aan bij Azure AD vanuit de Azure Portal. Stel **in** machtigingen voor andere toepassingen machtigingen voor **Windows Azure Active Directory** in op **Gedelegeerde** machtigingen en selecteer Zowel Toegang tot de **map** als de aangemelde gebruiker als Aanmelden en gebruikersprofiel **lezen.**
 
-3. Voeg in het Azure Portal **toepassing toe**. Zoek naar ' micro soft Partner Center ', een micro soft Partner Center-toepassing. Stel de **gedelegeerde machtigingen** in op **toegang tot de partner centrum-API**. Als u gebruikmaakt van partner Center voor Microsoft Cloud Duitsland of partner centrum voor Microsoft Cloud voor de Amerikaanse overheid, is deze stap verplicht. Als u het globale exemplaar van partner Center gebruikt, is deze stap optioneel. CSP-partners kunnen de functie voor app-beheer in de partner centrum Portal gebruiken om deze stap over te slaan voor het globale exemplaar van partner Center.
+3. Voeg in Azure Portal **toe.** Zoek naar 'Microsoft Partner Center'. Dit is de Microsoft Partner Center toepassing. Stel Delegated **Permissions in op** **Access Partner Center API**. Als u een Partner Center voor Microsoft Cloud Duitsland of Partner Center for Microsoft Cloud for US Government, is deze stap verplicht. Als u een algemeen Partner Center gebruikt, is deze stap optioneel. CSP-partners kunnen de functie App Management in de Partner Center-portal gebruiken om deze stap voor Partner Center globale instantie over te nemen.
 
-## <a name="app-only-authentication"></a>Alleen app-verificatie
+## <a name="app-only-authentication"></a>Verificatie alleen voor apps
 
-Als u alleen app-verificatie wilt gebruiken om toegang te krijgen tot het partner centrum REST API, .NET API, Java API of Power shell-module, kunt u dit doen door gebruik te maken van de volgende instructies.
+Als u alleen-app-verificatie wilt gebruiken voor toegang tot de Partner Center REST API-, .NET API-, Java-API- of PowerShell-module, kunt u dit doen met behulp van de volgende instructies.
 
-## <a name="net-app-only-authentication"></a>.NET (alleen app-verificatie)
+## <a name="net-app-only-authentication"></a>.NET (alleen-app-verificatie)
 
 ```csharp
 public static IAggregatePartner GetPartnerCenterTokenUsingAppCredentials()
@@ -100,26 +95,26 @@ Content-Length: 1406
 {"token_type":"Bearer","expires_in":"3600","ext_expires_in":"3600","expires_on":"1546469802","not_before":"1546465902","resource":"https://graph.windows.net","access_token":"value-has-been-removed"}
 ```
 
-## <a name="app--user-authentication"></a>App + gebruikers authenticatie
+## <a name="app--user-authentication"></a>App en gebruikersverificatie
 
-In het verleden is de toewijzing van het [wacht woord](https://tools.ietf.org/html/rfc6749#section-4.3) voor de resource-eigenaar gebruikt om een toegangs token aan te vragen voor gebruik met het Partner centrum rest API, .net API, Java API of Power shell-module. Deze methode is gebruikt om een toegangs token aan te vragen bij Azure Active Directory met behulp van een client-id en gebruikers referenties. Deze benadering werkt echter niet meer omdat het partner centrum multi-factor Authentication vereist, wanneer u app + gebruikers authenticatie gebruikt. Om te voldoen aan deze vereiste heeft micro soft een veilig, schaalbaar Framework geïntroduceerd voor het verifiëren van de CSP-partners (Cloud Solution Provider) en leveranciers van het configuratie scherm (CPV) met multi-factor Authentication. Dit framework wordt het beveiligde toepassings model genoemd en bestaat uit een toestemmings proces en een aanvraag voor een toegangs token met behulp van een vernieuwings token.
+In het verleden is de toekenning van de [wachtwoordreferenties](https://tools.ietf.org/html/rfc6749#section-4.3) van de resource-eigenaar gebruikt om een toegangs token aan te vragen voor gebruik met de module Partner Center REST API, .NET API, Java API of PowerShell. Deze methode is gebruikt om een toegangsken aan te vragen bij Azure Active Directory client-id en gebruikersreferenties. Deze aanpak werkt echter niet meer omdat Partner Center meervoudige verificatie vereist bij het gebruik van app- en gebruikersverificatie. Om aan deze vereiste te voldoen, heeft Microsoft een veilig, schaalbaar framework geïntroduceerd voor de verificatie van Cloud Solution Provider-partners (CSP) en panelleveranciers (CPV) met behulp van meervoudige verificatie. Dit framework wordt de veilig toepassingsmodel en bestaat uit een toestemmingsproces en een aanvraag voor een toegangsken met behulp van een vernieuwings token.
 
-### <a name="partner-consent"></a>Partner toestemming
+### <a name="partner-consent"></a>Toestemming van partner
 
-Het partner toestemmings proces is een interactief proces waarbij de partner zich verifieert met multi-factor Authentication, wordt gestemd op de toepassing en een vernieuwings token wordt opgeslagen in een beveiligde opslag plaats, zoals Azure Key Vault. U kunt het beste een toegewezen account voor integratie doeleinden gebruiken voor dit proces.
+Het toestemmingsproces van de partner is een interactief proces waarbij de partner wordt geverifieerd met meervoudige verificatie, toestemming geeft voor de toepassing en een vernieuwingstoken wordt opgeslagen in een beveiligde opslagplaats zoals Azure Key Vault. We raden u aan voor dit proces een toegewezen account te gebruiken voor integratiedoeleinden.
 
 > [!IMPORTANT]
-> De juiste multi-factor Authentication-oplossing moet zijn ingeschakeld voor het service account dat wordt gebruikt in het partner toestemmings proces. Als dat niet het geval is, voldoet het resulterende vernieuwings token niet aan de beveiligings vereisten.
+> De juiste multi-factor authentication-oplossing moet zijn ingeschakeld voor het serviceaccount dat wordt gebruikt in het toestemmingsproces van de partner. Als dit niet het is, voldoet het resulterende vernieuwings token niet aan de beveiligingsvereisten.
 
-### <a name="samples-for-app--user-authentication"></a>Voor beelden voor app + gebruikers verificatie
+### <a name="samples-for-app--user-authentication"></a>Voorbeelden voor app- en gebruikersverificatie
 
-Het proces voor partner toestemming kan op verschillende manieren worden uitgevoerd. We hebben de volgende voor beelden ontwikkeld om partners te helpen begrijpen hoe ze elke vereiste bewerking uit te voeren. Wanneer u de juiste oplossing in uw omgeving implementeert, is het belang rijk dat u een oplossing ontwikkelt die een klacht vormt voor uw coderings standaarden en beveiligings beleid.
+Het toestemmingsproces van de partner kan op een aantal manieren worden uitgevoerd. Om partners te helpen begrijpen hoe elke vereiste bewerking moet worden uitgevoerd, hebben we de volgende voorbeelden ontwikkeld. Wanneer u de juiste oplossing in uw omgeving implementeert, is het belangrijk dat u een oplossing ontwikkelt die geschikt is voor uw coderingsstandaarden en beveiligingsbeleid.
 
-## <a name="net-appuser-authentication"></a>.NET (app + gebruikers verificatie)
+## <a name="net-appuser-authentication"></a>.NET (app+ gebruikersverificatie)
 
-Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault) laat zien hoe u een website kunt gebruiken die is ontwikkeld met ASP.net om toestemming vast te leggen, een vernieuwings token aan te vragen en het veilig op te slaan in azure Key Vault. Voer de volgende stappen uit om de vereiste onderdelen voor dit voor beeld te maken.
+Het [voorbeeldproject](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault) voor toestemming van de partner laat zien hoe u een website gebruikt die is ontwikkeld met behulp van ASP.NET om toestemming vast te leggen, een vernieuwingstoken aan te vragen en deze veilig op te slaan in Azure Key Vault. Voer de volgende stappen uit om de vereiste vereisten voor dit voorbeeld te maken.
 
-1. Maak een instantie van Azure Key Vault met behulp van de Azure Portal of de volgende Power shell-opdrachten. Voordat u de opdracht uitvoert, moet u ervoor zorgen dat u de parameter waarden dienovereenkomstig wijzigt. De naam van de kluis moet uniek zijn.
+1. Maak een exemplaar van Azure Key Vault met behulp van de Azure Portal of de volgende PowerShell-opdrachten. Voordat u de opdracht gaat uitvoeren, moet u de parameterwaarden dienovereenkomstig wijzigen. De kluisnaam moet uniek zijn.
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -130,7 +125,7 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    Voor meer informatie over het maken van een Azure Key Vault raadpleegt [u Quick Start: een geheim instellen en ophalen uit Azure Key Vault met behulp van de Azure Portal](/azure/key-vault/quick-create-portal) of [Quick Start: een geheim instellen en ophalen uit Azure Key Vault met behulp van Power shell](/azure/key-vault/quick-create-powershell). Stel vervolgens een geheim in en haal het op.
+    Zie Azure Key Vault [Quickstart:](/azure/key-vault/quick-create-portal) Set and retrieve a secret from Azure Key Vault using the Azure Portal or Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell (Snelstart: een geheim instellen en ophalen uit Azure Key Vault met behulp van [PowerShell)](/azure/key-vault/quick-create-powershell)voor meer informatie over het maken van een Azure Portal. Stel vervolgens een geheim in en haal het op.
 
 2. Maak een Azure AD-toepassing en een sleutel met behulp van de Azure Portal of de volgende opdrachten.
 
@@ -146,9 +141,9 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    Noteer de toepassings-id en geheime waarden, omdat deze worden gebruikt in de onderstaande stappen.
+    Noteer de waarden voor de toepassings-id en het geheim, omdat deze worden gebruikt in de onderstaande stappen.
 
-3. Verleen de nieuwe Azure AD-toepassing de machtigingen lezen geheimen met de Azure Portal of de volgende opdrachten.
+3. Verleen de nieuwe Azure AD-toepassing de machtigingen voor het lezen van geheimen met behulp van de Azure Portal of de volgende opdrachten.
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -156,22 +151,22 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. Maak een Azure AD-toepassing die is geconfigureerd voor partner centrum. Voer de volgende acties uit om deze stap te volt ooien.
+4. Maak een Azure AD-toepassing die is geconfigureerd voor Partner Center. Voer de volgende acties uit om deze stap te voltooien.
 
-    - Blader naar de [app Management](https://partner.microsoft.com/pcv/apiintegration/appmanagement) -functie van het dash board van de partner centrum
-    - Klik op *nieuwe web-app toevoegen* om een nieuwe Azure AD-toepassing te maken.
+    - Blader naar de [functie App-beheer](https://partner.microsoft.com/pcv/apiintegration/appmanagement) van het Partner Center Dashboard
+    - Selecteer *Nieuwe web-app toevoegen* om een nieuwe Azure AD-toepassing te maken.
 
-    Zorg ervoor dat u de *App-ID*, * account-id * * en *sleutel* waarden documenteert, omdat deze worden gebruikt in de onderstaande stappen.
+    Zorg ervoor dat u de *waarden voor app-id,**account-id** en sleutel documenteert, omdat deze worden gebruikt in de onderstaande stappen. 
 
-5. Kloon de opslag plaats [Partner-Center-DotNet-samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) met behulp van Visual Studio of de volgende opdracht.
+5. Kloon [de opslagplaats Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) met behulp Visual Studio of de volgende opdracht.
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-6. Open het *PartnerConsent* -project dat in de map is gevonden `Partner-Center-DotNet-Samples\secure-app-model\keyvault` .
+6. Open het *project PartnerConsent* in de `Partner-Center-DotNet-Samples\secure-app-model\keyvault` map .
 
-7. Vul de toepassings instellingen in de [web.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)
+7. Vul de toepassingsinstellingen in de [web.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -200,15 +195,15 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
     ```
 
     > [!IMPORTANT]
-    > Gevoelige informatie, zoals toepassings geheimen, mag niet worden opgeslagen in configuratie bestanden. U hebt dit gedaan omdat dit een voorbeeld toepassing is. Met uw productie toepassing wordt u ten zeerste aangeraden authenticatie op basis van certificaten te gebruiken. Zie [certificaat referenties voor toepassings verificatie]( /azure/active-directory/develop/active-directory-certificate-credentials)voor meer informatie.
+    > Gevoelige informatie, zoals toepassingsgeheimen, mag niet worden opgeslagen in configuratiebestanden. Dit is hier gedaan omdat dit een voorbeeldtoepassing is. Met uw productietoepassing raden we u ten zeerste aan verificatie op basis van certificaten te gebruiken. Zie Certificaatreferenties voor [toepassingsverificatie voor meer informatie.]( /azure/active-directory/develop/active-directory-certificate-credentials)
 
-8. Wanneer u dit voorbeeld project uitvoert, wordt u gevraagd om te verifiëren. Nadat de verificatie is geslaagd, wordt een toegangs token aangevraagd bij Azure AD. De informatie die wordt geretourneerd door Azure AD bevat een vernieuwings token dat is opgeslagen in het geconfigureerde exemplaar van Azure Key Vault.
+8. Wanneer u dit voorbeeldproject gaat uitvoeren, wordt u gevraagd om verificatie. Nadat de authenticatie is geslaagd, wordt een toegangsteken aangevraagd bij Azure AD. De informatie die door Azure AD wordt geretourneerd, bevat een vernieuwingstoken dat is opgeslagen in het geconfigureerde exemplaar van Azure Key Vault.
 
-## <a name="java-appuser-authentication"></a>Java (app + gebruikers verificatie)
+## <a name="java-appuser-authentication"></a>Java (app+ gebruikersverificatie)
 
-Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault) laat zien hoe u een website kunt gebruiken die is ontwikkeld met JSP om toestemming vast te leggen, een vernieuwings token aan te vragen en een beveiligde Store te gebruiken in azure Key Vault. Voer de volgende stappen uit om de vereiste onderdelen voor dit voor beeld te maken.
+In [het voorbeeldproject met](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault) toestemming van de partner wordt gedemonstreerd hoe u een website gebruikt die is ontwikkeld met behulp van JSP om toestemming vast te leggen, een vernieuwingstoken aan te vragen en een beveiligde opslag in een Azure Key Vault. Voer de volgende stappen uit om de vereiste vereisten voor dit voorbeeld te maken.
 
-1. Maak een instantie van Azure Key Vault met behulp van de Azure Portal of de volgende Power shell-opdrachten. Voordat u de opdracht uitvoert, moet u ervoor zorgen dat u de parameter waarden dienovereenkomstig wijzigt. De naam van de kluis moet uniek zijn.
+1. Maak een exemplaar van Azure Key Vault met behulp van de Azure Portal of de volgende PowerShell-opdrachten. Voordat u de opdracht gaat uitvoeren, moet u de parameterwaarden dienovereenkomstig wijzigen. De kluisnaam moet uniek zijn.
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -219,7 +214,7 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    Voor meer informatie over het maken van een Azure Key Vault raadpleegt [u Quick Start: een geheim instellen en ophalen uit Azure Key Vault met behulp van de Azure Portal](/azure/key-vault/quick-create-portal) of [Quick Start: een geheim instellen en ophalen uit Azure Key Vault met behulp van Power shell](/azure/key-vault/quick-create-powershell).
+    Zie Azure Key Vault [Quickstart:](/azure/key-vault/quick-create-portal) Set and retrieve a secret from Azure Key Vault using the Azure Portal or Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell (Snelstart: een geheim instellen en ophalen uit Azure Key Vault met behulp van [PowerShell)](/azure/key-vault/quick-create-powershell)voor meer informatie over het maken van een Azure Portal.
 
 2. Maak een Azure AD-toepassing en een sleutel met behulp van de Azure Portal of de volgende opdrachten.
 
@@ -237,7 +232,7 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
 
     Zorg ervoor dat u de toepassings-id en geheime waarden documenteert, omdat deze worden gebruikt in de onderstaande stappen.
 
-3. Ken de zojuist gemaakte Azure AD-toepassing de machtigingen lezen geheimen toe met behulp van de Azure Portal of de volgende opdrachten.
+3. Verleen de zojuist gemaakte Azure AD-toepassing de machtigingen voor het lezen van geheimen met behulp Azure Portal of de volgende opdrachten.
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -245,22 +240,22 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. Maak een Azure AD-toepassing die is geconfigureerd voor partner centrum. Voer de volgende stappen uit om deze stap te volt ooien.
+4. Maak een Azure AD-toepassing die is geconfigureerd voor Partner Center. Voer de volgende stappen uit om deze stap te voltooien.
 
-    - Blader naar de [app Management](https://partner.microsoft.com/pcv/apiintegration/appmanagement) -functie van het dash board van de partner centrum
-    - Klik op *nieuwe web-app toevoegen* om een nieuwe Azure AD-toepassing te maken.
+    - Blader naar de [functie App-beheer](https://partner.microsoft.com/pcv/apiintegration/appmanagement) van het Partner Center Dashboard
+    - Selecteer *Nieuwe web-app toevoegen* om een nieuwe Azure AD-toepassing te maken.
 
-    Zorg ervoor dat u de *App-ID*, * account-id * * en *sleutel* waarden documenteert, omdat deze worden gebruikt in de onderstaande stappen.
+    Zorg ervoor dat u de *waarden voor app-id,**account-id** en sleutel documenteert, omdat deze worden gebruikt in de onderstaande stappen. 
 
-5. Kloon de opslag plaats van de [Partner-Center-Java-voor beelden](https://github.com/Microsoft/Partner-Center-Java-Samples) met de volgende opdracht
+5. Kloon de [opslagplaats Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) met behulp van de volgende opdracht
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-6. Open het *PartnerConsent* -project dat in de map is gevonden `Partner-Center-Java-Samples\secure-app-model\keyvault` .
+6. Open het *project PartnerConsent* in de `Partner-Center-Java-Samples\secure-app-model\keyvault` map .
 
-7. Vul de toepassings instellingen in het [web.xml](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml) bestand in
+7. Vul de toepassingsinstellingen [](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml) in hetweb.xmlbestand
 
     ```xml
     <filter>
@@ -294,31 +289,31 @@ Het voorbeeld project van de [partner toestemming](https://github.com/Microsoft/
     ```
 
     > [!IMPORTANT]
-    > Gevoelige informatie, zoals toepassings geheimen, mag niet worden opgeslagen in configuratie bestanden. U hebt dit gedaan omdat dit een voorbeeld toepassing is. Met uw productie toepassing wordt u ten zeerste aangeraden authenticatie op basis van certificaten te gebruiken. Zie [Key Vault-certificaat verificatie](https://github.com/Azure-Samples/key-vault-java-certificate-authentication)voor meer informatie.
+    > Gevoelige informatie, zoals toepassingsgeheimen, mag niet worden opgeslagen in configuratiebestanden. Dit is hier gedaan omdat dit een voorbeeldtoepassing is. Met uw productietoepassing raden we u ten zeerste aan verificatie op basis van certificaten te gebruiken. Zie Certificaatverificatie voor [Key Vault meer informatie.](https://github.com/Azure-Samples/key-vault-java-certificate-authentication)
 
-8. Wanneer u dit voorbeeld project uitvoert, wordt u gevraagd om te verifiëren. Nadat de verificatie is geslaagd, wordt een toegangs token aangevraagd bij Azure AD. De informatie die wordt geretourneerd door Azure AD bevat een vernieuwings token dat is opgeslagen in het geconfigureerde exemplaar van Azure Key Vault.
+8. Wanneer u dit voorbeeldproject gaat uitvoeren, wordt u gevraagd om verificatie. Nadat de authenticatie is geslaagd, wordt een toegangsteken aangevraagd bij Azure AD. De informatie die door Azure AD wordt geretourneerd, bevat een vernieuwingstoken dat is opgeslagen in het geconfigureerde exemplaar van Azure Key Vault.
 
-## <a name="cloud-solution-provider-authentication"></a>Verificatie van Cloud Solution Provider
+## <a name="cloud-solution-provider-authentication"></a>Cloud Solution Provider verificatie
 
-Partners van Cloud solution providers kunnen het vernieuwings token gebruiken dat is verkregen via het [partner toestemmings](#partner-consent) proces.
+Cloud Solution Provider kunnen het vernieuwings token gebruiken dat is verkregen via het [toestemmingsproces van de](#partner-consent) partner.
 
-### <a name="samples-for-cloud-solution-provider-authentication"></a>Voor beelden voor Cloud Solution Provider-verificatie
+### <a name="samples-for-cloud-solution-provider-authentication"></a>Voorbeelden voor Cloud Solution Provider verificatie
 
-We hebben de volgende voor beelden ontwikkeld om partners te helpen begrijpen hoe ze elke vereiste bewerking uit te voeren. Wanneer u de juiste oplossing in uw omgeving implementeert, is het belang rijk dat u een oplossing ontwikkelt die een klacht vormt voor uw coderings standaarden en beveiligings beleid.
+Om partners te helpen begrijpen hoe elke vereiste bewerking moet worden uitgevoerd, hebben we de volgende voorbeelden ontwikkeld. Wanneer u de juiste oplossing in uw omgeving implementeert, is het belangrijk dat u een oplossing ontwikkelt die geschikt is voor uw coderingsstandaarden en beveiligingsbeleid.
 
 ## <a name="net-csp-authentication"></a>.NET (CSP-verificatie)
 
-1. Als u dit nog niet hebt gedaan, voert u het [partner toestemmings proces](#partner-consent)uit.
+1. Als u dit nog niet hebt gedaan, voert u het [partner toestemmingsproces uit.](#partner-consent)
 
-2. Kloon de opslag plaats [Partner-Center-DotNet-samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) met Visual Studio of de volgende opdracht
+2. Kloon [de opslagplaats Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) met behulp Visual Studio of de volgende opdracht
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-3. Open het `CSPApplication` project dat in de `Partner-Center-DotNet-Samples\secure-app-model\keyvault` map is gevonden.
+3. Open het `CSPApplication` project in de map `Partner-Center-DotNet-Samples\secure-app-model\keyvault` .
 
-4. Werk de toepassings instellingen in het [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config) bestand bij.
+4. Werk de toepassingsinstellingen in het [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config) bij.
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -342,7 +337,7 @@ We hebben de volgende voor beelden ontwikkeld om partners te helpen begrijpen ho
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. Stel de juiste waarden in voor de variabelen **partner** en **CustomerId** in het [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs) -bestand.
+5. Stel de juiste waarden in voor de **variabelen PartnerId** en **CustomerId** in het [bestand Program.cs.](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs)
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -350,21 +345,21 @@ We hebben de volgende voor beelden ontwikkeld om partners te helpen begrijpen ho
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. Wanneer u dit voorbeeld project uitvoert, wordt het vernieuwings token opgehaald dat is verkregen tijdens het partner toestemmings proces. Vervolgens wordt een toegangs token aangevraagd om te communiceren met de Partner Center SDK voor de naam van de partner. Ten slotte vraagt het een toegangs token om met Microsoft Graph namens de opgegeven klant te communiceren.
+6. Wanneer u dit voorbeeldproject gaat uitvoeren, wordt het vernieuwings token verkregen tijdens het toestemmingsproces van de partner. Vervolgens wordt een toegangs token voor interactie met de Partnercentrum-SDK namens de partner gevraagd. Ten slotte wordt een toegangs token gevraagd om te communiceren met Microsoft Graph namens de opgegeven klant.
 
 ## <a name="java-csp-authentication"></a>Java (CSP-verificatie)
 
-1. Als u dit nog niet hebt gedaan, voert u het [partner toestemmings proces](#partner-consent)uit.
+1. Als u dit nog niet hebt gedaan, voert u het [partner toestemmingsproces uit.](#partner-consent)
 
-2. Kloon de opslag plaats van de [Partner-Center-Java-voor beelden](https://github.com/Microsoft/Partner-Center-Java-Samples) met Visual Studio of de volgende opdracht
+2. Kloon [de opslagplaats Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) met behulp Visual Studio of de volgende opdracht
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-3. Open het `cspsample` project dat in de `Partner-Center-Java-Samples\secure-app-model\keyvault` map is gevonden.
+3. Open het `cspsample` project in de map `Partner-Center-Java-Samples\secure-app-model\keyvault` .
 
-4. Werk de toepassings instellingen in het bestand [Application. Properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties) bij.
+4. Werk de toepassingsinstellingen in het bestand [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties) bij.
 
      ```java
     azuread.authority=https://login.microsoftonline.com
@@ -376,34 +371,34 @@ We hebben de volgende voor beelden ontwikkeld om partners te helpen begrijpen ho
     partnercenter.clientSecret=
     ```
 
-5. Wanneer u dit voorbeeld project uitvoert, wordt het vernieuwings token opgehaald dat is verkregen tijdens het partner toestemmings proces. Vervolgens wordt een toegangs token aangevraagd om te communiceren met de Partner Center SDK voor de naam van de partner.
+5. Wanneer u dit voorbeeldproject gaat uitvoeren, wordt het vernieuwings token verkregen tijdens het toestemmingsproces van de partner. Vervolgens wordt een toegangs token voor interactie met de Partnercentrum-SDK namens de partner gevraagd.
 
-6. Optioneel: Verwijder de *RunAzureTask* -en *RunGraphTask* -functie aanroepen als u wilt zien hoe u kunt communiceren met Azure Resource Manager en Microsoft Graph namens de klant.
+6. Optioneel: u kunt de aanroepen van de *functie RunAzureTask* en *RunGraphTask* als u wilt zien hoe u namens de klant kunt communiceren met Azure Resource Manager en Microsoft Graph.
 
-## <a name="control-panel-provider-authentication"></a>Verificatie van provider van configuratie scherm
+## <a name="control-panel-provider-authentication"></a>Configuratiescherm providerverificatie
 
-Leveranciers van het configuratie scherm moeten elke partner die ze ondersteunen de [partner toestemmings](#partner-consent) procedure uitvoeren. Zodra het vernieuwings token dat is verkregen via dat proces, wordt gebruikt om toegang te krijgen tot het partner centrum REST API en de .NET API.
+Leveranciers van configuratiescherm moeten elke partner die ze ondersteunen, het [toestemmingsproces van de partner](#partner-consent) laten uitvoeren. Zodra dit is voltooid, wordt het vernieuwings token dat via dat proces is verkregen, gebruikt om toegang te krijgen tot Partner Center REST API .NET API.
 
-### <a name="samples-for-cloud-panel-provider-authentication"></a>Voor beelden voor verificatie van provider van Cloud paneel
+### <a name="samples-for-cloud-panel-provider-authentication"></a>Voorbeelden voor verificatie van cloudpaneelproviders
 
-Om te helpen de leveranciers van het configuratie scherm begrijpen hoe elke vereiste bewerking moet worden uitgevoerd, hebben we de volgende voor beelden ontwikkeld. Wanneer u de juiste oplossing in uw omgeving implementeert, is het belang rijk dat u een oplossing ontwikkelt die een klacht vormt voor uw coderings standaarden en beveiligings beleid.
+Om panelleveranciers te helpen begrijpen hoe elke vereiste bewerking moet worden uitgevoerd, hebben we de volgende voorbeelden ontwikkeld. Wanneer u de juiste oplossing in uw omgeving implementeert, is het belangrijk dat u een oplossing ontwikkelt die geschikt is voor uw coderingsstandaarden en beveiligingsbeleid.
 
 ## <a name="net-cpv-authentication"></a>.NET (CPV-verificatie)
 
-1. Ontwikkel en implementeer een proces voor partners van Cloud solution providers om de juiste toestemming te geven. Zie [partner instemming](#partner-consent)voor meer informatie over een voor beeld.
+1. Ontwikkel en implementeer een proces voor Cloud Solution Provider partners om de juiste toestemming te geven. Zie partner consent (Toestemming van [partner) voor meer informatie.](#partner-consent)
 
     > [!IMPORTANT]
-    > Gebruikers referenties van een Cloud Solution Provider-partner mogen niet worden opgeslagen. Het vernieuwings token dat is verkregen via het partner toestemming proces moet worden opgeslagen en gebruikt om toegangs tokens aan te vragen voor interactie met een micro soft-API.
+    > Gebruikersreferenties van een Cloud Solution Provider partner mogen niet worden opgeslagen. Het vernieuwingstoken dat is verkregen via het toestemmingsproces van de partner, moet worden opgeslagen en gebruikt om toegangstokens aan te vragen voor interactie met elke Microsoft-API.
 
-2. Kloon de opslag plaats [Partner-Center-DotNet-samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) met Visual Studio of de volgende opdracht
+2. Kloon [de opslagplaats Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) met behulp Visual Studio of de volgende opdracht
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-3. Open het `CPVApplication` project dat in de `Partner-Center-DotNet-Samples\secure-app-model\keyvault` map is gevonden.
+3. Open het `CPVApplication` project in de map `Partner-Center-DotNet-Samples\secure-app-model\keyvault` .
 
-4. Werk de toepassings instellingen in het [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config) bestand bij.
+4. Werk de toepassingsinstellingen in het [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config) bij.
 
     ```xml
     <!-- AppID that represents Control panel vendor application -->
@@ -428,7 +423,7 @@ Om te helpen de leveranciers van het configuratie scherm begrijpen hoe elke vere
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. Stel de juiste waarden in voor de variabelen **partner** en **CustomerId** in het [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs) -bestand.
+5. Stel de juiste waarden in voor de **variabelen PartnerId** en **CustomerId** in het [bestand Program.cs.](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs)
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -436,7 +431,7 @@ Om te helpen de leveranciers van het configuratie scherm begrijpen hoe elke vere
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. Wanneer u dit voorbeeld project uitvoert, wordt het vernieuwings token opgehaald voor de opgegeven partner. Vervolgens wordt een toegangs token aangevraagd om toegang te krijgen tot partner Center en Azure AD Graph namens de partner. De volgende taak die wordt uitgevoerd, is het verwijderen en maken van machtigings toekenningen in de Tenant van de klant. Omdat er geen relatie is tussen de leverancier van het configuratie scherm en de klant, moeten deze machtigingen worden toegevoegd met behulp van de partner centrum-API. In het volgende voor beeld ziet u hoe u dit kunt doen.
+6. Wanneer u dit voorbeeldproject uit te voeren, wordt het vernieuwing token voor de opgegeven partner. Vervolgens wordt een toegangsken voor toegang tot Partner Center en Azure AD-Graph namens de partner gevraagd. De volgende taak die wordt uitgevoerd, is het verwijderen en maken van machtigingsrechten in de tenant van de klant. Omdat er geen relatie is tussen de leverancier van het configuratiescherm en de klant, moeten deze machtigingen worden toegevoegd met behulp van de Partner Center API. In het volgende voorbeeld ziet u hoe u dat doet.
 
     ```csharp
     JObject contents = new JObject
@@ -470,24 +465,24 @@ Om te helpen de leveranciers van het configuratie scherm begrijpen hoe elke vere
         contents.ToString());
     ```
 
-Nadat deze machtigingen zijn vastgesteld, voert het voor beeld bewerkingen uit met Azure AD Graph namens de klant.
+Nadat deze machtigingen zijn ingesteld, voert het voorbeeld bewerkingen uit met behulp van Azure AD Graph namens de klant.
 
 ## <a name="java-cpv-authentication"></a>Java (CPV-verificatie)
 
-1. Ontwikkel en implementeer een proces voor partners van Cloud solution providers om de juiste toestemming te geven. Zie de [partner toestemming](#partner-consent)voor meer informatie en een voor beeld.
+1. Ontwikkel en implementeer een proces voor Cloud Solution Provider partners om de juiste toestemming te geven. Zie de toestemming van de partner voor meer informatie [en een voorbeeld.](#partner-consent)
 
     > [!IMPORTANT]
-    > Gebruikers referenties van een Cloud Solution Provider-partner mogen niet worden opgeslagen. Het vernieuwings token dat is verkregen via het partner toestemming proces moet worden opgeslagen en gebruikt om toegangs tokens aan te vragen voor interactie met een micro soft-API.
+    > Gebruikersreferenties van een Cloud Solution Provider partner mogen niet worden opgeslagen. Het vernieuwingstoken dat is verkregen via het toestemmingsproces van de partner, moet worden opgeslagen en gebruikt om toegangstokens aan te vragen voor interactie met elke Microsoft-API.
 
-2. Kloon de opslag plaats van de [Partner-Center-Java-voor beelden](https://github.com/Microsoft/Partner-Center-Java-Samples) met de volgende opdracht
+2. Kloon de [opslagplaats Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) met behulp van de volgende opdracht
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-3. Open het `cpvsample` project dat in de `Partner-Center-Java-Samples\secure-app-model\keyvault` map is gevonden.
+3. Open het `cpvsample` project in de map `Partner-Center-Java-Samples\secure-app-model\keyvault` .
 
-4. Werk de toepassings instellingen in het bestand [Application. Properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties) bij.
+4. Werk de toepassingsinstellingen in het bestand [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties) bij.
 
     ```java
     azuread.authority=https://login.microsoftonline.com
@@ -500,16 +495,16 @@ Nadat deze machtigingen zijn vastgesteld, voert het voor beeld bewerkingen uit m
     partnercenter.displayName=
     ```
 
-    De waarde voor de `partnercenter.displayName` moet de weergave naam van uw Marketplace-toepassing zijn.
+    De waarde voor moet `partnercenter.displayName` de weergavenaam van uw Marketplace-toepassing zijn.
 
-5. Stel de juiste waarden in voor de variabelen **partner** en **customerId** in het bestand [Program. java](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java) .
+5. Stel de juiste waarden in voor de **variabelen partnerId** en **customerId** in het [bestand Program.java.](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java)
 
     ```java
     partnerId = "SPECIFY-THE-PARTNER-TENANT-ID-HERE";
     customerId = "SPECIFY-THE-CUSTOMER-TENANT-ID-HERE";
     ```
 
-6. Wanneer u dit voorbeeld project uitvoert, wordt het vernieuwings token opgehaald voor de opgegeven partner. Vervolgens wordt een toegangs token aangevraagd om toegang te krijgen tot het partner centrum namens de partner. De volgende taak die wordt uitgevoerd, is het verwijderen en maken van machtigings toekenningen in de Tenant van de klant. Omdat er geen relatie is tussen de leverancier van het configuratie scherm en de klant, moeten deze machtigingen worden toegevoegd met behulp van de partner centrum-API. In het volgende voor beeld ziet u hoe u de machtigingen kunt verlenen.
+6. Wanneer u dit voorbeeldproject uit te voeren, wordt het vernieuwing token voor de opgegeven partner. Vervolgens wordt een toegangs token gevraagd voor toegang Partner Center namens de partner. De volgende taak die wordt uitgevoerd, is het verwijderen en maken van machtigingsrechten in de tenant van de klant. Omdat er geen relatie is tussen de leverancier van het configuratiescherm en de klant, moeten deze machtigingen worden toegevoegd met behulp van de Partner Center API. In het volgende voorbeeld ziet u hoe u de machtigingen verleent.
 
     ```java
     ApplicationGrant azureAppGrant = new ApplicationGrant();
@@ -547,4 +542,4 @@ Nadat deze machtigingen zijn vastgesteld, voert het voor beeld bewerkingen uit m
         consent);
     ```
 
-Verwijder de opmerking over de functie aanroepen voor *RunAzureTask* en *RunGraphTask* als u wilt zien hoe u met Azure Resource Manager en Microsoft Graph kunt communiceren namens de klant.
+Hef de aanroepen van de *functie RunAzureTask* en *RunGraphTask* op als u wilt zien hoe u namens de klant kunt communiceren met Azure Resource Manager en Microsoft Graph.
