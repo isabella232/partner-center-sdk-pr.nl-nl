@@ -1,42 +1,37 @@
 ---
 title: Accounts en profielen beheren
-description: In deze sectie worden de manieren beschreven waarop partners van Cloud solution providers het partner centrum kunnen gebruiken om hun gebruikers accounts en-profielen programmatisch te beheren.
+description: In deze sectie worden de manieren beschreven waarop Cloud Solution Provider-partners de Partner Center hun gebruikersaccounts en -profielen programmatisch kunnen beheren.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 802e6c48a9ee6d5fffdbac54a55f8cbe366283cb
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: ce0770568d9532e6bfa8f3092d479e5d0a2597ea
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97767417"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548138"
 ---
-# <a name="manage-accounts-and-profiles"></a><span data-ttu-id="9f118-103">Accounts en profielen beheren</span><span class="sxs-lookup"><span data-stu-id="9f118-103">Manage accounts and profiles</span></span>
+# <a name="manage-accounts-and-profiles"></a><span data-ttu-id="29cb0-103">Accounts en profielen beheren</span><span class="sxs-lookup"><span data-stu-id="29cb0-103">Manage accounts and profiles</span></span>
 
-<span data-ttu-id="9f118-104">**Van toepassing op**</span><span class="sxs-lookup"><span data-stu-id="9f118-104">**Applies To**</span></span>
+<span data-ttu-id="29cb0-104">**Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="29cb0-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="9f118-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="9f118-105">Partner Center</span></span>
-- <span data-ttu-id="9f118-106">Partner centrum beheerd door 21Vianet</span><span class="sxs-lookup"><span data-stu-id="9f118-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="9f118-107">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="9f118-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="9f118-108">Partnercentrum voor Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="9f118-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="29cb0-105">In deze sectie worden de manieren beschreven waarop Cloud Solution Provider kunnen gebruiken om Partner Center gebruikersaccounts en -profielen programmatisch te beheren.</span><span class="sxs-lookup"><span data-stu-id="29cb0-105">This section describes the ways that Cloud Solution Provider partners can use Partner Center to programmatically manage their user accounts and profiles.</span></span>
 
-<span data-ttu-id="9f118-109">In deze sectie worden de manieren beschreven waarop partners van Cloud Solution Providers Partner Center kunnen gebruiken om hun gebruikers accounts en-profielen programmatisch te beheren.</span><span class="sxs-lookup"><span data-stu-id="9f118-109">This section describes the ways that Cloud Solution Provider partners can use Partner Center to programmatically manage their user accounts and profiles.</span></span>
+- [<span data-ttu-id="29cb0-106">Juridisch bedrijfsprofiel opmaken</span><span class="sxs-lookup"><span data-stu-id="29cb0-106">Get legal business profile</span></span>](get-legal-business-profile.md)
+- [<span data-ttu-id="29cb0-107">Een organisatieprofiel ophalen</span><span class="sxs-lookup"><span data-stu-id="29cb0-107">Get an organization profile</span></span>](get-an-organization-profile.md)
+- [<span data-ttu-id="29cb0-108">Factureringsprofiel van een partner ophalen</span><span class="sxs-lookup"><span data-stu-id="29cb0-108">Get partner billing profile</span></span>](get-partner-billing-profile.md)
+- [<span data-ttu-id="29cb0-109">Microsoft Partner Network-profiel ophalen</span><span class="sxs-lookup"><span data-stu-id="29cb0-109">Get Microsoft Partner Network profile</span></span>](get-partner-network-profile.md)
+- [<span data-ttu-id="29cb0-110">Ondersteuningsprofiel ophalen</span><span class="sxs-lookup"><span data-stu-id="29cb0-110">Get support profile</span></span>](get-support-profile.md)
+- [<span data-ttu-id="29cb0-111">Juridisch bedrijfsprofiel bijwerken</span><span class="sxs-lookup"><span data-stu-id="29cb0-111">Update legal business profile</span></span>](update-legal-business-profile.md)
+- [<span data-ttu-id="29cb0-112">Het factureringsprofiel van een partner bijwerken</span><span class="sxs-lookup"><span data-stu-id="29cb0-112">Update a partner's billing profile</span></span>](update-partner-billing-profile.md)
+- [<span data-ttu-id="29cb0-113">Ondersteuningsprofiel bijwerken</span><span class="sxs-lookup"><span data-stu-id="29cb0-113">Update support profile</span></span>](update-support-profile.md)
+- [<span data-ttu-id="29cb0-114">Een organisatieprofiel bijwerken</span><span class="sxs-lookup"><span data-stu-id="29cb0-114">Update an organization profile</span></span>](update-an-organization-profile.md)
 
-- [<span data-ttu-id="9f118-110">Juridisch zakelijk profiel ophalen</span><span class="sxs-lookup"><span data-stu-id="9f118-110">Get legal business profile</span></span>](get-legal-business-profile.md)
-- [<span data-ttu-id="9f118-111">Een organisatieprofiel ophalen</span><span class="sxs-lookup"><span data-stu-id="9f118-111">Get an organization profile</span></span>](get-an-organization-profile.md)
-- [<span data-ttu-id="9f118-112">Factureringsprofiel van een partner ophalen</span><span class="sxs-lookup"><span data-stu-id="9f118-112">Get partner billing profile</span></span>](get-partner-billing-profile.md)
-- [<span data-ttu-id="9f118-113">Microsoft Partner Network-profiel ophalen</span><span class="sxs-lookup"><span data-stu-id="9f118-113">Get Microsoft Partner Network profile</span></span>](get-partner-network-profile.md)
-- [<span data-ttu-id="9f118-114">Ondersteuningsprofiel ophalen</span><span class="sxs-lookup"><span data-stu-id="9f118-114">Get support profile</span></span>](get-support-profile.md)
-- [<span data-ttu-id="9f118-115">Juridisch zakelijk profiel bijwerken</span><span class="sxs-lookup"><span data-stu-id="9f118-115">Update legal business profile</span></span>](update-legal-business-profile.md)
-- [<span data-ttu-id="9f118-116">Het facturerings Profiel van een partner bijwerken</span><span class="sxs-lookup"><span data-stu-id="9f118-116">Update a partner's billing profile</span></span>](update-partner-billing-profile.md)
-- [<span data-ttu-id="9f118-117">Ondersteuningsprofiel bijwerken</span><span class="sxs-lookup"><span data-stu-id="9f118-117">Update support profile</span></span>](update-support-profile.md)
-- [<span data-ttu-id="9f118-118">Een organisatieprofiel bijwerken</span><span class="sxs-lookup"><span data-stu-id="9f118-118">Update an organization profile</span></span>](update-an-organization-profile.md)
+<span data-ttu-id="29cb0-115">Werken met andere partners</span><span class="sxs-lookup"><span data-stu-id="29cb0-115">Work with other partners</span></span>
 
-<span data-ttu-id="9f118-119">Werken met andere partners</span><span class="sxs-lookup"><span data-stu-id="9f118-119">Work with other partners</span></span>
+- [<span data-ttu-id="29cb0-116">Partner op MPN-id op halen</span><span class="sxs-lookup"><span data-stu-id="29cb0-116">Get partner by MPN ID</span></span>](get-partner-by-mpn-id.md)
+- [<span data-ttu-id="29cb0-117">Alle abonnementen per partner krijgen</span><span class="sxs-lookup"><span data-stu-id="29cb0-117">Get all subscriptions by partner</span></span>](get-all-subscriptions-by-partner.md)
 
-- [<span data-ttu-id="9f118-120">Partner ophalen op basis van MPN-ID</span><span class="sxs-lookup"><span data-stu-id="9f118-120">Get partner by MPN ID</span></span>](get-partner-by-mpn-id.md)
-- [<span data-ttu-id="9f118-121">Alle abonnementen ophalen op basis van de partner</span><span class="sxs-lookup"><span data-stu-id="9f118-121">Get all subscriptions by partner</span></span>](get-all-subscriptions-by-partner.md)
-
-<span data-ttu-id="9f118-122">Zie [scenario's](scenarios.md)voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="9f118-122">For more information, see [Scenarios](scenarios.md).</span></span>
+<span data-ttu-id="29cb0-118">Zie Scenario's voor [meer informatie.](scenarios.md)</span><span class="sxs-lookup"><span data-stu-id="29cb0-118">For more information, see [Scenarios](scenarios.md).</span></span>

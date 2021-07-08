@@ -1,41 +1,38 @@
 ---
 title: Een lijst met beleidsregels van een klant ophalen
-description: Een verzameling van het configuratie beleid van de opgegeven klant ophalen.
+description: Een verzameling van de opgegeven configuratiebeleidsregels van de klant ophalen.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 16886b1adca393ed2967f2a4fe74a379bef1c1c7
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: bf6ace0d2425e28d80c4f2310878c2d2a9e2a876
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97767374"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874581"
 ---
-# <a name="get-a-list-of-a-customers-policies"></a><span data-ttu-id="4a07d-103">Een lijst met beleidsregels van een klant ophalen</span><span class="sxs-lookup"><span data-stu-id="4a07d-103">Get a list of a customer's policies</span></span>
+# <a name="get-a-list-of-a-customers-policies"></a><span data-ttu-id="fdb55-103">Een lijst met beleidsregels van een klant ophalen</span><span class="sxs-lookup"><span data-stu-id="fdb55-103">Get a list of a customer's policies</span></span>
 
-<span data-ttu-id="4a07d-104">**Van toepassing op:**</span><span class="sxs-lookup"><span data-stu-id="4a07d-104">**Applies to:**</span></span>
+<span data-ttu-id="fdb55-104">**Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="fdb55-104">**Applies to**: Partner Center | Partner Center for Microsoft Cloud Germany</span></span>
 
-- <span data-ttu-id="4a07d-105">Partnercentrum</span><span class="sxs-lookup"><span data-stu-id="4a07d-105">Partner Center</span></span>
-- <span data-ttu-id="4a07d-106">Partnercentrum voor Microsoft Cloud Duitsland</span><span class="sxs-lookup"><span data-stu-id="4a07d-106">Partner Center for Microsoft Cloud Germany</span></span>
+<span data-ttu-id="fdb55-105">In dit artikel wordt beschreven hoe u een verzameling van de opgegeven configuratiebeleidsregels van de klant ophaalt.</span><span class="sxs-lookup"><span data-stu-id="fdb55-105">This article describes how to retrieve a collection of the specified customer's configuration policies.</span></span>
 
-<span data-ttu-id="4a07d-107">In dit artikel wordt beschreven hoe u een verzameling van het configuratie beleid van de opgegeven klant ophaalt.</span><span class="sxs-lookup"><span data-stu-id="4a07d-107">This article describes how to retrieve a collection of the specified customer's configuration policies.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="fdb55-106">Vereisten</span><span class="sxs-lookup"><span data-stu-id="fdb55-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="4a07d-108">Vereisten</span><span class="sxs-lookup"><span data-stu-id="4a07d-108">Prerequisites</span></span>
+- <span data-ttu-id="fdb55-107">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="fdb55-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="fdb55-108">Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="fdb55-108">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="4a07d-109">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="4a07d-109">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="4a07d-110">Dit scenario ondersteunt verificatie met zowel zelfstandige app als app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="4a07d-110">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="fdb55-109">Een klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="fdb55-109">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="fdb55-110">Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span><span class="sxs-lookup"><span data-stu-id="fdb55-110">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="fdb55-111">Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.**</span><span class="sxs-lookup"><span data-stu-id="fdb55-111">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="fdb55-112">Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**.</span><span class="sxs-lookup"><span data-stu-id="fdb55-112">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="fdb55-113">Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.**</span><span class="sxs-lookup"><span data-stu-id="fdb55-113">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="fdb55-114">De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="fdb55-114">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="4a07d-111">Een klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="4a07d-111">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="4a07d-112">Als u de klant-ID niet weet, kunt u deze bekijken in het [dash board](https://partner.microsoft.com/dashboard)van de partner centrum.</span><span class="sxs-lookup"><span data-stu-id="4a07d-112">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="4a07d-113">Selecteer **CSP** in het menu partner centrum, gevolgd door **klanten**.</span><span class="sxs-lookup"><span data-stu-id="4a07d-113">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="4a07d-114">Selecteer de klant in de lijst klant en selecteer vervolgens **account**.</span><span class="sxs-lookup"><span data-stu-id="4a07d-114">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="4a07d-115">Zoek op de pagina account van de klant naar de **micro soft-id** in het gedeelte **klant account info** .</span><span class="sxs-lookup"><span data-stu-id="4a07d-115">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="4a07d-116">De micro soft-ID is gelijk aan de klant-ID ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="4a07d-116">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+## <a name="c"></a><span data-ttu-id="fdb55-115">C\#</span><span class="sxs-lookup"><span data-stu-id="fdb55-115">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="4a07d-117">C\#</span><span class="sxs-lookup"><span data-stu-id="4a07d-117">C\#</span></span>
+<span data-ttu-id="fdb55-116">Een lijst met alle beleidsregels van een klant op te halen:</span><span class="sxs-lookup"><span data-stu-id="fdb55-116">To get a list of all of a customer's policies:</span></span>
 
-<span data-ttu-id="4a07d-118">Een lijst met alle beleids regels van een klant weer geven:</span><span class="sxs-lookup"><span data-stu-id="4a07d-118">To get a list of all of a customer's policies:</span></span>
+1. <span data-ttu-id="fdb55-117">Roep de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant.</span><span class="sxs-lookup"><span data-stu-id="fdb55-117">Call the [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.</span></span>
 
-1. <span data-ttu-id="4a07d-119">Roep de methode [**IAggregatePartner. Customs. ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant.</span><span class="sxs-lookup"><span data-stu-id="4a07d-119">Call the [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.</span></span>
-
-2. <span data-ttu-id="4a07d-120">Haal de eigenschap [**ConfigurationPolicies**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) op om een interface voor het verzamelen van configuratie beleidsregels op te halen.</span><span class="sxs-lookup"><span data-stu-id="4a07d-120">Retrieve the [**ConfigurationPolicies**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) property to get an interface to configuration policy collection operations.</span></span>
-3. <span data-ttu-id="4a07d-121">Roep de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) aan om de verzameling beleids regels op te halen.</span><span class="sxs-lookup"><span data-stu-id="4a07d-121">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) method to retrieve the collection of policies.</span></span>
+2. <span data-ttu-id="fdb55-118">Haal de [**eigenschap ConfigurationPolicies op**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) om een interface op te halen voor bewerkingen voor het verzamelen van configuratiebeleid.</span><span class="sxs-lookup"><span data-stu-id="fdb55-118">Retrieve the [**ConfigurationPolicies**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) property to get an interface to configuration policy collection operations.</span></span>
+3. <span data-ttu-id="fdb55-119">Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) om de verzameling beleidsregels op te halen.</span><span class="sxs-lookup"><span data-stu-id="fdb55-119">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) method to retrieve the collection of policies.</span></span>
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -44,37 +41,37 @@ string selectedCustomerId;
 var configPolicies = partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.Get();
 ```
 
-<span data-ttu-id="4a07d-122">Voor een voor beeld ziet u het volgende:</span><span class="sxs-lookup"><span data-stu-id="4a07d-122">For an example, see the following:</span></span>
+<span data-ttu-id="fdb55-120">Zie voor een voorbeeld het volgende:</span><span class="sxs-lookup"><span data-stu-id="fdb55-120">For an example, see the following:</span></span>
 
-- <span data-ttu-id="4a07d-123">Voor beeld: [console test-app](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="4a07d-123">Sample: [Console test app](console-test-app.md)</span></span>
-- <span data-ttu-id="4a07d-124">Project: **Partner Center SDK** -voor beelden</span><span class="sxs-lookup"><span data-stu-id="4a07d-124">Project: **Partner Center SDK Samples**</span></span>
-- <span data-ttu-id="4a07d-125">Klasse: **GetAllConfigurationPolicies.cs**</span><span class="sxs-lookup"><span data-stu-id="4a07d-125">Class: **GetAllConfigurationPolicies.cs**</span></span>
+- <span data-ttu-id="fdb55-121">Voorbeeld: [Consoletest-app](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="fdb55-121">Sample: [Console test app](console-test-app.md)</span></span>
+- <span data-ttu-id="fdb55-122">Project: **Partnercentrum-SDK Voorbeelden**</span><span class="sxs-lookup"><span data-stu-id="fdb55-122">Project: **Partner Center SDK Samples**</span></span>
+- <span data-ttu-id="fdb55-123">Klasse: **GetAllConfigurationPolicies.cs**</span><span class="sxs-lookup"><span data-stu-id="fdb55-123">Class: **GetAllConfigurationPolicies.cs**</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="4a07d-126">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="4a07d-126">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="fdb55-124">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="fdb55-124">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="4a07d-127">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="4a07d-127">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="fdb55-125">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="fdb55-125">Request syntax</span></span>
 
-| <span data-ttu-id="4a07d-128">Methode</span><span class="sxs-lookup"><span data-stu-id="4a07d-128">Method</span></span>  | <span data-ttu-id="4a07d-129">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="4a07d-129">Request URI</span></span>                                                                              |
+| <span data-ttu-id="fdb55-126">Methode</span><span class="sxs-lookup"><span data-stu-id="fdb55-126">Method</span></span>  | <span data-ttu-id="fdb55-127">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="fdb55-127">Request URI</span></span>                                                                              |
 |---------|------------------------------------------------------------------------------------------|
-| <span data-ttu-id="4a07d-130">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="4a07d-130">**GET**</span></span> | <span data-ttu-id="4a07d-131">[*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/policies http/1.1</span><span class="sxs-lookup"><span data-stu-id="4a07d-131">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1</span></span> |
+| <span data-ttu-id="fdb55-128">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="fdb55-128">**GET**</span></span> | <span data-ttu-id="fdb55-129">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="fdb55-129">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1</span></span> |
 
-#### <a name="uri-parameter"></a><span data-ttu-id="4a07d-132">URI-para meter</span><span class="sxs-lookup"><span data-stu-id="4a07d-132">URI parameter</span></span>
+#### <a name="uri-parameter"></a><span data-ttu-id="fdb55-130">URI-parameter</span><span class="sxs-lookup"><span data-stu-id="fdb55-130">URI parameter</span></span>
 
-<span data-ttu-id="4a07d-133">Gebruik de volgende para meter Path bij het maken van de aanvraag:</span><span class="sxs-lookup"><span data-stu-id="4a07d-133">Use the following path parameter when creating the request:</span></span>
+<span data-ttu-id="fdb55-131">Gebruik de volgende padparameter bij het maken van de aanvraag:</span><span class="sxs-lookup"><span data-stu-id="fdb55-131">Use the following path parameter when creating the request:</span></span>
 
-| <span data-ttu-id="4a07d-134">Naam</span><span class="sxs-lookup"><span data-stu-id="4a07d-134">Name</span></span>        | <span data-ttu-id="4a07d-135">Type</span><span class="sxs-lookup"><span data-stu-id="4a07d-135">Type</span></span>   | <span data-ttu-id="4a07d-136">Vereist</span><span class="sxs-lookup"><span data-stu-id="4a07d-136">Required</span></span> | <span data-ttu-id="4a07d-137">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="4a07d-137">Description</span></span>                                           |
+| <span data-ttu-id="fdb55-132">Naam</span><span class="sxs-lookup"><span data-stu-id="fdb55-132">Name</span></span>        | <span data-ttu-id="fdb55-133">Type</span><span class="sxs-lookup"><span data-stu-id="fdb55-133">Type</span></span>   | <span data-ttu-id="fdb55-134">Vereist</span><span class="sxs-lookup"><span data-stu-id="fdb55-134">Required</span></span> | <span data-ttu-id="fdb55-135">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="fdb55-135">Description</span></span>                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| <span data-ttu-id="4a07d-138">klant-id</span><span class="sxs-lookup"><span data-stu-id="4a07d-138">customer-id</span></span> | <span data-ttu-id="4a07d-139">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4a07d-139">string</span></span> | <span data-ttu-id="4a07d-140">Yes</span><span class="sxs-lookup"><span data-stu-id="4a07d-140">Yes</span></span>      | <span data-ttu-id="4a07d-141">Een teken reeks met een GUID-indeling waarmee de klant wordt geïdentificeerd.</span><span class="sxs-lookup"><span data-stu-id="4a07d-141">A GUID-formatted string that identifies the customer.</span></span> |
+| <span data-ttu-id="fdb55-136">customer-id</span><span class="sxs-lookup"><span data-stu-id="fdb55-136">customer-id</span></span> | <span data-ttu-id="fdb55-137">tekenreeks</span><span class="sxs-lookup"><span data-stu-id="fdb55-137">string</span></span> | <span data-ttu-id="fdb55-138">Ja</span><span class="sxs-lookup"><span data-stu-id="fdb55-138">Yes</span></span>      | <span data-ttu-id="fdb55-139">Een tekenreeks in GUID-indeling die de klant identificeert.</span><span class="sxs-lookup"><span data-stu-id="fdb55-139">A GUID-formatted string that identifies the customer.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="4a07d-142">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="4a07d-142">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="fdb55-140">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="fdb55-140">Request headers</span></span>
 
-<span data-ttu-id="4a07d-143">Zie voor meer informatie [Partner Center rest headers](headers.md).</span><span class="sxs-lookup"><span data-stu-id="4a07d-143">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="fdb55-141">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="fdb55-141">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="4a07d-144">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="4a07d-144">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="fdb55-142">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="fdb55-142">Request body</span></span>
 
-<span data-ttu-id="4a07d-145">Geen</span><span class="sxs-lookup"><span data-stu-id="4a07d-145">None</span></span>
+<span data-ttu-id="fdb55-143">Geen</span><span class="sxs-lookup"><span data-stu-id="fdb55-143">None</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="4a07d-146">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="4a07d-146">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="fdb55-144">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="fdb55-144">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/47021739-3426-40bf-9601-61b4b6d7c793/policies HTTP/1.1
@@ -87,15 +84,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="4a07d-147">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="4a07d-147">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="fdb55-145">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="fdb55-145">REST response</span></span>
 
-<span data-ttu-id="4a07d-148">Als dit lukt, bevat de antwoord tekst de verzameling [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) -resources.</span><span class="sxs-lookup"><span data-stu-id="4a07d-148">If successful, the response body contains the collection of [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resources.</span></span>
+<span data-ttu-id="fdb55-146">Als dit lukt, bevat de antwoord-body de verzameling [ConfigurationPolicy-resources.](device-deployment-resources.md#configurationpolicy)</span><span class="sxs-lookup"><span data-stu-id="fdb55-146">If successful, the response body contains the collection of [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resources.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="4a07d-149">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="4a07d-149">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="fdb55-147">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="fdb55-147">Response success and error codes</span></span>
 
-<span data-ttu-id="4a07d-150">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="4a07d-150">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="4a07d-151">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="4a07d-151">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="4a07d-152">Zie voor een volledige lijst de [rest-fout codes van het partner centrum](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="4a07d-152">For a full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="fdb55-148">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="fdb55-148">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="fdb55-149">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="fdb55-149">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="fdb55-150">Zie REST-foutcodes voor [Partner Center een volledige lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="fdb55-150">For a full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="4a07d-153">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="4a07d-153">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="fdb55-151">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="fdb55-151">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

@@ -1,50 +1,48 @@
 ---
-title: Een lijst met alle partner gebruikers aanvragen ophalen
-description: Een lijst met alle partner gebruikers aanvragen ophalen met behulp van de partner REST API.
+title: Een lijst met alle aanvragen van partnergebruikers opvragen
+description: Een lijst met alle aanvragen van partnergebruikers opvragen met behulp van de partner REST API.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 43b1e3d4a6220ac8adba8eed0389395113072288
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9a367f912669114969f8792a5afcc7020af1112e
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97767178"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760501"
 ---
-# <a name="get-app-and-user-api-requests"></a><span data-ttu-id="415b8-103">App-en gebruikers-API-aanvragen ophalen</span><span class="sxs-lookup"><span data-stu-id="415b8-103">Get App and User API requests</span></span>
+# <a name="get-app-and-user-api-requests"></a><span data-ttu-id="14d1b-103">App- en gebruikers-API-aanvragen downloaden</span><span class="sxs-lookup"><span data-stu-id="14d1b-103">Get App and User API requests</span></span>
 
-<span data-ttu-id="415b8-104">Van toepassing op:</span><span class="sxs-lookup"><span data-stu-id="415b8-104">Applies to:</span></span>
+<span data-ttu-id="14d1b-104">**Van toepassing op**: Partner Center API</span><span class="sxs-lookup"><span data-stu-id="14d1b-104">**Applies to**: Partner Center API</span></span>
 
-- <span data-ttu-id="415b8-105">Partnercentrum-API</span><span class="sxs-lookup"><span data-stu-id="415b8-105">Partner Center API</span></span>
-
-<span data-ttu-id="415b8-106">In dit artikel wordt uitgelegd hoe u een lijst met alle partner gebruikers aanvragen binnen een Tenant kunt ophalen met behulp van REST Api's.</span><span class="sxs-lookup"><span data-stu-id="415b8-106">This article explains how to obtain a list of all partner user requests within a tenant using REST APIs.</span></span>
+<span data-ttu-id="14d1b-105">In dit artikel wordt uitgelegd hoe u een lijst met alle aanvragen van partnergebruikers binnen een tenant kunt verkrijgen met behulp van REST API's.</span><span class="sxs-lookup"><span data-stu-id="14d1b-105">This article explains how to obtain a list of all partner user requests within a tenant using REST APIs.</span></span>
 
  > [!NOTE]
- > <span data-ttu-id="415b8-107">Deze API retourneert alleen de meest recente API-aanvragen die zijn gemaakt door de APP + gebruikers referentie met een maximale 10.000 limiet.</span><span class="sxs-lookup"><span data-stu-id="415b8-107">This API only returns the most recent API requests made by APP + User credential with maximum 10K limit.</span></span>
+ > <span data-ttu-id="14d1b-106">Deze API retourneert alleen de meest recente API-aanvragen die zijn gedaan door APP + Gebruikersreferenties met een limiet van maximaal 10.000.</span><span class="sxs-lookup"><span data-stu-id="14d1b-106">This API only returns the most recent API requests made by APP + User credential with maximum 10K limit.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="415b8-108">Vereisten</span><span class="sxs-lookup"><span data-stu-id="415b8-108">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="14d1b-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="14d1b-107">Prerequisites</span></span>
 
-- <span data-ttu-id="415b8-109">Referenties zoals beschreven in [Partner Center-verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="415b8-109">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="415b8-110">Dit scenario ondersteunt verificatie met app + gebruikers referenties.</span><span class="sxs-lookup"><span data-stu-id="415b8-110">This scenario supports authentication with App+User credentials.</span></span>
+- <span data-ttu-id="14d1b-108">Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="14d1b-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="14d1b-109">Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.</span><span class="sxs-lookup"><span data-stu-id="14d1b-109">This scenario supports authentication with App+User credentials.</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="415b8-111">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="415b8-111">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="14d1b-110">REST-aanvraag</span><span class="sxs-lookup"><span data-stu-id="14d1b-110">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="415b8-112">Syntaxis van aanvraag</span><span class="sxs-lookup"><span data-stu-id="415b8-112">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="14d1b-111">Aanvraagsyntaxis</span><span class="sxs-lookup"><span data-stu-id="14d1b-111">Request syntax</span></span>
 
-| <span data-ttu-id="415b8-113">Methode</span><span class="sxs-lookup"><span data-stu-id="415b8-113">Method</span></span>  | <span data-ttu-id="415b8-114">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="415b8-114">Request URI</span></span>                                                        |
+| <span data-ttu-id="14d1b-112">Methode</span><span class="sxs-lookup"><span data-stu-id="14d1b-112">Method</span></span>  | <span data-ttu-id="14d1b-113">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="14d1b-113">Request URI</span></span>                                                        |
 |---------|--------------------------------------------------------------------|
-| <span data-ttu-id="415b8-115">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="415b8-115">**GET**</span></span> | <span data-ttu-id="415b8-116">[*{baseURL}*](partner-center-rest-urls.md)/v1/partnerRequests</span><span class="sxs-lookup"><span data-stu-id="415b8-116">[*{baseURL}*](partner-center-rest-urls.md)/v1/partnerRequests</span></span> |
+| <span data-ttu-id="14d1b-114">**Toevoegen**</span><span class="sxs-lookup"><span data-stu-id="14d1b-114">**GET**</span></span> | <span data-ttu-id="14d1b-115">[*{baseURL}*](partner-center-rest-urls.md)/v1/partnerRequests</span><span class="sxs-lookup"><span data-stu-id="14d1b-115">[*{baseURL}*](partner-center-rest-urls.md)/v1/partnerRequests</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="415b8-117">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="415b8-117">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="14d1b-116">Aanvraagheaders</span><span class="sxs-lookup"><span data-stu-id="14d1b-116">Request headers</span></span>
 
-- <span data-ttu-id="415b8-118">Zie de [rest headers van het Partner Center](headers.md) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="415b8-118">See [Partner Center REST headers](headers.md) for more information.</span></span>
+- <span data-ttu-id="14d1b-117">Zie REST-headers [Partner Center meer informatie.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="14d1b-117">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="415b8-119">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="415b8-119">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="14d1b-118">Aanvraagbody</span><span class="sxs-lookup"><span data-stu-id="14d1b-118">Request body</span></span>
 
-<span data-ttu-id="415b8-120">Geen.</span><span class="sxs-lookup"><span data-stu-id="415b8-120">None.</span></span>
+<span data-ttu-id="14d1b-119">Geen.</span><span class="sxs-lookup"><span data-stu-id="14d1b-119">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="415b8-121">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="415b8-121">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="14d1b-120">Voorbeeld van aanvraag</span><span class="sxs-lookup"><span data-stu-id="14d1b-120">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/partnerRequests HTTP/1.1
@@ -53,15 +51,15 @@ Host: api.partnercenter.microsoft.com
 Content-Type: application/json
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="415b8-122">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="415b8-122">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="14d1b-121">REST-antwoord</span><span class="sxs-lookup"><span data-stu-id="14d1b-121">REST response</span></span>
 
-<span data-ttu-id="415b8-123">Als dit lukt, retourneert deze methode een verzameling van de gegevens bronnen van de [API-aanvraag](mfa-resources.md#api-request-details) in de hoofd tekst van het antwoord.</span><span class="sxs-lookup"><span data-stu-id="415b8-123">If successful, this method returns a collection of [API request details](mfa-resources.md#api-request-details) resources in the response body.</span></span>
+<span data-ttu-id="14d1b-122">Als dit lukt, retourneert deze methode een verzameling resources met details van [de API-aanvraag](mfa-resources.md#api-request-details) in de antwoord-body.</span><span class="sxs-lookup"><span data-stu-id="14d1b-122">If successful, this method returns a collection of [API request details](mfa-resources.md#api-request-details) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="415b8-124">Geslaagde en fout codes</span><span class="sxs-lookup"><span data-stu-id="415b8-124">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="14d1b-123">Antwoord geslaagd en foutcodes</span><span class="sxs-lookup"><span data-stu-id="14d1b-123">Response success and error codes</span></span>
 
-<span data-ttu-id="415b8-125">Elk antwoord wordt geleverd met een HTTP-status code die aangeeft of de fout is opgetreden of mislukt en aanvullende informatie over fout opsporing.</span><span class="sxs-lookup"><span data-stu-id="415b8-125">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="415b8-126">Gebruik een hulp programma voor netwerk tracering om deze code, het fout type en aanvullende para meters te lezen.</span><span class="sxs-lookup"><span data-stu-id="415b8-126">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="415b8-127">Zie [fout codes](error-codes.md)voor de volledige lijst.</span><span class="sxs-lookup"><span data-stu-id="415b8-127">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="14d1b-124">Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.</span><span class="sxs-lookup"><span data-stu-id="14d1b-124">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="14d1b-125">Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen.</span><span class="sxs-lookup"><span data-stu-id="14d1b-125">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="14d1b-126">Zie Foutcodes voor de [volledige lijst.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="14d1b-126">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="415b8-128">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="415b8-128">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="14d1b-127">Voorbeeld van antwoord</span><span class="sxs-lookup"><span data-stu-id="14d1b-127">Response example</span></span>
 
 ``` http
 HTTP/1.1 200 OK
