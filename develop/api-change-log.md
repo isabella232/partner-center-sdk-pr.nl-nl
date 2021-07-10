@@ -1,43 +1,43 @@
 ---
 title: REST API-wijzigingenlogboek voor Partnercentrum
-description: Deze pagina bevat wijzigingen in de REST Api's van het Partner Center
+description: Deze pagina bevat wijzigingen in de Partner Center REST API's
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.topic: reference
 ms.date: 12/15/2020
-ms.openlocfilehash: b2c2cac36a8bd1bec7aa5bf6e5d1aa73b4779535
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: d4f7f034a36a26b6219086ca952b189f7a313ef7
+ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711845"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113571992"
 ---
-# <a name="december-2020-changes-to-partner-center-rest-apis"></a>Wijzigingen van 2020 december voor het Partner Center REST-Api's
+# <a name="december-2020-changes-to-partner-center-rest-apis"></a>Wijzigingen van december 2020 in Partner Center REST API's
 
-Schakel dit selectie vakje in als u de REST-Api's van het partner centrum wilt wijzigen.
+Kijk hier voor wijzigingen in Partner Center REST API's.
 
-## <a name="enhancements-to-education-pricing-eligibility-apis"></a>Verbeteringen van de geschiktheids-Api's voor onderwijs prijzen
+## <a name="enhancements-to-education-pricing-eligibility-apis"></a>Verbeteringen in de education pricing Eligibility API's
 
 
 
-### <a name="what-has-changed"></a>Wat is er gewijzigd?
+### <a name="what-has-changed"></a>Wat is er veranderd?
 
-Op dit moment heeft de partner centrum-API de mogelijkheid om de geschiktheid van het onderwijs klanten te verifiëren. Er worden geen wijzigingen aangebracht in de kwalificatie-API ophalen. We hebben echter een retour Case toegevoegd aan de PUT-kwalificatie-API.
+Momenteel heeft de Partner Center-API de kwalificaties GET en PUT om te controleren of Education-klanten in aanmerking komen. Er worden geen wijzigingen aangebracht in de GET Kwalificatie-API. We hebben echter een retourcase toegevoegd aan de PUT Kwalificatie-API.
 
-- GET-wordt niet gewijzigd. [Huidige API-artikel](./get-customer-qualification-synchronous.md)
-- Er wordt een case met de waarde PUT toegevoegd. [Huidige API-artikel](./update-customer-qualification-synchronous.md)
+- GET: verandert niet.
+- PUT: retourcase wordt toegevoegd.
 
-Deze Api's worden aan het einde van februari 2021 verwijderd en vervangen door nieuwe Api's, zoals hieronder wordt beschreven.
+Deze API's worden eind februari 2021 uit gebruik genomen om te worden vervangen door nieuwe API's, zoals hieronder wordt beschreven.
 
-### <a name="scenarios-impacted"></a>Getroffen scenario's:
+### <a name="scenarios-impacted"></a>Scenario's die worden beïnvloed:
 
-Klant geschiktheid voor onderwijs prijzen voor Select Sku's
+Klant in aanmerking komen voor onderwijsprijzen voor bepaalde SKU's
 
-### <a name="detail-descriptions"></a>Gedetailleerde beschrijvingen
+### <a name="detail-descriptions"></a>Beschrijvingen van details
 
-Er worden twee nieuwe GET-en POST-kwalificaties-Api's geïntroduceerd. De nieuwe Api's maken gebruik van **kwalificaties**, geen **Kwalificatie**. De Api's zijn beschikbaar voor testen in FY21 Q2.
+Er worden twee nieuwe API's voor GET- en POST-kwalificaties geïntroduceerd. De nieuwe API's gebruiken **Kwalificaties,** niet **Kwalificatie.** De API's zijn beschikbaar voor testen in FY21 Q2.
 
-#### <a name="get-qualifications"></a>Kwalificaties ophalen
+#### <a name="get-qualifications"></a>GET Kwalificaties
 
 ```http
 GET {customer_id}/qualifications
@@ -54,20 +54,20 @@ GET {customer_id}/qualifications
 }
 ```
 
-#### <a name="response-fields"></a>Antwoord velden: 
+#### <a name="response-fields"></a>Antwoordvelden: 
 
-- VettingStatus waarden: goedgekeurd, geweigerd, inbeoordeling enz.
+- Waarden voor VettingStatus: Approved, Denied, InReview, enzovoort.
 
-- VettingReason waarden:
-   - Geen onderwijs klant
-   - Geen onderwijs gebruiker meer
-   - Geen onderwijs klant-na beoordeling
-   - Alleen een onderwijs gebruiker
-   - Geen academisch domein
-   - Geen beschik bare bibliotheek
-   - Geen in aanmerking komend Museum
+- VettingReason-waarden:
+   - Geen Education-klant
+   - Geen Education-klant meer
+   - Geen education-klant - na beoordeling
+   - Beperkte toegang tot onderwijsklant
+   - Geen academische domein
+   - Geen in aanmerking komende bibliotheek
+   - Geen in aanmerking komende Moet
  
-#### <a name="post-qualifications"></a>BERICHT kwalificaties
+#### <a name="post-qualifications"></a>POST-kwalificaties
 
 ```http
 POST {customer_id}/qualifications

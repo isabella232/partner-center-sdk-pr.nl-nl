@@ -4,12 +4,12 @@ description: In deze sectie worden de manieren beschreven Cloud Solution Provide
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 00c0e51dfd6970bd28db2ce88e6b9be15175a76c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 9f9b8629406a8d66c8ea820205abf73a2fb0cc02
+ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548206"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113571975"
 ---
 # <a name="manage-customers"></a>Klanten beheren
 
@@ -48,8 +48,8 @@ In deze sectie worden de manieren beschreven waarop Cloud Solution Provider kunn
 - [Status voor direct ondertekenen (direct accepteren) van de Microsoft-klantovereenkomst ophalen](get-direct-sign-status-of-customer-agreement.md)
 - [Acceptatie door de klant van Microsoft-klantovereenkomst bevestigen](confirm-customer-consent-customer-agreement.md)
 - [De validatiecodes van een partner ophalen](get-a-partner-s-validation-codes.md)
-- [De kwalificatie van een klant ophalen](./get-customer-qualification-synchronous.md)
-- [De kwalificatie van een klant bijwerken](./update-customer-qualification-synchronous.md)
+- [Kwalificaties van een klant krijgen](./get-customer-qualification-asynchronous.md)
+- [Kwalificaties van een klant bijwerken](./update-customer-qualification-asynchronous.md)
 
 ## <a name="manage-user-accounts-and-assign-licenses"></a>Gebruikersaccounts beheren en licenties toewijzen
 
