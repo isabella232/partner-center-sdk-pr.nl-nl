@@ -1,15 +1,15 @@
 ---
 title: Een adres valideren
 description: Een adres valideren met behulp van de adresvalidatie-API.
-ms.date: 09/17/2019
+ms.date: 05/17/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2eeca91b0e5a507dac6df4ecf61a56aed2d2d921
-ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
+ms.openlocfilehash: 30f5cd526ab038dce400e79822d89b8086ba3799
+ms.sourcegitcommit: 41bf9dca55f4c96d382b327a75b2d2418edfc9bc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113572077"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113655622"
 ---
 # <a name="validate-an-address"></a>Een adres valideren
 
@@ -17,15 +17,15 @@ ms.locfileid: "113572077"
 
 Een adres valideren met behulp van de adresvalidatie-API.
 
-De adresvalidatie-API mag alleen worden gebruikt voor de prevalidatie van updates van klantprofiel. Gebruik het met het begrip dat als het land de Verenigde Staten, Canada, China of Mexico is, het staatveld wordt gevalideerd op een lijst met geldige staten voor het desbetreffende land. In alle andere landen wordt deze test niet uitgevoerd en controleert de API alleen of de status een geldige tekenreeks is.
+De adresvalidatie-API mag alleen worden gebruikt voor de prevalidatie van updates van klantprofiel. Gebruik het veld met de kennis dat als het land de Verenigde Staten, Canada, China of Mexico is, het veld Staat wordt gevalideerd met een lijst met geldige staten voor het desbetreffende land. In alle andere landen wordt deze test niet uitgevoerd en controleert de API alleen of de status een geldige tekenreeks is.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u een adres wilt valideren, instantieer dan eerst een nieuw **adresobject** en vul dit met het adres dat u wilt valideren. Haal vervolgens een interface op voor **validatiebewerkingen** van de eigenschap **IAggregatePartner.Validations** en roep de **methode IsAddressValid** aan met het adresobject.
+Als u een adres wilt valideren, instantieert u eerst een nieuw **adresobject** en vult u dit met het adres dat u wilt valideren. Haal vervolgens een interface op voor **validatiebewerkingen** van de eigenschap **IAggregatePartner.Validations** en roep de **methode IsAddressValid** aan met het adresobject.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -86,7 +86,7 @@ private string DisplayAddress(Address address)
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -99,20 +99,20 @@ In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 | city         | tekenreeks | J        | De plaats.                                                  |
 | staat        | tekenreeks | J        | De status.                                                 |
 | postalcode   | tekenreeks | J        | De postcode.                                           |
-| country      | tekenreeks | J        | De iso-2-landcode met twee tekens.                |
+| country      | tekenreeks | J        | Het iso-2-landnummer met twee tekens.                |
 
 ### <a name="response-details"></a>Antwoorddetails
 
 Het antwoord retournt een van de volgende statusberichten:
 
-| Status     | Beschrijving |    Aantal voorgestelde adressen dat wordt geretourneerd |
+| Status     | Beschrijving |    Aantal geretourneerde voorgestelde adressen |
 |-------|---------------|-------------------|
 |Geverifieerd verzendbaar | Het adres wordt geverifieerd en kan worden verzonden naar . | Enkelvoudig |
 |Geverifieerd | Het adres wordt geverifieerd. | Enkelvoudig |
-|Interactie vereist | Voorgesteld adres is aanzienlijk gewijzigd en moet worden bevestigd door de gebruiker. | Enkelvoudig |
-|Gedeeltelijk straat | De opgegeven straat in het adres is gedeeltelijk en heeft meer informatie nodig. | Meerdere: maximaal drie |
-|Gedeeltelijk locatie | De opgegeven locatie (gebouwnummer, suitenummer en andere) is gedeeltelijk en heeft meer informatie nodig. | Meerdere: maximaal drie |
-|Meerdere | Er zijn meerdere velden die gedeeltelijk in het adres zijn (mogelijk ook gedeeltelijk en gedeeltelijk van de straat). | Meerdere: maximaal drie |
+|Interactie vereist | Voorgesteld adres is aanzienlijk gewijzigd en er is een gebruikersbevestiging nodig. | Enkelvoudig |
+|Gedeeltelijk straat | De opgegeven straat in het adres is gedeeltelijk en heeft meer informatie nodig. | Meerdere, maximaal drie |
+|Gedeeltelijk lokaal | De opgegeven locatie (gebouwnummer, suitenummer en andere) is gedeeltelijk en heeft meer informatie nodig. | Meerdere, maximaal drie |
+|Meerdere | Er zijn meerdere velden die gedeeltelijk in het adres zijn (mogelijk ook gedeeltelijk en gedeeltelijk van de straat). | Meerdere, maximaal drie |
 |Geen | Het adres is onjuist. | Geen |
 |Niet gevalideerd | Het adres kan niet worden verzonden via het validatieproces. | Geen |
 
@@ -166,7 +166,7 @@ Als dit lukt, retourneert de methode een **AddressValidationResponse-object** in
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
