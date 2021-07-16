@@ -4,12 +4,12 @@ description: U kunt een verzameling niet-gefactureerde regelitemgegevens voor co
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1b7dba3333aaec8df73f0e8147b0bbbc78b9b184
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: f7c74bedfd6412fc5954ed2ddc1388936e418fa3
+ms.sourcegitcommit: 722992eea6f8ea366dc088e5dd1ee63c17d56f61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446143"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114224765"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Niet-gefactureerde regelitems voor commercieel verbruik van facturen ontvangen
 
@@ -23,8 +23,6 @@ U kunt de volgende methoden gebruiken om programmatisch een verzameling niet-geb
 ## <a name="prerequisites"></a>Vereisten
 
 - Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
-
-- Een factuur-id. Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.
 
 ## <a name="c"></a>C\#
 
@@ -113,10 +111,10 @@ Zie voor een vergelijkbaar voorbeeld:
 
 U kunt de volgende syntaxis gebruiken voor uw REST-aanvraag, afhankelijk van uw use-case. Zie de beschrijvingen voor elke syntaxis voor meer informatie.
 
-| Methode  | Aanvraag-URI                                                                                                                                                                                              | Beschrijving van het gebruikscase van de syntaxis                                                                                                     |
+| Methode  | Aanvraag-URI                                                                                                                                                                                              | Beschrijving van gebruikscase voor syntaxis                                                                                                     |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period} HTTP/1.1                       | Gebruik deze syntaxis om een volledige lijst met alle regelitem voor de opgegeven factuur te retourneren.                                                    |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1           | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en een offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1           | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en offset op basis van 0 om een lijst met pagina's met regelitems te retourneren. |
 | **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next | Gebruik deze syntaxis om de volgende pagina met afstemmingsregelitems op te halen met behulp van `seekOperation = "Next"` .                                  |
 
 #### <a name="uri-parameters"></a>URI-parameters
@@ -125,11 +123,11 @@ Gebruik de volgende URI en queryparameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                |
 |------------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Provider               | tekenreeks | Ja      | De provider:**OneTime.**                                                                                                                                                                                                               |
-| invoice-line-item-type | tekenreeks | Ja      | Het type factuurdetails: "**UsageLineItems**", "**UsageLineItems**".                                                                                                                                                                    |
-| currencyCode           | tekenreeks | Ja      | De valutacode voor de niet-gebillede regelitems.                                                                                                                                                                                             |
-| period                 | tekenreeks | Ja      | De periode voor niet-gebillede recon (bijvoorbeeld: **huidige**, **vorige**). Stel dat u in januari een query moet uitvoeren op uw niet-gefactureerde gebruiksgegevens van de factureringscyclus (01-01-2020 - 31-01-2020) en de periode 'Huidig', anders  'Vorige'.  |
-| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000.                                                                                                                                                                           |
+| Provider               | tekenreeks | Yes      | De provider:**OneTime.**                                                                                                                                                                                                               |
+| invoice-line-item-type | tekenreeks | Yes      | Het type factuurdetails: "**UsageLineItems**", "**UsageLineItems**".                                                                                                                                                                    |
+| currencyCode           | tekenreeks | Yes      | De valutacode voor de niet-gebillede regelitems.                                                                                                                                                                                             |
+| period                 | tekenreeks | Yes      | De periode voor niet-gebillede recon (bijvoorbeeld: **huidige**, **vorige**). Stel dat u in januari een query moet uitvoeren op uw niet-gefactureerde gebruiksgegevens van de factureringscyclus (01-01-2020 – 31-01-2020), kies de periode **'Huidig',** anders **'Vorige'.** |
+| grootte                   | getal | No       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000.                                                                                                                                                                           |
 | zoekoperation          | tekenreeks | No       | Stel `seekOperation=Next` in om de volgende pagina met afstemmingsregelitems op te halen.                                                                                                                                                                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
@@ -337,7 +335,7 @@ De volgende details zijn van toepassing op dit voorbeeld:
 - **Provider:** **OneTime**
 - **InvoiceLineItemType:** **UsageLineItems**
 - **Periode:** **vorige**
-- **Zoekoperation**: **Volgende**
+- **Zoekoperation:** **volgende**
 
 #### <a name="request-example-2"></a>Aanvraagvoorbeeld 2
 
