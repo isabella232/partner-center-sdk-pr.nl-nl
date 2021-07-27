@@ -1,21 +1,21 @@
 ---
 title: Een Azure-plan maken
 description: Ontwikkelaars kunnen Azure-abonnementen programmatisch kopen, maken en beheren met behulp Partner Center API's.
-ms.date: 01/02/2020
+ms.date: 07/21/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: mowrim
 ms.author: mowrim
-ms.openlocfilehash: f329b6a3f9a61522a9fad1f0ead021563c393118
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: b77b067c7eb150ab1ad9904915e87c3fc55c104a
+ms.sourcegitcommit: 1fce45e6cafbc4c228042523ae28aac651a73757
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973403"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114483055"
 ---
 # <a name="create-an-azure-plan"></a>Een Azure-plan maken
 
-U kunt een Azure-abonnement kopen, maken en beheren met behulp van Partner Center API's. Het proces is vergelijkbaar met het maken van een Microsoft Azure (MS-AZR-0145P). U moet [het catalogusitem voor het Azure-plan downloaden](#get-the-catalog-item-for-azure-plan)en [vervolgens een order maken en verzenden.](#create-and-submit-an-order)
+U kunt een Azure-abonnement kopen, maken en beheren met behulp van Partner Center API's. Het proces is vergelijkbaar met het maken van een Microsoft Azure abonnement[(MS-AZR-0145P).](https://go.microsoft.com/fwlink/p/?linkid=2164140) U moet [het catalogusitem voor het Azure-plan downloaden](#get-the-catalog-item-for-azure-plan)en [vervolgens een order maken en verzenden.](#create-and-submit-an-order)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,22 +28,22 @@ U kunt een Azure-abonnement kopen, maken en beheren met behulp van Partner Cente
 Voordat u een Azure-plan voor een klant kunt maken, moet u het bijbehorende catalogusitem ophalen. U kunt het catalogusitem ophalen met behulp van de bestaande Partner Center catalogus-API's met de volgende resourcemodellen.
 
 * **[Product:](product-resources.md#product)** een groeperingsconsistente voor opschatbare goederen of services. Een product zelf is geen opschatbaar item.
-* **[SKU:](product-resources.md#sku)** een opschatbare Stock Keeping Unit (SKU) onder een product. SKU's vertegenwoordigen de verschillende vormen van het product.
+* **[SKU:](product-resources.md#sku)** een op te halen Stock Keeping Unit (SKU) onder een product. SKU's vertegenwoordigen de verschillende vormen van het product.
 * **[Beschikbaarheid:](product-resources.md#availability)** een configuratie waarin een SKU beschikbaar is voor aankoop (zoals land, valuta of branchesegment).
 
 Voltooi de volgende stappen om het catalogusitem voor een Azure-plan op te halen:
 
-1. De product-id *voor het* Azure-plan identificeren en ophalen. Volg de stappen in [Een lijst met producten op halen en](get-a-list-of-products.md) geef **targetView** op **als MicrosoftAzure**. (Als u de *product-id* voor het Azure-abonnement al kent, kunt u in plaats daarvan de stappen in Een product kopen met behulp van de [product-id](get-a-product-by-id.md) volgen.)
+1. De product-id *voor het* Azure-plan identificeren en ophalen. Volg de stappen in [Een lijst met producten op halen en](get-a-list-of-products.md) geef **targetView** op **als MicrosoftAzure**. (Als u de *product-id* voor het Azure-abonnement al kent, kunt u de stappen in Een product kopen met behulp van de [product-id](get-a-product-by-id.md) volgen.)
 
 2. Haal de **SKU op** uit het product voor het Azure-plan. Volg de stappen in [Een lijst met SKU's voor een product op halen.](get-a-list-of-skus-for-a-product.md) Als u de SKU-id voor het Azure-plan al kent, kunt u in plaats daarvan de stappen in Een SKU kopen met behulp van [de SKU-id](get-a-sku-by-id.md) volgen.
 
-3. Haal de **beschikbaarheid op** uit de SKU voor het Azure-plan. Volg de stappen in [Een lijst met beschikbaarheid voor een SKU op te halen.](get-a-list-of-availabilities-for-a-sku.md) Als u de id voor de beschikbaarheid die u nodig hebt al kent, kunt u de stappen in Een beschikbaarheid krijgen volgen met behulp van de [beschikbaarheids-id.](get-an-availability-by-id.md) *Noteer de waarde van de eigenschap **CatalogItemId** van de beschikbaarheid voor het Azure-plan. U hebt deze waarde nodig om een order te maken.*
+3. Haal de **beschikbaarheid op** uit de SKU voor het Azure-plan. Volg de stappen in [Een lijst met beschikbaarheid voor een SKU op te halen.](get-a-list-of-availabilities-for-a-sku.md) Als u de id voor de beschikbaarheid die u nodig hebt al kent, kunt u de stappen in Een beschikbaarheid krijgen volgen met behulp van [de beschikbaarheids-id.](get-an-availability-by-id.md) *Noteer de waarde van de eigenschap **CatalogItemId** van de beschikbaarheid voor het Azure-plan. U hebt deze waarde nodig om een order te maken.*
 
 ## <a name="create-and-submit-an-order"></a>Een order maken en verzenden
 
 Volg deze stappen om uw bestelling voor een Azure-plan in te dienen:
 
-1. [Maak een winkelwagen](create-a-cart.md) voor de verzameling catalogusitems die u wilt kopen. Wanneer u een [winkelwagen maakt,](cart-resources.md#cart)worden de [winkelwagenregelitems](cart-resources.md#cartlineitem) automatisch gegroepeerd op basis van wat samen in dezelfde order kan worden [gekocht.](order-resources.md#order) (U kunt ook [een winkelwagen bijwerken.)](update-a-cart.md)
+1. [Maak een winkelwagen](create-a-cart.md) voor de verzameling catalogusitems die u wilt kopen. Wanneer u een [winkelwagen maakt,](cart-resources.md#cart)worden de winkelwagenregelitems automatisch gegroepeerd op basis van wat samen in dezelfde order kan worden [](cart-resources.md#cartlineitem) [gekocht.](order-resources.md#order) (U kunt ook [een winkelwagen bijwerken.)](update-a-cart.md)
 
 2. [Bekijk de winkelwagen](checkout-a-cart.md), wat resulteert in het maken van een [order](order-resources.md#order).
 
@@ -61,7 +61,7 @@ Nadat de order is verwerkt, wordt er Partner Center **abonnementsresource** gema
 * [De abonnementen van een klant ophalen](get-all-of-a-customer-s-subscriptions.md)
 * [Een lijst met abonnementen op basis van bestelling ophalen](get-a-list-of-subscriptions-by-order.md)
 
-Wanneer een Azure-plan wordt gemaakt in Partner Center, wordt er ook een bijbehorend Azure-gebruiksabonnement gemaakt in Azure. U kunt ook extra Azure-gebruiksabonnementen maken onder hetzelfde Azure-plan met behulp Azure Portal en Azure-API's. U kunt de id's van alle Azure-gebruiksabonnementen die zijn gekoppeld aan een Azure-plan, verkrijgen door de stappen te volgen in Een lijst met Azure-rechten voor uw [Partner Center verkrijgen](get-a-list-of-azure-entitlements-for-subscription.md)
+Wanneer een Azure-plan wordt gemaakt in Partner Center, wordt er ook een bijbehorend Azure-gebruiksabonnement gemaakt in Azure. U kunt ook extra Azure-gebruiksabonnementen maken onder hetzelfde Azure-plan met behulp Azure Portal en Azure-API's. U kunt de id's van alle Azure-gebruiksabonnementen die zijn gekoppeld aan een Azure-abonnement verkrijgen door de stappen te volgen in Een lijst met Azure-rechten voor uw [Partner Center verkrijgen](get-a-list-of-azure-entitlements-for-subscription.md)
 
 ## <a name="lifecycle-management"></a>Levenscyclusbeheer
 
@@ -74,7 +74,7 @@ Zie Azure API voor levenscyclusbeheer van abonnementen voor meer informatie over
 Als u bestaande Azure-reserveringen wilt verwijderen, moet [u de reserveringen annuleren.](/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)
 Nadat u een Azure-plan hebt opgeschort, kunt u het opnieuw activeren.
 
-Zie Een tijdelijk abonnement opnieuw activeren voor meer informatie over het opnieuw activeren [van een Azure-abonnement](reactivate-a-suspended-a-subscription.md)
+Zie Een tijdelijk abonnement opnieuw activeren voor meer informatie over het opnieuw activeren van [een Azure-abonnement](reactivate-a-suspended-a-subscription.md)
 
 ## <a name="transition-existing-csp-offers-to-azure-plan"></a>Bestaande CSP-aanbiedingen overzetten naar Azure-plan 
 
@@ -98,7 +98,7 @@ U kunt uw [Azure-uitgaven bijhouden door](azure-spending.md) een query uit te vo
 * [Bronnen voor metergebruiksrecords ophalen](meter-usage-resources.md)
 * [Bronnen voor brongebruiksrecords ophalen](resource-usage-resources.md)
 
-U kunt ook het budget voor klantgebruik instellen en beheren met behulp van de volgende methoden:
+U kunt ook het budget voor klantgebruik instellen en beheren met de volgende methoden:
 
 * [Klantgebruiksbudget ophalen](get-a-customer-s-usage-spending-budget.md)
 * [Klantgebruiksbudget bijwerken](update-a-customer-s-usage-spending-budget.md)
