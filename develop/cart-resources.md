@@ -4,12 +4,12 @@ description: Een partner plaatst een bestelling in een winkelwagen wanneer een k
 ms.date: 08/26/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 08085dde1b43f20b6f6bf707120dd87c48816aba
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: ebe6e628d5bb3b66186d5c4f428f69e46415892b
+ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974145"
+ms.lasthandoff: 07/31/2021
+ms.locfileid: "115009137"
 ---
 # <a name="cart-resources"></a>Winkelwagenresources
 
@@ -25,10 +25,10 @@ Beschrijft een winkelwagen.
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | id                    | tekenreeks           | Een winkelwagen-id die wordt opgegeven wanneer de winkelwagen is gemaakt.                               |
 | creationTimeStamp     | DateTime         | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.      |
-| lastModifiedTimeStamp | DateTime         | De datum waarop de winkelwagen het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt. |
+| lastModifiedTimeStamp | DateTime         | De datum waarop de winkelwagen voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt. |
 | expirationTimeStamp   | DateTime         | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling. Toegepast bij het maken van de winkelwagen.          |
 | lastModifiedUser      | tekenreeks           | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast bij het maken van de winkelwagen.                          |
-| lineItems             | Matrix van objecten | Een matrix van [CartLineItem-resources.](#cartlineitem)                                                   |
+| lineItems             | Matrix met objecten | Een matrix van [CartLineItem-resources.](#cartlineitem)                                                   |
 | status                | tekenreeks           | De status van de winkelwagen. Mogelijke waarden zijn 'Actief' (kan worden bijgewerkt/verzonden) en 'Besteld' (is al verzonden). |
 
 ## <a name="cartlineitem"></a>CartLineItem
@@ -49,7 +49,8 @@ Vertegenwoordigt één item in een winkelwagen.
 | orderGroup           | tekenreeks                           | Een groep om aan te geven welke items samen in dezelfde volgorde kunnen worden verzonden.                                                                          |
 | addonItems           | Lijst met **CartLineItem-objecten** | Een verzameling winkelwagenregelitems voor addons. Deze items worden aangeschaft voor het basisabonnement dat het resultaat is van de aankoop van het regelitem van de hoofdwagen. |
 | fout                | Object                           | Toegepast nadat de winkelwagen is gemaakt als er een fout is opgetreden.                                                                                                    |
-| renewsTo             | Matrix van objecten                 | Een matrix van [RenewsTo-resources.](#renewsto)                                                                            |
+| renewsTo             | Matrix met objecten                 | Een matrix van [RenewsTo-resources.](#renewsto)                                                                            |
+| AttestationAccepted             | booleaans                 | Geeft de overeenkomst aan voor de aanbieding of SKU-voorwaarden. Alleen vereist voor aanbiedingen of SKU's waarbij SkuAttestationProperties of OfferAttestationProperties afdwingenAttestation true is.                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
 
@@ -61,7 +62,7 @@ Vertegenwoordigt één item in een winkelwagenregelitem.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ## <a name="carterror"></a>CartError
 
@@ -69,8 +70,29 @@ Vertegenwoordigt een fout die optreedt nadat een winkelwagen is gemaakt.
 
 | Eigenschap         | Type                                   | Beschrijving                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
-| errorCode        | [Partner Center-foutcodes](error-codes.md) | Het type winkelwagenfout.                                                                       |
+| errorCode        | [CareErrorCode](#carterrorcode) | Het type winkelwagenfout.                                                                       |
 | errorDescription | tekenreeks                                 | De foutbeschrijving, inclusief eventuele opmerkingen over ondersteunde waarden, standaardwaarden of limieten. |
+
+
+## <a name="carterrorcode"></a>CartErrorCode
+
+Typen winkelwagenfouten.
+
+| Naam                             | ErrorCode   | Beschrijving
+|----------------------------------|-------------|-----------------------------------------------------------------------------------------------|
+| CurrencyIsNotSupported           | 10.000   | Valuta wordt niet ondersteund voor de opgegeven markt  |
+| CatalogItemIdIsNotValid          | 10001   | Catalogusitem-id is ongeldig  |
+| QuotaNiet beschikbaar                | 10002   | Onvoldoende quotum beschikbaar  |
+| InventoryNotAvailable            | 10003   | Inventaris is niet beschikbaar voor geselecteerde aanbieding  |
+| ParticipantsIsNotSupportedForPartner  | 10004   | Het instellen van deelnemers wordt niet ondersteund voor Partner  |
+| UnableToProcessCartLineItem      | 10006   | Kan winkelwagenregelitem niet verwerken.  |
+| SubscriptionIsNotValid           | 10007   | Het abonnement is ongeldig.  |
+| SubscriptionIsNotEnabledForRI    | 10008   | Abonnement is niet ingeschakeld voor ri-aankoop.  |
+| SandboxLimitExceeded             | 10009   | De sandboxlimiet is overschreden.  |
+| InvalidInput                     | 10010   | Algemene invoer is ongeldig.  |
+| SubscriptionNotRegistered        | 10011   | Het abonnement is ongeldig.  |
+| AttestationNotAccepted           | 10012   | Attestation is niet geaccepteerd.  |
+| Onbekend                          | 0   | Standaardwaarde   |
 
 ## <a name="cartcheckoutresult"></a>CartCheckoutResult
 

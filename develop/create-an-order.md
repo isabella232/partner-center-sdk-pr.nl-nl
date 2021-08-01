@@ -4,18 +4,18 @@ description: Meer informatie over het gebruik Partner Center API's om een order 
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c3a86a99f43bdeec5e4c560ab59e1924b76c0636
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: a2a980634e3887780c9d6dbd4fa3271956978884
+ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973539"
+ms.lasthandoff: 07/31/2021
+ms.locfileid: "115009138"
 ---
 # <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>Een order voor een klant maken met behulp van Partner Center API's
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud for US Government
 
-Het maken van **een bestelling voor azure-producten voor gereserveerde VM-instanties is** alleen van toepassing *op:*
+Het maken van **een bestelling voor azure-producten voor gereserveerde VM-instanties** is *alleen van toepassing op:*
 
 - Partnercentrum
 
@@ -101,12 +101,12 @@ In deze tabel worden de [ordereigenschappen](order-resources.md) in de aanvraag 
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
 | id                   | tekenreeks                      | No                              | Een order-id die wordt opgegeven wanneer de order is gemaakt.   |
 | referenceCustomerId  | tekenreeks                      | No                              | De klant-id. |
-| billingCycle         | tekenreeks                      | No                              | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de namen van leden in [BillingCycleType.](product-resources.md#billingcycletype) De standaardwaarde is 'Maandelijks' of 'OneTime' bij het maken van de order. Dit veld wordt toegepast wanneer de order is gemaakt. |
+| billingCycle         | tekenreeks                      | No                              | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de namen van leden in [BillingCycleType.](product-resources.md#billingcycletype) De standaardwaarde is 'Maandelijks' of 'OneTime' bij het maken van de bestelling. Dit veld wordt toegepast wanneer de order is gemaakt. |
 | lineItems            | matrix van [OrderLineItem-resources](order-resources.md#orderlineitem) | Ja      | Een gespecificeerde lijst met aanbiedingen die de klant aanschaft, inclusief de hoeveelheid.        |
 | currencyCode         | tekenreeks                      | No                              | Alleen-lezen. De valuta die wordt gebruikt bij het plaatsen van de order. Toegepast wanneer de order is gemaakt.           |
 | creationDate         | datum/tijd                    | Nee                              | Alleen-lezen. De datum waarop de order is gemaakt, in datum/tijd-indeling. Toegepast wanneer de order is gemaakt.                                   |
 | status               | tekenreeks                      | No                              | Alleen-lezen. De status van de bestelling.  Ondersteunde waarden zijn de ledennamen in [OrderStatus](order-resources.md#orderstatus).        |
-| Verwijzigingen                | [OrderLinks](utility-resources.md#resourcelinks)              | Nee                              | De resourcekoppelingen die overeenkomen met de Order. |
+| Verwijzigingen                | [OrderLinks](utility-resources.md#resourcelinks)              | Nee                              | De resourcekoppelingen die overeenkomen met de Bestelling. |
 | kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | Nee                              | De metagegevenskenmerken die overeenkomen met de volgorde. |
 
 #### <a name="orderlineitem"></a>OrderLineItem
@@ -122,13 +122,14 @@ In deze tabel worden de [eigenschappen van OrderLineItem](order-resources.md#ord
 | offerId              | tekenreeks | Ja      | De aanbiedings-id.                                                                                                                                                                                                                      |
 | subscriptionId       | tekenreeks | No       | De abonnements-id.                                                                                                                                                                                                               |
 | parentSubscriptionId | tekenreeks | No       | Optioneel. De id van het bovenliggende abonnement in een invoegaanbieding. Alleen van toepassing op PATCH.                                                                                                                                                     |
-| Friendlyname         | tekenreeks | No       | Optioneel. De gebruiksvriendelijke naam voor het abonnement dat is gedefinieerd door de partner om ondubbelzinnig te maken.                                                                                                                                              |
+| Friendlyname         | tekenreeks | No       | Optioneel. De gebruiksvriendelijke naam voor het abonnement dat is gedefinieerd door de partner om ondubbelzinnig te zijn.                                                                                                                                              |
 | quantity             | int    | Ja      | Het aantal licenties voor een abonnement op basis van een licentie.                                                                                                                                                                                   |
 | partnerIdOnRecord    | tekenreeks | No       | Wanneer een indirecte provider een bestelling plaatst namens een indirecte reseller, vult u dit veld in met de MPN-id van de **indirecte reseller** (nooit de id van de indirecte provider). Dit zorgt voor de juiste boekhouding voor incentives. |
 | provisioningContext  | Woordenlijst<tekenreeks, tekenreeks>                | Nee       |  Informatie die vereist is voor het inrichten van sommige items in de catalogus. De eigenschap provisioningVariables in een SKU geeft aan welke eigenschappen vereist zijn voor specifieke items in de catalogus.                  |
 | Verwijzigingen                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | Nee       |  Alleen-lezen. De resourcekoppelingen die overeenkomen met het regelitem Order.  |
 | kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | Nee       | De metagegevenskenmerken die overeenkomen met de OrderLineItem. |
-| renewsTo             | Matrix van objecten                          | Nee    |Een matrix van [RenewsTo-resources.](order-resources.md#renewsto)                                                                            |
+| renewsTo             | Matrix met objecten                          | Nee    |Een matrix van [RenewsTo-resources.](order-resources.md#renewsto)                                                                            |
+| AttestationAccepted             | booleaans                 | Nee   |  Geeft de overeenkomst aan voor de aanbieding of SKU-voorwaarden. Alleen vereist voor aanbiedingen of SKU's waarbij SkuAttestationProperties of OfferAttestationProperties afdwingenAttestation true is.          |
 
 ##### <a name="renewsto"></a>RenewsTo
 
@@ -172,7 +173,7 @@ Als dit lukt, retourneert de methode een [Order-resource](order-resources.md) in
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

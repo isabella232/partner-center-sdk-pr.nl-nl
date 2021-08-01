@@ -1,35 +1,35 @@
 ---
 title: Een winkelwagen maken
-description: Meer informatie over het gebruik Partner Center API's om een order voor een klant in een winkelwagen toe te voegen. Onderwerp bevat informatie over het maken van een winkelwagen en eventuele vereisten.
+description: Meer informatie over het gebruik Partner Center API's om een order voor een klant in een winkelwagen toe te voegen. Het onderwerp bevat informatie over het maken van een winkelwagen en eventuele vereisten.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: dba54d4f6b97f3d0a51e2f87b32edca686466b89
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: d23c162b5eddd0fbe91b11faafa5c4debfb7a4a8
+ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973771"
+ms.lasthandoff: 07/31/2021
+ms.locfileid: "115009185"
 ---
 # <a name="create-a-cart-with-a-customer-order"></a>Een winkelwagen maken met een klantorder
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-U kunt een order voor een klant toevoegen in een winkelwagen. Zie Partneraanbiedingen in het Cloud Solution Provider programma voor meer informatie over [wat momenteel beschikbaar is om Cloud Solution Provider verkopen.](/partner-center/csp-offers)
+U kunt een order voor een klant in een winkelwagen toevoegen. Zie Partneraanbiedingen in het Cloud Solution Provider voor meer informatie over [wat momenteel beschikbaar is om te verkopen.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
 Een order voor een klant maken:
 
-1. Een winkelwagenobject instanteren.
+1. Instantieer een winkelwagenobject.
 
 2. Maak een lijst met **CartLineItem-objecten** en wijs de lijst toe aan de eigenschap LineItems van de winkelwagen. Elk winkelwagenregelitem bevat de aankoopgegevens voor één product. U moet ten minste één winkelwagenregelitem hebben.
 
@@ -127,7 +127,7 @@ cart = partnerOperations.Customers.ById(customerId).Carts.Create(cart);
 
 Een order voor een klant maken:
 
-1. Een winkelwagenobject instanteren.
+1. Instantieer een winkelwagenobject.
 
 2. Maak een lijst met **CartLineItem-objecten** en wijs de lijst toe aan de regelitems van de winkelwagen. Elk winkelwagenregelitem bevat de aankoopgegevens voor één product. U moet ten minste één winkelwagenregelitem hebben.
 
@@ -173,7 +173,7 @@ Cart cartCreated = partnerOperations.getCustomers().byId(customerId).getCarts().
 
 Een order voor een klant maken:
 
-1. Een winkelwagenobject instanteren.
+1. Instantieer een winkelwagenobject.
 
 2. Maak een lijst met **CartLineItem-objecten** en wijs de lijst toe aan de regelitems van de winkelwagen. Elk winkelwagenregelitem bevat de aankoopgegevens voor één product. U moet ten minste één winkelwagenregelitem hebben.
 
@@ -215,7 +215,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -226,18 +226,18 @@ In deze tabel worden de eigenschappen [van de winkelwagen](cart-resources.md) in
 | id                    | tekenreeks           | No              | Een winkelwagen-id die wordt opgegeven wanneer de winkelwagen is gemaakt.                                  |
 | creationTimeStamp     | DateTime         | Nee              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.         |
 | lastModifiedTimeStamp | DateTime         | Nee              | De datum waarop de winkelwagen het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
-| expirationTimeStamp   | DateTime         | Nee              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast bij het maken van de winkelwagen.            |
-| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast bij het maken van de winkelwagen.                             |
-| lineItems             | Matrix met objecten | Ja             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                     |
+| expirationTimeStamp   | DateTime         | Nee              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast nadat de winkelwagen is gemaakt.            |
+| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast nadat de winkelwagen is gemaakt.                             |
+| lineItems             | Matrix met objecten | Ja             | Een matrix met [CartLineItem-resources.](cart-resources.md#cartlineitem)                                     |
 
-In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartlineitem) in de aanvraag body beschreven.
+In deze tabel worden de [CartLineItem-eigenschappen](cart-resources.md#cartlineitem) in de aanvraag body beschreven.
 
 |      Eigenschap       |            Type             | Vereist |                                                                                         Beschrijving                                                                                         |
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         id          |           tekenreeks            |    No    |                                                     Een unieke id voor een winkelwagenregelitem. Toegepast nadat de winkelwagen is gemaakt.                                                     |
+|         id          |           tekenreeks            |    No    |                                                     Een unieke id voor een winkelwagenregelitem. Toegepast bij het maken van de winkelwagen.                                                     |
 |      catalogId      |           tekenreeks            |   Ja    |                                                                                De id van het catalogusitem.                                                                                 |
-|    Friendlyname     |           tekenreeks            |    No    |                                                    Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het op ondubbelzinnig maken.                                                    |
-|      quantity       |             int             |   Ja    |                                                                            Het aantal licenties of exemplaren.                                                                             |
+|    Friendlyname     |           tekenreeks            |    No    |                                                    Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het opsysen van ambiguïteit.                                                    |
+|      quantity       |             int             |   Ja    |                                                                            Het aantal licenties of instanties.                                                                             |
 |    currencyCode     |           tekenreeks            |    No    |                                                                                     De valutacode.                                                                                      |
 |    billingCycle     |           Object            |   Ja    |                                                                    Het type factureringscyclus dat is ingesteld voor de huidige periode.                                                                    |
 |    deelnemers     | Lijst met objectreeksparen |    Nee    |                                                                Een verzameling PartnerId on Record (MPNID) voor de aankoop.                                                                 |
@@ -245,12 +245,13 @@ In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartl
 |     orderGroup      |           tekenreeks            |    No    |                                                                   Een groep om aan te geven welke items samen kunnen worden geplaatst.                                                                   |
 |        fout        |           Object            |    Nee    |                                                                     Toegepast nadat de winkelwagen is gemaakt als er een fout is opgetreden.                                                                      |
 |     renewsTo        | Matrix met objecten            |    Nee    |                                                    Een matrix van [RenewsTo-resources.](cart-resources.md#renewsto)                                                                            |
+|     AttestationAccepted        | Booleaans            |    Nee    |                                                   Geeft de overeenkomst aan voor de aanbieding of SKU-voorwaarden. Alleen vereist voor aanbiedingen of SKU's waarbij SkuAttestationProperties of OfferAttestationProperties afdwingenAttestation true is.                                                                             |
 
-In deze tabel worden de [RenewsTo-eigenschappen](cart-resources.md#renewsto) in de aanvraag body beschreven.
+In deze tabel worden de [renewsTo-eigenschappen](cart-resources.md#renewsto) in de aanvraag body beschreven.
 
 | Eigenschap              | Type             | Vereist        | Beschrijving |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | tekenreeks           | No              | Een ISO 8601-weergave van de duur van de verlengingstermijn. De huidige ondersteunde waarden zijn **P1M** (1 maand) en **P1Y** (1 jaar). |
+| termDuration          | tekenreeks           | No              | Een ISO 8601-weergave van de duur van de verlengingsperiode. De huidige ondersteunde waarden zijn **P1M** (1 maand) en **P1Y** (1 jaar). |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -337,7 +338,7 @@ Als dit lukt, retourneert deze methode de ingevulde [winkelwagenresource](cart-r
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
