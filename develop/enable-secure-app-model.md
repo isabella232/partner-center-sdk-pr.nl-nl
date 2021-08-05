@@ -3,21 +3,21 @@ title: Beveiligd toepassingsmodel inschakelen
 description: Beveilig uw Partner Center apps en configuratiescherm.
 ms.date: 01/20/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 19a1c39576a4f897df2d1205e3501839f6580831
-ms.sourcegitcommit: e0077b2724d128ab20cb05696e5e5b1cde8e5214
+ms.openlocfilehash: 36a81c7b235c68e49bb425b5bd0d4615882f88ef
+ms.sourcegitcommit: 07b9a11f5c615ed1e716081392032cea2124bd98
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113481664"
+ms.lasthandoff: 08/04/2021
+ms.locfileid: "115104207"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Het Secure Application Model-framework inschakelen
 
-Microsoft introduceert een veilig, schaalbaar framework voor de verificatie van CSP-partners (Cloud Solution Provider) en configuratieschermleveranciers (CPV) via de architectuur van Microsoft Azure Active Directory Multi-Factor Authentication (MFA).
+Microsoft introduceert een veilig, schaalbaar framework voor de verificatie van CSP-partners (Cloud Solution Provider) en configuratieschermleveranciers (CPV) via de MFA-architectuur (Microsoft Azure Active Directory Multi-Factor Authentication).
 
-U kunt het nieuwe model gebruiken om de beveiliging voor aanroepen van Partner Center API-integratie uit te voeren. Hiermee kunnen alle partijen (inclusief Microsoft, CSP-partners en CPV's) hun infrastructuur en klantgegevens beschermen tegen beveiligingsrisico's.
+U kunt het nieuwe model gebruiken om de beveiliging voor api-integratie-aanroepen Partner Center verhogen. Hiermee kunnen alle partijen (inclusief Microsoft, CSP-partners en CPV's) hun infrastructuur en klantgegevens beschermen tegen beveiligingsrisico's.
 
 ## <a name="scope"></a>Bereik
 
@@ -31,19 +31,19 @@ Dit artikel heeft betrekking op de volgende actoren:
 
 ## <a name="security-requirements"></a>Beveiligingsvereisten
 
-Zie Beveiligingsvereisten van partners voor [meer informatie over beveiligingsvereisten.](/partner-center/partner-security-requirements)
+Zie Beveiligingsvereisten van partners [voor meer informatie over beveiligingsvereisten.](/partner-center/partner-security-requirements)
 
 ## <a name="secure-application-model"></a>veilig toepassingsmodel
 
-Marketplace-toepassingen moeten CSP-partnerbevoegdheden imiteren om Microsoft API's aan te roepen. Beveiligingsaanvallen op deze gevoelige toepassingen kunnen leiden tot het compromitteerd van klantgegevens.
+Marketplace-toepassingen moeten de bevoegdheden van de CSP-partner imiteren om Microsoft API's aan te roepen. Beveiligingsaanvallen op deze gevoelige toepassingen kunnen leiden tot het compromitteerden van klantgegevens.
 
-Download het document veilig toepassingsmodel framework voor een overzicht [en details van het nieuwe veilig toepassingsmodel framework.](https://assetsprod.microsoft.com/secure-application-model-guide.pdf) Dit document bevat principes en best practices om Marketplace-toepassingen duurzaam en robuust te maken tegen beveiligingsrisico's.
+Voor een overzicht en details van het nieuwe verificatiekader downloadt u het [document veilig toepassingsmodel framework.](https://assetsprod.microsoft.com/secure-application-model-guide.pdf) Dit document bevat principes en best practices om Marketplace-toepassingen duurzaam en robuust te maken tegen beveiligingsrisico's.
 
 ## <a name="samples"></a>Voorbeelden
 
 In de volgende overzichtsdocumenten en voorbeeldcode wordt beschreven hoe partners het veilig toepassingsmodel implementeren:
 
-- [CpV-overzichtsdocument](https://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
+- [Overzichtsdocument voor CPV](https://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
 - [CSP-overzichtsdocument](https://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
 - [.NET-voorbeelden](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
 - [Java-voorbeelden](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
@@ -61,7 +61,7 @@ Volg deze stappen om REST-aanroepen veilig toepassingsmodel framework met voorbe
 
 2. [Een autorisatiecode verkrijgen](#get-authorization-code)
 
-3. [Een vernieuwings token op halen](#get-refresh-token)
+3. [Een vernieuwings token krijgen](#get-refresh-token)
 
 4. [Een toegangstoken opvragen](#get-access-token)
 
@@ -76,17 +76,17 @@ U moet een web-app maken en registreren in Partner Center voordat u REST-aanroep
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
-2. Maak een Azure Active Directory (Azure AD)-app.
+2. Maak een Azure Active Directory -app (Azure AD).
 
-3. Geef gedelegeerde toepassingsmachtigingen voor de volgende resources, afhankelijk van de vereisten *van uw toepassing.* Indien nodig kunt u meer gedelegeerde machtigingen toevoegen voor toepassingsresources.
+3. Geef gedelegeerde toepassingsmachtigingen voor de volgende resources, *afhankelijk van de vereisten van uw toepassing.* Indien nodig kunt u meer gedelegeerde machtigingen toevoegen voor toepassingsresources.
 
-   1. **Microsoft Partner Center** (sommige tenants laten dit zien als **SampleBECApp**)
+   1. **Microsoft Partner Center** (sommige tenants geven dit weer als **SampleBECApp**)
 
    2. **Azure Management-API's** (als u azure-API's wilt aanroepen)
 
    3. **Windows Azure Active Directory**
 
-4. Zorg ervoor dat de start-URL van uw app is ingesteld op een eindpunt waarop een live web-app wordt uitgevoerd. Deze app moet de [](#get-authorization-code) autorisatiecode van de Azure AD-aanmeldingsoproep accepteren. In de voorbeeldcode in de [volgende](#get-authorization-code)sectie wordt de web-app bijvoorbeeld uitgevoerd op `https://localhost:44395/` .
+4. Zorg ervoor dat de start-URL van uw app is ingesteld op een eindpunt waarop een live web-app wordt uitgevoerd. Deze app moet de autorisatiecode [van](#get-authorization-code) de Azure AD-aanmeldingsoproep accepteren. In de voorbeeldcode in de volgende sectie [wordt](#get-authorization-code)de web-app bijvoorbeeld uitgevoerd op `https://localhost:44395/` .
 
 5. Let op de volgende informatie uit de instellingen van uw web-app in Azure AD:
 
@@ -94,21 +94,21 @@ U moet een web-app maken en registreren in Partner Center voordat u REST-aanroep
    - Toepassingsgeheim
 
 > [!NOTE]
-> Het wordt aanbevolen om [een certificaat te gebruiken als uw toepassingsgeheim.](/azure/active-directory/develop/active-directory-certificate-credentials) U kunt echter ook een toepassingssleutel maken in de Azure Portal. In de voorbeeldcode in [de volgende sectie wordt](#get-authorization-code) een toepassingssleutel gebruikt.
+> Het wordt aanbevolen om [een certificaat te gebruiken als uw toepassingsgeheim](/azure/active-directory/develop/active-directory-certificate-credentials). U kunt echter ook een toepassingssleutel maken in de Azure Portal. In de voorbeeldcode in [de volgende sectie wordt](#get-authorization-code) een toepassingssleutel gebruikt.
 
 ### <a name="get-authorization-code"></a>Autorisatiecode verkrijgen
 
-U moet een autorisatiecode voor uw web-app verkrijgen die u kunt accepteren via de Azure AD-aanmeldingsoproep:
+U moet een autorisatiecode voor uw web-app krijgen die u kunt accepteren via de Azure AD-aanmeldingsoproep:
 
 1. Meld u aan bij Azure AD via de volgende URL: [https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1](https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1) . Meld u aan met het gebruikersaccount van waaruit u API-aanroepen Partner Center (zoals een beheerderagent of verkoopagentaccount).
 
 2. Vervang **Application-Id door** uw Azure AD-app-id (GUID).
 
-3. Meld u aan met uw gebruikersaccount terwijl MFA is geconfigureerd wanneer u hier om wordt gevraagd.
+3. Meld u aan met uw gebruikersaccount waarop MFA is geconfigureerd wanneer u hier om wordt gevraagd.
 
 4. Wanneer u hier om wordt gevraagd, voert u aanvullende MFA-gegevens (telefoonnummer of e-mailadres) in om uw aanmelding te verifiëren.
 
-5. Nadat u bent aangemeld, leidt de browser de aanroep om naar het eindpunt van uw web-app met uw autorisatiecode. Met de volgende voorbeeldcode wordt bijvoorbeeld omgeleid naar `https://localhost:44395/` .
+5. Nadat u bent aangemeld, stuurt de browser de aanroep om naar het eindpunt van uw web-app met uw autorisatiecode. Met de volgende voorbeeldcode wordt bijvoorbeeld omgeleid naar `https://localhost:44395/` .
 
 #### <a name="authorization-code-call-trace"></a>Trace aanroep van autorisatiecode
 
@@ -134,7 +134,7 @@ Vervolgens moet u uw autorisatiecode gebruiken om een vernieuwings token op te h
 
 2. Let op het vernieuwings token dat wordt geretourneerd.
 
-3. Sla het vernieuwingstoken op in Azure Key Vault. Zie de API-documentatie [Key Vault meer informatie.](/rest/api/keyvault/)
+3. Sla het vernieuwingstoken op in Azure Key Vault. Zie de api-documentatie [Key Vault meer informatie.](/rest/api/keyvault/)
 
 > [!IMPORTANT]
 > Het vernieuwingstoken moet [als een geheim worden opgeslagen](/rest/api/keyvault/setsecret/setsecret) in Key Vault.
@@ -171,9 +171,9 @@ Antwoord body:
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","ext_expires_in":"3599","expires_on":"1547579127","not_before":"1547575227","resource":"https://api.partnercenter.microsoft.com","access_token":"Access
 ```
 
-### <a name="get-access-token"></a>Toegangs token op halen
+### <a name="get-access-token"></a>Toegangs token krijgen
 
-U moet een toegangs token verkrijgen voordat u aanroepen naar de Partner Center API's kunt maken. U moet een vernieuwingstoken gebruiken om een toegangstoken te verkrijgen, omdat toegangstokens doorgaans een zeer beperkte levensduur hebben (bijvoorbeeld minder dan een uur).
+U moet een toegangs token verkrijgen voordat u aanroepen kunt doen naar de Partner Center API's. U moet een vernieuwingstoken gebruiken om een toegangstoken te verkrijgen, omdat toegangstokens over het algemeen een zeer beperkte levensduur hebben (bijvoorbeeld minder dan een uur).
 
 Aanvraag voor tijdelijke aanduiding:
 
@@ -205,9 +205,9 @@ Antwoord body:
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
 ```
 
-### <a name="make-partner-center-api-calls"></a>API Partner Center aanroepen
+### <a name="make-partner-center-api-calls"></a>API Partner Center-aanroepen maken
 
-U moet uw toegangs token gebruiken om de api'Partner Center aan te roepen. Zie de volgende voorbeeldoproep.
+U moet uw toegangs token gebruiken om de api's Partner Center aan te roepen. Zie de volgende voorbeeldoproep.
 
 #### <a name="example-partner-center-api-call"></a>Voorbeeld van Partner Center API-aanroep
 
@@ -223,7 +223,7 @@ Host: api.partnercenter.microsoft.com
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-U kunt de [PowerShell Partner Center module gebruiken om](https://www.powershellgallery.com/packages/PartnerCenter) de vereiste infrastructuur te verminderen voor het uitwisselen van een autorisatiecode voor een toegangs token. Deze methode is optioneel voor het maken van [Partner Center REST-aanroepen.](#rest)
+U kunt de [PowerShell Partner Center module gebruiken](https://www.powershellgallery.com/packages/PartnerCenter) om de vereiste infrastructuur te verminderen voor het uitwisselen van een autorisatiecode voor een toegangs token. Deze methode is optioneel voor het maken van [Partner Center REST-aanroepen.](#rest)
 
 Zie PowerShell-documentatie voor [Secure App Model](/powershell/partnercenter/secure-app-model) voor meer informatie over dit proces.
 
@@ -237,7 +237,7 @@ Zie PowerShell-documentatie voor [Secure App Model](/powershell/partnercenter/se
     Install-Module PartnerCenter
     ```
 
-2. Gebruik de **[opdracht New-PartnerAccessToken](/powershell/module/partnercenter/new-partneraccesstoken)** om het toestemmingsproces uit te voeren en het vereiste vernieuwingstoken vast te leggen.
+2. Gebruik de **[opdracht New-PartnerAccessToken om](/powershell/module/partnercenter/new-partneraccesstoken)** het toestemmingsproces uit te voeren en het vereiste vernieuwingstoken vast te leggen.
 
     ```powershell
     $credential = Get-Credential
@@ -246,7 +246,7 @@ Zie PowerShell-documentatie voor [Secure App Model](/powershell/partnercenter/se
     ```
 
     > [!NOTE]
-    > De **parameter ServicePrincipal** wordt gebruikt met de **opdracht New-PartnerAccessToken** omdat er een Azure AD-app met een type **web/API** wordt gebruikt. Dit type app vereist dat een client-id en -geheim worden opgenomen in de toegangs-tokenaanvraag. Wanneer de **opdracht Get-Credential** wordt aangeroepen, wordt u gevraagd een gebruikersnaam en wachtwoord in te voeren. Voer de toepassings-id in als de gebruikersnaam. Voer het toepassingsgeheim in als het wachtwoord. Wanneer de **opdracht New-PartnerAccessToken** wordt aangeroepen, wordt u opnieuw gevraagd referenties in te voeren. Voer de referenties in voor het serviceaccount dat u gebruikt. Dit serviceaccount moet een partneraccount zijn met de juiste machtigingen.
+    > De **parameter ServicePrincipal** wordt gebruikt met de **opdracht New-PartnerAccessToken** omdat er een Azure AD-app met een type **web/API** wordt gebruikt. Dit type app vereist dat een client-id en -geheim worden opgenomen in de toegangsaanvraag voor een token. Wanneer de **opdracht Get-Credential** wordt aangeroepen, wordt u gevraagd een gebruikersnaam en wachtwoord in te voeren. Voer de toepassings-id in als de gebruikersnaam. Voer het toepassingsgeheim in als het wachtwoord. Wanneer de **opdracht New-PartnerAccessToken** wordt aangeroepen, wordt u opnieuw gevraagd referenties in te voeren. Voer de referenties in voor het serviceaccount dat u gebruikt. Dit serviceaccount moet een partneraccount zijn met de juiste machtigingen.
 
 3. Kopieer de waarde van het vernieuwings token.
 
