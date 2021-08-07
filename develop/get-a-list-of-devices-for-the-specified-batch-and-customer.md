@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 28af1f568f755ba4c50cfac21529d6c677656c8e
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 77dcab4b26a74cec886e6b654c3abdcb97007ed8e14966873ce43fdcbc1d2809
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874258"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989403"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Een lijst met de apparaten voor de opgegeven batch en klant ophalen
 
@@ -35,7 +35,7 @@ Een verzameling van de apparaten in een opgegeven apparaatbatch ophalen voor de 
 
 2. Roep de [**methode DeviceBatches.ById aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) om een interface op te halen voor batchverzamelingsbewerkingen van apparaten voor de opgegeven batch.
 
-3. Haal de [**eigenschap Apparaten**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) op om een interface op te halen voor bewerkingen voor het verzamelen van apparaten voor de batch.
+3. Haal de [**eigenschap Devices op**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) om een interface voor apparaatverzamelingsbewerkingen voor de batch op te halen.
 
 4. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) om de verzameling apparaten op te halen.
 
@@ -68,8 +68,8 @@ Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam           | Type   | Vereist | Beschrijving                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| customer-id    | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
-| devicebatch-id | tekenreeks | Ja      | Een tekenreeks-id die de apparaatbatch identificeert. |
+| customer-id    | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| devicebatch-id | tekenreeks | Yes      | Een tekenreeks-id die de apparaatbatch identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -93,11 +93,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord-hoofdverzameling een verzameling [apparaatresources met pagina's.](device-deployment-resources.md#device) De verzameling bevat 100 apparaten op een pagina. Als u de volgende pagina van 100 apparaten wilt ophalen, moet het continuationToken in de hoofdtekst van het antwoord worden opgenomen in de volgende aanvraag als een MS-ContinuationToken header.
+Als de reactie is geslaagd, bevat de hoofdverzameling van het antwoord een verzameling [apparaatresources met pagina's.](device-deployment-resources.md#device) De verzameling bevat 100 apparaten op een pagina. Als u de volgende pagina van 100 apparaten wilt ophalen, moet het continuationToken in de hoofdtekst van het antwoord worden opgenomen in de volgende aanvraag als een MS-ContinuationToken header.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center een volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center een volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

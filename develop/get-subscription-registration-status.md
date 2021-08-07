@@ -4,12 +4,12 @@ description: Haal de status op van een abonnement dat is geregistreerd voor gebr
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9e39f94c0eac402a0be3afde84279aa637868f96
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 0e0a65abba94f1f05a98282fa67ff1d185ba4e082488d2d7887b4e9346c38967
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445949"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989658"
 ---
 # <a name="get-subscription-registration-status"></a>De registratiestatus van het abonnement ophalen
 
@@ -27,7 +27,7 @@ Als u een gereserveerde VM-instantie van Azure wilt kopen met behulp van Partner
 
 ## <a name="c"></a>C\#
 
-Als u de registratiestatus van een abonnement wilt weten, gebruikt u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens een interface op voor abonnementsbewerkingen door de methode [**Subscription.ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) aan te roepen met de abonnements-id om het abonnement te identificeren. Gebruik vervolgens de eigenschap RegistrationStatus om een interface te verkrijgen voor de registratiestatusbewerkingen van het huidige abonnement en roep de methode **Get** of **GetAsync** aan om het object **SubscriptionRegistrationStatus op te** halen.
+Als u de registratiestatus van een abonnement wilt weten, gebruikt u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens een interface op voor abonnementsbewerkingen door de [**methode Subscription.ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) aan te roepen met de abonnements-id om het abonnement te identificeren. Gebruik vervolgens de eigenschap RegistrationStatus om een interface te verkrijgen voor de registratiestatusbewerkingen van het huidige abonnement en roep de methode **Get** of **GetAsync** aan om het object **SubscriptionRegistrationStatus op te** halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -52,8 +52,8 @@ Gebruik de volgende padparameters om de klant en het abonnement te identificeren
 
 | Naam                    | Type       | Vereist | Beschrijving                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| customer-id             | tekenreeks     | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.         |
-| subscription-id         | tekenreeks     | Ja      | Een tekenreeks met GUID-indeling die het abonnement identificeert.     |
+| customer-id             | tekenreeks     | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.         |
+| subscription-id         | tekenreeks     | Yes      | Een tekenreeks met GUID-indeling die het abonnement identificeert.     |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

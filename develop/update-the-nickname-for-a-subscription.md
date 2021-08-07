@@ -4,12 +4,12 @@ description: Werkt de gebruiksvriendelijke naam of bijnaam voor het abonnement v
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 195a85fcf29b3e4c9fe0e578d4d8cb80ca068c40
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: e3456ff7463fcb1a96315dc1acd9d119102515fb88eaaf8f58f5fecae4f24bac
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530001"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992497"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>De bijnaam voor een abonnement bijwerken
 
@@ -17,11 +17,11 @@ ms.locfileid: "111530001"
 
 Werkt de gebruiksvriendelijke naam of bijnaam voor het abonnement van een klant [bij.](subscription-resources.md) Deze naam wordt weergegeven in Partner Center om de abonnementen in het account van de klant te onderscheiden.
 
-In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement in kwestie dat u de naam wilt geven. Als u wilt voltooien, wijzigt u de naam in **het veld Bijnaam** van abonnement en selecteert u vervolgens **Verzenden.**
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement in kwestie dat u een andere naam wilt geven. Als u wilt voltooien, wijzigt u de naam in **het veld Bijnaam** van abonnement en selecteert u vervolgens **Verzenden.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 

@@ -4,16 +4,16 @@ description: Een nieuw self-serve-beleid maken.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 14f46e22fbd294c765b745204cf62474250cbfbd
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 0ef67efc08d188a5e3566295d0d2cd3add154dc0957d87bb6e85e5f74dfa5297
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973685"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991596"
 ---
 # <a name="create-a-selfservepolicy"></a>Een SelfServePolicy maken
 
-In dit artikel wordt uitgelegd hoe u een nieuw beleid voor self-serve maakt.
+In dit artikel wordt uitgelegd hoe u een nieuw self-serve-beleid maakt.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -82,7 +82,7 @@ Zie voor een voorbeeld het volgende:
 
 In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
-| Naam                              | Type   | Beschrijving                                 |
+| Naam                              | Type   | Description                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
 | [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | De informatie over het self-serve-beleid. |
 
@@ -90,7 +90,7 @@ In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 In deze tabel worden de minimaal vereiste velden van de [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) beschreven die nodig zijn om een nieuw selfservicebeleid te maken.
 
-| Eigenschap              | Type             | Beschrijving                                                                                            |
+| Eigenschap              | Type             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | SelfServeEntity       | SelfServeEntity  | De zelfhulpentiteit die toegang wordt verleend.                                                     |
 | Grantor               | Grantor          | De grantor die toegang verleent.                                                                    |

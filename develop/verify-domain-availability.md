@@ -4,12 +4,12 @@ description: Bepalen of een domein beschikbaar is voor gebruik.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e2b8f0438516cc0aff9c4d8159c22de43ec582e4
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 3515216127219908aeefb2e070b138e75dc1f0e72b1f57f07f1dbff65ab79558
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530273"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989046"
 ---
 # <a name="verify-domain-availability"></a>Beschikbaarheid van domein verifiëren
 
@@ -25,7 +25,7 @@ Bepalen of een domein beschikbaar is voor gebruik.
 
 ## <a name="c"></a>C\#
 
-Als u wilt controleren of een domein beschikbaar is, roept u [**eerst IAggregatePartner.Domains**](/dotnet/api/microsoft.store.partnercenter.ipartner.domains) aan om een interface voor domeinbewerkingen te verkrijgen. Roep vervolgens de [**methode ByDomain**](/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) aan met het domein om dit te controleren. Met deze methode wordt een interface opgehaald voor de bewerkingen die beschikbaar zijn voor een specifiek domein. Roep ten slotte de [**methode Exists**](/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) aan om te zien of het domein al bestaat.
+Als u wilt controleren of een domein beschikbaar is, roept u [**eerst IAggregatePartner.Domains**](/dotnet/api/microsoft.store.partnercenter.ipartner.domains) aan om een interface voor domeinbewerkingen te verkrijgen. Roep vervolgens de [**bydomain-methode**](/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) aan met het domein om dit te controleren. Met deze methode wordt een interface opgehaald voor de bewerkingen die beschikbaar zijn voor een specifiek domein. Roep ten slotte de [**methode Exists**](/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) aan om te zien of het domein al bestaat.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -34,7 +34,7 @@ Als u wilt controleren of een domein beschikbaar is, roept u [**eerst IAggregate
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CheckDomainAvailability.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Klasse **Samples:** CheckDomainAvailability.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -54,7 +54,7 @@ Gebruik de volgende queryparameter om de beschikbaarheid van domeinen te control
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -79,7 +79,7 @@ Als het domein bestaat, is het niet beschikbaar voor gebruik en wordt de antwoor
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example-for-when-the-domain-is-already-in-use"></a>Voorbeeld van een reactie wanneer het domein al in gebruik is
 

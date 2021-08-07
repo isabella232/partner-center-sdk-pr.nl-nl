@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 8697c40c22d5c19979c066b8d3a1de733e211f71
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 7a4f4ef8f9a49cd43f565454d1d44c46eefa67fa9cf566f132482f840db183ec
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446238"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990474"
 ---
 # <a name="get-indirect-resellers-of-a-customer"></a>Indirecte resellers van een klant ophalen
 
@@ -25,7 +25,7 @@ Een lijst op te halen met de indirecte resellers die een relatie hebben met een 
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met indirecte resellers wilt ophalen met wie de opgegeven klant een relatie heeft, haalt u eerst een interface op met klantverzamelingsbewerkingen voor de specifieke klant van de [**eigenschap partnerOperations.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) door de klant-id op te geven om de klant te identificeren. Roep vervolgens de [**methode Relationships.Get**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) of [**Get \_ Async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) aan om de lijst met indirecte resellers op te halen.
+Als u een lijst met indirecte resellers wilt ophalen met wie de opgegeven klant een relatie heeft, haalt u eerst een interface op met de klantverzamelingsbewerkingen voor de specifieke klant van de [**eigenschap partnerOperations.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) door de klant-id op te geven om de klant te identificeren. Roep vervolgens de [**methode Relationships.Get**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) of [**Get \_ Async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) aan om de lijst met indirecte resellers op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -34,7 +34,7 @@ Als u een lijst met indirecte resellers wilt ophalen met wie de opgegeven klant 
  var indirectResellers = partnerOperations.Customers[customerId].Relationships.Get();
 ```
 
-**Voorbeeld**: [Consoletest-app](console-test-app.md)**Project:** Partnercentrum-SDK Voorbeelden **Klasse**: GetIndirectResellersOfCustomer.cs
+**Voorbeeld**: [Consoletest-app](console-test-app.md)**Project**: Partnercentrum-SDK Samples **Class**: GetIndirectResellersOfCustomer.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -50,7 +50,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert. |
+| customer-id | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

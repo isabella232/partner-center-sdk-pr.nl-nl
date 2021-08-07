@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 513a9607b9194c36253630c91de9622325317c3a
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: ed4b8be5171493f83aefef08253c748a7bfd90dc5f2b1e325e5ceba78e36bdc2
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973754"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991800"
 ---
 # <a name="create-a-cart-with-add-ons-to-a-customer-order"></a>Een winkelwagen maken met invoegtoepassingen voor een klantorder
 
@@ -19,7 +19,7 @@ U kunt invoegtoepassingen aanschaffen via een winkelwagen. Zie Partneraanbieding
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -78,7 +78,7 @@ var cart = new Cart()
 var createdCart = partnerOperations.Customers.ById(customerId).Carts.Create(cart);
 ```
 
-Volg deze stappen om een winkelwagen te maken waarmee de aankoop van invoeg-on(s) voor bestaande basisabonnementen mogelijk wordt:
+Volg deze stappen om een winkelwagen te maken waarmee de aankoop van invoeg-invoegabonnementen voor bestaande basisabonnementen kan worden ingeschakeld:
 
 1. Maak een **winkelwagen** met een nieuwe **CartLineItem** met de abonnements-id in de **eigenschap ProvisioningContext** met de sleutel ParentSubscriptionId.
 
@@ -125,7 +125,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
+| **customer-id** | tekenreeks   | Yes      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -138,11 +138,11 @@ In deze tabel worden de eigenschappen [van de winkelwagen](cart-resources.md) in
 | Eigenschap              | Type             | Vereist        | Beschrijving |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | tekenreeks           | No              | Een winkelwagen-id die wordt opgegeven wanneer de winkelwagen is gemaakt.                                  |
-| creationTimeStamp     | DateTime         | Nee              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.         |
-| lastModifiedTimeStamp | DateTime         | Nee              | De datum waarop de winkelwagen voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
-| expirationTimeStamp   | DateTime         | Nee              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast bij het maken van de winkelwagen.            |
+| creationTimeStamp     | DateTime         | No              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.         |
+| lastModifiedTimeStamp | DateTime         | No              | De datum waarop de winkelwagen voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
+| expirationTimeStamp   | DateTime         | No              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast bij het maken van de winkelwagen.            |
 | lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast bij het maken van de winkelwagen.                             |
-| lineItems             | Matrix met objecten | Ja             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                             |
+| lineItems             | Matrix met objecten | Yes             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                             |
 
 In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartlineitem) in de aanvraag body beschreven.
 
@@ -156,13 +156,13 @@ In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartl
 | billingCycle         | Object                           | Het type factureringscyclus dat is ingesteld voor de huidige periode.                                                                                                 |
 | deelnemers         | Lijst met objectreeksparen      | Een verzameling PartnerId on Record (MPN-id) voor de aankoop.                                                                                          |
 | provisioningContext  | Woordenlijst<tekenreeks, tekenreeks>       | Een context die wordt gebruikt voor het inrichten van de aanbieding.                                                                                                             |
-| orderGroup           | tekenreeks                           | Een groep om aan te geven welke items bij elkaar kunnen worden geplaatst.                                                                                               |
+| orderGroup           | tekenreeks                           | Een groep om aan te geven welke items samen kunnen worden geplaatst.                                                                                               |
 | addonItems           | Lijst met **CartLineItem-objecten** | Een verzameling winkelwagenregelitems voor invoegtoepassingen die worden aangeschaft voor het basisabonnement dat het resultaat is van de aankoop van het bovenliggende winkelwagenlijnitem. |
-| fout                | Object                           | Toegepast nadat de winkelwagen is gemaakt als er een fout is.                                                                                                    |
+| fout                | Object                           | Toegepast nadat de winkelwagen is gemaakt als er een fout is opgetreden.                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>Voorbeeld van aanvraag (nieuw basisabonnement)
 
-In het volgende REST-voorbeeld ziet u hoe u een winkelwagen maakt met invoeg-items voor een nieuw basisabonnement.
+In het volgende REST-voorbeeld ziet u hoe u een winkelwagen maakt met invoegitems voor een nieuw basisabonnement.
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/carts HTTP/1.1
@@ -228,7 +228,7 @@ Als dit lukt, retourneert deze methode de ingevulde [winkelwagenresource](cart-r
 
 #### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 #### <a name="response-example-new-base-subscription"></a>Voorbeeld van antwoord (nieuw basisabonnement)
 

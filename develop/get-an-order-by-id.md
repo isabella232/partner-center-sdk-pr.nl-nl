@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 2cb2822935113fe1c5337b4ffc899fccff333d2f
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: cbe4bb3552969bd940f9da60334fede4e0b9dd7dd75fe1fe32113210dddd2822
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760178"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992548"
 ---
 # <a name="get-an-order-by-id"></a>Een bestelling ophalen op basis van id
 
@@ -92,8 +92,8 @@ Deze tabel bevat de vereiste queryparameters om een order op id op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
-| customer-tenant-id     | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die overeenkomt met de klant. |
-| id-for-order           | tekenreeks   | Ja      | Een tekenreeks die overeenkomt met de order-id.                |
+| customer-tenant-id     | tekenreeks   | Yes      | Een tekenreeks met GUID-indeling die overeenkomt met de klant. |
+| id-for-order           | tekenreeks   | Yes      | Een tekenreeks die overeenkomt met de order-id.                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

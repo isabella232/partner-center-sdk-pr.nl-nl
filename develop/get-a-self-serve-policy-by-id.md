@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 074d7ba65c7aab91687a67f50e871cee913fc2bb
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 7ad763dd6d586a58b73d0a3abb2b2fc399a0f35e7b842f5d1dd2e4c5006c3b30
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873833"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989743"
 ---
 # <a name="get-a-self-serve-policy-by-id"></a>Een beleid voor self-serve op id krijgen
 
@@ -19,7 +19,7 @@ Hiermee haalt u het opgegeven beleid voor self-serve op met behulp van de id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 - Een beleids-id voor self-serve.
 
 ## <a name="examples"></a>Voorbeelden
@@ -39,11 +39,11 @@ Gebruik de volgende padparameters om het opgegeven product op te halen.
 
 | Naam                       | Type         | Vereist | Beschrijving                                                     |
 |----------------------------|--------------|----------|-----------------------------------------------------------------|
-| **SelfServePolicy-id**     | **Tekenreeks**   | Ja      | Een tekenreeks die het self-serve-beleid identificeert.                 |
+| **SelfServePolicy-id**     | **Tekenreeks**   | Yes      | Een tekenreeks die het self-serve-beleid identificeert.                 |
 
 **Aanvraagheaders**
 
-- Zie Headers voor [meer informatie.](headers.md)
+- Zie [Headers voor meer informatie.](headers.md)
 
 **Aanvraagbody**
 
@@ -65,7 +65,7 @@ Als dit lukt, bevat de antwoord-body een [SelfServePolicy-resource.](self-serve-
 
 **Antwoord geslaagd en foutcodes**
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 Deze methode retourneert de volgende foutcodes:
 

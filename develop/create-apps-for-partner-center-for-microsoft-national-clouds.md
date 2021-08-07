@@ -1,20 +1,20 @@
 ---
-title: App-gegevens registreren voor Partner Center voor Microsoft National Cloud
-description: Ontdek hoe en waarom app-ontwikkelaars voor Partner Center for Microsoft National Cloud details over hun app moeten registreren bij Azure AD via de Azure Portal.
+title: App-details registreren voor Partner Center voor Microsoft National Cloud
+description: Ontdek hoe en waarom app-ontwikkelaars voor Partner Center voor Microsoft National Cloud details over hun app moeten registreren bij Azure AD via de Azure Portal.
 MS-HAID:
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_cloud\_germany
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_national\_clouds
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93d46a17bc26e9586e5e773bdf934653a571367f
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: bd9df37b83ced71c88da93ccaf52e7f3a970318a552c246997eb1334def9ff81
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973448"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991511"
 ---
-# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud-through-the-azure-portal"></a>App-gegevens voor Partner Center voor Microsoft National Cloud registreren via de Azure Portal
+# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud-through-the-azure-portal"></a>Registreer app-details voor Partner Center voor Microsoft National Cloud via de Azure Portal
 
 **Van toepassing op**: Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
@@ -34,7 +34,7 @@ Gebruik voor web-apps de volgende procedures om uw toepassings-id te registreren
 
 1. Navigeer [naar Azure Portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) om uw app te registreren. Meld u aan bij Azure Portal met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 
-2. Selecteer **Nieuwe registratie**. Zie Snelstart: Een toepassing registreren met de Microsoft identity platform voor [meer Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)
+2. Selecteer **Nieuwe registratie**. Zie [Quickstart: Een toepassing registreren met](/azure/active-directory/develop/quickstart-register-app)de Microsoft identity platform voor meer Microsoft identity platform.
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>API-toegangsmachtigingen voor web-app configureren
 
@@ -42,7 +42,7 @@ Gebruik voor web-apps de volgende procedures om uw toepassings-id te registreren
 
 2. Kies **in de sectie API-toegang** de optie Vereiste **machtigingen**
 
-3. Voor Windows Machtigingen voor Azure Active Directory:
+3. Voor Windows Azure Active Directory-machtigingen:
 
     1. Kies **Windows Azure Active Directory machtigingen**.
 
@@ -50,15 +50,15 @@ Gebruik voor web-apps de volgende procedures om uw toepassings-id te registreren
 
     3. Sla de machtigingen op.
 
-4. Noteer de toepassings-id in **de sectie** Eigenschappen van uw web-app.
+4. Noteer de toepassings-id in **de** sectie Eigenschappen van uw web-app.
 
 ### <a name="add-a-secret-key-to-your-app"></a>Een geheime sleutel toevoegen aan uw app
 
 1. Ga naar de **sectie Sleutels** van uw web-app.
 
-2. Voer een sleutelbeschrijving in en selecteer de duur als 1 of 2 jaar, zoals u dat nodig hebt.
+2. Voer de sleutelbeschrijving in en selecteer de duur als 1 of 2 jaar, zoals u dat nodig hebt.
 
-3. Sla de geheime sleutelwaarde op en kopieer deze. **Deze waarde wordt niet meer weergegeven wanneer u deze pagina verlaat.**
+3. Sla de waarde van de geheime sleutel op en kopieer deze. **Deze waarde wordt niet meer weergegeven wanneer u deze pagina verlaat.**
 
 U moet de volgende gegevens uit de configuratie van de web-app hebben:
 
@@ -79,22 +79,22 @@ U moet de volgende gegevens uit de configuratie van de web-app hebben:
 
 ## <a name="native-apps"></a>Systeemeigen apps
 
-Native apps hoeven niet te worden geregistreerd bij Partner Center. Deze apps moeten echter worden geconfigureerd om toegang te bieden tot Partner Center API's.
+Native apps hoeven niet te worden geregistreerd voor Partner Center. Deze apps moeten echter worden geconfigureerd om toegang te bieden tot Partner Center API's.
 
 >[!NOTE]
->Voordat u een systeemeigen app in de Azure Portal, moet u zich aanmelden bij Partner Center met de gebruikersreferenties van de beheerder van de partnerten tenant. Hiermee maakt u de instellingen op de tenant om app-machtigingen in te kunnenschakelen.
+>Voordat u een systeemeigen app in het Azure Portal, moet u zich aanmelden bij Partner Center met de gebruikersreferenties van de beheerder van de partnerten tenant. Hiermee maakt u de instellingen op de tenant om app-machtigingen in te kunnenschakelen.
 
 ### <a name="create-native-app"></a>Een native app maken
 
 1. Navigeer [naar Azure Portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) om uw app te registreren. Meld u aan bij Azure Portal met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 
-2. Selecteer **Nieuwe registratie**. Zie Snelstart: Een toepassing registreren met de Microsoft identity platform voor [meer Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)
+2. Selecteer **Nieuwe registratie**. Zie [Quickstart: Een toepassing registreren met](/azure/active-directory/develop/quickstart-register-app)de Microsoft identity platform voor meer Microsoft identity platform.
 
-### <a name="configure-api-access-permissions-for-native-app"></a>API-toegangsmachtigingen configureren voor systeemeigen apps
+### <a name="configure-api-access-permissions-for-native-app"></a>API-toegangsmachtigingen voor systeemeigen apps configureren
 
 1. Kies uw app. Ga naar **Settings**.
 
-2. Kies vereiste machtigingen **in API-toegang.**
+2. Kies vereiste machtigingen in **API-toegang.**
 
 3. Kies **Windows Azure Active Directory machtigingen**. Selecteer **in Gedelegeerde machtigingen** de volgende machtigingen:
 
@@ -105,7 +105,7 @@ Native apps hoeven niet te worden geregistreerd bij Partner Center. Deze apps mo
 
 4. Sla de machtigingen op.
 
-5. Kies **Toevoegen** in **Vereiste machtigingen.**
+5. Kies **Toevoegen** bij **Vereiste machtigingen.**
 
 6. Kies **Een API selecteren**.
 
@@ -115,7 +115,7 @@ Native apps hoeven niet te worden geregistreerd bij Partner Center. Deze apps mo
 
 7. Kies **Machtigingen selecteren**.
 
-    1. Selecteer **Toegang Partner Center PPE.**
+    1. Selecteer **Toegang Partner Center PPE**.
     
     2. Kies **Selecteren**.
 
@@ -124,4 +124,4 @@ Native apps hoeven niet te worden geregistreerd bij Partner Center. Deze apps mo
 >[!IMPORTANT]
 > Noteer de toepassings-id in de eigenschappen van uw app.
 
-U hoeft geen systeemeigen apps te registreren in Partner Center, maar de systeemeigen app moet wel beheerdersmachtiging hebben. Noteer de toepassings-id van uw eigen app.
+U hoeft geen systeemeigen apps te registreren in Partner Center, maar de systeemeigen app moet wel door de beheerder worden toestemming gegeven. Noteer de toepassings-id van uw eigen app.

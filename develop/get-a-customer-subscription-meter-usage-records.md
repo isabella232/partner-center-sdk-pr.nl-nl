@@ -4,24 +4,24 @@ description: U kunt de MeterUsageRecord-resourceverzameling gebruiken om meterge
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0bd6143c80059bd140a4c4332ab4ec19c54d99f1
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 2d2f13c9f944a0a5297c61c70606517c4426957f86066fe4469a7543b14d3bf9
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874853"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992820"
 ---
 # <a name="get-usage-data-for-subscription-by-meter"></a>Gebruiksgegevens voor het abonnement per meter ophalen
 
 **Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-U kunt de **MeterUsageRecord-resourceverzameling** gebruiken om metergebruiksrecords van een klant op te halen voor specifieke Azure-services of -resources tijdens de huidige factureringsperiode. Deze resourceverzameling vertegenwoordigt een geaggregeerd totaal voor elke meter voor de huidige factureringscyclus, voor uw hele Azure-plan.
+U kunt de **MeterUsageRecord-resourceverzameling** gebruiken om gebruiksrecords voor metergebruik van een klant op te halen voor specifieke Azure-services of -resources tijdens de huidige factureringsperiode. Deze resourceverzameling vertegenwoordigt een geaggregeerd totaal voor elke meter voor de huidige factureringscyclus, voor uw hele Azure-plan.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id
 
@@ -31,7 +31,7 @@ U kunt de **MeterUsageRecord-resourceverzameling** gebruiken om metergebruiksrec
 
 Gebruiksrecords van een klant voor een specifieke Azure-service of -resource op te halen tijdens de huidige factureringsperiode:
 
-1. Gebruik de **verzameling IAggregatePartner.Customers om** de **methode ById() aan te** roepen.
+1. Gebruik de **verzameling IAggregatePartner.Customers** om de **methode ById() aan te** roepen.
 
 2. Roep de eigenschap Abonnementen en **UsageRecords** aan en vervolgens de **eigenschap Meters.** Als laatste roept u de methoden Get() of GetAsync() aan.
 
@@ -68,7 +68,7 @@ Deze tabel bevat de vereiste queryparameters om de beoordeelde gebruiksgegevens 
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -144,7 +144,7 @@ In dit voorbeeld heeft de klant een Azure-abonnement aangeschaft.
 
 *Voor klanten met Azure-plannen zijn er de volgende wijzigingen in het API-antwoord:*
 
-- **currencyLocale** is vervangen door **currencyCode**
+- **currencyLocale** wordt vervangen door **currencyCode**
 - **usdTotalCost** is een nieuw veld
 
 ```http

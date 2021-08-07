@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 5fa196e711d9ff899b61ba20e75edd92749165e5
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: dc67d93a40cdced977412ff8151a661f6655c0fa1d079c8f1bc468f0f8b1eea2
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025613"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992468"
 ---
 # <a name="agreement-resources-representing-a-microsoft-cloud-customer-agreement"></a>Overeenkomstbronnen die een Microsoft Cloud-klantovereenkomst vertegenwoordigen
 
@@ -27,7 +27,7 @@ De **overeenkomstresource** vertegenwoordigt een Microsoft Cloud-klantovereenkom
 
 De **overeenkomstresource** vertegenwoordigt de details van de certificering die door de partner wordt geleverd.
 
-| Eigenschap       | Type   | Beschrijving                                                                                               |
+| Eigenschap       | Type   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | userId         | tekenreeks                         | Object-id van de aangemelde gebruiker in de partner-tenant die namens de partnerorganisatie een bevestiging geeft. Wanneer u app+gebruikersverificatie gebruikt om een overeenkomstresource te maken, wordt Partner Center kenmerkwaarde **userId** automatisch afgeleid van het token App+Gebruiker.                                                                             |
 | primaryContact | [Contact](./utility-resources.md#contact) | Informatie over de gebruiker van de klantorganisatie die de overeenkomst heeft geaccepteerd, waaronder:  **firstName,** **lastName,** **email** en **phoneNumber** (optioneel). |

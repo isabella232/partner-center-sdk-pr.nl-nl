@@ -4,12 +4,12 @@ description: Werkt het factureringsprofiel van een organisatie bij.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0ef736a722cde16f95ed6dfdbdab278c98fcf738
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 5dc2de04b3b58842162351f1525ef0e6889cf1c0cbd4fd05e84bac86edb07e1e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530052"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989981"
 ---
 # <a name="update-an-organization-profile"></a>Een organisatieprofiel bijwerken
 
@@ -19,11 +19,11 @@ Werkt het factureringsprofiel van een partner bij.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u uw organisatieprofiel wilt bijwerken, haalt u het profiel op en maakt u eventuele benodigde wijzigingen. Gebruik vervolgens de verzameling **IAggregatePartner.Profiles** en roep de **eigenschap OrganizationProfile aan.** Roep ten slotte de **methode Update()** aan.
+Als u uw organisatieprofiel wilt bijwerken, haalt u het profiel op en past u de benodigde wijzigingen aan. Gebruik vervolgens de verzameling **IAggregatePartner.Profiles** en roep de **eigenschap OrganizationProfile aan.** Roep ten slotte de **methode Update()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

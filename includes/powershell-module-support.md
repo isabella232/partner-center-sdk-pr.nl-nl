@@ -1,13 +1,13 @@
 ---
-title: Ondersteuning voor Power shell SDK omvatten
+title: Ondersteuning voor PowerShell SDK include
 ms.date: 04/23/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 05339a0c974885eb954472a90e094436a7889217
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: ebc57e4b9f8dc222aa92a29edf01ee04693a8006077316297ceef8cb0874abaa
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "97767160"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989088"
 ---
-De [Power shell-module van partner Center](https://github.com/microsoft/partner-center-powershell/) wordt doorgaans door partners gebruikt voor het beheren van hun partner centrum-resources. Het is een open-source project dat wordt beheerd door de partner-community. Omdat deze module wordt beheerd door de partner-community, wordt deze niet officieel ondersteund door micro soft. U kunt [hulp krijgen van de Community](https://stackoverflow.com/questions/tagged/partner+center) of [een probleem op github openen](https://github.com/microsoft/partner-center-powershell/issues) als er een probleem optreedt.
+De [Partner Center PowerShell-module](https://github.com/microsoft/partner-center-powershell/) wordt vaak gebruikt door partners om hun Partner Center beheren. Het is een opensource-project dat wordt onderhouden door de partner-community. Omdat deze module wordt onderhouden door de partner community, wordt deze niet officieel ondersteund door Microsoft. U kunt [hulp krijgen van de community of](https://stackoverflow.com/questions/tagged/partner+center) een probleem openen op [GitHub](https://github.com/microsoft/partner-center-powershell/issues) als u een probleem ervaart.

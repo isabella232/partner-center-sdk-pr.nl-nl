@@ -4,12 +4,12 @@ description: Een lijst met aanbiedingen voor proefconversie ophalen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 981910560faf7b7957b28e643c09a003826b9cff
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 23c676ae8120a5b156b8af6b18154fcbc921e52e126f0f611988a1d75d880f4d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873918"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991296"
 ---
 # <a name="get-a-list-of-trial-conversion-offers"></a>Een lijst met aanbiedingen voor omzetten van de proefversie ophalen
 
@@ -17,9 +17,9 @@ Een lijst met aanbiedingen voor proefconversie ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id voor een actief proefabonnement.
 
@@ -51,12 +51,12 @@ Gebruik de volgende padparameters om het klant- en proefabonnement te identifice
 
 | Naam            | Type   | Vereist | Beschrijving                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.           |
-| subscription-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het proefabonnement identificeert. |
+| customer-id     | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.           |
+| subscription-id | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die het proefabonnement identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -80,7 +80,7 @@ Als dit lukt, bevat de antwoord-body een verzameling [conversieresources.](conve
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -4,12 +4,12 @@ description: Meer informatie over hoe CSP-partners Partner Center API's kunnen g
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 472554de1c354559d5bc4b21959c109467891806
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 8b51ccbcdaee18b6d5b3bd1b9531a64b22c8bac5a9d95e6cf94291ee802ed5d9
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974315"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992395"
 ---
 # <a name="azure-spending-api-resources-to-manage-partner-or-customer-spending-and-usage-against-a-budget"></a>Azure-uitgaven-API-resources voor het beheren van partner- of klantuitgaven en -gebruik ten opzichte van een budget 
 
@@ -27,7 +27,7 @@ Zie scenario's waarin CSP-partners de api's van Partner Center gebruiken voor he
 ## <a name="customer-usage-management"></a>Beheer van klantgebruik
 
 - [Het gebruiksoverzicht van een klant op halen](get-a-customer-usage-summary.md) met behulp van de resource **CustomerUsageSummary**
-- [Alle abonnementsgebruiksrecords voor een klant op te](get-a-customer-subscription-s-usage-records.md) halen met behulp van de resource **SubscriptionMonthlyUsageRecord**
+- [Alle abonnementsgebruiksrecords voor een klant op halen](get-a-customer-subscription-s-usage-records.md) met behulp van de resource **SubscriptionMonthlyUsageRecord**
 
 ## <a name="subscription-usage-management"></a>Abonnementsgebruiksbeheer
 

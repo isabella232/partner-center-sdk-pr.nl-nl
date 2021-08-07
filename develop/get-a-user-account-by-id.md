@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 3a7cac98a8081a8557dcadfb0724f5497be7d14c
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 6f42c50ed28099d03c2af2142e3b98d717a6cfa46e5ab751a62c9c2b818806a8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760263"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990984"
 ---
 # <a name="get-a-user-account-by-id"></a>Een gebruikersaccount ophalen op basis van id
 
@@ -34,7 +34,7 @@ Als u een gebruikersaccount voor een klant wilt ophalen, roept u de methode [**I
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Get();
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class:** GetCustomerUserDetails.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK **Voorbeeldklasse:** GetCustomerUserDetails.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -51,11 +51,11 @@ Gebruik de volgende URI-parameters om de juiste klant en gebruiker te identifice
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | J        | De waarde is een in GUID opgemaakte **klant-tenant-id** waarmee de reseller de resultaten kan filteren voor een bepaalde klant die bij de reseller hoort. |
-| **user-id**            | **guid** | J        | De waarde is een guid-opgemaakte **gebruikers-id** die bij één gebruikersaccount hoort.                                                                       |
+| **user-id**            | **guid** | J        | De waarde is een **gebruikers-id** met GUID-indeling die bij één gebruikersaccount hoort.                                                                       |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -79,7 +79,7 @@ Als dit lukt, retourneert deze methode het gebruikersaccount voor de klant.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

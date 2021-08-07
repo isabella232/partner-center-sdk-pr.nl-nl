@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 9a6218aeb61f3775c89d34b4d57a17741e3a1e93
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: e54e083dda758cc712c889916676007a389ba69c8009bb3d4907df343a436004
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973737"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991732"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Een klant maken voor een indirecte reseller met behulp van Partner Center API's
 
@@ -93,11 +93,11 @@ In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 | Naam                                          | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | object | Ja      | De factureringsprofielgegevens van de klant.                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | object | Ja      | De bedrijfsprofielgegevens van de klant.                                                               
-| [AssociatedPartnerId](customer-resources.md#customer) | tekenreeks | Ja      | De indirecte reseller-id. De indirecte reseller, zoals aangegeven door de id die hier is opgegeven, moet een partnerschap hebben met de indirecte provider, anders mislukt de aanvraag. Houd er ook rekening mee dat als de associatedPartnerId-waarde niet wordt opgegeven, de klant wordt gemaakt als een directe klant van de indirecte provider in plaats van de indirecte reseller. |
+| [BillingProfile](#billing-profile)             | object | Yes      | De factureringsprofielgegevens van de klant.                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | object | Yes      | De bedrijfsprofielgegevens van de klant.                                                               
+| [AssociatedPartnerId](customer-resources.md#customer) | tekenreeks | Yes      | De indirecte reseller-id. De indirecte reseller, zoals aangegeven door de id die hier is opgegeven, moet een partnerschap hebben met de indirecte provider, anders mislukt de aanvraag. Houd er ook rekening mee dat als de associatedPartnerId-waarde niet wordt opgegeven, de klant wordt gemaakt als een directe klant van de indirecte provider in plaats van de indirecte reseller. |
 |Domain| Tekenreeks| Ja|De domeinnaam van de klant, zoals contoso.onmicrosoft.com.|
-|organizationRegistrationNumber|    tekenreeks|Ja|     Het registratienummer van de organisatie van de klant (in bepaalde landen ook wel HETN-nummer genoemd). Alleen vereist voor het bedrijf/de organisatie van de klant die zich in de volgende landen bevindt: 100000000000000000005555555(MD), China(AM), Tzard (TJ), Uzbekje (UZ), UZ ( UA), India, Brazilië, Zuid-Afrika, United United Afs, United South, South South South, SouthEse, Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
+|organizationRegistrationNumber|    tekenreeks|Yes|     Het registratienummer van de organisatie van de klant (in bepaalde landen ook wel HETN-nummer genoemd). Alleen vereist voor het bedrijf/de organisatie van de klant die zich in de volgende landen bevindt: 100000000000000000005555555(MD), China(AM), Tzard (TJ), Uzbekje (UZ), UZ ( UA), India, Brazilië, Zuid-Afrika, United United Afs, United South, South South South, SouthEse, Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.|
 
 
 
@@ -107,11 +107,11 @@ In deze tabel worden de minimaal vereiste velden van de [Resource CustomerBillin
 
 | Naam             | Type                                     | Vereist | Beschrijving                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| e-mail            | tekenreeks                                   | Ja      | Het e-mailadres van de klant.                                                                                                                                                                                   |
-| Cultuur          | tekenreeks                                   | Ja      | Hun voorkeurscultuur voor communicatie en valuta, zoals 'en-US'. Zie [Partner Center ondersteunde talen en landen voor](partner-center-supported-languages-and-locales.md) de ondersteunde culturen. |
-| language         | tekenreeks                                   | Ja      | De standaardtaal. Er worden twee tekentaalcodes `en` (bijvoorbeeld of `fr` ) ondersteund.                                                                                                                                |
-| \_bedrijfsnaam    | tekenreeks                                   | Ja      | De geregistreerde bedrijfsnaam/organisatienaam.                                                                                                                                                                       |
-| \_standaardadres | [Adres](utility-resources.md#address) | Ja      | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [adresresource](utility-resources.md#address) voor informatie over lengtebeperkingen.                                             |
+| e-mail            | tekenreeks                                   | Yes      | Het e-mailadres van de klant.                                                                                                                                                                                   |
+| Cultuur          | tekenreeks                                   | Yes      | Hun voorkeurscultuur voor communicatie en valuta, zoals 'en-US'. Zie [Partner Center ondersteunde talen en landen voor](partner-center-supported-languages-and-locales.md) de ondersteunde culturen. |
+| language         | tekenreeks                                   | Yes      | De standaardtaal. Er worden twee tekentaalcodes `en` (bijvoorbeeld of `fr` ) ondersteund.                                                                                                                                |
+| \_bedrijfsnaam    | tekenreeks                                   | Yes      | De geregistreerde bedrijfsnaam/organisatienaam.                                                                                                                                                                       |
+| \_standaardadres | [Adres](utility-resources.md#address) | Yes      | Het geregistreerde adres van het bedrijf/de organisatie van de klant. Zie de [Adresresource](utility-resources.md#address) voor informatie over lengtebeperkingen.                                             |
 
 #### <a name="company-profile"></a>Bedrijfsprofiel
 
@@ -119,8 +119,8 @@ In deze tabel worden de minimaal vereiste velden van de resource [CustomerCompan
 
 | Naam   | Type   | Vereist | Beschrijving                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domein | tekenreeks | Ja     | De domeinnaam van de klant, zoals contoso.onmicrosoft.com. |
-| organizationRegistrationNumber | tekenreeks | Afhankelijk van de voorwaarde | Het registratienummer van de organisatie van de klant (in bepaalde landen ook wel het INN-nummer genoemd). <br/><br/>Het voltooien van dit veld is alleen vereist als het bedrijf/de organisatie van een klant zich in de volgende landen bevindt: <br/><br/>- Uiting (AM) <br/>- Tussenseen (AZ)<br/>- None (BY)<br/>- Doornige (HU)<br/>- Tussenseen (KZ)<br/>- Kyrgyzstan (KG)<br/>- Ligt (MD)<br/>- Rusland (RU)<br/>- Tjikjikjik (TJ)<br/>- Uzbekjik (UZ)<br/>- Uiting (UA)<br/>- India <br/>- Brazilië <br/>- Zuid-Afrika <br/>- Niet-gedys <br/>- Verenigde Arabische Republieken <br/>- Hongkong <br/>- Uitsporing <br/>- <br/>- Vietnam <br/>- <br/>- Uithalen <br/>- Zuid-Korea <br/>-<br/> <br/>Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.  |
+| domein | tekenreeks | Yes     | De domeinnaam van de klant, zoals contoso.onmicrosoft.com. |
+| organizationRegistrationNumber | tekenreeks | Afhankelijk van de voorwaarde | Het registratienummer van de organisatie van de klant (in bepaalde landen ook wel het INN-nummer genoemd). <br/><br/>Het voltooien van dit veld is alleen vereist als het bedrijf/de organisatie van een klant zich in de volgende landen bevindt: <br/><br/>- Uiting (AM) <br/>- Tussensen (AZ)<br/>- None (BY)<br/>- Doornige (HU)<br/>- Tussenseen (KZ)<br/>- Kyrgyzstan (KG)<br/>- Ligt (MD)<br/>- Rusland (RU)<br/>- Tjikjikjik (TJ)<br/>- Uzbekjik (UZ)<br/>- Uiting (UA)<br/>- India <br/>- Brazilië <br/>- Zuid-Afrika <br/>- Niet-gedys <br/>- Verenigde Arabische Republieken <br/>- Hongkong <br/>- Uitsporing <br/>- <br/>- Vietnam <br/>- <br/>- Uithalen <br/>- Zuid-Korea <br/>-<br/> <br/>Voor het bedrijf/de organisatie van de klant in andere landen is dit een optioneel veld.  |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -189,7 +189,7 @@ Als dit lukt, bevat het antwoord een [klantresource](customer-resources.md#custo
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Antwoorden worden verstrekt met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Antwoorden worden verstrekt met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

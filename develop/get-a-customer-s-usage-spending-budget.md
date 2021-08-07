@@ -1,35 +1,35 @@
 ---
-title: Het uitgavenbudget voor gebruik van een klant op halen
+title: Het budget voor gebruiksuitgaven van een klant ops vragen
 description: U kunt een uitgavenbudget (het object SpendingBudget) gebruiken om een samenvatting van het gebruik van klanten bij te werken (de resource CustomerUsageSummary).
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b55f59fff7e5d7865811ecab3e901848126d31f7
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 89d06fa535e0a3c86e910e3052715471c9cb53e5abaf9f2fe4b4efffb37e389d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874870"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992888"
 ---
-# <a name="get-a-customers-usage-spending-budget"></a>Het uitgavenbudget voor gebruik van een klant op halen
+# <a name="get-a-customers-usage-spending-budget"></a>Het budget voor gebruiksuitgaven van een klant ops vragen
 
 **Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-U kunt het bestedingsbudget (het object **SpendingBudget)** bijwerken in het gebruiksoverzicht van de klant [(de resource **CustomerUsageSummary).**](customer-usage-resources.md#customerusagesummary)
+U kunt het bestedingsbudget (het object **SpendingBudget)** bijwerken in het klantgebruiksoverzicht [(de resource **CustomerUsageSummary).**](customer-usage-resources.md#customerusagesummary)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Ga als volgende te werk om het gebruiksbudget van een klant bij te werken:
+Ga als volgende te werk om het budget voor gebruiksuitgaven van een klant bij te werken:
 
 1. Maak een nieuw [**SpendingBudget-object**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) met het bijgewerkte bedrag.
 
-2. Gebruik de [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) om de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de id van de opgegeven klant.
+2. Gebruik de [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) om de [**methode ById() aan te**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) roepen met de opgegeven klant-id.
 
 3. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) om het gebruiksbudget van de klant op te halen.
 
@@ -89,7 +89,7 @@ Als dit lukt, retourneert deze methode het bestedingsbudget van een gebruiker me
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

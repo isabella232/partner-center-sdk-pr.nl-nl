@@ -4,14 +4,14 @@ description: Meer informatie over het gebruik Partner Center API Conversion-reso
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1863c365627807d8de2534a2d3116807a5de70e1
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 9e7f8985fa15f4959f3cb5a729e492bbb9f3f624a5812f5b87fc119f841dc87e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973890"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991868"
 ---
-# <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a>Conversie van resources om proefabonnementen om te zetten in betaald
+# <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a>Resources converteren om proefabonnementen om te zetten in betaald
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
@@ -21,7 +21,7 @@ Conversiebronnen ondersteunen de conversie van een proefabonnement naar een beta
 
 Bevat informatie die wordt gebruikt om een proefabonnement te converteren naar een betaald abonnement.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | offerId | tekenreeks | De aanbiedings-id van de oorspronkelijke proefversie. |
 | targetOfferId | tekenreeks | De aanbiedings-id voor de doelaanbieding. |
@@ -33,7 +33,7 @@ Bevat informatie die wordt gebruikt om een proefabonnement te converteren naar e
 
 Vertegenwoordigt een fout die is opgetreden tijdens de conversie.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | code | tekenreeks | De foutcode die aan het probleem is gekoppeld. Mogelijke waarden: **Overige** (algemene fout), **ConversionsNotFound** (kan geen conversies vinden voor het proefabonnement om naar te converteren).
 | beschrijving | tekenreeks | De beschrijvende tekst waarin het probleem wordt beschreven. |
@@ -42,7 +42,7 @@ Vertegenwoordigt een fout die is opgetreden tijdens de conversie.
 
 Vertegenwoordigt het resultaat van het uitvoeren van een abonnementsconversie.
 
-| Eigenschap       | Type                                | Beschrijving                                                            |
+| Eigenschap       | Type                                | Description                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
 | subscriptionId | tekenreeks                              | De abonnements-id.                                           |
 | offerId        | tekenreeks                              | De oorspronkelijke aanbiedings-id.                                         |

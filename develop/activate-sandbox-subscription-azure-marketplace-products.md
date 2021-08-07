@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik van C/# en Partner Center REST API
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b32c3e87462f58218771fc5da7da56ed177489cb
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: 1ea581695e4328f02d08486c91b7b90a78e75a50985279d78cc54ef8b35fa715
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025697"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990491"
 ---
 # <a name="activate-a-sandbox-subscription-for-commercial-marketplace-saas-products-to-enable-billing"></a>Een sandbox-abonnement activeren voor SaaS-producten op de commerciële marketplace om facturering mogelijk te maken
 
@@ -24,7 +24,7 @@ Een abonnement activeren voor SaaS-producten (Software as a Service) op de comme
 
 - Een sandbox-partneraccount voor integratie met een klant met een actief abonnement voor SaaS-producten op de commerciële marketplace.
 
-- Voor partners die Partner Center .NET SDK gebruiken, moet u SDK versie 1.14.0 of hoger gebruiken om toegang te krijgen tot deze mogelijkheid.
+- Voor partners die Partner Center .NET SDK gebruiken, moet u SDK-versie 1.14.0 of hoger gebruiken om toegang te krijgen tot deze mogelijkheid.
 
 ## <a name="c"></a>C\#
 
@@ -36,7 +36,7 @@ Gebruik de volgende stappen om een abonnement te activeren voor SaaS-producten o
    var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
    ```
 
-2. Activeer het abonnement met behulp van **de bewerking Activate.**
+2. Activeer het abonnement met behulp van **de bewerking** Activeren.
 
    ```csharp
    var subscriptionActivationResult = subscriptionOperations.Activate();
@@ -54,8 +54,8 @@ Gebruik de volgende stappen om een abonnement te activeren voor SaaS-producten o
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | J | De waarde is een tenant-id in GUID-indeling **(customer-tenant-id),** waarmee u een klant kunt opgeven. |
-| **subscription-id** | **guid** | J | De waarde is een abonnements-id met **GUID-indeling (abonnements-id),** waarmee u een abonnement kunt opgeven. |
+| **customer-tenant-id** | **guid** | J | De waarde is een tenant-id **(customer-tenant-id)** in GUID-indeling, waarmee u een klant kunt opgeven. |
+| **subscription-id** | **guid** | J | De waarde is een abonnements-id **(subscription-id)** met GUID-indeling, waarmee u een abonnement kunt opgeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -82,7 +82,7 @@ Deze methode retourneert de **eigenschappen subscription-id** **en status.**
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

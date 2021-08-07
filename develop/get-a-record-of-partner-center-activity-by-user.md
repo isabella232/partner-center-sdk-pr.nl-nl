@@ -4,12 +4,12 @@ description: Het ophalen van een record van bewerkingen, zoals uitgevoerd door e
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: aec933d4b681d99080619505792bde56bdd25580
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 5d965fc226d326998212ef0f027160d50f69d5e84360c8a9d09c27a76c63310d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873968"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991069"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>Een record van Partnercentrum-activiteiten ophalen
 
@@ -17,7 +17,7 @@ ms.locfileid: "111873968"
 
 In dit artikel wordt beschreven hoe u een record kunt ophalen van bewerkingen die gedurende een bepaalde periode door een partnergebruiker of toepassing zijn uitgevoerd.
 
-Gebruik deze API om controlerecords op te halen voor de afgelopen 30 dagen vanaf de huidige datum, of voor een datumbereik dat is opgegeven door de begindatum en/of einddatum op te neemt. Houd er echter rekening mee dat om prestatieredenen de beschikbaarheid van gegevens in het activiteitenlogboek is beperkt tot de afgelopen 90 dagen. Aanvragen met een begindatum die langer is dan 90 dagen vóór de huidige datum, ontvangen een uitzondering met een slechte aanvraag (foutcode: 400) en een geschikt bericht.
+Gebruik deze API om controlerecords op te halen voor de afgelopen 30 dagen vanaf de huidige datum, of voor een datumbereik dat is opgegeven door de begindatum en/of einddatum op te neemt. Houd er echter rekening mee dat de beschikbaarheid van activiteitenlogboekgegevens om prestatieredenen beperkt is tot de afgelopen 90 dagen. Aanvragen met een begindatum die langer is dan 90 dagen vóór de huidige datum, ontvangen een uitzondering met een slechte aanvraag (foutcode: 400) en een geschikt bericht.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -93,9 +93,9 @@ Gebruik de volgende queryparameters bij het maken van de aanvraag.
 
 | Naam      | Type   | Vereist | Beschrijving                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Startdate | date   | Nee       | De begindatum in de indeling yyyy-mm-dd. Als er geen is opgegeven, wordt de resultatenset standaard ingesteld op 30 dagen vóór de aanvraagdatum. Deze parameter is optioneel wanneer een filter wordt opgegeven.                                          |
-| Enddate   | date   | Nee       | De einddatum in de indeling yyyy-mm-dd. Deze parameter is optioneel wanneer een filter wordt opgegeven. Wanneer de einddatum wordt weggelaten of ingesteld op null, retourneert de aanvraag het maximumvenster of gebruikt vandaag als de einddatum, wat kleiner is. |
-| filter    | tekenreeks | No       | Het filter dat moet worden toegepast. Deze parameter moet een gecodeerde tekenreeks zijn. Deze parameter is optioneel wanneer de begindatum of einddatum wordt opgegeven.                                                                                              |
+| Startdate | date   | No       | De begindatum in de indeling yyyy-mm-dd. Als er geen is opgegeven, wordt de resultatenset standaard ingesteld op 30 dagen vóór de aanvraagdatum. Deze parameter is optioneel wanneer een filter wordt opgegeven.                                          |
+| Enddate   | date   | No       | De einddatum in de indeling yyyy-mm-dd. Deze parameter is optioneel wanneer een filter wordt opgegeven. Wanneer de einddatum wordt weggelaten of ingesteld op null, retourneert de aanvraag het maximumvenster of gebruikt vandaag als einddatum, wat kleiner is. |
+| filter    | tekenreeks | No       | Het filter dat moet worden toegepast. Deze parameter moet een gecodeerde tekenreeks zijn. Deze parameter is optioneel wanneer de begin- of einddatum wordt opgegeven.                                                                                              |
 
 ### <a name="filter-syntax"></a>Filtersyntaxis
 U moet de filterparameter opstellen als een reeks door komma's gescheiden sleutel-waardeparen. Elke sleutel en waarde moeten afzonderlijk worden aangehaald en gescheiden door een dubbele punt. Het hele filter moet worden gecodeerd.
@@ -111,7 +111,7 @@ In de volgende tabel worden de vereiste sleutel-waardeparen beschreven:
 | Sleutel                 | Waarde                             |
 |:--------------------|:----------------------------------|
 | Veld               | Het veld dat moet worden gefilterd. De ondersteunde waarden vindt u in [Aanvraagsyntaxis.](get-a-record-of-partner-center-activity-by-user.md#rest-request)                                         |
-| Waarde               | De waarde die moet worden gefilterd op. Het geval van de waarde wordt genegeerd. De volgende waardeparameters worden ondersteund, zoals wordt weergegeven in [Aanvraagsyntaxis:](get-a-record-of-partner-center-activity-by-user.md#rest-request)<br/><br/>                                                                *searchSubstring:* vervang door de naam van het bedrijf. U kunt een subtekenreeks invoeren die overeen komt met een deel van de bedrijfsnaam (komt bijvoorbeeld `bri` overeen met `Fabrikam, Inc` ).<br/>**Voorbeeld:**`"Value":"bri"`<br/><br/>                                                                *customerId:* vervang door een tekenreeks met GUID-indeling die de klant-id vertegenwoordigt.<br/>**Voorbeeld:**`"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *resourceType:* vervang door het type resource waarvoor controlerecords moeten worden opgehaald (bijvoorbeeld Abonnement). De beschikbare resourcetypen worden gedefinieerd in [ResourceType](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype).<br/>**Voorbeeld:**`"Value":"Subscription"`                                 |
+| Waarde               | De waarde die moet worden gefilterd op. Het geval van de waarde wordt genegeerd. De volgende waardeparameters worden ondersteund, zoals wordt weergegeven in [Aanvraagsyntaxis:](get-a-record-of-partner-center-activity-by-user.md#rest-request)<br/><br/>                                                                *searchSubstring:* vervang door de naam van het bedrijf. U kunt een subtekenreeks invoeren die overeen komt met een deel van de bedrijfsnaam (komt bijvoorbeeld `bri` overeen met `Fabrikam, Inc` ).<br/>**Voorbeeld:** `"Value":"bri"`<br/><br/>                                                                *customerId:* vervang door een tekenreeks met GUID-indeling die de klant-id vertegenwoordigt.<br/>**Voorbeeld:** `"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *resourceType:* vervang door het type resource waarvoor controlerecords moeten worden opgehaald (bijvoorbeeld Abonnement). De beschikbare resourcetypen worden gedefinieerd in [ResourceType](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype).<br/>**Voorbeeld:** `"Value":"Subscription"`                                 |
 | Operator          | De operator die moet worden toegepast. De ondersteunde operators vindt u in [Aanvraagsyntaxis.](get-a-record-of-partner-center-activity-by-user.md#rest-request)   |
 
 ### <a name="request-headers"></a>Aanvraagheaders

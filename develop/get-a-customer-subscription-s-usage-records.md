@@ -4,12 +4,12 @@ description: U kunt de resourceverzameling SubscriptionMonthlyUsageRecord gebrui
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 976abd86f34c1c27184f277ffc89fbc65f16bb37
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 67b3ab744a47a4698ca478118ebf3523d7cee35807042f932f5a279c4c7d8ea8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874683"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992786"
 ---
 # <a name="get-subscription-usage-records-for-a-customer"></a>Abonnementsgebruiksrecords voor een klant op halen
 
@@ -19,15 +19,15 @@ U kunt de resourceverzameling **SubscriptionMonthlyUsageRecord** gebruiken om in
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
 Als u gebruiksrecords voor abonnementen wilt op halen voor een klant van een specifieke Azure-service of -resource tijdens de huidige factureringsperiode, moet u de volgende stappen uitvoeren:
 
-1. Gebruik de **verzameling IAggregatePartner.Customers** om de **methode ById() aan te** roepen.
+1. Gebruik de **verzameling IAggregatePartner.Customers om** de **methode ById() aan te** roepen.
 
 2. Roep vervolgens de **eigenschap Abonnementen en** de eigenschap **UsageRecords aan.** Als laatste roept u de methoden Get() of GetAsync() aan.
 
@@ -138,7 +138,7 @@ In dit voorbeeld heeft de klant een Azure-abonnement aangeschaft.
 
 *Voor klanten met Azure-plannen zijn er de volgende wijzigingen in het API-antwoord:*
 
-- **currencyLocale** is vervangen door **currencyCode**
+- **currencyLocale** wordt vervangen door **currencyCode**
 - **usdTotalCost** is een nieuw veld
 
 ```http

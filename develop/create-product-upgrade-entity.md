@@ -4,28 +4,28 @@ description: U kunt de resource ProductUpgradeRequest gebruiken om een entiteit 
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4e346b7f5294a8847047c85115d8c80f34eaca84
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 7515bbce2914142e052349a1bbb4de20416d0931ac886fe9264cc4d3b8c1f734
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973398"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991460"
 ---
 # <a name="create-a-product-upgrade-entity-for-a-customer"></a>Een entiteit voor productupgrade maken voor een klant
 
-U kunt een entiteit voor productupgrade maken om een klant te upgraden naar een bepaalde productfamilie (bijvoorbeeld een Azure-plan) met behulp van de **productUpgradeRequest-resource.**
+U kunt een entiteit voor productupgrade maken om een klant te upgraden naar een bepaalde productfamilie (bijvoorbeeld Een Azure-plan) met behulp van de **productUpgradeRequest-resource.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps bij](enable-secure-app-model.md) het gebruik van App+User-verificatie met Partner Center API's.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps](enable-secure-app-model.md) bij het gebruik van App+User-verificatie met Partner Center API's.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De productfamilie waarvoor u de klant wilt upgraden.
 
 ## <a name="c"></a>C\#
 
-Een klant upgraden naar een Azure-abonnement:
+Een klant upgraden naar een Azure-plan:
 
 1. Maak een **ProductUpgradesRequest-object** en geef de klant-id en 'Azure' op als de productfamilie.
 
@@ -64,7 +64,7 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 #### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 #### <a name="request-body"></a>Aanvraagbody
 

@@ -4,12 +4,12 @@ description: Meer informatie over het Partner Center API's met landgegevensbronn
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: caf56282d21df35ae9e179a98a37317f864117a3
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 35b570b27466699d8d85819f7603794888f8dd943038ee28a0a734b7ef9aa0d1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973822"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991817"
 ---
 # <a name="country-information-resources-available-from-partner-center-apis"></a>Informatiebronnen voor landen die beschikbaar zijn Partner Center API's
 
@@ -19,7 +19,7 @@ De volgende resources zijn beschrijvende metagegevens voor een land/regio.
 
 ## <a name="countryinformation"></a>CountryInformation
 
-| Eigenschap                      | Type               | Beschrijving                                                                                        |
+| Eigenschap                      | Type               | Description                                                                                        |
 |-------------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | ExtensionData                 | tekenreeks             | De extensiegegevens.                                                                                |
 | Iso2Code                      | tekenreeks             | Een ISO-2-code.                                                                                     |
@@ -37,7 +37,7 @@ De volgende resources zijn beschrijvende metagegevens voor een land/regio.
 | TaxIdSample                   | tekenreeks             | Het belasting-id-voorbeeld.                                                                                 |
 | VatIdRegex                    | tekenreeks             | De reguliere expressie van het belasting-id.                                                                     |
 | PhoneNumberRegex              | tekenreeks             | De reguliere expressie van het telefoonnummer.                                                               |
-| IsRegistrationNumberSupported | booleaans            | Geeft aan of een registratienummer wordt ondersteund of niet.                                       |
+| IsRegistrationNumberSupported | booleaans            | Geeft aan of een registratienummer al dan niet wordt ondersteund.                                       |
 | IsTaxIdSupported              | booleaans            | Geeft aan of een belasting-id al dan niet wordt ondersteund. Dit is anders dan IsVatIdSupported. |
 | ResellerAgreementRegion       | tekenreeks             | De regio van de resellerovereenkomst.                                                                     |
 | GeographicRegion              | tekenreeks             | De geografische regio.                                                                             |
@@ -48,7 +48,7 @@ De volgende resources zijn beschrijvende metagegevens voor een land/regio.
 
 Beschrijft de regels voor adresopmaak voor een land/regio.
 
-| Eigenschap                | Type               | Beschrijving                                                                                        |
+| Eigenschap                | Type               | Description                                                                                        |
 |-------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | Iso2Code                | tekenreeks             | Een ISO-2-code.                                                                                     |
 | DefaultWaarden          | tekenreeks             | De standaardcultuur.                                                                               |
@@ -67,4 +67,4 @@ Beschrijft de regels voor adresopmaak voor een land/regio.
 | IsTaxIdSupported        | booleaans            | Geeft aan of een belasting-id al dan niet wordt ondersteund. Deze eigenschap wijkt af van IsVatIdSupported. |
 | IsTaxIdOptional         | booleaans            | Geeft aan of een btw-nummer optioneel is of niet.                                                     |
 | CountryCallingCodesList | tekenreeksmatrix   | De aanroepcodes die worden ondersteund in het land/de regio.                                                 |
-| Kenmerken              | ResourceAttributes | De metagegevenskenmerken die overeenkomen met de Resource CountryInformation.                          |
+| Kenmerken              | ResourceAttributes | De metagegevenskenmerken die overeenkomen met de resource CountryInformation.                          |

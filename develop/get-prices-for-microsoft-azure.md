@@ -4,12 +4,12 @@ description: Een Azure-tariefkaart met realtime prijzen voor een Azure-aanbiedin
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4f66ab19ef3723fbaa27acff941cf48683a7c25c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8b69e9e3d8e6e4c4e447b308c890c4c054e6a1e5221bb523a5caca041d1ea115
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548784"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989090"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>Prijzen voor Microsoft Azure ophalen
 
@@ -19,7 +19,7 @@ Een [Azure-tariefkaart met](azure-rate-card-resources.md) realtime prijzen voor 
 
 Als u het gebruik wilt bijhouden en uw maandelijkse factuur en de facturen voor afzonderlijke klanten wilt voorspellen, kunt u deze Azure Rate Card-query combineren om prijzen voor Microsoft Azure op te halen met een aanvraag om de gebruiksrecords van een klant voor Azure op te [halen.](get-a-customer-s-utilization-record-for-azure.md)
 
-De prijzen verschillen per markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partnerprofielinstellingen in Partner Center en uw browsertaal. Deze instellingen kunnen worden aangepast. De locatiebewustheid is vooral relevant als u de verkoop in meerdere markten beheert vanuit één gecentraliseerd kantoor. Zie [URI-parameters voor meer informatie.](#uri-parameters)
+Prijzen verschillen per markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partnerprofielinstellingen in Partner Center en uw browsertaal. Deze instellingen kunnen worden aangepast. De locatiebewustheid is vooral relevant als u de verkoop in meerdere markten beheert vanuit één gecentraliseerd kantoor. Zie [URI-parameters voor meer informatie.](#uri-parameters)
 
 ## <a name="c"></a>C\#
 
@@ -78,7 +78,7 @@ U kunt de optionele X-Locale-header [opnemen](headers.md#rest-request-headers) i
 
 ### <a name="request-header"></a>Aanvraagheader
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

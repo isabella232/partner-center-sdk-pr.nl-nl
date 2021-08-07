@@ -4,12 +4,12 @@ description: Resources voor abonnementsgebruik beschrijven abonnementen met fact
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dcb24dcf5ca8165ec23c4b187def38d05772e1de
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: e8af4e9b8a4660b5bc9d287ece258dca9aa9ba7a749cfdc89e9c9b47e4af61b1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547373"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990270"
 ---
 # <a name="subscription-usage-resources"></a>Resources voor abonnementsgebruik
 
@@ -23,7 +23,7 @@ U kunt de volgende resources voor abonnementsgebruik gebruiken om gebruiksgegeve
 
 In **de resource SubscriptionDailyUsageRecord** wordt beschreven hoeveel een abonnement op één dag wordt gebruikt.
 
-| Eigenschap         | Type               | Beschrijving                                                                                   |
+| Eigenschap         | Type               | Description                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
 | DateUsed         | tekenreeks             | De dag, in datum/tijd-indeling, waarop het abonnement is gebruikt.                                 |
 | ResourceId       | tekenreeks             | Guid. De unieke id van de resource.                                                          |
@@ -55,7 +55,7 @@ De **resource SubscriptionMonthlyUsageRecord** beschrijft hoeveel een abonnement
 
 De **resource SubscriptionUsageSummary** beschrijft hoeveel een specifiek abonnement is gebruikt in de huidige factureringsperiode.
 
-| Eigenschap         | Type               | Beschrijving                                                                                                            |
+| Eigenschap         | Type               | Description                                                                                                            |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------------|
 | ResourceId       | tekenreeks             | Guid. De id van het abonnement of de resource. In de context van CustomerMonthlyUsageRecord is deze id de klant-id. |
 | ResourceName     | tekenreeks             | De naam van het abonnement of de resource. In de context van CustomerMonthlyUsageRecord is deze naam de naam van de klant. |
@@ -63,8 +63,8 @@ De **resource SubscriptionUsageSummary** beschrijft hoeveel een specifiek abonne
 | BillingEndDate   | date               | De einddatum van de huidige factureringsperiode, in datum/tijd-indeling.                                                       |
 | TotalCost        | double             | De geschatte totale kosten voor het gebruik van de resources in het abonnement tijdens de opgegeven factureringsperiode.               |
 | CurrencyLocale   | tekenreeks             | De lokatie waarin het abonnement is gebruikt, bepaalt de valuta die op de factuur moet worden gebruikt. Beschikbaar voor Microsoft Azure (MS-AZR-0145P) abonnementen. |
-| CurrencyCode   | tekenreeks             | Hiermee haalt u de valutacode op of stelt u deze in. Beschikbaar voor Azure-abonnementen.                                         |
-| USDTotalCost   | decimal             | Haalt de geschatte totale kosten op in USD of stelt deze in. Beschikbaar voor azure-abonnementsbronnen.                                         |
-| LastModifiedDate | tekenreeks             | De dag, in datum/tijd-indeling, waarop deze record het laatst is gewijzigd.                                                      |
+| CurrencyCode   | tekenreeks             | Haalt de valutacode op of stelt deze in. Beschikbaar voor Azure-abonnementen.                                         |
+| USDTotalCost   | decimal             | Haalt de geschatte totale kosten in USD op of stelt deze in. Beschikbaar voor azure-abonnementsbronnen.                                         |
+| LastModifiedDate | tekenreeks             | De dag, in datum/tijd-indeling, waarop deze record voor het laatst is gewijzigd.                                                      |
 | Koppelingen            | ResourceLinks      | De resourcekoppelingen die overeenkomen met subscriptionUsageSummary.                                                      |
 | Kenmerken       | ResourceAttributes | De metagegevenskenmerken die overeenkomen met subscriptionUsageSummary.                                                 |

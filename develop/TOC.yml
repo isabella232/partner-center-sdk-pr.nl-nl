@@ -429,15 +429,15 @@
       href: sandbox-scenario.md
     - name: Sandbox testen en fouten opsporen
       href: test-and-debug.md
-    - name: Mogelijkheden van indirecte CSP-provider in Sandbox
+    - name: Mogelijkheden van indirecte CSP-provider in sandbox
       href: indirect-provider-sandbox-capabilities.md
     - name: Een bestelling annuleren vanuit de integratie-sandbox
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Sandbox-abonnement activeren
       href: activate-sandbox-subscription-azure-marketplace-products.md
-    - name: Indirecte reseller maken in Sandbox
+    - name: Indirecte reseller maken in sandbox
       href: create-indirect-reseller-in-sandbox.md
-    - name: Indirecte reseller verwijderen in sandbox
+    - name: Indirecte reseller verwijderen in Sandbox
       href: delete-indirect-reseller-in-sandbox.md
 - name: Verwijzingen
   href: /partner/develop/referrals

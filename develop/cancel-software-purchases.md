@@ -4,12 +4,12 @@ description: Self-serve optie voor het annuleren van softwareabonnementen en per
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 877702ac930919ff72c6cc45a3c0e8ecc7e1b5f4
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: f7dfa5122c585a8519312e8492922f718a51972f177a12d7431015e1cdcb5d06
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974230"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992191"
 ---
 # <a name="cancel-software-purchases"></a>Softwareaankopen annuleren
 
@@ -17,15 +17,15 @@ U kunt de Partner Center-API's gebruiken om softwareabonnementen en permanente s
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
 Een softwareorder annuleren:
 
-1. Geef uw accountreferenties door aan de [**methode CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) om een [**IPartner-interface**](/dotnet/api/microsoft.store.partnercenter.ipartner) op te halen om partnerbewerkingen op te halen.
+1. Geef uw accountreferenties door aan de [**methode CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) om een [**IPartner-interface**](/dotnet/api/microsoft.store.partnercenter.ipartner) op te halen voor het uitvoeren van partnerbewerkingen.
 
-2. Selecteer een bepaalde [order](order-resources.md#order) die u wilt annuleren. Roep de [**methode Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id, gevolgd door **Orders.ById() met** order-id.
+2. Selecteer een bepaalde [Order](order-resources.md#order) die u wilt annuleren. Roep de [**methode Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id, gevolgd door **Orders.ById() met** order-id.
 
 3. Roep de **methode Get** of **GetAsync aan** om de bestelling op te halen.
 
@@ -120,7 +120,7 @@ Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is g
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
-In het volgende voorbeeld van een antwoord ziet u dat het aantal regelitem met de aanbiedings-id **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** nul (0) is geworden. Deze wijziging betekent dat het regelitem dat is gemarkeerd voor annulering, is geannuleerd. De voorbeeldorder bevat andere regelitems die niet zijn geannuleerd, wat betekent dat de status van de algehele bestelling wordt gemarkeerd als **voltooid,** niet **geannuleerd.**
+In het volgende voorbeeld van een antwoord ziet u dat de hoeveelheid regelitem met de aanbiedings-id **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** nul (0) is geworden. Deze wijziging betekent dat het regelitem dat is gemarkeerd voor annulering, is geannuleerd. De voorbeeldorder bevat andere regelitems die niet zijn geannuleerd, wat betekent dat de status van de algehele bestelling wordt gemarkeerd als **voltooid,** niet **geannuleerd.**
 
 ```http
 HTTP/1.1 200 OK

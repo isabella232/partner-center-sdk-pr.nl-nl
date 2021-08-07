@@ -4,12 +4,12 @@ description: Meer informatie over het toevoegen van een geverifieerd domein aan 
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a8157bff5ac37100713a057ac68ac94c89ba28b8
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: fc24335aff6fe83b58ad2cb178d03db00614dd8ae24ee83d20b607b56a4bc51d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025680"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989131"
 ---
 # <a name="add-a-verified-domain-to-the-list-of-approved-domains-for-an-existing-customer"></a>Een geverifieerd domein toevoegen aan de lijst met goedgekeurde domeinen voor een bestaande klant 
 
@@ -59,9 +59,9 @@ In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 | Naam                                                  | Type   | Vereist                                      | Beschrijving                                                |
 |-------------------------------------------------------|--------|-----------------------------------------------|--------------------------------------------------------|
-| VerifiedDomainName                                    | tekenreeks | Ja                                           | De geverifieerde domeinnaam. |
-| [Domein](#domain)                                     | object | Ja                                           | Bevat de domeingegevens. |
-| [DomainFederationSettings](#domain-federation-settings) | object | Ja (Als AuthenticationType = `Federated` )     | De federatie-instellingen voor het domein die moeten worden gebruikt als het domein een domein is `Federated` en geen `Managed` domein. |
+| VerifiedDomainName                                    | tekenreeks | Yes                                           | De geverifieerde domeinnaam. |
+| [Domein](#domain)                                     | object | Yes                                           | Bevat de domeingegevens. |
+| [DomainFederationSettings](#domain-federation-settings) | object | Ja (als AuthenticationType = `Federated` )     | De federatie-instellingen voor het domein die moeten worden gebruikt als het domein een domein is `Federated` en geen `Managed` domein. |
 
 ### <a name="domain"></a>Domain
 
@@ -69,14 +69,14 @@ In deze tabel worden de vereiste en optionele **domeineigenschappen** in de aanv
 
 | Naam               | Type                                     | Vereist | Beschrijving                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AuthenticationType                                    | tekenreeks           | Ja      | Hiermee definieert u of het domein een `Managed` domein of een domein `Federated` is. Ondersteunde waarden: `Managed` , `Federated` .|
-| Mogelijkheid                                            | tekenreeks           | Ja      | Hiermee geeft u de domeinmogelijkheid. Bijvoorbeeld `Email`.                  |
-| IsDefault                                             | booleaanse waarde null-waarde | Nee       | Geeft aan of het domein het standaarddomein voor de tenant is. Ondersteunde waarden: `True` , `False` , `Null` .        |
-| IsInitial                                             | booleaanse waarde null-waarde | Nee       | Geeft aan of het domein een eerste domein is. Ondersteunde waarden: `True` , `False` , `Null` .                       |
-| Name                                                  | tekenreeks           | Ja      | De domeinnaam.                                                          |
+| AuthenticationType                                    | tekenreeks           | Yes      | Hiermee definieert u of het domein een `Managed` domein of een domein `Federated` is. Ondersteunde waarden: `Managed` , `Federated` .|
+| Mogelijkheid                                            | tekenreeks           | Yes      | Hiermee geeft u de domeinmogelijkheid. Bijvoorbeeld `Email`.                  |
+| IsDefault                                             | booleaanse waarde null-waarde | No       | Geeft aan of het domein het standaarddomein voor de tenant is. Ondersteunde waarden: `True` , `False` , `Null` .        |
+| IsInitial                                             | booleaanse waarde null-waarde | No       | Geeft aan of het domein een eerste domein is. Ondersteunde waarden: `True` , `False` , `Null` .                       |
+| Name                                                  | tekenreeks           | Yes      | De domeinnaam.                                                          |
 | RootDomain                                            | tekenreeks           | No       | De naam van het hoofddomein.                                              |
-| Status                                                | tekenreeks           | Ja      | De domeinstatus. Bijvoorbeeld `Verified`. Ondersteunde waarden:  `Unverified` `Verified` , , `PendingDeletion` .                               |
-| VerificationMethod                                    | tekenreeks           | Ja      | Het type verificatiemethode voor het domein. Ondersteunde waarden: `None` `DnsRecord` , , `Email` .                                    |
+| Status                                                | tekenreeks           | Yes      | De domeinstatus. Bijvoorbeeld `Verified`. Ondersteunde waarden:  `Unverified` , `Verified` , `PendingDeletion` .                               |
+| VerificationMethod                                    | tekenreeks           | Yes      | Het type domeinverificatiemethode. Ondersteunde waarden: `None` , `DnsRecord` , `Email` .                                    |
 
 ### <a name="domain-federation-settings"></a>Federatie-instellingen voor domein
 
@@ -84,20 +84,20 @@ In deze tabel worden de vereiste en **optionele eigenschappen DomainFederationSe
 
 | Naam   | Type   | Vereist | Beschrijving                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | tekenreeks           | No      | De aanmeldings-URI die wordt gebruikt door rich clients. Deze eigenschap is de STS-auth-URL van de partner. |
+| ActiveLogOnUri                         | tekenreeks           | No      | De aanmeldings-URI die wordt gebruikt door uitgebreide clients. Deze eigenschap is de STS-auth-URL van de partner. |
 | DefaultInteractiveAuthenticationMethod | tekenreeks           | No      | Hiermee wordt de standaardverificatiemethode aangegeven die moet worden gebruikt wanneer een toepassing vereist dat de gebruiker interactieve aanmelding heeft. |
-| FederationBrandName                    | tekenreeks           | No      | De federatie-merknaam.        |
-| IssuerUri                              | tekenreeks           | Ja     | De naam van de vergever van de certificaten.                        |
-| LogOffUri                              | tekenreeks           | Ja     | De aanmeldings-URI. Deze eigenschap beschrijft de URI voor federatief domein-uitloggen.        |
-| MetadataExchangeUri                    | tekenreeks           | No      | De URL die het eindpunt voor de uitwisseling van metagegevens specificeert dat wordt gebruikt voor verificatie van uitgebreide clienttoepassingen. |
-| NextSigningCertificate                 | tekenreeks           | No      | Het certificaat dat wordt gebruikt voor de komende toekomst door de ADFS V2 STS voor het ondertekenen van claims. Deze eigenschap is een met Base64 gecodeerde weergave van het certificaat. |
+| FederationBrandName                    | tekenreeks           | No      | De naam van het federatief merk.        |
+| IssuerUri                              | tekenreeks           | Yes     | De naam van de vergever van de certificaten.                        |
+| LogOffUri                              | tekenreeks           | Yes     | De aanmeldings-URI. Deze eigenschap beschrijft de URI voor het uitloggen van federatief domein.        |
+| MetadataExchangeUri                    | tekenreeks           | No      | De URL die het exchange-eindpunt voor metagegevens specificeert dat wordt gebruikt voor verificatie van uitgebreide clienttoepassingen. |
+| NextSigningCertificate                 | tekenreeks           | No      | Het certificaat dat wordt gebruikt voor de komende toekomst door de ADFS V2 STS voor het ondertekenen van claims. Deze eigenschap is een base64-gecodeerde weergave van het certificaat. |
 | OpenIdConnectDiscoveryEndpoint         | tekenreeks           | No      | De OpenID Verbinding maken detectie-eindpunt van de federatieve IDP STS. |
-| PassiveLogOnUri                        | tekenreeks           | Ja     | De aanmeldings-URI die wordt gebruikt door oudere passieve clients. Deze eigenschap is het adres voor het verzenden van federatief aanmeldingsaanvragen. |
-| PreferredAuthenticationProtocol        | tekenreeks           | Ja     | De indeling voor het verificatie-token. Bijvoorbeeld `WsFed`. Ondersteunde waarden: `WsFed` , `Samlp` |
-| PromptLoginBehavior                    | tekenreeks           | Ja     | Het type aanmeldingsgedrag bij de prompt.  Bijvoorbeeld `TranslateToFreshPasswordAuth`. Ondersteunde waarden: `TranslateToFreshPasswordAuth` , `NativeSupport` , `Disabled` |
-| SigningCertificate                     | tekenreeks           | Ja     | Het certificaat dat momenteel wordt gebruikt door de ADFS V2 STS voor het ondertekenen van claims. Deze eigenschap is een met Base64 gecodeerde weergave van het certificaat. |
+| PassiveLogOnUri                        | tekenreeks           | Yes     | De aanmeldings-URI die wordt gebruikt door oudere passieve clients. Deze eigenschap is het adres voor het verzenden van federatief aanmeldingsaanvragen. |
+| PreferredAuthenticationProtocol        | tekenreeks           | Yes     | De indeling voor het verificatie-token. Bijvoorbeeld `WsFed`. Ondersteunde waarden: `WsFed` , `Samlp` |
+| PromptLoginBehavior                    | tekenreeks           | Yes     | Het type aanmeldingsgedrag bij de prompt.  Bijvoorbeeld `TranslateToFreshPasswordAuth`. Ondersteunde waarden: `TranslateToFreshPasswordAuth` , `NativeSupport` , `Disabled` |
+| SigningCertificate                     | tekenreeks           | Yes     | Het certificaat dat momenteel wordt gebruikt door de ADFS V2 STS om claims te ondertekenen. Deze eigenschap is een base64-gecodeerde weergave van het certificaat. |
 | SigningCertificateUpdateStatus         | tekenreeks           | No      | Hiermee wordt de updatestatus van het handtekeningcertificaat aangegeven. |
-| SigningCertificateUpdateStatus         | booleaanse waarde die null is | Nee      | Geeft aan of de IDP STS MFA ondersteunt. Ondersteunde waarden: `True` `False` , , `Null` .|
+| SigningCertificateUpdateStatus         | booleaanse waarde null-waarde | No      | Geeft aan of de IDP STS MFA ondersteunt. Ondersteunde waarden: `True` , `False` , `Null` .|
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -147,7 +147,7 @@ Als dit lukt, retourneert deze API een [domeinresource](#domain) voor het nieuwe
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

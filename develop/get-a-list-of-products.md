@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 1258727ecbe7c5cc332624577fa8a355e28e3717
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 6ec3a642006a100ef85c0af9eeddd9daf00cc1cd981eabd5dddb77e60e15111f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874207"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989437"
 ---
 # <a name="get-a-list-of-products-by-country"></a>Een lijst met producten ophalen (per land)
 
@@ -29,9 +29,9 @@ U kunt de volgende methoden gebruiken om een verzameling producten op te halen d
 
 Een lijst met producten op te halen:
 
-1. Gebruik de **verzameling IAggregatePartner.Products om** het land te selecteren met behulp van de **methode ByCountry().**
+1. Gebruik de **verzameling IAggregatePartner.Products** om het land te selecteren met behulp van de **methode ByCountry().**
 
-2. Selecteer de catalogusweergave met behulp van de **methode ByTargetView().**
+2. Selecteer de catalogusweergave met behulp van **de methode ByTargetView().**
 
 3. (Optioneel) Selecteer het reserveringsbereik met behulp **van de methode ByReservationScope().**
 
@@ -62,12 +62,12 @@ ResourceCollection<Product> products = partnerOperations.Products.ByCountry("US"
 
 Een lijst met producten op te halen:
 
-1. Gebruik de **functie IAggregatePartner.getProducts** om het land te selecteren met behulp van de **functie byCountry().**
+1. Gebruik de **functie IAggregatePartner.getProducts** om het land te selecteren met behulp van **de functie byCountry().**
 
 2. Selecteer de catalogusweergave met behulp van **de functie byTargetView().**
 3. (Optioneel) Selecteer het doelsegment met behulp van **de functie byTargetSegment().**
 
-4. Roep de **functie get()** aan om de verzameling te retourneren.
+4. Roep de **functie get() aan** om de verzameling te retourneren.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -108,10 +108,10 @@ Gebruik het volgende pad en de queryparameters om een lijst met producten op te 
 
 | Naam                   | Type     | Vereist | Beschrijving                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| country                | tekenreeks   | Ja      | De land-/regio-id.                                                  |
-| targetView             | tekenreeks   | Ja      | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle SQL reserveringsitems bevat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** met alle onlineservice-items (inclusief producten op de commerciële marketplace)<br/><br/>**Software**, die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle software-SUSE Linux-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat    |
+| country                | tekenreeks   | Yes      | De land-/regio-id.                                                  |
+| targetView             | tekenreeks   | Yes      | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle reserveringsitems SQL omvat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** die alle onlineservice-items (inclusief producten van de commerciële marketplace) bevat<br/><br/>**Software**, die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle SUSE Linux-software-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat    |
 | targetSegment          | tekenreeks   | No       | Identificeert het doelsegment. De weergave voor verschillende doelgroepen. De ondersteunde waarden zijn: <br/><br/>**Commerciële**<br/>**Onderwijs**<br/>**Regering**<br/>**Non-profit**  |
-| reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met producten voor Azure-reserveringen, geeft u op om een lijst met producten op te halen die van `reservationScope=AzurePlan` toepassing zijn op Azure-abonnementen. Sluit deze parameter uit om een lijst met producten voor Azure-reserveringen op te halen die van toepassing zijn op Microsoft Azure **(MS-AZR-0145P)-abonnementen.**  |
+| reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met producten voor Azure-reserveringen, geeft u op om een lijst met producten op te halen die van `reservationScope=AzurePlan` toepassing zijn op Azure-abonnementen. Sluit deze parameter uit om een lijst met producten voor Azure-reserveringen op te halen die van toepassing zijn op abonnementen van Microsoft Azure (**MS-AZR-0145P).**  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -137,7 +137,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 #### <a name="azure-vm-reservations-azure-plan"></a>Azure VM-reserveringen (Azure-plan)
 
-Volg dit voorbeeld om een lijst met producten per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Azure-plannen.
+Volg dit voorbeeld om een lijst met producten per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Azure-abonnementen.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureAzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -149,7 +149,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 #### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Azure VM-reserveringen voor Microsoft Azure -abonnementen (MS-AZR-0145P)
 
-Volg dit voorbeeld om een lijst met producten per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).
+Volg dit voorbeeld voor een lijst met producten per land voor Azure VM-reserveringen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureReservationsVM HTTP/1.1
@@ -165,7 +165,7 @@ Als dit lukt, bevat de antwoord-body een verzameling [**productresources.**](pro
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 Deze methode retourneert de volgende foutcodes:
 

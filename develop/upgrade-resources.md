@@ -4,12 +4,12 @@ description: Beschrijft de resources die worden gebruikt om een gebruiker te upg
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4c57994d1b1e7659df5e6448578422f6d9c21fee
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 1ea7499a21312378f4fad3d47eaa9e10993ee3ce7ddb1498f161fac16e09b8a5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111529814"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992467"
 ---
 # <a name="upgrade-resources"></a>Resources upgraden
 
@@ -21,12 +21,12 @@ Beschrijft de resources die worden gebruikt om een gebruiker te upgraden van een
 
 Beschrijft het gedrag van een afzonderlijke upgraderesource.
 
-| Eigenschap      | Type                   | Beschrijving                                                                                  |
+| Eigenschap      | Type                   | Description                                                                                  |
 |---------------|------------------------|----------------------------------------------------------------------------------------------|
 | TargetOffer   | Aanbieding                  | De aanbieding van het doelabonnement.                                                        |
 | UpgradeType   | tekenreeks                 | Het type upgrade: 'geen', 'alleen \_ upgraden' of \_ 'upgraden met \_ \_ licentieoverdracht'.         |
 | IsEligible    | booleaans                | Hiermee wordt aangegeven of de upgrade kan worden uitgevoerd.                                                  |
-| Aantal      | geheel getal                | De hoeveelheid van de nieuwe aanbieding die moet worden gekocht. De standaardwaarde is de hoeveelheid bronabonnement. |
+| Aantal      | geheel getal                | De hoeveelheid van de nieuwe aanbieding die moet worden gekocht. De standaardwaarde is de hoeveelheid van het bronabonnement. |
 | UpgradeErrors | matrix van UpgradeErrors | Redenen waarom de upgrade niet kan worden uitgevoerd, indien van toepassing.                                      |
 | Kenmerken    | ResourceAttributes     | De metagegevenskenmerken die overeenkomen met de upgrade.                                        |
 
@@ -34,10 +34,10 @@ Beschrijft het gedrag van een afzonderlijke upgraderesource.
 
 Beschrijft een reden waarom een upgrade niet kan worden uitgevoerd.
 
-| Eigenschap          | Type               | Beschrijving                                                                                                                                                                                                                                                                                                                                                                                     |
+| Eigenschap          | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Code              | tekenreeks             | De foutcode die is gekoppeld aan het probleem: 'overig', 'gedelegeerde beheerdersmachtigingen \_ \_ \_ uitgeschakeld', \_ 'abonnementsstatus niet \_ \_ actief', 'conflicterende \_ \_ servicetypen', 'gelijktijdigheidsconflicten', 'gebruikerscontext \_ vereist', \_ 'abonnement \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ toevoegen ons aanwezig', 'abonnement heeft geen upgradepaden', 'abonnementsdoelaanbieding niet gevonden' of 'abonnement niet ingericht'. |
-| Description       | tekenreeks             | Beschrijvende tekst waarin de fout wordt beschreven.                                                                                                                                                                                                                                                                                                                                                             |
+| Code              | tekenreeks             | De foutcode die is gekoppeld aan het probleem: 'overig', 'gedelegeerde beheerdersmachtigingen \_ \_ \_ \_ uitgeschakeld', 'abonnementsstatus niet \_ \_ actief', 'conflicterende \_ \_ servicetypen', 'gelijktijdigheidsconflicten', 'gebruikerscontext \_ vereist', \_ 'abonnementen \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ toevoegen ons aanwezig', 'abonnement heeft geen upgradepaden', 'Abonnementsdoelaanbieding niet gevonden' of 'abonnement niet ingericht'. |
+| Description       | tekenreeks             | Beschrijvende tekst die de fout beschrijft.                                                                                                                                                                                                                                                                                                                                                             |
 | AdditionalDetails | tekenreeks             | Aanvullende informatie over de fout.                                                                                                                                                                                                                                                                                                                                                         |
 | Kenmerken        | ResourceAttributes | De metagegevenskenmerken die overeenkomen met de fout.                                                                                                                                                                                                                                                                                                                                             |
 
@@ -45,20 +45,20 @@ Beschrijft een reden waarom een upgrade niet kan worden uitgevoerd.
 
 Beschrijft het resultaat van het upgradeproces van het abonnement.
 
-| Eigenschap             | Type                        | Beschrijving                                                                          |
+| Eigenschap             | Type                        | Description                                                                          |
 |----------------------|-----------------------------|--------------------------------------------------------------------------------------|
 | SourceSubscriptionId | tekenreeks                      | De id van het bronabonnement.                                           |
 | TargetSubscriptionID | tekenreeks                      | De id van het doelabonnement.                                           |
 | UpgradeType          | tekenreeks                      | Het type upgrade: 'geen', 'alleen \_ upgraden' of \_ 'upgraden met \_ \_ licentieoverdracht'. |
 | UpgradeErrors        | matrix van UpgradeErrors      | Fouten die zijn aangetroffen tijdens het uitvoeren van de upgrade, indien van toepassing.           |
-| LicenseErrors        | matrix van UserLicenseErrrors | Fouten die zijn aangetroffen bij het migreren van gebruikerslicenties, indien van toepassing.          |
+| LicenseErrors        | matrix van UserLicenseErrrors | Fouten die zijn aangetroffen bij een poging om gebruikerslicenties te migreren, indien van toepassing.          |
 | Kenmerken           | ResourceAttributes          | De metagegevenskenmerken die overeenkomen met de licentie.                                |
 
 ## <a name="userlicenseerror"></a>UserLicenseError
 
 Beschrijft fouten die voortvloeien uit een mislukte overdracht van gebruikerslicenties.
 
-| Eigenschap     | Type                   | Beschrijving                                                               |
+| Eigenschap     | Type                   | Description                                                               |
 |--------------|------------------------|---------------------------------------------------------------------------|
 | UserObjectId | tekenreeks                 | De unieke geïdentificeerd van het gebruikersobject.                                 |
 | Name         | tekenreeks                 | De naam van de gebruiker.                                                     |

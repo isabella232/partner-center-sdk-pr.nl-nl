@@ -4,22 +4,22 @@ description: U kunt de resourceverzameling CustomerMonthlyUsageRecord gebruiken 
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6b3fb0e1989336810f2afcc2a5bfc3a1d2849b7f
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 2ac71bdcbbeb36462f543a024727980922baf7dff5e37a3e7997ced881a51f94
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874887"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992905"
 ---
 # <a name="get-usage-records-for-all-customers"></a>Gebruiksrecords voor alle klanten op halen
 
 **Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-Partners kunnen de **resourceverzameling CustomerMonthlyUsageRecord** gebruiken om gebruiksrecords voor al hun klanten op te halen. Deze resource vertegenwoordigt gebruiksrecords voor alle klanten. Dit geldt ook voor klanten met een Microsoft Azure (MS-AZR-0145P) of een Azure-abonnement.
+Partners kunnen de resourceverzameling **CustomerMonthlyUsageRecord** gebruiken om gebruiksrecords voor al hun klanten op te halen. Deze resource vertegenwoordigt gebruiksrecords voor alle klanten. Dit geldt ook voor klanten met een Microsoft Azure (MS-AZR-0145P) of een Azure-abonnement.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -52,7 +52,7 @@ Zie het volgende voorbeeld voor een voorbeeld:
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -70,11 +70,11 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit is gelukt, retourneert deze methode een **CustomerMonthlyUsageRecord-resource** in de hoofd body van het antwoord.
+Als dit lukt, retourneert deze methode een **CustomerMonthlyUsageRecord-resource** in de hoofd body van het antwoord.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor een [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik Partner Center API's voor het annu
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 95fa265a3c103d1ec55066f12a3ede7fdb2d0170
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: e73810bb62ecc8487ff0d57c051a1201fc558d13b01529bb8ff5a3f2ac223f2b
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974281"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992259"
 ---
 # <a name="cancel-a-commercial-marketplace-subscription-using-partner-center-apis"></a>Een abonnement op de commerciële marketplace annuleren met behulp Partner Center API's
 
@@ -25,9 +25,9 @@ In dit artikel wordt beschreven hoe u Partner Center API [](subscription-resourc
 
 ## <a name="partner-center-dashboard-method"></a>Partner Center-dashboardmethode
 
-Een abonnement op de commerciële marketplace opzeggen in het Partner Center dashboard:
+Een abonnement op de commerciële marketplace opzeggen in Partner Center dashboard:
 
-1. [Selecteer een klant](get-a-customer-by-name.md).
+1. [Selecteer een klant.](get-a-customer-by-name.md)
 
 2. Selecteer het abonnement dat u wilt annuleren.
 

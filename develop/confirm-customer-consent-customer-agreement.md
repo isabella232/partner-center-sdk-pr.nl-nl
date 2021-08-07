@@ -4,14 +4,14 @@ description: Meer informatie over hoe u de klantacceptatie van de Microsoft-klan
 ms.date: 02/08/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 002508109191ede53cd06f25efc38286647fd67c
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 374a9670f5d4c05209e5cec07afe766bcf57f255f9266138b7aaf0e85f90f0ed
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974009"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991919"
 ---
-# <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Bevestig dat de klant de Microsoft-klantovereenkomst met Partner Center API's
+# <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Bevestig de klantacceptatie van de Microsoft-klantovereenkomst met Partner Center API's
 
 **Van toepassing op**: Partner Center
 
@@ -25,17 +25,17 @@ In dit artikel wordt beschreven hoe u de acceptatie van de klant van de Microsof
 
 - Als u de .NET SDK Partner Center, is versie 1.14 of nieuwer vereist.
 
-- Referenties zoals beschreven in [Partner Center verificatie](./partner-center-authentication.md). *Dit scenario biedt alleen ondersteuning voor app- en gebruikersverificatie.*
+- Referenties zoals beschreven in [Partner Center verificatie.](./partner-center-authentication.md) *Dit scenario biedt alleen ondersteuning voor app- en gebruikersverificatie.*
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- De datum (**dateAgreed**) wanneer de klant de Microsoft-klantovereenkomst.
+- De datum (**dateAgreed**) waarop de klant de Microsoft-klantovereenkomst.
 
 - Informatie over de gebruiker van de klantorganisatie die de Microsoft-klantovereenkomst. Dit omvat:
   - Voornaam
   - Achternaam
   - E-mailadres
-  - Telefoon getal (optioneel)
+  - Telefoon (optioneel)
 - Als de volgende waarden voor een klant worden gewijzigd, kan Partner Center een andere overeenkomst maken voor die klant: Voornaam achternaam e-mailadres Telefoon nummer Anders ontvangen partners de volgende foutcode omdat er een dubbele klant wordt gemaakt
 
 
@@ -53,9 +53,9 @@ In dit artikel wordt beschreven hoe u de acceptatie van de klant van de Microsof
 
 ## <a name="net"></a>.NET
 
-Bevestig of bevestig de klantacceptatie van de Microsoft-klantovereenkomst:
+U kunt als volgende de klantacceptatie van de Microsoft-klantovereenkomst:
 
-1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst voor uw Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -94,9 +94,9 @@ Een volledig voorbeeld vindt u in de klasse [CreateCustomerAgreement](https://gi
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-Bevestig of bevestig de klantacceptatie van de Microsoft-klantovereenkomst:
+U kunt als volgende de klantacceptatie van de Microsoft-klantovereenkomst:
 
-1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst voor uw Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
 2. Maak een nieuwe [ **overeenkomstresource**](agreement-resources.md) om te bevestigen dat een klant de Microsoft-klantovereenkomst. Gebruik de volgende [REST-aanvraagsyntaxis](#request-syntax).
 
@@ -112,7 +112,7 @@ Gebruik de volgende queryparameter om de klant op te geven die u wilt bevestigen
 
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Ja | De waarde is een **klant-tenant-id** in GUID-indeling. Dit is een id waarmee u een klant kunt opgeven. |
+| customer-tenant-id | GUID | Yes | De waarde is een **klant-tenant-id** in GUID-indeling. Dit is een id waarmee u een klant kunt opgeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -122,19 +122,19 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 In deze tabel worden de vereiste eigenschappen in de rest-aanvraag body beschreven.
 
-| Naam      | Type   | Beschrijving                                                                                  |
+| Naam      | Type   | Description                                                                                  |
 |-----------|--------|----------------------------------------------------------------------------------------------|
 | Overeenkomst | object | Details die door de partner worden verstrekt om te bevestigen dat de klant de Microsoft-klantovereenkomst. |
 
 #### <a name="agreement"></a>Overeenkomst
 
-In deze tabel worden de minimaal vereiste velden beschreven voor het maken van een [ **Agreement-resource.**](agreement-resources.md)
+In deze tabel worden de minimaal vereiste velden beschreven voor het maken van een [ **Overeenkomst-resource.**](agreement-resources.md)
 
-| Eigenschap       | Type   | Beschrijving                              |
+| Eigenschap       | Type   | Description                              |
 |----------------|--------|------------------------------------------|
 | primaryContact | [Contact](./utility-resources.md#contact) | Informatie over de gebruiker van de klantorganisatie die de Microsoft-klantovereenkomst heeft geaccepteerd, waaronder:  **firstName,** **lastName,** **email** en **phoneNumber** (optioneel) |
 | dateAgreed     | tekenreeks in UTC-datum/tijd-indeling |De datum waarop de klant de overeenkomst heeft geaccepteerd. |
-| templateId     | tekenreeks | De unieke id van het overeenkomsttype dat door de klant is geaccepteerd. U kunt de **templateId voor Microsoft-klantovereenkomst verkrijgen** door de metagegevens van de overeenkomst op te halen voor Microsoft-klantovereenkomst. Zie [Metagegevens van overeenkomst Microsoft-klantovereenkomst](./get-customer-agreement-metadata.md) voor meer informatie. |
+| templateId     | tekenreeks | De unieke id van het overeenkomsttype dat door de klant is geaccepteerd. U kunt de **templateId voor Microsoft-klantovereenkomst** verkrijgen door de metagegevens van de overeenkomst op te halen voor Microsoft-klantovereenkomst. Zie [Metagegevens van overeenkomst op Microsoft-klantovereenkomst](./get-customer-agreement-metadata.md) voor meer informatie. |
 | type           | tekenreeks | Overeenkomsttype dat door de klant is geaccepteerd. Gebruik MicrosoftCustomerAgreement als de klant de Microsoft-klantovereenkomst. |
 
 #### <a name="request-example"></a>Voorbeeld van aanvraag
@@ -164,9 +164,9 @@ Als dit lukt, retourneert deze methode een [ **Agreement-resource**](./agreement
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing.
 
-Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 #### <a name="response-example"></a>Voorbeeld van antwoord
 

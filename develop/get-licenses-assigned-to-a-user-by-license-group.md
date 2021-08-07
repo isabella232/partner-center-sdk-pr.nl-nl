@@ -4,12 +4,12 @@ description: Een lijst met door de gebruiker toegewezen licenties voor de opgege
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 54acf6f315e3062d03903a98d0c6c1946065f95e
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: b1ed884fd1d7f02773d612aaca0e00651a6dde55ec897ee2d05585af874ddd05
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446000"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990457"
 ---
 # <a name="get-licenses-assigned-to-a-user-by-license-group"></a>Licenties ophalen die aan een gebruiker zijn toegewezen per licentiegroep
 
@@ -19,7 +19,7 @@ Een lijst met door de gebruiker toegewezen licenties voor de opgegeven licentieg
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een gebruikers-id.
 
@@ -27,7 +27,7 @@ Een lijst met door de gebruiker toegewezen licenties voor de opgegeven licentieg
 
 ## <a name="c"></a>C\#
 
-Als u wilt controleren welke licenties zijn toegewezen aan een gebruiker uit opgegeven licentiegroepen, begint u met het instantiëren van een [List/dotnet/api/system.collections.generic.list-1) van het type [**LicenseGroupId**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)en voegt u vervolgens de licentiegroepen toe aan de lijst. Gebruik vervolgens de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Roep vervolgens de [**methode Users.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) met de gebruikers-id om de gebruiker te identificeren. Haal vervolgens een interface op voor gebruikerslicentiebewerkingen van de klant via [**de eigenschap Licenties.**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) Geef ten slotte de lijst met licentiegroepen door aan de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) om de verzameling licenties op te halen die aan de gebruiker zijn toegewezen.
+Als u wilt controleren welke licenties zijn toegewezen aan een gebruiker uit opgegeven licentiegroepen, begint u met het instantiëren van een [List/dotnet/api/system.collections.generic.list-1) van het type [**LicenseGroupId**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)en voegt u vervolgens de licentiegroepen toe aan de lijst. Gebruik vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Roep vervolgens de methode [**Users.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) met de gebruikers-id om de gebruiker te identificeren. Haal vervolgens een interface op voor gebruikerslicentiebewerkingen van de klant via [**de eigenschap**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) Licenties. Geef ten slotte de lijst met licentiegroepen door aan de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) om de verzameling licenties op te halen die aan de gebruiker zijn toegewezen.
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -63,9 +63,9 @@ Gebruik het volgende pad en de queryparameters om de klant-, gebruikers- en lice
 
 | Naam            | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.                                                                                                                                                                                                                 |
-| user-id         | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de gebruiker identificeert.                                                                                                                                                                                                                     |
-| licenseGroupIds | tekenreeks | No       | Een enum-waarde die de licentiegroep van de toegewezen licenties aangeeft. Geldige waarden: Group1, Group2 Group1: deze groep heeft alle producten waarvan de licentie kan worden beheerd in de Azure Active Directory (AAD). Group2: deze groep heeft alleen Minecraft productlicenties. |
+| customer-id     | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.                                                                                                                                                                                                                 |
+| user-id         | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de gebruiker identificeert.                                                                                                                                                                                                                     |
+| licenseGroupIds | tekenreeks | No       | Een enumwaarde die de licentiegroep van de toegewezen licenties aangeeft. Geldige waarden: Group1, Group2 Group1: deze groep heeft alle producten waarvan de licentie kan worden beheerd in de Azure Active Directory (AAD). Group2: deze groep heeft alleen Minecraft productlicenties. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -93,7 +93,7 @@ Als dit lukt, bevat de antwoord-body de verzameling [licentieresources.](license
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
@@ -151,7 +151,7 @@ Date: June 24 2016 22:00:25 PST
 }
 ```
 
-### <a name="response-example-no-matching-licenses-found"></a>Voorbeeld van een antwoord (er zijn geen overeenkomende licenties gevonden)
+### <a name="response-example-no-matching-licenses-found"></a>Voorbeeld van antwoord (er zijn geen overeenkomende licenties gevonden)
 
 Als er geen overeenkomende licenties kunnen worden gevonden voor de opgegeven licentiegroepen, bevat het antwoord een lege verzameling met een totalCount-element waarvan de waarde 0 is.
 

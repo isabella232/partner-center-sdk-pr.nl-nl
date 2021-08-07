@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: Kim-Davis
 ms.author: kimnich
-ms.openlocfilehash: 7deda4098ceb9eb4e1ee75056c53c754618bf3e2
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 8fded9cc9d540fa1f7f3fcb38620c26b85c1c6032ef0176e9bd043943a425f65
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760603"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992718"
 ---
 # <a name="get-all-referrals-analytics-information"></a>Alle analysegegevens van verwijzingen ophalen
 
@@ -21,7 +21,7 @@ Informatie over verwijzingsanalyses voor uw klanten verkrijgen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -33,7 +33,7 @@ Informatie over verwijzingsanalyses voor uw klanten verkrijgen.
 
 ### <a name="uri-parameters"></a>URI-parameters
 
-| Parameter | Type | Beschrijving |
+| Parameter | Type | Description |
 |-----------|------|-------------|
 | filter | tekenreeks | Retourneert gegevens die overeenkomen met de filtervoorwaarde.</br> **Voorbeeld:**</br>  `.../referrals?filter=field eq 'value'` |
 | groupby | tekenreeks | Ondersteunt zowel voorwaarden als datums. Kortcircuitlogica om het aantal buckets te beperken.</br> **Voorbeeld:**</br>  `.../referrals?groupby=termField1,dateField1,termField2` |

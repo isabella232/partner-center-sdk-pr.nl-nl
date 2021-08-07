@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik Partner Center API's om de inventa
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b982dbd7e5e10d454ef87a1e750546ea50eb8438
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: de931c7dd89f94b6be8fdaf0ad79c8faee268267c35a2c0f8e38d36b97842f3f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974077"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992106"
 ---
 # <a name="check-the-inventory-of-catalog-items-using-partner-center-apis"></a>De inventaris van catalogusitems controleren met behulp Partner Center API's
 
@@ -21,11 +21,11 @@ De inventaris controleren op een specifieke set catalogusitems.
 
 - Een of meer product-ID's. Optioneel kunnen ook SKU-ID's worden opgegeven.
 
-- Eventuele aanvullende context die nodig is voor het controleren van de inventaris van de SKU('s) waarnaar wordt verwezen door de opgegeven product-/SKU-id('s). Deze vereisten kunnen per product/SKU verschillen en kunnen worden bepaald op basis van de eigenschap **InventoryVariables van de** [SKU.](product-resources.md#sku)
+- Eventuele aanvullende context die nodig is voor het controleren van de inventaris van de SKU('s) waarnaar wordt verwezen door de opgegeven product-/SKU-id('s). Deze vereisten kunnen per type product/SKU verschillen en kunnen worden bepaald op basis van de eigenschap **InventoryVariables van** de [SKU.](product-resources.md#sku)
 
 ## <a name="c"></a>C\#
 
-Als u de inventaris wilt controleren, maakt u [een InventoryCheckRequest-object](product-resources.md#inventorycheckrequest) met behulp van een [InventoryItem-object](product-resources.md#inventoryitem) voor elk item dat moet worden gecontroleerd. Gebruik vervolgens een **iAggregatePartner.Extensions-accessoires,** pas het bereik aan op **Product** en selecteer vervolgens het land met behulp van de **methode ByCountry().** Roep ten slotte de **methode CheckInventory()** aan met uw **InventoryCheckRequest-object.**
+Als u de inventaris wilt controleren, maakt [u een InventoryCheckRequest-object](product-resources.md#inventorycheckrequest) met behulp van een [InventoryItem-object](product-resources.md#inventoryitem) voor elk item dat moet worden gecontroleerd. Gebruik vervolgens een **iAggregatePartner.Extensions-accessoires,** bereik het op **Product** en selecteer vervolgens het land met behulp van de **methode ByCountry().** Roep ten slotte de **methode CheckInventory()** aan met uw **InventoryCheckRequest-object.**
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -64,7 +64,7 @@ Gebruik de volgende queryparameter om de inventaris te controleren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| country-code           | tekenreeks   | Yes      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -98,7 +98,7 @@ Als dit lukt, bevat de antwoord-body een verzameling [InventoryItem-objecten](pr
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

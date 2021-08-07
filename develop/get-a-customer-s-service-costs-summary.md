@@ -4,12 +4,12 @@ description: Hiermee worden de servicekosten van een klant voor de opgegeven fac
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1cab23238b5f62a02a5f7368f626648d5b1b5b7e
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 7f8af66601ea576552e9302ac327fea5a598d54460567bce4db099d669afba4f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874904"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992939"
 ---
 # <a name="get-a-customers-service-costs-summary"></a>Een samenvatting van de servicekosten van een klant ophalen
 
@@ -17,7 +17,7 @@ Hiermee worden de servicekosten van een klant voor de opgegeven factureringsperi
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -56,8 +56,8 @@ Gebruik de volgende padparameters om de klant en de factureringsperiode te ident
 
 | Naam           | Type   | Vereist | Beschrijving                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | guid   | Ja      | Een klant-id met GUID-indeling die de klant identificeert.                                                                       |
-| factureringsperiode | tekenreeks | Ja      | Een indicator die de factureringsperiode vertegenwoordigt. De enige ondersteunde waarde is MostRecent. Het geval van de tekenreeks maakt niet uit. |
+| customer-id    | guid   | Yes      | Een klant-id met GUID-indeling die de klant identificeert.                                                                       |
+| factureringsperiode | tekenreeks | Yes      | Een indicator die de factureringsperiode vertegenwoordigt. De enige ondersteunde waarde is MostRecent. Het geval van de tekenreeks is niet van belang. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -81,11 +81,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord-body een [ServiceCostsSummary-resource](service-costs-resources.md) met informatie over de servicekosten.
+Als dit lukt, bevat de antwoord-body een [ServiceCostsSummary-resource](service-costs-resources.md) die informatie biedt over de servicekosten.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

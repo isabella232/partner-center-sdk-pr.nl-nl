@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: 5c20b317edf16b159050884070683880cf7e45bb
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: 384fa227a103ed10dc2fd055afa7688d3b2a418504360eb4a5025615cf2a4f67
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025714"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989352"
 ---
 # <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>Metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst ophalen
 
@@ -30,7 +30,7 @@ U moet de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst v
 
 - Als u de .NET SDK Partner Center, is versie 1.14 of nieuwer vereist.
 
-- Referenties zoals beschreven in [Partner Center verificatie](./partner-center-authentication.md). Dit scenario biedt alleen ondersteuning voor app- en gebruikersverificatie.
+- Referenties zoals beschreven in [Partner Center verificatie](./partner-center-authentication.md). Dit scenario biedt alleen ondersteuning voor app-gebruikersverificatie.
 
 ## <a name="net-version-114-or-newer"></a>.NET (versie 1.14 of nieuwer)
 

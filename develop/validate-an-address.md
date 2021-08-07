@@ -4,12 +4,12 @@ description: Een adres valideren met behulp van de adresvalidatie-API.
 ms.date: 05/17/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 30f5cd526ab038dce400e79822d89b8086ba3799
-ms.sourcegitcommit: 41bf9dca55f4c96d382b327a75b2d2418edfc9bc
+ms.openlocfilehash: 0d3c27a763887e89e1116dbaf605db349369036c38378011dcca3fa07732a738
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113655622"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989234"
 ---
 # <a name="validate-an-address"></a>Een adres valideren
 
@@ -17,7 +17,7 @@ ms.locfileid: "113655622"
 
 Een adres valideren met behulp van de adresvalidatie-API.
 
-De adresvalidatie-API mag alleen worden gebruikt voor de prevalidatie van updates van klantprofiel. Gebruik het veld met de kennis dat als het land de Verenigde Staten, Canada, China of Mexico is, het veld Staat wordt gevalideerd met een lijst met geldige staten voor het desbetreffende land. In alle andere landen wordt deze test niet uitgevoerd en controleert de API alleen of de status een geldige tekenreeks is.
+De adresvalidatie-API mag alleen worden gebruikt voor de prevalidatie van updates van klantprofiel. Gebruik het met de kennis dat als het land de Verenigde Staten, Canada, China of Mexico is, het veld Staat wordt gevalideerd met een lijst met geldige staten voor het desbetreffende land. In alle andere landen wordt deze test niet uitgevoerd en controleert de API alleen of de status een geldige tekenreeks is.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,7 +108,7 @@ Het antwoord retournt een van de volgende statusberichten:
 | Status     | Beschrijving |    Aantal geretourneerde voorgestelde adressen |
 |-------|---------------|-------------------|
 |Geverifieerd verzendbaar | Het adres wordt geverifieerd en kan worden verzonden naar . | Enkelvoudig |
-|Geverifieerd | Het adres wordt geverifieerd. | Enkelvoudig |
+|Geverifieerd | Het adres is geverifieerd. | Enkelvoudig |
 |Interactie vereist | Voorgesteld adres is aanzienlijk gewijzigd en er is een gebruikersbevestiging nodig. | Enkelvoudig |
 |Gedeeltelijk straat | De opgegeven straat in het adres is gedeeltelijk en heeft meer informatie nodig. | Meerdere, maximaal drie |
 |Gedeeltelijk lokaal | De opgegeven locatie (gebouwnummer, suitenummer en andere) is gedeeltelijk en heeft meer informatie nodig. | Meerdere, maximaal drie |

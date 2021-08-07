@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: mowrim
 ms.author: mowrim
-ms.openlocfilehash: b77b067c7eb150ab1ad9904915e87c3fc55c104a
-ms.sourcegitcommit: 1fce45e6cafbc4c228042523ae28aac651a73757
+ms.openlocfilehash: 5083f7aa8ea274b5210d88085d26376dadbc0c4d1a0dd6e1babe59c94d7a6f9c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114483055"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991477"
 ---
 # <a name="create-an-azure-plan"></a>Een Azure-plan maken
 
@@ -28,7 +28,7 @@ U kunt een Azure-abonnement kopen, maken en beheren met behulp van Partner Cente
 Voordat u een Azure-plan voor een klant kunt maken, moet u het bijbehorende catalogusitem ophalen. U kunt het catalogusitem ophalen met behulp van de bestaande Partner Center catalogus-API's met de volgende resourcemodellen.
 
 * **[Product:](product-resources.md#product)** een groeperingsconsistente voor opschatbare goederen of services. Een product zelf is geen opschatbaar item.
-* **[SKU:](product-resources.md#sku)** een op te halen Stock Keeping Unit (SKU) onder een product. SKU's vertegenwoordigen de verschillende vormen van het product.
+* **[SKU:](product-resources.md#sku)** een opschatbare Stock Keeping Unit (SKU) onder een product. SKU's vertegenwoordigen de verschillende vormen van het product.
 * **[Beschikbaarheid:](product-resources.md#availability)** een configuratie waarin een SKU beschikbaar is voor aankoop (zoals land, valuta of branchesegment).
 
 Voltooi de volgende stappen om het catalogusitem voor een Azure-plan op te halen:
@@ -61,7 +61,7 @@ Nadat de order is verwerkt, wordt er Partner Center **abonnementsresource** gema
 * [De abonnementen van een klant ophalen](get-all-of-a-customer-s-subscriptions.md)
 * [Een lijst met abonnementen op basis van bestelling ophalen](get-a-list-of-subscriptions-by-order.md)
 
-Wanneer een Azure-plan wordt gemaakt in Partner Center, wordt er ook een bijbehorend Azure-gebruiksabonnement gemaakt in Azure. U kunt ook extra Azure-gebruiksabonnementen maken onder hetzelfde Azure-plan met behulp Azure Portal en Azure-API's. U kunt de id's van alle Azure-gebruiksabonnementen die zijn gekoppeld aan een Azure-abonnement verkrijgen door de stappen te volgen in Een lijst met Azure-rechten voor uw [Partner Center verkrijgen](get-a-list-of-azure-entitlements-for-subscription.md)
+Wanneer een Azure-plan wordt gemaakt in Partner Center, wordt er ook een bijbehorend Azure-gebruiksabonnement gemaakt in Azure. U kunt ook extra Azure-gebruiksabonnementen maken onder hetzelfde Azure-plan met behulp Azure Portal en Azure-API's. U kunt de id's van alle Azure-gebruiksabonnementen die zijn gekoppeld aan een Azure-plan, verkrijgen door de stappen te volgen in Een lijst met Azure-rechten voor uw [Partner Center verkrijgen](get-a-list-of-azure-entitlements-for-subscription.md)
 
 ## <a name="lifecycle-management"></a>Levenscyclusbeheer
 
@@ -86,7 +86,7 @@ U kunt geen Azure-plan maken voor een bestaande klant met een Microsoft Azure-ab
 
 ## <a name="azure-spending"></a>Uitgaven voor Azure
 
-U kunt uw [Azure-uitgaven bijhouden door](azure-spending.md) een query uit te voeren voor gebruiksoverzicht en gedetailleerde gebruiksrecords met behulp van de volgende methoden:
+U kunt uw [Azure-uitgaven bijhouden](azure-spending.md) door gebruiksoverzichten en gedetailleerde gebruiksrecords op te vragen met behulp van de volgende methoden:
 
 * [Gebruiksoverzicht van partner ophalen](get-a-partner-usage-summary.md)
 * [Alle klantgebruiksrecords voor een partner ophalen](get-a-customer-s-usage-records.md)
@@ -98,7 +98,7 @@ U kunt uw [Azure-uitgaven bijhouden door](azure-spending.md) een query uit te vo
 * [Bronnen voor metergebruiksrecords ophalen](meter-usage-resources.md)
 * [Bronnen voor brongebruiksrecords ophalen](resource-usage-resources.md)
 
-U kunt ook het budget voor klantgebruik instellen en beheren met de volgende methoden:
+U kunt ook het budget voor klantgebruik instellen en beheren met behulp van de volgende methoden:
 
 * [Klantgebruiksbudget ophalen](get-a-customer-s-usage-spending-budget.md)
 * [Klantgebruiksbudget bijwerken](update-a-customer-s-usage-spending-budget.md)

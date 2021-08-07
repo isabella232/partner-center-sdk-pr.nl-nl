@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 857caa667245503f111b27379a5c8f93aa1fb0b0
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: ebc3dc1bf557f502468f43076663b7ca1b55e7d1d8fc9ae12a8e0b2a27a21b02
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760654"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990865"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>De abonnementen van een klant ophalen op basis van de MPN-id van de partner
 
@@ -29,7 +29,7 @@ Een lijst met abonnementen die door een bepaalde mpn-partner (MICROSOFT PARTNER 
 
 ## <a name="c"></a>C\#
 
-Gebruik eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om een lijst op te halen met abonnementen die door een bepaalde partner aan een opgegeven klant worden geleverd. Haal vervolgens een interface op voor [](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) verzamelingen van klantabonnementen van de eigenschap Abonnementen en roep de methode [**ByPartner**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) aan met de MPN-id om de partner te identificeren en een interface voor partnerabonnementbewerkingen op te halen. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) om de verzameling op te halen.
+Gebruik eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om een lijst met abonnementen op te halen die door een bepaalde partner aan een opgegeven klant worden geleverd. Haal vervolgens een interface op met [](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) verzamelingsbewerkingen voor klantabonnementen van de eigenschap Abonnementen en roep de methode [**ByPartner**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) aan met de MPN-id om de partner te identificeren en een interface voor partnerabonnementbewerkingen op te halen. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) om de verzameling op te halen.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -45,7 +45,7 @@ var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Gebruik eerst de functie **IAggregatePartner.getCustomers.byId** met de klant-id om een lijst met abonnementen op te halen die door een bepaalde partner aan een opgegeven klant worden geleverd. Haal vervolgens een interface op voor verzamelingen van klantabonnementen via de functie **getSubscriptions** en roep de functie **byPartner** aan met de MPN-id om de partner te identificeren en een interface voor partnerabonnementbewerkingen op te halen. Roep ten slotte de **functie get aan** om de verzameling op te halen.
+Gebruik eerst de functie **IAggregatePartner.getCustomers.byId** met de klant-id om een lijst met abonnementen op te halen die door een bepaalde partner aan een opgegeven klant worden geleverd. Haal vervolgens een interface op voor verzamelingen van klantabonnementen via de **functie getSubscriptions** en roep de functie **byPartner** aan met de MPN-id om de partner te identificeren en een interface voor partnerabonnementbewerkingen op te halen. Roep ten slotte de **functie get aan** om de verzameling op te halen.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -82,7 +82,7 @@ Gebruik het volgende pad en de queryparameters om de klant en partner te identif
 
 | Naam        | Type   | Vereist | Beschrijving                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.       |
+| customer-id | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.       |
 | mpn-id      | int    | Ja      | Een Microsoft Partner Network-id die de partner identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders

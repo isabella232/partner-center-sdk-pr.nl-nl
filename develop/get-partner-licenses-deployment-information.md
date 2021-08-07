@@ -1,22 +1,22 @@
 ---
 title: Implementatiegegevens van partnerlicenties ophalen
-description: Informatie over de implementatie van partnerlicenties verzamelen om alle klanten op te nemen.
+description: Informatie over het verzamelen van implementatiegegevens voor partnerlicenties om alle klanten op te nemen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2464242fc6dc4e7464511eac5d4197630e22fac0
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: b62128a3565854add78fc8e680fdfab9af45c2c41583155c759ae179fbe7bced
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445970"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989709"
 ---
 # <a name="get-partner-licenses-deployment-information"></a>Implementatiegegevens van partnerlicenties ophalen
 
-Informatie over de implementatie van partnerlicenties verzamelen om alle klanten op te nemen.
+Informatie over het verzamelen van implementatiegegevens voor partnerlicenties om alle klanten op te nemen.
 
 > [!NOTE]
-> Dit scenario wordt vervangen door Implementatiegegevens voor [licenties verkrijgen.](get-licenses-deployment-information.md)
+> Dit scenario wordt vervangen door Implementatiegegevens [voor licenties verkrijgen.](get-licenses-deployment-information.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -24,7 +24,7 @@ Referenties zoals beschreven in [Partner Center verificatie](partner-center-auth
 
 ## <a name="c"></a>C\#
 
-Als u geaggregeerde gegevens over de implementatie van licenties wilt ophalen, moet u eerst een interface ophalen voor bewerkingen voor het verzamelen van analyses op partnerniveau van de [**eigenschap IAggregatePartner.Analytics.**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) Haal vervolgens een interface op voor de analyseverzameling licenties op partnerniveau uit [**de eigenschap Licenties.**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) Roep ten slotte de [**methode Deployment.Get aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) om de geaggregeerde gegevens over de implementatie van licenties op te halen. Als de methode slaagt, krijgt u een verzameling [**PartnerLicensesDeploymentInsights-objecten.**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesdeploymentinsights)
+Als u geaggregeerde gegevens over de implementatie van licenties wilt ophalen, moet u eerst een interface ophalen voor analyseverzamelingsbewerkingen op partnerniveau van de [**eigenschap IAggregatePartner.Analytics.**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) Haal vervolgens een interface op naar de analyseverzameling licenties op partnerniveau uit [**de eigenschap Licenties.**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) Roep ten slotte de [**methode Deployment.Get aan**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) om de geaggregeerde gegevens over de implementatie van licenties op te halen. Als de methode slaagt, krijgt u een verzameling [**PartnerLicensesDeploymentInsights-objecten.**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesdeploymentinsights)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -66,7 +66,7 @@ Als dit lukt, bevat de antwoord-body een verzameling [PartnerLicensesDeploymentI
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -1,15 +1,15 @@
 ---
 title: Een overdracht maken
-description: Een overdracht van abonnementen voor een klant maken.
+description: Het maken van een overdracht van abonnementen voor een klant.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d459a0a96912ab27f312bc73af16af2d4fdb518c
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 8414bbcfa0940742339eeba24b3b6a16ddfb6e3424670a4c064cbd995ba50851
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973703"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991579"
 ---
 # <a name="create-a-transfer"></a>Een overdracht maken
 
@@ -17,7 +17,7 @@ ms.locfileid: "111973703"
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -33,7 +33,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | tekenreeks   | Ja      | Een met GUID opgemaakte klant-id die de klant identificeert.             |
+| **customer-id** | tekenreeks   | Yes      | Een met GUID opgemaakte klant-id die de klant identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -41,37 +41,37 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de [Eigenschappen van TransferEntity](transfer-entity-resources.md) in de aanvraag body beschreven.
+In deze tabel worden de [eigenschappen van TransferEntity](transfer-entity-resources.md) in de aanvraag body beschreven.
 
 | Eigenschap              | Type          | Vereist  | Beschrijving                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | tekenreeks        | No    | Een transferEntity-id die wordt opgegeven wanneer de transferEntity is gemaakt.                               |
-| createdTime           | DateTime      | Nee    | De datum waarop de transferEntity is gemaakt, in datum/tijd-indeling. Toegepast wanneer de transferEntity is gemaakt.      |
-| lastModifiedTime      | DateTime      | Nee    | De datum waarop de transferEntity voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de transferEntity is gemaakt. |
-| lastModifiedUser      | tekenreeks        | No    | De gebruiker die voor het laatst de transferEntity heeft bijgewerkt. Toegepast bij het maken van transferEntity.                          |
+| id                    | tekenreeks        | No    | Een id voor transferEntity die wordt opgegeven bij het maken van de transferEntity.                               |
+| createdTime           | DateTime      | No    | De datum waarop de transferEntity is gemaakt, in datum/tijd-indeling. Toegepast bij het maken van de transferEntity.      |
+| lastModifiedTime      | DateTime      | No    | De datum waarop de transferEntity voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast bij het maken van de transferEntity. |
+| lastModifiedUser      | tekenreeks        | No    | De gebruiker die de transferEntity voor het laatst heeft bijgewerkt. Toegepast bij het maken van transferEntity.                          |
 | customerName          | tekenreeks        | No    | Optioneel. De naam van de klant van wie de abonnementen worden overgedragen.                                              |
-| customerTenantId      | tekenreeks        | No    | Een met GUID opgemaakte klant-id die de klant identificeert. Toegepast wanneer de transferEntity is gemaakt.         |
+| customerTenantId      | tekenreeks        | No    | Een met GUID opgemaakte klant-id die de klant identificeert. Toegepast bij het maken van de transferEntity.         |
 | partnertenantid       | tekenreeks        | No    | Een partner-id met GUID-indeling die de partner identificeert.                                                                   |
 | sourcePartnerName     | tekenreeks        | No    | Optioneel. De naam van de organisatie van de partner die de overdracht start.                                           |
-| sourcePartnerTenantId | tekenreeks        | Ja   | Een partner-id met GUID-indeling die de partner identificeert die de overdracht start.                                           |
+| sourcePartnerTenantId | tekenreeks        | Yes   | Een partner-id met GUID-indeling die de partner identificeert die de overdracht start.                                           |
 | targetPartnerName     | tekenreeks        | No    | Optioneel. De naam van de organisatie van de partner waarop de overdracht is gericht.                                         |
-| targetPartnerTenantId | tekenreeks        | Ja   | Een partner-id met GUID-indeling die de partner identificeert waarop de overdracht is gericht.                                  |
-| lineItems             | Matrix met objecten | Ja| Een matrix van [TransferLineItem-resources.](transfer-entity-resources.md#transferlineitem)                                   |
-| status                | tekenreeks        | No    | De status van de transferEntity. Mogelijke waarden zijn 'Actief' (kan worden verwijderd/verzonden) en 'Voltooid' (is al voltooid). Toegepast wanneer de transferEntity is gemaakt.|
+| targetPartnerTenantId | tekenreeks        | Yes   | Een partner-id met GUID-indeling die de partner identificeert waarop de overdracht is gericht.                                  |
+| lineItems             | Matrix met objecten | Yes| Een matrix van [TransferLineItem-resources.](transfer-entity-resources.md#transferlineitem)                                   |
+| status                | tekenreeks        | No    | De status van de transferEntity. Mogelijke waarden zijn 'Actief' (kan worden verwijderd/verzonden) en 'Voltooid' (is al voltooid). Toegepast bij het maken van de transferEntity.|
 
 In deze tabel worden de [eigenschappen van TransferLineItem](transfer-entity-resources.md#transferlineitem) in de aanvraag body beschreven.
 
 |      Eigenschap       |            Type             | Vereist | Beschrijving                                                                                     |
 |---------------------|-----------------------------|----------|-------------------------------------------------------------------------------------------------|
 | id                   | tekenreeks                     | No       | Een unieke id voor een overdrachtsregelitem. Toegepast wanneer de transferEntity is gemaakt.|
-| subscriptionId       | tekenreeks                     | Ja      | De abonnements-id.                                                                         |
-| quantity             | int                        | Nee       | Het aantal licenties of exemplaren.                                                                 |
-| billingCycle         | Object                     | Nee       | Het type factureringscyclus dat is ingesteld voor de huidige periode.                                                |
-| Friendlyname         | tekenreeks                     | No       | Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het op ondubbelzinnig maken.                |
+| subscriptionId       | tekenreeks                     | Yes      | De abonnements-id.                                                                         |
+| quantity             | int                        | No       | Het aantal licenties of instanties.                                                                 |
+| billingCycle         | Object                     | No       | Het type factureringscyclus dat is ingesteld voor de huidige periode.                                                |
+| Friendlyname         | tekenreeks                     | No       | Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het opsysen van ambiguïteit.                |
 | partnerIdOnRecord    | tekenreeks                     | No       | PartnerId on Record (MPN-id) voor de aankoop die wordt gedaan wanneer de overdracht wordt geaccepteerd.              |
 | offerId              | tekenreeks                     | No       | De aanbiedings-id.                                                                                |
-| addonItems           | Lijst met **TransferLineItem-objecten** | Nee | Een verzameling transferEntity-regelitems voor addons die samen met het basisabonnement dat wordt overgedragen, worden overgedragen. Toegepast wanneer de transferEntity is gemaakt.|
-| transferError        | tekenreeks                     | No       | Toegepast nadat transferEntity is geaccepteerd als er een fout is opgetreden.                                        |
+| addonItems           | Lijst met **TransferLineItem-objecten** | No | Een verzameling transferEntity-regelitems voor addons die samen met het basisabonnement dat wordt overgedragen, worden overgedragen. Toegepast wanneer de transferEntity is gemaakt.|
+| transferError        | tekenreeks                     | No       | Toegepast na overdrachtEntity wordt geaccepteerd als er een fout is.                                        |
 | status               | tekenreeks                     | No       | De status van het regelitem in de transferEntity.                                                    |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
@@ -109,7 +109,7 @@ Als dit lukt, retourneert deze methode de ingevulde [TransferEnity-resource](tra
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

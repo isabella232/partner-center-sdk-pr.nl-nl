@@ -4,12 +4,12 @@ description: Een order voor een klant in een winkelwagen bijwerken.
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8954d4dad39f9b1a1b9a2f213e0231f01856fcd2
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 79dcd58e5a967aad9160777805102683087becc74c655b2de990cd1bfd4ef3c8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446680"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990151"
 ---
 # <a name="update-a-cart"></a>Een winkelwagen bijwerken
 
@@ -27,7 +27,7 @@ Een order voor een klant in een winkelwagen bijwerken.
 
 Als u een order voor een klant wilt bijwerken, moet u de winkelwagen op halen met behulp van de **methode Get()** door de klant- en winkelwagen-ID's door te geven met behulp van de **functie ById().** Wijzig de benodigde wijzigingen in de winkelwagen. Roep nu de **methode Put aan** met behulp van klant- en winkelwagen-ID's met behulp van de methode **ById().**
 
-Roep ten slotte de **methode Put()** of **PutAsync()** aan om de bestelling te maken.
+Roep ten slotte de **methode Put() of** **PutAsync()** aan om de order te maken.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -55,12 +55,12 @@ Gebruik de volgende padparameters om de klant te identificeren en geef de winkel
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
-| **cart-id**     | tekenreeks   | Ja      | Een met GUID opgemaakte cart-id die de winkelwagen identificeert.                     |
+| **customer-id** | tekenreeks   | Yes      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
+| **cart-id**     | tekenreeks   | Yes      | Een cart-id met GUID-indeling die de winkelwagen identificeert.                     |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -69,26 +69,26 @@ In deze tabel worden de eigenschappen [van de winkelwagen](cart-resources.md) in
 | Eigenschap              | Type             | Vereist        | Beschrijving                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | tekenreeks           | No              | Een winkelwagen-id die wordt opgegeven wanneer de winkelwagen is gemaakt.                                  |
-| creationTimeStamp     | DateTime         | Nee              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.        |
-| lastModifiedTimeStamp | DateTime         | Nee              | De datum waarop de winkelwagen voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
-| expirationTimeStamp   | DateTime         | Nee              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast bij het maken van de winkelwagen.            |
-| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast bij het maken van de winkelwagen.                             |
-| lineItems             | Matrix met objecten | Ja             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                               |
+| creationTimeStamp     | DateTime         | No              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.        |
+| lastModifiedTimeStamp | DateTime         | No              | De datum waarop de winkelwagen het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
+| expirationTimeStamp   | DateTime         | No              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast nadat de winkelwagen is gemaakt.            |
+| lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast nadat de winkelwagen is gemaakt.                             |
+| lineItems             | Matrix met objecten | Yes             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                               |
 
 In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartlineitem) in de aanvraag body beschreven.
 
 | Eigenschap             | Type                        | Vereist     | Beschrijving                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| id                   | tekenreeks                      | No           | Een unieke id voor een winkelwagenregelitem. Toegepast bij het maken van de winkelwagen.                |
-| catalogId            | tekenreeks                      | Ja          | De id van het catalogusitem.                                                                       |
-| Friendlyname         | tekenreeks                      | No           | Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het opsysen van ambiguïteit.              |
-| quantity             | int                         | Ja          | Het aantal licenties of instanties.     |
+| id                   | tekenreeks                      | No           | Een unieke id voor een winkelwagenregelitem. Toegepast nadat de winkelwagen is gemaakt.                |
+| catalogId            | tekenreeks                      | Yes          | De id van het catalogusitem.                                                                       |
+| Friendlyname         | tekenreeks                      | No           | Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het op ondubbelzinnig maken.              |
+| quantity             | int                         | Ja          | Het aantal licenties of exemplaren.     |
 | currencyCode         | tekenreeks                      | No           | De valutacode.                                                                                 |
 | billingCycle         | Object                      | Ja          | Het type factureringscyclus dat is ingesteld voor de huidige periode.                                              |
-| deelnemers         | Lijst met objectreeksparen | Nee           | Een verzameling deelnemers aan de aankoop.                                                      |
-| provisioningContext  | Woordenlijst<tekenreeks, tekenreeks>  | Nee           | Een context die wordt gebruikt voor het inrichten van de aanbieding.                                                          |
-| orderGroup           | tekenreeks                      | No           | Een groep om aan te geven welke items samen kunnen worden geplaatst.                                            |
-| fout                | Object                      | Nee           | Toegepast nadat de winkelwagen is gemaakt in het geval van een fout.                                                 |
+| deelnemers         | Lijst met objectreeksparen | No           | Een verzameling deelnemers aan de aankoop.                                                      |
+| provisioningContext  | Woordenlijst<tekenreeks, tekenreeks>  | No           | Een context die wordt gebruikt voor het inrichten van de aanbieding.                                                          |
+| orderGroup           | tekenreeks                      | No           | Een groep om aan te geven welke items bij elkaar kunnen worden geplaatst.                                            |
+| fout                | Object                      | No           | Toegepast nadat de winkelwagen is gemaakt in het geval van een fout.                                                 |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -136,7 +136,7 @@ Als dit lukt, retourneert deze methode de ingevulde [winkelwagenresource](cart-r
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

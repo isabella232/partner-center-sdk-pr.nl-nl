@@ -4,12 +4,12 @@ description: Informatie over abonnementsanalyses groeperen op datums of voorwaar
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8192a9863d53ec8697a7341cd38c69200614bd4a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 66336d3e5573598eb4810853ad2704bc8d2c76680292a4f5b4a3da9bb50936b8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548716"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989675"
 ---
 # <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Abonnementsanalyses groeperen op datums of voorwaarden
 
@@ -35,7 +35,7 @@ Gebruik de volgende vereiste padparameters om uw organisatie te identificeren en
 
 | Naam | Type | Vereist | Beschrijving |
 |------|------|----------|-------------|
-| groupby_queries | paren van tekenreeksen en datum/tijd | Ja | De voorwaarden en datums waarop het resultaat moet worden gefilterd. |
+| groupby_queries | paren van tekenreeksen en datum/tijd | Yes | De termen en datums om het resultaat te filteren. |
 
 ### <a name="groupby-syntax"></a>GroupBy-syntaxis
 
@@ -49,7 +49,7 @@ Een niet-gecodeerd voorbeeld ziet er als volgende uit:
 
 In de volgende tabel ziet u een lijst met de ondersteunde velden voor group by.
 
-| Veld | Type | Beschrijving |
+| Veld | Type | Description |
 |-------|------|-------------|
 | customerTenantId | tekenreeks | Een tekenreeks in GUID-indeling die de tenant van de klant identificeert. |
 | customerName | tekenreeks | De naam van de klant. |
@@ -70,18 +70,18 @@ In de volgende tabel ziet u een lijst met de ondersteunde velden voor group by.
 | trialToPaidConversionDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop het abonnement wordt omgezet van proefversie naar betaald. De standaardwaarde is null. |
 | trialStartDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop de proefperiode voor het abonnement is gestart. De standaardwaarde is null. |
 | lastUsageDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop het abonnement voor het laatst is gebruikt. De standaardwaarde is null. |
-| deprovisionedDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop het abonnement is verwijderd. De standaardwaarde is null. |
+| deprovisionedDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop het abonnement is uitprovisioned. De standaardwaarde is null. |
 | lastRenewalDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop het abonnement voor het laatst is vernieuwd. De standaardwaarde is null. |
 
 ### <a name="filter-fields"></a>Filtervelden
 
 De volgende tabel bevat optionele filtervelden en de bijbehorende beschrijvingen:
 
-| Veld | Type |  Beschrijving |
+| Veld | Type |  Description |
 |-------|------|--------------|
 | top | int | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. Als de waarde niet is opgegeven, zijn de maximumwaarde en de standaardwaarde 10000. Als er meer rijen in de query staan, bevat de antwoord-body een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. |
 | skip | int | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om door grote gegevenssets te gaan. Top=10000 en skip=0 haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, top=10000 en skip=10000 haalt de volgende 10000 rijen met gegevens op. |
-| filter | tekenreeks | Een of meer instructies die de rijen in het antwoord filteren. Elke filter-instructie bevat een veldnaam van de antwoord-body en een waarde die zijn gekoppeld aan de operator , of voor **`eq`** **`ne`** bepaalde **`contains`** velden. Instructies kunnen worden gecombineerd met **`and`** of **`or`** . Tekenreekswaarden moeten tussen enkele aanhalingstekens in de filterparameter staan. Zie de volgende sectie voor een lijst met velden die kunnen worden gefilterd en de operators die worden ondersteund met deze velden. |
+| filter | tekenreeks | Een of meer instructies die de rijen in het antwoord filteren. Elke filter-instructie bevat een veldnaam uit de antwoord-body en een waarde die zijn gekoppeld aan de operator , of voor **`eq`** **`ne`** bepaalde **`contains`** velden. Instructies kunnen worden gecombineerd met **`and`** of **`or`** . Tekenreekswaarden moeten tussen enkele aanhalingstekens in de filterparameter staan. Zie de volgende sectie voor een lijst met velden die kunnen worden gefilterd en de operators die worden ondersteund met deze velden. |
 | aggregationLevel | tekenreeks | Hiermee geeft u het tijdsbereik op waarvoor geaggregeerde gegevens moeten worden opgehaald. Kan een van de volgende tekenreeksen zijn: **dag,** **week** of **maand.** Als de waarde niet is opgegeven, is de **standaardwaarde dateRange.** **Opmerking:** deze parameter is alleen van toepassing wanneer een datumveld wordt doorgegeven als onderdeel van de parameter groupBy. |
 | groupBy | tekenreeks | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. |
 
@@ -107,7 +107,7 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord-body een verzameling [abonnementsresources](partner-center-analytics-resources.md#subscription-resource) gegroepeerd op de opgegeven voorwaarden en datums.
+Als dit lukt, bevat de antwoord-body een verzameling [abonnementsresources](partner-center-analytics-resources.md#subscription-resource) die zijn gegroepeerd op de opgegeven voorwaarden en datums.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 

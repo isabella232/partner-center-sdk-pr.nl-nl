@@ -4,12 +4,12 @@ description: De Partnercentrum-SDK bevat een beheerde API en een REST API die pa
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b5d05f26d63574ef876519091dc1c33c05f36e25
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 340b46978d71bdf5fa6f6795d69fe0721d808c4eb2650744e82510c208dd5b8f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548750"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989692"
 ---
 # <a name="get-started"></a>Aan de slag
 
@@ -26,7 +26,7 @@ De Partnercentrum-SDK bevat een beheerde API en een REST API die partners kunnen
 
 ## <a name="determine-your-version-of-partner-center"></a>Uw versie van de Partner Center
 
-Sommige versies van Partner Center hebben niet de volledige SDK beschikbaar. Zie Developing for Partner Center for Microsoft National Cloud (Ontwikkelen voor [Partner Center voor Microsoft National Cloud) voor meer informatie.](developing-for-partner-center-for-microsoft-national-cloud.md)
+Sommige versies van Partner Center hebben niet de volledige SDK beschikbaar. Zie Developing for Partner Center for Microsoft National Cloud (Ontwikkelen Partner Center [voor Microsoft National Cloud) voor meer informatie.](developing-for-partner-center-for-microsoft-national-cloud.md)
 
 ## <a name="get-the-samples"></a>De voorbeelden op te halen
 
@@ -42,18 +42,18 @@ Zie Testen en fouten opsporen voor tips en suggesties over testen en foutopspori
 
 ## <a name="configure-your-authentication"></a>Uw verificatie configureren
 
-Zie Verificatie voor meer informatie over het configureren van Partner Center uw Azure AD Partner Center-verificatie, zodat u de Partner Center [API's kunt gebruiken.](partner-center-authentication.md)
+Als u uw Azure AD-verificatie wilt configureren zodat u de Partner Center API's kunt gebruiken, Partner Center [verificatie.](partner-center-authentication.md)
 
 > [!IMPORTANT]
-> Microsoft introduceert een veilig, schaalbaar framework voor het authenticeren van CSP-partners (Cloud Solution Provider) en configuratieschermleveranciers (CPV) via de Microsoft Azure MFA-architectuur (Multi-Factor Authentication).
+> Microsoft introduceert een veilig, schaalbaar framework voor de verificatie van CSP-partners (Cloud Solution Provider) en configuratieschermleveranciers (CPV) via de architectuur van Microsoft Azure Multi-Factor Authentication (MFA).
 Partner Center gebruikt Azure AD voor verificatie en voor het gebruik van de Partner Center API's moet u uw verificatie-instellingen correct configureren.
 >
-> Zie Secure Application [Model inschakelen voor meer informatie.](enable-secure-app-model.md)
+> Zie Secure Application Model inschakelen [voor meer informatie.](enable-secure-app-model.md)
 
 ## <a name="get-help"></a>Hulp vragen
 
-Partners kunnen ondersteuning krijgen in de [Partnercentrum-SDK Yammer groep](https://go.microsoft.com/fwlink/p/?LinkID=717360). Ontwikkelaars kunnen hun MPN-ondersteuningsvoordelen of -voordelen gebruiken om persoonlijkere hulp te Premier Support.
+Partners kunnen ondersteuning krijgen in de [Partnercentrum-SDK Yammer groep](https://go.microsoft.com/fwlink/p/?LinkID=717360). Voor persoonlijkere hulp kunnen ontwikkelaars gebruikmaken van hun MPN-ondersteuningsvoordelen of Premier Support.
 
 ## <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>Aanmelden voor het Early Adopter-programma voor API en SDK van Partnercentrum
 
-Zie Join the Partner Center API and SDK Early Adopter Program (Deelnemen aan de [Partner Center-API en SDK Early Adopter Program)](early-adopter-program.md)voor meer informatie over hoe u met Microsoft kunt samenwerken aan de ontwikkeling van partnerfuncties en -mogelijkheden.
+Zie Deelnemen aan de Partner Center API en [SDK Early Adopter Program](early-adopter-program.md)voor meer informatie over hoe u met Microsoft kunt samenwerken aan de ontwikkeling van partnerfuncties en -mogelijkheden.

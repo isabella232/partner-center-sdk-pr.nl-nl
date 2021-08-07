@@ -6,20 +6,20 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 435309229e2cb038c936028943f4c2cf27b032a7
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: c45d599ace7895c03bc163cddde7cbb057ff60a06c58af39a2baacb3d557e72e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974111"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992157"
 ---
-# <a name="change-a-customer-subscription-billing-cycle"></a>Factureringscyclus van een klantabonnement wijzigen
+# <a name="change-a-customer-subscription-billing-cycle"></a>De factureringscyclus van een klantabonnement wijzigen
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
 Werkt een [order bij](order-resources.md) van maandelijkse naar jaarlijkse facturering of van jaarlijkse naar maandelijkse facturering.
 
-In het Partner Center dashboard kunt u deze bewerking uitvoeren door te navigeren naar de pagina met abonnementsgegevens van een klant. Daar ziet u een optie voor het definiëren van de huidige factureringscyclus voor het abonnement met de mogelijkheid om deze te wijzigen en te verzenden.
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door te navigeren naar de pagina met abonnementsgegevens van een klant. Daar ziet u een optie voor het definiëren van de huidige factureringscyclus voor het abonnement met de mogelijkheid om deze te wijzigen en in te dienen.
 
 **Buiten het bereik** van dit artikel:
 
@@ -79,7 +79,7 @@ Deze tabel bevat de vereiste queryparameter om de hoeveelheid van het abonnement
 
 | Naam                   | Type | Vereist | Beschrijving                                                          |
 |------------------------|------|----------|----------------------------------------------------------------------|
-| **customer-tenant-id** | GUID |    J     | Een met GUID **opgemaakte klant-tenant-id** die de klant identificeert |
+| **customer-tenant-id** | GUID |    J     | Een in GUID **opgemaakte klant-tenant-id** die de klant identificeert |
 | **order-id**           | GUID |    J     | De order-id                                                 |
 
 ### <a name="request-headers"></a>Aanvraagheaders

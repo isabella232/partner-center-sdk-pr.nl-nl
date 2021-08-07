@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik van API's om uw juridische bedrijf
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ba0654e364674bc2db129a0904d411c6fb67cbb9
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: c7f5d478e5aca6396e132a0e805fcc907f28916adbbe375c155c1a5360d3cae7
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549056"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989726"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>Het wettelijke bedrijfsprofiel van een partner ophalen
 
@@ -19,7 +19,7 @@ Het juridische bedrijfsprofiel van een partner op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 

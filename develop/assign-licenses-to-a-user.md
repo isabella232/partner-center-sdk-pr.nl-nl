@@ -4,12 +4,12 @@ description: Meer informatie over het toewijzen van licenties aan een klantgebru
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 88ce0f185b0b043c4a7862b7f9808fb8805d40b9
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 8263f7f274e453603305324cc7ac6e8b25820561ade3136b873c65ffa21e94fc
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974366"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989063"
 ---
 # <a name="assign-licenses-to-a-user-via-partner-center-apis"></a>Licenties toewijzen aan een gebruiker via Partner Center API's
 
@@ -17,9 +17,9 @@ Licenties toewijzen aan een klantgebruiker.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een gebruikers-id van de klant. Deze id identificeert de gebruiker aan wie de licentie moet worden toegewezen.
 
@@ -29,24 +29,24 @@ Licenties toewijzen aan een klantgebruiker.
 
 Wanneer u licenties toewijst aan een gebruiker, moet u kiezen uit de verzameling geabonneerde SKU's van de klant. Nadat u de producten hebt geïdentificeerd die u wilt toewijzen, moet u de product-SKU-id voor elk product verkrijgen om de toewijzingen te kunnen maken. Elk [**SubscribedSku-exemplaar**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) bevat een [**eigenschap ProductSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) van waaruit u kunt verwijzen naar het [**ProductSku-object**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) en de id [**kunt op halen.**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)
 
-Een licentietoewijzingsaanvraag moet licenties uit één licentiegroep bevatten. U kunt bijvoorbeeld geen licenties van [**Group1**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) en **Group2** toewijzen in dezelfde aanvraag. Een poging om licenties van meer dan één groep in één aanvraag toe te wijzen, mislukt met een passende fout. Zie Get [a list of available licenses by license group (Een](get-a-list-of-available-licenses-by-license-group.md)lijst met beschikbare licenties per licentiegroep verkrijgen) voor meer informatie over welke licenties beschikbaar zijn per licentiegroep.
+Een licentietoewijzingsaanvraag moet licenties uit één licentiegroep bevatten. U kunt bijvoorbeeld geen licenties van [**Group1**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) en **Group2** toewijzen in dezelfde aanvraag. Een poging om licenties toe te wijzen vanuit meer dan één groep in één aanvraag mislukt met een passende fout. Zie Get a list of available licenses by license group (Een lijst met beschikbare licenties per licentiegroep verkrijgen) voor meer informatie over welke licenties beschikbaar zijn [per licentiegroep.](get-a-list-of-available-licenses-by-license-group.md)
 
 Hier volgen de stappen voor het toewijzen van licenties via code:
 
-1. Instantieer een [**LicenseAssignment-object.**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) U gebruikt dit object om de product-SKU en serviceplannen op te geven die u wilt toewijzen.
+1. Een [**LicenseAssignment-object**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) maken. U gebruikt dit object om de product-SKU en serviceplannen op te geven die u wilt toewijzen.
 
     ``` csharp
     LicenseAssignment license = new LicenseAssignment();
     ```
 
-2. Vul de objecteigenschappen in zoals hieronder wordt weergegeven. In deze code wordt ervan uit gegaan dat u al de product-SKU-id hebt en dat alle beschikbare serviceplannen worden toegewezen (dat wil zeggen, geen van de abonnementen wordt uitgesloten).
+2. Vul de objecteigenschappen in zoals hieronder wordt weergegeven. In deze code wordt ervan uit gegaan dat u al de product-SKU-id hebt en dat alle beschikbare serviceplannen worden toegewezen (dat wil zeggen dat er geen worden uitgesloten).
 
     ```csharp
     license.SkuId = selectedProductSkuId;
     license.ExcludedPlans = null;
     ```
 
-3. Als u niet de product-SKU-id hebt, moet u de verzameling geabonneerde SKU's ophalen en de product-SKU-id ophalen van een van deze SKU's. Hier ziet u een voorbeeld als u de naam van de product-SKU kent.
+3. Als u niet over de product-SKU-id hebt, moet u de verzameling geabonneerde SKU's ophalen en de product-SKU-id ophalen van een van deze SKU's. Hier ziet u een voorbeeld als u de naam van de product-SKU kent.
 
     ```csharp
     var customerSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
@@ -77,7 +77,7 @@ Hier volgen de stappen voor het toewijzen van licenties via code:
 
 ## <a name="c"></a>C\#
 
-Als u een licentie wilt toewijzen aan een klantgebruiker, maakt u eerst een [**LicenseAssignment-object**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) en vult u de [**eigenschappen Skuid**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) en [**ExcludedPlans**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) in. U gebruikt dit object om de product-SKU op te geven die moet worden toegewezen en om serviceplannen uit te sluiten. Vervolgens maakt u een nieuwe lijst van het type **LicenseAssignment** en voegt u het licentieobject toe aan de lijst. Maak vervolgens een [**LicenseUpdate-exemplaar**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) en wijs de lijst met licentietoewijzingen toe aan [**de eigenschap LicensesToAssign.**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)
+Als u een licentie wilt toewijzen aan een klantgebruiker, instantieert u eerst een [**LicenseAssignment-object**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) en vult u de [**eigenschappen Skuid**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) en [**ExcludedPlans**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) in. U gebruikt dit object om de product-SKU op te geven die moet worden toegewezen en om serviceplannen uit te sluiten. Vervolgens maakt u een nieuwe lijst van het type **LicenseAssignment** en voegt u het licentieobject toe aan de lijst. Maak vervolgens een [**LicenseUpdate-exemplaar**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) en wijs de lijst met licentietoewijzingen toe aan de [**eigenschap LicensesToAssign.**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)
 
 Gebruik vervolgens de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren en de [**methode Users.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) met de gebruikers-id om de gebruiker te identificeren. Haal vervolgens een interface op voor updatebewerkingen voor gebruikerslicenties van de klant [**via de eigenschap LicenseUpdates.**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates)
 
@@ -106,7 +106,7 @@ updateLicense.LicensesToAssign = licenseList;
 var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CustomerUserAssignLicenses.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CustomerUserAssignLicenses.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -122,8 +122,8 @@ Gebruik de volgende padparameters om de klant en gebruiker te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| customer-id | tekenreeks | Ja      | Een id met GUID-indeling die de klant identificeert. |
-| user-id     | tekenreeks | Ja      | Een id met GUID-indeling die de gebruiker identificeert.     |
+| customer-id | tekenreeks | Yes      | Een id met GUID-indeling die de klant identificeert. |
+| user-id     | tekenreeks | Yes      | Een id met GUID-indeling die de gebruiker identificeert.     |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -131,7 +131,7 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Neem een [LicenseUpdate-resource](license-resources.md#licenseupdate) op in de aanvraag body waarin de licenties worden opgegeven die moeten worden toegewezen.
+Neem een [LicenseUpdate-resource](license-resources.md#licenseupdate) op in de aanvraag om de licenties op te geven die moeten worden toegewezen.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -168,7 +168,7 @@ Als dit lukt, wordt de HTTP-antwoordstatuscode 201 geretourneerd en bevat de ant
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example-success"></a>Voorbeeld van antwoord (geslaagd)
 

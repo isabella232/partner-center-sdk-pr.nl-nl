@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik Partner Center API's om een nieuw 
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 530ff72862204bda093385252450f4eb81b63160
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: b3637b6d482934d894a5807734b541cc73dea3f265b5460ba807c7fad6834a82
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973669"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991613"
 ---
 # <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>Een nieuw configuratiebeleid maken voor de opgegeven klant
 
@@ -19,7 +19,7 @@ Een nieuw configuratiebeleid maken voor de opgegeven klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -52,7 +52,7 @@ var createdConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.Create(configurationPolicyToCreate);
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateConfigurationPolicy.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -68,7 +68,7 @@ Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| customer-id | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -76,14 +76,14 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag body moet een object bevatten met de configuratiebeleidsgegevens zoals beschreven in de volgende tabel:
+De aanvraag body moet een object bevatten met de informatie over het configuratiebeleid, zoals beschreven in de volgende tabel:
 
 | Naam           | Type             | Vereist | Beschrijving                      |
 |----------------|------------------|----------|----------------------------------|
-| naam           | tekenreeks           | Ja      | De gebruiksvriendelijke naam van het beleid. |
-| category       | tekenreeks           | Ja      | De beleidscategorie.             |
+| naam           | tekenreeks           | Yes      | De gebruiksvriendelijke naam van het beleid. |
+| category       | tekenreeks           | Yes      | De beleidscategorie.             |
 | beschrijving    | tekenreeks           | No       | De beschrijving van het beleid.          |
-| policySettings | tekenreeksmatrix | Ja      | De beleidsinstellingen.             |
+| policySettings | tekenreeksmatrix | Yes      | De beleidsinstellingen.             |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -112,7 +112,7 @@ Als dit lukt, bevat de antwoord-body de [ConfigurationPolicy-resource](device-de
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

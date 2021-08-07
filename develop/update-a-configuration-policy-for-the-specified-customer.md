@@ -4,12 +4,12 @@ description: Het opgegeven configuratiebeleid voor de opgegeven klant bijwerken.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5e008f41a44f2b7cf3ddfd705505175c69bbad38
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 957f2835d08e049e8b77271de5383f5ffc45d4ade6d903b2f42757dd4e707a05
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530226"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990134"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>Een configuratiebeleid bijwerken voor de opgegeven klant
 
@@ -19,15 +19,15 @@ Het opgegeven configuratiebeleid voor de opgegeven klant bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De beleids-id.
 
 ## <a name="c"></a>C\#
 
-Als u een bestaand configuratiebeleid voor de opgegeven klant wilt bijwerken, maakt u een nieuw [**ConfigurationPolicy-object,**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) zoals wordt weergegeven in het volgende codefragment. De waarden in dit nieuwe object vervangen de bijbehorende waarden in het bestaande object. Roep vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Roep vervolgens de [**methode ConfigurationPolicies.ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) aan met de beleids-id om een interface op te halen voor configuratiebeleidsbewerkingen voor het opgegeven beleid. Roep ten slotte de [**methode Patch**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) of [**PatchAsync aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) om het configuratiebeleid bij te werken.
+Als u een bestaand configuratiebeleid voor de opgegeven klant wilt bijwerken, maakt u een nieuw [**ConfigurationPolicy-object,**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) zoals wordt weergegeven in het volgende codefragment. De waarden in dit nieuwe object vervangen de bijbehorende waarden in het bestaande object. Roep vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Roep vervolgens de [**methode ConfigurationPolicies.ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) aan met de beleids-id om een interface op te halen voor configuratiebeleidsbewerkingen voor het opgegeven beleid. Roep ten slotte de [**patch-**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) of [**patchasync-methode**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) aan om het configuratiebeleid bij te werken.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ ConfigurationPolicy updatedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Patch(configPolicyToBeUpdated);
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: UpdateConfigurationPolicy.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK **Klasse**: UpdateConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -63,8 +63,8 @@ Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| customer-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert.         |
-| policy-id   | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het bij te werken beleid identificeert. |
+| customer-id | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert.         |
+| policy-id   | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die het bij te werken beleid identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -72,16 +72,16 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag body moet een object bevatten dat de beleidsgegevens verstrekt.
+De aanvraag moet een -object bevatten dat de beleidsinformatie verstrekt.
 
 | Naam            | Type             | Vereist | Bijgewerkt | Beschrijving                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id              | tekenreeks           | Ja      | Nee        | De tekenreeks in GUID-indeling die het beleid identificeert.                                                                                                    |
 | naam            | tekenreeks           | Ja      | Ja       | De gebruiksvriendelijke naam van het beleid.                                                                                                                         |
 | category        | tekenreeks           | Ja      | Nee        | De beleidscategorie.                                                                                                                                     |
-| beschrijving     | tekenreeks           | Nee       | Ja       | De beschrijving van het beleid.                                                                                                                                  |
+| beschrijving     | tekenreeks           | No       | Ja       | De beschrijving van het beleid.                                                                                                                                  |
 | toegewezen apparaten | getal           | Nee       | Nee        | Het aantal apparaten.                                                                                                                                   |
-| policySettings  | tekenreeksmatrix | Ja      | Ja       | De beleidsinstellingen: "none","remove \_ oem \_ preinstalls","oobe \_ user not local \_ \_ \_ admin","skip \_ express \_ settings","skip \_ oem \_ registration,"skip \_ eula". |
+| policySettings  | tekenreeksmatrix | Ja      | Ja       | De beleidsinstellingen: 'none', 'remove \_ oem \_ preinstalls', 'oobe \_ user not local \_ \_ \_ admin', 'skip \_ express \_ settings','skip \_ oem \_ registration,'skip \_ eula'. |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -112,7 +112,7 @@ Als dit lukt, bevat de antwoord-body de [ConfigurationPolicy-resource](device-de
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

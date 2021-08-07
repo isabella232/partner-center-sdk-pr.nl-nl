@@ -4,12 +4,12 @@ description: Informatie over de implementatie van Office en Dynamics-licenties.
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9eb0dc655affb2216b11635e58e00ed6464d6792
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: c47ab4f839c102c7a7bcab0169bf13955ab49beb97c48800e882598714347e67
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445660"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990712"
 ---
 # <a name="get-licenses-deployment-information"></a>Implementatiegegevens van licenties ophalen
 
@@ -29,17 +29,17 @@ Referenties zoals beschreven in [Partner Center verificatie](partner-center-auth
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="uri-parameters"></a>URI-parameters
 
 | Parameter         | Type     | Beschrijving | Vereist |
 |-------------------|----------|-------------|----------|
-| top               | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10.000. Als er meer rijen in de query staan, bevat de hoofdpagina van het antwoord een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. | Nee |
-| skip              | int      | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om grote gegevenssets te bekijken. Top=10000 en skip=0 haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, top=10000 en skip=10000 haalt de volgende 10000 rijen met gegevens op, bijvoorbeeld. | Nee |
-| filter            | tekenreeks   | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies `eq` kunnen worden gecombineerd met of `ne` `and` `or` . Hier volgen enkele *voorbeeldfilterparameters:*<br/><br/> *filter=serviceCode eq 'O365'*<br/> *filter=serviceCode eq 'O365'* of (*kanaal eq 'Reseller'*)<br/><br/> U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**  | Nee |
-| groupby           | tekenreeks   | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**<br/><br/> De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de *groupby-parameter* en het volgende:<br/><br/>**licenties Geïmplementeerd**<br/>**licentiesVerkocht**  | Nee |
-| processedDateTime | DateTime | U kunt de datum opgeven vanaf welke gebruiksgegevens zijn verwerkt. De standaardwaarde is de laatste datum waarop de gegevens zijn verwerkt | Nee |
+| top               | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10.000. Als er meer rijen in de query staan, bevat de hoofdpagina van het antwoord een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. | No |
+| skip              | int      | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om grote gegevenssets te bekijken. Top=10000 en skip=0 haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, top=10000 en skip=10000 haalt de volgende 10000 rijen met gegevens op, bijvoorbeeld. | No |
+| filter            | tekenreeks   | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies `eq` kunnen worden gecombineerd met of `ne` `and` `or` . Hier volgen enkele *voorbeeldfilterparameters:*<br/><br/> *filter=serviceCode eq 'O365'*<br/> *filter=serviceCode eq 'O365'* of (*kanaal eq 'Reseller'*)<br/><br/> U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**  | No |
+| groupby           | tekenreeks   | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**<br/><br/> De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de *groupby-parameter* en het volgende:<br/><br/>**licenties Geïmplementeerd**<br/>**licentiesVerkocht**  | No |
+| processedDateTime | DateTime | U kunt de datum opgeven vanaf welke gebruiksgegevens zijn verwerkt. De standaardwaarde is de laatste datum waarop de gegevens zijn verwerkt | No |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -57,7 +57,7 @@ Host: api.partnercenter.microsoft.com
 
 Als dit lukt, bevat de antwoord-body de volgende velden met gegevens over de geïmplementeerde licenties.
 
-| Veld             | Type     | Beschrijving                           |
+| Veld             | Type     | Description                           |
 |-------------------|----------|---------------------------------------|
 | serviceCode       | tekenreeks   | Servicecode                          |
 | Servicenaam       | tekenreeks   | Servicenaam                          |
@@ -72,7 +72,7 @@ Als dit lukt, bevat de antwoord-body de volgende velden met gegevens over de ge�
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

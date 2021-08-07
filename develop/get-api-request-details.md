@@ -6,12 +6,12 @@ ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 9a367f912669114969f8792a5afcc7020af1112e
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 395b21dde2790739d35e6047fbeaa7477cad50f4d1af9b12ad0b632742d71583
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760501"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990814"
 ---
 # <a name="get-app-and-user-api-requests"></a>App- en gebruikers-API-aanvragen downloaden
 
@@ -20,11 +20,11 @@ ms.locfileid: "111760501"
 In dit artikel wordt uitgelegd hoe u een lijst met alle aanvragen van partnergebruikers binnen een tenant kunt verkrijgen met behulp van REST API's.
 
  > [!NOTE]
- > Deze API retourneert alleen de meest recente API-aanvragen die zijn gedaan door APP + Gebruikersreferenties met een limiet van maximaal 10.000.
+ > Deze API retourneert alleen de meest recente API-aanvragen van APP + Gebruikersreferenties met een limiet van maximaal 10.000.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -57,7 +57,7 @@ Als dit lukt, retourneert deze methode een verzameling resources met details van
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

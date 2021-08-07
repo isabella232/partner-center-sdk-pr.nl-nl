@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e05248b16b803529258de806c25b117f3104ad2a
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: e0b3a45c8cf63334ac53e673fbe88734d3692dfca00c5fe8458695cc28c34f64
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446323"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990508"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>Klanten van een indirecte reseller ophalen
 
@@ -19,19 +19,19 @@ Een lijst met de klanten van een indirecte reseller op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 - De tenant-id van de indirecte reseller.
 
 ## <a name="c"></a>C\#
 
-Als u een verzameling klanten wilt ophalen die een relatie hebben met de opgegeven indirecte reseller, maakt u eerst een [**SimpleFieldFilter-object**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) om het filter te maken. U moet het enumeration-lid [**CustomerSearchField.IndirectReseller**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield) doorgeven dat is geconverteerd naar een tekenreeks en [**FieldFilterOperation.StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) aangeven als het type filterbewerking. U moet ook de tenant-id van de indirecte reseller verstrekken om op te filteren.
+Als u een verzameling klanten wilt ophalen die een relatie hebben met de opgegeven indirecte reseller, moet u eerst een [**SimpleFieldFilter-object**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) maken om het filter te maken. U moet het enumeration-lid [**CustomerSearchField.IndirectReseller**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield) doorgeven dat is geconverteerd naar een tekenreeks en [**FieldFilterOperation.StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) aangeven als het type filterbewerking. U moet ook de tenant-id van de indirecte reseller verstrekken om op te filteren.
 
-Maak vervolgens een [**iQuery-object**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) om door te geven aan de query door de [**methode BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) aan te roepen en dit door te geven aan het filter. BuildSimplyQuery is slechts een van de querytypen die worden ondersteund door de [**klasse QueryFactory.**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)
+Maak vervolgens een [**iQuery-object**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) om door te geven aan de query door de [**methode BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) aan te roepen en dit door te geven aan het filter. BuildSimplyQuery is slechts een van de querytypen die wordt ondersteund door de [**klasse QueryFactory.**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)
 
-Als u het filter wilt uitvoeren en het resultaat wilt krijgen, gebruikt u [**eerst IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een interface te krijgen met de klantactiviteiten van de partner. Roep vervolgens de [**methode Query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) of [**QueryAsync aan.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)
+Als u het filter wilt uitvoeren en het resultaat wilt krijgen, gebruikt u [**eerst IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) om een interface te krijgen met de klantbewerkingen van de partner. Roep vervolgens de [**methode Query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) of [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) aan.
 
-Als u een enumerator wilt maken voor het doorkruisen van paginaresultaten, moet u de enumerator-factory-interface [](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)van de klantenverzameling ophalen uit de eigenschap [**IAggregatePartner.Enumerators.Customers**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumeratorcontainer.customers) en vervolgens Maken aanroepen, zoals wordt weergegeven in de onderstaande code, en de variabele doorgeven die de klantverzameling bevat.
+Als u een enumerator wilt maken voor het doorkruisen van paginaresultaten, moet u de enumerator factory-interface [](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)van de klantverzameling ophalen uit de eigenschap [**IAggregatePartner.Enumerators.Customers**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumeratorcontainer.customers) en vervolgens Maken aanroepen, zoals wordt weergegeven in de onderstaande code, en de variabele doorgeven die de klantverzameling bevat.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -66,7 +66,7 @@ while (customersEnumerator.HasValue)
 }
 ```
 
-**Voorbeeld**: [Consoletest-app](console-test-app.md)**Project**: Partnercentrum-SDK Samples **Class:** GetCustomersOfIndirectReseller.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md)**Project**: Partnercentrum-SDK Samples **Class:** GetCustomersOfIndirectReseller.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -82,8 +82,8 @@ Gebruik de volgende queryparameters om de aanvraag te maken.
 
 | Naam   | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| grootte   | int    | Nee       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel.                                                                                                                                                                                                                |
-| filter | filter | Ja      | De query die de zoekopdracht filtert. Als u klanten wilt ophalen voor een opgegeven indirecte reseller, moet u de indirecte reseller-id invoegen en de volgende tekenreeks opnemen en coderen: {"Field":"IndirectReseller","Value":"{indirect reseller identifier}","Operator":"begint \_ met"}. |
+| grootte   | int    | No       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel.                                                                                                                                                                                                                |
+| filter | filter | Yes      | De query die de zoekopdracht filtert. Als u klanten wilt ophalen voor een opgegeven indirecte reseller, moet u de indirecte reseller-id invoegen en de volgende tekenreeks opnemen en coderen: {"Field":"IndirectReseller","Value":"{indirect reseller identifier}","Operator":"starts \_ with"}. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -123,7 +123,7 @@ Als dit lukt, bevat de antwoord-body informatie over de klanten van de reseller.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

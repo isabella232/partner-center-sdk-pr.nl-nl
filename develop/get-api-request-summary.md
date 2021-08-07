@@ -6,12 +6,12 @@ ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 9b8848c2a4531dd6609f86aae6876cec436eeea9
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: e4b55122a6f723d8a877c2688c425fda52cb1c56110c47ee81ddce24e4923e99
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760518"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992531"
 ---
 # <a name="get-mfa-adoption-status"></a>MFA-acceptatiestatus krijgen
 
@@ -21,7 +21,7 @@ In dit artikel wordt uitgelegd hoe u de MFA-acceptatiestatus (Multi-Factor Authe
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 

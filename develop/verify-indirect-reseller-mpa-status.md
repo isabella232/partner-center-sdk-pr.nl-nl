@@ -4,12 +4,12 @@ description: U kunt de AgreementStatus-API gebruiken om te controleren of een in
 ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f83acc61624a72354c390905b1250bc021dd39aa
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 517c99356a4b623b5b46bc3d33f2355cd569f97326e7d9596cff551329d10da7
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111529831"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989845"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>De handtekeningstatus van een indirecte reseller Microsoft Partner-overeenkomst controleren
 
@@ -19,7 +19,7 @@ U kunt controleren of een indirecte reseller de Microsoft Partner-overeenkomst h
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
 - De MPN-id (PGA/PLA) of de CSP-tenant-id (Microsoft-id) van de indirecte reseller. *U moet een van deze twee id's gebruiken.*
 
@@ -57,8 +57,8 @@ U moet een van de volgende twee queryparameters opgeven om de partner te identif
 
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | int | Nee | Een Microsoft Partner Network-id (PGA/PLA) die de indirecte reseller identificeert. |
-| **Tenant-ID** | GUID | Nee | Een Microsoft-id die het CSP-account van de indirecte reseller identificeert. |
+| **MpnId** | int | No | Een Microsoft Partner Network-id (PGA/PLA) die de indirecte reseller identificeert. |
+| **Tenant-ID** | GUID | No | Een Microsoft-id die het CSP-account van de indirecte reseller identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -169,7 +169,7 @@ Connection: close
 
 #### <a name="no-mpn-id-or-csp-tenant-id"></a>Geen MPN-id of CSP-tenant-id
 
-Het volgende voorbeeld van een antwoord wordt geretourneerd wanneer u geen MPN-id (PGA/PLA) of CSP-tenant-id aan de API hebt doorgegeven. U moet een van de twee id-typen doorgeven aan de API.
+Het volgende voorbeeld van een antwoord wordt geretourneerd wanneer u geen MPN-id (PGA/PLA) of CSP-tenant-id hebt doorgegeven aan de API. U moet een van de twee id-typen doorgeven aan de API.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -237,7 +237,7 @@ Connection: close
 
 #### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>CSP Indirect Provider regio en CSP Indirect Reseller komen niet overeen
 
-Het volgende voorbeeld antwoord wordt geretourneerd wanneer de regio van de indirecte reseller MPN ID (PGA/PLA) komt niet overeen met de regio van de indirecte provider. [Meer informatie over](/partner-center/mpa-indirect-provider-faq) CSP-regio's.
+Het volgende voorbeeld antwoord wordt geretourneerd wanneer de regio van indirecte reseller MPN ID (PGA/PLA) komt niet overeen met de regio van de indirecte provider. [Meer informatie over](/partner-center/mpa-indirect-provider-faq) CSP-regio's.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -283,7 +283,7 @@ Connection: close
 }
 ```
 
-#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Er CSP Indirect Reseller account gekoppeld aan de opgegeven MPN-id
+#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Er CSP Indirect Reseller aan de opgegeven MPN-id geen account gekoppeld
 
 Het volgende voorbeeld wordt geretourneerd wanneer Partner Center de MPN-id (PGA/PLA) kan herkennen die is doorgegeven in de aanvraag, maar er geen CSP-inschrijving is gekoppeld aan de opgegeven MPN-id (PGA/PLA). [Meer informatie](/partner-center/mpa-indirect-provider-faq)
 

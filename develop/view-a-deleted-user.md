@@ -4,12 +4,12 @@ description: Haalt een lijst met verwijderde CustomerUser-resources voor een kla
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f4fec958a9a6bb580d35de1cf3007e1db3b2b650
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 2f7e94d5e360075378e1895e586690597baaf66237f0b93bb526baee0c5d84ae
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445303"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989811"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>Verwijderde gebruikers voor een klant weergeven
 
@@ -59,9 +59,9 @@ Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id | guid   | Ja      | De waarde is een in GUID opgemaakte klant-id die de klant identificeert.                                                                                                            |
-| grootte        | int    | Nee       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel.                                                                                                     |
-| filter      | filter | Ja      | De query die de zoekopdracht van de gebruiker filtert. Als u verwijderde gebruikers wilt ophalen, moet u de volgende tekenreeks opnemen en coderen: {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
+| customer-id | guid   | Yes      | De waarde is een in GUID opgemaakte klant-id die de klant identificeert.                                                                                                            |
+| grootte        | int    | No       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel.                                                                                                     |
+| filter      | filter | Yes      | De query die de zoekopdracht van de gebruiker filtert. Als u verwijderde gebruikers wilt ophalen, moet u de volgende tekenreeks opnemen en coderen: {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

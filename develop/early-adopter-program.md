@@ -4,12 +4,12 @@ description: Partners kunnen samenwerken met Microsoft aan de ontwikkeling van p
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8bb46a84aaab41b8e65376ce580a40ce4bc1d188
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 4d921e2f5be604dff1354c162acb90f6c8636c671d7c267d38157b8a8e42c5a1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906378"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989454"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>Aanmelden voor het Early Adopter-programma voor API en SDK van Partnercentrum
 
@@ -21,15 +21,15 @@ Partners kunnen samenwerken met Microsoft aan de ontwikkeling van Partner Center
 
 De volgende functies zijn beschikbaar voor partners die deelnemen aan de Partner Center API en SDK Early Adopter Program:
 
-- Toegang tot voorlopige versies van de Partner Center-API's en **SDK:** we kondigen nieuwe functies en mogelijkheden aan voor de Yammer-groep van het Partner Center Early Adopter Program.
+- Toegang tot voorlopige versies van de Partner Center-API's en **SDK:** we kondigen nieuwe functies en mogelijkheden aan voor de Partner Center Early Adopter Program-Yammer private.
 
-- **Maandelijkse webinars:** er wordt een maandelijkse webinar voor vroege gebruikers uitgevoerd om vragen te beantwoorden, feedback te verzamelen, planningen en tijdlijnen te delen en ondersteuning te bieden voor nieuwe functies.
+- **Maandelijkse webinars:** een maandelijkse webinar voor vroege gebruikers wordt uitgevoerd om vragen te beantwoorden, feedback te verzamelen, planningen en tijdlijnen te delen en ondersteuning te bieden voor nieuwe functies.
 
 - **Ondersteuning van deskundigen: deelnemers** kunnen feedback geven en communiceren met deskundigen (SME's) in de Yammer privégroep.
 
 ## <a name="join-the-program"></a>Deelnemen aan het programma
 
-U moet een bestaande **CSP-partner** of een **goedgekeurde platformleverancier zijn om** deel te nemen aan het programma.
+U moet een bestaande **CSP-partner of** een **goedgekeurde platformleverancier zijn om** deel te nemen aan het programma.
 
 1. **Word lid Yammer groep Partner Center** Early [Adopter Program](https://www.yammer.com/cloudpartnercommunity/#/threads/inGroup?type=in_group&feedId=5944712&view=all). Het duurt even om uw toepassing te controleren. We sturen u een e-mail wanneer u bent goedgekeurd om lid te worden van de groep.
 
@@ -39,9 +39,9 @@ U moet een bestaande **CSP-partner** of een **goedgekeurde platformleverancier z
 2. **Een e-mail verzenden naar [pctap@microsoft.com](mailto:pctap@microsoft.com)** met uw Microsoft-id of uw TiP-sandboxaccount (Testing in Production) en uw primaire domein.
 
    > [!TIP]
-   > U vindt uw Microsoft-id op de **pagina Organisatieprofiel** in het **Instellingen** Account.
+   > U vindt uw Microsoft-id op de **pagina Organisatieprofiel** in het **menu Instellingen** account.
 
-3. **Neem deel aan** het programma door nieuwe functies vroegtijdig te testen, contact op te nemen met Microsoft en feedback te geven. Wees betrokken bij anderen in de early adopter community.
+3. **Neem actief deel** aan het programma door nieuwe functies vroegtijdig te testen, contact op te nemen met Microsoft en feedback te geven. Wees betrokken bij anderen in de early adopter community.
 
    > [!IMPORTANT]
    > Microsoft behoudt zich het recht voor om inactieve partners uit het programma te verwijderen.

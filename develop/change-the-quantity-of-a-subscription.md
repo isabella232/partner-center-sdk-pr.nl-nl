@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik Partner Center API's om het aantal
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d57ece4dd19ef2852f39130916222c54a9ccc85a
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: f13f4c73e085d2bf323a4260674d0dfa50631b692340a99bb67925a6480d044c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974094"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992140"
 ---
 # <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Het aantal licenties in een klantabonnement wijzigen
 
@@ -17,7 +17,7 @@ ms.locfileid: "111974094"
 
 Werkt een [abonnement bij](subscription-resources.md) om het aantal licenties te verhogen of te verlagen.
 
-In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement in kwestie dat u de naam wilt geven. Als u wilt voltooien, wijzigt u de waarde in **het veld Hoeveelheid** en selecteert u vervolgens **Verzenden.**
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement in kwestie dat u een andere naam wilt geven. Als u wilt voltooien, wijzigt u de waarde in **het veld Hoeveelheid** en selecteert u vervolgens **Verzenden.**
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een 
 
 ## <a name="c"></a>C\#
 
-Als u de hoeveelheid van het abonnement van een klant wilt wijzigen, moet u eerst [het](get-a-subscription-by-id.md)abonnement op halen en vervolgens de eigenschap Hoeveelheid van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) wijzigen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen aan,**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
+Als u de hoeveelheid van het abonnement van een klant wilt wijzigen, moet u eerst het abonnement op [halen](get-a-subscription-by-id.md)en vervolgens de eigenschap Quantity van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) wijzigen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de **methode Patch()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,7 +46,7 @@ selectedSubscription.Quantity++;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -67,11 +67,11 @@ Deze tabel bevat de vereiste queryparameter om de hoeveelheid van het abonnement
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Een volledige **abonnementsresource** is vereist in de aanvraag. Zorg ervoor dat **de eigenschap Quantity** is bijgewerkt.
+Een volledige **abonnementsresource** is vereist in de aanvraag body. Zorg ervoor dat **de eigenschap Quantity** is bijgewerkt.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -110,11 +110,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een **HTTP-status 200-statuscode** en bijgewerkte eigenschappen van abonnementsresources in de antwoord-body. [](subscription-resources.md)
+Als dit lukt, retourneert deze methode een **HTTP-statuscode 200** en [bijgewerkte](subscription-resources.md)  eigenschappen van abonnementsresources in de antwoord-body.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord retourneert een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om de statuscode, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord retourneert een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om de statuscode, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 Wanneer de patchbewerking langer duurt dan de verwachte tijd, verzendt de Partner Center een **HTTP-statuscode 202** en een locatieheader die wijst naar waar het abonnement moet worden opgehaald. U kunt periodiek een query uitvoeren op het abonnement om de status- en hoeveelheidswijzigingen te controleren.
 
@@ -122,7 +122,7 @@ Wanneer de patchbewerking langer duurt dan de verwachte tijd, verzendt de Partne
 
 #### <a name="response-example-1"></a>Antwoordvoorbeeld 1
 
-Geslaagde aanvraag met **een HTTP-statuscode 200:**
+Geslaagde aanvraag met een **HTTP-statuscode 200:**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1

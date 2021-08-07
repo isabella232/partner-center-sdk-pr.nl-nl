@@ -1,15 +1,15 @@
 ---
 title: Een overdracht van abonnementen accepteren
-description: Meer informatie over het gebruik van Partner Center REST API om een overdracht van abonnementen voor een klant te accepteren. Bevat REST-aanvraagsyntaxis, headers en REST-antwoorden.
+description: Leer hoe u de Partner Center REST API om een overdracht van abonnementen voor een klant te accepteren. Bevat REST-aanvraagsyntaxis, headers en REST-antwoorden.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 762f2106d6173e352bec11936c96bc3a9c9f89cb
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: c56979e407e472b6ea1a50b3acec675f0cd8831eb1d398e02e81518286b5a250
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025748"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990559"
 ---
 # <a name="accept-a-transfer-of-subscriptions-for-a-customer-using-partner-center-rest-apis"></a>Een overdracht van abonnementen voor een klant accepteren met behulp van Partner Center REST API's
 
@@ -37,12 +37,12 @@ Gebruik de volgende padparameter om de klant te identificeren en geef de overdra
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
-| **transfer-id** | tekenreeks   | Ja      | Een met GUID opgemaakte overdrachts-id die de overdracht identificeert.             |
+| **customer-id** | tekenreeks   | Yes      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
+| **transfer-id** | tekenreeks   | Yes      | Een met GUID opgemaakte overdrachts-id die de overdracht identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -65,7 +65,7 @@ Als dit lukt, retourneert deze methode de ingevulde [resource TransferSubmitResu
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

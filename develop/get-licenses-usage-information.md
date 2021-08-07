@@ -4,12 +4,12 @@ description: Informatie over het gebruik van licenties op workloadniveau voor Of
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ea3658089ce7eb5c1ad7cc65c3db34f9b6353cdd
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: a93c59c8c2a4c82ad7f3e81e814386e1ac0c046c3b0bada80eaaac40d9179d93
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445971"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990423"
 ---
 # <a name="get-licenses-usage-information"></a>Gebruiksgegevens van licenties ophalen
 
@@ -17,7 +17,7 @@ Informatie over het gebruik van licenties op workloadniveau voor Office en Dynam
 
 ## <a name="prerequisites"></a>Vereisten
 
-Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -29,17 +29,17 @@ Referenties zoals beschreven in [Partner Center verificatie.](partner-center-aut
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="uri-parameters"></a>URI-parameters
 
 | Parameter         | Type     | Beschrijving | Vereist |
 |-------------------|----------|-------------|----------|
-| top               | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10000. Als er meer rijen in de query staan, bevat de antwoord-body een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. | Nee |
-| skip              | int      | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om door grote gegevenssets te gaan. Top=10000 en skip=0 haalt bijvoorbeeld de eerste 10.000 rijen met gegevens op, top=10000 en skip=10000 haalt de volgende 10000 rijen met gegevens op, bijvoorbeeld. | Nee |
-| filter            | tekenreeks   | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies **`eq`** kunnen worden gecombineerd met behulp van of **`ne`** **`and`** **`or`** . Hier volgen enkele *voorbeeldfilterparameters:*<br/><br/>*filter=workloadCode eq 'SFB'*<br/><br/>*filter=workloadCode eq 'SFB'* of (*kanaal eq 'Reseller'*)<br/><br/>U kunt de volgende velden opgeven:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam** | Nee |
-| groupby           | tekenreeks   | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Servicenaam**<br/>**channelcustomerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**<br/><br/>De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de *groupby-parameter* en het volgende:<br/><br/>**licensesActive**<br/>**licensesQualified** | Nee |
-| processedDateTime | DateTime | U kunt de datum opgeven vanaf welke gebruiksgegevens zijn verwerkt. De standaardwaarde is de laatste datum waarop de gegevens zijn verwerkt | Nee |
+| top               | tekenreeks   | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10.000. Als er meer rijen in de query staan, bevat de hoofdpagina van het antwoord een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. | No |
+| skip              | int      | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om grote gegevenssets te bekijken. Top=10000 en skip=0 haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, top=10000 en skip=10000 haalt de volgende 10000 rijen met gegevens op, bijvoorbeeld. | No |
+| filter            | tekenreeks   | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies **`eq`** kunnen worden gecombineerd met of **`ne`** **`and`** **`or`** . Hier volgen enkele *voorbeeldfilterparameters:*<br/><br/>*filter=workloadCode eq 'SFB'*<br/><br/>*filter=workloadCode eq 'SFB'* of (*kanaal eq 'Reseller'*)<br/><br/>U kunt de volgende velden opgeven:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Servicenaam**<br/>**Kanaal**<br/>**customerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam** | No |
+| groupby           | tekenreeks   | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Servicenaam**<br/>**channelcustomerTenantId**<br/>**customerName**<br/>**Productid**<br/>**Productnaam**<br/><br/>De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de parameter *groupby* en het volgende:<br/><br/>**licensesActive**<br/>**licensesQualified** | No |
+| processedDateTime | DateTime | U kunt de datum opgeven vanaf welke gebruiksgegevens zijn verwerkt. De standaardwaarde is de laatste datum waarop de gegevens zijn verwerkt | No |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -57,7 +57,7 @@ Host: api.partnercenter.microsoft.com
 
 Als dit lukt, bevat de antwoord-body de volgende velden met gegevens over het gebruik van licenties.
 
-| Veld             | Type     | Beschrijving                                   |
+| Veld             | Type     | Description                                   |
 |-------------------|----------|-----------------------------------------------|
 | workloadCode      | tekenreeks   | Workloadcode                                 |
 | workloadName      | tekenreeks   | Workloadnaam                                 |

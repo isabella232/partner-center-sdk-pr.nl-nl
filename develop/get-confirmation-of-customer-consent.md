@@ -1,17 +1,17 @@
 ---
 title: Bevestiging van acceptatie door de klant van Microsoft Cloud-overeenkomst ophalen
-description: In dit artikel wordt uitgelegd hoe u bevestiging krijgt van de klantacceptatie van de Microsoft Cloud-overeenkomst.
+description: In dit artikel wordt uitgelegd hoe u bevestiging krijgt van de acceptatie van de Microsoft Cloud-overeenkomst.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 aauthor: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: 1b1a8cbacb667e579bcd218a29c3f553afce26c2
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: eb1f9ec5a7e96984f9c458419268fb305cf13ffd44d92fd01823ad94c2fb1798
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549260"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990797"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Bevestiging van acceptatie door de klant van Microsoft Cloud-overeenkomst ophalen
 
@@ -35,9 +35,9 @@ De **overeenkomstresource** wordt momenteel alleen ondersteund door Partner Cent
 
 Bevestiging(en) ophalen van de klantacceptatie die eerder is opgegeven:
 
-- Gebruik de **verzameling IAggregatePartner.Customers en** roep de **methode ById** aan met de opgegeven klant-id.
+- Gebruik de **verzameling IAggregatePartner.Customers** en roep de **methode ById aan** met de opgegeven klant-id.
 
-- Haal de **eigenschap Agreements** op en filter de resultaten naar Microsoft Cloud-overeenkomst door de **methode ByAgreementType aan te** roepen.
+- Haal de **eigenschap Agreements** op en filter de resultaten naar Microsoft Cloud-overeenkomst **byAgreementType-methode aan te** roepen.
 
 - Roep **de methode Get** of **GetAsync aan.**
 

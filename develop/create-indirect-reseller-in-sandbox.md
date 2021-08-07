@@ -1,22 +1,22 @@
 ---
-title: Indirecte reseller maken in Sandbox
+title: Indirecte reseller maken in sandbox
 description: Biedt informatie voor indirecte sandboxproviders over het inschakelen van end-to-end testen met behulp van API's.
 ms.date: 5/24/2021
 ms.author: vijvala
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93e26792b66e447a0047bd550f4302c7fca4e87b
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 970b7ba49f6bb4b842f0f7d96e689856b0362c03949e14c9cf5a0e205573277b
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973431"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991443"
 ---
-# <a name="create-indirect-reseller-in-sandbox"></a>Indirecte reseller maken in Sandbox
+# <a name="create-indirect-reseller-in-sandbox"></a>Indirecte reseller maken in sandbox
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland
 
-In dit document ziet u hoe u indirecte sandboxproviders maakt en end-to-end-tests inschakelen met behulp van API's.
+In dit document ziet u hoe u indirecte Sandbox-providers maakt en end-to-end testen met API's inschakelen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,13 +28,13 @@ In dit document ziet u hoe u indirecte sandboxproviders maakt en end-to-end-test
 |-------------------------------------|-------------------------------------------------|
 | Verkoopt via de indirecte reseller aan de eindklant | Ondersteund |
 | Is eigenaar van alle verkopen, facturering, inrichting en beheer/ondersteuning | Ondersteund |
-| Een samenwerking met de wederverkopers aanvragen | Ondersteund |
+| Een samenwerking met de resellers aanvragen | Ondersteund |
 | Klanten weergeven per reseller | Ondersteund |
 | Nieuwe klanten toevoegen per reseller | Ondersteund |
 | Klanten uitnodigen | Aanvraag voor klantrelatie wordt niet ondersteund in Sandbox |
-| Indirecte sandboxprovider kan sandbox-IR (MPN-id) selecteren als DEEMAN tijdens het plaatsen van de transactie | Ondersteund |
+| Indirecte sandboxprovider kan sandbox-IR (MPN-id) selecteren als DEEED tijdens het plaatsen van de transactie | Ondersteund |
 | Niet ondersteund in productie | Indirecte sandboxprovider kan indirecte sandbox-reseller maken |
-| MpN-id voor sandbox moet worden ingevoerd. De MPN-id van het product werkt niet | Niet ondersteund in productie |
+| MpN-id van sandbox moet worden ingevoerd. De MPN-id van het product werkt niet | Niet ondersteund in productie |
 | Niet ondersteund in productie | Indirecte sandboxprovider kan indirecte sandbox-reseller verwijderen |
 
 ## <a name="sandbox-indirect-provider--create-sandbox-indirect-reseller"></a>Indirecte sandboxprovider : indirecte sandbox-reseller maken
@@ -42,13 +42,13 @@ In dit document ziet u hoe u indirecte sandboxproviders maakt en end-to-end-test
 Deze functie is alleen beschikbaar in de sandbox en biedt indirecte sandboxproviders de mogelijkheid om indirecte sandbox-resellers te maken.
 
 1. Limiet van vijf indirecte sandbox-resellers die zijn toegestaan per indirecte sandboxprovider
-2. Indirecte sandboxproviders kunnen klanten maken met `associatedPartnerId` van indirecte Sandbox-reseller
-3. Voer de [MPN-id](/partner-center/mpn-create-a-partner-center-account) van een specifieke regio in tijdens het maken van een indirecte sandbox-reseller. Er kunnen meerdere indirecte sandbox-resellers worden gemaakt met dezelfde MPN-id voor sandboxs.
+2. Indirecte sandboxproviders kunnen klanten maken met `associatedPartnerId` een indirecte sandbox-reseller
+3. Voer de [MPN-id](/partner-center/mpn-create-a-partner-center-account) van een specifieke regio in tijdens het maken van een indirecte sandbox-reseller. Meerdere indirecte sandbox-resellers kunnen worden gemaakt met dezelfde SANDBOX MPN-id.
 4. Slechts 75 klanten zijn toegestaan per indirecte sandboxprovider
 
 ## <a name="sandbox-indirect-resellers--view-customers"></a>Indirecte sandbox-resellers : klanten weergeven
 
-1. Indirecte sandbox-resellers kunnen de lijst met sandbox-klanten weergeven op indirecte Sandbox-providers.
+1. Indirecte sandbox-resellers kunnen de lijst met sandbox-klanten weergeven op indirecte sandbox-providers.
 2. Indirecte resellers in sandbox kunnen het klantaccount beheren met behulp van gedelegeerde beheerdersmachtigingen.
 
 ## <a name="create-sandbox-indirect-reseller-through-api"></a>Indirecte sandbox-reseller maken via API
@@ -63,15 +63,15 @@ Deze functie is alleen beschikbaar in de sandbox en biedt indirecte sandboxprovi
 
 #### <a name="request-headers"></a>Aanvraagheaders
 
-- Deze API is idempotent (deze levert geen ander resultaat op als u deze meerdere keren aanroept).
+- Deze API is idempotent (het levert geen ander resultaat op als u deze meerdere keren aanroept).
 - Een aanvraag-id en correlatie-id zijn vereist.
-- Zie REST-headers Partner Center [meer informatie.](headers.md)
+- Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 #### <a name="request-body"></a>Aanvraagbody
 
 In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
-| Eigenschap             | Type           | Beschrijving                                      |
+| Eigenschap             | Type           | Description                                      |
 |----------------------|----------------|--------------------------------------------------|
 | mpnId                | tekenreeks         | De MPN-id voor de IR in een specifieke regio         |
 | tenant               | &lt;Woordenlijstreeks, tekenreeks&gt; | Verzameling basisinformatie die een account definieert dat moet worden gemaakt |
@@ -80,7 +80,7 @@ In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
 In deze tabel worden de vereiste eigenschappen in het **tenantkenmerk** beschreven.
 
-| Eigenschap           | Type           | Beschrijving                         |
+| Eigenschap           | Type           | Description                         |
 |--------------------|----------------|-------------------------------------|
 | domainPrefix       | Tekenreeks; Unieke | Domein voor het tenantaccount       |
 | naam               | tekenreeks         | Gebruiksvriendelijke naam van de tenant         |
@@ -88,13 +88,13 @@ In deze tabel worden de vereiste eigenschappen in het **tenantkenmerk** beschrev
 | adminUserName      | tekenreeks         | Gebruikersnaam voor het account voor aanmelding |
 | adminfirstname     | tekenreeks         | Voornaam voor de gebruiker met beheerdersrechten       |
 | adminlastname      | tekenreeks         | Achternaam voor de gebruiker met beheerdersrechten        |
-| adminAlernateEmail | tekenreeks         | e-mailadres voor de gebruiker met beheerdersrechten            |
+| adminAlernateEmail | tekenreeks         | e-mail voor de gebruiker met beheerdersrechten            |
 | country            | tekenreeks         | Land van het account              |
 | Cultuur            | tekenreeks         | Taalvoorkeur voor account     |
 
-In deze tabel worden de vereiste eigenschappen in het **kenmerk legalBusinessProfile** beschreven.
+In deze tabel worden de vereiste eigenschappen in het kenmerk **legalBusinessProfile** beschreven.
 
-| Eigenschap       | Type                             | Beschrijving                          |
+| Eigenschap       | Type                             | Description                          |
 |----------------|----------------------------------|--------------------------------------|
 | companyName    | tekenreeks                           | Bedrijfsnaam voor juridische entiteit        |
 | adres        | &lt;Woordenlijstreeks, tekenreeks&gt; | Adres van de locatie van de juridische entiteit |

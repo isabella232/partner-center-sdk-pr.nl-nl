@@ -1,33 +1,33 @@
 ---
 title: Een lijst met beschikbare licenties per licentiegroep ophalen
-description: Een lijst met licenties op te halen voor de opgegeven licentiegroepen die beschikbaar zijn voor gebruikers van de opgegeven klant.
+description: Informatie over het verkrijgen van een lijst met licenties voor de opgegeven licentiegroepen die beschikbaar zijn voor gebruikers van de opgegeven klant.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: de59dfccf723c8f2411d9dadc51beb88688d5b02
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: fb2beecef8ad4821ad251ee6d532b6b280bd49e110f7e6dde3f39dfe2693d8f5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874513"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991171"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>Een lijst met beschikbare licenties per licentiegroep ophalen
 
-Een lijst met licenties op te halen voor de opgegeven licentiegroepen die beschikbaar zijn voor gebruikers van de opgegeven klant.
+Informatie over het verkrijgen van een lijst met licenties voor de opgegeven licentiegroepen die beschikbaar zijn voor gebruikers van de opgegeven klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een lijst met een of meer licentiegroep-id's.
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met beschikbare licenties voor de opgegeven licentiegroepen wilt krijgen, begint u met het instantiëren van een lijst van het type [**LicenseGroupId**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)en voegt u vervolgens de licentiegroepen toe aan de lijst. [](/dotnet/api/system.collections.generic.list-1) Gebruik vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens de waarde van de eigenschap [**SubscribedSkus**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) op om een interface op te halen voor bewerkingen van de SKU-verzameling die door de klant zijn geabonneerd. Geef ten slotte de lijst met licentiegroepen door aan de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) om de lijst met geabonneerde SKU's op te halen met details over beschikbare licentie-eenheden.
+Voor een lijst met beschikbare licenties voor de opgegeven licentiegroepen [](/dotnet/api/system.collections.generic.list-1) begint u met het instantiëren van een lijst van het type [**LicenseGroupId**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)en voegt u vervolgens de licentiegroepen toe aan de lijst. Gebruik vervolgens de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens de waarde van de eigenschap [**SubscribedSkus**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) op om een interface op te halen voor door de klant geabonneerde SKU-verzamelingsbewerkingen. Geef ten slotte de lijst met licentiegroepen door aan de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) om de lijst met geabonneerde SKU's op te halen met details over beschikbare licentie-eenheden.
 
 ``` csharp
 // string selectedCustomerId;
@@ -62,8 +62,8 @@ Gebruik het volgende pad en de queryparameters om de klant en de licentiegroepen
 
 | Naam            | Type   | Vereist | Beschrijving                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.                                                                                                                                                                                                                 |
-| licenseGroupIds | tekenreeks | No       | Een enum-waarde die de licentiegroep van de toegewezen licenties aangeeft. Geldige waarden: Group1, Group2 Group1: deze groep heeft alle producten waarvan de licentie kan worden beheerd in de Azure Active Directory (AAD). Group2: deze groep heeft alleen Minecraft productlicenties. |
+| customer-id     | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.                                                                                                                                                                                                                 |
+| licenseGroupIds | tekenreeks | No       | Een enumwaarde die de licentiegroep van de toegewezen licenties aangeeft. Geldige waarden: Group1, Group2 Group1: deze groep heeft alle producten waarvan de licentie kan worden beheerd in de Azure Active Directory (AAD). Group2: deze groep heeft alleen Minecraft productlicenties. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -91,7 +91,7 @@ Als dit lukt, bevat de antwoord-body een verzameling [SubscribedSku-resources.](
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

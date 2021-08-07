@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vinayks-ms
 ms.author: vinayks
-ms.openlocfilehash: da35dadd4e13247e923259a1cf3a67852f4b9e00
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 07608fb5f2d2a3ffc418188e0ac1ff367e3c5691aa241554a4a954de8c4f2005
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445898"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990671"
 ---
 # <a name="csp-indirect-provider-sandbox-capabilities-for-creating-indirect-reseller-accounts"></a>Sandbox-mogelijkheden van indirecte CSP-provider voor het maken van indirecte reselleraccounts 
 
@@ -27,7 +27,7 @@ Partner Center sandboxreferenties voor indirecte provider (laag 2). Het sandboxs
 
 ## <a name="sandbox-indirect-provider--create-sandbox-indirect-reseller-using-the-partner-center-user-interface"></a>Indirecte sandboxprovider: indirecte sandbox-reseller maken met behulp van Partner Center gebruikersinterface 
 
- Dit is een sandbox-functie waarmee indirecte sandboxproviders via de portal een sandbox-account voor indirecte resellers Partner Center maken.
+ Dit is een functie alleen voor sandbox waarmee indirecte sandboxproviders via de portal van Partner Center sandbox een sandbox-account voor indirecte resellers kunnen maken.
 
 De volgende scenario's zijn wat indirecte providers kunnen doen voor indirecte resellers in Sandbox via Partner Center gebruikersinterface: 
 
@@ -40,7 +40,7 @@ De volgende scenario's zijn wat indirecte providers kunnen doen voor indirecte r
  
 1. Indirecte CSP-providers kunnen een CSP Indirect Reseller Sandbox-account verwijderen via hun eigen Sandbox-account op laag 2 in Partner Center portal.
 
-    a.  Wanneer de indirecte sandboxprovider de relatie met de indirecte sandbox-reseller verwijdert, controleert u of de indirecte reseller een andere relatie heeft met andere providers. Als dat het zo is, wordt alleen de relatie met die specifieke indirecte provider verwijderd.
+    a.  Wanneer de indirecte sandboxprovider de relatie met de indirecte reseller sandbox verwijdert, controleert u of de indirecte reseller een andere relatie heeft met andere providers. Als dat het zo is, wordt alleen de relatie met die specifieke indirecte provider verwijderd.
 
     c. Als dit de enige relatie voor de indirecte reseller is, wordt de indirecte reseller verwijderd.
 
@@ -76,7 +76,7 @@ De volgende scenario's zijn wat indirecte providers kunnen doen voor indirecte r
 
 5. Zodra het account is gemaakt, krijgt u de globale beheerdersreferenties voor het sandbox-account voor indirecte resellers in de portal. Vergeet niet om het onmiddellijk op te slaan, anders kunt u zich niet aanmelden als een sandbox voor indirecte resellers. 
 
-6. Meld u af en meld u opnieuw aan Partner Center met de nieuwe referenties voor de Sandbox voor indirecte resellers. Verken de mogelijkheden die u als indirecte reseller kunt doen. Dit zijn enkele dingen:  
+6. Meld u af en meld u opnieuw aan Partner Center met de nieuwe referenties voor sandbox voor indirecte resellers. Verken de mogelijkheden die u als indirecte reseller kunt doen. Dit zijn enkele dingen:  
 
     - Profielen beheren  
 

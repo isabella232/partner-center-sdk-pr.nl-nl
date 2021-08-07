@@ -1,17 +1,17 @@
 ---
 title: Alle analysegegevens van abonnementen ophalen
-description: Informatie over het verkrijgen van alle analysegegevens van het abonnement.
+description: Informatie over het verkrijgen van alle analysegegevens voor abonnementen.
 ms.date: 08/02/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: e1f16c92569a02bc51c96a85ecb642fbeb76a9a7
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 5c93f36491851be11c700388201443f2e951122e4129786abc3e064091605b8d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760246"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992599"
 ---
 # <a name="get-all-subscription-analytics-information"></a>Alle analysegegevens van abonnementen ophalen
 
@@ -35,7 +35,7 @@ In dit artikel wordt beschreven hoe u alle analysegegevens voor abonnementen voo
 
 De volgende tabel bevat optionele parameters en de bijbehorende beschrijvingen:
 
-| Parameter | Type |  Beschrijving |
+| Parameter | Type |  Description |
 |-----------|------|--------------|
 | top | int | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. Als de waarde niet is opgegeven, zijn de maximumwaarde en de standaardwaarde `10000` . Als er meer rijen in de query staan, bevat de hoofdpagina van het antwoord een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen. |
 | skip | int | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om grote gegevenssets te bekijken. En haalt bijvoorbeeld de eerste 10000 rijen met gegevens op en haalt de volgende `top=10000` `skip=0` `top=10000` `skip=10000` 10.000 rijen met gegevens op. |
@@ -45,7 +45,7 @@ De volgende tabel bevat optionele parameters en de bijbehorende beschrijvingen:
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

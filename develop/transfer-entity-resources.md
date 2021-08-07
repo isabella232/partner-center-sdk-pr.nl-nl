@@ -4,12 +4,12 @@ description: Een partner maakt een overdracht wanneer een klant wil dat het abon
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 544b9682bb0e1428fad088c818a62492198897b2
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 3103c0e9f8e6850336d663a5a38274ce7391e30edd433d08f44071de31b5fc5e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530137"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990202"
 ---
 # <a name="transferentity-resources"></a>TransferEntity-resources
 
@@ -26,7 +26,7 @@ Beschrijft een transferEntity.
 | lastModifiedTime      | DateTime         | De datum waarop de transferEntity voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de transferEntity is gemaakt. |
 | lastModifiedUser      | tekenreeks           | De gebruiker die voor het laatst de transferEntity heeft bijgewerkt. Toegepast bij het maken van transferEntity.                          |
 | customerName          | tekenreeks           | Optioneel. De naam van de klant van wie de abonnementen worden overgedragen.                                              |
-| customerTenantId      | tekenreeks           | Een met GUID opgemaakte klant-id die de klant identificeert. Toegepast wanneer de transferEntity is gemaakt.         |
+| customerTenantId      | tekenreeks           | Een in GUID opgemaakte klant-id die de klant identificeert. Toegepast wanneer de transferEntity is gemaakt.         |
 | partnertenantid       | tekenreeks           | Een partner-id met GUID-indeling die de partner identificeert.                                                                   |
 | sourcePartnerName     | tekenreeks           | Optioneel. De naam van de organisatie van de partner die de overdracht start.                                           |
 | sourcePartnerTenantId | tekenreeks           | Een partner-id met GUID-indeling die de partner identificeert die de overdracht start.                                           |
@@ -56,7 +56,7 @@ Vertegenwoordigt één item in een transferEntity.
 
 Vertegenwoordigt het resultaat van een overdracht accepteren.
 
-| Eigenschap          | Type                                                  | Beschrijving                        |
+| Eigenschap          | Type                                                  | Description                        |
 |-------------------|-------------------------------------------------------|------------------------------------|
 | orders            | Lijst met [orderobjecten.](order-resources.md#order)    | De verzameling orders.          |
 | transferErrors    | Lijst met [TransferError-objecten.](#transfererror)      | De verzameling overdrachtsfouten. |
@@ -65,25 +65,25 @@ Vertegenwoordigt het resultaat van een overdracht accepteren.
 
 Vertegenwoordigt een fout die optreedt wanneer een overdracht wordt geaccepteerd.
 
-| Eigenschap          | Type   | Beschrijving                                     |
+| Eigenschap          | Type   | Description                                     |
 |-------------------|--------|-------------------------------------------------|
-| transferGroupId   | tekenreeks | De ordergroep-id van de bestelling met de fout. |
+| transferGroupId   | tekenreeks | De ordergroep-id van de order met de fout . |
 | code              | int    | De foutcode.                                 |
 | beschrijving       | tekenreeks | De beschrijving van de fout.                   |
-| lineItems         | Lijst met **TransferLineItem-objecten** | Een verzameling regelitems voor transferEntity die deel uitmaken van de overdrachtsfout.|
+| lineItems         | Lijst met **TransferLineItem-objecten** | Een verzameling transferEntity-regelitems die deel uitmaken van de overdrachtsfout.|
 
 ## <a name="transfererrorcode"></a>TransferErrorCode
 
 Een [Enum/dotnet/api/system.enum) met waarden die een type volgordefout aangeven.
 
-| Waarde | Positie | Beschrijving |
+| Waarde | Positie | Description |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | Partner-token ontbreekt in aanvraagcontext. |
 | InvalidInput | 800002 | Ongeldige aanvraaginvoer. |
 | ServiceException | 800003 | Onverwachte servicefout. |
 | InvalidOfferId | 800004 | Ongeldige aanbiedings-id. |
 | CreateOrderError | 800005 | Het maken van een order is niet gelukt. |
-| MpnIdNotFound | 800015 | DE MPN-id is niet gevonden. |
+| MpnIdNotFound | 800015 | MPN-id is niet gevonden. |
 | NotValidIndirectResellerMpnId | 800016 | MPN-id is geen geldige indirecte reseller. |
 | TransferIdNotFound | 900100   | Overdrachtsaanvraag niet gevonden.   |
 | TransferNotAllowedIfStatusIsInProgress | 900101 | De overdrachtsaanvraag wordt al uitgevoerd.|

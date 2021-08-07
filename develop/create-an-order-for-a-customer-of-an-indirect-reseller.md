@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik Partner Center API's om een order 
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6253ba2289ea1f58e7d8eaa960d7d0daaa887f0d
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: ba46b151e423df27f1378ac8441a23702e47746911b4e05e370bbf0aa7b53233
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973537"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991545"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Een bestelling maken voor een klant van een indirecte reseller
 
@@ -93,7 +93,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert. |
+| customer-id | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -108,11 +108,11 @@ In deze tabel worden de **ordereigenschappen** in de aanvraag body beschreven.
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
 | id | tekenreeks | No | Een order-id die wordt opgegeven wanneer de order is gemaakt. |
-| referenceCustomerId | tekenreeks | Ja | De klant-id. |
-| billingCycle | tekenreeks | No | De frequentie waarmee de partner wordt gefactureerd voor deze bestelling. De standaardwaarde is &quot; Maandelijks en wordt toegepast wanneer de order is &quot; gemaakt. Ondersteunde waarden zijn de namen van leden in [**BillingCycleType.**](/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype) Opmerking: de jaarlijkse factureringsfunctie is nog niet algemeen beschikbaar. Ondersteuning voor jaarlijkse facturering is binnenkort beschikbaar. |
-| lineItems | matrix van objecten | Ja | Een matrix met [**OrderLineItem-resources.**](#orderlineitem) |
+| referenceCustomerId | tekenreeks | Yes | De klant-id. |
+| billingCycle | tekenreeks | No | De frequentie waarmee de partner wordt gefactureerd voor deze bestelling. De standaardwaarde is &quot; Maandelijks en wordt toegepast wanneer de order is &quot; gemaakt. Ondersteunde waarden zijn de ledennamen in [**BillingCycleType.**](/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype) Opmerking: de jaarlijkse factureringsfunctie is nog niet algemeen beschikbaar. Ondersteuning voor jaarlijkse facturering is binnenkort beschikbaar. |
+| lineItems | matrix van objecten | Yes | Een matrix met [**OrderLineItem-resources.**](#orderlineitem) |
 | creationDate | tekenreeks | No | De datum waarop de order is gemaakt, in datum/tijd-indeling. Toegepast wanneer de order is gemaakt. |
-| kenmerken | object | Nee | Bevat 'ObjectType': 'Order'. |
+| kenmerken | object | No | Bevat 'ObjectType': 'Order'. |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
@@ -121,13 +121,13 @@ In deze tabel worden de **eigenschappen van OrderLineItem** in de aanvraag body 
 | Naam | Type | Vereist | Beschrijving |
 | ---- | ---- | -------- | ----------- |
 | lineItemNumber | int | Ja | Elk regelitem in de verzameling krijgt een uniek regelnummer, dat wordt geteld van 0 tot count-1. |
-| offerId | tekenreeks | Ja | De aanbiedings-id. |
+| offerId | tekenreeks | Yes | De aanbiedings-id. |
 | subscriptionId | tekenreeks | No | De abonnements-id. |
 | parentSubscriptionId | tekenreeks | No | Optioneel. De id van het bovenliggende abonnement in een invoegaanbieding. Alleen van toepassing op PATCH. |
 | Friendlyname | tekenreeks | No | Optioneel. De gebruiksvriendelijke naam voor het abonnement dat is gedefinieerd door de partner om te helpen bij het op ondubbelzinnig maken. |
 | quantity | int | Ja | Het aantal licenties voor een abonnement op basis van een licentie. |
-| partnerIdOnRecord | tekenreeks | No | Wanneer een indirecte provider een order plaatst namens een indirecte reseller, vult u dit veld in met de MPN-id van alleen de **indirecte reseller** (nooit de id van de indirecte provider). Dit zorgt voor een juiste boekhouding voor incentives. **Als de MPN-id van de reseller niet wordt verstrekt, mislukt de order niet. De reseller wordt echter niet vastgelegd en als gevolg hiervan zijn de incentive-berekeningen mogelijk niet opgenomen in de verkoop.** |
-| kenmerken | object | Nee | Bevat "ObjectType":"OrderLineItem". |
+| partnerIdOnRecord | tekenreeks | No | Wanneer een indirecte provider een order plaatst namens een indirecte reseller, vult u dit veld in met de MPN-id van alleen de **indirecte reseller** (nooit de id van de indirecte provider). Dit zorgt voor een juiste boekhouding voor incentives. **Als de MPN-id van de reseller niet wordt verstrekt, mislukt de order niet. De reseller wordt echter niet vastgelegd en als gevolg hiervan is de verkoop mogelijk niet opgenomen in de incentive-berekeningen.** |
+| kenmerken | object | No | Bevat "ObjectType":"OrderLineItem". |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -169,11 +169,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat de antwoord-body de ingevulde [resource Order.](order-resources.md)
+Als dit lukt, bevat de antwoord-body de ingevulde [orderresource.](order-resources.md)
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
