@@ -4,12 +4,12 @@ description: Een bestaand gebruikersaccount voor een klant verwijderen.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c45646da43b8926f911942374de5da07f318c526
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 64e9175a2a4545022175b326a2d765ecd6a1106242b8926fe19e32c7e2ab6ec2
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973057"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994877"
 ---
 # <a name="delete-a-user-account-for-a-customer"></a>Een gebruikersaccount voor een klant verwijderen
 
@@ -17,9 +17,9 @@ In dit artikel wordt uitgelegd hoe u een bestaand gebruikersaccount voor een kla
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een gebruikers-id. Zie Get a list of all user accounts for a customer (Een lijst met alle gebruikersaccounts voor een klant opmaken) als u niet over de [gebruikers-id hebt.](get-a-list-of-all-user-accounts-for-a-customer.md)
 
@@ -31,13 +31,13 @@ U kunt [een verwijderd gebruikersaccount voor een](restore-a-user-for-a-customer
 
 ## <a name="c"></a>C\#
 
-Een bestaand klantgebruikersaccount verwijderen:
+Een bestaand gebruikersaccount van de klant verwijderen:
 
 1. Gebruik de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren.
 
 2. Roep de [**methode Users.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) om de gebruiker te identificeren.
 
-3. Roep de [**methode Delete**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) aan om de gebruiker te verwijderen en de gebruikerstoestand in te stellen op inactief.
+3. Roep de [**methode Delete**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) aan om de gebruiker te verwijderen en stel de gebruikerstoestand in op inactief.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ Een bestaand klantgebruikersaccount verwijderen:
 partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdToDelete).Delete();
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK **Voorbeeldklasse:** DeleteCustomerUser.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: DeleteCustomerUser.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -63,8 +63,8 @@ Gebruik de volgende queryparameters om de klant en gebruiker te identificeren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | J        | De waarde is een **klant-tenant-id** in GUID-indeling waarmee de reseller de resultaten voor een bepaalde klant kan filteren. |
-| user-id                | GUID     | J        | De waarde is een gebruikers-id in **GUID-indeling** die bij één gebruikersaccount hoort.                                          |
+| customer-tenant-id     | GUID     | J        | De waarde is een in GUID **opgemaakte klant-tenant-id** waarmee de reseller de resultaten voor een bepaalde klant kan filteren. |
+| user-id                | GUID     | J        | De waarde is een gebruikers-id met **GUID-indeling** die bij één gebruikersaccount hoort.                                          |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -89,11 +89,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode de statuscode **204 Geen** inhoud.
+Als dit lukt, retourneert deze methode de statuscode Geen inhoud **204.**
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center de volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

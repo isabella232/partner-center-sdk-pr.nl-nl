@@ -4,12 +4,12 @@ description: Beschrijft resources met betrekking tot services die zijn gekocht d
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dbddc1973dd9a904cedd549c1772cd4c74c69a60
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8c1e3a05be89eee12d708a3a37e008ec7fa42358eaec7e1f020aaa47e44b452c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547407"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996135"
 ---
 # <a name="service-costs-resources"></a>Resources voor servicekosten
 
@@ -17,18 +17,18 @@ Beschrijft resources met betrekking tot services die zijn gekocht door een klant
 
 ## <a name="servicecostssummary"></a>ServiceCostsSummary
 
-**ServiceCostsSummary** bevat een samenvatting waarin alle services worden geaggregeerd die tijdens de factureringsperiode door de opgegeven klant zijn gekocht.
+**ServiceCostsSummary** bevat een samenvatting waarin alle services worden geaggregeerd die tijdens de factureringsperiode zijn gekocht door de opgegeven klant.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | Details | matrix van [ServiceCostsSummaryDetail-objecten](#servicecostssummarydetail) | De overzichtslijst met servicekosten, onderscheiden op factuurtype.|
 | Verwijzigingen | [ResourceLinks](utility-resources.md#resourcelinks) | De resourcekoppelingen. |
 | kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken. |
 
 > [!IMPORTANT]
-> **De velden in de volgende tabel worden afgeschaft.** Als u terugkerende en eenmalige samenvattingen van servicekosten wilt ophalen, gebruikt u in plaats daarvan **het veld** Details. Het **detailveld** wordt beschreven in de vorige tabel. Raadpleeg de **bijbehorende gegevenswaarden** van het detailveld, maar niet de velden op hoofdniveau.
+> **De velden in de volgende tabel worden afgeschaft.** Als u terugkerende en eenmalige samenvattingen van servicekosten wilt ophalen, gebruikt u in **plaats daarvan het veld Details.** Het **detailveld** wordt beschreven in de vorige tabel. Raadpleeg de **bijbehorende gegevenswaarden** van het detailveld, maar niet de velden op hoofdniveau.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | billingStartDate | date | Het begin van de factureringsperiode. |
 | billingEndDate | date | Het einde van de factureringsperiode. |
@@ -43,19 +43,19 @@ Beschrijft resources met betrekking tot services die zijn gekocht door een klant
 
 **ServiceCostsSummaryDetail** beschrijft een overzicht van servicekosten waarin alle services worden geaggregeerd die tijdens de factureringsperiode zijn gekocht door de opgegeven klant (van terugkerende of eenmalige facturen).
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| invoiceType | tekenreeks | Het invoiceType dat het overzicht van de servicekosten is gegenereerd. |
+| invoiceType | tekenreeks | Het invoiceType dat servicekostenoverzicht is gegenereerd. |
 | samenvatting | [ServiceCostsSummary](#servicecostssummary) | Het overzicht van servicekosten, geaggregeerd door een klant onder één factuurtype. |
 
 ## <a name="servicecostlineitem"></a>ServiceCostLineItem
 
-**ServiceCostLineItem** beschrijft één item dat door de klant is gekocht.
+**ServiceCostLineItem beschrijft** één item dat door de klant is gekocht.
 
 > [!IMPORTANT]
-> De volgende  eigenschappen zijn alleen van toepassing op servicekostenregelitems waarbij het product een een *time-aankoop* is: **productId**, **productName**, **skuId**, **skuName,** **availabilityId**, **publisherId,** **publisherName**, **termAndBillingCycle,** **discountDetails**. Deze eigenschappen *zijn niet van toepassing op* serviceregelitems waarbij het product een terugkerende aankoop *is.* Deze eigenschappen zijn bijvoorbeeld niet *van toepassing op* abonnementsgebaseerde Office 365 en Azure.
+> De volgende  eigenschappen zijn alleen van toepassing op servicekostenregelitems waarbij het product een een *time-aankoop* is: **productId**, **productName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **publisherName**, **termAndBillingCycle**, **discountDetails**. Deze eigenschappen *zijn niet van toepassing op* serviceregelitems waarbij het product een terugkerende aankoop *is.* Deze eigenschappen zijn bijvoorbeeld *niet van toepassing op* abonnementsgebaseerde Office 365 en Azure.
 
-| Eigenschap                 | Type                           | Beschrijving                                                          |
+| Eigenschap                 | Type                           | Description                                                          |
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
 | Startdate                | tekenreeks in UTC-datum/tijd-indeling | De begindatum voor de kosten.                                       |
 | Enddate                  | tekenreeks in UTC-datum/tijd-indeling | De einddatum voor de kosten.                                         |
@@ -88,7 +88,7 @@ Beschrijft resources met betrekking tot services die zijn gekocht door een klant
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 
-| Eigenschap             | Type                               | Beschrijving                         |
+| Eigenschap             | Type                               | Description                         |
 |----------------------|------------------------------------|-------------------------------------|
 | serviceCostLineItems | [Koppeling](utility-resources.md#link) | De URI voor het ophalen van de regelitems. |
 | Zelf                 | [Koppeling](utility-resources.md#link) | De zelf-URI.                       |

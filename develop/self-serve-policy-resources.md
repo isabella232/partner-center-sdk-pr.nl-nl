@@ -4,12 +4,12 @@ description: Een partner stelt beleid voor self-service in voor een klant.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e44581b805e076132984b67280699314e274ca94
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: ffca78481572e201d3ef9f488e7d594a9c1176249b4415a347b488f4b9b81c51
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446714"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996764"
 ---
 # <a name="selfservepolicy-resource"></a>SelfServePolicy-resource
 
@@ -30,7 +30,7 @@ Beschrijft een winkelwagen.
 
 Vertegenwoordigt de entiteit die machtigingen krijgt.
 
-| Eigenschap             | Type|Beschrijving|
+| Eigenschap             | Type|Description|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | SelfServeEntityType  | tekenreeks                           | De entiteit die toegang krijgt, geaccepteerde waarden: Klant.                                 |
 | TenantID             | tekenreeks                           | De tenant-id van de entiteit die toegang krijgt.                                   |
@@ -39,7 +39,7 @@ Vertegenwoordigt de entiteit die machtigingen krijgt.
 
 Vertegenwoordigt de grantor die de machtigingen verleent.
 
-| Eigenschap             | Type|Beschrijving|
+| Eigenschap             | Type|Description|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | GrantorType          | tekenreeks                           | De grantor die toegang verleent, geaccepteerde waarden: BillToPartner.                               |
 | TenantID             | tekenreeks                           | De tenant-id van de entiteit die toegang verleent.                                       |
@@ -49,7 +49,7 @@ Vertegenwoordigt de grantor die de machtigingen verleent.
 
 Vertegenwoordigt een machtiging in het beleid voor self-serve.
 
-| Eigenschap             | Type|Beschrijving|
+| Eigenschap             | Type|Description|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | Resource             | tekenreeks                           | De toegang tot de resource wordt ook verleend: AzureReservedInstances.                          |
-| Bewerking               | tekenreeks                           | Er wordt toegang verleend tot de actie voor: Aankoop                                           |
+| Actie               | tekenreeks                           | Er wordt toegang verleend tot de actie voor: Aankoop                                           |

@@ -4,12 +4,12 @@ description: Het opgegeven configuratiebeleid voor de opgegeven klant ophalen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f9a8cb435c63d8d02c3b4633abc8723353116f37
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 27e01b7c7ec0920d1e6123379fb318827f5389a9c6b297d630ac60dce6933faf
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547492"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996883"
 ---
 # <a name="retrieve-a-customers-configuration-policy"></a>Het configuratiebeleid van een klant ophalen
 
@@ -21,7 +21,7 @@ Het opgegeven configuratiebeleid voor de opgegeven klant ophalen.
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De beleids-id.
 
@@ -38,7 +38,7 @@ ConfigurationPolicy retrievedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Get();
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class:** GetConfigurationPolicy.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class:** GetConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -54,8 +54,8 @@ Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 
 | Naam        | Type   | Vereist | Beschrijving                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
-| policy-id   | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het beleid identificeert.   |
+| customer-id | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| policy-id   | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die het beleid identificeert.   |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -80,11 +80,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, bevat het antwoord de [aangevraagde ConfigurationPolicy-resource.](device-deployment-resources.md#configurationpolicy)
+Als dit lukt, bevat het antwoord de aangevraagde [ConfigurationPolicy-resource.](device-deployment-resources.md#configurationpolicy)
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

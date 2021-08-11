@@ -1,17 +1,17 @@
 ---
 title: Een lijst met Azure-rechten voor een abonnement ophalen
-description: U kunt de resource AzureEntitlement gebruiken om een verzameling Azure-rechtenresources op te halen die deel uitmaken van een abonnement.
+description: U kunt de AzureEntitlement-resource gebruiken om een verzameling Azure-rechtenresources op te halen die deel uitmaken van een abonnement.
 ms.date: 07/06/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 280da155122ed9efd99838d7819fb34f8f7ec52c
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: d56a66669c32748d8695042582324e4711c9234549b1e6ab3f6b0b7b78294509
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874360"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995540"
 ---
 # <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Een lijst met Azure-rechten voor een abonnement ophalen
 
@@ -19,7 +19,7 @@ U kunt de [Azure-rechtenresource](subscription-resources.md#azureentitlement) **
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 

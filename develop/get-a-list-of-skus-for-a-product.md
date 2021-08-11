@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 27a2391a22a9439461fb53764b87c1cafa68b875
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 1f15ecaa7d84f4c68c6221e459d9977a79cffd9fa19d32ccbd7e6bec6444a93c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873884"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995438"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>Een lijst met SKU’s voor een product ophalen (per land/regio)
 
@@ -19,7 +19,7 @@ U kunt een verzameling SKU's ophalen die beschikbaar zijn in een land voor een s
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een product-id.
 
@@ -67,7 +67,7 @@ De lijst met SKU's voor een product op te halen:
 
 1. Haal een interface op voor de bewerkingen van een specifiek product door de stappen in [Een product op id krijgen te volgen.](get-a-product-by-id.md)
 
-2. Selecteer in de interface de **functie getSkus** om een interface te verkrijgen met de beschikbare bewerkingen voor SKU's.
+2. Selecteer in de interface de **functie getSkus om** een interface te verkrijgen met de beschikbare bewerkingen voor SKU's.
 
 3. Roep de **functie get()** aan om een verzameling van de beschikbare SKU's voor het product op te halen.
 
@@ -122,8 +122,8 @@ Gebruik het volgende pad en de queryparameters om een lijst met SKU's voor een p
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
-| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| product-id             | tekenreeks   | Yes      | Een tekenreeks die het product identificeert.                           |
+| country-code           | tekenreeks   | Yes      | Een land-/regio-id.                                            |
 | doelsegment         | tekenreeks   | No       | Een tekenreeks die het doelsegment identificeert dat wordt gebruikt voor filteren. |
 | reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met SKU's voor een Azure Reservation-product, geeft u op om een lijst op te halen met SKU's die van `reservationScope=AzurePlan` toepassing zijn op AzurePlan. Sluit deze parameter uit om een lijst met SKU's voor Azure Reservation-producten op te halen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).  |
 

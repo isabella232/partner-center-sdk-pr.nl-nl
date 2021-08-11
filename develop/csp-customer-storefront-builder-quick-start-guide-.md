@@ -4,12 +4,12 @@ description: Maak een online marketplace voor het verkopen van CSP-aanbiedingen 
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8550492c7a4201a955c7b051b453103628612f3e
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 69fe30b61d7260e4c3365d2486cec5ffadd2a3fbb39bb50158a44d8716ff2d71
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973346"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995217"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>Quick Start-handleiding voor CSP-klant webwinkelbouwer
 
@@ -30,7 +30,7 @@ Zie voor meer informatie ook de volgende artikelen: webwinkel van [CSP-klant](cs
 
 ## <a name="considerations"></a>Overwegingen
 
-De CSP Customer Storefront Builder is bedoeld als een snelle manier om een website te maken. Let tijdens de planning op de volgende overwegingen:
+De CSP Customer Storefront Builder is bedoeld als een snelle manier om een website te maken. Let tijdens uw planning op de volgende overwegingen:
 
 - Na de geïmplementeerde service onderhouden Microsoft en Partner Center geen kopie van de partnerwebsite of informatie die is toegevoegd aan de CSP Customer Storefront Builder.
 
@@ -38,7 +38,7 @@ De CSP Customer Storefront Builder is bedoeld als een snelle manier om een websi
 
 - Nadat deze website is geïmplementeerd, is deze volledig eigendom van en wordt deze beheerd door de partner. Microsoft heeft geen toegang tot deze website of tot gegevens met betrekking tot de website. Partners zijn verantwoordelijk voor het onderhoud en beheer van de website. Microsoft biedt geen livewebsites of andere ondersteuning met betrekking tot de CSP Customer Storefront Builder of een website die is gemaakt met behulp van de CSP Customer Storefront Builder.
 
-- Partner Center kan deze website niet rechtstreeks openen of upgraden met nieuwe of gewijzigde SDK- of API-functies. Nieuwe functies of verbeteringen moeten eigendom zijn, worden ontwikkeld en beheerd door partners, inclusief het toevoegen van nieuwe Partnercentrum-SDK of API-functies.
+- Partner Center kan deze website niet rechtstreeks openen of upgraden met nieuwe of gewijzigde SDK- of API-functies. Nieuwe functies of verbeteringen moeten eigendom zijn, worden ontwikkeld en beheerd door partners, inclusief het toevoegen van Partnercentrum-SDK of API-functies.
 
 - Deze CSP Customer Storefront Builder biedt momenteel de mogelijkheid om betaling naar een PayPal Pro/PayU Money-account (voor India) te configureren. Als partners de betalingsverwerker moeten wijzigen, moeten ze de code wijzigen om de betalingswijze van hun voorkeur te ondersteunen.
 
@@ -78,11 +78,11 @@ Meld u aan met uw Partner Center beheerdersreferenties om het volgende te config
 
 - **Huisstijl:** bedrijfsnaam, logo, contactpersonen en meer.
 
-- **Aanbiedingen:** alle CSP-aanbiedingen weergeven. U kunt selecteren welke aanbiedingen uw klanten kunnen bekijken en kopen. U kunt ook de aanbiedingsgegevens personaliseren en uw prijs toevoegen.
+- **Aanbiedingen:** alle CSP-aanbiedingen weergeven. U kunt selecteren welke aanbiedingen uw klanten kunnen bekijken en kopen. U kunt ook aanbiedingsgegevens personaliseren en uw prijs toevoegen.
 
 - **PayPal betalingsconfiguratie:** voeg de gegevens van PayPal betalingsaccount toe. Als u geen account voor PayPal hebt, kunt u naar gaan [https://www.paypal.com](https://www.paypal.com) en een nieuw account maken. Dit account wordt gebruikt voor het PayPal van de betalingen van klanten. *Microsoft is niet verantwoordelijk voor de relatie tussen partners en PayPal. Het gebruik PayPal kan vereisen dat de klanten van de partner of partner akkoord gaan met aanvullende voorwaarden.*
 
-- (*Voor India*) **PayU-betalingsconfiguratie:** voeg uw payu money-betalingsaccountgegevens toe. Als u geen PayU Money-account hebt, kunt u naar gaan [https://www.payumoney.com/](https://www.payumoney.com/) en een nieuw account maken. Dit account wordt gebruikt voor betalen per gebruik om de betalingen van klanten bij te betalen. *Microsoft is niet verantwoordelijk voor de relatie tussen partners en PayU. Voor het gebruik van PayU moeten de klanten van de partner of partner mogelijk akkoord gaan met aanvullende voorwaarden.*
+- (*Voor India*) **PayU-betalingsconfiguratie:** voeg de gegevens van uw betaalrekening met betalen per bedrag toe. Als u geen PayU Money-account hebt, kunt u naar gaan [https://www.payumoney.com/](https://www.payumoney.com/) en een nieuw account maken. Dit account wordt gebruikt voor betalen per gebruik om de betalingen van klanten bij te betalen. *Microsoft is niet verantwoordelijk voor de relatie tussen partners en PayU. Voor het gebruik van PayU moeten de klanten van de partner of partner mogelijk akkoord gaan met aanvullende voorwaarden.*
 
 ### <a name="transact"></a>Transact
 
@@ -92,7 +92,7 @@ Meld u aan met uw Partner Center beheerdersreferenties om het volgende te config
 
 #### <a name="customer-countries"></a>Klant landen
 
-Klanten kunnen tot deze landen behoren:
+Klanten kunnen deel uitmaken van deze landen:
 
 | Landnummer | Naam van land/regio   |
 |--------------|----------------|
@@ -156,7 +156,7 @@ Een verbeterde of aangepaste CSP Customer Storefront implementeren:
 
 - De webwinkeltoepassing ondersteunt momenteel Frans, Spaans, Nederlands, Duits, Japans en Engels. (Engels fungeert als de terugvaltaal.)
 
-  - De webwinkel configureert de locale met behulp van de standaardinstelling van de partner uit het profiel van de partner in de Partner Center. Deze landen worden gebruikt voor het configureren van valuta's, datumindelingen en gelokaliseerde aanbiedingen in de opslagplaats.
+  - De webwinkel configureert de locale met behulp van de standaardinstelling van de partner uit het profiel van de partner in de Partner Center. Deze landen worden gebruikt om valuta's, datumnota's en gelokaliseerde aanbiedingen in de opslagplaats te configureren.
 
 - Partners kunnen de huisstijl, aanbiedingen en PayPal betalingsgegevens van PayU (voor India) configureren.
 
@@ -204,11 +204,11 @@ Een verbeterde of aangepaste CSP Customer Storefront implementeren:
 - Klanten kunnen een aanbieding in de catalogus selecteren om aan te schaffen.
   - Ze kunnen hun klantnaam, adres en domeingerelateerde informatie toevoegen.
 
-- Klanten worden omgeleid naar de PayPal betalen per e-mail of betaling (voor India). Klanten kunnen betalen met behulp van een van de volgende:
+- Klanten worden omgeleid naar de PayPal betalen per e-mail of betalen per uur (voor India). Klanten kunnen betalen met behulp van een van de volgende:
   - Hun bestaande PayPal of PayU-account (voor India)
   - Financiële middelen die in hun land worden ondersteund door PayPal of PayU (voor India). Dit kunnen creditcards, debitcards en bankrekeningen zijn, indien van toepassing.
 
-- Er wordt een klant-tenant gemaakt voor deze klant. Nadat de tenantorder is gemaakt, krijgen klanten de gebruikersnaam, het wachtwoord en de abonnementsgegevens van het account.
+- Er wordt een klant-tenant voor deze klant gemaakt. Nadat de tenantorder is gemaakt, krijgen klanten de gebruikersnaam, het wachtwoord en de abonnementsgegevens van het account.
   - Klanten kunnen de gebruikersnaam en het wachtwoord opslaan om aangemeld te blijven voor verdere aankopen.
   - Elk abonnement wordt een jaar aangeschaft en klanten kunnen 30 dagen vóór de einddatum van het abonnement verlengen.
 
@@ -220,7 +220,7 @@ Een verbeterde of aangepaste CSP Customer Storefront implementeren:
 
 - Klanten kunnen naar de **pagina Mijn** abonnementen navigeren waar ze alle abonnementen (op licentie gebaseerd en op basis van gebruik) kunnen bekijken, met inbegrip van de abonnementen die worden onderhouden in Partner Center.
 
-### <a name="add-licenses-to-existing-subscriptions-scenario"></a>Licenties toevoegen aan bestaand abonnementsscenario
+### <a name="add-licenses-to-existing-subscriptions-scenario"></a>Licenties toevoegen aan een bestaand abonnementsscenario
 
 - In de **sectie Mijn** orders kunnen klanten meer licenties toevoegen aan bestaande abonnementen. Klanten kunnen op elk gewenst moment tijdens een abonnementsjaar meer licenties toevoegen.
 
@@ -228,7 +228,7 @@ Een verbeterde of aangepaste CSP Customer Storefront implementeren:
 
 ### <a name="add-more-subscriptions-scenario"></a>Scenario voor meer abonnementen toevoegen
 
-- Klanten kunnen elk aantal abonnementen op elk moment kopen via de sectie **Abonnementen toevoegen** onder **Mijn orders.**
+- Klanten kunnen op elk moment een aantal abonnementen kopen via de sectie **Abonnementen toevoegen** onder **Mijn orders.**
 
 - Een klant kan een abonnement selecteren, een hoeveelheid toevoegen en betalen om de transactie te voltooien en direct aan de slag te gaan met het abonnement. Als een klant een vooraf goedgekeurde klant is, is het abonnement onmiddellijk beschikbaar voor gebruik en wordt er een factuur naar de klant verzonden voor betaling.
 
@@ -254,8 +254,8 @@ Een verbeterde of aangepaste CSP Customer Storefront implementeren:
 
 ### <a name="prorated-pricing-scenario"></a>Scenario met naar prijsstelling
 
-- Deze website ondersteunt naar meer prijzen wanneer klanten meer licenties toevoegen aan een bestaand abonnement.
+- Deze website ondersteunt naar meer prijzen in gevallen waarin klanten meer licenties toevoegen aan een bestaand abonnement.
 
-- Elk abonnement verloopt na één jaar en kan niet worden gewijzigd nadat het abonnement is aangeschaft.
+- Elk abonnement verloopt na één jaar en kan niet worden gewijzigd nadat het abonnement is gekocht.
 
 - De einddatum van het abonnement wordt niet gewijzigd door extra licenties toe te voegen. Er worden kosten in rekening gebracht voor het resterende aantal dagen tot de einddatum. Als de abonnementskosten bijvoorbeeld op dag één $ 365 zijn en u op dag twee nog een licentie toevoegt, is de prijs voor de nieuwe licentie $ 364. Als u tien dagen later nog een licentie toevoegt, is de prijs $ 354.

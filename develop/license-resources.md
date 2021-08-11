@@ -4,12 +4,12 @@ description: Beschrijft resources met betrekking tot licenties.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 27d44f89ac89f365e77e073c425ca45ab3638c68
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: e6d91110dcec8a873e77cb02bdb77f6335e27989201ea68eebf904c5159964c5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548393"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996577"
 ---
 # <a name="license-resources"></a>Licentiebronnen
 
@@ -24,17 +24,17 @@ Beschrijft een gebruikerslicentie.
 >[!NOTE]
 >Niet ondersteund op Partner Center beheerd door 21Vianet.
 
-| Eigenschap     | Type                                                           | Beschrijving                                                    |
+| Eigenschap     | Type                                                           | Description                                                    |
 |--------------|----------------------------------------------------------------|----------------------------------------------------------------|
 | servicePlans | matrix van ServicePlan-resources                                 | De verzameling serviceplannen die overeenkomen met de licentie |
 | productSKU   | ProductSku                                                     | De SKU van het product dat overeenkomt met de licentie.        |
 | kenmerken   | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met de licentie.          |
 
-## <a name="licenseupdate"></a>LicenseUpdate
+## <a name="licenseupdate"></a>LicentieUpdate
 
 Bevat informatie die wordt gebruikt voor het toewijzen of verwijderen van licenties aan een gebruiker.
 
-| Eigenschap         | Type                                                           | Beschrijving                                               |
+| Eigenschap         | Type                                                           | Description                                               |
 |------------------|----------------------------------------------------------------|-----------------------------------------------------------|
 | licensestoAssign | matrix van objecten                                               | Matrix van [LicenseAssignment-objecten.](#licenseassignment) |
 | licensesToRemove | tekenreeksmatrix                                               | De product-SKU-id's van de licenties die moeten worden verwijderd.    |
@@ -45,7 +45,7 @@ Bevat informatie die wordt gebruikt voor het toewijzen of verwijderen van licent
 
 Bevat informatie die nodig is voor een licentie-updatebewerking.
 
-| Eigenschap      | Type             | Beschrijving                                                                |
+| Eigenschap      | Type             | Description                                                                |
 |---------------|------------------|----------------------------------------------------------------------------|
 | excludedPlans | tekenreeksmatrix | De serviceplan-id's die moeten worden uitgesloten van beschikbaarheid voor de gebruiker. |
 | skuId         | tekenreeks           | De product-SKU-id voor de licentie.                                |
@@ -54,7 +54,7 @@ Bevat informatie die nodig is voor een licentie-updatebewerking.
 
 Bevat waarschuwingsinformatie die is opgetreden tijdens een licentie-updatebewerking.
 
-| Eigenschap     | Type             | Beschrijving                                         |
+| Eigenschap     | Type             | Description                                         |
 |--------------|------------------|-----------------------------------------------------|
 | code         | tekenreeks           | De waarschuwingscode.                                   |
 | message      | tekenreeks           | Het waarschuwingsbericht.                                |
@@ -81,14 +81,14 @@ Identificeert een implementeerbare service binnen een product-SKU. Een product k
 | id               | tekenreeks | De id van het serviceplan.                                                                                      |
 | displayName      | tekenreeks | De gelokaliseerde weergavenaam voor het serviceplan.                                                                  |
 | Servicenaam      | tekenreeks | De servicenaam.                                                                                                 |
-| capabilityStatus | tekenreeks | De status van het serviceplan van het serviceplan.                                                                      |
+| capabilityStatus | tekenreeks | De status van het serviceplan.                                                                      |
 | targetType       | tekenreeks | Het doeltype van het serviceplan. Deze eigenschap geeft aan of het product van toepassing is op een 'Gebruiker' of 'Tenant'. |
 
 ## <a name="subscribedsku"></a>SubscribedSku
 
 Beschrijft een geabonneerd product dat eigendom is van een tenant.
 
-| Eigenschap         | Type                                                           | Beschrijving                                                                                       |
+| Eigenschap         | Type                                                           | Description                                                                                       |
 |------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | availableUnits   | geheel getal                                                        | Het aantal eenheden dat beschikbaar is voor toewijzing. Deze waarde wordt berekend als totaal aantal eenheden - verbruikte eenheden. |
 | activeUnits      | geheel getal                                                        | Het aantal eenheden dat actief is voor toewijzing.                                                        |

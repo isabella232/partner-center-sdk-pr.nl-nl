@@ -4,12 +4,12 @@ description: Een lijst met overdrachten van een klant krijgen.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a5892e25953bc2eec4451bdbbd5accea008828b8
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 3392977c8a39d4002aa5502d5a50f81312af4fc32714259d3d0d525b94541f3d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760229"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996118"
 ---
 # <a name="get-a-customers-transfers"></a>De overdrachten van een klant ophalen
 
@@ -19,7 +19,7 @@ Een lijst met overdrachten van een klant krijgen.
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ### <a name="request-syntax"></a>Aanvraagsyntaxis
 
@@ -33,11 +33,11 @@ Deze tabel bevat de vereiste queryparameter om alle abonnementen op te halen.
 
 | Naam               | Type   | Vereist | Beschrijving                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| customer-tenant-id | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

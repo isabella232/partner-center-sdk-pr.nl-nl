@@ -4,12 +4,12 @@ description: Een een time-aankoop doen van software- en reserveringsproducten, z
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1ca2d5b7ad6ba1196d74a8cdb748ab808192d569
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: baf0b5d4aaa8957874ab019359aca2662a76194387e0cd06999b0bb329076c80
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548376"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994435"
 ---
 # <a name="make-a-one-time-purchase"></a>Een eenmalige aankoop doen
 
@@ -74,7 +74,7 @@ Een een time-aankoop doen van software- en reserveringsproducten, zoals software
 
 Gebruik de volgende stappen om een een time-aankoop te doen:
 
-1. [Inschakelen:](#enablement) (alleen gereserveerde VM-instantie van Azure) Registreer een actief CSP Azure-abonnement om dit in te stellen voor het kopen van een reserveringsproduct.
+1. [Inschakelen:](#enablement) (alleen gereserveerde VM-instantie van Azure) Registreer een actief CSP Azure-abonnement om het in te stellen voor het kopen van een reserveringsproduct.
 
 2. [Detectie:](#discovery) zoek en selecteer de producten en SKU's die u wilt kopen en controleer de beschikbaarheid ervan.
 
@@ -82,7 +82,7 @@ Gebruik de volgende stappen om een een time-aankoop te doen:
 
 4. [Ordergegevens op halen:](#get-order-details) bekijk de details van een order, alle orders voor een klant of bekijk orders per type factureringscyclus.
 
-Nadat u een een time-aankoop hebt gedaan, laten de volgende scenario's zien hoe u de levenscyclus van uw producten kunt beheren door informatie op te halen over uw rechten en hoe u saldo-instructies, facturen en factuursommen kunt ophalen.
+Nadat u een een time-aankoop hebt gedaan, laten de volgende scenario's zien hoe u de levenscyclus van uw producten beheert door informatie over uw rechten op te halen en om saldo-instructies, facturen en factuursommen op te halen.
 
 - [Levenscyclusbeheer](#lifecycle-management)
 
@@ -90,7 +90,7 @@ Nadat u een een time-aankoop hebt gedaan, laten de volgende scenario's zien hoe 
 
 ## <a name="enablement"></a>Activering
 
-Zodra u het actieve abonnement hebt geïdentificeerd waar u de gereserveerde azure-VM-instantie aan wilt toevoegen, moet u het abonnement registreren zodat het is ingeschakeld. Zie Een abonnement registreren [als](subscription-resources.md) u een bestaande abonnementsresource wilt registreren zodat deze is [ingeschakeld.](register-a-subscription.md)
+Zodra u het actieve abonnement hebt geïdentificeerd waar u de gereserveerde VM-instantie voor Azure aan wilt toevoegen, moet u het abonnement registreren zodat het is ingeschakeld. Zie Een abonnement [registreren](subscription-resources.md) als u een bestaande abonnementsresource wilt registreren zodat deze is [ingeschakeld.](register-a-subscription.md)
 
 Nadat u uw abonnement hebt geregistreerd, moet u bevestigen dat het registratieproces is voltooid door de registratiestatus te controleren. Zie Registratiestatus van abonnement krijgen voor [deze stap.](get-subscription-registration-status.md)
 
@@ -139,11 +139,11 @@ Volg deze stappen om uw bestelling te verzenden:
 
 Zodra u uw order hebt gemaakt, kunt u de details van een afzonderlijke order ophalen met behulp van de order-id of een lijst met orders voor een klant ophalen. Er is een vertraging van maximaal 15 minuten tussen het moment waarop een order wordt verzonden en wanneer deze wordt weergegeven in een lijst met orders van een klant.
 
-- Om de details van een afzonderlijke order op te halen met behulp van de order-id. Zie [Get an order by ID (Een bestelling op id krijgen).](get-an-order-by-id.md)
+- Om de details van een afzonderlijke order op te halen met behulp van de order-id. Zie Get [an order by ID (Een bestelling op id krijgen).](get-an-order-by-id.md)
 
-- Een lijst met orders voor een klant op te halen met behulp van de klant-id. Zie [Alle orders van een klant op te halen.](get-all-of-a-customer-s-orders.md)
+- Om een lijst met orders voor een klant op te halen met behulp van de klant-id. Zie [Alle orders van een klant op te halen.](get-all-of-a-customer-s-orders.md)
 
-- Als u een lijst met [](product-resources.md#billingcycletype) orders voor een klant wilt op halen op type factureringscyclus, kunt u afzonderlijke orders (een time-charges) en jaarlijkse of maandelijkse gefactureerde orders op een lijst plaatsen. Zie Get [a list of orders by customer and billing cycle type (Een lijst met orders per klant en type factureringscyclus) bekijken.](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)
+- Als u een lijst met [](product-resources.md#billingcycletype) orders voor een klant wilt op halen op type factureringscyclus, kunt u afzonderlijke orders (een time-charges) en jaarlijkse of maandelijks gefactureerde orders op een lijst plaatsen. Zie Get [a list of orders by customer and billing cycle type (Een lijst met orders per klant en type factureringscyclus) bekijken.](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)
 
 ## <a name="lifecycle-management"></a>Levenscyclusbeheer
 
@@ -151,7 +151,7 @@ Als onderdeel van het beheren van de levenscyclus van uw een time-aankopen in Pa
 
 ## <a name="invoice-and-reconciliation"></a>Factuur en afstemming
 
-In de volgende scenario's ziet u hoe [](invoice-resources.md)u programmatisch de facturen van uw klant kunt weergeven en hoe u de saldo's en samenvattingen van uw account kunt opsommen die een keer kosten bevatten.
+In de volgende scenario's ziet u hoe [](invoice-resources.md)u programmatisch de facturen van uw klant kunt weergeven en hoe u de saldo's en samenvattingen van uw account kunt opsommen die een time-kosten bevatten.
 
 ### <a name="balance-and-payment"></a>Saldo en betaling
 
@@ -165,7 +165,7 @@ Zie [Factuuroverzichten](get-invoice-summaries.md)ophalen voor het saldo van uw 
 
 Zie Een verzameling facturen ophalen voor een verzameling facturen met zowel terugkerende als eenmalige [kosten.](get-a-collection-of-invoices.md)
 
-### <a name="single-invoice"></a>Eén factuur
+### <a name="single-invoice"></a>Enkele factuur
 
 Zie Een factuur ophalen op id voor het ophalen van een specifieke factuur met behulp van de [factuur-id.](get-invoice-by-id.md)
 

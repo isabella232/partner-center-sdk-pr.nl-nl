@@ -4,12 +4,12 @@ description: Een apparaat verwijderen dat bij een opgegeven klant hoort.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a1e05ceb8615d6f84c1df101c542342f9a6eb04b
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: f44c94ff35ecdb709b44ba6eebc17ae37e513313d464a28378ce22ceb0097ee3
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973074"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995064"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>Een apparaat voor de opgegeven klant verwijderen
 
@@ -31,7 +31,7 @@ In dit artikel wordt uitgelegd hoe u een apparaat verwijdert dat bij een opgegev
 
 Een apparaat voor de opgegeven klant verwijderen:
 
-1. Roep de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface voor bewerkingen op de klant op te halen.
+1. Roep de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de klant.
 
 2. Roep de [**methode DeviceBatches.ById aan met**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) de batch-id van het apparaat om een interface op te halen voor bewerkingen voor de opgegeven batch.
 
@@ -64,9 +64,9 @@ Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam           | Type   | Vereist | Beschrijving                                                        |
 |----------------|--------|----------|--------------------------------------------------------------------|
-| customer-id    | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert.              |
-| devicebatch-id | tekenreeks | Ja      | De batch-id van het apparaat van de batch die het apparaat bevat. |
-| device-id      | tekenreeks | Ja      | De apparaat-id.                                             |
+| customer-id    | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert.              |
+| devicebatch-id | tekenreeks | Yes      | De batch-id van het apparaat van de batch die het apparaat bevat. |
+| device-id      | tekenreeks | Yes      | De apparaat-id.                                             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -91,7 +91,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert het antwoord de statuscode **204 Geen** inhoud.
+Als dit lukt, retourneert het antwoord **de statuscode 204 Geen** inhoud.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 

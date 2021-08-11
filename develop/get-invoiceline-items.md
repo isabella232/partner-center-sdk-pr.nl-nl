@@ -4,12 +4,12 @@ description: U kunt een verzameling factuurregelitemgegevens (gesloten factureri
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 944dddef64ec980d92c292a7f5b9f5eb4e7cecb6
-ms.sourcegitcommit: 15c6cfe72284cf5d4ea3535120e83e473c33f5ec
+ms.openlocfilehash: 10e43127e5f44f76ed9be8b9aa638e982259602ad57709ecee55cb62d8d7d59e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112443169"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996028"
 ---
 # <a name="get-invoice-line-items"></a>Regelitems van facturen ophalen
 
@@ -17,15 +17,15 @@ ms.locfileid: "112443169"
 
 U kunt de volgende methoden gebruiken om verzamelingsgegevens op te halen voor factuurregelitems (ook wel gesloten factureringsregelitems genoemd) voor een opgegeven factuur.
 
-*Met uitzondering van oplossingen voor fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt extra functionaliteit en wordt nog steeds bijgewerkt.
+*Met uitzondering van oplossingen voor fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt aanvullende functionaliteit en wordt nog steeds bijgewerkt.
 
-U moet **onetime gebruiken om een** query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
+U moet **onetime gebruiken om** een query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
 
 Deze API ondersteunt ook de **providertypen** **azure-** en **Office** for Microsoft Azure-abonnementen (MS-AZR-0145P) en Office-aanbiedingen, waardoor de API-functie achterwaarts compatibel is.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een factuur-id. Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.
 
@@ -33,12 +33,12 @@ Deze API ondersteunt ook de **providertypen** **azure-** en **Office** for Micro
 
 De regelitems voor de opgegeven factuur op te halen:
 
-1. Roep de [**ById-methode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface voor factuurbewerkingen voor de opgegeven factuur op te halen.
+1. Roep de [**ById-methode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface op te halen voor factuurbewerkingen voor de opgegeven factuur.
 
 2. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) om het factuurobject op te halen. Het factuurobject bevat alle informatie voor de opgegeven factuur.
 3. Gebruik de eigenschap [**InvoiceDetails**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails) van het factuurobject om toegang te krijgen tot een verzameling [**InvoiceDetail-objecten,**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail) die elk een [**BillingProvider**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider) en [**een InvoiceLineItemType bevatten.**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype) De **BillingProvider** identificeert de bron van de factuurgegevens (zoals **Office**, **Azure**, **OneTime**) en **het InvoiceLineItemType** geeft het type op (bijvoorbeeld **BillingLineItem).**
 
-In de volgende voorbeeldcode wordt een **foreach-lus** gebruikt om de **verzameling InvoiceDetails te** verwerken. Voor elk **InvoiceDetail-exemplaar** wordt een afzonderlijke verzameling regelitems opgehaald.
+In de volgende voorbeeldcode wordt een **foreach-lus** gebruikt om de **verzameling InvoiceDetails te** verwerken. Er wordt een afzonderlijke verzameling regelitems opgehaald voor elk **InvoiceDetail-exemplaar.**
 
 Een verzameling regelitems ophalen die overeenkomen met een **InvoiceDetail-exemplaar:**
 
@@ -108,7 +108,7 @@ Maak uw aanvraag met de juiste syntaxis voor de factureringsprovider in uw scena
 
 #### <a name="office"></a>Office
 
-De volgende syntaxis is van toepassing wanneer de **factureringsprovider Office.**
+De volgende syntaxis is van toepassing wanneer de **factureringsprovider** Office.
 
 | Methode  | Aanvraag-URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -125,7 +125,7 @@ De volgende syntaxis is van toepassing wanneer de factureringsprovider een Micro
 
 ##### <a name="onetime"></a>Onetime
 
-De volgende syntaxis is van toepassing wanneer de factureringsprovider **OneTime** is. Dit omvat kosten voor Azure-reserveringen, software, Azure-abonnementen en commerciële marketplace-producten.
+De volgende syntaxis is van toepassing wanneer de factureringsprovider **OneTime is.** Dit omvat kosten voor Azure-reserveringen, software, Azure-abonnementen en commerciële marketplace-producten.
 
 | Methode  | Aanvraag-URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -136,29 +136,29 @@ De volgende syntaxis is van toepassing wanneer de factureringsprovider **OneTime
 
 Als u de volgende syntaxis gebruikt, moet u de juiste syntaxis gebruiken voor uw use-case.
 
-*Met uitzondering van oplossingen voor fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt extra functionaliteit en wordt nog steeds bijgewerkt.
+*Met uitzondering van oplossingen voor fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt aanvullende functionaliteit en wordt nog steeds bijgewerkt.
 
-U moet **onetime gebruiken om een** query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
+U moet **onetime gebruiken om** een query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
 
-| Methode | Aanvraag-URI | Beschrijving van syntaxisgebruikscase |
+| Methode | Aanvraag-URI | Beschrijving van gebruikscase voor syntaxis |
 | ------ | ----------- | -------------------------------- |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | U kunt deze syntaxis gebruiken om een volledige lijst met elk regelitem voor de opgegeven factuur te retourneren. |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}?size={size}&offset={offset} HTTP/1.1  | Voor grote facturen kunt u deze syntaxis gebruiken met een opgegeven grootte en een offset op basis van 0 om een lijst met pagina's met regelitems te retourneren. |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}?seekOperation=Next                               | U kunt deze syntaxis gebruiken voor een factuur met een factureringsproviderwaarde **van OneTime** en  **zoekoperatie** instellen op Volgende om de volgende pagina met factuurregelitems op te halen. |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | U kunt deze syntaxis gebruiken om een volledige lijst met alle regelitem voor de opgegeven factuur te retourneren. |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}?size={size}&offset={offset} HTTP/1.1  | Voor grote facturen kunt u deze syntaxis met een opgegeven grootte en een offset op basis van 0 gebruiken om een paginalijst met regelitems te retourneren. |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}?seekOperation=Next                               | U kunt deze syntaxis gebruiken voor een factuur met de waarde van  de factureringsprovider **OneTime** en **zoekoperation instellen** op Volgende om de volgende pagina met factuurregelitems op te halen. |
 
 ##### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende URI- en queryparameters bij het maken van de aanvraag.
+Gebruik de volgende URI en queryparameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| invoice-id             | tekenreeks | Ja      | Een tekenreeks die de factuur identificeert.                             |
-| factureringsprovider       | tekenreeks | Ja      | De factureringsprovider: 'Office', 'Azure', 'OneTime'. In het verleden hebben we afzonderlijke gegevensmodellen voor Office & Azure-transacties. De moderne heeft echter één gegevensmodel voor alle transacties die zijn gefilterd op de waarde 'OneTime'.            |
-| invoice-line-item-type | tekenreeks | Ja      | Het type factuurdetails: BillingLineItems, UsageLineItems. |
-| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden retourneren. Standaard maximale grootte = 2000    |
-| offset                 | getal | Nee       | De op nul gebaseerde index van het eerste regelitem dat moet worden retourneren.            |
+| factuur-id             | tekenreeks | Yes      | Een tekenreeks die de factuur identificeert.                             |
+| factureringsprovider       | tekenreeks | Yes      | De factureringsprovider: 'Office', 'Azure', 'OneTime'. In de verouderde wereld hebben we afzonderlijke gegevensmodellen voor Office & Azure-transacties. De moderne heeft echter één gegevensmodel voor alle transacties, gefilterd via de waarde 'OneTime'.            |
+| invoice-line-item-type | tekenreeks | Yes      | Het type factuurdetails: 'BillingLineItems', 'UsageLineItems'. |
+| grootte                   | getal | No       | Het maximum aantal items dat moet worden retourneren. Standaard maximale grootte = 2000    |
+| offset                 | getal | No       | De op nul gebaseerde index van het eerste regelitem dat moet worden retourneren.            |
 | zoekoperation          | tekenreeks | No       | Als **de factureringsprovider** gelijk is aan **OneTime,** stelt u **seekOperation gelijk** aan **Volgende** in om de volgende pagina met factuurregelitems op te halen. |
-| hasPartnerEarnedCredit | booleaans | Nee | De waarde die aangeeft of de regelitems moeten worden retourneren waarop het partnertegoed is toegepast. Opmerking: deze parameter wordt alleen toegepast wanneer het type factureringsprovider OneTime is en InvoiceLineItemType UsageLineItems is. |
+| hasPartnerEarnedCredit | booleaans | No | De waarde die aangeeft of de regelitems moeten worden retourneren waarop het partnertegoed is toegepast. Opmerking: deze parameter wordt alleen toegepast wanneer het type factureringsprovider OneTime is en InvoiceLineItemType UsageLineItems is. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

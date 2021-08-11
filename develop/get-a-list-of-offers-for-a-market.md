@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 6f4fd821879545db4e781fe3202c8ee11f167615
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 4b417c310230e1ca6caa490166aa5dad48f858a71455496359e3b562ad2629a4
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874241"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996067"
 ---
 # <a name="get-a-list-of-offers-for-a-market"></a>Een lijst met aanbiedingen voor een markt ophalen
 
@@ -54,7 +54,7 @@ Deze tabel bevat de vereiste queryparameters om de aanbiedingen op te halen.
 ### <a name="request-headers"></a>Aanvraagheaders
 
 - Er **is een locale-id** vereist die is opgemaakt als een tekenreeks.
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

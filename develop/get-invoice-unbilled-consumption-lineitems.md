@@ -4,12 +4,12 @@ description: U kunt een verzameling niet-gefactureerde regelitemgegevens voor co
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f7c74bedfd6412fc5954ed2ddc1388936e418fa3
-ms.sourcegitcommit: 722992eea6f8ea366dc088e5dd1ee63c17d56f61
+ms.openlocfilehash: 32944f7e1d30cec2e898d68619b882f3fe5c17124ae90e69b01761dbac459189
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114224765"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994741"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Niet-gefactureerde regelitems voor commercieel verbruik van facturen ontvangen
 
@@ -114,7 +114,7 @@ U kunt de volgende syntaxis gebruiken voor uw REST-aanvraag, afhankelijk van uw 
 | Methode  | Aanvraag-URI                                                                                                                                                                                              | Beschrijving van gebruikscase voor syntaxis                                                                                                     |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period} HTTP/1.1                       | Gebruik deze syntaxis om een volledige lijst met alle regelitem voor de opgegeven factuur te retourneren.                                                    |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1           | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en offset op basis van 0 om een lijst met pagina's met regelitems te retourneren. |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1           | Gebruik deze syntaxis voor grote facturen. Gebruik deze syntaxis met een opgegeven grootte en een offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. |
 | **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next | Gebruik deze syntaxis om de volgende pagina met afstemmingsregelitems op te halen met behulp van `seekOperation = "Next"` .                                  |
 
 #### <a name="uri-parameters"></a>URI-parameters

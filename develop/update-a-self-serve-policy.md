@@ -1,27 +1,27 @@
 ---
 title: Een self-serve-beleid bijwerken
-description: Een beleid voor self-serve bijwerken.
+description: Een self-serve-beleid bijwerken.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d94382e73fd2a79751fe5f8f8414df2befde584f
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 8e1330de6655e7a4dbe2d7432ece208b4600f3659266e20199e729400a917771
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445252"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996628"
 ---
 # <a name="update-a-selfservepolicy"></a>Een SelfServePolicy bijwerken
 
-In dit artikel wordt uitgelegd hoe u een beleid voor self-serve kunt bijwerken.
+In dit artikel wordt uitgelegd hoe u een self-serve-beleid bij kunt werken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie ondersteund met referenties van toepassing en gebruiker.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met referenties van toepassing en gebruiker.
 
 ## <a name="c"></a>C\#
 
-Een beleid voor self-serve verwijderen:
+Een self-serve-beleid verwijderen:
 
 1. Roep de [**methode IAggregatePartner.SelfServePolicies.ById**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) aan met de entiteits-id om een interface op te halen voor bewerkingen op het beleid.
 
@@ -55,19 +55,19 @@ partnerOperations.SelfServePolicies.ById(policy.id).Put(policy);
 
 In deze tabel worden de vereiste eigenschappen in de aanvraag body beschreven.
 
-| Naam                              | Type   | Beschrijving                                 |
+| Naam                              | Type   | Description                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
-| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | De beleidsinformatie voor self-serve. |
+| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | De informatie over het self-serve-beleid. |
 
 #### <a name="selfservepolicy"></a>SelfServePolicy
 
-In deze tabel worden de minimaal vereiste velden van de [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) beschreven die nodig zijn om een nieuw beleid voor selfservice te maken.
+In deze tabel worden de minimaal vereiste velden van de [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) beschreven die nodig zijn om een nieuw selfservicebeleid te maken.
 
 | Eigenschap              | Type             | Beschrijving                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| id                    | tekenreeks           | Een self-serve beleids-id die wordt opgegeven wanneer het self-serve-beleid is gemaakt.     |
-| SelfServeEntity       | SelfServeEntity  | De zelfhulpentiteit die toegang krijgt.                                                     |
-| Grantor               | Grantor          | De grantor die toegang verleent.                                                                    |
+| id                    | tekenreeks           | Een self-serve-beleids-id die wordt opgegeven wanneer het self-serve-beleid is gemaakt.     |
+| SelfServeEntity       | SelfServeEntity  | De zelfhulpentiteit die toegang wordt verleend.                                                     |
+| Grantor               | Grantor          | De toekenningsverlener die toegang verleent.                                                                    |
 | Machtigingen           | Matrix van machtigingen| Een matrix met [machtigingsbronnen.](self-serve-policy-resources.md#permission)                                                      |
 | Etag                  | tekenreeks           | De Etag.                                                                                               |
 
@@ -106,18 +106,18 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze API een [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) voor het bijgewerkte beleid voor selfservice.
+Als dit lukt, retourneert deze API een [SelfServePolicy-resource](self-serve-policy-resources.md#selfservepolicy) voor het bijgewerkte selfservicebeleid.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 Deze methode retourneert de volgende foutcodes:
 
 | HTTP-statuscode     | Foutcode   | Beschrijving                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
 | 404                  | 600039       | Self-serve-beleid is niet gevonden                                            |
-| 404                  | 600040       | De beleids-id voor self-serve is onjuist                                  |
+| 404                  | 600040       | Self-serve beleids-id is onjuist                                  |
 
 
 ### <a name="response-example"></a>Voorbeeld van antwoord

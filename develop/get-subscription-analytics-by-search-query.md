@@ -4,12 +4,12 @@ description: Analytische gegevens van abonnementen filteren op een zoekquery.
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8df777b9a88206f8b22579f0f445c54d80f7cd64
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: dc6ef8d2136c5ffac3278a372980e9a601ef49bb485ef54187865fc9431b3404
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548733"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995676"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Analysegegevens van abonnementen die is gefilterd met een zoekquery ophalen
 
@@ -35,7 +35,7 @@ Gebruik de volgende vereiste padparameter om uw organisatie te identificeren en 
 
 | Naam | Type | Vereist | Beschrijving |
 |------|------|----------|-------------|
-| filter_string | tekenreeks | Ja | Het filter dat moet worden toegepast op de abonnementsanalyses. Zie de secties Filtersyntaxis en Filtervelden voor de syntaxis, velden en operators die u in deze parameter kunt gebruiken. |
+| filter_string | tekenreeks | Yes | Het filter dat moet worden toegepast op de abonnementsanalyses. Zie de secties Filtersyntaxis en Filtervelden voor de syntaxis, velden en operators die u in deze parameter kunt gebruiken. |
 
 ### <a name="filter-syntax"></a>Filtersyntaxis
 
@@ -61,7 +61,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 In de volgende tabel ziet u een lijst met de ondersteunde velden en ondersteuningsoperators voor de filterparameter. Tekenreekswaarden moeten tussen enkele aanhalingstekens staan.
 
-| Parameter | Ondersteunde operators | Beschrijving |
+| Parameter | Ondersteunde operators | Description |
 |-----------|---------------------|-------------|
 | autoRenewEnabled | `eq`, `ne` | Een waarde die aangeeft of het abonnement automatisch wordt verlengd. |
 | commitmentEndDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le`  | De datum waarop het abonnement eindigt. |
@@ -70,7 +70,7 @@ In de volgende tabel ziet u een lijst met de ondersteunde velden en ondersteunin
 | customerMarket | `eq`, `ne` | Het land/de regio waarin de klant zaken doet. |
 | customerName | `contains` | De naam van de klant. |
 | customerTenantId | `eq`, `ne` | Een tekenreeks in GUID-indeling die de tenant van de klant identificeert. |
-| deprovisionedDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le` | De datum waarop het abonnement is uitprovisioned. De standaardwaarde is null. |
+| deprovisionedDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le` | De datum waarop het abonnement is verwijderd. De standaardwaarde is null. |
 | effectiveStartDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le` | De datum waarop het abonnement wordt gestart. |
 | Friendlyname | `contains` | De naam van het abonnement. |
 | id | `eq`, `ne` | Een tekenreeks in GUID-indeling die het abonnement identificeert. |
@@ -87,7 +87,7 @@ In de volgende tabel ziet u een lijst met de ondersteunde velden en ondersteunin
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

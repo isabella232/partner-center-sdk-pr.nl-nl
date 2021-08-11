@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b29c005e74ad8a4da547a888b78e4599e74ebd02
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 89ffa4156490bd321055f12a1c8c385800b65d8d9e5a460df0cc41edda5c1a27
+ms.sourcegitcommit: f5e2d3e2ad5447b99d339662e00b2ac3a03d7d04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874530"
+ms.lasthandoff: 08/10/2021
+ms.locfileid: "116998496"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Een lijst met beschikbaarheid voor een SKU ophalen (per land)
 
@@ -37,7 +37,7 @@ De lijst met beschikbaarheid [voor een](product-resources.md#availability) [SKU 
 
 3. (Optioneel) Gebruik de **methode ByTargetSegment()** om de beschikbaarheid te filteren op doelsegment.
 
-4. Roep **Get()** of **GetAsync()** aan om een verzameling van de beschikbaarheid voor deze SKU op te halen.
+4. Roep **Get() of** **GetAsync() aan** om een verzameling van de beschikbaarheid voor deze SKU op te halen.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -76,15 +76,15 @@ Gebruik het volgende pad en de queryparameters om een lijst met beschikbaarheid 
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
-| sku-id                 | tekenreeks   | Ja      | Een tekenreeks die de SKU identificeert.                               |
-| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| product-id             | tekenreeks   | Yes      | Een tekenreeks die het product identificeert.                           |
+| sku-id                 | tekenreeks   | Yes      | Een tekenreeks die de SKU identificeert.                               |
+| country-code           | tekenreeks   | Yes      | Een land-/regio-id.                                            |
 | doelsegment         | tekenreeks   | No       | Een tekenreeks die het doelsegment identificeert dat wordt gebruikt voor filteren. |
 | reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met beschikbaarheid voor een Azure Reservation SKU, geeft u op om een lijst met beschikbaarheid op te halen die van toepassing `reservationScope=AzurePlan` zijn op AzurePlan. Sluit deze parameter uit om een lijst met beschikbaarheid op te halen die van toepassing zijn op Microsoft Azure (MS-AZR-0145P)-abonnementen.  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -121,7 +121,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 Volg dit voorbeeld om een lijst met beschikbaarheid per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Microsoft Azure-abonnementen (MS-AZR-0145P).
 
 ```http
-GET https://api.partnercenter.microsoft.com/v1/productsDZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
+GET https://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
 Authorization: Bearer
 Accept: application/json
 MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d

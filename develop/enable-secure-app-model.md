@@ -6,16 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 36a81c7b235c68e49bb425b5bd0d4615882f88ef
-ms.sourcegitcommit: 07b9a11f5c615ed1e716081392032cea2124bd98
+ms.openlocfilehash: 9974237f7d4234b782a5b17a65fd52b9024315f848b721c73f4e1d59b69b2930
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/04/2021
-ms.locfileid: "115104207"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994792"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Het Secure Application Model-framework inschakelen
 
-Microsoft introduceert een veilig, schaalbaar framework voor de verificatie van CSP-partners (Cloud Solution Provider) en configuratieschermleveranciers (CPV) via de MFA-architectuur (Microsoft Azure Active Directory Multi-Factor Authentication).
+Microsoft introduceert een veilig, schaalbaar framework voor de verificatie van CSP-partners (Cloud Solution Provider) en configuratieschermleveranciers (CPV) via de architectuur van Microsoft Azure Active Directory Multi-Factor Authentication (MFA).
 
 U kunt het nieuwe model gebruiken om de beveiliging voor api-integratie-aanroepen Partner Center verhogen. Hiermee kunnen alle partijen (inclusief Microsoft, CSP-partners en CPV's) hun infrastructuur en klantgegevens beschermen tegen beveiligingsrisico's.
 
@@ -110,7 +110,7 @@ U moet een autorisatiecode voor uw web-app krijgen die u kunt accepteren via de 
 
 5. Nadat u bent aangemeld, stuurt de browser de aanroep om naar het eindpunt van uw web-app met uw autorisatiecode. Met de volgende voorbeeldcode wordt bijvoorbeeld omgeleid naar `https://localhost:44395/` .
 
-#### <a name="authorization-code-call-trace"></a>Trace aanroep van autorisatiecode
+#### <a name="authorization-code-call-trace"></a>Trace voor aanroepen van autorisatiecode
 
 ```http
 POST https://localhost:44395/ HTTP/1.1
@@ -173,7 +173,7 @@ Antwoord body:
 
 ### <a name="get-access-token"></a>Toegangs token krijgen
 
-U moet een toegangs token verkrijgen voordat u aanroepen kunt doen naar de Partner Center API's. U moet een vernieuwingstoken gebruiken om een toegangstoken te verkrijgen, omdat toegangstokens over het algemeen een zeer beperkte levensduur hebben (bijvoorbeeld minder dan een uur).
+U moet een toegangs token verkrijgen voordat u de api's van Partner Center aanroepen. U moet een vernieuwingstoken gebruiken om een toegangstoken te verkrijgen, omdat toegangstokens over het algemeen een zeer beperkte levensduur hebben (bijvoorbeeld minder dan een uur).
 
 Aanvraag voor tijdelijke aanduiding:
 

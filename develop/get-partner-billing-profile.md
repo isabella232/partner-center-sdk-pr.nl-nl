@@ -4,12 +4,12 @@ description: Haalt een -object op dat het factureringsprofiel van de partner ver
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 225d8ea2d92933838ae47eaf3308276aa1f1684c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 5b3d2bb9d1d9f5c3003fdb8b031aaff17ecb80f03afc4c5aea87a838063c73d1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548971"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995897"
 ---
 # <a name="get-partner-billing-profile"></a>Factureringsprofiel van een partner ophalen
 
@@ -19,11 +19,11 @@ Haalt een -object op dat het factureringsprofiel van de partner vertegenwoordigt
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 ## <a name="c"></a>C\#
 
-Als u een partnerfactureringsprofiel wilt ophalen, gebruikt u de verzameling **IAggregatePartner.Profiles** en roept u de **eigenschap BillingProfile aan.** Roep ten slotte de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync) aan.
+Als u een partnerfactureringsprofiel wilt ophalen, gebruikt u de **verzameling IAggregatePartner.Profiles** en roept u de **eigenschap BillingProfile** aan. Roep ten slotte de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync) aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -31,7 +31,7 @@ Als u een partnerfactureringsprofiel wilt ophalen, gebruikt u de verzameling **I
 BillingProfile billingProfile = partnerOperations.Profiles.BillingProfile.Get();
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesKlasse: GetBillingProfile.cs 
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples-klasse: GetBillingProfile.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -65,7 +65,7 @@ Als dit lukt, retourneert deze methode een **BillingProfile-object** in de antwo
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

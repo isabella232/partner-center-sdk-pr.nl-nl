@@ -6,16 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: jasongroce
 ms.author: sabaja
-ms.openlocfilehash: 014a1e6a14b538b7557d58710b9132dd9e37de21
-ms.sourcegitcommit: 7e2d2805c4cdd61785b1cdcca99cad10d5683153
+ms.openlocfilehash: b9bdc6da64a79f4f35466fb62662b086a8e1ab3cadc99c7ca685303752f9d166
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113592435"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996289"
 ---
 # <a name="manage-payouts-using-the-payout-service-api"></a>Uitbetalingen beheren met behulp van de Uitbetalingsservice-API
 
-In dit artikel wordt uitgelegd hoe u toegang hebt tot uitbetalingsgegevens via de Uitbetalingsservice-API's in plaats van de Partner Center gebruikersinterface. Deze API's bieden een programmatische manier om de mogelijkheid te bieden van de [functie Gegevens](https://partner.microsoft.com/dashboard/payouts/reports/incentiveexport) exporteren in Partner Center.
+In dit artikel wordt uitgelegd hoe u toegang hebt tot uitbetalingsgegevens via de Uitbetalingsservice-API's in plaats van de Partner Center gebruikersinterface. Deze API's bieden een programmatische manier om de mogelijkheid te bieden van de [functie Gegevens exporteren](https://partner.microsoft.com/dashboard/payouts/reports/incentiveexport) in Partner Center.
 
 ## <a name="available-apis"></a>Beschikbare API's
 
@@ -99,11 +99,11 @@ Als u toegang wilt krijgen tot resources in uw abonnement, moet u een rol toewij
 
 5. Selecteer **Opslaan**. Vervolgens ziet u uw toepassing in de lijst met gebruikers met een rol voor dat bereik.
 
-   U kunt uw service-principal gaan gebruiken om uw scripts of apps uit te voeren. Als u de machtigingen van uw service-principal wilt beheren, bekijkt u de gebruikersstatus, controleert u machtigingen, bekijkt u aanmeldingsgegevens en [meer),](https://portal.azure.com)bekijkt u uw Bedrijfstoepassingen in de Azure Portal .
+   U kunt beginnen met het gebruik van uw service-principal om uw scripts of apps uit te voeren. Als u de machtigingen van uw service-principal wilt beheren, bekijkt u de gebruikersstatus, controleert u machtigingen, bekijkt u aanmeldingsgegevens en [meer),](https://portal.azure.com)bekijkt u uw Bedrijfstoepassingen in de Azure Portal .
 
 ## <a name="set-up-api-permissions"></a>API-machtigingen instellen
 
-Deze sectie bevat instructies voor het instellen van de vereiste API-machtigingen. Zie verificatie voor meer informatie Partner Center instellen van [API Partner-API machtigingen.](/partner/develop/api-authentication)
+Deze sectie bevat instructies voor het instellen van de vereiste API-machtigingen. Zie verificatie voor meer informatie Partner Center het instellen [van API Partner-API machtigingen.](/partner/develop/api-authentication)
 
 **Machtiging verlenen aan Graph API**
 
@@ -115,9 +115,9 @@ Deze sectie bevat instructies voor het instellen van de vereiste API-machtiginge
 
 4. Selecteer **Microsoft Graph** in de lijst met beschikbare API's.
 
-5. Selecteer **Gedelegeerde machtigingen en** voeg de vereiste machtigingen toe. Zie App-toegang configureren [voor meer informatie.](/azure/active-directory/develop/quickstart-configure-app-access-web-apis)
+5. Selecteer **Gedelegeerde machtigingen en** voeg de vereiste machtigingen toe. Zie App-toegang [configureren voor meer informatie.](/azure/active-directory/develop/quickstart-configure-app-access-web-apis)
 
-   :::image type="content" source="./images/manage-payouts/graph-request-api-permissions.png" alt-text="Schermopname van het scherm met machtigingen voor aanvragen in Azure Portal met Microsoft Graph geselecteerd.":::
+   :::image type="content" source="./images/manage-payouts/graph-request-api-permissions.png" alt-text="Schermopname van het scherm voor aanvraagmachtigingen in de Azure Portal met Microsoft Graph geselecteerd.":::
 
 **Toestemming voor API-toegang tot Partner Center API via AAD-app**
 
@@ -127,31 +127,31 @@ Deze sectie bevat instructies voor het instellen van de vereiste API-machtiginge
 
    :::image type="content" source="./images/manage-payouts/partner-api-request-permissions.png" alt-text="Schermopname van het scherm API-machtigingen met Microsoft Partner geselecteerd.":::
 
-8. Stel gedelegeerde machtigingen in op **Partner Center.**
+8. Stel gedelegeerde machtigingen in op **Partner Center**.
 
    :::image type="content" source="./images/manage-payouts/partner-api-request-permissions.png" alt-text="Schermopname van de gedelegeerde machtigingen die zijn geselecteerd Partner Center in het scherm API-machtigingen aanvragen.":::
 
-9. Verleen **beheerders toestemming voor** de API's.
+9. Verleen **beheerders toestemming** voor de API's.
 
-   :::image type="content" source="./images/manage-payouts/api-permissions.png" alt-text="Schermopname van de schakelknop voor beheerders toestemming op het scherm API-machtigingen.":::
+   :::image type="content" source="./images/manage-payouts/api-permissions.png" alt-text="Schermopname van de schakelknop voor Beheerders toestemming op het scherm API-machtigingen.":::
 
-   Controleer of Toestemming van beheerder is ingeschakeld in het scherm Toestemmingsstatus van beheerder.
+   Controleer of toestemming van de beheerder is ingeschakeld in het scherm Beheerdersmachtigingsstatus.
 
-   :::image type="content" source="./images/manage-payouts/admin-consent-verification.png" alt-text="Schermopname van het scherm Met toestemming van beheerder":::
+   :::image type="content" source="./images/manage-payouts/admin-consent-verification.png" alt-text="Schermopname van het scherm Toestemmingsstatus beheerder":::
 
 10. Zorg ervoor **dat in** de sectie Verificatie de optie **Openbare clientstromen** toestaan is ingesteld op **Ja.**
 
     :::image type="content" source="./images/manage-payouts/allow-public-client-flows.png" alt-text="Schermopname van het scherm Verificatie met Openbare clientstromen toestaan ingesteld op Ja.":::
 
-## <a name="run-the-sample-code-in-visual-studio"></a>Voer de voorbeeldcode uit in Visual Studio
+## <a name="run-the-sample-code-in-visual-studio"></a>De voorbeeldcode uitvoeren in Visual Studio
 
-Voorbeeldcode die laat zien hoe de API kan worden gebruikt voor betalings- en transactiegeschiedenis, vindt u in de [partnercentrum-uitbetaling-API's](https://github.com/microsoft/Partner-Center-Payout-APIs) GitHub-repo.
+Voorbeeldcode die laat zien hoe de API kan worden gebruikt voor betalings- en transactiegeschiedenis, vindt u in de [partnercentrum-uitbetaling-API's](https://github.com/microsoft/Partner-Center-Payout-APIs) GitHub repo.
 
 ### <a name="sample-code-notes"></a>Opmerkingen bij voorbeeldcode
 
-- Configuratie van clientgeheimen en certificaten zoals besproken in de sectie Verificatie: Twee opties van Een [service-principal maken in](/azure/active-directory/develop/howto-create-service-principal-portal) de Azure Portal is niet vereist.
+- Configuratie van clientgeheimen en certificaten zoals besproken in de sectie Verificatie: twee opties van Een [service-principal maken in](/azure/active-directory/develop/howto-create-service-principal-portal) de Azure Portal is niet vereist.
 - Accounts met meervoudige verificatie (MFA) worden momenteel niet ondersteund en veroorzaken een fout.
-- Uitbetalings-API ondersteunt alleen referenties op basis van gebruiker/wachtwoord.
+- Uitbetalings-API ondersteunt alleen referenties op basis van gebruikers/wachtwoorden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

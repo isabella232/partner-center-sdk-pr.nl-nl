@@ -4,12 +4,12 @@ description: U kunt de productUpgradeRequest-resource gebruiken om de status van
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 03d925dd0fae987226ad1f8e71fad380ba144b83
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: e33ac61d77fc4e14ff6f7801e2c15a968cf9f1a667087df612c0f76b216f891a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445558"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995744"
 ---
 # <a name="get-the-product-upgrade-status-for-a-customer"></a>De status van de productupgrade voor een klant op te halen
 
@@ -17,9 +17,9 @@ U kunt de [**resource ProductUpgradeRequest**](product-upgrade-resources.md#prod
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps bij](enable-secure-app-model.md) het gebruik van App+User-verificatie met Partner Center API's.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps](enable-secure-app-model.md) bij het gebruik van App+User-verificatie met Partner Center API's.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De productfamilie.
 
@@ -27,7 +27,7 @@ U kunt de [**resource ProductUpgradeRequest**](product-upgrade-resources.md#prod
 
 ## <a name="c"></a>C\#
 
-Ga als volgende te werk om te controleren of een klant in aanmerking komt voor een upgrade naar een Azure-plan:
+Ga als volgende te werk om te controleren of een klant in aanmerking komt voor een upgrade naar een Azure-abonnement:
 
 1. Maak een **ProductUpgradesRequest-object** en geef de klant-id en 'Azure' op als de productfamilie.
 
@@ -73,11 +73,11 @@ Gebruik de volgende queryparameter om de klant op te geven voor wie u de status 
 
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **upgrade-id** | GUID | Ja | De waarde is een upgrade-id met GUID-indeling. U kunt deze id gebruiken om een bij te houden upgrade op te geven. |
+| **upgrade-id** | GUID | Yes | De waarde is een upgrade-id met GUID-indeling. U kunt deze id gebruiken om een bij te houden upgrade op te geven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

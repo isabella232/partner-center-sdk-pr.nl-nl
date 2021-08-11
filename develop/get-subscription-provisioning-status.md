@@ -4,12 +4,12 @@ description: De inrichtingsstatus van het abonnement voor een klantabonnement op
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f8797fa494cd77f11a1179d6406ca021f0d7788c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: b36776279171186da7d81f9c1ff3d0828206fc2749ab8108f882ad7460575d60
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548699"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995557"
 ---
 # <a name="get-subscription-provisioning-status"></a>De inrichtingsstatus van het abonnement ophalen
 
@@ -19,9 +19,9 @@ De inrichtingsstatus van het abonnement voor een klantabonnement op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
@@ -54,8 +54,8 @@ Gebruik de volgende padparameters om de klant en het abonnement te identificeren
 
 | Naam            | Type   | Vereist | Beschrijving                                               |
 |-----------------|--------|----------|-----------------------------------------------------------|
-| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.     |
-| subscription-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het abonnement identificeert. |
+| customer-id     | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.     |
+| subscription-id | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die het abonnement identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

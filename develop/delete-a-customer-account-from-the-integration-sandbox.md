@@ -4,12 +4,12 @@ description: Een klantaccount verwijderen uit de sandbox voor Testing in Product
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b9d9e44ac9c40bd4e3c7e1a9e04253f853dfd96c
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 9b0fa05055f49100ac80f3bc6897b3fbd0a47e32a06806ecfdc8e386e31ae1b9
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973125"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995081"
 ---
 # <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Een klantaccount verwijderen uit de integratie-sandbox
 
@@ -22,7 +22,7 @@ In dit artikel wordt uitgelegd hoe u de relatie tussen de partner en het klantac
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -44,7 +44,7 @@ Een klant verwijderen uit de Sandbox voor Tip-integratie:
 
 3. Zorg ervoor dat alle Azure Reserved Virtual Machine Instances- en softwareaankooporders voor die klant worden geannuleerd. Voor elk [**recht**](entitlement-resources.md) in de verzameling:
 
-    1. Gebruik het [**recht. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) lokale kopie van de bijbehorende order [ophalen](order-resources.md#order) uit de verzameling orders van de klant.
+    1. Gebruik het [**recht. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) lokale kopie van de bijbehorende [](order-resources.md#order) Order ophalen uit de verzameling orders van de klant.
 
     2. Stel de [**eigenschap Order.Status**](order-resources.md#order) in op Geannuleerd.
 

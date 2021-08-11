@@ -1,18 +1,18 @@
 ---
-title: Indirecte reseller verwijderen in Sandbox
+title: Indirecte reseller verwijderen in sandbox
 description: Bevat informatie over het verwijderen van indirecte sandbox-resellers en het inschakelen van end-to-end testen met behulp van API's.
 ms.date: 5/24/2021
 ms.author: vijvala
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ba1fd002ac62aba4e414d263b33ecc8153054602
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 708fedd4e34b2242aae6e6e0ac673ce77524d448dcee4a05877d37b5266e44c8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973006"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994928"
 ---
-# <a name="delete-indirect-reseller-in-sandbox"></a>Indirecte reseller verwijderen in Sandbox
+# <a name="delete-indirect-reseller-in-sandbox"></a>Indirecte reseller verwijderen in sandbox
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland
 
@@ -31,7 +31,7 @@ Deze functie is alleen beschikbaar in de sandbox en biedt indirecte sandboxprovi
 
 1. Vereisten voor het verwijderen van een indirecte sandbox-reseller
     1. De abonnementen voor elke klant van de indirecte sandbox-reseller opschorten
-    2. Alle klanten van indirecte resellers verwijderen
+    2. Alle klanten van indirecte reseller verwijderen
 2. Limiet van vijf indirecte sandbox-resellers die zijn toegestaan per indirecte sandboxprovider. Zodra de indirecte sandbox-reseller is verwijderd, wordt het quotum opnieuw ingesteld.
 
 ## <a name="delete-sandbox-indirect-reseller-through-api"></a>Indirecte sandbox-reseller verwijderen via API
@@ -46,9 +46,9 @@ Deze functie is alleen beschikbaar in de sandbox en biedt indirecte sandboxprovi
 
 #### <a name="request-headers"></a>Aanvraagheaders
 
-- Deze API is idempotent (het levert geen ander resultaat op als u deze meerdere keren aanroept)
+- Deze API is idempotent (deze levert geen ander resultaat op als u deze meerdere keren aanroept)
 - Een aanvraag-id en correlatie-id zijn vereist
-- Zie REST-headers [Partner Center meer informatie](headers.md)
+- Zie REST Partner Center headers [voor meer informatie](headers.md)
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -73,7 +73,7 @@ Date: Wed, 16 Feb 2021 00:43:02 GMT
 
 #### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en andere informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en andere informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 Deze methode retourneert de volgende status en foutcodes:
 
@@ -82,4 +82,4 @@ Deze methode retourneert de volgende status en foutcodes:
 | 401                                  | 6002           | Niet-geautoriseerd token of geen tipprovideraccount |
 | 403                                  | 6003           | Sandbox-IR verwijderen is niet toegestaan                 |
 | 403                                  | 6004           | Een sandbox-IR-bewerking maken die niet is toegestaan          |
-| 409                                  | 1003           | Conflict tijdens het maken van tenant                   |
+| 409                                  | 1003           | Conflict tijdens maken van tenant                   |

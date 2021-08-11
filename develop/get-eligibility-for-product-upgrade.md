@@ -1,25 +1,25 @@
 ---
 title: Controleer of een klant in aanmerking komt voor een upgrade naar een Azure-plan
-description: U kunt de Resource ProductUpgradeRequest gebruiken om een ProductUpgradesEligibility-resource te retourneren om te bepalen of een klant in aanmerking komt voor een upgrade van een Microsoft Azure-abonnement (MS-AZR-0145P) naar een Azure-abonnement.
+description: U kunt de ProductUpgradeRequest-resource gebruiken om een ProductUpgradesEligibility-resource te retourneren om te bepalen of een klant in aanmerking komt voor een upgrade van een Microsoft Azure-abonnement (MS-AZR-0145P) naar een Azure-plan.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 34a20611c7d92042b5432c5ffb3ba4702d77e0c2
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: a72a9f2f3909ac4b3b74754b58a8d8d4745fbb2cadd101ad18cf487b1b02267a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446255"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996017"
 ---
 # <a name="check-a-customers-eligibility-for-upgrading-to-an-azure-plan"></a>Controleer of een klant in aanmerking komt voor een upgrade naar een Azure-plan
 
-U kunt de resource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) gebruiken om te controleren of een klant in aanmerking komt voor een upgrade naar een Azure-plan vanuit een Microsoft Azure-abonnement (MS-AZR-0145P) Deze methode retourneert een [**ProductUpgradesEligibility-resource**](product-upgrade-resources.md#productupgradeseligibility) met de geschiktheid voor productupgrades van de klant.
+U kunt de [**ProductUpgradeRequest-resource**](product-upgrade-resources.md#productupgraderequest) gebruiken om te controleren of een klant in aanmerking komt voor een upgrade naar een Azure-plan vanuit een Microsoft Azure-abonnement (MS-AZR-0145P) Deze methode retourneert een [**ProductUpgradesEligibility-resource**](product-upgrade-resources.md#productupgradeseligibility) met de geschiktheid voor productupgradeseligibility van de klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps bij](enable-secure-app-model.md) het gebruik van App+User-verificatie met Partner Center API's.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties. Volg het [model voor beveiligde apps](enable-secure-app-model.md) bij het gebruik van App+User-verificatie met Partner Center API's.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -27,7 +27,7 @@ U kunt de resource [**ProductUpgradeRequest**](product-upgrade-resources.md#prod
 
 ## <a name="c"></a>C\#
 
-Ga als volgende te werk om te controleren of een klant in aanmerking komt voor een upgrade naar een Azure-abonnement:
+Ga als volgende te werk om te controleren of een klant in aanmerking komt voor een upgrade naar een Azure-plan:
 
 1. Maak een **ProductUpgradesRequest-object** en geef de klant-id en 'Azure' op als de productfamilie.
 
@@ -66,7 +66,7 @@ if (productUpgradeEligibility.IsEligibile)
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -99,7 +99,7 @@ Als dit lukt, retourneert deze methode een [**ProductUpgradesEligibility-resourc
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

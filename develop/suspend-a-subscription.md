@@ -1,35 +1,35 @@
 ---
 title: Een abonnement opschorten
-description: Schort een abonnementsresource uit die overeenkomt met de klant- en abonnements-id vanwege fraude of niet-betaling. In het Partner Center kan deze bewerking worden uitgevoerd door eerst een klant te selecteren.
+description: Een abonnementsresource die overeenkomt met de klant- en abonnements-id, wordt tijdelijk opgeschort vanwege fraude of niet-betaling. In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst een klant te selecteren.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7dae7c3422a403c48a2b10424c4ae5dbdbc498ea
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: a64a6e806abd7ee91f11c799dcc14ed856337633f2e7b08558995755a01f6535
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547339"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996730"
 ---
 # <a name="suspend-a-subscription"></a>Een abonnement opschorten
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-Schort een [abonnementsresource](subscription-resources.md) uit die overeenkomt met de klant- en abonnements-id vanwege fraude of niet-betaling.
+Een abonnementsresource [die](subscription-resources.md) overeenkomt met de klant- en abonnements-id, wordt tijdelijk opgeschort vanwege fraude of niet-betaling.
 
-In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement in kwestie dat u een andere naam wilt geven. Als u wilt voltooien, kiest **u de knop Suspended** en selecteert u **vervolgens Submit.**
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement in kwestie dat u een andere naam wilt geven. Als u wilt voltooien, kiest **u de knop Tijdelijk** en selecteert u vervolgens **Verzenden.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
 ## <a name="c"></a>C\#
 
-Als u het abonnement van een klant wilt opschorten, moet u eerst [het abonnement op halen](get-a-subscription-by-id.md)en vervolgens de eigenschap Status van het [**abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) wijzigen. Raadpleeg [SubscriptionStatus enumeration/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus) voor informatie over **statuscodes.** Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
+Als u het abonnement van een klant wilt opschorten, moet u eerst [het abonnement op halen](get-a-subscription-by-id.md)en vervolgens de eigenschap Status van het [**abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) wijzigen. Raadpleeg [SubscriptionStatus enumeration/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus) voor informatie over statuscodes.  Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen aan,**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,7 +43,7 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
    });
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -68,7 +68,7 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Een volledige **abonnementsresource** is vereist in de aanvraag body. Zorg ervoor dat **de eigenschap Status** is bijgewerkt.
+Een volledige **abonnementsresource** is vereist in de aanvraag. Zorg ervoor dat **de eigenschap Status** is bijgewerkt.
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -112,7 +112,7 @@ Als dit lukt, retourneert deze methode [bijgewerkte eigenschappen van](subscript
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

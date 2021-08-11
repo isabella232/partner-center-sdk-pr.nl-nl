@@ -4,12 +4,12 @@ description: Een lijst met informatie over apparaten uploaden naar een bestaande
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3fa9cff39113130c54cecfaef1f8ca28e0ac5adf
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: d83812f32312d5742fd69c43456cb3ba64dca56bc0c81fe6eedb14d2c010a7fc
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530307"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995472"
 ---
 # <a name="upload-a-list-of-devices-to-an-existing-batch-for-the-specified-customer"></a>Een lijst met apparaten uploaden naar een bestaande batch voor de opgegeven klant
 
@@ -19,9 +19,9 @@ Een lijst met informatie over apparaten uploaden naar een bestaande batch voor d
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De batch-id van het apparaat.
 
@@ -29,7 +29,7 @@ Een lijst met informatie over apparaten uploaden naar een bestaande batch voor d
 
 ## <a name="c"></a>C\#
 
-Als u een lijst met apparaten wilt uploaden naar een bestaande apparaatbatch, instantieer dan eerst een nieuw [List/dotnet/api/system.collections.generic.list-1) van het type [**Apparaat**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) en vul de lijst met de apparaten in. De volgende combinaties van ingevulde eigenschappen zijn minimaal vereist voor het identificeren van elk apparaat:
+Als u een lijst met apparaten wilt uploaden naar een bestaande apparaatbatch, instantieer dan eerst een nieuwe [List/dotnet/api/system.collections.generic.list-1) van het type [**Apparaat**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) en vul de lijst met de apparaten in. De volgende combinaties van ingevulde eigenschappen zijn minimaal vereist voor het identificeren van elk apparaat:
 
 - [**HardwareHash**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**ProductKey**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey).
 
@@ -71,7 +71,7 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.Create(devicesToBeUploaded);
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateDevices.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateDevices.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -87,16 +87,16 @@ Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 
 | Naam           | Type   | Vereist | Beschrijving                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| customer-id    | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
-| devicebatch-id | tekenreeks | Ja      | Een tekenreeks-id die de apparaatbatch identificeert. |
+| customer-id    | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| devicebatch-id | tekenreeks | Yes      | Een tekenreeks-id die de apparaatbatch identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De aanvraag body moet een matrix van [apparaatobjecten](device-deployment-resources.md#device) bevatten. De volgende combinaties van velden voor het identificeren van een apparaat worden geaccepteerd:
+De aanvraag body moet een matrix van [Apparaatobjecten](device-deployment-resources.md#device) bevatten. De volgende combinaties van velden voor het identificeren van een apparaat worden geaccepteerd:
 
 - hardwareHash + productKey.
 - hardwareHash + serialNumber.
@@ -154,7 +154,7 @@ Als dit lukt, bevat het antwoord een **Location-header** met een URI die kan wor
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

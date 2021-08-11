@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: c888786a6b6ca941629bb7aac95227021c37a7fc
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 79327879614de521224606b69a5b6d1e8e4192f0df085f5fce61230c91e774e5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549158"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994503"
 ---
 # <a name="get-invoice-by-id"></a>Factuur op id ontvangen
 
@@ -21,7 +21,7 @@ Hiermee haalt u een bepaalde factuur op met behulp van de factuur-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
 - Een geldige factuur-id.
 
@@ -29,7 +29,7 @@ Hiermee haalt u een bepaalde factuur op met behulp van de factuur-id.
 
 Een factuur op id ontvangen:
 
-1. Gebruik de **verzameling IPartner.Invoices en** roep de **methode ById()** aan.
+1. Gebruik de **verzameling IPartner.Invoices** en roep de **methode ById()** aan.
 
 2. Roep de **methoden Get()** of **GetAsync()** aan.
 
@@ -40,7 +40,7 @@ Een factuur op id ontvangen:
 var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: GetInvoice.cs 
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: GetInvoice.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -56,11 +56,11 @@ Gebruik de volgende queryparameter om de factuur op te halen.
 
 | Naam           | Type       | Vereist | Beschrijving                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **factuur-id** | **Tekenreeks** | Ja      | De waarde is een **factuur-id** waarmee de reseller de resultaten voor een bepaalde factuur kan filteren. |
+| **invoice-id** | **Tekenreeks** | Yes      | De waarde is een **factuur-id** waarmee de reseller de resultaten voor een bepaalde factuur kan filteren. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -82,7 +82,7 @@ Als dit lukt, retourneert deze methode een [factuurresource](invoice-resources.m
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

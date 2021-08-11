@@ -4,12 +4,12 @@ description: De details van een bestaande klantenserviceaanvraag ophalen op id.
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 66488cf9592d630cb1f0237d379e8df5ead6a3a8
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 1ad22e5940781d514b00a6a25ca772fab338dc5584df09ac5a29fb2559e9538a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548767"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995693"
 ---
 # <a name="get-service-request-details-by-id"></a>Details van serviceaanvraag ophalen op basis van id
 

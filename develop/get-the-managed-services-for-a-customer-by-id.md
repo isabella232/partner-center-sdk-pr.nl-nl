@@ -4,12 +4,12 @@ description: Haalt de beheerde services voor een klant op. Met andere woorden, h
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1cf7e7b62113bd96b00fdc2301e4e7ac4f5d4243
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: f81036e34caec54963d28af2c41ea74ea38d43a38b9fb1f929bbc6ceddceeaaa
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548444"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996526"
 ---
 # <a name="get-the-managed-services-for-a-customer-by-id"></a>De beheerde services voor een klant ophalen op basis van id
 

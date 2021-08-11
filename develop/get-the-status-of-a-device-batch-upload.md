@@ -1,33 +1,33 @@
 ---
 title: De status ophalen van het uploaden van een apparaat-batch
-description: De status van het batchupload van een apparaat voor een opgegeven klant krijgen.
+description: De status van het batchupload van een apparaat voor een opgegeven klant op te halen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fd8726af41fe4399797f39a0790cf962fde64acc
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 6c84e3e9f8717a0ecfb75c19291ca397c48e2435864d2c22d3dac893a1007f7f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548478"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996101"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>De status ophalen van het uploaden van een apparaat-batch
 
 **Van toepassing op**: Partner Center | Partner Center voor Microsoft Cloud Duitsland
 
-De status van het batchupload van een apparaat voor een opgegeven klant krijgen.
+De status van het batchupload van een apparaat voor een opgegeven klant op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - De batchtracking-id die wordt geretourneerd in de Location-header toen de apparaatbatch werd verzonden. Zie een lijst Upload apparaten voor de opgegeven klant voor [meer informatie.](upload-a-list-of-devices-for-the-specified-customer.md)
 
 ## <a name="c"></a>C\#
 
-Als u de status van een batchupload van een apparaat wilt ophalen, roept u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Roep vervolgens de methode [**BatchUploadStatus.ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatuscollection.byid) aan met de batchtracking-id om een interface op te halen voor batchuploadstatusbewerkingen. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.getasync) om de status op te halen.
+Als u de status van een batchupload van een apparaat wilt ophalen, roept u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om een interface op te halen voor bewerkingen op de opgegeven klant. Roep vervolgens de methode [**BatchUploadStatus.ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatuscollection.byid) aan met de batchtracking-id om een interface op te halen voor statusbewerkingen voor batchuploads. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.getasync) om de status op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ var status =
     partnerOperations.Customers.ById(selectedCustomerId).BatchUploadStatus.ById(selectedTrackingId).Get();
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetBatchUploadStatus.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class:** GetBatchUploadStatus.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -54,8 +54,8 @@ Gebruik de volgende padparameters bij het maken van de aanvraag.
 
 | Naam             | Type   | Vereist | Beschrijving                                                                                                                                                                    |
 |------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id      | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert.                                                                                                                          |
-| batchtracking-id | tekenreeks | Ja      | Een id met GUID-indeling die wordt gebruikt om de status van het batchupload van een apparaat op te halen. Deze id wordt geretourneerd in de Location-header wanneer de batch van het apparaat is verzonden. |
+| customer-id      | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert.                                                                                                                          |
+| batchtracking-id | tekenreeks | Yes      | Een id met GUID-indeling die wordt gebruikt om de status van het batchupload van een apparaat op te halen. Deze id wordt geretourneerd in de location-header wanneer de batch van het apparaat is verzonden. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -83,7 +83,7 @@ Als dit lukt, bevat het antwoord een [BatchUploadDetails-resource.](device-deplo
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

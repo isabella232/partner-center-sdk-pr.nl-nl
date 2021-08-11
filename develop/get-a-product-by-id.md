@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 769a4307dc3cebdc7ebbdcf51d9f2b67a9f4b7c2
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 0e8abc8cf33d12140a084e83580f20bb0b9d295eda7ab8cc7279c89043c81992
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874020"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994537"
 ---
 # <a name="get-a-product-by-id"></a>Een product ophalen op basis van id
 
@@ -19,7 +19,7 @@ Hiermee haalt u de opgegeven productresource op met behulp van een product-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een product-id.
 
@@ -69,8 +69,8 @@ Gebruik de volgende padparameters om het opgegeven product op te halen.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
-| country                | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| product-id             | tekenreeks   | Yes      | Een tekenreeks die het product identificeert.                           |
+| country                | tekenreeks   | Yes      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -96,7 +96,7 @@ Als dit lukt, bevat de antwoord-body een [Product-resource.](product-resources.m
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 Deze methode retourneert de volgende foutcodes:
 

@@ -4,30 +4,30 @@ description: Leer hoe u de mpn-id (Microsoft Partner Network-id) van een partner
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6bd51850c7bc5a099a34f9c028a58e247c2600a3
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 223f0da94f5a1c12b4f6de32184296b88ab5f443a69feac89152acc1aa9ccbd6
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548818"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995914"
 ---
 # <a name="verify-a-partner-mpn-id-via-c-or-the-partner-center-rest-api"></a>Controleer een MPN-id van een partner via C \# of de Partner Center REST API
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-De ID van een partner controleren Microsoft Partner Network (MPN-id).
+De id van een partner controleren Microsoft Partner Network (MPN-id).
 
-Met de hier weergegeven techniek wordt de id van de partner Microsoft Partner Network door het MPN-profiel van de partner aan te vragen bij het partnercentrum. De id wordt als geldig beschouwd als de aanvraag slaagt.
+Met de hier getoonde techniek wordt de id van de partner Microsoft Partner Network door het MPN-profiel van de partner aan te vragen bij Partner Center. De id wordt als geldig beschouwd als de aanvraag slaagt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 - De MPN-id van de partner die moet worden geverifieerd. Als u deze waarde weglaten, haalt de aanvraag het MPN-profiel van de aangemelde partner op.
 
 ## <a name="c"></a>C\#
 
-Als u de MPN-id van een partner wilt controleren, haalt u eerst een interface op voor verzamelingsbewerkingen van partnerprofielen van [**de eigenschap IAggregatePartner.Profiles.**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) Haal vervolgens een interface op voor MPN-profielbewerkingen van de [**eigenschap MpnProfile.**](/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) Roep ten slotte de [**methoden Get**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) met de MPN-id om het MPN-profiel op te halen. Als u de MPN-id weglaten uit de Get- of GetAsync-aanroep, probeert de aanvraag het MPN-profiel van de aangemelde partner op te halen.
+Als u de MPN-id van een partner wilt controleren, haalt u eerst een interface op voor bewerkingen voor het verzamelen van partnerprofielen van de [**eigenschap IAggregatePartner.Profiles.**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) Haal vervolgens een interface op voor MPN-profielbewerkingen van de [**eigenschap MpnProfile.**](/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) Roep ten slotte de [**methoden Get**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) met de MPN-id om het MPN-profiel op te halen. Als u de MPN-id weglaten uit de Get- of GetAsync-aanroep, probeert de aanvraag het MPN-profiel van de aangemelde partner op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,7 +36,7 @@ Als u de MPN-id van een partner wilt controleren, haalt u eerst een interface op
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Klasse **Samples:** VerifyPartnerMpnId.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: VerifyPartnerMpnId.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -52,7 +52,7 @@ Geef de volgende queryparameter op om de partner te identificeren. Als u deze qu
 
 | Naam   | Type | Vereist | Beschrijving                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| mpn-id | int  | Nee       | Een Microsoft Partner Network-id die de partner identificeert. |
+| mpn-id | int  | No       | Een Microsoft Partner Network-id die de partner identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -82,7 +82,7 @@ Als dit lukt, bevat de antwoord-body de [MpnProfile-resource](profile-resources.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example-success"></a>Voorbeeld van antwoord (geslaagd)
 

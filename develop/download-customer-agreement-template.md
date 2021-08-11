@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: fccb9e3d4a837f3e8043f8c7ae1e3911d819afd7
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 7757cd6a92c168e4209d2d3ac49746e4a0907021d260a7b49603a3706e8cfa5c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906532"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994809"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Downloadkoppeling voor de sjabloon Microsoft-klantovereenkomst downloaden
 
@@ -29,7 +29,7 @@ In dit artikel wordt beschreven hoe u een koppeling krijgt om de sjabloon Micros
 
 - Referenties zoals beschreven in [Partner Center verificatie](./partner-center-authentication.md). Dit scenario ondersteunt alleen App+Gebruikersverificatie.
 
-- Het land van de klant waarop de Microsoft-klantovereenkomst van toepassing is.
+- Het land van de klant waarop de Microsoft-klantovereenkomst is toegepast.
 
 - De taal waarin de Microsoft-klantovereenkomst sjabloon moet worden gelokaliseerd.
 
@@ -44,7 +44,7 @@ In dit artikel wordt beschreven hoe u een koppeling krijgt om de sjabloon Micros
 
 Een koppeling ophalen om de sjabloon Microsoft-klantovereenkomst downloaden:
 
-1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van de** Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -82,7 +82,7 @@ Een volledig voorbeeld vindt u in de [klasse GetAgreementDetails](https://github
 
 Een koppeling ophalen om de sjabloon Microsoft-klantovereenkomst downloaden:
 
-1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van de** Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
+1. Haal de metagegevens van de overeenkomst voor de Microsoft-klantovereenkomst. U moet de **templateId van** de Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](get-customer-agreement-metadata.md)
 
 2. Maak een REST-aanvraag om een [ **AgreementDocument-resource op** te halen.](./agreement-document-resources.md) Zie het voorbeeld van de [aanvraagsyntaxis voor een](#request-syntax) voorbeeld. U moet de volgende informatie opgeven:
 
@@ -104,7 +104,7 @@ U kunt de volgende URI-parameters gebruiken bij uw aanvraag:
 
 | Naam                   | Type   | Vereist | Beschrijving                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| agreement-template-id  | tekenreeks | Ja      | De unieke id van het overeenkomsttype. U kunt de templateId voor Microsoft-klantovereenkomst verkrijgen door de metagegevens van de overeenkomst op te halen voor Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](./get-customer-agreement-metadata.md) Deze parameter is **casegevoelig.**|
+| agreement-template-id  | tekenreeks | Yes      | De unieke id van het overeenkomsttype. U kunt de templateId voor Microsoft-klantovereenkomst verkrijgen door de metagegevens van de overeenkomst op te halen voor Microsoft-klantovereenkomst. Zie Get [agreement metadata for Microsoft-klantovereenkomst (Metagegevens van overeenkomst verkrijgen voor Microsoft-klantovereenkomst) voor meer informatie.](./get-customer-agreement-metadata.md) Deze parameter is **casegevoelig.**|
 | country                | tekenreeks | No       | Geeft het land aan waarop de overeenkomstsjabloon van toepassing is. De query wordt standaard ingesteld *op US* als de parameter niet is opgegeven. Raadpleeg Lijst met ondersteunde landen en talen voor een lijst met ondersteunde [landcodes.](#list-of-supported-countries-and-languages)|
 | language               | tekenreeks | No       | Hiermee wordt de taal aangegeven waarin de overeenkomstsjabloon moet worden gelokaliseerd. De query wordt standaard ingesteld *op en-US* als de parameter niet is opgegeven of als de landcode die is opgegeven in niet wordt ondersteund voor het opgegeven land. Raadpleeg Lijst met ondersteunde landen en talen voor een lijst met [ondersteunde landcodes.](#list-of-supported-countries-and-languages)|
 
@@ -130,7 +130,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 Als dit lukt, retourneert deze methode een [ **AgreementDocument-resource**](./agreement-document-resources.md) in de antwoord-body.
 
-De resource heeft de **eigenschap downloadUri,** die een URL-tekenreeks bevat die kan worden gebruikt om de overeenkomstsjabloon te downloaden. Telkens wanneer u een query maakt, wordt er een andere koppeling geretourneerd. Deze koppeling verloopt na vijf minuten.
+De resource heeft een **downloadUri-eigenschap,** die een URL-tekenreeks bevat die kan worden gebruikt om de overeenkomstsjabloon te downloaden. Telkens wanneer u een query maakt, wordt er een andere koppeling geretourneerd. Deze koppeling verloopt na vijf minuten.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
@@ -371,7 +371,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Zuid-Soedan | SS | en-US |
 | Spanje | ES | en-US, es-ES, en-US, en-US |
 | Sri Lanka | LK | en-US |
-| St Helena, Ascension, Tristan da Cunha | SH | en-US |
+| St Helena, Zetten, Tristan da Cunha | SH | en-US |
 | Suriname | SR | en-US |
 | Svalbard | Sj | en-US |
 | Zweden | SE | en-US, sv-SE |
@@ -391,7 +391,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Turks- en Caicos-eilanden | TC | en-US |
 | Tuvalu | TV | en-US |
 | Amerikaanse outlyingeilanden | UM | en-US |
-| Amerikaanse Maagdeneilanden | VI | en-US |
+| Amerikaanse Amerikaanse Maagdeneilanden | VI | en-US |
 | Oeganda | UG | en-US |
 | Oekraïne | UA | en-US, uk-UA |
 | Verenigde Arabische Emiraten | AE | en-US, ar-SA |

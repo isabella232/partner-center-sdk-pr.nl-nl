@@ -4,12 +4,12 @@ description: Haal de verwachte adresindeling op op basis van de ISO-code voor de
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d5233d059ea6e71c28df36b2242659c28c5dd857
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: c1e5c3b0b4a8f57a3731392bfa13d9da22c66699d5dedd4da48aa7f93b5700fd
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549039"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995880"
 ---
 # <a name="get-address-formatting-rules-by-market"></a>De regels voor adresopmaak per markt ophalen
 
@@ -20,7 +20,7 @@ Haal de verwachte adresindeling op op basis van de ISO-code voor de markt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 

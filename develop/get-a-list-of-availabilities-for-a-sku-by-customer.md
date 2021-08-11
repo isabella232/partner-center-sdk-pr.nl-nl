@@ -7,12 +7,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b237bbd17a6108bbcb4e23529cf476a6b8306f68
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 682f4ece9098817f25e7709f3a8b9010d661fd1042589785778f5c434c37ed8e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874547"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995455"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>Een lijst met beschikbaarheid voor een SKU ophalen (per klant)
 
@@ -24,7 +24,7 @@ U kunt de volgende methoden gebruiken om een verzameling beschikbaarheid te verk
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een product-id (**product-id**).
 
@@ -42,13 +42,13 @@ U kunt de volgende methoden gebruiken om een verzameling beschikbaarheid te verk
 
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Ja | De waarde is een **klant-tenant-id** in GUID-indeling. Dit is een id waarmee u een klant kunt opgeven. |
-| product-id | tekenreeks | Ja | Een tekenreeks die het product identificeert. |
-| sku-id | tekenreeks | Ja | Een tekenreeks die de SKU identificeert. |
+| customer-tenant-id | GUID | Yes | De waarde is een **klant-tenant-id** in GUID-indeling. Dit is een id waarmee u een klant kunt opgeven. |
+| product-id | tekenreeks | Yes | Een tekenreeks die het product identificeert. |
+| sku-id | tekenreeks | Yes | Een tekenreeks die de SKU identificeert. |
 
 ### <a name="request-header"></a>Aanvraagheader
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -68,7 +68,7 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 Deze methode retourneert de volgende foutcodes:
 

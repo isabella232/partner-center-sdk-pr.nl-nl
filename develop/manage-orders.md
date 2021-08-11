@@ -1,21 +1,21 @@
 ---
 title: Bestellingen beheren
-description: In deze sectie worden de manieren beschreven Cloud Solution Provider partners de Partner Center kunnen gebruiken om klantorders en -abonnementen programmatisch te beheren.
+description: In deze sectie worden de manieren beschreven Cloud Solution Provider partners de Partner Center kunnen gebruiken om klantorders en abonnementen programmatisch te beheren.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 390baa87c96706e60582811774b74fcf11567058
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8bbcb5a5c8d5b61c0a1deb07952c4b8abf1ad37c047e867662bea044edf66ef3
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548155"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994401"
 ---
 # <a name="manage-orders"></a>Bestellingen beheren
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud for US Government
 
-In deze sectie worden de manieren beschreven waarop Cloud Solution Provider kunnen gebruiken om Partner Center en abonnementen van klanten programmatisch te beheren.
+In deze sectie worden de manieren beschreven waarop Cloud Solution Provider kunnen gebruiken om Partner Center klantenorders en -abonnementen programmatisch te beheren.
 
 ## <a name="purchase-azure-reserved-vm-instances"></a>Aankoop Azure Reserved VM Instances
 
@@ -25,7 +25,7 @@ In deze sectie worden de manieren beschreven waarop Cloud Solution Provider kunn
 
 - [Een eenmalige aankoop doen](make-a-one-time-purchase.md)
 
-## <a name="get-offers-from-the-catalog"></a>Aanbiedingen uit de catalogus downloaden
+## <a name="get-offers-from-the-catalog"></a>Aanbiedingen downloaden uit de catalogus
 
 - [Een lijst met aanbiedingscategorieën per land en land/land op halen](get-a-list-of-offer-categories-by-country-and-locale.md)
 - [Een lijst met aanbiedingen voor een markt ophalen](get-a-list-of-offers-for-a-market.md)
@@ -39,7 +39,7 @@ In deze sectie worden de manieren beschreven waarop Cloud Solution Provider kunn
 - [Een beschikbaarheid ophalen op basis van id](get-an-availability-by-id.md)
 - [Voorraad controleren](check-inventory.md)
 
-## <a name="manage-an-order"></a>Een order beheren
+## <a name="manage-an-order"></a>Een bestelling beheren
 
 - [Een bestelling annuleren vanuit de integratie-sandbox](cancel-an-order-from-the-integration-sandbox.md)
 - [Een winkelwagen afhandelen](checkout-a-cart.md)

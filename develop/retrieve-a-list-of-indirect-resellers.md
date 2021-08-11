@@ -1,19 +1,19 @@
 ---
 title: Een lijst met indirecte resellers ophalen
-description: Een lijst ophalen van de indirecte resellers van de aangemelde partner.
+description: Een lijst met indirecte resellers van de aangemelde partner ophalen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 58f5c3378b5b941fdc9dafcf28f5efbc58c29c7c
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 901bf045d1de29744114bb58ed445f9eb17f70a4744786fd4617da9697e7c683
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446561"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996916"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>Een lijst met indirecte resellers ophalen
 
-Een lijst ophalen van de indirecte resellers van de aangemelde partner.
+Een lijst met indirecte resellers van de aangemelde partner ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,11 +45,11 @@ Gebruik de volgende queryparameter om het relatietype te identificeren.
 
 | Naam               | Type    | Vereist  | Beschrijving                         |
 |--------------------|---------|-----------|-------------------------------------|
-| relationship_type  | tekenreeks  | Ja       | De waarde is de tekenreeksweergave van een van de lidnamen in [PartnerRelationshipType](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype).<br/><br/> Als de partner is aangemeld als provider en u een lijst wilt krijgen van de indirecte resellers met wie ze een relatie tot stand hebben gebracht, gebruikt u IsIndirectCloudSolutionProviderOf.<br/><br/> Als de partner is aangemeld als een reseller en u een lijst wilt krijgen met de indirecte providers met wie ze een relatie hebben gemaakt, gebruikt u IsIndirectResellerOf.    |
+| relationship_type  | tekenreeks  | Yes       | De waarde is de tekenreeksweergave van een van de lidnamen in [PartnerRelationshipType](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype).<br/><br/> Als de partner is aangemeld als provider en u een lijst wilt krijgen van de indirecte resellers met wie ze een relatie tot stand hebben gebracht, gebruikt u IsIndirectCloudSolutionProviderOf.<br/><br/> Als de partner is aangemeld als een reseller en u een lijst wilt krijgen met de indirecte providers met wie ze een relatie hebben gemaakt, gebruikt u IsIndirectResellerOf.    |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -73,7 +73,7 @@ Als dit lukt, bevat de antwoord-body een verzameling [PartnerRelationship-resour
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: c52a556887dba065c4ccd1a82d6223624d0ad1f2
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 1c11779ee2ac80539a36db92f1ec811b054c858bf72d5ffbcce4d0bd86eed93e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874224"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994605"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>Een lijst met bestellingen op basis van het type klant en factureringscyclus ophalen
 
@@ -23,7 +23,7 @@ Haalt een verzameling orderbronnen op die overeenkomen met een bepaald type klan
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
@@ -31,7 +31,7 @@ Een verzameling orders van een klant ophalen:
 
 1. Gebruik de [**verzameling IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roep de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de geselecteerde klant-id.
 
-2. Roep de [**eigenschap Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) en de **methode ByBillingCycleType()** aan met uw opgegeven  [**BillingCycleType**](product-resources.md#billingcycletype).
+2. Roep de [**eigenschap Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) en de **methode ByBillingCycleType()** aan met uw opgegeven [**BillingCycleType.**](product-resources.md#billingcycletype)
 3. Roep de [**methode Get()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) aan.
 
 ``` csharp
@@ -56,8 +56,8 @@ Deze tabel bevat de vereiste queryparameters voor het ophalen van een verzamelin
 
 | Naam                   | Type     | Vereist | Beschrijving                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| customer-tenant-id     | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die overeenkomt met de klant.    |
-| factureringscyclus-type     | tekenreeks   | No       | Een tekenreeks die overeenkomt met het type factureringscyclus.         |
+| customer-tenant-id     | tekenreeks   | Yes      | Een tekenreeks met GUID-indeling die overeenkomt met de klant.    |
+| billing-cycle-type     | tekenreeks   | No       | Een tekenreeks die overeenkomt met het type factureringscyclus.         |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -84,7 +84,7 @@ Als dit lukt, retourneert deze methode een verzameling [orderresources](order-re
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

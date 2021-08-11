@@ -1,25 +1,25 @@
 ---
-title: Controle bewerkingen van de Partner Center-activiteit
-description: Meer informatie over het type partner Center API-audit bewerkingen dat u kunt gebruiken om een record van de Partner Center-activiteit op te halen.
+title: Bewerkingen van Partner Center controleren
+description: Meer informatie over het type Partner Center API-auditbewerkingen dat u kunt gebruiken om een record van Partner Center op te halen.
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 019bebe40c43f6ee1c2ac7da381a86ca190702d4
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 0e8010bde75bee4c4954034d8f61f19b076d96349e4a05807e272ca88efbc2fa
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97767592"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994265"
 ---
-# <a name="audit-operations-available-via-partner-center-api-that-show-a-record-of-partner-center-activity"></a>Audit bewerkingen die beschikbaar zijn via de Partner Center-API waarin een record van de Partner Center-activiteit wordt weer gegeven
+# <a name="audit-operations-available-via-partner-center-api-that-show-a-record-of-partner-center-activity"></a>Controlebewerkingen die beschikbaar zijn via Partner Center API die een record van de Partner Center tonen
 
-De Api's van het partner centrum bieden controle functies, zodat u een record van partner Center-activiteiten kunt ophalen.
+De Partner Center-API's bieden controlefuncties, zodat u een record van de Partner Center kunt krijgen.
 
-U kunt controle records ophalen voor de afgelopen 30 dagen vanaf de huidige datum of voor een datum bereik dat is opgegeven met inbegrip van de begin datum en/of de eind datum. Houd er echter rekening mee dat de beschik baarheid van het activiteiten logboek voor de prestaties beperkt is tot de vorige 90 dagen. Aanvragen met een begin datum die groter is dan 90 dagen vóór de huidige datum worden een ongeldige aanvraag uitzondering ontvangen (fout code: 400) en een geschikt bericht.
+U kunt controlerecords voor de afgelopen 30 dagen ophalen vanaf de huidige datum of voor een datumbereik dat is opgegeven door de begindatum en/of einddatum op te neemt. Houd er echter rekening mee dat de beschikbaarheid van activiteitenlogboekgegevens om prestatieredenen beperkt is tot de afgelopen 90 dagen. Aanvragen met een begindatum die langer is dan 90 dagen vóór de huidige datum, ontvangen een uitzondering met een slechte aanvraag (foutcode: 400) en een geschikt bericht.
 
-## <a name="retrieve-audit-records"></a>Audit records ophalen
+## <a name="retrieve-audit-records"></a>Controlerecords ophalen
 
-Gedetailleerde historische controle records ophalen van bewerkingen die worden uitgevoerd door een gebruiker of toepassing van een partner:
+Haal gedetailleerde historische controlerecords op van bewerkingen die worden uitgevoerd door een partnergebruiker of -toepassing:
 
 - [Een record van Partnercentrum-activiteiten ophalen](get-a-record-of-partner-center-activity-by-user.md)
-- [Controle bronnen](auditing-resources.md)
+- [Resources controleren](auditing-resources.md)

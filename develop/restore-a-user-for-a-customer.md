@@ -4,12 +4,12 @@ description: Een verwijderde gebruiker herstellen op klant-id en gebruikers-id.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 23caf91c6b29b292c2638b4a1ad208c606c47492
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 04cca2f7c99023ef277f0f265a755be3e4692fa5e786ce37939b6aebd32a3ba3
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445711"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996900"
 ---
 # <a name="restore-a-deleted-user-for-a-customer"></a>Een verwijderde gebruiker voor een klant herstellen
 
@@ -17,15 +17,15 @@ Een verwijderde gebruiker herstellen op **klant-id** en gebruikers-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- De gebruikers-id. Zie Verwijderde gebruikers weergeven voor een klant als u niet over de gebruikers-id [hebt.](view-a-deleted-user.md)
+- De gebruikers-id. Zie Verwijderde gebruikers weergeven voor een klant als u [niet over de gebruikers-id hebt.](view-a-deleted-user.md)
 
 ## <a name="when-can-you-restore-a-deleted-user-account"></a>Wanneer kunt u een verwijderd gebruikersaccount herstellen?
 
-De gebruikerstoestand wordt ingesteld op 'inactief' wanneer u een gebruikersaccount verwijdert. Dit blijft 30 dagen zo, waarna het gebruikersaccount en de bijbehorende gegevens worden verwijderd en onherkenbaar worden gemaakt. U kunt een verwijderd gebruikersaccount alleen herstellen tijdens dit venster van 30 dagen. Zodra het gebruikersaccount is verwijderd en als 'inactief' is gemarkeerd, wordt het niet meer geretourneerd als lid van de gebruikersverzameling (bijvoorbeeld met Een lijst met alle gebruikersaccounts voor een [klant ophalen).](get-a-list-of-all-user-accounts-for-a-customer.md)
+De gebruikerstoestand wordt ingesteld op 'inactief' wanneer u een gebruikersaccount verwijdert. Dit blijft 30 dagen zo, waarna het gebruikersaccount en de bijbehorende gegevens worden verwijderd en onherkenbaar worden gemaakt. U kunt een verwijderd gebruikersaccount alleen herstellen tijdens dit venster van 30 dagen. Zodra het gebruikersaccount is verwijderd en als 'inactief' is gemarkeerd, wordt het niet meer geretourneerd als lid van de gebruikersverzameling (bijvoorbeeld door een lijst met alle gebruikersaccounts voor een klant ophalen te [gebruiken).](get-a-list-of-all-user-accounts-for-a-customer.md)
 
 ## <a name="c"></a>C\#
 
@@ -49,7 +49,7 @@ var updatedCustomerUser = new CustomerUser()
 var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Patch(updatedCustomerUser);
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CustomerUserRestore.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CustomerUserRestore.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -66,7 +66,7 @@ Gebruik de volgende queryparameters om de klant-id en gebruikers-id op te geven.
 | Naam                   | Type     | Vereist | Beschrijving                                                                                                              |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | J        | De waarde is een in GUID **opgemaakte klant-tenant-id** waarmee de reseller de resultaten kan filteren op een bepaalde klant. |
-| **user-id**            | **guid** | J        | De waarde is een guid-opgemaakte **gebruikers-id** die bij één gebruikersaccount hoort.                                         |
+| **user-id**            | **guid** | J        | De waarde is een **gebruikers-id** met GUID-indeling die bij één gebruikersaccount hoort.                                         |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -109,7 +109,7 @@ Als dit lukt, retourneert het antwoord de herstelde gebruikersgegevens in de ant
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center de volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

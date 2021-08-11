@@ -4,12 +4,12 @@ description: Een Azure-tariefkaart met prijzen voor Microsoft Azure Partner Shar
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0008d7474f7e57bbbd765afdf2487ee279848ac3
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 33ee82bb966dee459cdeef6691c5e86eb7369fc7f76117f9360ac51d6cb3da22
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548801"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995812"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Prijzen voor Microsoft Azure Partner Shared Services ophalen
 
@@ -17,7 +17,7 @@ ms.locfileid: "111548801"
 
 Een Azure-tariefkaart [met prijzen voor](azure-rate-card-resources.md) Microsoft Azure Partner Shared Services.
 
-De prijzen verschillen per markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partnerprofielinstellingen in Partner Center en uw browsertaal. Deze instellingen kunnen worden aangepast. De locatiebewustheid is vooral relevant als u de verkoop in meerdere markten beheert vanuit één gecentraliseerd kantoor.
+Prijzen verschillen per markt en valuta en deze API houdt rekening met de locatie. De API maakt standaard gebruik van uw partnerprofielinstellingen in Partner Center en uw browsertaal. Deze instellingen kunnen worden aangepast. De locatiebewustheid is vooral relevant als u de verkoop in meerdere markten beheert vanuit één gecentraliseerd kantoor.
 
 ## <a name="example-code"></a>Voorbeeldcode
 
@@ -35,7 +35,7 @@ var azureRateCard = partner.RateCards.Azure.GetShared();
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u de Azure-tariefkaart wilt verkrijgen, roept u de functie **IAzureRateCard.getShared** aan om details van de tariefkaart te retourneren die de Azure-prijzen bevatten.
+Als u de Azure-tariefkaart wilt verkrijgen, roept u de functie **IAzureRateCard.getShared** aan om tariefkaartgegevens te retourneren die de Azure-prijzen bevatten.
 
 ```java
 // IAggregatePartner partnerOperations;

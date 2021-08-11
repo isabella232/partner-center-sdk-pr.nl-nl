@@ -4,12 +4,12 @@ description: Hiermee haalt u de servicekostenregelitems van een klant op voor de
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1bc2914d7c8d41c6d806131444fdc241aa1feb90
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 66ede79958e7e218ba59492ea9019d209a5d00dfae331622eceba78963048491
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874938"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992956"
 ---
 # <a name="get-a-customers-service-costs-line-items"></a>De regelitems van de servicekosten van een klant ophalen
 
@@ -17,9 +17,9 @@ Hiermee haalt u de servicekostenregelitems van een klant op voor de opgegeven fa
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een factureringsperiode-indicator ( **`mostrecent`** ).
 
@@ -56,8 +56,8 @@ Gebruik de volgende padparameters om de klant en de factureringsperiode te ident
 
 | Naam           | Type   | Vereist | Beschrijving                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | guid   | Ja      | Een klant-id met GUID-indeling die de klant identificeert.                                                                       |
-| factureringsperiode | tekenreeks | Ja      | Een indicator die de factureringsperiode vertegenwoordigt. De enige ondersteunde waarde is MostRecent. Het geval van de tekenreeks is niet van belang. |
+| customer-id    | guid   | Yes      | Een klant-id met GUID-indeling die de klant identificeert.                                                                       |
+| factureringsperiode | tekenreeks | Yes      | Een indicator die de factureringsperiode vertegenwoordigt. De enige ondersteunde waarde is MostRecent. Het geval van de tekenreeks maakt niet uit. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -84,11 +84,11 @@ Host: api.partnercenter.microsoft.com
 Als dit lukt, bevat de antwoord-body een [ServiceCostLineItem-resource](service-costs-resources.md) die informatie biedt over de servicekosten.
 
 > [!IMPORTANT]
-> De volgende  eigenschappen zijn alleen van toepassing op servicekostenregelitems waarbij het product een een *time-aankoop* is: **productId**, **productName**, **skuId**, **skuName,** **availabilityId**, **publisherId,** **publisherName**, **termAndBillingCycle,** **discountDetails**. Deze eigenschappen *zijn niet van toepassing op* serviceregelitems waarbij het product een terugkerende aankoop *is.* Deze eigenschappen zijn bijvoorbeeld niet *van toepassing op* abonnementsgebaseerde Office 365 en Azure.
+> De volgende  eigenschappen zijn alleen van toepassing op servicekostenregelitems waarbij het product een een *time-aankoop* is: **productId**, **productName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **publisherName**, **termAndBillingCycle**, **discountDetails**. Deze eigenschappen *zijn niet van toepassing op* serviceregelitems waarbij het product een terugkerende aankoop *is.* Deze eigenschappen zijn bijvoorbeeld *niet van toepassing op* abonnementsgebaseerde Office 365 en Azure.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

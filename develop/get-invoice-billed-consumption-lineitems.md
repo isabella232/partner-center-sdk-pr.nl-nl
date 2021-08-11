@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 285b6fbda774c9396dee8947550ed774d52bf901
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 915a6b40a835b0b8d8ded6d49244aede8bbf079334890ccc8b3ef50782dec2dd
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446221"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994520"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Gefactureerde regelitems voor commercieel verbruik ontvangen
 
@@ -20,7 +20,7 @@ U kunt de volgende methoden gebruiken om een verzameling gegevens op te halen vo
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een factuur-id. Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.
 
@@ -110,7 +110,7 @@ Zie het volgende voor een vergelijkbaar voorbeeld:
 
 ### <a name="request-syntax"></a>Aanvraagsyntaxis
 
-Gebruik de eerste syntaxis om een volledige lijst van elk regelitem voor de opgegeven factuur te retourneren. Gebruik voor grote facturen de tweede syntaxis met een opgegeven grootte en offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. Gebruik de derde syntaxis om de volgende pagina met recon line-items op te halen met behulp van `seekOperation = "Next"` .
+Gebruik de eerste syntaxis om een volledige lijst met alle regelitem voor de opgegeven factuur te retourneren. Gebruik voor grote facturen de tweede syntaxis met een opgegeven grootte en offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. Gebruik de derde syntaxis om de volgende pagina met recon line-items op te halen met behulp van `seekOperation = "Next"` .
 
 | Methode  | Aanvraag-URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,12 +124,12 @@ Gebruik de volgende URI en queryparameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| factuur-id             | tekenreeks | Ja      | Een tekenreeks die de factuur identificeert.                             |
-| Provider               | tekenreeks | Ja      | De provider: OneTime.                                  |
-| invoice-line-item-type | tekenreeks | Ja      | Het type factuurdetails: UsageLineItems. |
-| currencyCode           | tekenreeks | Ja      | De valutacode voor de gefactureerde regelitems.                    |
-| period                 | tekenreeks | Ja      | De periode voor gefactureerde herconfing. voorbeeld: huidig, vorige.        |
-| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000       |
+| factuur-id             | tekenreeks | Yes      | Een tekenreeks die de factuur identificeert.                             |
+| Provider               | tekenreeks | Yes      | De provider: OneTime.                                  |
+| invoice-line-item-type | tekenreeks | Yes      | Het type factuurdetails: UsageLineItems. |
+| currencyCode           | tekenreeks | Yes      | De valutacode voor de gefactureerde regelitems.                    |
+| period                 | tekenreeks | Yes      | De periode voor gefactureerde herconfing. voorbeeld: huidig, vorige.        |
+| grootte                   | getal | No       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000       |
 | zoekoperation          | tekenreeks | No       | Stel seekOperation = Volgende in om de volgende pagina met recon line-items op te halen. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
@@ -154,7 +154,7 @@ Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is g
 
 ### <a name="request-response-example-1"></a>Voorbeeld van aanvraag-antwoord 1
 
-De details voor dit voorbeeld van rest-aanvragen en -antwoorden zijn als volgt:
+De details voor dit voorbeeld van een REST-aanvraag en -antwoord zijn als volgt:
 
 - **Provider:** **OneTime**
 - **InvoiceLineItemType:** **UsageLineItems**
@@ -325,7 +325,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 ### <a name="request-response-example-2"></a>Voorbeeld 2 van aanvraag-antwoord
 
-De details voor dit voorbeeld van rest-aanvragen en -antwoorden zijn als volgt:
+De details voor dit voorbeeld van een REST-aanvraag en -antwoord zijn als volgt:
 
 - **Provider:** **OneTime**
 - **InvoiceLineItemType:** **UsageLineItems**
