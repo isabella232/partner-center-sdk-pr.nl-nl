@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 18621fdb94f91f066b69a11f7d557410d653787e
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: f55354c09b5741b4b2f8bc26bc4ce3a2f0b801214066c35d8af2ea330b89171c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548036"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997699"
 ---
 # <a name="partner-center-rest-api-reference-to-rest-urls-rest-headers-rest-resources-and-rest-events"></a>Partner Center REST API naar REST-URL's, REST-headers, REST-resources en REST-gebeurtenissen
 
@@ -19,9 +19,9 @@ ms.locfileid: "111548036"
 
 ## <a name="partner-center-rest-api"></a>Partner Center REST API
 
-De Partner Center REST API helpt Cloud Solution Provider (CSP)-partners hun bestaande CRM- of factureringssoftware te integreren met de Microsoft-systemen die klantaccounts beheren, orders plaatsen, abonnementen beheren en ondersteuningsaanvragen verwerken.
+De Partner Center REST API helpt Cloud Solution Provider (CSP)-partners hun bestaande CRM- of factureringssoftware te integreren met de Microsoft-systemen die klantaccounts beheren, bestellingen plaatsen, abonnementen beheren en ondersteuningsaanvragen verwerken.
 
-Zie het onderwerp Scenario's, inclusief het achtergrondoverzicht, voor meer informatie over wat de API kan doen, inclusief voorbeeldcode. [](scenarios.md)
+Zie het onderwerp Scenario's, met inbegrip van [](scenarios.md) het achtergrondoverzicht, voor meer informatie over wat de API kan doen, inclusief voorbeeldcode.
 
 Lees het onderwerp Aan de slag voordat u begint [met](get-started.md) coderen. Dit artikel bevat informatie over het instellen van uw test- en productieaccounts, het verkrijgen van verificatie en het vinden van de voorbeeldcode.
 
@@ -31,10 +31,10 @@ Zie voor een referentiegids waarin elke API wordt [uitgelegd Partner Center REST
 
 | Onderwerp | Beschrijving |
 | ----- | ----------- |
-| [Partner Center REST API](/rest/api/partner-center-rest/) | Verwijzing naar elk REST API beschikbaar voor Partner Center. |
+| [Partner Center REST API](/rest/api/partner-center-rest/) | Naslag voor elk REST API beschikbaar voor Partner Center. |
 | [REST-URL’s voor Partnercentrum](partner-center-rest-urls.md) | Definieert REST API eindpunten voor verschillende versies van Partner Center. |
 | [REST-headers voor Partnercentrum](headers.md) | Definieert de aanvraag- en antwoordheaders die door de REST API. |
 | [REST-bronnen voor Partnercentrum](partner-center-rest-resources.md) | Definieert de JSON-constructies die de objecten vertegenwoordigen die nodig zijn om de REST API. |
-| [REST-gebeurtenissen voor Partnercentrum](partner-center-webhook-events.md) | Hiermee definieert u de gebeurtenissen voor het wijzigen van de REST-resource die door Partner Center webhooks worden ondersteund. |
-| [Ondersteunde talen en landinstellingen voor Partnercentrum](partner-center-supported-languages-and-locales.md) | Hier vindt u de land- en land-/regiocodes die worden ondersteund in de api's Partner Center land/regio. |
+| [REST-gebeurtenissen voor Partnercentrum](partner-center-webhook-events.md) | Definieert de gebeurtenissen voor het wijzigen van de REST-resource die worden Partner Center webhooks. |
+| [Ondersteunde talen en landinstellingen voor Partnercentrum](partner-center-supported-languages-and-locales.md) | Hier vindt u de land- en talen en land-/regiocodes die worden ondersteund in Partner Center API's. |
 | [Partnercentrum-webhooks](partner-center-webhooks.md) | Gebeurtenissen ontvangen, een callback verifiëren en de webhook-API's van Partner Center gebruiken om een gebeurtenisregistratie te maken, weer te geven en bij te werken. |

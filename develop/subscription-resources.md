@@ -4,12 +4,12 @@ description: Abonnementsresources kunnen gedurende de hele levenscyclus meer inf
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 35d8c86ab061797109b3c152eff02f354b7ea23a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: e48927b9d8606f8d78ed8e4b5eb12da61f7a7d27f16316bca124f896a24a6638
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547447"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997971"
 ---
 # <a name="subscription-resources"></a>Abonnementsbronnen
 
@@ -45,7 +45,7 @@ De **abonnementsresource** vertegenwoordigt de levenscyclus van een abonnement e
 | isTrial              | booleaans                                                       | Een waarde die aangeeft of dit een proefabonnement is.                                                                                                                      |
 | isMicrosoftProduct   | booleaans                                                       | Een waarde die aangeeft of dit een Microsoft-product is.                                                                                                                       |
 | publisherName        | tekenreeks                                                        | De naam van de uitgever.                                                                                                                                                           |
-| acties              | tekenreeksmatrix                                              | Hiermee haalt u de acties op die zijn toegestaan of stelt u deze in. Mogelijke waarden: 'edit', 'cancel'                                                                                                  |
+| acties              | tekenreeksmatrix                                              | Hiermee haalt u de acties op die zijn toegestaan of stelt u deze in. Mogelijke waarden: 'bewerken', 'annuleren'                                                                                                  |
 | partnerId            | tekenreeks                                                        | De MPN-id van de wederverkoper van de record, die wordt gebruikt in het model van de indirecte partner.                                                                                                     |
 | suspensionReasons    | tekenreeksmatrix                                              | Alleen-lezen. Als het abonnement is opgeschort, wordt aangegeven waarom.                                                                                                                  |
 | contractType         | tekenreeks                                                        | Alleen-lezen. Het type contract: 'abonnement', 'productKey' of 'redemptionCode'.                                                                                           |
@@ -60,13 +60,13 @@ De **abonnementsresource** vertegenwoordigt de levenscyclus van een abonnement e
 
 De **SubscriptionLinks-resource** beschrijft de verzameling koppelingen die zijn gekoppeld aan een abonnementsresource.
 
-| Eigenschap           | Type                               | Beschrijving                           |
+| Eigenschap           | Type                               | Description                           |
 |--------------------|------------------------------------|---------------------------------------|
-| offer              | [Koppeling](utility-resources.md#link) | Hiermee haalt u de aanbieding op of stelt u deze in.               |
+| offer              | [Koppeling](utility-resources.md#link) | Haalt de aanbieding op of stelt deze in.               |
 | parentSubscription | [Koppeling](utility-resources.md#link) | Haalt het bovenliggende abonnement op of stelt het in. |
 | product            | [Koppeling](utility-resources.md#link) | Hiermee haalt u het product op dat is gekoppeld aan het abonnement. |
 | sku                | [Koppeling](utility-resources.md#link) | Hiermee haalt u de product-SKU op die is gekoppeld aan het abonnement. |
-| availability       | [Koppeling](utility-resources.md#link) | Hiermee haalt u de beschikbaarheid op van de product-SKU die is gekoppeld aan het abonnement. |
+| availability       | [Koppeling](utility-resources.md#link) | Hiermee haalt u de beschikbaarheid van de product-SKU op die is gekoppeld aan het abonnement. |
 | activationLinks    | [Koppeling](utility-resources.md#link) | Hiermee haalt u de lijst met activeringskoppelingen op die zijn gekoppeld aan het abonnement. |
 | Zelf               | [Koppeling](utility-resources.md#link) | De zelf-URI.                         |
 | volgende               | [Koppeling](utility-resources.md#link) | De volgende pagina met items.               |
@@ -76,7 +76,7 @@ De **SubscriptionLinks-resource** beschrijft de verzameling koppelingen die zijn
 
 De **resource SubscriptionProvisioningStatus** biedt informatie over de inrichtingsstatus van een abonnement.
 
-| Eigenschap   | Type                                                           | Beschrijving                                                          |
+| Eigenschap   | Type                                                           | Description                                                          |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------|
 | skuId      | tekenreeks                                                         | Een tekenreeks met GUID-indeling die de product-SKU identificeert.             |
 | status     | tekenreeks                                                         | Geeft de inrichtingsstatus aan: 'geslaagd', 'in behandeling' of 'mislukt'. |
@@ -88,7 +88,7 @@ De **resource SubscriptionProvisioningStatus** biedt informatie over de inrichti
 
 De **resource SubscriptionRegistrationStatus** beschrijft de verzameling koppelingen die zijn gekoppeld aan een abonnementsresource.
 
-| Eigenschap           | Type                               | Beschrijving                                                                           |
+| Eigenschap           | Type                               | Description                                                                           |
 |--------------------|------------------------------------|---------------------------------------------------------------------------------------|
 | subscriptionId     | tekenreeks                             | De abonnements-id.                                                          |
 | status             | tekenreeks                             | Geeft de registratiestatus aan: 'geregistreerd', 'registreren' of 'niet geregistreerd'.    |
@@ -97,7 +97,7 @@ De **resource SubscriptionRegistrationStatus** beschrijft de verzameling koppeli
 
 De **resource SupportContact** vertegenwoordigt een contactpersoon voor ondersteuning voor het abonnement van een klant.
 
-| Eigenschap        | Type                                                           | Beschrijving                                                                     |
+| Eigenschap        | Type                                                           | Description                                                                     |
 |-----------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | supportTenantId | tekenreeks                                                         | Een tekenreeks met GUID-indeling die de tenant-id van de contactpersoon van de ondersteuning aangeeft. |
 | supportMpnId    | tekenreeks                                                         | De MPN-id (Microsoft Partner Network) van de contactpersoon.                       |
@@ -109,11 +109,11 @@ De **resource SupportContact** vertegenwoordigt een contactpersoon voor onderste
 
 De **RegisterSubscription-resource** retourneert een koppeling die kan worden gebruikt om de registratiestatus van een abonnement op te vragen. De registratiestatus wordt geretourneerd in de antwoord-body van een geaccepteerde aanvraag om een Azure-abonnement te registreren.
 
-| Eigenschap                | Type                               | Beschrijving                                                                           |
+| Eigenschap                | Type                               | Description                                                                           |
 |-------------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| httpResponseMessage     | object                             | Retourneert HTTP-statuscode 202 'Geaccepteerd', met een Location-header met een koppeling om de registratiestatus op te vragen. Bijvoorbeeld: `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
+| httpResponseMessage     | object                             | Retourneert HTTP-statuscode 202 'Geaccepteerd', met een Location-header die een koppeling bevat om de registratiestatus op te vragen. Bijvoorbeeld: `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
 
-## <a name="refundoption"></a>RestitutieOption
+## <a name="refundoption"></a>RefundOption
 
 De **resource RefundOption** vertegenwoordigt een mogelijke restitutieoptie voor het abonnement.
 

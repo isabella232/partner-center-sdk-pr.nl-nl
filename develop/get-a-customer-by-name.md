@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 663b8509d8704f9c443796d9fbcf72fb9c5b7fb2
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 4e77edd3e7d94711ad18796c0afb4db30c50abf0bc9636335b413a5d41dff9c8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874955"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993092"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Een lijst met klanten ophalen die zijn gefilterd op basis van een zoekveld
 
@@ -21,13 +21,13 @@ Haalt een verzameling [klantbronnen op](customer-resources.md#customer) die over
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een door de gebruiker samengesteld filter.
 
 ## <a name="c"></a>C\#
 
-Als u een verzameling klanten wilt ophalen die overeenkomen met een filter, moet u eerst een [**SimpleFieldFilter-object**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) maken om het filter te maken. U moet een tekenreeks doorgeven die [**customerSearchField**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)bevat en het type filterbewerking als [**FieldFilterOperation.StartsWith aangeven.**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) Dat is de enige veldfilterbewerking die wordt ondersteund door het eindpunt van de klant. U moet ook de tekenreeks verstrekken om op te filteren.
+Als u een verzameling klanten wilt ophalen die overeenkomen met een filter, instantieer dan eerst een [**SimpleFieldFilter-object**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) om het filter te maken. U moet een tekenreeks doorgeven die [**customerSearchField**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)bevat en het type filterbewerking als [**FieldFilterOperation.StartsWith aangeven.**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) Dat is de enige veldfilterbewerking die wordt ondersteund door het eindpunt van de klant. U moet ook de tekenreeks verstrekken om op te filteren.
 
 Maak vervolgens een [**iQuery-object**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) om door te geven aan de query door de [**methode BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) aan te roepen en dit door te geven aan het filter. BuildSimplyQuery is slechts een van de querytypen die wordt ondersteund door de [**klasse QueryFactory.**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)
 
@@ -68,12 +68,12 @@ Gebruik de volgende queryparameters.
 
 | Naam   | Type   | Vereist | Beschrijving                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| grootte   | int    | Nee       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel. |
-| filter | filter | Ja      | Het filter dat moet worden toegepast op klanten. Dit moet een gecodeerde tekenreeks zijn.              |
+| grootte   | int    | No       | Het aantal resultaten dat in één keer moet worden weergegeven. Deze parameter is optioneel. |
+| filter | filter | Yes      | Het filter dat moet worden toegepast op klanten. Dit moet een gecodeerde tekenreeks zijn.              |
 
 ### <a name="filter-syntax"></a>Filtersyntaxis
 
-U moet de filterparameter samenstellen als een reeks door komma's gescheiden sleutel-waardeparen. Elke sleutel en waarde moeten afzonderlijk worden aangehaald en gescheiden door een dubbele punt. Het volledige filter moet worden gecodeerd.
+U moet de filterparameter opstellen als een reeks door komma's gescheiden sleutel-waardeparen. Elke sleutel en waarde moeten afzonderlijk worden aangehaald en gescheiden door een dubbele punt. Het volledige filter moet worden gecodeerd.
 
 Een niet-gecodeerd voorbeeld ziet er als volgende uit:
 

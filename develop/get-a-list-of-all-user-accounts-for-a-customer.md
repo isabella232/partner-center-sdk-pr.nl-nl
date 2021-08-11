@@ -1,17 +1,17 @@
 ---
 title: Een lijst met alle gebruikersaccounts voor een klant ophalen
-description: Een lijst met alle gebruikersaccounts van een van uw klanten op te halen.
+description: Een lijst op te halen met alle gebruikersaccounts die bij een van uw klanten horen.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f3d5fcc610eae8c1bff056c1e4a9e7a74093c87d
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 5b937d165a76a0dfbf4bfc44a5e155607b74ea9fab6a5db5c71df44e22f19d27
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874564"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994214"
 ---
 # <a name="get-a-list-of-all-user-accounts-for-a-customer"></a>Een lijst met alle gebruikersaccounts voor een klant ophalen
 
@@ -21,9 +21,9 @@ Zie Get a user account by ID (Een gebruikersaccount op id opmaken) als u één g
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
@@ -89,7 +89,7 @@ Als dit lukt, retourneert deze methode een verzameling gebruikersaccounts voor e
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

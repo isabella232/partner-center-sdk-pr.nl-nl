@@ -4,12 +4,12 @@ description: Een abonnement dat eerder is opgeschort voor niet-vooruitbetaling o
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c2b6e3574119f9c645cc3f730047d2a23484ad8a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8ef79c28e4b6d0d3517b342ac92163865ed8e8edb21cc0b384fef52e93bc93ac
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547704"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997240"
 ---
 # <a name="reactivate-a-suspended-subscription"></a>Een opgeschort abonnement opnieuw activeren
 
@@ -29,7 +29,7 @@ In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een 
 
 ## <a name="c"></a>C\#
 
-Als u het abonnement van een klant opnieuw wilt activeren, moet u eerst [het abonnement](get-a-subscription-by-id.md)op halen en vervolgens de eigenschap Status van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) wijzigen. Raadpleeg [SubscriptionStatus enumeration/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus) voor informatie over statuscodes.  Zodra de wijziging is aangebracht, gebruikt u de [**verzameling IPartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan. Roep vervolgens de [**eigenschap Abonnementen aan,**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode [**Patch()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) aan.
+Als u het abonnement van een klant opnieuw wilt activeren, moet u eerst [het abonnement](get-a-subscription-by-id.md)op halen en vervolgens de eigenschap Status van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) wijzigen. Raadpleeg [SubscriptionStatus enumeration/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus) voor informatie over statuscodes.  Zodra de wijziging is aangebracht, gebruikt u de [**verzameling IPartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode [**Patch()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) aan.
 
 ``` csharp
 // IPartner partnerOperations;

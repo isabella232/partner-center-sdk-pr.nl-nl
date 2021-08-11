@@ -6,28 +6,28 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: a17775614b4eb328514b2b32b4cac1e513019cff
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 544965ab05e3956aa5b7b6fa2ef9656ff33990ef9c8d91422797132a814b85f1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549175"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993346"
 ---
-# <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>De status van de directe ondertekening (directe acceptatie) van de Microsoft-klantovereenkomst
+# <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>De status van de directe ondertekening van de klant (directe acceptatie) van de Microsoft-klantovereenkomst
 
 **Van toepassing op**: Partner Center
 
 **Is niet van toepassing op**: Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-De **resource DirectSignedCustomerAgreementStatus** wordt momenteel alleen Partner Center in de openbare Cloud van Microsoft ondersteund.
+De **resource DirectSignedCustomerAgreementStatus** wordt momenteel alleen Partner Center in de openbare Cloud van Microsoft.
 
-In dit artikel wordt uitgelegd hoe u de status kunt ophalen van de rechtstreekse acceptatie van de Microsoft-klantovereenkomst.
+In dit artikel wordt uitgelegd hoe u de status kunt ophalen van de directe acceptatie van de Microsoft-klantovereenkomst.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
@@ -39,11 +39,11 @@ Als u de status van de directe acceptatie van de Microsoft-klantovereenkomst van
 var customerDirectSigningStatus = partnerOperations.Customers.ById(selectedCustomerId).Agreements.GetDirectSignedCustomerAgreementStatus();
 ```
 
-**Voorbeeld:** [consolevoorbeeld-app.](https://github.com/microsoft/Partner-Center-DotNet-Samples) **Project:** Klasse SdkSamples: GetDirectSignedCustomerAgreementStatus.cs 
+**Voorbeeld:** [Consolevoorbeeld-app.](https://github.com/microsoft/Partner-Center-DotNet-Samples) **Project:** SdkSamples-klasse: GetDirectSignedCustomerAgreementStatus.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-Als u de status van de directe acceptatie van de Microsoft-klantovereenkomst van een klant wilt ophalen, maakt u een REST-aanvraag om [de DirectSignedCustomerAgreementStatus](./customer-agreement-direct-sign-status-resource.md) voor de klant op te halen.
+Als u de status wilt ophalen van de directe acceptatie van de Microsoft-klantovereenkomst van een klant, maakt u een REST-aanvraag om [de DirectSignedCustomerAgreementStatus](./customer-agreement-direct-sign-status-resource.md) voor de klant op te halen.
 
 ### <a name="request-syntax"></a>Aanvraagsyntaxis
 
@@ -59,7 +59,7 @@ U kunt de volgende URI-parameters gebruiken bij uw aanvraag:
 
 | Naam             | Type | Vereist | Beschrijving                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Ja | De waarde is een **CustomerTenantId** in GUID-indeling waarmee u de tenant-id van een klant kunt opgeven. |
+| customer-tenant-id | GUID | Yes | De waarde is een **CustomerTenantId** in GUID-indeling waarmee u de tenant-id van een klant kunt opgeven. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -91,9 +91,9 @@ De resource heeft een **eigenschap isSigned** die de status van directe ondertek
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing.
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing.
 
-Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 3668a5e510effb533cade311f52513b9a81d40af
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: f5e71f2660c6db638193deec02e9ba4f25a35be6aabdc1c4219f63b1f3295908
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760535"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993500"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Bevestiging van acceptatie door de klant van Microsoft-klantovereenkomst ophalen
 
@@ -19,7 +19,7 @@ ms.locfileid: "111760535"
 
 **Is niet van toepassing op**: Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-De **overeenkomstresource** wordt momenteel alleen ondersteund door Partner Center in de openbare cloud van Microsoft.
+De **overeenkomstresource** wordt momenteel ondersteund door Partner Center alleen in de openbare Cloud van Microsoft.
 
 In dit artikel wordt uitgelegd hoe u bevestiging(en) kunt ophalen van de acceptatie van de Microsoft-klantovereenkomst.
 
@@ -29,7 +29,7 @@ In dit artikel wordt uitgelegd hoe u bevestiging(en) kunt ophalen van de accepta
 
 - Referenties zoals beschreven in [Partner Center verificatie](./partner-center-authentication.md). Dit scenario ondersteunt alleen App+Gebruikersverificatie.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="net"></a>.NET
 
@@ -54,7 +54,7 @@ Een volledig voorbeeld vindt u in de [klasse GetCustomerAgreements](https://gith
 
 ## <a name="rest-request"></a>REST-aanvraag
 
-Om bevestiging op te halen van de klantacceptatie die eerder is opgegeven:
+Om bevestiging van de klantacceptatie op te halen die eerder is opgegeven:
 
 1. Maak een REST-aanvraag om de verzameling [Overeenkomsten voor](./agreement-resources.md) de klant op te halen.
 
@@ -74,12 +74,12 @@ U kunt de volgende URI-parameters gebruiken bij uw aanvraag:
 
 | Naam             | Type | Vereist | Beschrijving                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Ja | De waarde is een **CustomerTenantId** met GUID-indeling waarmee u een klant kunt opgeven. |
-| agreement-type | tekenreeks | No | Deze parameter retourneert alle metagegevens van de overeenkomst. Gebruik deze parameter om het bereik van de queryreactie te wijzigen in een specifiek overeenkomsttype. De ondersteunde waarden zijn: <br/><br/> **MicrosoftCloudAgreement dat** alleen metagegevens van overeenkomst bevat van het type *MicrosoftCloudAgreement*.<br/><br/> **MicrosoftCustomerAgreement dat** alleen metagegevens van overeenkomst bevat van het type *MicrosoftCustomerAgreement*.<br/><br/> **\**_ die alle metagegevens van de overeenkomst retourneert. (Gebruik niet _* \* *_ tenzij uw code de benodigde logica heeft om onverwachte typen overeenkomst af te handelen.) <br/> <br/> _* Opmerking:** als de URI-parameter niet is opgegeven, wordt de query standaard ingesteld op **MicrosoftCloudAgreement** voor achterwaartse compatibiliteit. Microsoft kan op elk moment metagegevens van overeenkomst met nieuwe typen overeenkomst introduceren.  |
+| customer-tenant-id | GUID | Yes | De waarde is een **CustomerTenantId** met GUID-indeling waarmee u een klant kunt opgeven. |
+| agreement-type | tekenreeks | No | Deze parameter retourneert alle metagegevens van de overeenkomst. Gebruik deze parameter om het bereik van de queryreactie te wijzigen in een specifiek overeenkomsttype. De ondersteunde waarden zijn: <br/><br/> **MicrosoftCloudAgreement dat** alleen metagegevens van overeenkomst bevat van het type *MicrosoftCloudAgreement*.<br/><br/> **MicrosoftCustomerAgreement dat** alleen metagegevens van overeenkomst bevat van het type *MicrosoftCustomerAgreement*.<br/><br/> **\**_ die alle metagegevens van de overeenkomst retourneert. (Gebruik niet _* \* *_ tenzij uw code de benodigde logica heeft om onverwachte typen overeenkomst af te handelen.) <br/> <br/> _* Opmerking:** als de URI-parameter niet is opgegeven, wordt de query standaard ingesteld op **MicrosoftCloudAgreement** voor compatibiliteit met eerdere compatibiliteit. Microsoft kan op elk moment metagegevens van overeenkomst met nieuwe typen overeenkomst introduceren.  |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

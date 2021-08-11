@@ -1,17 +1,17 @@
 ---
 title: Een lijst met categorieën van aanbiedingen per markt ophalen
-description: Meer informatie over het ophalen van een verzameling die alle aanbiedingscategorieën in een bepaald land/regio en land/regio voor alle Microsoft Clouds bevat.
+description: Meer informatie over het ophalen van een verzameling die alle aanbiedingscategorieën in een bepaald land/bepaalde regio en land/regio voor alle Microsoft Clouds bevat.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: e699355f07dda3941eafed32f5f635d94000abd1
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 4b5c2bd2279631c5bf27f5a07f732ddaa079aafa5b8d2ead571c3c609d65edf0
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874275"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993636"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>Een lijst met categorieën van aanbiedingen per markt ophalen
 
@@ -63,7 +63,7 @@ Deze tabel bevat de vereiste queryparameters om de aanbiedingscategorieën op te
 
 Er **is een locale-id** vereist die is opgemaakt als een tekenreeks.
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

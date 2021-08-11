@@ -1,23 +1,23 @@
 ---
 title: Een verzameling facturen ophalen
-description: Een verzameling van de facturen van de partner ophalen.
+description: Een verzameling facturen van de partner ophalen.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 7698d85df3341ae4cbff0377bd0a1bb47cd36740
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 7a423b5061ecfcf6faf191c75a7e665642620cc2add171b27864e11516bec16d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906439"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993160"
 ---
 # <a name="get-a-collection-of-invoices"></a>Een verzameling facturen ophalen
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-Een verzameling van de facturen van de partner ophalen.
+Een verzameling facturen van de partner ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ Als u een verzameling van alle beschikbare facturen wilt ophalen, gebruikt u de 
 
 Als u een verzameling facturen met pagina's wilt ophalen, roept u eerst de [**methode BuildIndexedQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) aan en geef deze de paginagrootte door om een [**IQuery-object te**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) maken. Gebruik vervolgens de eigenschap [**Facturen**](/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) om een interface voor factuurbewerkingen op te halen en geef vervolgens het IQuery-object door aan de [**query-**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) of [**QueryAsync-methode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) om de aanvraag te verzenden en de eerste pagina op te halen.
 
-Gebruik vervolgens de eigenschap [**Enumerators**](/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) om een interface op te halen voor de verzameling ondersteunde enumerators voor resourceverzamelingen en roep vervolgens [**Invoices.Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) aan om een enumerator te maken voor het doorlopen van de verzameling facturen. Gebruik ten slotte de -enumerator om elke pagina met facturen op te halen en te gebruiken, zoals wordt weergegeven in het volgende codevoorbeeld. Elke aanroep van de [**methode Next**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) verzendt een aanvraag voor de volgende pagina met facturen op basis van de paginagrootte.
+Gebruik vervolgens de eigenschap [**Enumerators**](/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) om een interface op te halen voor de verzameling ondersteunde resourceverzamelingsinumers en roep [**vervolgens Invoices.Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) aan om een enumerator te maken voor het doorlopen van de verzameling facturen. Gebruik ten slotte de enumerator om elke pagina met facturen op te halen en hiermee te werken, zoals wordt weergegeven in het volgende codevoorbeeld. Elke aanroep van de [**methode Volgende**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) verzendt een aanvraag voor de volgende pagina met facturen op basis van de paginagrootte.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -70,7 +70,7 @@ while (invoicesEnumerator.HasValue)
 }
 ```
 
-Zie Sample **:** Console test app (Voorbeeld: [consoletest-app) voor](console-test-app.md)een iets ander voorbeeld. **Project**: Partnercentrum-SDK Samples **Class**: GetPagedInvoices.cs
+Zie Voorbeeld **:** [Consoletest-app](console-test-app.md)voor een iets ander voorbeeld. **Project**: Partnercentrum-SDK Samples **Class**: GetPagedInvoices.cs
 
 > [!NOTE] 
 > Dezelfde API wordt gebruikt voor alle moderne commerciële aankopen, evenals 145p- en Office licenties. Grootte en offset worden alleen in aanmerking genomen voor verouderde facturen. Voor alle moderne commerciële aankopen worden pagina's & offset genegeerd.
@@ -89,8 +89,8 @@ Gebruik de volgende queryparameters bij het maken van de aanvraag.
 
 | Naam   | Type | Vereist | Beschrijving                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| grootte   | int  | Nee       | Het aantal factuurresources dat in het antwoord moet worden retourneerd. Deze parameter is optioneel. |
-| offset | int  | Nee       | De op nul gebaseerde index van de eerste factuur die moet worden teruggefactureerd.                                   |
+| grootte   | int  | No       | Het aantal factuurresources dat in het antwoord moet worden retourneerd. Deze parameter is optioneel. |
+| offset | int  | No       | De op nul gebaseerde index van de eerste factuur die moet worden retourneren.                                   |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -119,7 +119,7 @@ Als dit lukt, bevat de antwoord-body de verzameling [factuurresources.](invoice-
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

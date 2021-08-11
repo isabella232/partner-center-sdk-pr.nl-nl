@@ -1,17 +1,17 @@
 ---
 title: De geschiktheid voor abonnementsoverdracht van een klant ophalen
-description: Een verzameling ophalen van de abonnementen van een klant die in aanmerking komen/in aanmerking komen voor overdracht.
+description: Een verzameling van de abonnementen van een klant ophalen die in aanmerking komen/in aanmerking komen voor overdracht.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: fe8af76d1e1456754dec79291ec0853fb253d108
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: bbb34a2fb9e808cd475f175688f2b1c1c0feb2de4060a9143df50f9ae5ad13e7
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446289"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993449"
 ---
 # <a name="get-a-customers-subscriptions-transfer-eligibility"></a>De geschiktheid voor abonnementsoverdracht van een klant ophalen
 
@@ -37,8 +37,8 @@ Deze tabel bevat de vereiste queryparameter om alle abonnementen op te halen.
 
 | Naam               | Type   | Vereist | Beschrijving                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
-| overdrachtstype      | tekenreeks | Ja      | Het type overdracht dat is bedoeld.                |
+| customer-tenant-id | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| overdrachtstype      | tekenreeks | Yes      | Het type overdracht dat is bedoeld.                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

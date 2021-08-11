@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: ffcbbb9cf14b1b2a5b3becab541d3042c3cad508
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 75e54124c947224ab25f825736ad7d0dec43b44ee8fcb8eb1c01f147ab2cf515
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760671"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993585"
 ---
 # <a name="get-all-service-requests-for-a-customer"></a>Alle serviceaanvragen voor een klant ophalen
 
@@ -19,13 +19,13 @@ ms.locfileid: "111760671"
 
 Haalt alle serviceaanvragen van een klant op.
 
-In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens **Servicebeheer in** de linkerzijbalk. De serviceaanvragen van de klant worden weergegeven onder **Ondersteuningstickets.**
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens **Servicebeheer** op de linkerzijbalk. De serviceaanvragen van de klant worden weergegeven onder **Ondersteuningstickets.**
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
@@ -38,7 +38,7 @@ Als u een lijst met alle serviceaanvragen van een klant wilt weergeven, gebruikt
 ResourceCollection<ServiceRequest> serviceRequests = partnerOperations.Customers.ById(customerId).ServiceRequests.Get();
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples-klasse: CustomerManagedServices.cs 
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples-klasse: CustomerManagedServices.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -58,7 +58,7 @@ Gebruik de volgende queryparameter om alle serviceaanvragen voor de klant op te 
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -80,7 +80,7 @@ Als dit lukt, retourneert deze methode een verzameling **serviceaanvraagresource
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

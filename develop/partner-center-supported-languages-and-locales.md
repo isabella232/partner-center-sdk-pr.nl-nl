@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: b3a64cc6aa4b19199490dafcf15eedde12b1330a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 6f2e1d50fa0f2ace2e94f4dbb5681e2164241ee57a85249136a55fce20893fbb
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547798"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997580"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>Ondersteunde talen en landinstellingen voor Partnercentrum
 
@@ -81,7 +81,7 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Cookeilanden                             | Ck                       | COK                      | en-US                                 |
 | Costa Rica                               | CR                       | Cri                      | es-CR / en-US                         |
 | Cote d'Ivoire                            | CI                       | Civ                      | fr-FR / en-US                         |
-| Kroatië                                  | HR                       | Hrv                      | hr-HR / en-US                         |
+| Kroatië                                  | HR                       | Hrv                      | hr-HR /en-US                         |
 | Curaçao                                  | Cw                       | CUW                      | nl-NL / en-US                         |
 | Cyprus                                   | CY                       | Cyp                      | el-GR / en-US                         |
 | Tsjechië                                  | CZ                       | Cze                      | cs-ORDE / en-US                         |
@@ -89,10 +89,10 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Djibouti                                 | Dj                       | Dji                      | fr-FR / en-US                         |
 | Dominica                                 | DM                       | DMA                      | en-US                                 |
 | Dominicaanse Republiek                       | DO                       | Dom                      | es-DO / en-US                         |
-| Ecuador                                  | EC                       | Ecu                      | es-EC / en-US                         |
+| Ecuador                                  | EC                       | Ecu                      | es-EC/ en-US                         |
 | Egypte                                    | EG                       | Egy                      | ar-EG / en-US                         |
 | El Salvador                              | SV                       | Slv                      | es-SV / en-US                         |
-| Equatoriaal-Guinea                        | Gq                       | GNQ                      | es-ES/en-US                         |
+| Equatoriaal-Guinea                        | Gq                       | GNQ                      | es-ES/ en-US                         |
 | Eritrea                                  | ER                       | Eri                      | ar-SA / en-US                         |
 | Estland                                  | EE                       | Est                      | et-EE / en-US                         |
 | eSwaautoriteit                                 | SZ                       | SWZ                      | en-US                                 |
@@ -125,37 +125,37 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Heard- en McDonald-eilanden        | Hm                       | Hmd                      | en-US                                 |
 | Honduras                                 | HN                       | Hnd                      | es-HN / en-US                         |
 | Hongkong SAR                            | HK                       | Hkg                      | zh-HK / en-US                         |
-| Hongarije                                  | HU                       | HUN                      | hu-HU/ en-US                         |
+| Hongarije                                  | HU                       | HUN                      | hu-HU / en-US                         |
 | IJsland                                  | IS                       | Isl                      | is-IS/en-US                         |
 | India                                    | IN                       | IND                      | en-IN / hi-IN / en-US                 |
 | Indonesië                                | Id                       | Idn                      | id-ID / en-US                         |
-| Irak                                     | IQ                       | Irq                      | ar-IQ/ en-US                         |
+| Irak                                     | IQ                       | Irq                      | ar-IQ / en-US                         |
 | Ierland                                  | IE                       | Irl                      | en-IE / en-US                         |
 | Isle of Man                              | IM                       | IMN                      | en-US                                 |
-| Israël                                   | IL                       | ISR                      | he-IL/en-US                         |
-| Italië                                    | IT                       | ITA                      | it-IT/en-US                         |
+| Israël                                   | IL                       | ISR                      | he-IL /en-US                         |
+| Italië                                    | IT                       | ITA                      | it-IT /en-US                         |
 | Jamaica                                  | JM                       | Jam                      | en-JM / en-US                         |
 | Jan Mayen                                | Xj                       | XJA                      | nb-NO / en-US                         |
 | Japan                                    | JP                       | JPN                      | ja-JP / en-US                         |
 | Jersey                                   | JE                       | Jey                      | en-US                                 |
-| Jordanië                                   | JO                       | Jor                      | ar-JO/ en-US                         |
+| Jordanië                                   | JO                       | Jor                      | ar-JO / en-US                         |
 | Kazachstan                               | KZ                       | Kaz                      | kk-KZ / en-US                         |
 | Kenia                                    | KE                       | KEN                      | sw-KE / en-US                         |
 | Kiribati                                 | KI                       | Kir                      | en-US                                 |
-| Korea                                    | KR                       | KOR                      | ko-KR/ en-US                         |
+| Korea                                    | KR                       | KOR                      | ko-KR / en-US                         |
 | Kosovo                                   | XK                       | XKS                      | en-US                                 |
-| Koeweit                                   | KW                       | KWT                      | ar-KW/ en-US                         |
-| Kirgistan                               | KG                       | KGZ                      | ky-KG/en-US                         |
+| Koeweit                                   | KW                       | KWT                      | ar-KW / en-US                         |
+| Kirgistan                               | KG                       | KGZ                      | ky-KG /en-US                         |
 | Laos                                     | LA                       | Lao                      | lo-LA / en-US                         |
-| Letland                                   | LV                       | LVA                      | lv-LV/ en-US                         |
+| Letland                                   | LV                       | LVA                      | lv-LV / en-US                         |
 | Libanon                                  | LB                       | LBN                      | ar-LB/en-US                         |
 | Lesotho                                  | LS                       | Lso                      | en-US                                 |
 | Liberia                                  | LR                       | LBR                      | en-US                                 |
-| Libië                                    | LY                       | LBY                      | ar-LY/en-US                         |
+| Libië                                    | LY                       | LBY                      | ar-LY / en-US                         |
 | Liechtenstein                            | LI                       | Liggen                      | de-LI / en-US                         |
 | Litouwen                                | LT                       | Ltu                      | lt-LT / en-US                         |
 | Luxemburg                               | LU                       | Lux                      | de-LU / fr-LU / en-US                 |
-| Macau SAR                                | MO                       | Mac                      | zh-MO/en-US                         |
+| Macau SAR                                | MO                       | Mac                      | zh-MO / en-US                         |
 | Noord-Oost, FYRO                          | MK                       | MKD                      | mk-MK / en-US                         |
 | Madagaskar                               | MG                       | Mdg                      | fr-FR / en-US                         |
 | Malawi                                   | MW                       | MWI                      | en-US                                 |
@@ -165,12 +165,12 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Malta                                    | MT                       | MLT                      | mt-MT / en-US                         |
 | Marshalleilanden                         | MH                       | Mhl                      | en-US                                 |
 | Martinique                               | MQ                       | MTQ                      | fr-FR / en-US                         |
-| Mauritanië                               | MR                       | MRT                      | ar-SA/ en-US                         |
+| Mauritanië                               | MR                       | MRT                      | ar-SA / en-US                         |
 | Mauritius                                | Mu                       | Mus                      | en-GB / en-US                         |
 | Mayotte                                  | YT                       | MYT                      | fr-FR / en-US                         |
 | Mexico                                   | MX                       | Mex                      | es-MX / en-US                         |
 | Micronesia                               | FM                       | Fsm                      | en-US                                 |
-| Moldavië                                  | MD                       | Mda                      | ro-RO/ en-US                         |
+| Moldavië                                  | MD                       | Mda                      | ro-RO / en-US                         |
 | Monaco                                   | MC                       | Mco                      | fr-MC / en-US                         |
 | Mongolië                                 | MN                       | Mng                      | mn-MN / en-US                         |
 | Montenegro                               | ME                       | MNE                      | sr-Latn-ME / en-US                    |
@@ -195,21 +195,21 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Oman                                     | OM                       | OMN                      | ar-OM/en-US                         |
 | Pakistan                                 | PK                       | PAK                      | your-PK/en-US                         |
 | Palau                                    | PW                       | PLW                      | en-US                                 |
-| Palestijnse Autoriteit                    | PS                       | Pse                      | ar-SA/ en-US                         |
-| Panama                                   | PA                       | PAN                      | es-PA/en-US                         |
+| Palestijnse Autoriteit                    | PS                       | Pse                      | ar-SA / en-US                         |
+| Panama                                   | PA                       | PAN                      | es-PA /en-US                         |
 | Papoea-Nieuw-Guinea                         | Pg                       | PNG                      | en-US                                 |
-| Paraguay                                 | PY                       | Wrikken                      | es-PY / en-US                         |
+| Paraguay                                 | PY                       | Wrikken                      | es-PY/en-US                         |
 | Peru                                     | PE                       | PER                      | es-PE/en-US                         |
 | Filipijnen                              | PH                       | Phl                      | en-PH / en-US                         |
 | Pitcairneilanden                         | Pn                       | Pcn                      | en-US                                 |
-| Polen                                   | PL                       | Pol                      | pl-PL / en-US                         |
-| Portugal                                 | PT                       | Prt                      | pt-PT / en-US                         |
-| Puerto Rico                              | PR                       | Pri                      | es-PR / en-US                         |
-| Qatar                                    | QA                       | Qat                      | ar-QA / en-US                         |
+| Polen                                   | PL                       | Pol                      | pl-PL/en-US                         |
+| Portugal                                 | PT                       | Prt                      | pt-PT/ en-US                         |
+| Puerto Rico                              | PR                       | Pri                      | es-PR/ en-US                         |
+| Qatar                                    | QA                       | Qat                      | ar-QA/en-US                         |
 | Réunion                                  | RE                       | REU                      | fr-FR / en-US                         |
-| Roemenië                                  | RO                       | Rou                      | ro-RO / en-US                         |
-| Rusland                                   | RU                       | RUS                      | ru-RU / en-US                         |
-| Rwanda                                   | RW                       | RWA                      | rw-RW / en-US                         |
+| Roemenië                                  | RO                       | Rou                      | ro-RO/ en-US                         |
+| Rusland                                   | RU                       | RUS                      | ru-RU /en-US                         |
+| Rwanda                                   | RW                       | RWA                      | rw-RW/ en-US                         |
 | Saba                                     | Xs                       | XSA                      | nl-NL / en-US                         |
 | Saint Kitts en Nevis                    | KN                       | Kna                      | en-GB / en-US                         |
 | Saint Lucia                              | Lc                       | Lca                      | en-US                                 |
@@ -218,9 +218,9 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Saint Vincent en de Grenadines         | VC                       | Vct                      | en-US                                 |
 | Saint-Barthélemy                         | BL                       | Blm                      | fr-FR / en-US                         |
 | Samoa                                    | WS                       | Wsm                      | en-US                                 |
-| San Marino                               | Sm                       | Smr                      | it-IT /en-US                         |
-| Sño Toñ en Prñncipe                    | ST                       | Stp                      | pt-PT / en-US                         |
-| Saoedi-Arabië                             | SA                       | Sau                      | ar-SA / en-US                         |
+| San Marino                               | Sm                       | Smr                      | it-IT/en-US                         |
+| Sño Toñ en Prñncipe                    | ST                       | Stp                      | pt-PT/ en-US                         |
+| Saoedi-Arabië                             | SA                       | Sau                      | ar-SA/en-US                         |
 | Senegal                                  | SN                       | Sen                      | wo-SN / en-US                         |
 | Servië                                   | RS                       | Srb                      | sr-Latn-RS / sr-Cyrl-RS / en-US       |
 | Seychellen                               | SC                       | SYC                      | en-US                                 |
@@ -229,9 +229,9 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Sint Eustatius                           | Xe                       | XSE                      | nl-NL / en-US                         |
 | Sint Maarten                             | Sx                       | Sxm                      | en-US                                 |
 | Slowakije                                 | SK                       | Svk                      | sk-SK / en-US                         |
-| Slovenië                                 | SI                       | Svn                      | sl-SI/ en-US                         |
+| Slovenië                                 | SI                       | Svn                      | sl-SI / en-US                         |
 | Salomonseilanden                          | Sb                       | Slb                      | en-US                                 |
-| Somalië                                  | SO                       | SOM                      | ar-SA/ en-US                         |
+| Somalië                                  | SO                       | SOM                      | ar-SA/en-US                         |
 | Zuid-Afrika                             | ZA                       | ZAF                      | en-ZA / en-US                         |
 | Zuid-Georgië en de Zuidelijke Sandwicheilanden | Gs                       | Sgs                      | en-US                                 |
 | Zuid-Soedan                              | SS                       | SSD                      | en-US                                 |
@@ -242,7 +242,7 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Svalbard                                 | Sj                       | SJM                      | nb-NO / en-US                         |
 | Zweden                                   | SE                       | Swe                      | sv-SE / en-US                         |
 | Zwitserland                              | CH                       | Che                      | de-CH / fr-CH / it-CH / en-US         |
-| Taiwan                                   | TW                       | TWN                      | zh-TW / en-US                         |
+| Taiwan                                   | TW                       | TWN                      | zh-TW/ en-US                         |
 | Tadzjikistan                               | Tj                       | TJK                      | tg-Cyrl-TJ / en-US                    |
 | Tanzania                                 | TZ                       | TZA                      | en-GB / en-US                         |
 | Thailand                                 | TH                       | Tha                      | th-TH / en-US                         |
@@ -263,7 +263,7 @@ De volgende tabel bevat de culturen en ISO-landcodes (International Standards Or
 | Amerikaanse outlyingeilanden                    | UM                       | Umi                      | en-US                                 |
 | Amerikaanse Maagdeneilanden                      | VI                       | Vir                      | en-US                                 |
 | Verenigde Staten                            | VS                       | VS                      | en-US /es-US                         |
-| Uruguay                                  | UY                       | Ury                      | es-UY/en-US                         |
+| Uruguay                                  | UY                       | Ury                      | es-UY/ en-US                         |
 | Oezbekistan                               | UZ                       | UZB                      | uz-Latn-UZ / en-US                    |
 | Vanuatu                                  | Vu                       | VUT                      | en-US                                 |
 | Vaticaanstad                             | VA                       | Btw                      | it-IT/en-US                         |

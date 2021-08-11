@@ -1,21 +1,21 @@
 ---
 title: De beschikbaarheid op id op halen
-description: Hiermee haalt u de beschikbaarheid op voor het opgegeven product en de SKU met behulp van een beschikbaarheids-id.
+description: Hiermee haalt u de beschikbaarheid voor het opgegeven product en de SKU op met behulp van een beschikbaarheids-id.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: c31bc12d8d484cc8042f36aa865145600d9e6738
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: fccd566e83dab8994280fdee072c0d6f27b690d5292ed3973427088f46b30d6b
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760195"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993551"
 ---
 # <a name="get-the-availability-by-id"></a>De beschikbaarheid op id op halen
 
-Hiermee haalt u de beschikbaarheid op voor het opgegeven product en de SKU met behulp van een beschikbaarheids-id.
+Hiermee haalt u de beschikbaarheid voor het opgegeven product en de SKU op met behulp van een beschikbaarheids-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ Hiermee haalt u de beschikbaarheid op voor het opgegeven product en de SKU met b
 
 ## <a name="c"></a>C\#
 
-Als u meer informatie wilt over een specifieke [beschikbaarheid,](product-resources.md#availability)gebruikt u eerst de stappen in Een [SKU](get-a-sku-by-id.md) op id op halen om de interface voor de bewerkingen van een specifieke [SKU op te](product-resources.md#sku) halen. Selecteer in de resulterende interface de eigenschap **Beschikbaarheid** om een interface te verkrijgen met de beschikbare bewerkingen voor beschikbaarheid. Geef daarna de beschikbaarheids-id door aan de **methode ById()** om de bewerkingen voor die specifieke beschikbaarheid op te halen en roep vervolgens **Get()** of **GetAsync()** aan om de beschikbaarheidsgegevens op te halen.
+Als u meer informatie wilt over een specifieke [beschikbaarheid,](product-resources.md#availability)begint u met de stappen in Een [SKU](get-a-sku-by-id.md) op id op halen om de interface voor de bewerkingen van een specifieke [SKU op te](product-resources.md#sku) halen. Selecteer in de resulterende interface de eigenschap **Beschikbaarheid** om een interface te verkrijgen met de beschikbare bewerkingen voor beschikbaarheid. Geef daarna de beschikbaarheids-id door aan de **methode ById()** om de bewerkingen voor die specifieke beschikbaarheid op te halen en roep vervolgens **Get()** of **GetAsync()** aan om de beschikbaarheidsgegevens op te halen.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -46,7 +46,7 @@ var availability = partnerOperations.Products.ByCountry(countryCode).ById(produc
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u meer informatie wilt over een specifieke [beschikbaarheid,](product-resources.md#availability)gebruikt u eerst de stappen in Een [SKU](get-a-sku-by-id.md) op id op halen om de interface voor de bewerkingen van een specifieke [SKU op te](product-resources.md#sku) halen. Selecteer in de resulterende interface de **functie getAvailabilities** om een interface te verkrijgen met de beschikbare bewerkingen voor Beschikbaarheid. Geef daarna de beschikbaarheids-id door aan de **functie byId()** om de bewerkingen voor die specifieke beschikbaarheid op te halen en roep vervolgens de **functie get()** aan om de beschikbaarheidsdetails op te halen.
+Als u meer informatie wilt over een specifieke [beschikbaarheid,](product-resources.md#availability)begint u met de stappen in Een [SKU](get-a-sku-by-id.md) op id op halen om de interface voor de bewerkingen van een specifieke [SKU op te](product-resources.md#sku) halen. Selecteer in de resulterende interface de **functie getAvailabilities** om een interface te verkrijgen met de beschikbare bewerkingen voor Beschikbaarheid. Geef daarna de beschikbaarheids-id door aan de **functie byId()** om de bewerkingen voor die specifieke beschikbaarheid op te halen en roep vervolgens de **functie get()** aan om de beschikbaarheidsdetails op te halen.
 
 ```java
 IAggregatePartner partnerOperations;
@@ -63,7 +63,7 @@ Availability availability = partnerOperations.getProducts().byCountry(countryCod
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u details over een specifieke beschikbaarheid wilt [ophalen,](product-resources.md#availability)voert u de parameters [**Get-PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) en geeft u de parameters **AvailabilityId,** **CountryCode,** **ProductId** en **SkuId** op om de beschikbaarheidsgegevens op te halen.
+Als u details over een specifieke beschikbaarheid wilt [ophalen,](product-resources.md#availability)voert u [**get-PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) uit en geeft u de parameters **AvailabilityId,** **CountryCode,** **ProductId** en **SkuId** op om de beschikbaarheidsgegevens op te halen.
 
 ```powershell
 Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId $availabilityId
@@ -83,10 +83,10 @@ Gebruik het volgende pad en de queryparameters om een specifieke beschikbaarheid
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die het product identificeert.            |
-| sku-id                 | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die de SKU identificeert.                |
-| availability-id        | tekenreeks   | Ja      | Een tekenreeks met GUID-indeling die de beschikbaarheid identificeert.       |
-| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| product-id             | tekenreeks   | Yes      | Een tekenreeks met GUID-indeling die het product identificeert.            |
+| sku-id                 | tekenreeks   | Yes      | Een tekenreeks met GUID-indeling die de SKU identificeert.                |
+| availability-id        | tekenreeks   | Yes      | Een tekenreeks met GUID-indeling die de beschikbaarheid identificeert.       |
+| country-code           | tekenreeks   | Yes      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

@@ -1,15 +1,15 @@
 ---
 title: Bronnen voor product-upgrades
-description: U kunt meerdere resources gebruiken die betrekking hebben op Partner Center productupgrades naar een Azure-plan. Dit zijn onder andere ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct en ErrorDetails.
+description: U kunt meerdere resources gebruiken die betrekking hebben op Partner Center productupgrades naar een Azure-plan. Deze omvatten ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct en ErrorDetails.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c995ac44dbe22000f7bc86991cb973ed31a5c018
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: a251168dbe1e153365beec212feca6fafddaef1700ad8651ec9d459aebf24600
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445337"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997393"
 ---
 # <a name="product-upgrade-resources"></a>Bronnen voor product-upgrades
 
@@ -19,7 +19,7 @@ U kunt de volgende resources gebruiken voor informatie over Partner Center produ
 
 De **resource ProductUpgradesRequest bevat** informatie over het aanvraagobject voor productupgrades.
 
-| Eigenschap      | Type                                                          | Beschrijving                                                |
+| Eigenschap      | Type                                                          | Description                                                |
 |---------------|---------------------------------------------------------------|------------------------------------------------------------|
 | customerId    | tekenreeks                                                        | Een tekenreeks in GUID-indeling die de klant identificeert.      |
 | productFamily | tekenreeks                                                        | De productfamilie waarvoor de upgrade is aangevraagd. |
@@ -29,11 +29,11 @@ De **resource ProductUpgradesRequest bevat** informatie over het aanvraagobject 
 
 De **resource ProductUpgradesEligibility** biedt informatie over de geschiktheid van de klant voor het upgraden van een product.
 
-| Eigenschap      | Type                                                          | Beschrijving                                                                      |
+| Eigenschap      | Type                                                          | Description                                                                      |
 |---------------|---------------------------------------------------------------|----------------------------------------------------------------------------------|
 | customerId    | tekenreeks                                                        | Een tekenreeks in GUID-indeling die de klant identificeert.                            |
 | productFamily | tekenreeks                                                        | De productfamilie waarvoor de upgrade is aangevraagd.                       |
-| isEligible    | booleaans                                                          | De waarde bool geeft aan of de klant in aanmerking komt voor de aangevraagde upgrade. |
+| isEligible    | booleaans                                                          | De waarde van hetool geeft aan of de klant in aanmerking komt voor de aangevraagde upgrade. |
 | upgradeId     | tekenreeks                                                        | De upgrade-id als er al een productupgrade voor een bepaalde familie is uitgevoerd.        |
 | reason        | tekenreeks                                                        | De reden waarom de klant niet in aanmerking komt voor productupgrade.                |
 | productFamily | tekenreeks                                                        | De productfamilie waarvoor de upgrade is aangevraagd.                       |
@@ -43,9 +43,9 @@ De **resource ProductUpgradesEligibility** biedt informatie over de geschiktheid
 
 De **resource ProductUpgradesStatus** bevat informatie over de status van een productupgrade.
 
-| Eigenschap | Type   | Beschrijving                                          |
+| Eigenschap | Type   | Description                                          |
 |----------|--------|------------------------------------------------------|
-| Id       | tekenreeks | Een tekenreeks in GUID-indeling die de upgrade identificeert. |
+| Id       | tekenreeks | Een tekenreeks met GUID-indeling die de upgrade identificeert. |
 | productFamily       | tekenreeks                                                         | De productfamilie waarvoor de upgrade is aangevraagd.
 | status              | tekenreeks                                                         | De status van de productupgrade.
 | lineItems           | matrix van [UpgradesLineItem-resources](#upgradeslineitem)       | Een matrix met objecten die informatie biedt over de upgradedetails voor elk regelitem dat deel uitmaakte van de aanvraag body.
@@ -54,9 +54,9 @@ De **resource ProductUpgradesStatus** bevat informatie over de status van een pr
 
 ## <a name="upgradeslineitem"></a>UpgradesLineItem
 
-De **resource UpgradesLineItem beschrijft** de status van de details van de productupgrade voor elk regelitem van de aanvraag.
+De **resource UpgradesLineItem** beschrijft de status van de details van de productupgrade voor elk regelitem van de aanvraag.
 
-| Eigenschap      | Type                                                          | Beschrijving                                       |
+| Eigenschap      | Type                                                          | Description                                       |
 |---------------|---------------------------------------------------------------|---------------------------------------------------|
 | sourceProduct | [UpgradeProduct-object](#upgradeproduct)                      | Informatie over het bronproduct dat wordt bijgewerkt. |
 | targetProduct | [UpgradeProduct-object](#upgradeproduct)                      | Informatie over het doelproduct na de upgrade.   |
@@ -67,7 +67,7 @@ De **resource UpgradesLineItem beschrijft** de status van de details van de prod
 
 ## <a name="upgradeproduct"></a>UpgradeProduct
 
-De **resource UpgradeProduct** bevat informatie over het product dat wordt bijgewerkt.
+De **Resource UpgradeProduct** bevat informatie over het product dat wordt bijgewerkt.
 
 | Eigenschap   | Type                                                          | Beschrijving                                          |
 |------------|---------------------------------------------------------------|------------------------------------------------------|
@@ -77,9 +77,9 @@ De **resource UpgradeProduct** bevat informatie over het product dat wordt bijge
 
 ## <a name="errordetails"></a>ErrorDetails
 
-De **Resource ErrorDetails** bevat details over fouten tijdens het upgradeproces.
+De **resource ErrorDetails** biedt details over fouten tijdens het upgradeproces.
 
-| Eigenschap   | Type                                                          | Beschrijving                                       |
+| Eigenschap   | Type                                                          | Description                                       |
 |------------|---------------------------------------------------------------|---------------------------------------------------|
 | code       | tekenreeks                                                        | Een foutcode wanneer de productupgrade mislukt.      |
 | message    | tekenreeks                                                        | Het foutbericht wanneer de productupgrade mislukt. |

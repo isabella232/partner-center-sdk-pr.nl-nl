@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: v-sumukh
 ms.author: v-sumukh
-ms.openlocfilehash: 69c6c195ba1a0d657a91320b2f9b08b5269a8499
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: fc665e8e4468648f71f242992780fbc66a02522a0b8b957a5ce68147ab33eaac
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025595"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993194"
 ---
 # <a name="analytics-api-resources-that-help-you-report-on-license-usage-deployment-and-consumption"></a>Analyse-API-resources die u helpen bij het rapporteren over licentiegebruik, implementatie en verbruik
 
@@ -21,7 +21,7 @@ De hier gedefinieerde resources bevatten gegevens die worden gebruikt om te rapp
 
 De **resource PartnerLicensesDeploymentInsights** bevat inzichten op partnerniveau over de implementatie van licenties.
 
-| Eigenschap                  | Type                                                           | Beschrijving                                                                         |
+| Eigenschap                  | Type                                                           | Description                                                                         |
 |---------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | proratedDeploymentPercent | getal                                                         | Het percentage geïmplementeerde licenties.                                                |
 | licentiesVerkocht              | getal                                                         | Het aantal verkochte licenties.                                                        |
@@ -34,10 +34,10 @@ De **resource PartnerLicensesDeploymentInsights** bevat inzichten op partnernive
 
 De **resource PartnerLicensesUsageInsights** bevat inzichten op partnerniveau over licentiegebruik.
 
-| Eigenschap                     | Type                                                           | Beschrijving                                                                    |
+| Eigenschap                     | Type                                                           | Description                                                                    |
 |------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | proratedLicensesUsagePercent | getal                                                         | Het percentage geïmplementeerde licenties.                                           |
-| workloadName                 | tekenreeks                                                         | De naam van de workload (bijvoorbeeld: exchange).                                             |
+| workloadName                 | tekenreeks                                                         | De naam van de workload (bijvoorbeeld exchange).                                             |
 | processedDateTime            | tekenreeks in UTC-datum/tijd-indeling                                 | De datum en tijd waarop de gegevens zijn geaggregeerd.                                |
 | Servicenaam                  | tekenreeks                                                         | De servicenaam (bijvoorbeeld: o365, crm).                                             |
 | Kanaal                      | tekenreeks                                                         | De kanaalnaam van de service (bijvoorbeeld reseller).                               |
@@ -47,7 +47,7 @@ De **resource PartnerLicensesUsageInsights** bevat inzichten op partnerniveau ov
 
 De **resource CustomerLicensesDeploymentInsights** bevat inzichten op klantniveau over de implementatie van licenties.
 
-| Eigenschap          | Type                                                           | Beschrijving                                                                          |
+| Eigenschap          | Type                                                           | Description                                                                          |
 |-------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | licenties Geïmplementeerd  | getal                                                         | Het aantal geïmplementeerde licenties.                                                     |
 | licentiesVerkocht      | getal                                                         | Het aantal verkochte licenties.                                                         |
@@ -65,7 +65,7 @@ De **resource CustomerLicensesDeploymentInsights** bevat inzichten op klantnivea
 
 De **resource CustomerLicensesUsageInsights** bevat inzichten op klantniveau over licentiegebruik.
 
-| Eigenschap          | Type                                                           | Beschrijving                                                                     |
+| Eigenschap          | Type                                                           | Description                                                                     |
 |-------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | workloadCode      | tekenreeks                                                         | De workloadcode.                                                              |
 | workloadName      | getal                                                         | De naam van de workload (bijvoorbeeld: Exchange).                                              |

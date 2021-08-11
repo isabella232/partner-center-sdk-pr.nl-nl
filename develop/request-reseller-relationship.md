@@ -4,12 +4,12 @@ description: De URL van een relatieaanvraag ophalen om naar een klant te verzend
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 07804b36dfe0892cf8b531e0731188260c014f49
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 62cf06de327f8f31e908a0cc38cff52ad5c62b036b95d195e0a8040c53a4e110
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547444"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996968"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>Een URL voor relatie aanvragen ophalen
 
@@ -31,7 +31,7 @@ Als u een URL voor een relatieaanvraag wilt ophalen, gebruikt u [**eerst IAggreg
 var customerRelationshipRequest = partnerOperations.Customers.RelationshipRequest.Get();
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class**: GetCustomerRelationshipRequest.cs
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetCustomerRelationshipRequest.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -43,7 +43,7 @@ var customerRelationshipRequest = partnerOperations.Customers.RelationshipReques
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 7fe987c7dc50d55b26cd72d5aead52963eb1cfbe
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 1d671c07185f92a36055af12d9de2e39adeab129bfcb2497da66d35807db270e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760212"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994078"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Alle gebruiksanalysegegevens van Azure ophalen
 
@@ -21,7 +21,7 @@ Informatie over het verkrijgen van alle Azure-gebruiksanalysegegevens voor uw kl
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met gebruikersreferenties.
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -33,13 +33,13 @@ Informatie over het verkrijgen van alle Azure-gebruiksanalysegegevens voor uw kl
 
 ### <a name="uri-parameters"></a>URI-parameters
 
-|Parameter        |Type                        |Beschrijving               |
+|Parameter        |Type                        |Description               |
 |:----------------|:---------------------------|:-------------------------|
-|top              | tekenreeks                     | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10000. Als er meer rijen in de query staan, bevat de antwoord-body een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen.                        |
-|skip             | int                        | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om door grote gegevenssets te gaan. Haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, haalt de volgende `top=10000 and skip=0` 10000 rijen met gegevens `top=10000 and skip=10000` op, en meer.                       |
-|filter           | tekenreeks                     | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies `eq` kunnen worden gecombineerd met behulp van of `ne` `and` `or` . U kunt de volgende tekenreeksen opgeven:<br/><br/>                                                       `customerTenantId`<br/> `customerName`<br/> `subscriptionId`<br/> `subscriptionName`<br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>**Voorbeeld:**<br/> `.../usage/azure?filter=meterCategory eq 'Data Management'`<br/><br/> **Voorbeeld:**<br/>`.../usage/azure?filter=meterCategory eq 'Data Management' or (usageDate le cast('2018-01-01', Edm.DateTimeOffset) and usageDate le cast('2018-04-01', Edm.DateTimeOffset))`                        |
-|aggregationLevel | tekenreeks                    | Hiermee geeft u het tijdsbereik op waarvoor geaggregeerde gegevens moeten worden opgehaald. Kan een van de volgende tekenreeksen zijn: `day` `week` , of `month` . Als dit niet is gespecificeerd, is de standaardwaarde `day` .<br/><br/>                                              De `aggregationLevel` parameter wordt niet ondersteund zonder een `groupby` . De `aggregationLevel` parameter is van toepassing op alle datumvelden die aanwezig zijn in de `groupby` .                                                      |
-|Orderby          |tekenreeks                     | Een instructie die de resultaatgegevenswaarden voor elke installatie bestelt. De syntaxis is `...&orderby=field [order],field [order],...`. De `field` parameter kan een van de volgende tekenreeksen zijn:<br/><br/>                    `customerTenantId`<br/>`customerName`<br/>`subscriptionId`<br/>`subscriptionName`<br/>`usageDate`<br/>`resourceLocation`<br/>`meterCategory`<br/>`meterSubcategory`<br/>`meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/> De *orderparameter* is optioneel en kan of zijn om respectievelijk de oplopende of aflopende volgorde voor `asc` elk veld op te `desc` geven. De standaardwaarde is `asc`.<br/><br/>**Voorbeeld:**<br/> `...&orderby=meterCategory,meterUnit`                                                                                           |
+|top              | tekenreeks                     | Het aantal rijen met gegevens dat in de aanvraag moet worden retourneren. De maximumwaarde en de standaardwaarde als deze niet is opgegeven, is 10.000. Als er meer rijen in de query staan, bevat de hoofdpagina van het antwoord een volgende koppeling die u kunt gebruiken om de volgende pagina met gegevens aan te vragen.                        |
+|skip             | int                        | Het aantal rijen dat moet worden overgeslagen in de query. Gebruik deze parameter om grote gegevenssets te bekijken. Haalt bijvoorbeeld de eerste 10000 rijen met gegevens op, haalt de volgende `top=10000 and skip=0` `top=10000 and skip=10000` 10.000 rijen met gegevens op, en meer.                       |
+|filter           | tekenreeks                     | De *filterparameter* van de aanvraag bevat een of meer instructies die de rijen in het antwoord filteren. Elke instructie bevat een veld en waarde die zijn gekoppeld aan de operators of en instructies `eq` kunnen worden gecombineerd met of `ne` `and` `or` . U kunt de volgende tekenreeksen opgeven:<br/><br/>                                                       `customerTenantId`<br/> `customerName`<br/> `subscriptionId`<br/> `subscriptionName`<br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>**Voorbeeld:**<br/> `.../usage/azure?filter=meterCategory eq 'Data Management'`<br/><br/> **Voorbeeld:**<br/>`.../usage/azure?filter=meterCategory eq 'Data Management' or (usageDate le cast('2018-01-01', Edm.DateTimeOffset) and usageDate le cast('2018-04-01', Edm.DateTimeOffset))`                        |
+|aggregationLevel | tekenreeks                    | Hiermee geeft u het tijdsbereik op waarvoor geaggregeerde gegevens moeten worden opgehaald. Kan een van de volgende tekenreeksen zijn: `day` `week` , of `month` . Indien niet gespecificeerd, is de standaardwaarde `day` .<br/><br/>                                              De `aggregationLevel` parameter wordt niet ondersteund zonder een `groupby` . De `aggregationLevel` parameter is van toepassing op alle datumvelden in de `groupby` .                                                      |
+|Orderby          |tekenreeks                     | Een instructie die de resultaatgegevenswaarden voor elke installatie bestelt. De syntaxis is `...&orderby=field [order],field [order],...`. De `field` parameter kan een van de volgende tekenreeksen zijn:<br/><br/>                    `customerTenantId`<br/>`customerName`<br/>`subscriptionId`<br/>`subscriptionName`<br/>`usageDate`<br/>`resourceLocation`<br/>`meterCategory`<br/>`meterSubcategory`<br/>`meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/> De *parameter order* is optioneel en kan of zijn om respectievelijk de oplopende of aflopende volgorde voor elk veld op te `asc` `desc` geven. De standaardwaarde is `asc`.<br/><br/>**Voorbeeld:**<br/> `...&orderby=meterCategory,meterUnit`                                                                                           |
 |groupby          |tekenreeks                    | Een instructie die gegevensaggregatie alleen op de opgegeven velden van toepassing is. U kunt de volgende velden opgeven:<br/><br/>                                                                                                                     `customerTenantId`<br/>`customerName`<br/> `subscriptionId` <br/> `subscriptionName` <br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit` <br/> `reservationOrderId` <br/> `reservationId` <br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>De geretourneerde gegevensrijen bevatten de velden die zijn opgegeven in de `groupby`  parameter en de *Hoeveelheid*.<br/><br/>De `groupby` parameter kan worden gebruikt met de parameter `aggregationLevel` .<br/><br/>**Voorbeeld:**<br/>`...&groupby=meterCategory,meterUnit` |
 
 ### <a name="request-headers"></a>Aanvraagheaders
@@ -66,7 +66,7 @@ Als dit lukt, bevat de antwoord-body een verzameling [Azure-gebruiksresources.](
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

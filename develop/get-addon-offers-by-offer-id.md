@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: e3b0ab8007d3affa6912479b960f6dae3bc0bd28
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 5567a04f9b9770022fe1b824d0a473af2ca8e073072cb33014b597cc594d0654
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760331"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994095"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>Invoegtoepassingen voor een aanbiedings-id ophalen
 
@@ -23,11 +23,11 @@ De invoegtoepassingen voor een aanbiedings-id krijgen.
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een aanbiedings-id. Als u niet beschikt over de aanbiedings-id, bekijkt u [Een lijst met aanbiedingen voor een markt op halen.](get-a-list-of-offers-for-a-market.md)
+- Een aanbiedings-id. Als u de aanbiedings-id niet hebt, zie [Een lijst met aanbiedingen voor een markt op halen.](get-a-list-of-offers-for-a-market.md)
 
 ## <a name="c"></a>C\#
 
-Als u de invoegtoepassingen voor een aanbieding wilt op id, roept u eerst de methode [**IAggregatePartner.Offers.ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) aan met de landcode om een interface op te halen voor het aanbieden van bewerkingen op basis van het opgegeven land. Roep vervolgens de [**ByID-methode**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) aan met de aanbiedings-id om de aanbieding te identificeren waarvan u de invoegtoepassingen wilt ophalen. Gebruik vervolgens de eigenschap [**AddOns**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) om een interface op te halen voor invoegbewerkingen voor de huidige aanbieding. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) aan om een verzameling van alle invoegtoepassingen voor de opgegeven aanbieding op te halen.
+Als u de invoegtoepassingen voor een aanbieding op id wilt krijgen, roept u eerst de methode [**IAggregatePartner.Offers.ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) aan met de landcode om een interface op te halen voor het aanbieden van bewerkingen op basis van het opgegeven land. Roep vervolgens de [**ByID-methode**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) aan met de aanbiedings-id om de aanbieding te identificeren waarvan u de invoegtoepassingen wilt ophalen. Gebruik vervolgens de eigenschap [**AddOns**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) om een interface op te halen voor invoegbewerkingen voor de huidige aanbieding. Roep ten slotte de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) aan om een verzameling van alle invoegtoepassingen voor de opgegeven aanbieding op te halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -37,7 +37,7 @@ Als u de invoegtoepassingen voor een aanbieding wilt op id, roept u eerst de met
 var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).AddOns.Get();
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetOffer.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class**: GetOffer.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -54,11 +54,11 @@ Gebruik de volgende parameters om de aanbiedings-id en landcode op te geven.
 | Naam         | Type       | Vereist | Beschrijving                       |
 |--------------|------------|----------|-----------------------------------|
 | **offer-id** | **guid**   | J        | Een GUID die de aanbieding identificeert. |
-| **Land**  | **tekenreeks** | J        | Het landnummer (bijvoorbeeld `US` ).       |
+| **Land**  | **tekenreeks** | J        | De landcode (bijvoorbeeld `US` ).       |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -82,7 +82,7 @@ Als dit lukt, retourneert deze methode een verzameling [aanbiedingsobjecten](off
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

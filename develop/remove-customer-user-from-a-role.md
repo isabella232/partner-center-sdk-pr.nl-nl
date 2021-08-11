@@ -4,12 +4,12 @@ description: Een gebruiker verwijderen uit een directoryrol binnen een klantacco
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 36dc742c4f713131b4996d7dc945b6dd008a3ef5
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 985b80a35182aefe283a8e9bbff75a1ff7bd9790157147fb943d8b18eb5c5079
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445643"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996985"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>Een klantgebruiker uit een rol verwijderen
 
@@ -17,13 +17,13 @@ Een gebruiker verwijderen uit een directoryrol binnen een klantaccount.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een gebruiker uit een directoryrol wilt verwijderen, selecteert u de klant met de gebruiker die u wilt wijzigen met een aanroep naar de methode [**IAggregatePartner.Customers.ById.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) Geef hier de rol op met behulp van de [**methode DirectoryRoles.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) met de directoryrol-id. Ga vervolgens naar de [**methode UserMembers.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) om de gebruiker te identificeren die u wilt verwijderen en de methode [**Delete**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) om de gebruiker uit de rol te verwijderen.
+Als u een gebruiker uit een directoryrol wilt verwijderen, selecteert u de klant met de gebruiker die u wilt wijzigen met een aanroep naar de methode [**IAggregatePartner.Customers.ById.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) Geef hier de rol op met behulp van de [**methode DirectoryRoles.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) met de directoryrol-id. Ga vervolgens naar de [**methode UserMembers.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) om de gebruiker te identificeren die u wilt verwijderen en de [**methode Delete**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) om de gebruiker uit de rol te verwijderen.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -56,7 +56,7 @@ Gebruik de volgende URI-parameters om de juiste klant, rol en gebruiker te ident
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

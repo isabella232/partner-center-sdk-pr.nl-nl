@@ -1,23 +1,23 @@
 ---
 title: Gebruikersaccounts voor een klant bijwerken
-description: Werk details bij in een bestaand gebruikersaccount voor uw klant.
+description: Werk gegevens bij in een bestaand gebruikersaccount voor uw klant.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6ebfdbb5df1d56416835af771fd6b70190776012
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: e652e8dcbf9075fe22507230029c9703f88abef179337b8958d219c996c6e6cd
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445269"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115998005"
 ---
 # <a name="update-user-accounts-for-a-customer"></a>Gebruikersaccounts voor een klant bijwerken
 
-Werk details bij in een bestaand gebruikersaccount voor uw klant.
+Werk gegevens bij in een bestaand gebruikersaccount voor uw klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 

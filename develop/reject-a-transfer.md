@@ -1,17 +1,17 @@
 ---
-title: Een overdracht afwijzen
+title: Een overdracht weigeren
 description: Het afwijzen van een overdracht van abonnementen voor een klant.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d09905979a89c9b2092462512c485524cd681d5f
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: f7862b017a494fcb8a503498c957ebc2cb5f4de9d3ede0aae625db53668e5477
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445371"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997206"
 ---
-# <a name="reject-a-transfer"></a>Een overdracht afwijzen
+# <a name="reject-a-transfer"></a>Een overdracht weigeren
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -35,21 +35,21 @@ Gebruik de volgende padparameter om de klant te identificeren en geef de overdra
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | tekenreeks   | Ja      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
-| **transfer-id** | tekenreeks   | Ja      | Een met GUID opgemaakte overdrachts-id die de overdracht identificeert.             |
+| **customer-id** | tekenreeks   | Yes      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
+| **transfer-id** | tekenreeks   | Yes      | Een met GUID opgemaakte overdrachts-id die de overdracht identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-In deze tabel worden de [eigenschappen van TransferEntity](transfer-entity-resources.md) in de aanvraag body beschreven.
+In deze tabel worden de [Eigenschappen van TransferEntity](transfer-entity-resources.md) in de aanvraag body beschreven.
 
 | Eigenschap              | Type          | Vereist  | Beschrijving                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | tekenreeks        | No    | Een id voor transferEntity die wordt opgegeven bij het maken van de transferEntity.                               |
-| status                | tekenreeks        | No    | De status van de transferEntity. Als u een overdracht wilt weigeren, moet de waarde worden ingesteld op 'weigeren'|
+| id                    | tekenreeks        | No    | Een transferEntity-id die wordt opgegeven wanneer de transferEntity is gemaakt.                               |
+| status                | tekenreeks        | No    | De status van de transferEntity. Als u een overdracht wilt weigeren, moet de waarde worden ingesteld als 'weigeren'|
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -72,7 +72,7 @@ Als dit lukt, retourneert deze methode de ingevulde [TransferEntity-resource](tr
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

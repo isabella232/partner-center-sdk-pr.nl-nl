@@ -4,12 +4,12 @@ description: Een verzameling van de abonnementen van een klant ophalen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 01ac9e5169258d0ac263d5bbe8cff567c76f98ed
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: e249628838a0726b4d9d670a7d7f71b745ef66cafaebd79d6aeb14746616bf82
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760620"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993857"
 ---
 # <a name="get-a-customers-subscriptions"></a>De abonnementen van een klant ophalen
 
@@ -19,7 +19,7 @@ Een verzameling van de abonnementen van een klant ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -50,7 +50,7 @@ Deze tabel bevat de vereiste queryparameter om alle abonnementen op te halen.
 
 | Naam               | Type   | Vereist | Beschrijving                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | tekenreeks | Ja      | Een tekenreeks in GUID-indeling die de klant identificeert. |
+| customer-tenant-id | tekenreeks | Yes      | Een tekenreeks in GUID-indeling die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

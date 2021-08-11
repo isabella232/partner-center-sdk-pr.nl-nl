@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 9516a87a438a0a84a6f6069c1f9b2a2e97e90fba
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 3be496b694d9e0e34619807e85ed8fe63879f3561a404ebc7361dcedc4479612
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873850"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994180"
 ---
 # <a name="get-a-sku-by-id"></a>Een SKU ophalen op basis van id
 
@@ -53,13 +53,13 @@ Gebruik het volgende pad en de queryparameters om een SKU voor het opgegeven pro
 
 | Naam                   | Type     | Vereist | Beschrijving                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | tekenreeks   | Ja      | Een tekenreeks die het product identificeert.                           |
-| sku-id                 | tekenreeks   | Ja      | Een tekenreeks die de SKU identificeert.                               |
-| country-code           | tekenreeks   | Ja      | Een land-/regio-id.                                            |
+| product-id             | tekenreeks   | Yes      | Een tekenreeks die het product identificeert.                           |
+| sku-id                 | tekenreeks   | Yes      | Een tekenreeks die de SKU identificeert.                               |
+| country-code           | tekenreeks   | Yes      | Een land-/regio-id.                                            |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -85,7 +85,7 @@ Als dit lukt, bevat de antwoord-body een [SKU-resource.](product-resources.md#sk
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 Deze methode retourneert de volgende foutcodes:
 

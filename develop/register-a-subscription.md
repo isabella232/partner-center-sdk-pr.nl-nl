@@ -4,22 +4,22 @@ description: Registreer een bestaand abonnement zodat het is ingeschakeld voor h
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d26a7c77f60e6ef817cde80b9e97c88bd8bdc786
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 4ea2183ab0c2367c7772bdf40b5988c2b7eff7c539686760332bec4addda8bbe
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446612"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997189"
 ---
 # <a name="register-a-subscription"></a>Een abonnement registreren
 
 Registreer een bestaand [abonnement](subscription-resources.md) zodat dit is ingeschakeld voor het bestellen van Azure-reserveringen.
 
-Als u een Azure-reservering wilt aanschaffen, moet u ten minste één bestaand CSP Azure-abonnement hebben. Met deze methode kunt u uw bestaande CSP Azure-abonnement registreren, zodat u deze kunt inschakelen voor het kopen van Azure-reserveringen.
+Als u een Azure-reservering wilt aanschaffen, moet u ten minste één bestaand CSP Azure-abonnement hebben. Met deze methode kunt u uw bestaande CSP Azure-abonnement registreren en het inschakelen voor het kopen van Azure-reserveringen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -27,7 +27,7 @@ Als u een Azure-reservering wilt aanschaffen, moet u ten minste één bestaand C
 
 ## <a name="c"></a>C\#
 
-Als u het abonnement van een klant wilt registreren, haalt u een interface op voor abonnementsbewerkingen door de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren. Roep vervolgens de methode [**Subscription.ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) aan met de abonnements-id om het abonnement te identificeren dat u registreert.
+Als u het abonnement van een klant wilt registreren, haalt u een interface op voor abonnementsbewerkingen door de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren. Roep vervolgens de [**methode Subscription.ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) aan met de abonnements-id om het abonnement te identificeren dat u registreert.
 
 Roep ten slotte de **methode Registration.Register()** aan om het abonnement te registreren en een URI op te halen die kan worden gebruikt om de registratiestatus van het abonnement op te halen. Zie Registratiestatus van abonnement verkrijgen [voor meer informatie.](get-subscription-registration-status.md)
 
@@ -54,8 +54,8 @@ Gebruik de volgende padparameters om de klant en het abonnement te identificeren
 
 | Naam                    | Type       | Vereist | Beschrijving                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| customer-id             | tekenreeks     | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.         |
-| subscription-id         | tekenreeks     | Ja      | Een tekenreeks met GUID-indeling die het abonnement identificeert.     |
+| customer-id             | tekenreeks     | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.         |
+| subscription-id         | tekenreeks     | Yes      | Een tekenreeks met GUID-indeling die het abonnement identificeert.     |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

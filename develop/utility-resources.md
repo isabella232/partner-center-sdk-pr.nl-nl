@@ -4,12 +4,12 @@ description: De Partner Center REST API bevat veel resources die algemene gegeve
 ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 095cf36d47b147eb6df28d8747889e218c270659
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: de97feed13a4d0bae9743939a03f8cb8470f5f960bec0507cd9c5adfad287120
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111529661"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115998039"
 ---
 # <a name="utility-resources"></a>Hulpprogramma-bronnen
 
@@ -19,9 +19,9 @@ De Partner Center REST API bevat veel resources die algemene gegevensmodellen be
 
 ## <a name="address"></a>Adres
 
-Het adres dat moet worden gebruikt voor de klant- of partnerprofielen. Zie Get address formatting rules by market (Regels voor adresopmaak op markt verkrijgen) voor meer informatie over de ondersteunde indelingen en eigenschappen in verschillende [landen/regio's.](get-market-specific-validation-data.md)
+Het adres dat moet worden gebruikt voor de klant- of partnerprofielen. Zie Get [address formatting rules by market (Regels](get-market-specific-validation-data.md)voor adresopmaak op markt verkrijgen) voor meer informatie over de ondersteunde indelingen en eigenschappen in verschillende landen/regio's.
 
-| Eigenschap     | Type   | Lengte (min. , max. ) | Beschrijving                                                                                      |
+| Eigenschap     | Type   | Lengte (min. , max. ) | Description                                                                                      |
 |--------------|--------|-------------------|--------------------------------------------------------------------------------------------------|
 | AddressLine1 | tekenreeks | (1, 200)          | De eerste regel van het adres.                                                                   |
 | AddressLine2 | tekenreeks | (0, 200)          | De tweede regel van het adres. Deze eigenschap is optioneel.                                       |
@@ -41,7 +41,7 @@ Het adres dat moet worden gebruikt voor de klant- of partnerprofielen. Zie Get a
 
 Beschrijft contactgegevens voor een specifieke persoon.
 
-| Eigenschap    | Type   | Beschrijving                  |
+| Eigenschap    | Type   | Description                  |
 |-------------|--------|------------------------------|
 | FirstName   | tekenreeks | De voornaam van de contactpersoon.    |
 | LastName    | tekenreeks | De achternaam van de contactpersoon.     |
@@ -52,7 +52,7 @@ Beschrijft contactgegevens voor een specifieke persoon.
 
 Beschrijft een filter dat kan worden toegepast op zoekresultaten.
 
-| Eigenschap | Type   | Beschrijving                                                                                                                                                                                        |
+| Eigenschap | Type   | Description                                                                                                                                                                                        |
 |----------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Operator | tekenreeks | De filteroperator: 'equals', \_ 'not equals', 'greater \_ than', 'greater \_ than or \_ \_ equals', 'less \_ than', 'less \_ than or \_ \_ equals', 'substring', 'and', 'or', 'starts \_ with', 'not \_ starts \_ with'. |
 
@@ -60,7 +60,7 @@ Beschrijft een filter dat kan worden toegepast op zoekresultaten.
 
 Vertegenwoordigt een extern bestand dat is geüpload naar Partner Center.
 
-| Eigenschap                 | Type   | Beschrijving                                   |
+| Eigenschap                 | Type   | Description                                   |
 |--------------------------|--------|-----------------------------------------------|
 | Opmerking                  | tekenreeks | Een opmerking die is gekoppeld aan het uploaden van het bestand.    |
 | FileExtension            | tekenreeks | De bestandsextensie.                           |
@@ -72,7 +72,7 @@ Vertegenwoordigt een extern bestand dat is geüpload naar Partner Center.
 
 Bevat een URI-koppeling en bijbehorende informatie.
 
-| Eigenschap | Type                   | Beschrijving                        |
+| Eigenschap | Type                   | Description                        |
 |----------|------------------------|------------------------------------|
 | URI      | tekenreeks                 | De URI.                           |
 | Methode   | tekenreeks                 | De methode die wordt vertegenwoordigd door de URI. |
@@ -85,7 +85,7 @@ Beschrijft een specifiek wachtwoord en of dat wachtwoord moet worden gewijzigd.
 >[!NOTE]
 >Niet ondersteund op Partner Center beheerd door 21Vianet.
 
-| Eigenschap            | Type                          | Beschrijving                                                            |
+| Eigenschap            | Type                          | Description                                                            |
 |---------------------|-------------------------------|------------------------------------------------------------------------|
 | Wachtwoord            | [SecureString](#securestring) | Het wachtwoord.                                                          |
 | ForceChangePassword | booleaans                       | Hiermee bepaalt u of het wachtwoord gecimeerd moet worden gewijzigd bij de volgende aanmelding. |
@@ -94,7 +94,7 @@ Beschrijft een specifiek wachtwoord en of dat wachtwoord moet worden gewijzigd.
 
 Bevat een lijst met koppelingen voor een resource.
 
-| Eigenschap   | Type                                      | Beschrijving                                        |
+| Eigenschap   | Type                                      | Description                                        |
 |------------|-------------------------------------------|----------------------------------------------------|
 | Zelf       | [Koppeling](#link)                             | De zelf-URI.                                      |
 | Volgende       | [Koppeling](#link)                             | De volgende pagina met items.                            |
@@ -105,7 +105,7 @@ Bevat een lijst met koppelingen voor een resource.
 
 Bevat kenmerkmetagegevens voor een resource.
 
-| Eigenschap   | Type   | Beschrijving                                 |
+| Eigenschap   | Type   | Description                                 |
 |------------|--------|---------------------------------------------|
 | Etag       | tekenreeks | De etag, ook wel bekend als de objectversie. |
 | ObjectType | tekenreeks | Het type object van de basisresource.    |
@@ -114,7 +114,7 @@ Bevat kenmerkmetagegevens voor een resource.
 
 Slaat beveiligde informatie op, zoals een wachtwoord.
 
-| Eigenschap | Type | Beschrijving                       |
+| Eigenschap | Type | Description                       |
 |----------|------|-----------------------------------|
 | Lengte   | int  | De lengte van de beveiligde tekenreeks. |
 
@@ -122,7 +122,7 @@ Slaat beveiligde informatie op, zoals een wachtwoord.
 
 Vertegenwoordigt de validatiecode van Government Community Cloud partner.
 
-| Eigenschap         | Type         | Beschrijving                                                              |
+| Eigenschap         | Type         | Description                                                              |
 |------------------|--------------|--------------------------------------------------------------------------|
 | PartnerId        | GUID         | Partner-id                                                       |
 | OrganizationName | tekenreeks       | De organisatienaam die is opgegeven tijdens het validatieproces             |

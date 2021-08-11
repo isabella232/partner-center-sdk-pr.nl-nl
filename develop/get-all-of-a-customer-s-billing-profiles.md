@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: d22be53a5be4efcda76a568578468615495febb6
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 2f5c1cbdf059c4277a8a15d500b54f7fdf2c8e211c4c4f583e71d44b8cfca571
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760586"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993942"
 ---
 # <a name="get-a-customers-billing-profile"></a>Een factureringsprofiel van een klant ophalen
 
@@ -19,7 +19,7 @@ ms.locfileid: "111760586"
 
 Haalt het factureringsprofiel van een klant op.
 
-In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens account onder de naam van de klant in de **linkerzijbalk.** Het factureringsprofiel vindt u onder de kop **Factuurgegevens.**
+In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens account onder de naam van de klant in de **linkerzijbalk.** Het factureringsprofiel vindt u onder de **kop Factuurgegevens.**
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een 
 
 ## <a name="c"></a>C\#
 
-Als u het factureringsprofiel van een klant wilt ophalen, gebruikt u de [**verzameling IPartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan. Roep vervolgens de [**eigenschap Profielen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) aan, gevolgd door de [**eigenschap**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing) Facturering. Roep ten slotte de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) aan.
+Als u het factureringsprofiel van een klant wilt ophalen, gebruikt u de [**verzameling IPartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan. Roep vervolgens de [**eigenschap Profiles**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) aan, gevolgd door de [**eigenschap Billing.**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing) Roep ten slotte de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ Als u het factureringsprofiel van een klant wilt ophalen, gebruikt u de [**verza
 var billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profiles.Billing.Get();
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: GetCustomerBillingProfile.cs 
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Klasse PartnerSDK.FeatureSamples: GetCustomerBillingProfile.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -80,7 +80,7 @@ Als dit lukt, retourneert deze methode een verzameling [profielresources](profil
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

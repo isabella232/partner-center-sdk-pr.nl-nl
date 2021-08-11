@@ -6,18 +6,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 715ec7dda252cf096b2ec2bd1745d8afee7c8310
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 56da318398dbd7fadbfa9f4a13cc3a3be1c7ab8072cfe8920192b5d04c2b9583
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547849"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997614"
 ---
 # <a name="different-partner-center-rest-url-end-points-for-use-in-certain-countries-or-regions"></a>Verschillende Partner Center REST URL-eindpunten voor gebruik in bepaalde landen of regio's
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-Partner Center is beschikbaar in verschillende landen en regio's over de hele wereld. Sommige versies van Partner Center vereisen mogelijk verschillende eindpunten om uw apps correct te laten werken.
+Partner Center is beschikbaar in verschillende landen en regio's over de hele wereld. Voor sommige versies van Partner Center zijn mogelijk verschillende eindpunten vereist om uw apps correct te laten werken.
 
 In de volgende tabel worden de basis-URL's beschreven die moeten worden gebruikt met de verschillende versies van Partner Center:
 

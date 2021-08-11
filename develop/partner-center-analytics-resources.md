@@ -4,12 +4,12 @@ description: Partner Center Analytics-documentatie voor openbare API's.
 ms.date: 06/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 03d7d252a415524c6573c1bf62b8b9c1518a1b9f
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 9028d5e2bdeb2637e35133b2c6dda739e0024ccc2838368a5276b1482af78d7f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548087"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997835"
 ---
 # <a name="partner-center-analytics---resources"></a>Partnercentrum Analytics - Bronnen
 
@@ -33,7 +33,7 @@ Dit scenario retourneert uw analysegegevens in een verzameling [Azure-gebruiksre
 
 Vertegenwoordigt alle analytische gegevens voor Azure-gebruik.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 |----------|------|-------------|
 | CustomerTenantId | tekenreeks | De tenant-id van de klant. |
 | customerName | tekenreeks | De naam van de klant. |
@@ -61,7 +61,7 @@ Dit scenario retourneert uw analysegegevens in een verzameling [indirecte resell
 
 Vertegenwoordigt alle analytische gegevens voor indirecte resellers.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 |----------|------|-------------|
 | partnerTenantId | tekenreeks | De tenant-id van de partner waarvoor u gegevens van indirecte resellers wilt ophalen. |
 | id | tekenreeks | Indirecte reseller-id. |
@@ -93,7 +93,7 @@ Al deze scenario's retourneren uw analysegegevens in een verzameling [abonnement
 
 Vertegenwoordigt alle analytische gegevens voor een abonnement.
 
-|         Eigenschap          |              Type              |                                                                      Beschrijving                                                                       |
+|         Eigenschap          |              Type              |                                                                      Description                                                                       |
 |---------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     customerTenantId      |             tekenreeks             |                                              Een tekenreeks in GUID-indeling die de tenant van de klant identificeert.                                              |
 |       customerName        |             tekenreeks             |                                                               De naam van de klant.                                                                |
@@ -128,19 +128,19 @@ In het volgende scenario ziet u hoe u de Analyse-API gebruikt om al uw Partner C
 
 - [Alle analysegegevens van zoeken ophalen](get-all-search-analytics.md)
 
-Dit scenario retourneert uw analysegegevens in een verzameling [Zoekresources.](#search-resource)
+Dit scenario retourneert uw analysegegevens in een verzameling [zoekresources.](#search-resource)
 
 ## <a name="search-resource"></a>Resource zoeken
 
 Vertegenwoordigt alle analytische gegevens voor een zoekopdracht.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 |----------|------|-------------|
 | companyName | tekenreeks | De naam van het factureringsbedrijf. |
 | contactButtonClicked | Booleaans | Geeft aan of op de knop Contact is geklikt. |
 | keywordCountry | tekenreeks | Het land dat is opgegeven in de zoekopdracht. |
-| detailsWeergave | Booleaans | Geeft aan of de zoekdetails zijn bekeken. |
-| keywordInfocusryFocus | tekenreeks | De branche om te zoeken binnen bijvoorbeeld de gezondheidszorg. |
+| detailsWeergave | Booleaans | Geeft aan of zoekdetails zijn bekeken. |
+| keywordIn keywordIn keywordFocus | tekenreeks | De branche waar moet worden gezocht, bijvoorbeeld in de gezondheidszorg. |
 | mpnId | tekenreeks | De Microsoft Partner Network(MPN)-id. Voor een directe reseller is deze parameter de MPN-id van de partner. Voor een indirecte reseller is deze parameter de MPN-id van de indirecte reseller. |
 | partnerMarket | tekenreeks | Land waar de partner zaken doet. |
 | keywordProduct | tekenreeks | Het product dat is opgegeven in de zoekopdracht. |
@@ -157,7 +157,7 @@ Vertegenwoordigt alle analytische gegevens voor een zoekopdracht.
 > [!NOTE]
 > Lidmaatschap van het CSP-programma is niet vereist om verwijzingenanalyses op te halen.
 
-In het volgende scenario ziet u hoe u de Analyse-API gebruikt om al uw Partner Center analytics-gegevens op te halen.
+In het volgende scenario ziet u hoe u de Analyse-API gebruikt om al uw Partner Center analytics-informatie over verwijzingen op te halen.
 
 - [Alle analysegegevens van verwijzingen ophalen](get-all-referrals-analytics.md)
 
@@ -176,7 +176,7 @@ Vertegenwoordigt alle analytische gegevens voor een verwijzing.
 | status | tekenreeks | Geeft aan of de verwijzing naar een klant heeft geleid.  |
 | customerMarket | tekenreeks | Het land/de regio waarin de klant zaken doet. |
 | customerName | tekenreeks | De naam van de klant. |
-| customerOrgSize | tekenreeks | Een bereik dat het aantal werknemers in de organisatie van de klant aangeeft. Bijvoorbeeld '10to50employees'. |
+| customerOrgSize | tekenreeks | Een bereik dat het aantal werknemers in de organisatie van de klant aangeeft. Bijvoorbeeld 10to50employees. |
 | acceptedDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop de verwijzing is geaccepteerd. |
 | acknowledgedDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop de verwijzing is bevestigd. |
 | archivedDate | tekenreeks in UTC-datum/tijd-indeling | De datum waarop de verwijzing is gearchiveerd. |

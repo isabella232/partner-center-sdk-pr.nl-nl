@@ -5,12 +5,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.topic: reference
 ms.date: 12/15/2020
-ms.openlocfilehash: d4f7f034a36a26b6219086ca952b189f7a313ef7
-ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
+ms.openlocfilehash: f74f59969bf8d73c6e6e8b39900a53c337a2af715c168b59009792beddf43159
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113571992"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993279"
 ---
 # <a name="december-2020-changes-to-partner-center-rest-apis"></a>Wijzigingen van december 2020 in Partner Center REST API's
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: a1c0c8401207f4b0bb33755a8eabc66de0ad9ff9
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: fb8c21c8307480bb0573e189ac95cc05756f9080f6156ff860d8193f134c4aa6
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874972"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992973"
 ---
 # <a name="get-a-customers-company-profile"></a>Een bedrijfsprofiel van een klant ophalen
 
@@ -21,13 +21,13 @@ Haalt het bedrijfsprofiel van een klant op.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u het bedrijfsprofiel voor een klant wilt op halen, roept u de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant te identificeren. Haal vervolgens de [**ICustomerProfileCollection-interface**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection) van de klant op uit de eigenschap [**Profiles**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) om toegang te krijgen tot de bedrijfseigenschap. Haal vervolgens de [**interface ICustomerReadonlyProfile**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1) op uit de eigenschap [**ICustomerProfileCollection.Company**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company) en roep de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) aan.
+Als u het bedrijfsprofiel voor een klant wilt op halen, roept u de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant te identificeren. Haal vervolgens de [**ICustomerProfileCollection-interface**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection) van de klant op uit de eigenschap [**Profiles**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) om toegang te krijgen tot de eigenschap Company. Haal vervolgens de [**interface ICustomerReadonlyProfile**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1) op uit de eigenschap [**ICustomerProfileCollection.Company**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company) en roep de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,7 +42,7 @@ var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Compa
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u het bedrijfsprofiel voor een klant wilt op halen, roept u de functie **IAggregatePartner.getCustomers().byId** aan met de klant-id om de klant te identificeren. Haal vervolgens de **ICustomerProfileCollection-interface** van de klant op uit de functie [**getProfiles**] om toegang te krijgen tot de bedrijfseigenschap. Haal vervolgens de **interface ICustomerReadonlyProfile** op uit de functie **ICustomerProfileCollection.getCompany** en roep de **functie get** aan.
+Als u het bedrijfsprofiel voor een klant wilt op halen, roept u de functie **IAggregatePartner.getCustomers().byId** aan met de klant-id om de klant te identificeren. Haal vervolgens de **interface ICustomerProfileCollection** van de klant op uit de functie [**getProfiles**] om toegang te krijgen tot de eigenschap Company. Haal vervolgens de **interface ICustomerReadonlyProfile** op uit de functie **ICustomerProfileCollection.getCompany** en roep de **functie get** aan.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -69,7 +69,7 @@ Gebruik de volgende queryparameter om het bedrijfsprofiel op te halen.
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -94,7 +94,7 @@ Als dit lukt, retourneert deze methode informatie in de antwoord-body.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center de volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

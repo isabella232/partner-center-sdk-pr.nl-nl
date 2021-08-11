@@ -1,17 +1,17 @@
 ---
-title: Profielbronnen
+title: Resources profileren
 description: Beschrijft het gedrag van Cloud Solution Provider profielen van een klant.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 945cfa141d1e6bde1709da882a177daaa32fba1f
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8d4c091e186b7a3ad13aee7202b3d992af95db8db50acd40a5ade496d7087359
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547781"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997308"
 ---
-# <a name="profile-resources"></a>Profielbronnen
+# <a name="profile-resources"></a>Resources profileren
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
@@ -21,13 +21,13 @@ Beschrijft het gedrag van Cloud Solution Provider profielen van een klant.
 
 Beschrijft het factureringsprofiel van een partner.
 
-| Eigenschap            | Type                                                           | Beschrijving                                                 |
+| Eigenschap            | Type                                                           | Description                                                 |
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
 | companyName         | tekenreeks                                                         | De naam van het factureringsbedrijf.                                   |
 | adres             | [Adres](utility-resources.md#address)                       | Het factureringsadres van het bedrijf of de organisatie. |
 | primaryContact      | [Contact](utility-resources.md#contact)                       | De primaire contactpersoon voor het bedrijf of de organisatie.        |
 | purchaseOrderNumber | tekenreeks                                                         | Het inkoopordernummer van het bedrijf of de organisatie.        |
-| taxId               | tekenreeks                                                         | Het btw-nummer van het bedrijf of de organisatie.                       |
+| taxId               | tekenreeks                                                         | Het belasting-id van het bedrijf of de organisatie.                       |
 | billingCurrency     | tekenreeks                                                         | De valuta die wordt gebruikt door het bedrijf of de organisatie.           |
 | profileType         | tekenreeks                                                         | Het partnerprofieltype.                                   |
 | Verwijzigingen               | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met het profiel.            |
@@ -37,15 +37,15 @@ Beschrijft het factureringsprofiel van een partner.
 
 Beschrijft het juridische bedrijfsprofiel van een partner.
 
-| Eigenschap               | Type                                                           | Beschrijving                                                                                                                                                          |
+| Eigenschap               | Type                                                           | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | companyName            | tekenreeks                                                         | De naam van het juridische bedrijf.                                                                                                                                              |
 | adres                | [Adres](utility-resources.md#address)                       | Het adres van het bedrijf of de organisatie.                                                                                                                          |
 | primaryContact         | [Contact](utility-resources.md#contact)                       | De primaire contactpersoon voor het bedrijf of de organisatie.                                                                                                                 |
-| companyApproverAddress | [Adres](utility-resources.md#address)                       | Het adres van de fiattelaar van het bedrijf.                                                                                                                                        |
-| companyApproverEmail   | tekenreeks                                                         | Het e-mailadres van de fiattelaar van het bedrijf.                                                                                                                                          |
-| vettingStatus          | tekenreeks                                                         | De status van de doorlichting. Deze waarde is de tekenreeksweergave van een van de lidnamen in [**VettingStatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |
-| vettingSubStatus       | tekenreeks                                                         | De substatus van de doorlichting. Deze waarde is de tekenreeksweergave van een van de lidnamen in [**VettingSubStatus.**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus) |
+| companyApproverAddress | [Adres](utility-resources.md#address)                       | Het adres van de goedkeurder van het bedrijf.                                                                                                                                        |
+| companyApproverEmail   | tekenreeks                                                         | De e-mail van de fiattur van het bedrijf.                                                                                                                                          |
+| vettingStatus          | tekenreeks                                                         | De status van de doorlichting. Deze waarde is de tekenreeksweergave van een van de ledennamen in [**VettingStatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |
+| vettingSubStatus       | tekenreeks                                                         | De substatus van de doorlichting. Deze waarde is de tekenreeksweergave van een van de ledennamen in [**VettingSubStatus.**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus) |
 | profileType            | tekenreeks                                                         | Het partnerprofieltype.                                                                                                                                            |
 | Verwijzigingen                  | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen die overeenkomen met het profiel.                                                                                                                     |
 | kenmerken             | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het profiel.                                                                                                                |
@@ -54,7 +54,7 @@ Beschrijft het juridische bedrijfsprofiel van een partner.
 
 Beschrijft het Microsoft Partner Network van een partner.
 
-| Eigenschap    | Type                                                           | Beschrijving                                           |
+| Eigenschap    | Type                                                           | Description                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | partnerName | tekenreeks                                                         | De naam van het bedrijf of de organisatie.                     |
 | mpnId       | tekenreeks                                                         | De Microsoft Partner Network(MPN)-id.                     |
@@ -84,7 +84,7 @@ Beschrijft het organisatieprofiel van een partner.
 
 Beschrijft het ondersteuningsprofiel van een partner.
 
-| Eigenschap    | Type                                                           | Beschrijving                                           |
+| Eigenschap    | Type                                                           | Description                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | e-mail       | tekenreeks                                                         | Het e-mailadres dat is gekoppeld aan het profiel.        |
 | telefoon   | tekenreeks                                                         | Het telefoonnummer dat is gekoppeld aan het profiel.         |

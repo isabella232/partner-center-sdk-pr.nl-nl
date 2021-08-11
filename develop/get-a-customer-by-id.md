@@ -6,28 +6,28 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 196d653c789c4b4e1327f0c6e5d2531a18681a71
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 8dd812ba1a233254c0cb952da592362e40650ee409d1f0217c85ecf4e4b2aedf
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874989"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993126"
 ---
 # <a name="get-a-customer-by-id"></a>Een klant op basis van id ophalen
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-Haalt een **klantresource** op die overeenkomt met een klant-id.
+Haalt een **Klantresource** op die overeenkomt met een klant-id.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt app+gebruikersreferenties of verificatie alleen voor apps.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario biedt ondersteuning voor app- en gebruikersreferenties of verificatie alleen voor apps.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
-Als u een klant wilt ophalen op id, gebruikt u de verzameling [**IAggregatePartner.Customers,**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan en roept u vervolgens de methoden [**Get()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.getasync) aan.
+Als u een klant wilt ophalen op id, gebruikt u de verzameling [**IAggregatePartner.Customers,**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) roept u de [**methode ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan en roept u vervolgens de [**methoden Get()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.get) of [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.getasync) aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,13 +36,13 @@ Als u een klant wilt ophalen op id, gebruikt u de verzameling [**IAggregatePartn
 Customer customerInfo = partnerOperations.Customers.ById(customerIdToRetrieve).Get();
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: CustomerInformation.cs 
+**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Klasse PartnerSDK.FeatureSamples: CustomerInformation.cs 
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Als u een klant wilt op basis van de id, gebruikt u de functie **IAggregatePartner.getCustomers,** roept u de **functie byId()** aan en roept u vervolgens de **functie get()** aan.
+Als u een klant wilt op id, gebruikt u de functie **IAggregatePartner.getCustomers,** roept u de **functie byId()** aan en roept u vervolgens de **functie get()** aan.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -55,7 +55,7 @@ Customer customerInfo = partnerOperations.getCustomers().byId(customerIdToRetrie
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Als u een klant op id wilt krijgen, voert u [**de opdracht Get-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) uit en geeft u de parameter **CustomerId** op.
+Als u een klant op id wilt krijgen, voert [**u de opdracht Get-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) uit en geeft u de parameter **CustomerId** op.
 
 ```powershell
 Get-PartnerCustomer -CustomerId '2ca7de6c-c05c-46b5-b689-32e53573a97a'
@@ -97,11 +97,11 @@ MS-RequestId: 74ca1db9-df92-41c6-a362-a16433b0542b
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode een [klantresource](customer-resources.md#customer) in de antwoord-body.
+Als dit lukt, retourneert deze methode een [Klantresource](customer-resources.md#customer) in de antwoord-body.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 2b09a0045df15d774c892a59fba8502d4d4f7024
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 8a3ec80dccb0d205e8afe9811764b8afec5c10bc3a5aeb165b01d1ad998c98af
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111529763"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997920"
 ---
 # <a name="update-the-partner-billing-profile"></a>Het factureringsprofiel van een partner bijwerken
 
@@ -38,7 +38,7 @@ existingBillingProfile.PurchaseOrderNumber = new Random().Next(9000, 10000).ToSt
 BillingProfile updatedPartnerBillingProfile = partnerOperations.Profiles.BillingProfile.Update(existingBillingProfile);
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: UpdateBillingProfile.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class:** UpdateBillingProfile.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -108,7 +108,7 @@ Als dit lukt, retourneert deze methode een **BillingProfile-object** in de antwo
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

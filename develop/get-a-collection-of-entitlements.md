@@ -4,12 +4,12 @@ description: Een verzameling rechten ophalen.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7bb8d3aefb11fae0af4bce790b41598d935de57c
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 9248f2ef97afe7a2cefff5759028da12dc9c3936f2e14cee18063c0428699c81
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906423"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993670"
 ---
 # <a name="get-a-collection-of-entitlements"></a>Een verzameling rechten ophalen
 
@@ -17,7 +17,7 @@ Een verzameling rechten ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -52,9 +52,9 @@ Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 
 | Naam | Type | Vereist | Beschrijving |
 |------|------|----------|-------------|
-| customerId | tekenreeks | Ja | Een in GUID opgemaakte customerId die de klant identificeert. |
-| entitlementType | tekenreeks | No | Kan worden gebruikt om het type rechten op te geven dat moet worden opgehaald (**software** of **reservedInstance).** Als dit niet is ingesteld, worden alle typen opgehaald |
-| showExpiry | booleaans | Nee | Optionele vlag die aangeeft of er vervaldatums voor rechten zijn vereist. |
+| customerId | tekenreeks | Yes | Een in GUID opgemaakte customerId die de klant identificeert. |
+| entitlementType | tekenreeks | No | Kan worden gebruikt om het type rechten op te geven dat moet worden opgehaald (**software** of **reservedInstance** ). Als deze niet is ingesteld, worden alle typen opgehaald |
+| showExpiry | booleaans | No | Optionele vlag die aangeeft of er vervaldatums voor rechten zijn vereist. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -175,7 +175,7 @@ In het volgende voorbeeld ziet u hoe u een specifiek type rechten kunt ophalen, 
 
 ### <a name="c-example"></a>\#C-voorbeeld
 
-Als u een specifiek type rechten wilt ophalen, haalt u de **ByEntitlementType-interface** op via de interface **Rechten** en gebruikt u de methoden **Get()** of **GetAsync().**
+Als u een specifiek type rechten wilt ophalen, haalt u de **Interface ByEntitlementType** op via de interface **Rechten** en gebruikt u de methoden **Get()** of **GetAsync().**
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("software").Get(true);

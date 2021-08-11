@@ -6,18 +6,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: 04bccf587628337004a5825b534048945f791839
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 1514e9a684b003f5650e9256743ea7e669de04629fd0c3db1c7dfa677e96a752
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873867"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993602"
 ---
 # <a name="get-a-partners-validation-codes"></a>De validatiecodes van een partner ophalen
 
 In dit artikel wordt beschreven hoe u een verzameling van de validatiecodes van een partner Government Community Cloud ophalen. Er is een validatiecode vereist om een klant te maken in de communitycloud van de overheid.
 
-Zie Office 365 Government GCC for CSP Partner and Customer eligibility criteria (Office 365 Government GCC voor [CSP-partner](/partner-center/csp-gcc-validate)en klantcriteria) als u geïnteresseerd bent in het goedkeuren van Office 365 Government GCC voor CSP door uw organisatie of de organisatie van uw klant.
+Zie Office 365 Government GCC for CSP Partner and [Customer eligibility criteria](/partner-center/csp-gcc-validate)als u geïnteresseerd bent in het goedkeuren van Office 365 Government GCC voor CSP door uw organisatie of de organisatie van uw klant.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ Zie Office 365 Government GCC for CSP Partner and Customer eligibility criteria 
 
 ## <a name="c"></a>C\#
 
-Voor een lijst met alle validatiecodes van een partner roept u **GetValidationCodes aan.**
+Als u een lijst met alle validatiecodes van een partner wilt zien, roept **u GetValidationCodes aan.**
 
 ``` csharp
 // create the partner operations
@@ -48,7 +48,7 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 

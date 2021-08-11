@@ -4,12 +4,12 @@ description: Een invoegaanvoeging aanschaffen voor een bestaand abonnement.
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d8b700a2ad41a37ca0ad745f3e7767449974b18a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 5227b917faf663c129b1abed1d10318620667e9b47524eb8c91867fb6b453ee8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547679"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997359"
 ---
 # <a name="purchase-an-add-on-to-a-subscription"></a>Een invoegtoepassing voor een abonnement kopen
 
@@ -19,13 +19,13 @@ Een invoegaanvoeging aanschaffen voor een bestaand abonnement.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
-- Een abonnements-id. Dit is het bestaande abonnement waarvoor een invoegaanbieding moet worden gekocht.
+- Een abonnements-id. Dit is het bestaande abonnement waarvoor u een invoegaanbieding wilt aanschaffen.
 
-- Een aanbiedings-id die de invoegaanbieding identificeert die moet worden gekocht.
+- Een aanbiedings-id die de invoegaankoopaanbieding identificeert.
 
 ## <a name="purchasing-an-add-on-through-code"></a>Een invoegproces aanschaffen via code
 
@@ -45,7 +45,7 @@ Dit zijn de stappen:
     var parentSubscription = subscriptionOperations.Get();
     ```
 
-3.  Een nieuw [**orderobject**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) maken. Dit order-exemplaar wordt gebruikt om de oorspronkelijke bestelling bij te werken die is gebruikt om het abonnement aan te schaffen. Voeg een item met één regel toe aan de volgorde die de invoeg-opvoeging vertegenwoordigt.
+3.  Een nieuw [**orderobject**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) maken. Dit order-exemplaar wordt gebruikt om de oorspronkelijke order bij te werken die wordt gebruikt om het abonnement aan te schaffen. Voeg een item met één regel toe aan de volgorde die de invoeg-on vertegenwoordigt.
     ``` csharp
     var orderToUpdate = new Order()
     {
@@ -71,9 +71,9 @@ Dit zijn de stappen:
 
 ## <a name="c"></a>C\#
 
-Als u een invoegbewerking wilt aanschaffen, begint u met het verkrijgen van een interface voor de abonnementsbewerkingen door de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren en de methode [**Subscriptions.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) om het abonnement te identificeren dat de invoeg-aanbieding heeft. Gebruik deze [**interface om de**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) abonnementsgegevens op te halen door Ophalen aan te [**roepen.**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get) De abonnementsgegevens bevatten de order-id van de abonnementsorder. Dit is de order die moet worden bijgewerkt met de invoegvoeging.
+Als u een invoegbewerking wilt aanschaffen, begint u met het verkrijgen van een interface voor de abonnementsbewerkingen door de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan te roepen met de klant-id om de klant te identificeren en de methode [**Subscriptions.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) om het abonnement te identificeren dat de invoegaankoopaanbieding heeft. Gebruik deze [**interface om de**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) abonnementsgegevens op te halen door Get aan te [**roepen.**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get) De abonnementsgegevens bevatten de order-id van de abonnementsorder. Dit is de order die moet worden bijgewerkt met de invoegvoeging.
 
-Instantieer vervolgens een nieuw [**Order-object**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) en vul dit met één [**LineItem-exemplaar**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) dat de informatie bevat voor het identificeren van de invoegsel, zoals wordt weergegeven in het volgende codefragment. U gebruikt dit nieuwe object om de abonnementsorder bij te werken met de invoeg-on. Roep ten slotte de [**patchmethode aan**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch) om de abonnementsorder bij te werken, nadat u eerst de klant hebt identificeert met [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) en de order met [**Orders.ById.**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)
+Vervolgens instantieer u een nieuw [**Order-object**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) en vult u dit met één [**LineItem-exemplaar**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) dat de informatie bevat om de invoeg-on te identificeren, zoals wordt weergegeven in het volgende codefragment. U gebruikt dit nieuwe object om de abonnementsorder bij te werken met de invoeg-on. Roep ten slotte de [**patchmethode**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch) aan om de abonnementsorder bij te werken, nadat u eerst de klant hebt identificeert met [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) en de order met [**Orders.ById**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -109,7 +109,7 @@ var orderToUpdate = new Order()
 Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(parentSubscription.OrderId).Patch(orderToUpdate);
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Klasse **Samples:** AddSubscriptionAddOn.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: AddSubscriptionAddOn.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -121,7 +121,7 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 ### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende parameters om de klant en bestelling te identificeren.
+Gebruik de volgende parameters om de klant en order te identificeren.
 
 | Naam                   | Type     | Vereist | Beschrijving                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
@@ -142,9 +142,9 @@ In de volgende tabellen worden de eigenschappen in de aanvraag body beschreven.
 |---------------------|------------------|----------|------------------------------------------------------|
 | Id                  | tekenreeks           | N        | De order-id.                                        |
 | ReferenceCustomerId | tekenreeks           | J        | De klant-id.                                     |
-| Regelitems           | matrix met objecten | J        | Een matrix met [OrderLineItem-objecten.](#orderlineitem) |
+| Regelitems           | matrix van objecten | J        | Een matrix van [OrderLineItem-objecten.](#orderlineitem) |
 | CreationDate        | tekenreeks           | N        | De datum waarop de order is gemaakt, in datum/tijd-indeling. |
-| Kenmerken          | object           | N        | Bevat "ObjectType": "Order".                      |
+| Kenmerken          | object           | N        | Bevat 'ObjectType': 'Order'.                      |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
@@ -153,11 +153,11 @@ In de volgende tabellen worden de eigenschappen in de aanvraag body beschreven.
 | LineItemNumber       | getal | J        | Het regelitemnummer, beginnend met 0.                       |
 | OfferId              | tekenreeks | J        | De aanbiedings-id van de invoeg-on.                                  |
 | SubscriptionId       | tekenreeks | N        | De id van het aangeschafte invoegabonnement.                 |
-| ParentSubscriptionId | tekenreeks | J        | De id van het bovenliggende abonnement met de invoeg-aanbieding. |
+| ParentSubscriptionId | tekenreeks | J        | De id van het bovenliggende abonnement dat de invoeg-aanbieding heeft. |
 | FriendlyName         | tekenreeks | N        | De gebruiksvriendelijke naam voor dit regelitem.                        |
 | Aantal             | getal | J        | Het aantal licenties.                                      |
 | PartnerIdOnRecord    | tekenreeks | N        | De MPN-id van de recordpartner.                         |
-| Kenmerken           | object | N        | Bevat "ObjectType": "OrderLineItem".                      |
+| Kenmerken           | object | N        | Bevat 'ObjectType': 'OrderLineItem'.                      |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -202,7 +202,7 @@ Als dit lukt, retourneert deze methode de bijgewerkte abonnementsorder in de ant
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie foutcodes voor de [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie foutcodes voor de [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

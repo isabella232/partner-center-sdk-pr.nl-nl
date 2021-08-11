@@ -4,12 +4,12 @@ description: De contactpersoon voor ondersteuning van een abonnement krijgen.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b6c98e5ed96f2ca4787e93504c9e094bd46ae783
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 448a60db236ddfbb090cd376bb0dc98e93d4c87342febbcc1958ccd6033fa900
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760756"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994163"
 ---
 # <a name="get-a-subscriptions-support-contact"></a>De ondersteuningscontactpersoon van een abonnement ophalen
 
@@ -19,7 +19,7 @@ De contactpersoon voor ondersteuning van een abonnement krijgen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt alleen verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). In dit scenario wordt verificatie alleen ondersteund met app- en gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -27,7 +27,7 @@ De contactpersoon voor ondersteuning van een abonnement krijgen.
 
 ## <a name="c"></a>C\#
 
-Als u de contactpersoon voor ondersteuning van een abonnement wilt krijgen, gebruikt u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens een interface op voor abonnementsbewerkingen door de methode [**Subscriptions.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) te roepen met de abonnements-id. Gebruik vervolgens de eigenschap [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) om een interface te verkrijgen voor de ondersteuning van contactbewerkingen en roep vervolgens de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) aan om het [**object SupportContact op te**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) halen.
+Als u de contactpersoon voor ondersteuning van een abonnement wilt krijgen, gebruikt u eerst de methode [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) met de klant-id om de klant te identificeren. Haal vervolgens een interface op voor abonnementsbewerkingen door de methode [**Subscriptions.ById aan**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) te roepen met de abonnements-id. Gebruik vervolgens de eigenschap [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) om een interface te verkrijgen ter ondersteuning van contactbewerkingen en roep vervolgens de methode [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) of [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) aan om het [**object SupportContact op te**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) halen.
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -38,7 +38,7 @@ Als u de contactpersoon voor ondersteuning van een abonnement wilt krijgen, gebr
 var supportContact = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId).SupportContact.Get();
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK **Klasse**: GetSubscriptionSupportContact.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: GetSubscriptionSupportContact.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -54,12 +54,12 @@ Gebruik de volgende padparameters om de klant en het abonnement te identificeren
 
 | Naam            | Type   | Vereist | Beschrijving                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die de klant identificeert.           |
-| subscription-id | tekenreeks | Ja      | Een tekenreeks met GUID-indeling die het proefabonnement identificeert. |
+| customer-id     | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die de klant identificeert.           |
+| subscription-id | tekenreeks | Yes      | Een tekenreeks met GUID-indeling die het proefabonnement identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -83,7 +83,7 @@ Als dit lukt, bevat de antwoord-body de resource [SupportContact.](subscription-
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 

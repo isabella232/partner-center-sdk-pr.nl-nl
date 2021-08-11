@@ -6,16 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: f18518e88b9bb08d4fd248922f4ce2fefdde004f
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: 4eead16c5bb2b01f0fba85e30ea35fbcdae9d5a6682872eecfeeb9e47f43d324
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025646"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993755"
 ---
 # <a name="api-throttling-guidance-for-partners-calling-partner-center-apis"></a>Richtlijnen voor API-beperking voor partners die api'Partner Center aanroepen 
 
-Microsoft implementeert API-beperking om binnen een tijdspanne consistentere prestaties mogelijk te maken voor partners die de api'Partner Center aanroepen. Beperking beperkt het aantal aanvragen voor een service in een tijdsspanne om te voorkomen dat resources te veel worden gebruikt. Hoewel Partner Center is ontworpen voor het verwerken van een groot aantal aanvragen, helpt beperking bij een groot aantal aanvragen van enkele partners om optimale prestaties en betrouwbaarheid voor alle partners te behouden.  
+Microsoft implementeert API-beperking om binnen een tijdspanne consistentere prestaties mogelijk te maken voor partners die de api'Partner Center aanroepen. Beperking beperkt het aantal aanvragen naar een service in een tijdsspanne om te voorkomen dat resources te veel worden gebruikt. Hoewel Partner Center is ontworpen voor het verwerken van een groot aantal aanvragen, helpt beperking bij een groot aantal aanvragen van enkele partners om optimale prestaties en betrouwbaarheid voor alle partners te behouden.  
 
 Beperkingslimieten variëren afhankelijk van het scenario. Als u bijvoorbeeld een groot aantal schrijfvolumes gebruikt, is de kans op bandbreedtebeperking groter dan wanneer u alleen lees- en schrijf- of schrijfvolumes gebruikt.
 
@@ -33,11 +33,11 @@ De meest voorkomende oorzaken van beperking van clients zijn:
 
 ## <a name="best-practices-to-avoid-throttling"></a>Best practices om beperking te voorkomen 
  
-Programmeerprocedures zoals het continu pollen van een resource om te controleren op updates en het regelmatig scannen van resourceverzamelingen om te controleren op nieuwe of verwijderde resources, leiden waarschijnlijk tot beperking en zullen de algehele prestaties verslechteren. Gelijktijdige API-aanroepen kunnen leiden tot een groot aantal aanvragen per eenheidstijd, waardoor aanvragen ook worden beperkt. In plaats daarvan moet u de meldingen voor bijhouden en wijzigen gebruiken. Daarnaast moet u activiteitenlogboeken kunnen gebruiken voor het detecteren van wijzigingen. Zie activiteitenlogboeken voor [Partner Center meer informatie.](get-a-record-of-partner-center-activity-by-user.md)  We raden partners ten zeerste aan om de API voor activiteitenlogboek te gebruiken voor meer efficiëntie en om beperking te voorkomen. Zie hieronder ook het voorbeeld van het gebruik van activiteitenlogboeken.
+Programmeerprocedures zoals het continu peilen van een resource om te controleren op updates en het regelmatig scannen van resourceverzamelingen om te controleren op nieuwe of verwijderde resources, leiden waarschijnlijk tot beperking en zullen de algehele prestaties verslechteren. Gelijktijdige API-aanroepen kunnen leiden tot een groot aantal aanvragen per eenheidstijd, waardoor aanvragen ook worden beperkt. In plaats daarvan moet u de meldingen voor bijhouden en wijzigen gebruiken. Daarnaast moet u activiteitenlogboeken kunnen gebruiken voor het detecteren van wijzigingen. Zie activiteitenlogboeken voor [Partner Center meer informatie.](get-a-record-of-partner-center-activity-by-user.md)  We raden partners ten zeerste aan om de API voor activiteitenlogboek te gebruiken voor meer efficiëntie en om beperking te voorkomen. Zie ook het voorbeeld van het gebruik van activiteitenlogboeken hieronder.
 
 ## <a name="best-practices-to-handle-throttling"></a>Best practices voor het afhandelen van beperkingen
 
-Hier volgen best practices voor het afhandelen van bandbreedtebeperking: 
+Hier volgen de best practices voor het afhandelen van bandbreedtebeperking: 
 
 - Verminder de mate van parallellelisme. 
 - Verminder de frequentie van aanroepen. 
@@ -58,7 +58,7 @@ Ga als volgt te werk als u de vertraging Opnieuw proberen na wilt gebruiken:
 
 ## <a name="apis-currently-impacted-by-throttling"></a>API's die momenteel worden beïnvloed door beperking
 
-Uiteindelijk wordt elke api Partner Center die het eindpunt 'api.partnercenter.microsoft.com/' aanroept, beperkt. Op dit moment worden de beperkingslimieten alleen afgedwongen voor de hieronder vermelde API's. Partner Center verzamelt de telemetrie op elk van de API's en past de beperkingslimieten dynamisch aan. De volgende tabel bevat de API's waar beperking momenteel wordt afgedwongen.  
+Uiteindelijk wordt elke api Partner Center die het eindpunt 'api.partnercenter.microsoft.com/' aanroept, beperkt. Op dit moment worden de beperkingslimieten alleen afgedwongen voor de HIERONDER vermelde API's. Partner Center verzamelt de telemetrie op elk van de API's en past de beperkingslimieten dynamisch aan. De volgende tabel bevat de API's waar beperking momenteel wordt afgedwongen.  
 
 
 |**Bewerking**| **Documentatie voor Partnercentrum**|
