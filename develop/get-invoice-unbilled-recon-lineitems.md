@@ -1,17 +1,17 @@
 ---
 title: Niet-gefactureerde afstemmingsregelitems van factuur ontvangen
-description: U kunt een verzameling niet-gebileerde afstemmingsregelitemdetails ophalen voor een opgegeven periode met behulp van Partner Center API's.
+description: U kunt een verzameling niet-gebileerde afstemmingsregelitemgegevens ophalen voor een opgegeven periode met behulp van Partner Center API's.
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 3e461367eb41c180dd1004ab2548ca24c4b891976ef53d852bb7933ff23fae65
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 846d2fb0009dd39ed232569a9c8f41104afece1b
+ms.sourcegitcommit: 00d5b934048fcec95efc70f5063e86426636d244
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115993874"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228441"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>Niet-gefactureerde afstemmingsregelitems van factuur ontvangen
 
@@ -29,7 +29,7 @@ U kunt de volgende methoden gebruiken om een verzameling gegevens op te halen vo
 
 Als u de regelitems voor de opgegeven factuur wilt ophalen, haalt u het factuurobject op:
 
-1. Roep de [**ById-methode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface op te halen voor factuurbewerkingen voor de opgegeven factuur.
+1. Roep de [**ById-methode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) aan om een interface voor factuurbewerkingen voor de opgegeven factuur op te halen.
 
 2. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) om het factuurobject op te halen.
 
@@ -37,7 +37,7 @@ Het factuurobject bevat alle informatie voor de opgegeven factuur:
 
 - **Provider** identificeert de bron van de niet-gebileerde details (bijvoorbeeld **OneTime**).
 
-- **InvoiceLineItemType** geeft het type op (bijvoorbeeld **BillingLineItem).**
+- **InvoiceLineItemType** geeft het type op (bijvoorbeeld **BillingLineItem**).
 
 Een verzameling regelitems ophalen die overeenkomen met een **InvoiceDetail-exemplaar:**
 
@@ -45,7 +45,7 @@ Een verzameling regelitems ophalen die overeenkomen met een **InvoiceDetail-exem
 
 2. Roep de [**methode Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) of [**GetAsync aan**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) om de bijbehorende regelitems op te halen.
 
-3. Maak een enumerator om de verzameling te doorlopen. Zie de volgende voorbeeldcode voor een voorbeeld.
+3. Maak een enumerator om door de verzameling te gaan. Zie de volgende voorbeeldcode voor een voorbeeld.
 
 In de volgende voorbeeldcode wordt een **foreach-lus** gebruikt om de **verzameling InvoiceLineItems te** verwerken. Voor elk **InvoiceLineItemType** wordt een afzonderlijke verzameling regelitems opgehaald.
 
@@ -117,30 +117,29 @@ Zie voor een vergelijkbaar voorbeeld:
 
 U kunt de volgende syntaxis gebruiken voor uw REST-aanvraag, afhankelijk van uw use-case. Zie de beschrijvingen voor elke syntaxis voor meer informatie.
 
- | Methode  | Aanvraag-URI            | Beschrijving van het gebruikscase van de syntaxis                                                                                |
+ | Methode  | Aanvraag-URI            | Beschrijving van gebruikscase voor syntaxis                                                                                |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period} HTTP/1.1                              | Gebruik deze syntaxis om een volledige lijst met alle regelitem voor de opgegeven factuur te retourneren. |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1  | Gebruik voor grote facturen deze syntaxis met een opgegeven grootte en offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next                               | Gebruik deze syntaxis om de volgende pagina met afstemmingsregelitems op te halen met behulp van `seekOperation = "Next"` . |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period} HTTP/1.1                              | Gebruik deze syntaxis om een volledige lijst met elk regelitem voor de opgegeven factuur te retourneren. |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1  | Voor grote facturen gebruikt u deze syntaxis met een opgegeven grootte en een offset op basis van 0 om een lijst met regelitems met pagina's te retourneren. |
+| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next                               | Gebruik deze syntaxis om de volgende pagina met afstemmingsregelitems op te halen met behulp van `seekOperation = "Next"` . |
 
 #### <a name="uri-parameters"></a>URI-parameters
 
-Gebruik de volgende URI en queryparameters bij het maken van de aanvraag.
+Gebruik de volgende URI- en queryparameters bij het maken van de aanvraag.
 
 | Naam                   | Type   | Vereist | Beschrijving                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| factuur-id             | tekenreeks | Yes      | Een tekenreeks die de factuur identificeert. Gebruik 'niet-gebilled' om niet-gebileerde schattingen te krijgen. |
-| Provider               | tekenreeks | Yes      | De provider: OneTime.                                                |
-| invoice-line-item-type | tekenreeks | Yes      | Het type factuurdetails: BillingLineItems.               |
-| hasPartnerEarnedCredit | booleaans   | No       | De waarde die aangeeft of de regelitems moeten worden retourneren waarop het partnertegoed is toegepast. Opmerking: deze parameter wordt alleen toegepast wanneer het providertype OneTime is en InvoiceLineItemType UsageLineItems is.
-| currencyCode           | tekenreeks | Yes      | De valutacode voor de niet-gebillede regelitems.                                  |
-| period                 | tekenreeks | Yes      | De periode voor niet-gebillede herconfiging. voorbeeld: huidig, vorige.                      |
-| grootte                   | getal | No       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000                     |
+| Provider               | tekenreeks | Ja      | De provider: 'OneTime'.                                                |
+| invoice-line-item-type | tekenreeks | Ja      | Het type factuurgegevens: BillingLineItems.               |
+| hasPartnerEarnedCredit | booleaans   | Nee       | De waarde die aangeeft of de regelitems moeten worden retourneren waarop het partnertegoed is toegepast. Opmerking: deze parameter wordt alleen toegepast wanneer het providertype OneTime is en InvoiceLineItemType UsageLineItems is.
+| currencyCode           | tekenreeks | Ja      | De valutacode voor de niet-gebillede regelitems.                                  |
+| period                 | tekenreeks | Ja      | De periode voor niet-gebillede herconfiging. voorbeeld: current, previous.                      |
+| grootte                   | getal | Nee       | Het maximum aantal items dat moet worden retourneren. De standaardgrootte is 2000                     |
 | zoekoperation          | tekenreeks | No       | Stel seekOperation = Volgende in om de volgende pagina met recon line-items op te halen.                |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST Partner Center headers [voor meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -150,15 +149,15 @@ Geen.
 
 Als dit lukt, bevat het antwoord de verzameling regelitemdetails.
 
-*Voor het regelitem **ChargeType** wordt de waarde **Aankoop** aan **Nieuw** en de waarde **Restitutie** is aan **Annuleren.***
+*Voor het regelitem **ChargeType** wordt de  waarde **Aankoop** aan Nieuw en de waarde **Restitutie** is aan **Annuleren.***
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="request-response-examples"></a>Voorbeelden van aanvraag-antwoord
 
-#### <a name="request-response-example-1"></a>Voorbeeld van aanvraag-antwoord 1
+#### <a name="request-response-example-1"></a>Aanvraag-antwoord voorbeeld 1
 
 De volgende details zijn van toepassing op dit voorbeeld:
 
