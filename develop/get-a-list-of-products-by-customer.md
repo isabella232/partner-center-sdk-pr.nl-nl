@@ -2,17 +2,17 @@
 title: Een lijst met producten ophalen (per klant)
 description: U kunt een klant-id gebruiken om een verzameling producten per klant op te halen.
 ms.assetid: ''
-ms.date: 11/01/2019
+ms.date: 02/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 2f896c16f8f13df795cee14742b00e7d10dbb1812308b20a4d4bc4a8c614471c
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 1f3f38271b97ceba143c819ec03758ad1b9c0d3b
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115991137"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123455758"
 ---
 # <a name="get-a-list-of-products-by-customer"></a>Een lijst met producten ophalen (per klant)
 
@@ -24,7 +24,7 @@ U kunt de volgende methoden gebruiken om een verzameling producten voor een best
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze ops zoeken in het Partner Center [dashboard.](https://partner.microsoft.com/dashboard) Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -39,11 +39,11 @@ U kunt de volgende methoden gebruiken om een verzameling producten voor een best
 | Naam               | Type | Vereist | Beschrijving                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | GUID | Yes | De waarde is een **klant-tenant-id** in GUID-indeling. Dit is een id waarmee u een klant kunt opgeven. |
-| **targetView** | tekenreeks | Yes | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle SQL reserveringsitems bevat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** dat alle onlineservice-items bevat, inclusief producten op de commerciële marketplace<br/><br/>**Software**, die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle software-SUSE Linux-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat  |
+| **targetView** | tekenreeks | Yes | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle reserveringsitems SQL omvat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** die alle onlineservice-items bevat. Deze targetView omvat commerciële marketplace, op licentie gebaseerde services en nieuwe op licenties gebaseerde commerceservices<br/><br/>**Software**, die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle SUSE Linux-software-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat  |
 
 ### <a name="request-header"></a>Aanvraagheader
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -60,12 +60,26 @@ Accept: application/json
 MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
+#### <a name="new-commerce-license-based-services"></a>Nieuwe commerce-services op basis van licenties
+
+> [!Note] 
+> Nieuwe handelswijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
+
+Volg dit voorbeeld om een lijst met producten per land op te halen voor nieuwe commercelicentieservices als onderdeel van de technical preview van de nieuwe commerce-ervaring. Nieuwe commerce-services op basis van licenties worden identifed door id- en displayNames-waarden van **OnlineServices GEBRUIK .** Zie het antwoordvoorbeeld hieronder.
+
+```http
+GET https://api.partnercenter.microsoft.com/v1/customers/65543400-f8b0-4783-8530-6d35ab8c6801/products?targetView=OnlineServices HTTP/1.1
+Authorization: Bearer
+Accept: application/json
+MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
+MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
+```
 
 ## <a name="rest-response"></a>Rest-antwoord
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
 
 Deze methode retourneert de volgende foutcodes:
 
@@ -73,7 +87,7 @@ Deze methode retourneert de volgende foutcodes:
 |------------------|--------------|---------------------------------|
 | 403 | 400036 | Toegang tot de aangevraagde targetView is niet toegestaan. |
 
-### <a name="response-example"></a>Voorbeeld van antwoord
+### <a name="response-example-for-microsoft-azure-and-azure-plan"></a>Voorbeeld van een Microsoft Azure azure-abonnement
 
 ```http
 HTTP/1.1 200 OK
@@ -179,5 +193,50 @@ MS-RequestId: ae7288e2-2673-4ad4-8c12-7aad818d5949
     "attributes": {
         "objectType": "Collection"
     }
+}
+```
+### <a name="response-example-for-new-commerce-license-based-services"></a>Antwoordvoorbeeld voor nieuwe commercelicentieservices
+
+> [!Note] 
+> Nieuwe handelswijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
+
+```http
+{
+  "totalCount": 19,
+  "items": [{
+      "id": "CFQ7TTC0LH18",
+      "title": "Microsoft 365 Business Basic",
+      "description": "Best for businesses that need professional email, cloud file storage, and online meetings & chat. Desktop versions of Office apps like Excel, Word, and PowerPoint not included. For businesses with up to 300 employees.",
+      "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+      },
+      "isMicrosoftProduct": true,
+      "publisherName": "Microsoft Corporation",
+      "links": {
+        "skus": {
+          "uri": "/products/CFQ7TTC0LH18/skus?country=US",
+          "method": "GET",
+          "headers": []
+        },
+        "self": {
+          "uri": "/products/CFQ7TTC0LH18?country=US",
+          "method": "GET",
+          "headers": []
+        }
+      }
+    },
+    ...
+  ],
+  "links": {
+    "self": {
+      "uri": "/products?country=US&targetView=OnlineServices",
+      "method": "GET",
+      "headers": []
+    }
+  },
+  "attributes": {
+    "objectType": "Collection"
+  }
 }
 ```

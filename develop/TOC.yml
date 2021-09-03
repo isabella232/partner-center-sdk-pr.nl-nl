@@ -324,6 +324,8 @@
           href: create-azure-plan.md
         - name: Azure-reserveringen kopen
           href: purchase-azure-reservations.md
+        - name: Nieuwe commerce-services op basis van licenties kopen
+          href: purchase-new-commerce-license-based.md
         - name: Een abonnement voor commerciële marketplace-producten kopen
           href: create-subscription-azure-marketplace-products.md
         - name: Een abonnement op de commerciële marketplace annuleren
@@ -388,6 +390,8 @@
           href: get-subscription-provisioning-status.md
         - name: De registratiestatus van het abonnement ophalen
           href: get-subscription-registration-status.md
+        - name: Overgangen krijgen
+          href: get-transitions.md
         - name: Een eenmalige aankoop doen
           href: make-a-one-time-purchase.md
         - name: Een invoegtoepassing voor een abonnement kopen
@@ -402,6 +406,8 @@
           href: suspend-a-subscription.md
         - name: Een abonnement overdragen
           href: transition-a-subscription.md
+        - name: Een nieuw commerce-abonnement overstappen
+          href: transition-a-new-commerce-subscription.md
         - name: Een winkelwagen bijwerken
           href: update-a-cart.md
         - name: Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
@@ -437,7 +443,7 @@
       href: activate-sandbox-subscription-azure-marketplace-products.md
     - name: Indirecte reseller maken in sandbox
       href: create-indirect-reseller-in-sandbox.md
-    - name: Indirecte reseller verwijderen in Sandbox
+    - name: Indirecte reseller verwijderen in sandbox
       href: delete-indirect-reseller-in-sandbox.md
 - name: Verwijzingen
   href: /partner/develop/referrals
@@ -539,6 +545,8 @@
           href: subscription-resources.md
         - name: Abonnementsgebruik
           href: subscription-usage-resources.md
+        - name: Overgang
+          href: transition-resources.md
         - name: Upgraden
           href: upgrade-resources.md
         - name: Gebruiker

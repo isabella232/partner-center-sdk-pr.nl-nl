@@ -6,18 +6,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 1f5c0ae7693a8ac2a2919c385dc1b8837a9171ed8cc422bba79bb892f9fe837a
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: abe7a0842b0ecf52b217b277cf61603d5c86a368
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115991834"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456083"
 ---
 # <a name="create-a-cart-with-a-customer-order"></a>Een winkelwagen maken met een klantorder
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-U kunt een order voor een klant toevoegen in een winkelwagen. Zie Partneraanbiedingen in het Cloud Solution Provider programma voor meer informatie over [wat momenteel beschikbaar is om Cloud Solution Provider verkopen.](/partner-center/csp-offers)
+U kunt een order voor een klant toevoegen in een winkelwagen. Zie Partneraanbiedingen in het Cloud Solution Provider voor meer informatie over [wat momenteel beschikbaar is om te verkopen.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -203,7 +203,7 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 | Methode   | Aanvraag-URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
+| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
 
 ### <a name="uri-parameter"></a>URI-parameter
 
@@ -211,7 +211,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam            | Type     | Vereist | Beschrijving                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | tekenreeks   | Yes      | Een met GUID opgemaakte klant-id die de klant identificeert.             |
+| **customer-id** | tekenreeks   | Yes      | Een in GUID opgemaakte klant-id die de klant identificeert.             |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -225,7 +225,7 @@ In deze tabel worden de eigenschappen [van de winkelwagen](cart-resources.md) in
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | tekenreeks           | No              | Een winkelwagen-id die wordt opgegeven wanneer de winkelwagen is gemaakt.                                  |
 | creationTimeStamp     | DateTime         | No              | De datum waarop de winkelwagen is gemaakt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.         |
-| lastModifiedTimeStamp | DateTime         | No              | De datum waarop de winkelwagen het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
+| lastModifiedTimeStamp | DateTime         | No              | De datum waarop de winkelwagen voor het laatst is bijgewerkt, in datum/tijd-indeling. Toegepast wanneer de winkelwagen is gemaakt.    |
 | expirationTimeStamp   | DateTime         | No              | De datum waarop de winkelwagen verloopt, in datum/tijd-indeling.  Toegepast bij het maken van de winkelwagen.            |
 | lastModifiedUser      | tekenreeks           | No              | De gebruiker die de winkelwagen voor het laatst heeft bijgewerkt. Toegepast bij het maken van de winkelwagen.                             |
 | lineItems             | Matrix met objecten | Yes             | Een matrix van [CartLineItem-resources.](cart-resources.md#cartlineitem)                                     |
@@ -234,24 +234,24 @@ In deze tabel worden de [eigenschappen van CartLineItem](cart-resources.md#cartl
 
 |      Eigenschap       |            Type             | Vereist |                                                                                         Beschrijving                                                                                         |
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         id          |           tekenreeks            |    No    |                                                     Een unieke id voor een winkelwagenregelitem. Toegepast nadat de winkelwagen is gemaakt.                                                     |
+|         id          |           tekenreeks            |    No    |                                                     Een unieke id voor een winkelwagenregelitem. Toegepast bij het maken van de winkelwagen.                                                     |
 |      catalogId      |           tekenreeks            |   Yes    |                                                                                De id van het catalogusitem.                                                                                 |
-|    Friendlyname     |           tekenreeks            |    No    |                                                    Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het op ondubbelzinnig maken.                                                    |
-|      quantity       |             int             |   Ja    |                                                                            Het aantal licenties of exemplaren.                                                                             |
+|    Friendlyname     |           tekenreeks            |    No    |                                                    Optioneel. De gebruiksvriendelijke naam voor het item dat is gedefinieerd door de partner om te helpen bij het opsysen van ambiguïteit.                                                    |
+|      quantity       |             int             |   Ja    |                                                                            Het aantal licenties of instanties.                                                                             |
 |    currencyCode     |           tekenreeks            |    No    |                                                                                     De valutacode.                                                                                      |
 |    billingCycle     |           Object            |   Ja    |                                                                    Het type factureringscyclus dat is ingesteld voor de huidige periode.                                                                    |
 |    deelnemers     | Lijst met objectreeksparen |    No    |                                                                Een verzameling PartnerId on Record (MPNID) voor de aankoop.                                                                 |
 | provisioningContext | Woordenlijst<tekenreeks, tekenreeks>  |    No    | Informatie die vereist is voor het inrichten van sommige items in de catalogus. De eigenschap provisioningVariables in een SKU geeft aan welke eigenschappen vereist zijn voor specifieke items in de catalogus. |
-|     orderGroup      |           tekenreeks            |    No    |                                                                   Een groep om aan te geven welke items bij elkaar kunnen worden geplaatst.                                                                   |
-|        fout        |           Object            |    No    |                                                                     Toegepast nadat de winkelwagen is gemaakt als er een fout is.                                                                      |
-|     renewsTo        | Matrix met objecten            |    No    |                                                    Een matrix van [RenewsTo-resources.](cart-resources.md#renewsto)                                                                            |
-|     AttestationAccepted        | Booleaans            |    No    |                                                   Geeft aan dat u akkoord gaat met de aanbieding of SKU-voorwaarden. Alleen vereist voor aanbiedingen of SKU's waarbij SkuAttestationProperties of OfferAttestationProperties enforceAttestation true is.                                                                             |
+|     orderGroup      |           tekenreeks            |    No    |                                                                   Een groep om aan te geven welke items samen kunnen worden geplaatst.                                                                   |
+|        fout        |           Object            |    No    |                                                                     Toegepast nadat de winkelwagen is gemaakt als er een fout is opgetreden.                                                                      |
+|     renewsTo        | Matrix van objecten            |    No    |                                                    Een matrix van [RenewsTo-resources.](cart-resources.md#renewsto)                                                                            |
+|     AttestationAccepted        | Booleaans            |    No    |                                                   Geeft de overeenkomst aan voor de aanbieding of SKU-voorwaarden. Alleen vereist voor aanbiedingen of SKU's waarbij SkuAttestationProperties of OfferAttestationProperties afdwingenAttestation true is.                                                                             |
 
-In deze tabel worden de [RenewsTo-eigenschappen](cart-resources.md#renewsto) in de aanvraag body beschreven.
+In deze tabel worden de [renewsTo-eigenschappen](cart-resources.md#renewsto) in de aanvraag body beschreven.
 
 | Eigenschap              | Type             | Vereist        | Beschrijving |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | tekenreeks           | No              | Een ISO 8601-weergave van de duur van de verlengingstermijn. De huidige ondersteunde waarden zijn **P1M** (1 maand) en **P1Y** (1 jaar). |
+| termDuration          | tekenreeks           | No              | Een ISO 8601-weergave van de duur van de verlengingsperiode. De huidige ondersteunde waarden zijn **P1M** (1 maand) en **P1Y** (1 jaar). |
 
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
@@ -338,7 +338,7 @@ Als dit lukt, retourneert deze methode de ingevulde [winkelwagenresource](cart-r
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
@@ -436,4 +436,78 @@ Date: Thu, 15 Mar 2018 17:15:01 GMT
     "objectType": "Cart"
   }
 }
+```
+
+
+## <a name="example-for-new-commerce-license-based-services"></a>Voorbeeld voor nieuwe commerce-services op basis van licenties
+
+> [!Note] 
+> Nieuwe handelswijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
+
+### <a name="request-example"></a>Voorbeeld van aanvraag
+
+```http
+POST /v1/customers/932c4101-dc08-461b-b4c1-75d80e905775/carts HTTP/1.1
+Host: api.partnercenter.microsoft.com
+Content-Type: application/json
+Content-Length: 165
+
+{
+    "LineItems": [
+        {
+            "CatalogItemId":"CFQ7TTC0LFLZ:0002:CFQ7TTC0K4TS",
+            "Quantity": 1,
+            "TermDuration": "P1M",
+                    "BillingCycle": "Monthly"
+        }
+    ]
+}
+
+```
+
+### <a name="rest-response"></a>REST-antwoord
+
+Als dit lukt, retourneert deze methode de ingevulde [winkelwagenresource](cart-resources.md) in de antwoord-body.
+
+### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
+
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+
+### <a name="response-example"></a>Voorbeeld van antwoord
+
+```http
+
+{
+    "id": "6b6ba6ea-d1ea-4c2c-9e1c-bec4f61e2049",
+    "creationTimestamp": "2021-02-24T19:26:06.947164Z",
+    "lastModifiedTimestamp": "2021-02-24T19:26:06.9471649Z",
+    "expirationTimestamp": "2021-03-03T19:26:09.0035129Z",
+    "lastModifiedUser": "004ec05e-8999-4d02-9315-2b1b667c0deb",
+    "status": "Active",
+    "lineItems": [
+        {
+            "id": 0,
+            "catalogItemId": "CFQ7TTC0LFLZ:0002:CFQ7TTC0K4TS",
+            "quantity": 1,
+            "currencyCode": "USD",
+            "billingCycle": "monthly",
+            "termDuration": "P1M",
+            "provisioningContext": {},
+            "orderGroup": "0"
+        }
+    ],
+    "links": {
+        "self": {
+            "uri": "/customers/932c4101-dc08-461b-b4c1-75d80e905775/carts/6b6ba6ea-d1ea-4c2c-9e1c-bec4f61e2049",
+            "method": "GET",
+            "headers": []
+        }
+    },
+    "attributes": {
+        "objectType": "Cart"
+    }
+}
+
+
+
 ```

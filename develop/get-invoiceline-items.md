@@ -1,15 +1,15 @@
 ---
 title: Regelitems van facturen ophalen
 description: U kunt een verzameling factuurregelitemgegevens (gesloten factureringsregelitem) ophalen voor een opgegeven factuur met behulp van Partner Center API's.
-ms.date: 01/27/2020
+ms.date: 02/18/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 10e43127e5f44f76ed9be8b9aa638e982259602ad57709ecee55cb62d8d7d59e
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 8d76a451971548f59d1b818b10db5f3c6d7b0ef3
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115996028"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123455741"
 ---
 # <a name="get-invoice-line-items"></a>Regelitems van facturen ophalen
 
@@ -17,15 +17,15 @@ ms.locfileid: "115996028"
 
 U kunt de volgende methoden gebruiken om verzamelingsgegevens op te halen voor factuurregelitems (ook wel gesloten factureringsregelitems genoemd) voor een opgegeven factuur.
 
-*Met uitzondering van oplossingen voor fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt aanvullende functionaliteit en wordt nog steeds bijgewerkt.
+*Met uitzondering van opgeloste fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt extra functionaliteit en wordt nog steeds bijgewerkt.
 
-U moet **onetime gebruiken om** een query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
+U moet **onetime gebruiken om een** query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
 
 Deze API ondersteunt ook de **providertypen** **azure-** en **Office** for Microsoft Azure-abonnementen (MS-AZR-0145P) en Office-aanbiedingen, waardoor de API-functie achterwaarts compatibel is.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een factuur-id. Hiermee wordt de factuur geïdentificeerd waarvoor de regelitems moeten worden opgehaald.
 
@@ -97,7 +97,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 Zie het volgende voor een vergelijkbaar voorbeeld:
 
 - Voorbeeld: [Consoletest-app](console-test-app.md)
-- Project: **Partnercentrum-SDK Voorbeelden**
+- Project: Partnercentrum-SDK **Voorbeelden**
 - Klasse: **GetInvoiceLineItems.cs**
 
 ## <a name="rest-request"></a>REST-aanvraag
@@ -112,7 +112,7 @@ De volgende syntaxis is van toepassing wanneer de **factureringsprovider** Offic
 
 | Methode  | Aanvraag-URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=office&invoicelineitemtype=billinglineitems&size={size}&offset={offset} HTTP/1.1                               |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=office&invoicelineitemtype=billinglineitems&size={size}&offset={offset} HTTP/1.1                               |
 
 #### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (MS-AZR-0145P) abonnement
 
@@ -120,31 +120,31 @@ De volgende syntaxis is van toepassing wanneer de factureringsprovider een Micro
 
 | Methode  | Aanvraag-URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=azure&invoicelineitemtype=billinglineitems&size={size}&offset={offset} HTTP/1.1  |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=azure&invoicelineitemtype=usagelineitems&size={size}&offset={offset} HTTP/1.1  |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=azure&invoicelineitemtype=billinglineitems&size={size}&offset={offset} HTTP/1.1  |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=azure&invoicelineitemtype=usagelineitems&size={size}&offset={offset} HTTP/1.1  |
 
 ##### <a name="onetime"></a>Onetime
 
-De volgende syntaxis is van toepassing wanneer de factureringsprovider **OneTime is.** Dit omvat kosten voor Azure-reserveringen, software, Azure-abonnementen en commerciële marketplace-producten.
+De volgende syntaxis is van toepassing wanneer de factureringsprovider **OneTime is.** Dit omvat kosten voor Azure-reserveringen, software, Azure-abonnementen, commerciële marketplace en M365/D365-producten.
 
 | Methode  | Aanvraag-URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&size={size} HTTP/1.1  |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size={size}?seekOperation=Next                           |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&size={size} HTTP/1.1  |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size={size}?seekOperation=Next                           |
 
 #### <a name="previous-syntaxes"></a>Vorige syntaxis
 
 Als u de volgende syntaxis gebruikt, moet u de juiste syntaxis gebruiken voor uw use-case.
 
-*Met uitzondering van oplossingen voor fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt aanvullende functionaliteit en wordt nog steeds bijgewerkt.
+*Met uitzondering van opgeloste fouten wordt deze API niet meer bijgewerkt.* Werk uw toepassingen bij om de **onetime-API** aan te roepen in plaats van **marketplace.** De **onetime-API** biedt extra functionaliteit en wordt nog steeds bijgewerkt.
 
-U moet **onetime gebruiken om** een query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
+U moet **onetime gebruiken om een** query uit te voeren op alle regelitems voor commercieel verbruik in plaats van **marketplace.** U kunt ook de koppelingen volgen in de aanroep van de schattingskoppelingen.
 
-| Methode | Aanvraag-URI | Beschrijving van gebruikscase voor syntaxis |
+| Methode | Aanvraag-URI | Beschrijving van het gebruikscase van de syntaxis |
 | ------ | ----------- | -------------------------------- |
 | GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | U kunt deze syntaxis gebruiken om een volledige lijst met alle regelitem voor de opgegeven factuur te retourneren. |
 | GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}?size={size}&offset={offset} HTTP/1.1  | Voor grote facturen kunt u deze syntaxis met een opgegeven grootte en een offset op basis van 0 gebruiken om een paginalijst met regelitems te retourneren. |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}?seekOperation=Next                               | U kunt deze syntaxis gebruiken voor een factuur met de waarde van  de factureringsprovider **OneTime** en **zoekoperation instellen** op Volgende om de volgende pagina met factuurregelitems op te halen. |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}?seekOperation=Next                               | U kunt deze syntaxis gebruiken voor een factuur met de waarde van  de factureringsprovider **OneTime** en **zoekoperatie instellen** op Volgende om de volgende pagina met factuurregelitems op te halen. |
 
 ##### <a name="uri-parameters"></a>URI-parameters
 
@@ -153,16 +153,16 @@ Gebruik de volgende URI en queryparameters bij het maken van de aanvraag.
 | Naam                   | Type   | Vereist | Beschrijving                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | factuur-id             | tekenreeks | Yes      | Een tekenreeks die de factuur identificeert.                             |
-| factureringsprovider       | tekenreeks | Yes      | De factureringsprovider: 'Office', 'Azure', 'OneTime'. In de verouderde wereld hebben we afzonderlijke gegevensmodellen voor Office & Azure-transacties. De moderne heeft echter één gegevensmodel voor alle transacties, gefilterd via de waarde 'OneTime'.            |
+| factureringsprovider       | tekenreeks | Yes      | De factureringsprovider: 'Office', 'Azure', 'OneTime'. In de verouderde wereld hebben we afzonderlijke gegevensmodellen voor Office & Azure-transacties. In de moderne tijd hebben we echter één gegevensmodel voor alle producten die zijn gefilterd op de waarde 'OneTime'.            |
 | invoice-line-item-type | tekenreeks | Yes      | Het type factuurdetails: 'BillingLineItems', 'UsageLineItems'. |
 | grootte                   | getal | No       | Het maximum aantal items dat moet worden retourneren. Standaard maximale grootte = 2000    |
-| offset                 | getal | No       | De op nul gebaseerde index van het eerste regelitem dat moet worden retourneren.            |
-| zoekoperation          | tekenreeks | No       | Als **de factureringsprovider** gelijk is aan **OneTime,** stelt u **seekOperation gelijk** aan **Volgende** in om de volgende pagina met factuurregelitems op te halen. |
+| offset                 | getal | No       | De op nul gebaseerde index van het eerste regelitem dat moet worden retourneert.            |
+| zoekoperation          | tekenreeks | No       | Als **de factureringsprovider** gelijk is **aan OneTime,** stelt u **seekOperation in** op **Volgende** om de volgende pagina met factuurregelitems op te halen. |
 | hasPartnerEarnedCredit | booleaans | No | De waarde die aangeeft of de regelitems moeten worden retourneren waarop het partnertegoed is toegepast. Opmerking: deze parameter wordt alleen toegepast wanneer het type factureringsprovider OneTime is en InvoiceLineItemType UsageLineItems is. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST Partner Center headers [voor meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -172,15 +172,15 @@ Geen.
 
 Als dit lukt, bevat het antwoord de verzameling regelitemdetails.
 
-*Voor het regelitem **ChargeType** wordt de waarde **Aankoop** aan **Nieuw.** De waarde **Restitutie** wordt toebetaald aan **Annuleren.***
+*Voor het regelitem **ChargeType** wordt de waarde **Aankoop** aan **Nieuw.** De waarde **Restitutie** wordt aan **Annuleren toebetaald.***
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="rest-request-response-examples"></a>Voorbeelden van REST-aanvraag-antwoord
 
-### <a name="request-response-example-1"></a>Voorbeeld van aanvraag-antwoord 1
+### <a name="request-response-example-1"></a>Aanvraag-antwoord voorbeeld 1
 
 In dit voorbeeld zijn de details als volgt:
 
@@ -302,11 +302,11 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a>Voorbeeld 2 van aanvraag-antwoord
+### <a name="request-response-example-2"></a>Aanvraag-antwoord voorbeeld 2
 
 In het volgende voorbeeld zijn de details als volgt:
 
-- **BillingProvider:** **Azure**
+- **BillingProvider**: **Azure**
 - **InvoiceLineItemType:** **BillingLineItems**
 
 #### <a name="request-example-2"></a>Aanvraagvoorbeeld 2
@@ -440,11 +440,11 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 }
 ```
 
-### <a name="request-response-example-3"></a>Voorbeeld van aanvraag-antwoord 3
+### <a name="request-response-example-3"></a>Voorbeeld 3 van aanvraag-antwoord
 
 In het volgende voorbeeld zijn de details als volgt:
 
-- **BillingProvider:** **Azure**
+- **BillingProvider**: **Azure**
 - **InvoiceLineItemType:** **UsageLineItems**
 
 #### <a name="request-example-3"></a>Aanvraagvoorbeeld 3
@@ -593,7 +593,6 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
  {
     "continuationToken": "d19617b8-fbe5-4684-a5d8-0230972fb0cf,0705c4a9-39f7-4261-ba6d-53e24a9ce47d_a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=,0d81c700-98b4-4b13-9129-ffd5620f72e7",
     {
-    {
     "totalCount": 3,
     "items": [
         {
@@ -753,9 +752,54 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
-        }
-    ]
-}
+        },
+        {
+           "partnerId": "6480d686-cfb4-424d-a945-6b9b9f4badc2",
+            "customerId": "org:9060d13d-c5ed-482e-b059-a15a38cbb28e",
+            "customerName": "recipientCustomerName",
+            "customerDomainName": "recipientCustomerDomain",
+            "customerCountry": "US",
+            "invoiceNumber": "1234000000",
+            "mpnId": "4870137",
+            "resellerMpnId": 0,
+            "orderId": "VdqkP11Bu4DlcjP5rLeQabcdefg-1234",
+            "orderDate": "2021-01-29T19:50:13.9869095Z",
+            "productId": "CFQ7TTC01234",
+            "skuId": "0001",
+            "availabilityId": "CFQ7TTC0ABCD",
+            "productName": "Office 365 E3",
+            "skuName": "Office 365 E3",
+            "chargeType": "new",
+            "unitPrice": 16,
+            "effectiveUnitPrice": 16,
+            "unitType": "",
+            "quantity": 1,
+            "subtotal": 16,
+            "taxTotal": 1.61,
+            "totalForCustomer": 17.61,
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "2ae795eb-f76d-ce69-cba0-123456789000",
+            "chargeStartDate": "2021-01-29T00:00:00Z",
+            "chargeEndDate": "2021-02-27T00:00:00Z",
+            "termAndBillingCycle": "One-Year commitment for monthly/yearly billing",
+            "priceAdjustmentDescription": "[\"1 month billing\",\"You are getting a discount for being a partner.\",\"You are getting a price guarantee for your price.\",\"Yearly Duration\"]",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": 1,
+            "pcToBCExchangeRateDate": "0001-01-01T00:00:00",
+            "billableQuantity": 1,
+            "meterDescription": "",
+            "billingFrequency": "Monthly",
+            "reservationOrderId": "e770c049-89c7-4ec1-b366-123456789000",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time" ,
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+      }
     ],
     "links": {
         "self": {
@@ -780,13 +824,13 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 }
 ```
 
-### <a name="request-response-example-5"></a>Voorbeeld 5 van aanvraag-antwoord
+### <a name="request-response-example-5"></a>Aanvraag-antwoord voorbeeld 5
 
-In het volgende voorbeeld is er paginering met behulp van een vervolg-token. De details zijn als volgt:
+In het volgende voorbeeld wordt paginering gebruikt van een vervolg-token. De details zijn als volgt:
 
 - **BillingProvider:** **OneTime**
 - **InvoiceLineItemType:** **BillingLineItems**
-- **Zoekoperation:** **volgende**
+- **Zoekoperation**: **Volgende**
 
 #### <a name="request-example-5"></a>Aanvraagvoorbeeld 5
 
@@ -815,9 +859,7 @@ MS-ServerId: 202010406
 Date: Thu, 07 Sep 2017 23:31:09 GMT
 
 {
-    {
-    {
-    "totalCount": 3,
+    "totalCount": 2,
     "items": [
         {
             "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
@@ -976,9 +1018,54 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
-        }
-    ]
-}
+        },
+        {
+           "partnerId": "6480d686-cfb4-424d-a945-6b9b9f4badc2",
+            "customerId": "org:9060d13d-c5ed-482e-b059-a15a38cbb28e",
+            "customerName": "recipientCustomerName",
+            "customerDomainName": "recipientCustomerDomain",
+            "customerCountry": "US",
+            "invoiceNumber": "1234000000",
+            "mpnId": "4870137",
+            "resellerMpnId": 0,
+            "orderId": "VdqkP11Bu4DlcjP5rLeQabcdefg-1234",
+            "orderDate": "2021-01-29T19:50:13.9869095Z",
+            "productId": "CFQ7TTC01234",
+            "skuId": "0001",
+            "availabilityId": "CFQ7TTC0ABCD",
+            "productName": "Office 365 E3",
+            "skuName": "Office 365 E3",
+            "chargeType": "new",
+            "unitPrice": 16,
+            "effectiveUnitPrice": 16,
+            "unitType": "",
+            "quantity": 1,
+            "subtotal": 16,
+            "taxTotal": 1.61,
+            "totalForCustomer": 17.61,
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "2ae795eb-f76d-ce69-cba0-123456789000",
+            "chargeStartDate": "2021-01-29T00:00:00Z",
+            "chargeEndDate": "2021-02-27T00:00:00Z",
+            "termAndBillingCycle": "One-Year commitment for monthly/yearly billing",
+            "priceAdjustmentDescription": "[\"1 month billing\",\"You are getting a discount for being a partner.\",\"You are getting a price guarantee for your price.\",\"Yearly Duration\"]",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": 1,
+            "pcToBCExchangeRateDate": "0001-01-01T00:00:00",
+            "billableQuantity": 1,
+            "meterDescription": "",
+            "billingFrequency": "Monthly",
+            "reservationOrderId": "e770c049-89c7-4ec1-b366-123456789000",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time" ,
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+      }
     ],
     "links": {
         "self": {

@@ -1,17 +1,17 @@
 ---
 title: Een product ophalen op basis van id
 description: Hiermee haalt u de opgegeven productresource op met behulp van een product-id.
-ms.date: 09/17/2019
+ms.date: 02/16/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 0e8abc8cf33d12140a084e83580f20bb0b9d295eda7ab8cc7279c89043c81992
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 95821b0f3678d38c75e2f684f7ad629b82f9b43b
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115994537"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456097"
 ---
 # <a name="get-a-product-by-id"></a>Een product ophalen op basis van id
 
@@ -25,7 +25,7 @@ Hiermee haalt u de opgegeven productresource op met behulp van een product-id.
 
 ## <a name="c"></a>C\#
 
-Als u een specifiek product op id wilt zoeken, gebruikt u de verzameling **IAggregatePartner.Products,** selecteert u het land met behulp van de **methode ByCountry()** en roept u vervolgens de **methode ById()** aan. Roep ten slotte de **methode Get()** of **GetAsync()** aan om het product te retourneren.
+Als u een specifiek product wilt zoeken op id, gebruikt u de verzameling **IAggregatePartner.Products,** selecteert u het land met behulp van de **methode ByCountry()** en roept u vervolgens de **methode ById()** aan. Roep ten slotte de **methode Get() of** **GetAsync()** aan om het product te retourneren.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -37,7 +37,7 @@ Product productDetail = partnerOperations.Products.ByCountry("US").ById("DZH318Z
 
 [!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-Als u een specifiek product op id wilt zoeken, gebruikt u de functie **IAggregatePartner.getProducts,** selecteert u het land met behulp van de functie **byCountry()** en roept u vervolgens de **functie byId()** aan. Roep ten slotte de **functie get() aan** om het product te retourneren.
+Als u een specifiek product wilt zoeken op id, gebruikt u de functie **IAggregatePartner.getProducts,** selecteert u het land met behulp van de functie **byCountry()** en roept u vervolgens de **functie byId()** aan. Roep ten slotte de **functie get() aan** om het product te retourneren.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ Product productDetail = partnerOperations.getProducts().byCountry("US").byId("DZ
 
 [!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-Als u een specifiek product wilt zoeken op id, voert u [**de opdracht Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) uit en geeft u de **parameter ProductId** op. De **parameter CountryCode** is opties. Als deze niet is opgegeven, wordt het land gebruikt dat is gekoppeld aan de reseller.
+Als u een specifiek product wilt zoeken op id, voert u [**de opdracht Get-PartnerProduct uit**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) en geeft u de parameter **ProductId** op. De **parameter CountryCode** is opties. Als deze niet is opgegeven, wordt het land gebruikt dat is gekoppeld aan de reseller.
 
 ```powershell
 Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
@@ -61,7 +61,7 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 | Methode  | Aanvraag-URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}?country={country} HTTP/1.1  |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}?country={country} HTTP/1.1  |
 
 ### <a name="uri-parameter"></a>URI-parameter
 
@@ -74,7 +74,7 @@ Gebruik de volgende padparameters om het opgegeven product op te halen.
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers [Partner Center meer informatie.](headers.md)
+Zie REST Partner Center headers [voor meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -96,7 +96,7 @@ Als dit lukt, bevat de antwoord-body een [Product-resource.](product-resources.m
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 Deze methode retourneert de volgende foutcodes:
 
@@ -104,7 +104,7 @@ Deze methode retourneert de volgende foutcodes:
 |----------------------|--------------|----------------------------------------------------------------------------|
 | 404                  | 400013       | Product is niet gevonden.                                                     |
 
-### <a name="response-example"></a>Voorbeeld van antwoord
+### <a name="response-example-for-azure-vm-reservation-azure-plan"></a>Antwoordvoorbeeld voor Azure VM-reservering (Azure-plan)
 
 ```http
 HTTP/1.1 200 OK
@@ -136,6 +136,36 @@ Date: Tue, 23 Jan 2018 23:13:01 GMT
         },
         "self": {
             "uri": "/products/DZH318Z0BQ3Q?country=US",
+            "method": "GET",
+            "headers": []
+        }
+    }
+}
+```
+### <a name="response-example-for-new-commerce-license-based-product"></a>Antwoordvoorbeeld voor nieuw product op basis van commercelicenties
+
+> [!Note] 
+> Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
+
+```http
+{
+    "id": "CFQ7TTC0LH18",
+    "title": "Microsoft 365 Business Basic",
+    "description": "Best for businesses that need professional email, cloud file storage, and online meetings & chat. Desktop versions of Office apps like Excel, Word, and PowerPoint not included. For businesses with up to 300 employees.",
+    "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+    },
+    "isMicrosoftProduct": true,
+    "publisherName": "Microsoft Corporation",
+    "links": {
+        "skus": {
+            "uri": "/products/CFQ7TTC0LH18/skus?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+        "uri": "/products/CFQ7TTC0LH18?country=US",
             "method": "GET",
             "headers": []
         }

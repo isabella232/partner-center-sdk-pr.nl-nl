@@ -1,25 +1,30 @@
 ---
-title: Een abonnement op de commerciële marketplace annuleren
-description: Meer informatie over het gebruik Partner Center API's voor het annuleren van een commerciële marketplace-abonnementsresource die overeenkomt met een klant en abonnements-id.
-ms.date: 08/16/2019
+title: Een commerciële marketplace of nieuw commerce-abonnement annuleren
+description: Meer informatie over het gebruik Partner Center API's voor het annuleren van een commerciële marketplace of een nieuwe commerce-abonnementsresource die overeenkomt met een klant en abonnements-id.
+ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e73810bb62ecc8487ff0d57c051a1201fc558d13b01529bb8ff5a3f2ac223f2b
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: cbfe17ba4880c303c3f3ba01db5955a557eb04e2
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115992259"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456134"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription-using-partner-center-apis"></a>Een abonnement op de commerciële marketplace annuleren met behulp Partner Center API's
+# <a name="cancel-a-commercial-marketplace-or-new-commerce-subscription-using-partner-center-apis"></a>Een commerciële marketplace of nieuw commerce-abonnement annuleren met behulp van Partner Center API's
 
-In dit artikel wordt beschreven hoe u Partner Center API [](subscription-resources.md) kunt gebruiken om een commerciële marketplace-abonnementsresource te annuleren die overeenkomt met de klant- en abonnements-id.
+**Van toepassing op**: Partner Center
+
+In dit artikel wordt beschreven hoe u Partner Center API kunt [](subscription-resources.md) gebruiken om een commerciële marketplace of nieuwe commerce-abonnementsresource te annuleren die overeenkomt met de klant- en abonnements-id.
+
+> [!Note] 
+> Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze ops zoeken in het Partner Center [dashboard.](https://partner.microsoft.com/dashboard) Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
@@ -66,7 +71,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | Methode    | Aanvraag-URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI-parameter
 
@@ -85,7 +90,7 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 Een volledige **abonnementsresource** is vereist in de aanvraag. Zorg ervoor dat **de eigenschap Status** is bijgewerkt.
 
-### <a name="request-example"></a>Voorbeeld van aanvraag
+### <a name="request-example-for-a-commercial-marketplace-subscription"></a>Voorbeeld aanvragen voor een abonnement op de commerciële marketplace
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
@@ -126,6 +131,86 @@ Connection: Keep-Alive
     "publisherName": "publisher Name",
     "orderId": "ImxjLNL4_fOc-2KoyOxGTZcrlIquzls11",
     "attributes": {"objectType": "Subscription"},
+}
+```
+
+### <a name="request-example-for-a-new-commerce-subscription"></a>Voorbeeld aanvragen voor een nieuw commerce-abonnement
+
+> [!Note] 
+> Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
+
+```http
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+Authorization: Bearer <token>
+Accept: application/json
+MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
+MS-CorrelationId: ec8f62e5-1d92-47e9-8d5d-1924af105f2c
+If-Match: <etag>
+Content-Type: application/json
+Content-Length: 1029
+Expect: 100-continue
+Connection: Keep-Alive
+
+{
+    "id": "a4c1340d-6911-4758-bba3-0c4c6007d161",
+    "offerId": "CFQ7TTC0LH18:0001:CFQ7TTC0K971",
+    "offerName": "Microsoft 365 Business Basic",
+    "friendlyName": "Microsoft 365 Business Basic",
+    "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+    },
+    "quantity": 1, 
+    "unitType": "Licenses",
+    "hasPurchasableAddons": false,
+    "creationDate": "2021-01-14T16:57:15.0966728Z",
+    "effectiveStartDate": "2021-01-14T16:57:14.498252Z",
+    "commitmentEndDate": "2022-01-13T00:00:00Z",
+    "status": "deleted", // original value = “active”
+    "autoRenewEnabled": true, 
+    "isTrial": false,
+    "billingType": "license",
+    "billingCycle": "monthly",
+    "termDuration": "P1Y",
+    "renewalTermDuration": "",
+    "refundOptions": [
+        {
+            "type": "Full",
+            "expiresAt": "2021-01-15T00:00:00Z"
+        }
+    ],
+    "isMicrosoftProduct": true,
+    "partnerId": "",
+    "attentionNeeded": false,
+    "actionTaken": false,
+    "contractType": "subscription",
+    "links": {
+        "product": {
+            "uri": "/products/CFQ7TTC0LH18?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "sku": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "availability": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001/availabilities/CFQ7TTC0K971?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+            "uri": "/customers/d8202a51-69f9-4228-b900-d0e081af17d7/subscriptions/a4c1340d-6911-4758-bba3-0c4c6007d161",
+            "method": "GET",
+            "headers": []
+        }
+    },
+    "publisherName": "Microsoft Corporation",
+    "orderId": "34b37d7340cc",
+    "attributes": {
+        "objectType": "Subscription"
+    }
 }
 ```
 

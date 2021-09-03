@@ -1,15 +1,15 @@
 ---
 title: De hoeveelheid van een abonnement wijzigen
 description: Meer informatie over het gebruik Partner Center API's om het aantal licenties voor een klantabonnement te wijzigen. U kunt dit ook doen in het Partner Center dashboard.
-ms.date: 06/05/2019
+ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f13f4c73e085d2bf323a4260674d0dfa50631b692340a99bb67925a6480d044c
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: b4bf40bf6ec2875b7091c34a2629331dfe240c95
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115992140"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456839"
 ---
 # <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Het aantal licenties in een klantabonnement wijzigen
 
@@ -29,7 +29,7 @@ In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een 
 
 ## <a name="c"></a>C\#
 
-Als u de hoeveelheid van het abonnement van een klant wilt wijzigen, moet u eerst het abonnement op [halen](get-a-subscription-by-id.md)en vervolgens de eigenschap Quantity van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) wijzigen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de **methode Patch()** aan.
+Als u de hoeveelheid van het abonnement van een klant wilt wijzigen, moet u eerst het abonnement op [halen](get-a-subscription-by-id.md)en vervolgens de eigenschap Quantity van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) wijzigen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,7 +54,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | Methode    | Aanvraag-URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **Patch** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI-parameter
 
@@ -67,7 +67,7 @@ Deze tabel bevat de vereiste queryparameter om de hoeveelheid van het abonnement
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST-headers Partner Center [meer informatie.](headers.md)
+Zie REST Partner Center headers [voor meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -108,13 +108,92 @@ Connection: Keep-Alive
 }
 ```
 
+### <a name="request-example-for-new-commerce-subscription-to-reduce-quantity"></a>Voorbeeld aanvragen voor een nieuw commerce-abonnement om de hoeveelheid te verminderen
+
+> [!Note] 
+> Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
+
+```http
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+Authorization: Bearer <token>
+Accept: application/json
+MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
+MS-CorrelationId: ec8f62e5-1d92-47e9-8d5d-1924af105f2c
+Content-Type: application/json
+Content-Length: 1029
+Expect: 100-continue
+Connection: Keep-Alive
+
+{
+    "id": "a4c1340d-6911-4758-bba3-0c4c6007d161",
+    "offerId": "CFQ7TTC0LH18:0001:CFQ7TTC0K971",
+    "offerName": "Microsoft 365 Business Basic",
+    "friendlyName": "Microsoft 365 Business Basic",
+    "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+    },
+    "quantity": 1, // original value = 10
+    "unitType": "Licenses",
+    "hasPurchasableAddons": false,
+    "creationDate": "2021-01-14T16:57:15.0966728Z",
+    "effectiveStartDate": "2021-01-14T16:57:14.498252Z",
+    "commitmentEndDate": "2022-01-13T00:00:00Z",
+    "status": "active", 
+    "autoRenewEnabled": true, 
+    "isTrial": false,
+    "billingType": "license",
+    "billingCycle": "monthly",
+    "termDuration": "P1Y",
+    "renewalTermDuration": "",
+    "refundOptions": [
+        {
+            "type": "Full",
+            "expiresAt": "2021-01-15T00:00:00Z"
+        }
+    ],
+    "isMicrosoftProduct": true,
+    "partnerId": "",
+    "attentionNeeded": false,
+    "actionTaken": false,
+    "contractType": "subscription",
+    "links": {
+        "product": {
+            "uri": "/products/CFQ7TTC0LH18?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "sku": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "availability": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001/availabilities/CFQ7TTC0K971?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+            "uri": "/customers/d8202a51-69f9-4228-b900-d0e081af17d7/subscriptions/a4c1340d-6911-4758-bba3-0c4c6007d161",
+            "method": "GET",
+            "headers": []
+        }
+    },
+    "publisherName": "Microsoft Corporation",
+    "orderId": "34b37d7340cc",
+    "attributes": {
+        "objectType": "Subscription"
+    }
+}
+```
+
 ## <a name="rest-response"></a>REST-antwoord
 
 Als dit lukt, retourneert deze methode een **HTTP-statuscode 200** en [bijgewerkte](subscription-resources.md)  eigenschappen van abonnementsresources in de antwoord-body.
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord retourneert een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om de statuscode, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord retourneert een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende foutopsporingsinformatie. Gebruik een hulpprogramma voor netwerk traceer om de statuscode, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 Wanneer de patchbewerking langer duurt dan de verwachte tijd, verzendt de Partner Center een **HTTP-statuscode 202** en een locatieheader die wijst naar waar het abonnement moet worden opgehaald. U kunt periodiek een query uitvoeren op het abonnement om de status- en hoeveelheidswijzigingen te controleren.
 
@@ -190,3 +269,20 @@ Content-Length: 1432
 Connection: Keep-Alive
 Location: /customers/<customer-tenant-id>/subscriptions/<subscriptionID>
 ```
+
+#### <a name="response-example-for-new-commerce-reduce-seat-counts"></a>Antwoordvoorbeeld voor het aantal nieuwe commerce-verminderingszetels
+
+> [!Note] 
+> Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
+
+Antwoord bij een poging om het aantal nieuwe commerce-abonnementen te verminderen.
+
+```http
+{
+    "code": 800090,
+    "description": "Subscription quantity cannot be decreased.",
+    "data": [],
+    "source": "PartnerFD"
+}
+```
+

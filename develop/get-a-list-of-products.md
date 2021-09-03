@@ -1,17 +1,17 @@
 ---
 title: Een lijst met producten ophalen (per land)
 description: U kunt de productresource gebruiken om een verzameling producten per klantland op te halen.
-ms.date: 11/01/2019
+ms.date: 02/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 6ec3a642006a100ef85c0af9eeddd9daf00cc1cd981eabd5dddb77e60e15111f
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 601fc2c8012d92d6964f0aaa29a3a46d732df300
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115989437"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456049"
 ---
 # <a name="get-a-list-of-products-by-country"></a>Een lijst met producten ophalen (per land)
 
@@ -88,7 +88,7 @@ Een lijst met producten op te halen:
 1. Voer de [**opdracht Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) uit.
 
 2. Selecteer de catalogus door de parameter **Catalog op te** geven.
-3. (Optioneel) Selecteer het doelsegment door de **parameter Segment op te** geven.
+3. (Optioneel) Selecteer het doelsegment door de parameter **Segment op te** geven.
 
 ```powershell
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
@@ -100,7 +100,7 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 | Methode  | Aanvraag-URI                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products?country={country}&targetView={targetView}&targetSegment={targetSegment} HTTP/1.1 |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products?country={country}&targetView={targetView}&targetSegment={targetSegment} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI-parameters
 
@@ -109,7 +109,7 @@ Gebruik het volgende pad en de queryparameters om een lijst met producten op te 
 | Naam                   | Type     | Vereist | Beschrijving                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
 | country                | tekenreeks   | Yes      | De land-/regio-id.                                                  |
-| targetView             | tekenreeks   | Yes      | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle reserveringsitems SQL omvat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** die alle onlineservice-items (inclusief producten van de commerciële marketplace) bevat<br/><br/>**Software**, die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle SUSE Linux-software-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat    |
+| targetView             | tekenreeks   | Yes      | Identificeert de doelweergave van de catalogus. De ondersteunde waarden zijn: <br/><br/>**Azure,** dat alle Azure-items bevat<br/><br/>**AzureReservations,** dat alle Azure-reserveringsitems bevat<br/><br/>**AzureReservationsVM,** dat alle reserveringsitems voor virtuele machines (VM's) bevat<br/><br/>**AzureReservationsSQL,** dat alle reserveringsitems SQL omvat<br/><br/>**AzureReservationsCosmosDb,** dat alle reserveringsitems voor de Cosmos-database bevat<br/><br/>**MicrosoftAzure,** dat items bevat voor Microsoft Azure -abonnementen (**MS-AZR-0145P**) en Azure-abonnementen<br/><br/>**OnlineServices,** die alle onlineservice-items bevat. Deze targetView omvat commerciële marketplace, traditionele, op licenties gebaseerde services en nieuwe op licenties gebaseerde commerce-services<br/><br/>**Software,** die alle software-items bevat<br/><br/>**SoftwareSUSELinux,** dat alle SUSE Linux-software-items bevat<br/><br/>**SoftwarePerpetual,** dat alle permanente software-items bevat<br/><br/>**SoftwareAbonnementen,** die alle softwareabonnementitems bevat    |
 | targetSegment          | tekenreeks   | No       | Identificeert het doelsegment. De weergave voor verschillende doelgroepen. De ondersteunde waarden zijn: <br/><br/>**Commerciële**<br/>**Onderwijs**<br/>**Regering**<br/>**Non-profit**  |
 | reservationScope | tekenreeks   | No | Wanneer u een query uitvoert voor een lijst met producten voor Azure-reserveringen, geeft u op om een lijst met producten op te halen die van `reservationScope=AzurePlan` toepassing zijn op Azure-abonnementen. Sluit deze parameter uit om een lijst met producten voor Azure-reserveringen op te halen die van toepassing zijn op abonnementen van Microsoft Azure (**MS-AZR-0145P).**  |
 
@@ -137,7 +137,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 #### <a name="azure-vm-reservations-azure-plan"></a>Azure VM-reserveringen (Azure-plan)
 
-Volg dit voorbeeld om een lijst met producten per land op te halen voor Azure VM-reserveringen die van toepassing zijn op Azure-abonnementen.
+Volg dit voorbeeld voor een lijst met producten per land voor Azure VM-reserveringen die van toepassing zijn op Azure-abonnementen.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureAzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -159,6 +159,21 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
+#### <a name="new-commerce-license-based-services"></a>Nieuwe commerce-services op basis van licenties
+
+> [!Note] 
+> Nieuwe handelswijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
+
+Volg dit voorbeeld om een lijst met producten per land op te halen voor nieuwe commercelicentieservices als onderdeel van de technical preview van de nieuwe commerce-ervaring. Nieuwe commerce-licenties op basis van services worden geïdentificeerd door id en displayNames waarden van **OnlineServices GEBRUIK .** Zie het antwoordvoorbeeld hieronder.
+
+```http
+GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=OnlineServices HTTP/1.1
+Authorization: Bearer
+Accept: application/json
+MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
+MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
+```
+
 ## <a name="rest-response"></a>REST-antwoord
 
 Als dit lukt, bevat de antwoord-body een verzameling [**productresources.**](product-resources.md#product)
@@ -174,7 +189,7 @@ Deze methode retourneert de volgende foutcodes:
 | 403                  | 400030       | Toegang tot het aangevraagde targetSegment is niet toegestaan.                                                     |
 | 403                  | 400036       | Toegang tot de aangevraagde targetView is niet toegestaan.                                                        |
 
-### <a name="response-example"></a>Voorbeeld van antwoord
+### <a name="response-example-for-azure-vm-reservations-azure-plan"></a>Antwoordvoorbeeld voor Azure VM-reserveringen (Azure-plan)
 
 ```http
 {
@@ -221,3 +236,50 @@ Deze methode retourneert de volgende foutcodes:
     }
 }
 ```
+
+### <a name="response-example-for-new-commerce-license-based-services"></a>Antwoordvoorbeeld voor nieuwe op licenties gebaseerde commerceservices
+
+> [!Note] 
+> Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
+
+```http
+{
+  "totalCount": 19,
+  "items": [{
+      "id": "CFQ7TTC0LH18",
+      "title": "Microsoft 365 Business Basic",
+      "description": "Best for businesses that need professional email, cloud file storage, and online meetings & chat. Desktop versions of Office apps like Excel, Word, and PowerPoint not included. For businesses with up to 300 employees.",
+      "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+      },
+      "isMicrosoftProduct": true,
+      "publisherName": "Microsoft Corporation",
+      "links": {
+        "skus": {
+          "uri": "/products/CFQ7TTC0LH18/skus?country=US",
+          "method": "GET",
+          "headers": []
+        },
+        "self": {
+          "uri": "/products/CFQ7TTC0LH18?country=US",
+          "method": "GET",
+          "headers": []
+        }
+      }
+    },
+    ...
+  ],
+  "links": {
+    "self": {
+      "uri": "/products?country=US&targetView=OnlineServices",
+      "method": "GET",
+      "headers": []
+    }
+  },
+  "attributes": {
+    "objectType": "Collection"
+  }
+}
+```
+

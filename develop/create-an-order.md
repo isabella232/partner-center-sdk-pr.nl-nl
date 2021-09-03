@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik Partner Center API's om een order 
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9330639de3ff88fd2e659e92729de0c1625b6157e2608204577287d30d330d00
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: f8a18ef4a6fbdfcd659e6ec1c11bc6bd61c80472
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115991494"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456032"
 ---
 # <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>Een order voor een klant maken met behulp van Partner Center API's
 
@@ -19,11 +19,11 @@ Het maken van **een bestelling voor azure-producten voor gereserveerde VM-instan
 
 - Partnercentrum
 
-Zie Partneraanbiedingen in het Cloud Solution Provider-programma voor meer informatie over [wat momenteel beschikbaar is om te verkopen.](/partner-center/csp-offers)
+Zie Partneraanbiedingen in het Cloud Solution Provider voor informatie over [wat momenteel beschikbaar is om te verkopen.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
 - Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
@@ -33,7 +33,7 @@ Zie Partneraanbiedingen in het Cloud Solution Provider-programma voor meer infor
 
 Een order voor een klant maken:
 
-1. Instantieer een [**Order-object**](order-resources.md) en stel **de eigenschap ReferenceCustomerID** in op de klant-id om de klant vast te stellen.
+1. Instantieer een [**Order-object**](order-resources.md) en stel de **eigenschap ReferenceCustomerID** in op de klant-id om de klant vast te stellen.
 
 2. Maak een lijst met [**OrderLineItem-objecten**](order-resources.md#orderlineitem) en wijs de lijst toe aan de eigenschap **LineItems van de** order. Elk orderregelitem bevat de aankoopgegevens voor één aanbieding. U moet ten minste één orderregelitem hebben.
 
@@ -69,7 +69,7 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class**: CreateOrder.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateOrder.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -77,7 +77,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | Methode   | Aanvraag-URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **Verzenden** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **VERZENDEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI-parameters
 
@@ -85,7 +85,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| customer-id | tekenreeks | Yes      | Een met GUID opgemaakte klant-id die de klant identificeert. |
+| customer-id | tekenreeks | Yes      | Een in GUID opgemaakte klant-id die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -101,13 +101,13 @@ In deze tabel worden de [ordereigenschappen](order-resources.md) in de aanvraag 
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
 | id                   | tekenreeks                      | No                              | Een order-id die wordt opgegeven wanneer de order is gemaakt.   |
 | referenceCustomerId  | tekenreeks                      | No                              | De klant-id. |
-| billingCycle         | tekenreeks                      | No                              | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de ledennamen in [BillingCycleType.](product-resources.md#billingcycletype) De standaardwaarde is 'Maandelijks' of 'OneTime' bij het maken van de bestelling. Dit veld wordt toegepast wanneer de order is gemaakt. |
+| billingCycle         | tekenreeks                      | No                              | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de ledennamen in [BillingCycleType.](product-resources.md#billingcycletype) De standaardwaarde is 'Maandelijks' of 'OneTime' bij het maken van de order. Dit veld wordt toegepast wanneer de order is gemaakt. |
 | lineItems            | matrix van [OrderLineItem-resources](order-resources.md#orderlineitem) | Yes      | Een gespecificeerde lijst met aanbiedingen die de klant aanschaft, inclusief de hoeveelheid.        |
 | currencyCode         | tekenreeks                      | No                              | Alleen-lezen. De valuta die wordt gebruikt bij het plaatsen van de order. Toegepast wanneer de order is gemaakt.           |
 | creationDate         | datum/tijd                    | No                              | Alleen-lezen. De datum waarop de order is gemaakt, in datum/tijd-indeling. Toegepast wanneer de order is gemaakt.                                   |
 | status               | tekenreeks                      | No                              | Alleen-lezen. De status van de bestelling.  Ondersteunde waarden zijn de ledennamen in [OrderStatus](order-resources.md#orderstatus).        |
 | Verwijzigingen                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | De resourcekoppelingen die overeenkomen met de Bestelling. |
-| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | De metagegevenskenmerken die overeenkomen met de volgorde. |
+| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | De metagegevenskenmerken die overeenkomen met de order. |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
@@ -173,7 +173,7 @@ Als dit lukt, retourneert de [methode](order-resources.md) een Order-resource in
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes](error-codes.md).
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie voor de volledige lijst Partner Center [foutcodes.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
