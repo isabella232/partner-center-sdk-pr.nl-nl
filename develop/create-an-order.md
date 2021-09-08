@@ -1,15 +1,15 @@
 ---
 title: Een klantorder maken
-description: Meer informatie over het gebruik Partner Center API's om een order voor een klant te maken. Het artikel bevat vereisten, stappen en voorbeelden.
-ms.date: 07/12/2019
+description: Meer informatie over het gebruik Partner Center API's om een bestelling voor een klant te maken. Het artikel bevat vereisten, stappen en voorbeelden.
+ms.date: 09/06/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f8a18ef4a6fbdfcd659e6ec1c11bc6bd61c80472
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: 232888ee798b4579246bbfd787e049f9f6e2e8a3
+ms.sourcegitcommit: 5f27733d7c984c29f71c8b9c8ba5f89753eeabc4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456032"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123557249"
 ---
 # <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>Een order voor een klant maken met behulp van Partner Center API's
 
@@ -19,13 +19,13 @@ Het maken van **een bestelling voor azure-producten voor gereserveerde VM-instan
 
 - Partnercentrum
 
-Zie Partneraanbiedingen in het Cloud Solution Provider voor informatie over [wat momenteel beschikbaar is om te verkopen.](/partner-center/csp-offers)
+Zie Partneraanbiedingen in het Cloud Solution Provider voor meer informatie over [wat momenteel beschikbaar is om te verkopen.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze ops zoeken in het Partner Center [dashboard.](https://partner.microsoft.com/dashboard) Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een aanbiedings-id.
 
@@ -40,6 +40,97 @@ Een order voor een klant maken:
 3. Een interface verkrijgen voor het orden van bewerkingen. Roep eerst de [**methode IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) aan met de klant-id om de klant te identificeren. Haal vervolgens de interface op uit de [**eigenschap Orders.**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)
 
 4. Roep de [**methode Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) of [**CreateAsync aan**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) en geef het [**orderobject**](order-resources.md) door.
+
+5. Als u attestation wilt voltooien en aanvullende resellers wilt opnemen, bekijkt u het volgende voorbeeld van voorbeelden van aanvragen en antwoorden:
+
+### <a name="request-example"></a>Voorbeeld van aanvraag
+
+``` csharp
+{
+    "PartnerOnRecordAttestationAccepted":true, 
+    "lineItems": [
+        {
+            "offerId": "CFQ7TTC0LH0Z:0001:CFQ7TTC0K18P",
+            "quantity": 1,
+            "lineItemNumber": 0,
+            "PartnerIdOnRecord": "873452",
+            "AdditionalPartnerIdsOnRecord":["4847383","873452"]
+        }
+    ],
+    "billingCycle": "monthly"
+}
+```
+
+### <a name="response-example"></a>Voorbeeld van antwoord
+
+``` csharp
+{
+    "id": "5cf72f146967",
+    "alternateId": "5cf72f146967",
+    "referenceCustomerId": "f81d98dd-c2f4-499e-a194-5619e260344e",
+    "billingCycle": "monthly",
+    "currencyCode": "USD",
+    "currencySymbol": "$",
+    "lineItems": [
+        {
+            "lineItemNumber": 0,
+            "offerId": "CFQ7TTC0LH0Z:0001:CFQ7TTC0K18P",
+            "subscriptionId": "fcddfa52-1da8-4529-d347-50ea51e1e7be",
+            "termDuration": "P1M",
+            "transactionType": "New",
+            "friendlyName": "AI Builder Capacity add-on",
+            "quantity": 1,
+            "partnerIdOnRecord": "873452",
+            "additionalPartnerIdsOnRecord": [
+                "4847383",
+                "873452"
+            ],
+            "links": {
+                "product": {
+                    "uri": "/products/CFQ7TTC0LH0Z?country=US",
+                    "method": "GET",
+                    "headers": []
+                },
+                "sku": {
+                    "uri": "/products/CFQ7TTC0LH0Z/skus/0001?country=US",
+                    "method": "GET",
+                    "headers": []
+                },
+                "availability": {
+                    "uri": "/products/CFQ7TTC0LH0Z/skus/0001/availabilities/CFQ7TTC0K18P?country=US",
+                    "method": "GET",
+                    "headers": []
+                }
+            }
+        }
+    ],
+    "creationDate": "2021-08-17T18:13:11.3122226Z",
+    "status": "pending",
+    "transactionType": "UserPurchase",
+    "links": {
+        "self": {
+            "uri": "/customers/f81d98dd-c2f4-499e-a194-5619e260344e/orders/5cf72f146967",
+            "method": "GET",
+            "headers": []
+        },
+        "provisioningStatus": {
+            "uri": "/customers/f81d98dd-c2f4-499e-a194-5619e260344e/orders/5cf72f146967/provisioningstatus",
+            "method": "GET",
+            "headers": []
+        },
+        "patchOperation": {
+            "uri": "/customers/f81d98dd-c2f4-499e-a194-5619e260344e/orders/5cf72f146967",
+            "method": "PATCH",
+            "headers": []
+        }
+    },
+    "client": {},
+    "attributes": {
+        "objectType": "Order"
+    }
+}
+
+```
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -69,7 +160,7 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project**: Partnercentrum-SDK Samples **Class**: CreateOrder.cs
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** Partnercentrum-SDK Samples **Class:** CreateOrder.cs
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -85,7 +176,7 @@ Gebruik de volgende padparameter om de klant te identificeren.
 
 | Naam        | Type   | Vereist | Beschrijving                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| customer-id | tekenreeks | Yes      | Een in GUID opgemaakte klant-id die de klant identificeert. |
+| customer-id | tekenreeks | Yes      | Een met GUID opgemaakte klant-id die de klant identificeert. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -95,19 +186,21 @@ Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 #### <a name="order"></a>Volgorde
 
-In deze tabel worden de [ordereigenschappen](order-resources.md) in de aanvraag body beschreven.
+In deze tabel worden de eigenschappen [Order](order-resources.md) in de aanvraag body beschreven.
 
 | Eigenschap             | Type                        | Vereist                        | Beschrijving                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
 | id                   | tekenreeks                      | No                              | Een order-id die wordt opgegeven wanneer de order is gemaakt.   |
 | referenceCustomerId  | tekenreeks                      | No                              | De klant-id. |
-| billingCycle         | tekenreeks                      | No                              | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de ledennamen in [BillingCycleType.](product-resources.md#billingcycletype) De standaardwaarde is 'Maandelijks' of 'OneTime' bij het maken van de order. Dit veld wordt toegepast wanneer de order is gemaakt. |
+| billingCycle         | tekenreeks                      | No                              | Hiermee wordt de frequentie aangegeven waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de ledennamen in [BillingCycleType.](product-resources.md#billingcycletype) De standaardwaarde is 'Maandelijks' of 'OneTime' bij het maken van de order. Dit veld wordt toegepast wanneer de order is gemaakt. |
 | lineItems            | matrix van [OrderLineItem-resources](order-resources.md#orderlineitem) | Yes      | Een gespecificeerde lijst met aanbiedingen die de klant aanschaft, inclusief de hoeveelheid.        |
 | currencyCode         | tekenreeks                      | No                              | Alleen-lezen. De valuta die wordt gebruikt bij het plaatsen van de order. Toegepast wanneer de order is gemaakt.           |
 | creationDate         | datum/tijd                    | No                              | Alleen-lezen. De datum waarop de order is gemaakt, in datum/tijd-indeling. Toegepast wanneer de order is gemaakt.                                   |
 | status               | tekenreeks                      | No                              | Alleen-lezen. De status van de bestelling.  Ondersteunde waarden zijn de ledennamen in [OrderStatus](order-resources.md#orderstatus).        |
 | Verwijzigingen                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | De resourcekoppelingen die overeenkomen met de Bestelling. |
-| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | De metagegevenskenmerken die overeenkomen met de order. |
+| kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | De metagegevenskenmerken die overeenkomen met de Order. |
+| PartnerOnRecordAttestationAccepted | Booleaans | Ja | Bevestigt de voltooiing van Attestation |
+
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
@@ -130,6 +223,7 @@ In deze tabel worden de [eigenschappen van OrderLineItem](order-resources.md#ord
 | kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | No       | De metagegevenskenmerken die overeenkomen met de OrderLineItem. |
 | renewsTo             | Matrix met objecten                          | No    |Een matrix van [RenewsTo-resources.](order-resources.md#renewsto)                                                                            |
 | AttestationAccepted             | booleaans                 | No   |  Geeft aan dat u akkoord gaat met de aanbieding of SKU-voorwaarden. Alleen vereist voor aanbiedingen of SKU's waarbij SkuAttestationProperties of OfferAttestationProperties enforceAttestation true is.          |
+| AdditionalPartnerIdsOnRecord | Tekenreeks | No | Wanneer een indirecte provider een order plaatst namens een indirecte reseller, vult u dit veld in met de MPN-id van de aanvullende indirecte **reseller** (nooit de id van de indirecte provider). Incentives zijn niet van toepassing op deze extra resellers. Er kunnen maximaal 5 indirecte resellers worden ingevoerd. Dit is alleen van toepassing zijn partners die werken binnen EU-/EFTA-landen. |
 
 ##### <a name="renewsto"></a>RenewsTo
 
