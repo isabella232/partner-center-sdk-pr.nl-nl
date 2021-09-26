@@ -362,6 +362,8 @@
           href: get-a-list-of-products.md
         - name: Een lijst met producten ophalen (per klant)
           href: get-a-list-of-products-by-customer.md
+        - name: Een lijst met promoties op halen
+          href: get-promotions.md
         - name: Een lijst met SKU’s voor een product ophalen (per land/regio)
           href: get-a-list-of-skus-for-a-product.md
         - name: Een lijst met SKU’s voor een product ophalen (per klant)
@@ -372,6 +374,8 @@
           href: get-a-list-of-trial-conversion-offers.md
         - name: Een product ophalen op basis van id
           href: get-a-product-by-id.md
+        - name: Een promotie op id krijgen
+          href: get-promotion-by-id.md
         - name: Een SKU ophalen op basis van id
           href: get-a-sku-by-id.md
         - name: Een abonnement ophalen op basis van id
@@ -412,6 +416,8 @@
           href: update-a-cart.md
         - name: Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
           href: update-autorenew-for-an-azure-marketplace-subscription.md
+        - name: Geschiktheid voor promotie controleren
+          href: verify-promotion-eligibility.md
     - name: Uitbetalingen beheren
       href: manage-payouts.md
     - name: Ondersteuning bieden
@@ -443,7 +449,7 @@
       href: activate-sandbox-subscription-azure-marketplace-products.md
     - name: Indirecte reseller maken in sandbox
       href: create-indirect-reseller-in-sandbox.md
-    - name: Indirecte reseller verwijderen in sandbox
+    - name: Indirecte reseller verwijderen in Sandbox
       href: delete-indirect-reseller-in-sandbox.md
 - name: Verwijzingen
   href: /partner/develop/referrals
@@ -533,6 +539,8 @@
           href: profile-resources.md
         - name: Producten
           href: product-resources.md
+        - name: Promoties
+          href: promotion-resources.md
         - name: Relaties
           href: relationships-resources.md
         - name: Beleid voor eigen beheer
