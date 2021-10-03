@@ -324,7 +324,7 @@
           href: create-azure-plan.md
         - name: Azure-reserveringen kopen
           href: purchase-azure-reservations.md
-        - name: Nieuwe commerce-services op basis van licenties kopen
+        - name: Nieuwe commerce-services op basis van licenties aanschaffen
           href: purchase-new-commerce-license-based.md
         - name: Een abonnement voor commerciële marketplace-producten kopen
           href: create-subscription-azure-marketplace-products.md
@@ -390,6 +390,8 @@
           href: get-an-offer-by-id.md
         - name: Een bestelling ophalen op basis van id
           href: get-an-order-by-id.md
+        - name: Abonnements uitval krijgen
+          href: get-subscription-overage.md
         - name: De inrichtingsstatus van het abonnement ophalen
           href: get-subscription-provisioning-status.md
         - name: De registratiestatus van het abonnement ophalen
@@ -416,6 +418,8 @@
           href: update-a-cart.md
         - name: Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
           href: update-autorenew-for-an-azure-marketplace-subscription.md
+        - name: Abonnements uitval bijwerken
+          href: update-subscription-overage.md
         - name: Geschiktheid voor promotie controleren
           href: verify-promotion-eligibility.md
     - name: Uitbetalingen beheren

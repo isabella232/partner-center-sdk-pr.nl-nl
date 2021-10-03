@@ -1,15 +1,17 @@
 ---
 title: Abonnementsbronnen
 description: Abonnementsresources kunnen gedurende de hele levenscyclus meer informatie bieden over abonnementen, zoals ondersteuning, restituties en Azure-rechten.
-ms.date: 02/23/2021
+ms.date: 10/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c898f9673525cf0ba32619b7c7b16f91311a81c7
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+author: BrentSerbus
+ms.author: brserbus
+ms.openlocfilehash: e1b95165eeb335c5426df876cbade3190dd447ac
+ms.sourcegitcommit: 856c14b6b351697e3b3d33f1fe376adbb80517c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456805"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129378741"
 ---
 # <a name="subscription-resources"></a>Abonnementsbronnen
 
@@ -22,7 +24,7 @@ Met een abonnement kan een klant een service voor een bepaalde periode gebruiken
 >[!NOTE]
 >De **abonnementsresource** heeft een snelheidslimiet van 500 aanvragen per minuut per tenant-id.
 
-De **abonnementsresource** vertegenwoordigt de levenscyclus van een abonnement en bevat eigenschappen die de staten tijdens de levenscyclus van het abonnement definiëren.
+De **abonnementsresource** vertegenwoordigt de levenscyclus van een abonnement en bevat eigenschappen die de staten gedurende de levenscyclus van het abonnement definiëren.
 
 | Eigenschap             | Type                                                          | Beschrijving                                                                                                                                                                   |
 |----------------------|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -35,13 +37,13 @@ De **abonnementsresource** vertegenwoordigt de levenscyclus van een abonnement e
 | unitType             | tekenreeks                                                        | De eenheden die de hoeveelheid voor het abonnement definiëren.                                                                                                                             |
 | parentSubscriptionId | tekenreeks                                                        | Hiermee haalt u de bovenliggende abonnements-id op of stelt u deze in.                                                                                                                              |
 | creationDate         | tekenreeks                                                        | Hiermee haalt u de aanmaakdatum op of stelt u deze in datum/tijd-indeling in.                                                                                                                          |
-| effectiveStartDate   | tekenreeks in UTC-datum/tijd-indeling                                | Hiermee wordt de effectieve begindatum voor dit abonnement, in datum/tijd-indeling, op halen ofsets. Het wordt gebruikt om een gemigreerd abonnement uit te lijnen met een ander abonnement.                |
+| effectiveStartDate   | tekenreeks in UTC-datum/tijd-indeling                                | Hiermee wordt de effectieve begindatum voor dit abonnement, in datum/tijd-indeling, op halen ofsets. Het wordt gebruikt om een back-up te maken van een gemigreerd abonnement of om het uit te lijnen met een ander abonnement.                |
 | commitmentEndDate    | tekenreeks in UTC-datum/tijd-indeling                                | De einddatum van de toezegging voor dit abonnement, in datum/tijd-indeling. Voor abonnementen die niet automatisch kunnen worden verlengd, vertegenwoordigt dit een datum ver, ver weg in de toekomst.       |
 | status               | tekenreeks                                                        | De abonnementsstatus: 'none', 'active', 'pending', 'suspended', 'expired' of 'deleted'.                                                                                                         |
 | autoRenewEnabled     | booleaans                                                       | Haalt een waarde op die aangeeft of het abonnement automatisch wordt verlengd.                                                                                                    |
 | billingType          | tekenreeks                                                        | Hiermee geeft u op hoe het abonnement wordt gefactureerd: 'geen', 'gebruik' of 'licentie'.                                                                                                      |
-| billingCycle         | tekenreeks                                                        | Geeft de frequentie aan waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de ledennamen in [**BillingCycleType.**](product-resources.md#billingcycletype) |
-| hasPurchasableAddons | booleaans                                                       | Hiermee haalt u een waarde op of stelt u in die aangeeft of het abonnement opschatbare invoegtoepassingen heeft.                                                                                             |
+| billingCycle         | tekenreeks                                                        | Hiermee wordt de frequentie aangegeven waarmee de partner wordt gefactureerd voor deze bestelling. Ondersteunde waarden zijn de ledennamen in [**BillingCycleType.**](product-resources.md#billingcycletype) |
+| hasPurchasableAddons | booleaans                                                       | Hiermee haalt u een waarde op of stelt u deze in om aan te geven of het abonnement een opschatbare invoegtoepassingen heeft.                                                                                             |
 | isTrial              | booleaans                                                       | Een waarde die aangeeft of dit een proefabonnement is.                                                                                                                      |
 | isMicrosoftProduct   | booleaans                                                       | Een waarde die aangeeft of dit een Microsoft-product is.                                                                                                                       |
 | publisherName        | tekenreeks                                                        | De naam van de uitgever.                                                                                                                                                           |
@@ -56,6 +58,7 @@ De **abonnementsresource** vertegenwoordigt de levenscyclus van een abonnement e
 | kenmerken           | [ResourceAttributes](utility-resources.md#resourceattributes) | De metagegevenskenmerken die overeenkomen met het abonnement.                                                                                                                    |
 | renewalTermDuration  | tekenreeks                                                        | Een ISO 8601-weergave van de duur van de term. De huidige ondersteunde waarden zijn **P1M** (1 maand) en **P1Y** (1 jaar).                                                        |
 | ProductType  | [ItemType](product-resources.md#itemtype)                             | Alleen-lezen. Het type product waar het abonnement voor is.     |
+| consumptionType  | matrix met [resources voor uitval](subscription-resources.md#overage)   | Haalt of stelt uitval in voor een bepaalde klant.     |
 
 ## <a name="subscriptionlinks"></a>SubscriptionLinks
 
@@ -63,11 +66,11 @@ De **SubscriptionLinks-resource** beschrijft de verzameling koppelingen die zijn
 
 | Eigenschap           | Type                               | Description                           |
 |--------------------|------------------------------------|---------------------------------------|
-| offer              | [Koppeling](utility-resources.md#link) | Haalt de aanbieding op of stelt deze in.               |
-| parentSubscription | [Koppeling](utility-resources.md#link) | Haalt het bovenliggende abonnement op of stelt het in. |
+| offer              | [Koppeling](utility-resources.md#link) | Hiermee haalt u de aanbieding op of stelt u deze in.               |
+| parentSubscription | [Koppeling](utility-resources.md#link) | Hiermee haalt u het bovenliggende abonnement op of stelt u dit in. |
 | product            | [Koppeling](utility-resources.md#link) | Hiermee haalt u het product op dat is gekoppeld aan het abonnement. |
 | sku                | [Koppeling](utility-resources.md#link) | Hiermee haalt u de product-SKU op die is gekoppeld aan het abonnement. |
-| availability       | [Koppeling](utility-resources.md#link) | Hiermee haalt u de beschikbaarheid op van de product-SKU die is gekoppeld aan het abonnement. |
+| availability       | [Koppeling](utility-resources.md#link) | Hiermee haalt u de beschikbaarheid van de product-SKU op die is gekoppeld aan het abonnement. |
 | activationLinks    | [Koppeling](utility-resources.md#link) | Hiermee haalt u de lijst met activeringskoppelingen op die zijn gekoppeld aan het abonnement. |
 | Zelf               | [Koppeling](utility-resources.md#link) | De zelf-URI.                         |
 | volgende               | [Koppeling](utility-resources.md#link) | De volgende pagina met items.               |
@@ -81,18 +84,18 @@ De **resource SubscriptionProvisioningStatus** biedt informatie over de inrichti
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------|
 | skuId      | tekenreeks                                                         | Een tekenreeks met GUID-indeling die de product-SKU identificeert.             |
 | status     | tekenreeks                                                         | Geeft de inrichtingsstatus aan: 'geslaagd', 'in behandeling' of 'mislukt'. |
-| quantity   | getal                                                         | Geeft de hoeveelheid van het abonnement op na het inrichten.               |
+| quantity   | getal                                                         | Geeft de hoeveelheid van het abonnement weer na het inrichten.               |
 | Enddate    | tekenreeks in UTC-datum/tijd-indeling                                 | De einddatum van het abonnement.                                    |
 | kenmerken | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken.                                             |
 
 ## <a name="subscriptionregistrationstatus"></a>SubscriptionRegistrationStatus
 
-De **resource SubscriptionRegistrationStatus** beschrijft de verzameling koppelingen die zijn gekoppeld aan een abonnementsresource.
+De **resource SubscriptionRegistrationStatus beschrijft** de verzameling koppelingen die zijn gekoppeld aan een abonnementsresource.
 
 | Eigenschap           | Type                               | Description                                                                           |
 |--------------------|------------------------------------|---------------------------------------------------------------------------------------|
 | subscriptionId     | tekenreeks                             | De abonnements-id.                                                          |
-| status             | tekenreeks                             | Geeft de registratiestatus aan: 'geregistreerd', 'registreren' of 'niet geregistreerd'.    |
+| status             | tekenreeks                             | Geeft de registratiestatus aan: 'registered', 'registering' of 'notregistered'.    |
 
 ## <a name="supportcontact"></a>OndersteuningContact
 
@@ -100,11 +103,26 @@ De **resource SupportContact** vertegenwoordigt een contactpersoon voor onderste
 
 | Eigenschap        | Type                                                           | Description                                                                     |
 |-----------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
-| supportTenantId | tekenreeks                                                         | Een tekenreeks met GUID-indeling die de tenant-id van de contactpersoon van de ondersteuning aangeeft. |
-| supportMpnId    | tekenreeks                                                         | De MPN-id (Microsoft Partner Network) van de contactpersoon.                       |
+| supportTenantId | tekenreeks                                                         | Een tekenreeks met GUID-indeling die de tenant-id van de contactpersoon voor ondersteuning aangeeft. |
+| supportMpnId    | tekenreeks                                                         | De MPN-Microsoft Partner Network van de contactpersoon.                       |
 | naam            | tekenreeks                                                         | De naam van de contactpersoon voor ondersteuning.                                                |
-| Verwijzigingen           | [ResourceLinks](utility-resources.md#resourcelinks)            | De koppelingen naar de contactpersoon voor ondersteuning.                                              |
+| Verwijzigingen           | [ResourceLinks](utility-resources.md#resourcelinks)            | De koppelingen voor contact met ondersteuning.                                              |
 | kenmerken      | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken. Bevat "objectType": " SupportContact".              |
+
+## <a name="overage"></a>Overschrijding
+
+De **uitvalresource** vertegenwoordigt de uitval van het verbruiksabonnement dat kan worden toegewezen, ongeacht of deze is toegewezen en aan de reseller is toegewezen.
+
+| Eigenschap        | Type               | Description                                                                     |
+|-----------------|--------------------|---------------------------------------------------------------------------------|
+| azureEntitlementId | tekenreeks       | Een tekenreeks met GUID-indeling die de id van het verbruiksabonnement aangeeft. |
+| partnerId    | tekenreeks            | De Microsoft Partner Network (MPN) van de reseller die aan het abonnement is gekoppeld.        |
+| type    | tekenreeks       | Het type uitval kan PhoneServices zijn       |
+| Overage            | booleaans      | Een waarde die aangeeft of dit een proefabonnement is.       |
+| Verwijzigingen           | [ResourceLinks](utility-resources.md#resourcelinks)            | De koppelingen naar de contactpersoon voor ondersteuning.                          |
+| kenmerken      | [ResourceAttributes](utility-resources.md#resourceattributes)  | De metagegevenskenmerken. Bevat 'objectType': 'Uitval'.  |
+
+
 
 ## <a name="registersubscription"></a>RegisterAbonnement
 
