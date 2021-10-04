@@ -4,27 +4,27 @@ description: Meer informatie over het gebruik Partner Center API's voor het annu
 ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: cbfe17ba4880c303c3f3ba01db5955a557eb04e2
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: ed01a26e22fd814b269b6c8d1769da97e8160619
+ms.sourcegitcommit: 3ee00d9fe9da6b9df0fb7027ae506e2abe722770
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456134"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129417250"
 ---
 # <a name="cancel-a-commercial-marketplace-or-new-commerce-subscription-using-partner-center-apis"></a>Een commerciële marketplace of nieuw commerce-abonnement annuleren met behulp van Partner Center API's
 
 **Van toepassing op**: Partner Center
 
-In dit artikel wordt beschreven hoe u Partner Center API kunt [](subscription-resources.md) gebruiken om een commerciële marketplace of nieuwe commerce-abonnementsresource te annuleren die overeenkomt met de klant- en abonnements-id.
+In dit artikel wordt beschreven hoe u Partner Center API kunt [](subscription-resources.md) gebruiken om een commerciële marketplace of een nieuwe commerce-abonnementsresource te annuleren die overeenkomt met de klant- en abonnements-id.
 
 > [!Note] 
 > Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze ops zoeken in het Partner Center [dashboard.](https://partner.microsoft.com/dashboard) Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze ops zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
@@ -71,7 +71,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | Methode    | Aanvraag-URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI-parameter
 
@@ -80,7 +80,7 @@ Deze tabel bevat de vereiste queryparameter om het abonnement op te schorten.
 | Naam                    | Type     | Vereist | Beschrijving                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
-| **id-for-subscription** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
+| **subscription-id** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -93,7 +93,7 @@ Een volledige **abonnementsresource** is vereist in de aanvraag. Zorg ervoor dat
 ### <a name="request-example-for-a-commercial-marketplace-subscription"></a>Voorbeeld aanvragen voor een abonnement op de commerciële marketplace
 
 ```http
-PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscription-id> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
@@ -136,11 +136,14 @@ Connection: Keep-Alive
 
 ### <a name="request-example-for-a-new-commerce-subscription"></a>Voorbeeld aanvragen voor een nieuw commerce-abonnement
 
+Nieuwe commerce-abonnementen kunnen binnen 72 uur na aankoop of verlenging worden geannuleerd. Na 72 uur kunnen abonnementen niet meer worden geannuleerd en wordt er door de API een foutmelding weergegeven.
+
+
 > [!Note] 
 > Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
 
 ```http
-PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscription-id> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
@@ -216,7 +219,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST-antwoord
 
-Als dit lukt, retourneert deze methode verwijderde eigenschappen van abonnementsresources in de antwoord-body. [](subscription-resources.md)
+Als de aanvraag is geslaagd, retourneert deze methode verwijderde eigenschappen van abonnementsresources in de antwoord-body. [](subscription-resources.md)
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 

@@ -4,12 +4,12 @@ description: Meer informatie over het gebruik Partner Center API's om het aantal
 ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b4bf40bf6ec2875b7091c34a2629331dfe240c95
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: 85048dbbdc605f46c12c00484961fbb3068c4f16
+ms.sourcegitcommit: 3ee00d9fe9da6b9df0fb7027ae506e2abe722770
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456839"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129417233"
 ---
 # <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Het aantal licenties in een klantabonnement wijzigen
 
@@ -29,7 +29,7 @@ In het Partner Center dashboard kunt u deze bewerking uitvoeren door eerst [een 
 
 ## <a name="c"></a>C\#
 
-Als u de hoeveelheid van het abonnement van een klant wilt wijzigen, moet u eerst het abonnement op [halen](get-a-subscription-by-id.md)en vervolgens de eigenschap Quantity van [**het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) wijzigen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
+Als u de hoeveelheid van het abonnement van een klant wilt wijzigen, moet u eerst [het](get-a-subscription-by-id.md)abonnement op halen en vervolgens de eigenschap [**Quantity van het abonnement**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) wijzigen. Zodra de wijziging is aangebracht, gebruikt u de **verzameling IAggregatePartner.Customers** en roept u de **methode ById()** aan. Roep vervolgens de [**eigenschap Abonnementen**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) aan, gevolgd door de [**methode ById().**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) Vervolgens roept u de methode **Patch()** aan.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,7 +54,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | Methode    | Aanvraag-URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI-parameter
 
@@ -63,11 +63,11 @@ Deze tabel bevat de vereiste queryparameter om de hoeveelheid van het abonnement
 | Naam                    | Type     | Vereist | Beschrijving                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | J        | Een GUID die overeenkomt met de klant.     |
-| **id-for-subscription** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
+| **subscription-id** | **guid** | J        | Een GUID die overeenkomt met het abonnement. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST Partner Center headers [voor meer informatie.](headers.md)
+Zie REST-headers Partner Center [meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -113,8 +113,10 @@ Connection: Keep-Alive
 > [!Note] 
 > Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
 
+Het aantal licenties kan slechts binnen 72 uur na aankoop of verlenging van een abonnement worden verlaagd. Licenties die tijdens de tussentijdse termijn worden toegevoegd, kunnen ook slechts binnen 72 uur worden verlaagd, alleen via klantondersteuning.
+
 ```http
-PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscription-id> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
@@ -199,7 +201,7 @@ Wanneer de patchbewerking langer duurt dan de verwachte tijd, verzendt de Partne
 
 ### <a name="response-examples"></a>Antwoordvoorbeelden
 
-#### <a name="response-example-1"></a>Antwoordvoorbeeld 1
+#### <a name="response-example-1"></a>Voorbeeld van #1
 
 Geslaagde aanvraag met een **HTTP-statuscode 200:**
 
@@ -254,7 +256,7 @@ Connection: Keep-Alive
 }
 ```
 
-#### <a name="response-example-2"></a>Antwoordvoorbeeld 2
+#### <a name="response-example-2"></a>Voorbeeld van #2
 
 Geslaagde aanvraag met een **HTTP-statuscode 202:**
 
@@ -270,12 +272,12 @@ Connection: Keep-Alive
 Location: /customers/<customer-tenant-id>/subscriptions/<subscriptionID>
 ```
 
-#### <a name="response-example-for-new-commerce-reduce-seat-counts"></a>Antwoordvoorbeeld voor het aantal nieuwe commerce-verminderingszetels
+#### <a name="response-example-for-new-commerce-license-reduction"></a>Voorbeeld van een reactie voor het verminderen van de licentie voor nieuwe commerce
 
 > [!Note] 
 > Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
 
-Antwoord bij een poging om het aantal nieuwe commerce-abonnementen te verminderen.
+Voorbeeld van een API-reactie wanneer wordt geprobeerd de licentiehoeveelheden voor nieuwe commerce-abonnementen te verminderen buiten het annuleringsvenster van 72 uur.
 
 ```http
 {
