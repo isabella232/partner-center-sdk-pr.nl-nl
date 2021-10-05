@@ -4,12 +4,13 @@ description: De Partnercentrum-SDK bevat een beheerde API en een REST API die pa
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 340b46978d71bdf5fa6f6795d69fe0721d808c4eb2650744e82510c208dd5b8f
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.custom: intro-get-started
+ms.openlocfilehash: affc19c8533fddd7212d52cf02e013531bacdcc5
+ms.sourcegitcommit: f112efee7344d739bdbf385adba0c554ea2a63e3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115989692"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129439307"
 ---
 # <a name="get-started"></a>Aan de slag
 
@@ -30,7 +31,7 @@ Sommige versies van Partner Center hebben niet de volledige SDK beschikbaar. Zie
 
 ## <a name="get-the-samples"></a>De voorbeelden op te halen
 
-Zie voorbeelden voor meer informatie over C#-fragmenten, REST-voorbeelden en de [voorbeeld-app Partner Center voorbeelden.](partner-center-samples.md)
+Zie voorbeelden voor meer informatie over C#-fragmenten, REST-voorbeelden en [de voorbeeld-app Partner Center voorbeelden.](partner-center-samples.md)
 
 ## <a name="test-vs-production"></a>Testen versus productie
 
@@ -42,7 +43,7 @@ Zie Testen en fouten opsporen voor tips en suggesties over testen en foutopspori
 
 ## <a name="configure-your-authentication"></a>Uw verificatie configureren
 
-Als u uw Azure AD-verificatie wilt configureren zodat u de Partner Center API's kunt gebruiken, Partner Center [verificatie.](partner-center-authentication.md)
+Zie Verificatie configureren voor meer informatie over het configureren van Partner Center uw Azure AD Partner Center zodat u de Partner Center kunt [gebruiken.](partner-center-authentication.md)
 
 > [!IMPORTANT]
 > Microsoft introduceert een veilig, schaalbaar framework voor de verificatie van CSP-partners (Cloud Solution Provider) en configuratieschermleveranciers (CPV) via de architectuur van Microsoft Azure Multi-Factor Authentication (MFA).
@@ -56,4 +57,4 @@ Partners kunnen ondersteuning krijgen in de [Partnercentrum-SDK Yammer groep](ht
 
 ## <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>Aanmelden voor het Early Adopter-programma voor API en SDK van Partnercentrum
 
-Zie Deelnemen aan de Partner Center API en [SDK Early Adopter Program](early-adopter-program.md)voor meer informatie over hoe u met Microsoft kunt samenwerken aan de ontwikkeling van partnerfuncties en -mogelijkheden.
+Zie Join the Partner Center API and SDK Early Adopter Program (Deelnemen aan de [Partner Center-API en SDK Early Adopter Program)](early-adopter-program.md)voor meer informatie over hoe u met Microsoft kunt samenwerken aan de ontwikkeling van partnerfuncties en -mogelijkheden.

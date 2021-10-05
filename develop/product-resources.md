@@ -4,12 +4,12 @@ description: Resources die opschatbare goederen of services vertegenwoordigen. B
 ms.date: 02/16/2016
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3790d8f5ef154c637dfd3f3d014322d314757f26
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: 20e2d7bcaf1041f186f0723d7ff453bebbe46dd2
+ms.sourcegitcommit: f112efee7344d739bdbf385adba0c554ea2a63e3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456066"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129439358"
 ---
 # <a name="products-resources"></a>Resources voor producten
 
@@ -43,7 +43,7 @@ Vertegenwoordigt het type product.
 
 Bevat een lijst met koppelingen voor een [Product](#product).
 
-| Eigenschap        | Type                                                          | Description                                          |
+| Eigenschap        | Type                                                          | Beschrijving                                          |
 |-----------------|---------------------------------------------------------------|------------------------------------------------------|
 | Sku 's            | [Koppeling](utility-resources.md#link)                             | De koppeling voor toegang tot de onderliggende SKU's.          |
 | Verwijzigingen           | [ResourceLinks](utility-resources.md#resourcelinks)           | De resourcekoppelingen in deze resource.   |
@@ -63,20 +63,21 @@ Vertegenwoordigt een afneembare Stock Keeping Unit (SKU) onder een product. Deze
 | isTrial                | booleaans             | Geeft aan of deze SKU een proefversie is.                                           |
 | supportedBillingCycles | tekenreeksmatrix | De lijst met ondersteunde factureringscycli voor deze SKU. Ondersteunde waarden zijn de ledennamen in [BillingCycleType.](#billingcycletype) |
 | purchasePrerequisites  | tekenreeksmatrix | De lijst met vereiste stappen of acties die nodig zijn voordat u dit item aanschaft. De ondersteunde waarden zijn:<br/>  InventoryCheck: geeft aan dat de inventaris van het item moet worden geëvalueerd voordat u dit item aanschaft.<br/> AzureSubscriptionRegistration: geeft aan dat een Azure-abonnement nodig is en moet worden geregistreerd voordat u dit item aanschaft.  |
-| inventoryVariables     | tekenreeksmatrix | De lijst met variabelen die nodig zijn voor het uitvoeren van een inventariscontrole op dit item. De ondersteunde waarden zijn:<br/> CustomerId: de id van de klant voor de aankoop.<br/> 'AzureSubscriptionId': de id van het Azure-abonnement dat wordt gebruikt voor een azure-reserveringsaankoop.</br> 'ArmRegionName': de regio waarvoor de inventaris moet worden gecontroleerd. Deze waarde moet overeenkomen met de 'ArmRegionName' van de DynamicAttributes van de SKU. |
+| inventoryVariables     | tekenreeksmatrix | De lijst met variabelen die nodig zijn voor het uitvoeren van een inventariscontrole op dit item. De ondersteunde waarden zijn:<br/> CustomerId: de id van de klant voor de aankoop.<br/> AzureSubscriptionId: de id van het Azure-abonnement dat wordt gebruikt voor een azure-reserveringsaankoop.</br> 'ArmRegionName': de regio waarvoor de inventaris moet worden gecontroleerd. Deze waarde moet overeenkomen met de 'ArmRegionName' van de DynamicAttributes van de SKU. |
 | provisioningVariables  | tekenreeksmatrix | De lijst met variabelen die moeten worden opgegeven in de inrichtingscontext van een [winkelwagenlijnitem](cart-resources.md#cartlineitem) bij het kopen van dit item. De ondersteunde waarden zijn:<br/> Bereik: het bereik voor een Azure-reserveringsaankoop: 'Single', 'Shared'.<br/> SubscriptionId: de id van het Azure-abonnement dat wordt gebruikt voor een azure-reserveringsaankoop.<br/> "Duur" : de duur van de Azure-reservering: "1Year", "3Year".  |
-| dynamicAttributes      | sleutel-waardeparen  | De woordenlijst met dynamische eigenschappen die van toepassing zijn op dit item. De eigenschappen in deze woordenlijst zijn dynamisch en kunnen zonder kennisgeving worden gewijzigd. U moet geen sterke afhankelijkheden maken van bepaalde sleutels die bestaan in de waarde van deze eigenschap.    |
+| dynamicAttributes      | sleutel-waardeparen  | De woordenlijst met dynamische eigenschappen die van toepassing zijn op dit item. De eigenschappen in deze woordenlijst zijn dynamisch en kunnen zonder kennisgeving worden gewijzigd. Maak geen sterke afhankelijkheden van bepaalde sleutels die in de waarde van deze eigenschap bestaan.    |
 | Verwijzigingen                  | [ResourceLinks](utility-resources.md#resourcelinks) | De resourcekoppelingen in de SKU.                   |
 | AttestationProperties                  | [AttestationProperties](#attestationproperties) | De attestation-eigenschappen voor een SKU.                   |
+| consumptionType                  | tekenreeks | Is alleen beschikbaar als de SKU verbruik ondersteunt, zoals *uitval*.               |
 
 ## <a name="dynamic-sku-attributes"></a>Dynamische SKU-kenmerken
 
 Belangrijke eigenschappen die relevant zijn voor nieuwe producten en services op basis van handelslicenties.
 
 > [!Note] 
-> Nieuwe handelswijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
+> Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365
 
-| Eigenschap        | Type                        | Description                                                                         |
+| Eigenschap        | Type                        | Beschrijving                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------------------------------|
 |hasConstraints|booleaans|Beschrijft of de SKU assetContraints bevat|
 |isAddon|booleaans|Beschrijft of de SKU een add-on is|
@@ -93,7 +94,7 @@ Vertegenwoordigt een configuratie waarin een SKU beschikbaar is voor aankoop (zo
 | id              | tekenreeks                        | De id voor deze beschikbaarheid. Deze id is alleen uniek binnen de context van het bovenliggende [product](#product) en [de SKU](#sku). **Opmerking** Deze id kan na een periode worden gewijzigd. U moet alleen vertrouwen op deze waarde binnen een korte periode nadat u deze hebt opgehaald.  |
 | productId       | tekenreeks                        | De id van het [product](#product) dat deze beschikbaarheid bevat.           |
 | skuId           | tekenreeks                        | De id van de [SKU](#sku) die deze beschikbaarheid bevat.                   |
-| catalogItemId   | tekenreeks                        | De unieke id voor dit item in de catalogus. Dit is de id die moet worden ingevuld in de eigenschappen [OrderLineItem.OfferId](order-resources.md#orderlineitem) of [CartLineItem.CatalogItemId](cart-resources.md#cartlineitem) bij het kopen van de bovenliggende [SKU.](#sku) **Opmerking** Deze id kan na een periode worden gewijzigd. U moet slechts binnen een korte tijd na het ophalen van deze waarde op deze waarde vertrouwen. Deze mag alleen worden gebruikt en gebruikt op het moment van aankoop.  |
+| catalogItemId   | tekenreeks                        | De unieke id voor dit item in de catalogus. Dit is de id die moet worden ingevuld in de eigenschappen [OrderLineItem.OfferId](order-resources.md#orderlineitem) of [CartLineItem.CatalogItemId](cart-resources.md#cartlineitem) bij het kopen van de bovenliggende [SKU.](#sku) **Opmerking** Deze id kan na een periode worden gewijzigd. U moet slechts binnen een korte tijd na het ophalen van deze waarde afhankelijk zijn van deze waarde. Deze mag alleen worden gebruikt en gebruikt op het moment van aankoop.  |
 | defaultCurrency | tekenreeks                        | De standaardvaluta die wordt ondersteund voor deze beschikbaarheid.                               |
 | segment         | tekenreeks                        | Het segment branche voor deze beschikbaarheid. Ondersteunde waarden zijn: Commercieel, Onderwijs, Overheid, NonProfit. |
 | country         | tekenreeks                                              | Het land of de regio (in de ISO-landcodeindeling) waar deze beschikbaarheid van toepassing is. |
@@ -113,7 +114,7 @@ Vertegenwoordigt een configuratie waarin een SKU beschikbaar is voor aankoop (zo
 
 Vertegenwoordigt vernieuwingsinstructies voor een bepaalde beschikbaarheid.
 
-| Eigenschap        | Type                        | Description                                                                         |
+| Eigenschap        | Type                        | Beschrijving                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------|
 | applicableTermIds       | tekenreeksmatrix                       | Term-ID's waar de instructies op van toepassing zijn |
 | RenewalOptions       | matrix van RenewalOption                     | Opties voor het definiëren van vernieuwingen |
@@ -126,7 +127,7 @@ Vertegenwoordigt vernieuwingsinstructies voor een bepaalde beschikbaarheid.
 
 Vertegenwoordigt vernieuwingsinstructies voor een bepaalde beschikbaarheid.
 
-| Eigenschap        | Type                        | Description                                                                         |
+| Eigenschap        | Type                        | Beschrijving                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------|
 | renewToId       | Tekenreeks       | Vertegenwoordigt het product en de SKU om te vernieuwen |
 | isAutoRenewable       | Booleaanse waarde       | Of de beschikbaarheid automatisch kan worden vernieuwd |
@@ -135,7 +136,7 @@ Vertegenwoordigt vernieuwingsinstructies voor een bepaalde beschikbaarheid.
 
 Vertegenwoordigt een term waarvoor de beschikbaarheid kan worden aangeschaft.
 
-| Eigenschap              | Type                                        | Description                                                                         |
+| Eigenschap              | Type                                        | Beschrijving                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | duur              | tekenreeks                                      | Een ISO 8601-weergave van de duur van de term. De huidige ondersteunde waarden zijn P1M (1 maand), P1Y (1 jaar) en P3Y (3 jaar). |
 | beschrijving           | tekenreeks                                      | De beschrijving van de term.           |
@@ -144,7 +145,7 @@ Vertegenwoordigt een term waarvoor de beschikbaarheid kan worden aangeschaft.
 
 Vertegenwoordigt een aanvraag om de inventaris te controleren op bepaalde catalogusitems.
 
-| Eigenschap         | Type                                                | Description                                                                                 |
+| Eigenschap         | Type                                                | Beschrijving                                                                                 |
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
 | targetItems      | matrix van [InventoryItem](#inventoryitem)            | De lijst met catalogusitems die tijdens de inventarisatiecontrole worden geëvalueerd.                           |
 | inventoryContext | sleutel-waardeparen                                     | De woordenlijst met contextwaarden die nodig zijn om de inventariscontrole(s) uit te voeren. Elke [SKU](#sku) van de producten definieert welke waarden (indien van beide) nodig zijn om deze bewerking uit te voeren.  |
@@ -154,7 +155,7 @@ Vertegenwoordigt een aanvraag om de inventaris te controleren op bepaalde catalo
 
 Vertegenwoordigt één item in een inventariscontrolebewerking. Deze resource wordt gebruikt voor het opgeven van de doelitems in een invoeraanvraag en wordt ook gebruikt om de uitvoerresultaten van de inventariscontrolebewerking weer te geven.
 
-| Eigenschap         | Type                                                              | Description                                                                      |
+| Eigenschap         | Type                                                              | Beschrijving                                                                      |
 |------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | productId        | tekenreeks                                                            | (Vereist) De id van het [product](#product).                            |
 | skuId            | tekenreeks                                                            | De id van de [SKU](#sku). Wanneer u deze resource gebruikt als invoer voor een inventarisaanvraag, is deze waarde optioneel. Als deze waarde niet is opgegeven, worden alle SKU's onder het product beschouwd als doelitems van de inventariscontrolebewerking.      |
@@ -165,11 +166,11 @@ Vertegenwoordigt één item in een inventariscontrolebewerking. Deze resource wo
 
 Vertegenwoordigt de details van een inventarisbeperking. Dit is alleen van toepassing op uitvoerresultaten van inventariscontrole, niet voor invoeraanvragen.
 
-| Eigenschap         | Type                  | Description                                                                                 |
+| Eigenschap         | Type                  | Beschrijving                                                                                 |
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
 | reasonCode       | tekenreeks                | De code die de reden voor de beperking aangeeft.                                    |
 | beschrijving      | tekenreeks                | De beschrijving van de inventarisbeperking.                                               |
-| properties       | sleutel-waardeparen       | De woordenlijst met eigenschappen die mogelijk meer informatie over de beperking biedt.           |
+| properties       | sleutel-waardeparen       | De woordenlijst met eigenschappen die meer informatie over de beperking kan bieden.           |
 
 ## <a name="billingcycletype"></a>BillingCycleType
 
@@ -187,7 +188,7 @@ Een [Enum/dotnet/api/system.enum) met waarden die een type factureringscyclus aa
 
 Vertegenwoordigt een attestation-type en als dit vereist is voor aankoop.
 
-| Eigenschap              | Type                                        | Description                                                                         |
+| Eigenschap              | Type                                        | Beschrijving                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| attestationType              | tekenreeks                                      | Geeft het attestation-type aan. Voor Windows 365 is de waarde Windows365. Windows 365 Attestation is de tekst 'Ik begrijp dat elke persoon die Windows 365 Business met Windows Hybrid Benefit gebruikt, ook een geldige kopie van Windows 10/11 Pro moet hebben geïnstalleerd op het primaire werkapparaat.' |
+| attestationType              | tekenreeks                                      | Geeft het attestation-type aan. Voor Windows 365 is de waarde Windows365. Windows 365 attestation is de tekst 'Ik begrijp dat elke persoon die Windows 365 Business met Windows Hybrid Benefit gebruikt, ook een geldige kopie van Windows 10/11 Pro moet hebben geïnstalleerd op hun primaire werkapparaat.' |
 | enforceAttestation           | booleaans                                      | Geeft aan of attestation vereist is voor aankoop.           |
