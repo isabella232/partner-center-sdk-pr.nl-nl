@@ -414,6 +414,12 @@
           href: transition-a-subscription.md
         - name: Een nieuw commerce-abonnement overstappen
           href: transition-a-new-commerce-subscription.md
+        - name: Een abonnement valideren voor migratie
+          href: validate-subscription-for-migration.md
+        - name: Een nieuwe commerce-migratie maken
+          href: create-migration.md
+        - name: Een nieuwe commercemigratie krijgen
+          href: get-new-commerce-migration.md
         - name: Een winkelwagen bijwerken
           href: update-a-cart.md
         - name: Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
@@ -453,7 +459,7 @@
       href: activate-sandbox-subscription-azure-marketplace-products.md
     - name: Indirecte reseller maken in sandbox
       href: create-indirect-reseller-in-sandbox.md
-    - name: Indirecte reseller verwijderen in Sandbox
+    - name: Indirecte reseller verwijderen in sandbox
       href: delete-indirect-reseller-in-sandbox.md
 - name: Verwijzingen
   href: /partner/develop/referrals
