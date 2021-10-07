@@ -4,12 +4,12 @@ description: Een verzameling rechten ophalen.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9248f2ef97afe7a2cefff5759028da12dc9c3936f2e14cee18063c0428699c81
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 5247346fef4a5c49e04918efb9098d7a93cc413d
+ms.sourcegitcommit: deb3207935fb5a74df515ed0fd4ffec90e6a143c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115993670"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129646258"
 ---
 # <a name="get-a-collection-of-entitlements"></a>Een verzameling rechten ophalen
 
@@ -17,9 +17,9 @@ Een verzameling rechten ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met app- en gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard.](https://partner.microsoft.com/dashboard) Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 ## <a name="c"></a>C\#
 
@@ -44,7 +44,7 @@ Als u de vervaldatums wilt in vullen voor de rechten die moeten worden opgehaald
 
 | Methode | Aanvraag-URI |
 |--------|-------------|
-| **Toevoegen** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1.1                            |
+| **TOEVOEGEN** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1.1                            |
 
 ### <a name="uri-parameters"></a>URI-parameters
 
@@ -53,7 +53,7 @@ Gebruik het volgende pad en de queryparameters bij het maken van de aanvraag.
 | Naam | Type | Vereist | Beschrijving |
 |------|------|----------|-------------|
 | customerId | tekenreeks | Yes | Een in GUID opgemaakte customerId die de klant identificeert. |
-| entitlementType | tekenreeks | No | Kan worden gebruikt om het type rechten op te geven dat moet worden opgehaald (**software** of **reservedInstance** ). Als deze niet is ingesteld, worden alle typen opgehaald |
+| entitlementType | tekenreeks | No | Kan worden gebruikt om het type rechten op te geven dat moet worden opgehaald (**software** of **reservedInstance).** Als dit niet is ingesteld, worden alle typen opgehaald |
 | showExpiry | booleaans | No | Optionele vlag die aangeeft of er vervaldatums voor rechten zijn vereist. |
 
 ### <a name="request-headers"></a>Aanvraagheaders

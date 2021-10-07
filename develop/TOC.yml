@@ -445,6 +445,15 @@
           href: update-a-service-request.md
         - name: De ondersteuningscontactpersoon van een abonnement bijwerken
           href: update-a-subscription-s-support-contact.md
+    - name: Marges weergeven
+      href: view-margins.md
+      items:
+        - name: Marges op halen
+          href: get-margins.md
+        - name: Marges downloaden
+          href: download-margins.md
+        - name: Marge-resources
+          href: margin-resources.md
 - name: Integratie-sandbox
   items:
     - name: Sandbox-mogelijkheden voor reseller-relatie
