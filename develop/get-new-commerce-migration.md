@@ -1,15 +1,15 @@
 ---
 title: Een nieuw commerce-abonnement migreren
-description: Een nieuw commerce-abonnement migreren
+description: Een migratie van een nieuw commerce-abonnement krijgen
 ms.date: 10/04/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 69c34f015d418437f080eb9d2f22a02c1f373b4f
-ms.sourcegitcommit: 856b0baa4824960e13ee9672817a2d2e713fdf43
+ms.openlocfilehash: fc793e6a3ab43a50a07c955b69ba77c9deedf879
+ms.sourcegitcommit: 53980dc43fb2277878bf61a15a86013b8b1c2574
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129528707"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129609959"
 ---
 #  <a name="get-a-new-commerce-subscription-migration"></a>Een nieuw commerce-abonnement migreren
 
@@ -19,9 +19,9 @@ Een migratie van een abonnement naar New Commerce Experience krijgen om de migra
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard.](https://partner.microsoft.com/dashboard) Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een huidige abonnements-id
 
@@ -44,7 +44,7 @@ Deze tabel bevat de vereiste queryparameters voor het maken van een nieuwe comme
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST Partner Center headers [voor meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -56,7 +56,7 @@ Als dit lukt, retourneert deze methode een verzameling [abonnementsresources](su
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-examples"></a>Antwoordvoorbeelden
 
@@ -66,7 +66,6 @@ Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is geluk
     "currentSubscriptionId": "9beb6319-6889-4d28-a155-68ca9c783842",
     "status": "Processing",
     "customerTenantId": "a836f6d8-1b17-44af-aaf1-1e5511c5d4e1",
-    "partnerTenantId": "7828d7ba-f17b-45c3-a1ce-8b6c3e3a26c0",
     "catalogItemId": "CFQ7TTC0LF8S:0002:CFQ7TTC0KSVV",
     "subscriptionEndDate": "2022-09-06T00:00:00Z",
     "quantity": 1,

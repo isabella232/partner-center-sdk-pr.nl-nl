@@ -4,12 +4,12 @@ description: Valideren of een abonnement in aanmerking komt voor migratie.
 ms.date: 10/04/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c8d2ae596901a45a794230c79cfb54815963e300
-ms.sourcegitcommit: 856b0baa4824960e13ee9672817a2d2e713fdf43
+ms.openlocfilehash: d085093b8adc3750d1b8d95963fc9d74c4209e00
+ms.sourcegitcommit: 53980dc43fb2277878bf61a15a86013b8b1c2574
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129528704"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129609993"
 ---
 # <a name="validate-a-subscription-for-migration"></a>Een abonnement valideren voor migratie
 
@@ -81,11 +81,13 @@ Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is geluk
             }
         ]
     }
+```
 
+```http
 2. 
     {
         "currentSubscriptionId": "9beb6319-6889-4d28-a155-68ca9c783842",
         "isEligible": true,
-    "catalogItemId": "CFQ7TTC0LF8S:0002:CFQ7TTC0KSVV",
+        "catalogItemId": "CFQ7TTC0LF8S:0002:CFQ7TTC0KSVV"
     }
 ```

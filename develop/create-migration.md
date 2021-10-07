@@ -1,27 +1,27 @@
 ---
 title: Een nieuwe commerce-migratie maken
-description: Een nieuwe commercemigratie maken
+description: Een nieuwe commerce-migratie maken
 ms.date: 10/04/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 659cc036b37ce85283581d2f3e28493814dad5f7
-ms.sourcegitcommit: 856b0baa4824960e13ee9672817a2d2e713fdf43
+ms.openlocfilehash: 558a0bac9a8f690cf2ca5d9a0b365ec259d00fa5
+ms.sourcegitcommit: 53980dc43fb2277878bf61a15a86013b8b1c2574
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129528708"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129609942"
 ---
 #  <a name="create-a-new-commerce-migration"></a>Een nieuwe commerce-migratie maken
 
 **Van toepassing op**: Partner Center | Partner Center beheerd door 21Vianet | Partner Center voor Microsoft Cloud Duitsland | Partner Center voor Microsoft Cloud for US Government
 
-Een migratie maken van een abonnement naar New Commerce Experience
+Een migratie van een abonnement naar New Commerce Experience maken
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Referenties zoals beschreven in [Partner Center verificatie.](partner-center-authentication.md) Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
+- Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in Partner Center menu, gevolgd door **Klanten.** Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard.](https://partner.microsoft.com/dashboard) Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een huidige abonnements-id
 
@@ -35,7 +35,7 @@ Een migratie maken van een abonnement naar New Commerce Experience
 
 ### <a name="uri-parameter"></a>URI-parameter
 
-Deze tabel bevat de vereiste queryparameters voor het maken van een nieuwe commercemigratie.
+Deze tabel bevat de vereiste queryparameters voor het maken van een nieuwe commerce-migratie.
 
 | Naam               | Type   | Vereist | Beschrijving                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
@@ -43,7 +43,7 @@ Deze tabel bevat de vereiste queryparameters voor het maken van een nieuwe comme
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST Partner Center headers [voor meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -56,7 +56,9 @@ In deze tabel worden de [abonnementseigenschappen](subscription-resources.md) in
 ### <a name="request-example"></a>Voorbeeld van aanvraag
 
 ```http
-"currentSubscriptionId" : "9beb6319-6889-4d28-a155-68ca9c783842"
+{
+    "currentSubscriptionId" : "9beb6319-6889-4d28-a155-68ca9c783842"
+}
 ```
 
 ## <a name="rest-response"></a>REST-antwoord
@@ -65,7 +67,7 @@ Als dit lukt, retourneert deze methode een verzameling [abonnementsresources](su
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie REST-foutcodes voor [Partner Center lijst.](error-codes.md)
 
 ### <a name="response-examples"></a>Antwoordvoorbeelden
 
@@ -75,7 +77,6 @@ Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is geluk
     "currentSubscriptionId": "9beb6319-6889-4d28-a155-68ca9c783842",
     "status": "Processing",
     "customerTenantId": "a836f6d8-1b17-44af-aaf1-1e5511c5d4e1",
-    "partnerTenantId": "7828d7ba-f17b-45c3-a1ce-8b6c3e3a26c0",
     "catalogItemId": "CFQ7TTC0LF8S:0002:CFQ7TTC0KSVV",
     "subscriptionEndDate": "2022-09-06T00:00:00Z",
     "quantity": 1,
