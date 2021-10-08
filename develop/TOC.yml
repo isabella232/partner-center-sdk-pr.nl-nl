@@ -324,7 +324,7 @@
           href: create-azure-plan.md
         - name: Azure-reserveringen kopen
           href: purchase-azure-reservations.md
-        - name: Nieuwe commerce-services op basis van licenties aanschaffen
+        - name: Nieuwe commerce-services op basis van licenties kopen
           href: purchase-new-commerce-license-based.md
         - name: Een abonnement voor commerciële marketplace-producten kopen
           href: create-subscription-azure-marketplace-products.md
@@ -390,7 +390,7 @@
           href: get-an-offer-by-id.md
         - name: Een bestelling ophalen op basis van id
           href: get-an-order-by-id.md
-        - name: Abonnements uitval krijgen
+        - name: Uitval van abonnement op halen
           href: get-subscription-overage.md
         - name: De inrichtingsstatus van het abonnement ophalen
           href: get-subscription-provisioning-status.md
@@ -418,12 +418,14 @@
           href: validate-subscription-for-migration.md
         - name: Een nieuwe commerce-migratie maken
           href: create-migration.md
-        - name: Een nieuwe commercemigratie krijgen
+        - name: Een nieuwe commerce-migratie krijgen
           href: get-new-commerce-migration.md
         - name: Een winkelwagen bijwerken
           href: update-a-cart.md
         - name: Automatisch verlengen bijwerken voor een abonnement op de commerciële marketplace
           href: update-autorenew-for-an-azure-marketplace-subscription.md
+        - name: Factureringsfrequentie voor een softwareabonnement bijwerken
+          href: manage-billing-frequency-software-subs.md
         - name: Abonnements uitval bijwerken
           href: update-subscription-overage.md
         - name: Geschiktheid voor promotie controleren
@@ -468,7 +470,7 @@
       href: activate-sandbox-subscription-azure-marketplace-products.md
     - name: Indirecte reseller maken in sandbox
       href: create-indirect-reseller-in-sandbox.md
-    - name: Indirecte reseller verwijderen in sandbox
+    - name: Indirecte reseller verwijderen in Sandbox
       href: delete-indirect-reseller-in-sandbox.md
 - name: Verwijzingen
   href: /partner/develop/referrals

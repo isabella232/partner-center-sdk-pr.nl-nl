@@ -1,32 +1,32 @@
 ---
-title: Autorenew voor een commerciële marketplace en nieuwe commerce-abonnementen bijwerken
+title: Autorenew voor commerciële marketplace- en softwareabonnementen bijwerken
 description: Werk de eigenschap autorenew bij voor een abonnementsresource die overeenkomt met de klant- en abonnements-id.
 ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6d533a41c58b05ec449b76394466dd4608abc65a
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: 89ccedaec2e19e32046225938a6b847c5f8787f3
+ms.sourcegitcommit: 36e88224d0957b7ea6298789c75cdd18fc0f3685
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123455724"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129663322"
 ---
-# <a name="update-autorenew-for-a-commercial-marketplace-subscription-or-new-commerce-subscriptions"></a>Automatisch verlengen bijwerken voor een commerciële marketplace-abonnement of nieuwe commerce-abonnementen
+# <a name="update-autorenew-for-a-commercial-marketplace-subscription-or-new-commerce-subscriptions-and-software-subscriptions"></a>Autorenew bijwerken voor een abonnement op de commerciële marketplace of nieuwe commerce-abonnementen en softwareabonnementen
 
 **Van toepassing op**: Partner Center
 
 > [!Note] 
 > Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
 
-Werk de eigenschap autorenew bij voor [](subscription-resources.md) een commerciële marketplace of nieuwe commerce-abonnementsresource die overeenkomt met de klant- en abonnements-id.
+Werk de eigenschap autorenew bij voor een [](subscription-resources.md) commerciële marketplace, nieuwe handels- of softwareabonnementsresource die overeenkomt met de klant- en abonnements-id.
 
-In het Partner Center dashboard wordt deze bewerking uitgevoerd door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement dat u wilt bijwerken. Schakel ten slotte de optie **Automatisch verlengen** in en selecteer **verzenden.**
+In het Partner Center dashboard wordt deze bewerking uitgevoerd door eerst [een klant te selecteren.](get-a-customer-by-name.md) Selecteer vervolgens het abonnement dat u wilt bijwerken. Schakel ten slotte de optie **Automatisch verlengen in en** selecteer verzenden. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Referenties zoals beschreven in [Partner Center verificatie](partner-center-authentication.md). Dit scenario ondersteunt verificatie met zowel zelfstandige app- als app+gebruikersreferenties.
 
-- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze op zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
+- Een klant-id ( `customer-tenant-id` ). Als u de id van de klant niet weet, kunt u deze ops zoeken in het Partner Center [dashboard](https://partner.microsoft.com/dashboard). Selecteer **CSP** in het Partner Center menu, gevolgd door **Klanten**. Selecteer de klant in de lijst met klanten en selecteer vervolgens **Account**. Zoek op de pagina Account van de klant naar de **Microsoft-id** in de **sectie Klantaccountgegevens.** De Microsoft-id is hetzelfde als de klant-id ( `customer-tenant-id` ).
 
 - Een abonnements-id.
 
@@ -44,7 +44,7 @@ selectedSubscription.AutoRenewEnabled = false;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Voorbeeld:** [consoletest-app](console-test-app.md). **Project**: PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
+**Voorbeeld:** [Consoletest-app](console-test-app.md). **Project:** PartnerSDK.FeatureSample-klasse: UpdateSubscription.cs 
 
 ## <a name="rest-request"></a>REST-aanvraag
 
@@ -65,11 +65,11 @@ Deze tabel bevat de vereiste queryparameter om het abonnement op te schorten.
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Zie REST Partner Center headers [voor meer informatie.](headers.md)
+Zie REST-headers [Partner Center meer informatie.](headers.md)
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Een volledige commerciële **marketplace-abonnementsresource** is vereist in de aanvraag body. Zorg ervoor dat **de eigenschap AutoRenewEnabled** is bijgewerkt.
+Een volledige **abonnementsresource** is vereist in de aanvraag. Zorg ervoor dat **de eigenschap AutoRenewEnabled** is bijgewerkt.
 
 ### <a name="request-example-for-commercial-marketplace-subscription"></a>Voorbeeld aanvragen voor een abonnement op de commerciële marketplace
 
@@ -115,7 +115,7 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="request-example-for-new-commerce-subscription"></a>Aanvraagvoorbeeld voor nieuw commerce-abonnement
+### <a name="request-example-for-new-commerce-subscription"></a>Voorbeeld aanvragen voor nieuw commerce-abonnement
 
 > [!Note] 
 > Nieuwe commercewijzigingen zijn momenteel alleen beschikbaar voor partners die deel uitmaken van de technical preview van de nieuwe commerce-ervaring M365/D365.
@@ -201,7 +201,7 @@ Als dit lukt, retourneert deze methode [bijgewerkte eigenschappen van](subscript
 
 ### <a name="response-success-and-error-codes"></a>Antwoord geslaagd en foutcodes
 
-Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of het is gelukt of mislukt en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceer om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
+Elk antwoord wordt geleverd met een HTTP-statuscode die aangeeft of de fout is geslaagd en aanvullende informatie over foutopsporing. Gebruik een hulpprogramma voor netwerk traceren om deze code, het fouttype en aanvullende parameters te lezen. Zie Foutcodes voor de [volledige lijst.](error-codes.md)
 
 ### <a name="response-example"></a>Voorbeeld van antwoord
 
